@@ -10,6 +10,11 @@ services:
     volumes:
       - cet_reading_data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cet_reading -d cet_reading"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   api:
     build:
@@ -17,14 +22,15 @@ services:
       dockerfile: apps/api/Dockerfile
     environment:
       DATABASE_URL: postgres://cet_reading:cet_reading@postgres:5432/cet_reading
-      CORS_ORIGIN: http://localhost:4321
+      CORS_ORIGIN: http://localhost:4321,http://localhost:8080
       PROMPT_VERSION: cet-reading-v1
       AI_MODEL: unset
       AI_DRY_RUN: "true"
     ports:
       - "3000:3000"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   worker:
     build:
@@ -36,8 +42,19 @@ services:
       AI_MODEL: unset
       AI_DRY_RUN: "true"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        PUBLIC_API_BASE_URL: ""
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
 
 volumes:
   cet_reading_data:
-

@@ -44,7 +44,14 @@ npm run dev:worker
 - 数据库：PostgreSQL，默认 `localhost:5432`
 - Worker：从数据库任务表领取句子生成任务
 
+也可以直接启动完整的 Docker 服务：
+
+```bash
+docker compose up --build
+```
+
+此时 Web 入口为 `http://localhost:8080`，它会通过同一入口代理 `/api` 到 API 服务。
+
 ## 当前边界
 
 第一版先完成数据模型、缓存流程、任务状态和前端展示骨架。真实试卷导入、人工审核后台、登录和限流属于后续迭代。
-
