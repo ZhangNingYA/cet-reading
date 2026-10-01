@@ -52,6 +52,10 @@ docker compose up --build
 
 此时 Web 入口为 `http://localhost:8081`，它会通过同一入口代理 `/api` 到 API 服务。
 
+## 自动检查和部署
+
+项目的 GitHub Actions 会在 Pull request 中执行检查和构建；推送到 `main` 后，会先通过检查，再由 Azure 服务器上的自托管 runner 更新 Docker Compose 服务，最后验证公开站点和 API。配置和服务器 runner 说明见 [CI/CD 文档](docs/CI_CD.md)。
+
 ## 当前边界
 
 第一版先完成数据模型、缓存流程、任务状态和前端展示骨架。真实试卷导入、人工审核后台、登录和限流属于后续迭代。

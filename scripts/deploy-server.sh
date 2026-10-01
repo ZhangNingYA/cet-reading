@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+deploy_path="${1:-/home/cyan/cet-reading}"
+
+cd "$deploy_path"
+
+if [[ ! -f .env ]]; then
+  echo "Missing $deploy_path/.env; refusing to deploy without server secrets." >&2
+  exit 1
+fi
+
+git fetch --prune origin main
+git checkout --force main
+git reset --hard origin/main
+
+docker compose config --quiet
+docker compose up -d --build --remove-orphans --wait --wait-timeout 120
+docker compose ps
+
+curl --fail --silent --show-error --retry 10 --retry-delay 2 \
+  http://127.0.0.1:8081/ >/dev/null
+curl --fail --silent --show-error --retry 10 --retry-delay 2 \
+  http://127.0.0.1:8081/api/papers >/dev/null
+
+echo "Deployment verified at $(git rev-parse --short HEAD)."
