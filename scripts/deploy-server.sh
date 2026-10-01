@@ -2,6 +2,7 @@
 set -Eeuo pipefail
 
 deploy_path="${1:-/home/cyan/cet-reading}"
+repository_url="${REPOSITORY_URL:-https://github.com/ZhangNingYA/cet-reading.git}"
 
 cd "$deploy_path"
 
@@ -10,8 +11,15 @@ if [[ ! -f .env ]]; then
   exit 1
 fi
 
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  git init -b main
+fi
+if ! git config --get remote.origin.url >/dev/null 2>&1; then
+  git remote add origin "$repository_url"
+fi
+
 git fetch --prune origin main
-git checkout --force main
+git checkout --force -B main origin/main
 git reset --hard origin/main
 
 docker compose config --quiet
