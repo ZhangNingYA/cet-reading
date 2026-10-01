@@ -1,10 +1,6 @@
-import 'dotenv/config';
+import { config as loadEnv } from 'dotenv';
+import { fileURLToPath } from 'node:url';
+import { readConfig } from '@cet-reading/contracts/config';
 
-export const config = {
-  port: Number(process.env.PORT ?? 3000),
-  databaseUrl: process.env.DATABASE_URL ?? 'postgres://cet_reading:cet_reading@localhost:5432/cet_reading',
-  corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:4321',
-  promptVersion: process.env.PROMPT_VERSION ?? 'cet-reading-v1',
-  model: process.env.AI_MODEL ?? 'unset',
-};
-
+loadEnv({ path: fileURLToPath(new URL('../../../.env', import.meta.url)) });
+export const config = readConfig();

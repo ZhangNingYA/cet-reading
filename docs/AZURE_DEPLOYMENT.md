@@ -18,5 +18,4 @@ docker compose up -d --build
 - 为 PostgreSQL 数据卷设置定期备份。
 - API 必须增加限流和认证后再开放给公众使用。
 
-Compose 中的 `web` 服务同时提供静态页面和 `/api` 反向代理。以后接入正式域名时，把 `apps/web/Caddyfile` 中的 `:80` 换成域名即可由 Caddy 管理 HTTPS。
-
+Compose 中的 `web` 服务同时提供静态页面和 `/api` 反向代理，宿主机只绑定 `127.0.0.1:8081`。服务器已有 Cloudflare Tunnel 时，将公开主机名映射到 `http://localhost:8081` 即可；Cloudflare Tunnel 的公开路由本质上就是把主机名映射到本地服务。[官方路由说明](https://developers.cloudflare.com/tunnel/concepts/routing/)

@@ -39,7 +39,7 @@ npm run dev:worker
 
 ## 服务
 
-- Web：Astro 静态前端，默认 `http://localhost:4321`
+- Web：Astro 静态前端，Docker 入口默认 `http://localhost:8081`；开发服务器默认 `http://localhost:4321`
 - API：Fastify，默认 `http://localhost:3000`
 - 数据库：PostgreSQL，默认 `localhost:5432`
 - Worker：从数据库任务表领取句子生成任务
@@ -50,7 +50,7 @@ npm run dev:worker
 docker compose up --build
 ```
 
-此时 Web 入口为 `http://localhost:8080`，它会通过同一入口代理 `/api` 到 API 服务。
+此时 Web 入口为 `http://localhost:8081`，它会通过同一入口代理 `/api` 到 API 服务。
 
 ## 当前边界
 

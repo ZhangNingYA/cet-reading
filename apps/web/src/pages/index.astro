@@ -112,15 +112,36 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
       pattern.className = 'muted';
       pattern.textContent = analysis.pattern;
       target.append(translation, pattern);
+      const grammar = document.createElement('ul');
+      grammar.className = 'grammar';
+      grammar.append(Object.assign(document.createElement('li'), {
+        textContent: `${analysis.grammar.sentenceType} · ${analysis.grammar.tense} · ${analysis.grammar.voice}`,
+      }));
+      for (const clause of analysis.grammar.clauses) {
+        grammar.append(Object.assign(document.createElement('li'), {
+          textContent: `${clause.type}（${clause.tokenStart}-${clause.tokenEnd}）：${clause.explanation}`,
+        }));
+      }
+      target.append(grammar);
       const tokens = document.createElement('div');
       tokens.className = 'tokens';
+      const detail = document.createElement('p');
+      detail.className = 'word-detail';
+      detail.hidden = true;
       for (const token of analysis.tokens) {
-        const span = document.createElement('span');
+        const span = document.createElement(token.clickable ? 'button' : 'span');
         span.className = 'token';
+        if (token.clickable) span.classList.add('word');
         span.textContent = token.contextMeaning ? `${token.text} · ${token.contextMeaning}` : token.text;
+        if (token.clickable) {
+          span.addEventListener('click', () => {
+            detail.hidden = false;
+            detail.textContent = `${token.text} · ${token.lemma} · ${token.pos}：${token.contextMeaning}`;
+          });
+        }
         tokens.append(span);
       }
-      target.append(tokens);
+      target.append(tokens, detail);
     }
 
     loadPapers();

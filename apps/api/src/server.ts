@@ -14,7 +14,7 @@ import {
 const app = Fastify({ logger: true });
 
 await app.register(cors, {
-  origin: config.corsOrigin.split(',').map((origin) => origin.trim()),
+  origin: config.corsOrigins,
 });
 
 app.get('/healthz', async () => ({ status: 'ok' }));
@@ -31,13 +31,13 @@ app.post<{ Params: { id: string } }>('/api/sentences/:id/analyze', async (reques
   const sentence = await getSentence(request.params.id);
   if (!sentence) return reply.code(404).send({ error: 'sentence_not_found' });
 
-  const cached = await getCachedAnalysis(sentence.id, sentence.source_hash);
+  const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash);
   if (cached) {
-    return { status: 'ready', sentenceId: sentence.id, result: cached.analysis_json };
+    return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
   }
 
-  const job = await enqueueAnalysis(sentence.id, sentence.source_hash);
-  return reply.code(202).send({ status: job.status === 'succeeded' ? 'ready' : 'generating', jobId: job.id });
+  const job = await enqueueAnalysis(sentence);
+  return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
 });
 
 app.get<{ Params: { id: string } }>('/api/jobs/:id', async (request, reply) => {
@@ -49,4 +49,3 @@ app.get<{ Params: { id: string } }>('/api/jobs/:id', async (request, reply) => {
 app.addHook('onClose', async () => pool.end());
 
 await app.listen({ port: config.port, host: '0.0.0.0' });
-
