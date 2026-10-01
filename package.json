@@ -1,0 +1,24 @@
+{
+  "name": "cet-reading",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/contracts",
+    "apps/web",
+    "apps/api",
+    "apps/worker"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace apps/web",
+    "dev:api": "npm run dev --workspace apps/api",
+    "dev:worker": "npm run dev --workspace apps/worker",
+    "build": "npm run build:contracts && npm run build:web && npm run build:api && npm run build:worker",
+    "build:contracts": "npm run build --workspace packages/contracts",
+    "build:web": "npm run build --workspace apps/web",
+    "build:api": "npm run build --workspace apps/api",
+    "build:worker": "npm run build --workspace apps/worker",
+    "check": "npm run check --workspace apps/web && npm run typecheck --workspace apps/api && npm run typecheck --workspace apps/worker"
+  }
+}
+

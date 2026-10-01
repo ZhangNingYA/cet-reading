@@ -1,0 +1,22 @@
+---
+const { title = 'CET Reading' } = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <p class="eyebrow">CET READING</p>
+        <h1>四六级阅读精读</h1>
+        <p class="lede">先读原文，按需生成逐句翻译、句型和语法结构。</p>
+      </header>
+      <slot />
+    </main>
+  </body>
+</html>
+

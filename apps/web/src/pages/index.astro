@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
+---
+
+<Layout>
+  <section class="panel">
+    <div class="status" id="status">正在读取试卷列表…</div>
+    <div class="paper-list" id="papers"></div>
+  </section>
+
+  <section class="panel" id="reader" hidden>
+    <div class="status" id="reader-status"></div>
+    <div id="sentences"></div>
+  </section>
+
+  <script define:vars={{ apiBase }}>
+    const status = document.querySelector('#status');
+    const papers = document.querySelector('#papers');
+    const reader = document.querySelector('#reader');
+    const readerStatus = document.querySelector('#reader-status');
+    const sentences = document.querySelector('#sentences');
+
+    async function loadPapers() {
+      try {
+        const response = await fetch(`${apiBase}/api/papers`);
+        if (!response.ok) throw new Error('paper request failed');
+        const data = await response.json();
+        status.textContent = data.papers.length ? '选择一张试卷开始阅读。' : '目前还没有发布的试卷。';
+        for (const paper of data.papers) {
+          const item = document.createElement('article');
+          item.className = 'paper';
+          const details = document.createElement('div');
+          const title = document.createElement('h3');
+          title.textContent = paper.title;
+          const meta = document.createElement('div');
+          meta.className = 'muted';
+          meta.textContent = `${paper.exam_level} · ${paper.year} · 第 ${paper.set_no} 套`;
+          details.append(title, meta);
+          const button = document.createElement('button');
+          button.className = 'secondary';
+          button.textContent = '打开';
+          button.addEventListener('click', () => loadPaper(paper.id));
+          item.append(details, button);
+          papers.append(item);
+        }
+      } catch {
+        status.textContent = '暂时无法连接 API，请先启动后端服务。';
+      }
+    }
+
+    async function loadPaper(id) {
+      reader.hidden = false;
+      readerStatus.textContent = '正在读取原文…';
+      sentences.replaceChildren();
+      const response = await fetch(`${apiBase}/api/papers/${id}`);
+      const paper = await response.json();
+      readerStatus.textContent = `${paper.title} · 点击句子旁的按钮生成精读`;
+      for (const sentence of paper.sentences) {
+        const article = document.createElement('article');
+        article.className = 'sentence';
+        const source = document.createElement('div');
+        source.className = 'source';
+        source.textContent = sentence.source;
+        const button = document.createElement('button');
+        button.textContent = '开始精读';
+        const result = document.createElement('div');
+        button.addEventListener('click', () => analyze(sentence.id, button, result));
+        article.append(source, button, result);
+        sentences.append(article);
+      }
+    }
+
+    async function analyze(sentenceId, button, result) {
+      button.disabled = true;
+      button.textContent = '生成中…';
+      const response = await fetch(`${apiBase}/api/sentences/${sentenceId}/analyze`, { method: 'POST' });
+      const body = await response.json();
+      if (body.status === 'ready') {
+        renderAnalysis(body.result, result);
+        button.remove();
+        return;
+      }
+      await poll(body.jobId, button, result);
+    }
+
+    async function poll(jobId, button, result) {
+      const response = await fetch(`${apiBase}/api/jobs/${jobId}`);
+      const job = await response.json();
+      if (job.status === 'succeeded') {
+        const analysisResponse = await fetch(`${apiBase}/api/sentences/${job.sentence_id}/analyze`, { method: 'POST' });
+        const analysis = await analysisResponse.json();
+        renderAnalysis(analysis.result, result);
+        button.remove();
+      } else if (job.status === 'failed') {
+        button.disabled = false;
+        button.textContent = '重试精读';
+        result.textContent = job.error_message ?? '生成失败';
+      } else {
+        setTimeout(() => poll(jobId, button, result), 1500);
+      }
+    }
+
+    function renderAnalysis(analysis, target) {
+      target.replaceChildren();
+      const translation = document.createElement('p');
+      translation.className = 'translation';
+      translation.textContent = analysis.translation;
+      const pattern = document.createElement('p');
+      pattern.className = 'muted';
+      pattern.textContent = analysis.pattern;
+      target.append(translation, pattern);
+      const tokens = document.createElement('div');
+      tokens.className = 'tokens';
+      for (const token of analysis.tokens) {
+        const span = document.createElement('span');
+        span.className = 'token';
+        span.textContent = token.contextMeaning ? `${token.text} · ${token.contextMeaning}` : token.text;
+        tokens.append(span);
+      }
+      target.append(tokens);
+    }
+
+    loadPapers();
+  </script>
+</Layout>
