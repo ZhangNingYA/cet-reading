@@ -1,22 +1,52 @@
 ---
-const { title = 'CET Reading' } = Astro.props;
+const {
+  title = 'CET Reading · 四六级阅读精读',
+  description = '从读懂一句，到读透一篇。逐句翻译、语法拆解与语境词义，让每一次英语阅读都有收获。',
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#234e43" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body>
-    <main class="shell">
-      <header class="masthead">
-        <p class="eyebrow">CET READING</p>
-        <h1>四六级阅读精读</h1>
-        <p class="lede">先读原文，按需生成逐句翻译、句型和语法结构。</p>
-      </header>
-      <slot />
-    </main>
+  <body id="top">
+    <a class="skip-link" href="#library">跳转到阅读题库</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="CET Reading 首页">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M7 8.5h6a4 4 0 0 1 4 4V25a6 6 0 0 0-5-2.5H7V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M25 8.5h-4a4 4 0 0 0-4 4V25a6 6 0 0 1 5-2.5h3V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M11 13h2m-2 4h2m8-4h1m-1 4h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="brand-name">CET<span>READING</span></span>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="#library">阅读题库</a>
+          <a href="#method">精读方法</a>
+        </nav>
+        <a class="header-action" href="#library">开始阅读 <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-brand">CET READING</p>
+          <p>把每一句，读成自己的积累。</p>
+        </div>
+        <div class="footer-right">
+          <span>专注英语四级 · 六级阅读</span>
+          <a href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
-
