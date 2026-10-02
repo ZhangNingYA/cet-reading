@@ -94,3 +94,31 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .library-toolbar { justify-content: flex-end; margin-top: 32px; }
 .section-heading h2 { font-size: clamp(1.85rem, 3.4vw, 2.5rem); }
 @media (max-width: 650px) { .hero { min-height: 430px; padding: 42px 18px; }.hero h1 { font-size: clamp(3.05rem, 15vw, 4.35rem); }.hero-paper-field { opacity: .22; } }
+
+/* The archive is the landing page: one title, one search, then the papers. */
+.library-section {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 76px);
+  padding-top: clamp(64px, 11vh, 118px);
+  padding-bottom: 96px;
+  overflow: hidden;
+}
+.library-section::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 -35vw;
+  content: '';
+  opacity: .16;
+  background: repeating-linear-gradient(0deg, transparent 0 31px, rgba(90, 82, 74, .1) 31px 32px), repeating-linear-gradient(90deg, transparent 0 118px, rgba(90, 82, 74, .07) 118px 119px);
+  mask-image: radial-gradient(ellipse 76% 72% at 50% 22%, black 8%, transparent 82%);
+}
+.section-heading { justify-content: center; }
+.section-heading h2 { font-size: clamp(3.15rem, 7vw, 5.8rem); line-height: 1; text-align: center; }
+.library-toolbar { justify-content: flex-end; margin-top: 39px; }
+.library-content { position: relative; padding-top: 24px; }
+@media (max-width: 650px) {
+  .library-section { min-height: calc(100vh - 67px); padding-top: 58px; }
+  .section-heading h2 { font-size: clamp(2.75rem, 15vw, 4.35rem); }
+  .library-toolbar { margin-top: 29px; }
+}
