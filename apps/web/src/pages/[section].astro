@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PaperLibrary from '../../components/PaperLibrary.astro';
-import { readingSections, type ReadingSection } from '../../data/sections';
+import Layout from '../layouts/Layout.astro';
+import PaperLibrary from '../components/PaperLibrary.astro';
+import { readingSections, type ReadingSection } from '../data/sections';
 
 export function getStaticPaths() {
   return readingSections.map((section) => ({

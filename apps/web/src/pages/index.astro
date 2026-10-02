@@ -8,7 +8,7 @@ import { readingSections } from '../data/sections';
     <h1 id="home-title" class="sr-only">选择考试</h1>
     <nav class="entry-grid" aria-label="阅读板块">
       {readingSections.map((section, index) => (
-        <a class="section-entry" href={`/library/${section.slug}/`}>
+        <a class="section-entry" href={`/${section.slug}/`}>
           <span class="section-entry-index">{String(index + 1).padStart(2, '0')}</span>
           <span class="section-entry-copy">
             <span class="section-entry-label">{section.label}</span>

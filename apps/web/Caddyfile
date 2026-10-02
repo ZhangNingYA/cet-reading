@@ -1,6 +1,12 @@
 :80 {
   root * /srv
   route {
+    @oldCet4 path /library/cet4 /library/cet4/
+    redir @oldCet4 /cet4/ 308
+    @oldCet6 path /library/cet6 /library/cet6/
+    redir @oldCet6 /cet6/ 308
+    @oldPostgraduate path /library/postgraduate /library/postgraduate/
+    redir @oldPostgraduate /postgraduate/ 308
     @api path /api/*
     reverse_proxy @api api:3000
     try_files {path} {path}/index.html /index.html

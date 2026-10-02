@@ -30,7 +30,7 @@ const homeHtml = await homeResponse.text();
 if (!homeHtml.includes('class="home-section container"') || homeHtml.includes('id="papers"')) {
   throw new Error('The home page must show section navigation rather than a paper list');
 }
-const sectionPaths = [...new Set([...homeHtml.matchAll(/href="(\/library\/[^"?]+\/)"/g)].map((match) => match[1]))];
+const sectionPaths = [...new Set([...homeHtml.matchAll(/class="section-entry"\s+href="(\/[^/"?]+\/)"/g)].map((match) => match[1]))];
 if (!sectionPaths.length) throw new Error('The home page has no section links');
 await Promise.all(sectionPaths.map(async (path) => {
   const response = await fetchWithRetry(path);
