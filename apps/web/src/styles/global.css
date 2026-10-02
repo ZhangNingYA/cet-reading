@@ -82,18 +82,18 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 @media (max-width: 650px) { .hero { padding-top: 54px; padding-bottom: 42px; }.hero-preview { min-height: 342px; margin-top: 7px; }.hero-preview::before { width: 275px; height: 250px; }.preview-card { width: calc(100% - 8px); }.library-section { padding-top: 60px; } }
 
 /* Landing direction: a quiet, centered archive entrance inspired by paper indexes. */
-.hero { width: 100%; max-width: none; min-height: 600px; grid-template-columns: 1fr; padding: 74px 32px 66px; text-align: center; }
-.hero-paper-field { position: absolute; inset: 0; opacity: .32; background: linear-gradient(90deg, transparent 0 5%, rgba(90, 82, 74, .14) 5.1% 5.2%, transparent 5.3% 100%), repeating-linear-gradient(0deg, transparent 0 31px, rgba(90, 82, 74, .1) 31px 32px), repeating-linear-gradient(90deg, transparent 0 118px, rgba(90, 82, 74, .07) 118px 119px); mask-image: radial-gradient(ellipse 61% 73% at 50% 47%, black 4%, transparent 78%); }
+.hero { width: 100%; max-width: none; min-height: 410px; grid-template-columns: 1fr; padding: 54px 32px 46px; text-align: center; }
+.hero-paper-field { position: absolute; inset: 0; opacity: .18; background: linear-gradient(90deg, transparent 0 5%, rgba(90, 82, 74, .14) 5.1% 5.2%, transparent 5.3% 100%), repeating-linear-gradient(0deg, transparent 0 31px, rgba(90, 82, 74, .1) 31px 32px), repeating-linear-gradient(90deg, transparent 0 118px, rgba(90, 82, 74, .07) 118px 119px); mask-image: radial-gradient(ellipse 61% 83% at 50% 47%, black 4%, transparent 78%); }
 .hero-paper-field::after { position: absolute; inset: 0; content: ''; background: radial-gradient(ellipse at center, var(--canvas) 8%, rgba(245, 242, 236, .83) 39%, rgba(245, 242, 236, 0) 72%); }
 .hero-copy { position: relative; z-index: 1; display: flex; align-items: center; flex-direction: column; max-width: 700px; }
-.hero-eyebrow { justify-content: center; margin-bottom: 24px; color: var(--clay-deep); letter-spacing: .2em; }
-.hero h1 { max-width: none; font-size: clamp(3.9rem, 8vw, 7rem); letter-spacing: -.1em; line-height: .98; }
+.hero-eyebrow { justify-content: center; margin-bottom: 18px; color: var(--clay-deep); letter-spacing: .2em; }
+.hero h1 { max-width: none; font-size: clamp(3.35rem, 6.2vw, 5.45rem); letter-spacing: -.1em; line-height: .98; }
 .hero h1 em { color: var(--clay); font-style: normal; font-weight: 400; }
-.hero-description { max-width: 430px; margin-top: 31px; color: var(--muted); font-size: .92rem; line-height: 1.9; }
-.hero-button { min-width: 144px; min-height: 50px; margin-top: 31px; border-radius: 999px; color: #fffaf5; background: var(--ink); box-shadow: 0 8px 17px rgba(41, 39, 36, .17); }
+.hero-description { max-width: 430px; margin-top: 21px; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+.hero-button { min-width: 136px; min-height: 45px; margin-top: 23px; border-radius: 999px; color: #fffaf5; background: var(--ink); box-shadow: 0 8px 17px rgba(41, 39, 36, .17); }
 .hero-button:hover { background: var(--clay); box-shadow: 0 10px 22px rgba(185, 95, 68, .2); }
-.hero-footnote { display: flex; align-items: center; gap: 12px; margin: 30px 0 0; color: var(--quiet); font-family: var(--mono); font-size: .54rem; letter-spacing: .04em; }
+.hero-footnote { display: flex; align-items: center; gap: 12px; margin: 21px 0 0; color: var(--quiet); font-family: var(--mono); font-size: .54rem; letter-spacing: .04em; }
 .hero-footnote i { width: 3px; height: 3px; background: var(--clay); border-radius: 50%; }
-.library-section { padding-top: 74px; }
+.library-section { padding-top: 58px; }
 .section-heading h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
-@media (max-width: 650px) { .hero { min-height: 535px; padding: 65px 18px 56px; }.hero h1 { font-size: clamp(3.25rem, 16vw, 4.7rem); }.hero-description { font-size: .84rem; }.hero-paper-field { opacity: .2; }.hero-footnote { gap: 8px; font-size: .49rem; } }
+@media (max-width: 650px) { .hero { min-height: 445px; padding: 58px 18px 48px; }.hero h1 { font-size: clamp(3.05rem, 15vw, 4.35rem); }.hero-description { font-size: .84rem; }.hero-paper-field { opacity: .13; }.hero-footnote { gap: 8px; font-size: .49rem; } }
