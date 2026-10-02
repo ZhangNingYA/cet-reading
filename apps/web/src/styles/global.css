@@ -136,6 +136,7 @@ main { flex: 1; }
   min-height: calc(100vh - 76px);
   display: grid;
   align-items: center;
+  overflow: hidden;
   padding-block: 64px 96px;
 }
 .home-section::before {
