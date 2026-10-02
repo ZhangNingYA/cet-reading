@@ -123,3 +123,57 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .section-heading h2 { font-size: clamp(2.75rem, 15vw, 4.35rem); }
   .library-toolbar { margin-top: 29px; }
 }
+
+/* The home page is only a quiet index of reading sections. */
+.home-section {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 76px);
+  display: grid;
+  place-items: center;
+  padding-block: 64px;
+  overflow: hidden;
+}
+.home-section::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 -30vw;
+  content: '';
+  opacity: .2;
+  background: repeating-linear-gradient(0deg, transparent 0 31px, rgba(90, 82, 74, .1) 31px 32px), repeating-linear-gradient(90deg, transparent 0 118px, rgba(90, 82, 74, .07) 118px 119px);
+  mask-image: radial-gradient(ellipse 78% 75% at 50% 50%, black 8%, transparent 84%);
+}
+.entry-grid {
+  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-block: 1px solid var(--line);
+}
+.section-entry {
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 28px 30px;
+  border-right: 1px solid var(--line);
+  transition: color .2s, background .2s;
+}
+.section-entry:last-child { border-right: 0; }
+.section-entry:hover { color: var(--clay-deep); background: rgba(251, 250, 247, .55); }
+.section-entry-label {
+  font-family: var(--serif);
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+  font-weight: 500;
+  letter-spacing: -.08em;
+  line-height: 1;
+}
+.section-entry-arrow { align-self: flex-start; color: var(--quiet); font-size: 1.2rem; }
+.section-entry:hover .section-entry-arrow { color: var(--clay); }
+.site-footer small { color: #b8ada3; font-family: var(--mono); font-size: .63rem; letter-spacing: .12em; }
+@media (max-width: 650px) {
+  .home-section { min-height: calc(100vh - 67px); padding-block: 42px; }
+  .entry-grid { grid-template-columns: 1fr; }
+  .section-entry { min-height: 125px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .section-entry:last-child { border-bottom: 0; }
+}

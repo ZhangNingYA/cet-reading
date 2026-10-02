@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PaperLibrary from '../../components/PaperLibrary.astro';
+import { readingSections, type ReadingSection } from '../../data/sections';
+
+export function getStaticPaths() {
+  return readingSections.map((section) => ({
+    params: { section: section.slug },
+    props: { section },
+  }));
+}
+
+type Props = { section: ReadingSection };
+const { section } = Astro.props;
+---
+
+<Layout title={`${section.label} · CET Reading`}>
+  <PaperLibrary {section} />
+</Layout>

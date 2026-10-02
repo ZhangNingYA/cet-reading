@@ -1,6 +1,8 @@
 ---
+import '../styles/global.css';
+
 const {
-  title = 'CET Reading · 四六级阅读精读',
+  title = 'CET Reading · 英语阅读',
   description = '从读懂一句，到读透一篇。逐句翻译、语法拆解与语境词义，让每一次英语阅读都有收获。',
 } = Astro.props;
 ---
@@ -10,12 +12,12 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#234e43" />
+    <meta name="theme-color" content="#f5f2ec" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body id="top">
-    <a class="skip-link" href="#library">跳转到阅读题库</a>
+    <a class="skip-link" href="#content">跳到内容</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="CET Reading 首页">
@@ -30,17 +32,10 @@ const {
         </a>
       </div>
     </header>
-    <main><slot /></main>
+    <main id="content"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div>
-          <p class="footer-brand">CET READING</p>
-          <p>把每一句，读成自己的积累。</p>
-        </div>
-        <div class="footer-right">
-          <span>专注英语四级 · 六级阅读</span>
-          <a href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
-        </div>
+        <small>CET READING</small>
       </div>
     </footer>
   </body>
