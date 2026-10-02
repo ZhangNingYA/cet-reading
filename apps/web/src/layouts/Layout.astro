@@ -17,7 +17,7 @@ const isHome = Astro.url.pathname === '/';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body id="top">
+  <body id="top" class={isHome ? 'home-page' : undefined}>
     <a class="skip-link" href="#content">跳到内容</a>
     <header class="site-header">
       <div class="container header-inner">
