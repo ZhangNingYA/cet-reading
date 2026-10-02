@@ -7,36 +7,13 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 
 <Layout>
   <section class="hero container" aria-labelledby="hero-title">
+    <span class="hero-paper-field" aria-hidden="true"></span>
     <div class="hero-copy">
-      <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE DEEPER, EVERY DAY</p>
-      <h1 id="hero-title">从读懂一句，<br />到<span class="hero-emphasis">读透一篇。</span></h1>
-      <p class="hero-description">让英语阅读，不再停留在“看懂大意”。<br class="desktop-break" />逐句理解、拆解结构，把每一次阅读变成真正的积累。</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#library">开启一次精读 <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-    <div class="hero-preview">
-      <article class="preview-card" aria-label="精读示例预览">
-        <div class="preview-heading">
-          <span class="preview-label"><span class="live-dot" aria-hidden="true"></span> 精读预览</span>
-          <span class="preview-page">SENTENCE 01</span>
-        </div>
-        <p class="preview-source" lang="en"><button type="button" class="preview-word connector" data-preview-word="although" aria-pressed="false">Although</button> the plan was <button type="button" class="preview-word" data-preview-word="expensive" aria-pressed="true">expensive</button>,<br />it was <button type="button" class="preview-word" data-preview-word="successful" aria-pressed="false">successful</button>.</p>
-        <div class="preview-structure" aria-label="句子结构">
-          <span><i class="structure-dot warm" aria-hidden="true"></i>让步状语从句</span>
-          <span class="structure-join" aria-hidden="true">+</span>
-          <span><i class="structure-dot green" aria-hidden="true"></i>主句</span>
-        </div>
-        <div class="preview-translation">
-          <span class="mini-label">句意</span>
-          <p>虽然这个计划成本很高，但它还是成功了。</p>
-        </div>
-        <div class="preview-definition" id="preview-definition" aria-live="polite">
-          <div><strong lang="en">expensive</strong><span class="word-pos">adj.</span></div>
-          <p>昂贵的；在这里指计划的成本很高。</p>
-        </div>
-        <div class="preview-footer"><span class="preview-pointer" aria-hidden="true">↖</span> 点击划线单词，看看它在句中的含义<span class="sample-label">示例句</span></div>
-      </article>
+      <p class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> CET READING <span class="eyebrow-line"></span></p>
+      <h1 id="hero-title">四六级<br /><em>阅读精读</em></h1>
+      <p class="hero-description">把每一篇文章，读成自己的理解。<br />逐句翻译、结构拆解，按需打开一份真正有用的精读。</p>
+      <a class="button button-primary hero-button" href="#library">开始精读 <span aria-hidden="true">→</span></a>
+      <p class="hero-footnote"><span>逐句翻译</span><i aria-hidden="true"></i><span>句型结构</span><i aria-hidden="true"></i><span>语境词义</span></p>
     </div>
   </section>
 
@@ -253,12 +230,6 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     document.querySelector('#close-reader').addEventListener('click', () => { reader.hidden = true; document.querySelector('#library').scrollIntoView({ behavior: 'smooth' }); });
     search.addEventListener('input', showPapers);
     filterTabs.forEach((tab) => tab.addEventListener('click', () => { activeLevel = tab.dataset.level; filterTabs.forEach((item) => item.setAttribute('aria-pressed', String(item === tab))); showPapers(); }));
-    document.querySelectorAll('[data-preview-word]').forEach((word) => word.addEventListener('click', () => {
-      const definitions = { although: ['although', 'conj.', '虽然；引导让步状语从句'], expensive: ['expensive', 'adj.', '昂贵的；在这里指计划的成本很高。'], successful: ['successful', 'adj.', '成功的；表示计划最终达成了预期结果。'] };
-      const [text, pos, meaning] = definitions[word.dataset.previewWord];
-      document.querySelectorAll('[data-preview-word]').forEach((item) => item.setAttribute('aria-pressed', String(item === word)));
-      document.querySelector('#preview-definition').innerHTML = `<div><strong lang="en">${text}</strong><span class="word-pos">${pos}</span></div><p>${meaning}</p>`;
-    }));
     loadPapers();
   </script>
 </Layout>
