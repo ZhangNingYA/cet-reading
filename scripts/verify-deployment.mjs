@@ -44,5 +44,13 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
+const externalPapers = papers.papers.filter((paper) => paper.content_state === 'external');
+for (const level of ['CET4', 'CET6', 'NEEP']) {
+  const count = externalPapers.filter((paper) => paper.exam_level === level).length;
+  if (count < 3) throw new Error(`${level} must expose at least three external source records`);
+}
+if (externalPapers.some((paper) => !paper.source_url || !paper.source_url.startsWith('https://'))) {
+  throw new Error('Every external paper must expose an HTTPS source URL');
+}
 
-console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} sections, ${papers.papers.length} published papers)`);
+console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} sections, ${papers.papers.length} published papers, ${externalPapers.length} external sources)`);

@@ -151,3 +151,5 @@ export function validateAnalysis(source: string, value: unknown): SentenceAnalys
   ensureChineseTranslation(analysis.translation, source);
   return analysis;
 }
+
+export * from './exam.js';

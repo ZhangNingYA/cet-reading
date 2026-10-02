@@ -1,5 +1,5 @@
 import { Pool } from 'pg';
-import { contextHash, type SentenceAnalysis } from '@cet-reading/contracts';
+import { AnswersSchema, contextHash, type Answers, type PracticeResult, type SentenceAnalysis } from '@cet-reading/contracts';
 import { config } from './config.js';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
@@ -18,8 +18,10 @@ type SentenceRow = {
 
 export async function listPapers() {
   const result = await pool.query(
-    `SELECT id, exam_level, year, month, set_no, title, is_demo
-     FROM papers WHERE status = 'published'
+    `SELECT id, exam_level, year, month, set_no, variant, title, is_demo,
+            content_state, source_url,
+            EXISTS (SELECT 1 FROM paper_sections ps WHERE ps.paper_id = p.id) AS has_content
+     FROM papers p WHERE status = 'published'
      ORDER BY year DESC, month DESC, exam_level, set_no`,
   );
   return result.rows;
@@ -27,17 +29,137 @@ export async function listPapers() {
 
 export async function getPaper(id: string) {
   const result = await pool.query(
-    `SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.title, p.is_demo,
-            json_agg(json_build_object(
+    `SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.variant, p.title, p.is_demo,
+            p.content_state, p.source_url,
+            COALESCE((SELECT json_agg(json_build_object(
+              'id', ps.id, 'kind', ps.kind, 'title', ps.title,
+              'instructions', ps.instructions, 'paragraphs', ps.paragraphs_json,
+              'questions', COALESCE((SELECT json_agg(json_build_object(
+                'id', q.id, 'type', q.type, 'prompt', q.prompt,
+                'options', q.options_json
+              ) ORDER BY q.position) FROM questions q WHERE q.section_id = ps.id), '[]'::json)
+            ) ORDER BY ps.position) FROM paper_sections ps WHERE ps.paper_id = p.id), '[]'::json) AS sections,
+            COALESCE((SELECT json_agg(json_build_object(
               'id', s.id, 'paragraphIndex', s.paragraph_index,
-              'sentenceIndex', s.sentence_index, 'source', s.source_text
-            ) ORDER BY s.paragraph_index, s.sentence_index) AS sentences
-     FROM papers p JOIN sentences s ON s.paper_id = p.id
+              'sentenceIndex', s.sentence_index, 'source', s.source_text,
+              'sectionId', s.section_id
+            ) ORDER BY s.paragraph_index, s.sentence_index) FROM sentences s WHERE s.paper_id = p.id), '[]'::json) AS sentences
+     FROM papers p
      WHERE p.id = $1 AND p.status = 'published'
      GROUP BY p.id`,
     [id],
   );
   return result.rows[0] ?? null;
+}
+
+type PracticeQuestion = {
+  id: string;
+  type: 'choice' | 'text';
+  prompt: string;
+  options: Array<{ key: string; text: string }>;
+  answer: string | null;
+  explanation: string;
+  points: number;
+};
+
+async function getPracticeQuestions(paperId: string) {
+  const result = await pool.query<PracticeQuestion>(
+    `SELECT q.id, q.type, q.prompt, q.options_json AS options,
+            q.answer_text AS answer, q.explanation, q.points
+     FROM questions q JOIN paper_sections ps ON ps.id = q.section_id
+     WHERE ps.paper_id = $1 ORDER BY ps.position, q.position`,
+    [paperId],
+  );
+  return result.rows;
+}
+
+function publicQuestion(question: PracticeQuestion) {
+  return { id: question.id, type: question.type, prompt: question.prompt, options: question.options };
+}
+
+export async function createPracticeAttempt(paperId: string) {
+  const paper = await getPaper(paperId);
+  if (!paper || paper.content_state !== 'local') return null;
+  const questions = await getPracticeQuestions(paperId);
+  if (!questions.length) return null;
+  const result = await pool.query(
+    `INSERT INTO practice_attempts (paper_id, questions_snapshot)
+     VALUES ($1, $2) RETURNING id, paper_id, status, answers_json AS answers, result_json AS result`,
+    [paperId, JSON.stringify(questions)],
+  );
+  const attempt = result.rows[0];
+  return { ...attempt, questions: questions.map(publicQuestion) };
+}
+
+export async function getPracticeAttempt(id: string) {
+  const result = await pool.query(
+    `SELECT id, paper_id, status, answers_json AS answers, result_json AS result,
+            questions_snapshot AS questions FROM practice_attempts WHERE id = $1`,
+    [id],
+  );
+  const attempt = result.rows[0];
+  if (!attempt) return null;
+  return { ...attempt, questions: attempt.questions.map(publicQuestion) };
+}
+
+export async function savePracticeAnswers(id: string, input: unknown) {
+  const answers = AnswersSchema.parse(input);
+  const result = await pool.query(
+    `UPDATE practice_attempts SET answers_json = $2, updated_at = NOW()
+     WHERE id = $1 AND status = 'draft'
+     RETURNING id, paper_id, status, answers_json AS answers, result_json AS result,
+               questions_snapshot AS questions`,
+    [id, JSON.stringify(answers)],
+  );
+  const attempt = result.rows[0];
+  return attempt ? { ...attempt, questions: attempt.questions.map(publicQuestion) } : null;
+}
+
+function gradePractice(questions: PracticeQuestion[], answers: Answers): PracticeResult {
+  let objectiveScore = 0;
+  let objectiveTotal = 0;
+  let correctCount = 0;
+  let objectiveCount = 0;
+  let manualCount = 0;
+  const results = questions.map((question) => {
+    const answer = answers[question.id] ?? '';
+    if (question.type === 'text') {
+      manualCount += 1;
+      return { id: question.id, answer, correctAnswer: null, explanation: question.explanation, status: 'manual' as const, points: question.points, earned: null };
+    }
+    objectiveCount += 1;
+    objectiveTotal += question.points;
+    const correct = answer.trim().toUpperCase() === question.answer?.trim().toUpperCase();
+    if (correct) { objectiveScore += question.points; correctCount += 1; }
+    const status: 'correct' | 'incorrect' | 'unanswered' = answer
+      ? (correct ? 'correct' : 'incorrect')
+      : 'unanswered';
+    return { id: question.id, answer, correctAnswer: question.answer, explanation: question.explanation, status, points: question.points, earned: correct ? question.points : 0 };
+  });
+  return { objectiveScore, objectiveTotal, correctCount, objectiveCount, manualCount, questions: results };
+}
+
+export async function submitPracticeAttempt(id: string) {
+  const result = await pool.query(
+    `SELECT id, paper_id, status, answers_json AS answers, questions_snapshot AS questions
+     FROM practice_attempts WHERE id = $1`,
+    [id],
+  );
+  const attempt = result.rows[0];
+  if (!attempt) return null;
+  if (attempt.status === 'submitted') return getPracticeAttempt(id);
+  const answers = AnswersSchema.parse(attempt.answers ?? {});
+  const practiceResult = gradePractice(attempt.questions as PracticeQuestion[], answers);
+  const updated = await pool.query(
+    `UPDATE practice_attempts SET status = 'submitted', result_json = $2,
+            updated_at = NOW(), submitted_at = NOW()
+     WHERE id = $1
+     RETURNING id, paper_id, status, answers_json AS answers, result_json AS result,
+               questions_snapshot AS questions`,
+    [id, JSON.stringify(practiceResult)],
+  );
+  const saved = updated.rows[0];
+  return { ...saved, questions: saved.questions.map(publicQuestion) };
 }
 
 export async function getSentence(id: string) {
