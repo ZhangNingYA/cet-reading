@@ -15,14 +15,9 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 
   <section class="library-section container" id="library" aria-labelledby="library-title">
     <div class="section-heading">
-      <h2 id="library-title">阅读题库<span class="heading-period">。</span></h2>
+      <h2 id="library-title">阅读题库</h2>
     </div>
     <div class="library-toolbar">
-      <div class="filter-tabs" role="group" aria-label="按考试类型筛选">
-        <button type="button" class="filter-tab" data-level="all" aria-pressed="true">全部阅读</button>
-        <button type="button" class="filter-tab" data-level="CET4" aria-pressed="false">四级 <span>CET-4</span></button>
-        <button type="button" class="filter-tab" data-level="CET6" aria-pressed="false">六级 <span>CET-6</span></button>
-      </div>
       <label class="paper-search">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6" /><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
         <span class="sr-only">搜索文章标题或年份</span>
@@ -58,16 +53,13 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     const retryPapers = document.querySelector('#retry-papers');
     const libraryResults = document.querySelector('#library-results');
     const search = document.querySelector('#paper-search');
-    const filterTabs = [...document.querySelectorAll('[data-level]')];
     let allPapers = [];
-    let activeLevel = 'all';
 
     function showPapers() {
       const query = search.value.trim().toLowerCase();
       const visible = allPapers.filter((paper) => {
-        const matchesLevel = activeLevel === 'all' || paper.exam_level === activeLevel;
         const matchesQuery = !query || `${paper.title} ${paper.year} ${paper.exam_level}`.toLowerCase().includes(query);
-        return matchesLevel && matchesQuery;
+        return matchesQuery;
       });
       papers.replaceChildren();
       paperCount.textContent = allPapers.length ? `共 ${visible.length} 篇` : '';
@@ -224,7 +216,6 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     document.querySelector('#retry-papers').addEventListener('click', loadPapers);
     document.querySelector('#close-reader').addEventListener('click', () => { reader.hidden = true; document.querySelector('#library').scrollIntoView({ behavior: 'smooth' }); });
     search.addEventListener('input', showPapers);
-    filterTabs.forEach((tab) => tab.addEventListener('click', () => { activeLevel = tab.dataset.level; filterTabs.forEach((item) => item.setAttribute('aria-pressed', String(item === tab))); showPapers(); }));
     loadPapers();
   </script>
 </Layout>
