@@ -9,6 +9,13 @@ import { readingSections } from '../data/sections';
     <nav class="entry-grid" aria-label="阅读板块">
       {readingSections.map((section) => (
         <a class="section-entry" href={`/library/${section.slug}/`}>
+          <span class="paper-placeholder" aria-hidden="true">
+            <span class="paper-placeholder-head">READING</span>
+            <span class="paper-placeholder-rule"></span>
+            <span class="paper-placeholder-lines"></span>
+            <span class="paper-placeholder-columns"></span>
+            <span class="paper-placeholder-foot">PAPER / 01</span>
+          </span>
           <span class="section-entry-label">{section.label}</span>
           <span class="section-entry-arrow" aria-hidden="true">↗</span>
         </a>
