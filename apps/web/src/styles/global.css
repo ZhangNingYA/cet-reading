@@ -141,7 +141,7 @@ main { flex: 1; }
 }
 .home-page,
 .home-page .site-header,
-.home-page .home-section { background: #fff; }
+.home-page .home-section { background: #fafaf8; }
 .home-page .site-header { border-bottom-color: #eceae6; }
 .home-section::before {
   position: absolute;
