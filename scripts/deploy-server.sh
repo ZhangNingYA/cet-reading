@@ -24,6 +24,8 @@ git reset --hard origin/main
 
 docker compose config --quiet
 docker compose up -d --build --remove-orphans --wait --wait-timeout 120
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/002_seed_demo_sections.sql
 docker compose ps
 
 curl --fail --silent --show-error --retry 10 --retry-delay 2 \

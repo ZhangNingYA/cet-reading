@@ -2,7 +2,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 CREATE TABLE IF NOT EXISTS papers (
   id TEXT PRIMARY KEY,
-  exam_level TEXT NOT NULL CHECK (exam_level IN ('CET4', 'CET6')),
+  exam_level TEXT NOT NULL CHECK (exam_level IN ('CET4', 'CET6', 'NEEP')),
   year INTEGER NOT NULL,
   month INTEGER NOT NULL CHECK (month BETWEEN 1 AND 12),
   set_no INTEGER NOT NULL,

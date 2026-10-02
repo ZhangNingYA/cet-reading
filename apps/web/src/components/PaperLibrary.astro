@@ -3,12 +3,12 @@ import type { ReadingSection } from '../data/sections';
 
 type Props = { section: ReadingSection };
 const { section } = Astro.props;
-const { label, examLevels } = section;
+const { label, examLevels, paperId } = section;
 
 const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 ---
 
-  <section class="library-section container" id="library" aria-labelledby="library-title">
+  <section class="library-section container" id="library" data-paper-id={paperId} aria-labelledby="library-title">
     <div class="section-heading">
       <h2 id="library-title">{label}</h2>
     </div>
@@ -47,6 +47,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     const retryPapers = document.querySelector('#retry-papers');
     const libraryResults = document.querySelector('#library-results');
     const search = document.querySelector('#paper-search');
+    const selectedPaperId = document.querySelector('#library').dataset.paperId;
     let allPapers = [];
 
     function showPapers() {
@@ -90,6 +91,8 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
         allPapers = data.papers ?? [];
         status.textContent = '题库已加载';
         showPapers();
+        const selectedPaper = allPapers.find((paper) => paper.id === selectedPaperId);
+        if (selectedPaper) loadPaper(selectedPaper.id);
       } catch {
         status.textContent = '暂时无法连接阅读题库。';
         retryPapers.hidden = false;
