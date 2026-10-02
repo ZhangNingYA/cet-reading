@@ -5,6 +5,7 @@ const {
   title = 'CET Reading · 英语阅读',
   description = '从读懂一句，到读透一篇。逐句翻译、语法拆解与语境词义，让每一次英语阅读都有收获。',
 } = Astro.props;
+const isHome = Astro.url.pathname === '/';
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -21,15 +22,13 @@ const {
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="CET Reading 首页">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none">
-              <path d="M7 8.5h6a4 4 0 0 1 4 4V25a6 6 0 0 0-5-2.5H7V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-              <path d="M25 8.5h-4a4 4 0 0 0-4 4V25a6 6 0 0 1 5-2.5h3V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-              <path d="M11 13h2m-2 4h2m8-4h1m-1 4h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </span>
-          <span class="brand-name">CET<span>READING</span></span>
+          <span class="brand-name">CET READING</span>
         </a>
+        {!isHome && (
+          <nav class="site-nav" aria-label="网站导航">
+            <a href="/">首页</a>
+          </nav>
+        )}
       </div>
     </header>
     <main id="content"><slot /></main>

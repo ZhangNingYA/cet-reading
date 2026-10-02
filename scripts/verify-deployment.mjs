@@ -25,11 +25,24 @@ async function fetchWithRetry(path) {
   throw new Error(`${path} failed after ${attempts} attempts: ${lastError?.message || lastError}`);
 }
 
-await fetchWithRetry('/');
+const homeResponse = await fetchWithRetry('/');
+const homeHtml = await homeResponse.text();
+if (!homeHtml.includes('class="home-section container"') || homeHtml.includes('id="papers"')) {
+  throw new Error('The home page must show section navigation rather than a paper list');
+}
+const sectionPaths = [...new Set([...homeHtml.matchAll(/href="(\/library\/[^"?]+\/)"/g)].map((match) => match[1]))];
+if (!sectionPaths.length) throw new Error('The home page has no section links');
+await Promise.all(sectionPaths.map(async (path) => {
+  const response = await fetchWithRetry(path);
+  const html = await response.text();
+  if (!html.includes('id="library-title"') || !html.includes('id="papers"') || html.includes('class="home-section container"')) {
+    throw new Error(`${path} must serve its paper list instead of falling back to the home page`);
+  }
+}));
 const papersResponse = await fetchWithRetry('/api/papers');
 const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
 
-console.log(`Deployment verified: ${baseUrl} (${papers.papers.length} published papers)`);
+console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} sections, ${papers.papers.length} published papers)`);

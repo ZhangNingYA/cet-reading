@@ -124,160 +124,54 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .library-toolbar { margin-top: 29px; }
 }
 
-/* The home page is only a quiet index of reading sections. */
+/* Compact navigation shared by the home and section pages. */
+body { min-height: 100svh; display: flex; flex-direction: column; }
+main { flex: 1; }
+.site-nav { color: var(--muted); font-size: .875rem; }
+.site-nav a:hover { color: var(--clay-deep); }
 .home-section {
-  position: relative;
-  isolation: isolate;
-  min-height: calc(100vh - 76px);
-  display: grid;
-  place-items: center;
-  padding-block: 64px;
-  overflow: hidden;
-}
-.home-section::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0 -30vw;
-  content: '';
-  opacity: .2;
-  background: repeating-linear-gradient(0deg, transparent 0 31px, rgba(90, 82, 74, .1) 31px 32px), repeating-linear-gradient(90deg, transparent 0 118px, rgba(90, 82, 74, .07) 118px 119px);
-  mask-image: radial-gradient(ellipse 78% 75% at 50% 50%, black 8%, transparent 84%);
+  width: min(640px, calc(100% - 64px));
+  padding-block: 64px 96px;
 }
 .entry-grid {
-  width: min(100%, 980px);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  border-block: 1px solid var(--line);
-}
-.section-entry {
-  min-height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 28px 30px;
-  border-right: 1px solid var(--line);
-  transition: color .2s, background .2s;
-}
-.section-entry:last-child { border-right: 0; }
-.section-entry:hover { color: var(--clay-deep); background: rgba(251, 250, 247, .55); }
-.section-entry-label {
-  font-family: var(--serif);
-  font-size: clamp(2.7rem, 5vw, 4.6rem);
-  font-weight: 500;
-  letter-spacing: -.08em;
-  line-height: 1;
-}
-.section-entry-arrow { align-self: flex-start; color: var(--quiet); font-size: 1.2rem; }
-.section-entry:hover .section-entry-arrow { color: var(--clay); }
-.site-footer small { color: #b8ada3; font-family: var(--mono); font-size: .63rem; letter-spacing: .12em; }
-@media (max-width: 650px) {
-  .home-section { min-height: calc(100vh - 67px); padding-block: 42px; }
-  .entry-grid { grid-template-columns: 1fr; }
-  .section-entry { min-height: 125px; border-right: 0; border-bottom: 1px solid var(--line); }
-  .section-entry:last-child { border-bottom: 0; }
-}
-
-/* The section index reads as a vertical stack of temporary paper covers. */
-.home-section {
-  min-height: calc(100vh - 76px);
-  padding-block: 48px;
-}
-.entry-grid {
-  width: min(100%, 720px);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  border: 0;
+  border-top: 1px solid var(--line);
 }
 .section-entry {
-  position: relative;
-  min-height: 154px;
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr) 24px;
-  align-items: center;
-  gap: 26px;
-  padding: 20px 28px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: rgba(251, 250, 247, .58);
-  box-shadow: 0 8px 20px rgba(71, 54, 45, .035);
-  transition: color .2s, background .2s, border-color .2s, box-shadow .2s, transform .2s;
-}
-.section-entry:last-child { border-right: 1px solid var(--line); }
-.section-entry:hover {
-  color: var(--clay-deep);
-  border-color: #cdb3a4;
-  background: rgba(251, 250, 247, .82);
-  box-shadow: 7px 12px 24px rgba(71, 54, 45, .075);
-  transform: translateX(5px);
-}
-.section-entry-label {
-  font-size: clamp(2.5rem, 5vw, 4.1rem);
-}
-.section-entry-arrow { align-self: center; }
-.paper-placeholder {
-  position: relative;
-  width: 110px;
-  height: 120px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 18px 13px 12px;
-  overflow: hidden;
-  border: 1px solid #d8d0c6;
-  background: #fbfaf7;
-  box-shadow: 5px 8px 14px rgba(71, 54, 45, .09);
-  transform: rotate(-3deg);
+  align-items: center;
+  min-height: 64px;
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s, background .2s;
 }
-.paper-placeholder::before {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 7px;
-  width: 1px;
-  content: '';
-  background: #ebc7b8;
+.section-entry:hover { color: var(--clay-deep); background: var(--paper); }
+.section-entry-label {
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
-.paper-placeholder-head,
-.paper-placeholder-foot {
-  color: var(--clay-deep);
-  font-family: var(--mono);
-  font-size: .43rem;
-  letter-spacing: .1em;
+.library-section { min-height: 0; padding-block: 48px 72px; }
+.section-heading { justify-content: flex-start; }
+.section-heading h2 {
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
 }
-.paper-placeholder-rule { width: 55%; height: 1px; background: #c9a797; }
-.paper-placeholder-lines {
-  flex: 1;
-  background: repeating-linear-gradient(0deg, transparent 0 8px, #e3ded6 8px 9px);
+.library-toolbar { margin-top: 24px; }
+.site-footer {
+  margin-top: 0;
+  padding-block: 24px;
+  border-top: 1px solid var(--line);
+  background: transparent;
 }
-.paper-placeholder-columns {
-  position: absolute;
-  right: 13px;
-  bottom: 25px;
-  width: 34px;
-  height: 25px;
-  border-right: 1px solid #dfb6a5;
-  border-left: 1px solid #dfb6a5;
-}
-.paper-placeholder-foot { color: var(--quiet); }
+.site-footer small { color: var(--quiet); font-size: .75rem; letter-spacing: .04em; }
 @media (max-width: 650px) {
-  .home-section { min-height: calc(100vh - 67px); padding-block: 32px; }
-  .entry-grid { width: 100%; gap: 12px; }
-  .section-entry {
-    grid-template-columns: 90px minmax(0, 1fr) 18px;
-    min-height: 122px;
-    gap: 18px;
-    padding: 16px 18px;
-  }
-  .paper-placeholder {
-    width: 72px;
-    height: 88px;
-    gap: 5px;
-    padding: 13px 8px 8px;
-  }
-  .paper-placeholder-head,
-  .paper-placeholder-foot { font-size: .34rem; }
-  .paper-placeholder-columns { right: 8px; bottom: 18px; width: 22px; height: 18px; }
-  .section-entry-label { font-size: 2.4rem; }
+  .home-section { width: calc(100% - 36px); padding-block: 36px 64px; }
+  .section-entry { min-height: 60px; }
+  .library-section { padding-block: 32px 48px; }
 }
