@@ -3,7 +3,7 @@
   route {
     @api path /api/*
     reverse_proxy @api api:3000
-    try_files {path} /index.html
+    try_files {path} {path}/index.html /index.html
     file_server
   }
 }
