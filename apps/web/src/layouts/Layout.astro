@@ -22,7 +22,7 @@ const isHome = Astro.url.pathname === '/';
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="CET Reading 首页">
-          <span class="brand-name">CET READING</span>
+          <span class="brand-name"><span>CET</span> READING</span>
         </a>
         {!isHome && (
           <nav class="site-nav" aria-label="网站导航">
@@ -32,10 +32,5 @@ const isHome = Astro.url.pathname === '/';
       </div>
     </header>
     <main id="content"><slot /></main>
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <small>CET READING</small>
-      </div>
-    </footer>
   </body>
 </html>
