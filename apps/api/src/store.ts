@@ -19,7 +19,7 @@ type SentenceRow = {
 export async function listPapers() {
   const result = await pool.query(
     `SELECT id, exam_level, year, month, set_no, variant, title, is_demo,
-            content_state, source_url,
+            content_state, content_kind, description, reference_paper_id, source_url,
             EXISTS (SELECT 1 FROM paper_sections ps WHERE ps.paper_id = p.id) AS has_content
      FROM papers p WHERE status = 'published'
      ORDER BY year DESC, month DESC, exam_level, set_no`,
@@ -30,7 +30,7 @@ export async function listPapers() {
 export async function getPaper(id: string) {
   const result = await pool.query(
     `SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.variant, p.title, p.is_demo,
-            p.content_state, p.source_url,
+            p.content_state, p.content_kind, p.description, p.reference_paper_id, p.source_url,
             COALESCE((SELECT json_agg(json_build_object(
               'id', ps.id, 'kind', ps.kind, 'title', ps.title,
               'instructions', ps.instructions, 'paragraphs', ps.paragraphs_json,
@@ -125,7 +125,7 @@ function gradePractice(questions: PracticeQuestion[], answers: Answers): Practic
     const answer = answers[question.id] ?? '';
     if (question.type === 'text') {
       manualCount += 1;
-      return { id: question.id, answer, correctAnswer: null, explanation: question.explanation, status: 'manual' as const, points: question.points, earned: null };
+      return { id: question.id, answer, correctAnswer: question.answer, explanation: question.explanation, status: 'manual' as const, points: question.points, earned: null };
     }
     objectiveCount += 1;
     objectiveTotal += question.points;

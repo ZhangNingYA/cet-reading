@@ -1,0 +1,597 @@
+{
+  "id": "original-cet4-2026-2",
+  "exam_level": "CET4",
+  "year": 2026,
+  "month": 10,
+  "set_no": 2,
+  "variant": "主题练习",
+  "title": "四级主题练习 02 · 习惯与自信",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "original",
+  "description": "原创缩编练习，学习情境为虚构，覆盖非听力题型。主题参考：运动习惯、自我评价与文化交流。",
+  "reference_paper_id": "cet4-2026-06-2",
+  "source_url": "https://pastpapers.cn/paper/2026-06-cet4-2",
+  "sections": [
+    {
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "按题目要求完成写作。提交后查看参考范文，自行核对。",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Joining a new club can be difficult when everyone else seems experienced. A student club can make the first step easier by offering a beginner session each month. During this session, members should explain basic activities and let newcomers try a small task without being judged. Pairing a new student with a friendly member would also help. The partner could answer questions and explain what happens at regular meetings. It is equally useful to celebrate progress rather than compare people. A beginner who learns one skill deserves encouragement even if others can do much more. Finally, clubs should ask new members what made them comfortable or confused. These comments can improve the next welcome session. Confidence develops through manageable experiences, so a good club should give beginners reasons to return."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Write 120–180 words suggesting how a student club can help beginners take part with confidence.",
+          "options": [],
+          "answer": "Joining a new club can be difficult when everyone else seems experienced. A student club can make the first step easier by offering a beginner session each month. During this session, members should explain basic activities and let newcomers try a small task without being judged. Pairing a new student with a friendly member would also help. The partner could answer questions and explain what happens at regular meetings. It is equally useful to celebrate progress rather than compare people. A beginner who learns one skill deserves encouragement even if others can do much more. Finally, clubs should ask new members what made them comfortable or confused. These comments can improve the next welcome session. Confidence develops through manageable experiences, so a good club should give beginners reasons to return.",
+          "explanation": "核对措施是否具体、是否围绕初学者，并用例子说明如何降低参与门槛。",
+          "points": 10,
+          "id": "original-cet4-2026-2-section-1-q-1"
+        }
+      ],
+      "id": "original-cet4-2026-2-section-1"
+    },
+    {
+      "kind": "cloze",
+      "title": "选词填空",
+      "instructions": "从词库选词，每词只用一次。",
+      "paragraphs": [
+        "Mina joined a running club but struggled to [1] ______ a daily routine. The coach suggested a shorter route that was [2] ______ for beginners. Rather than comparing her speed with others, she kept a record of small [3] ______. A friend agreed to [4] ______ her about the weekly meeting. Mina eventually found that a [5] ______ habit was easier to build when the activity fitted her life."
+      ],
+      "study_paragraphs": [
+        "Mina joined a running club but struggled to maintain a daily routine. The coach suggested a shorter route that was suitable for beginners. Rather than comparing her speed with others, she kept a record of small improvements. A friend agreed to remind her about the weekly meeting. Mina eventually found that a regular habit was easier to build when the activity fitted her life."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "第 1 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "regular"
+            },
+            {
+              "key": "B",
+              "text": "remind"
+            },
+            {
+              "key": "C",
+              "text": "improvements"
+            },
+            {
+              "key": "D",
+              "text": "maintain"
+            },
+            {
+              "key": "E",
+              "text": "suitable"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "rapidly"
+            },
+            {
+              "key": "H",
+              "text": "distance"
+            }
+          ],
+          "answer": "D",
+          "explanation": "第 1 空填入 maintain，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-2-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 2 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "regular"
+            },
+            {
+              "key": "B",
+              "text": "remind"
+            },
+            {
+              "key": "C",
+              "text": "improvements"
+            },
+            {
+              "key": "D",
+              "text": "maintain"
+            },
+            {
+              "key": "E",
+              "text": "suitable"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "rapidly"
+            },
+            {
+              "key": "H",
+              "text": "distance"
+            }
+          ],
+          "answer": "E",
+          "explanation": "第 2 空填入 suitable，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-2-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 3 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "regular"
+            },
+            {
+              "key": "B",
+              "text": "remind"
+            },
+            {
+              "key": "C",
+              "text": "improvements"
+            },
+            {
+              "key": "D",
+              "text": "maintain"
+            },
+            {
+              "key": "E",
+              "text": "suitable"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "rapidly"
+            },
+            {
+              "key": "H",
+              "text": "distance"
+            }
+          ],
+          "answer": "C",
+          "explanation": "第 3 空填入 improvements，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-2-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 4 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "regular"
+            },
+            {
+              "key": "B",
+              "text": "remind"
+            },
+            {
+              "key": "C",
+              "text": "improvements"
+            },
+            {
+              "key": "D",
+              "text": "maintain"
+            },
+            {
+              "key": "E",
+              "text": "suitable"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "rapidly"
+            },
+            {
+              "key": "H",
+              "text": "distance"
+            }
+          ],
+          "answer": "B",
+          "explanation": "第 4 空填入 remind，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-2-q-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 5 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "regular"
+            },
+            {
+              "key": "B",
+              "text": "remind"
+            },
+            {
+              "key": "C",
+              "text": "improvements"
+            },
+            {
+              "key": "D",
+              "text": "maintain"
+            },
+            {
+              "key": "E",
+              "text": "suitable"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "rapidly"
+            },
+            {
+              "key": "H",
+              "text": "distance"
+            }
+          ],
+          "answer": "A",
+          "explanation": "第 5 空填入 regular，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-2-q-5"
+        }
+      ],
+      "id": "original-cet4-2026-2-section-2"
+    },
+    {
+      "kind": "matching",
+      "title": "信息匹配 · 初学者的空间",
+      "instructions": "根据段落内容完成匹配。",
+      "paragraphs": [
+        "[A] At the language café, nobody corrects every mistake during a conversation. The host writes down a few useful expressions and discusses them afterwards. Participants can finish their stories without constant interruption. The aim is to practise communication before worrying about perfect performance.",
+        "[B] The beginner music group lends instruments for the first month. Students can explore whether they enjoy playing before spending money. A short meeting explains how to look after each instrument, and there is a simple form for reporting damage.",
+        "[C] The swimming club reserves a quiet lane for nervous learners. The coach first teaches them to stand safely in shallow water. Only when they feel ready do they move to a harder exercise. Completing the same lesson quickly is not expected of everyone.",
+        "[D] The drawing circle displays early sketches beside later work. Visitors can see crossed-out lines and unfinished ideas as well as polished pictures. Members say that this display reminds them that skill grows through attempts that may look disappointing at first."
+      ],
+      "study_paragraphs": [
+        "At the language café, nobody corrects every mistake during a conversation. The host writes down a few useful expressions and discusses them afterwards. Participants can finish their stories without constant interruption. The aim is to practise communication before worrying about perfect performance.",
+        "The beginner music group lends instruments for the first month. Students can explore whether they enjoy playing before spending money. A short meeting explains how to look after each instrument, and there is a simple form for reporting damage.",
+        "The swimming club reserves a quiet lane for nervous learners. The coach first teaches them to stand safely in shallow water. Only when they feel ready do they move to a harder exercise. Completing the same lesson quickly is not expected of everyone.",
+        "The drawing circle displays early sketches beside later work. Visitors can see crossed-out lines and unfinished ideas as well as polished pictures. Members say that this display reminds them that skill grows through attempts that may look disappointing at first."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Learners advance at a pace that feels manageable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 段按准备程度推进，没有统一速度要求。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-3-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Feedback is delayed so people can keep speaking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 段把语言反馈放到对话之后。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-3-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "The display makes imperfect stages of learning visible.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 段展示早期草图与修改痕迹。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-3-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Newcomers can try an activity before buying equipment.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 段提供短期乐器借用，帮助先体验再购买。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-3-q-4"
+        }
+      ],
+      "id": "original-cet4-2026-2-section-3"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · Who wrote the notes?",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "When Leo received praise for a clear group presentation, he felt uncomfortable. He believed that another student had done all the important work. His tutor asked him to bring the group's planning notes to their next meeting rather than simply argue about whether he deserved the praise.",
+        "The notes showed that Leo had found the examples, removed repeated slides and practised the conclusion with the team. Seeing these actions did not make him believe that he was perfect. It gave him a more accurate account of his contribution. His tutor suggested recording specific actions after future projects. Evidence of work was more useful than telling himself either that he was brilliant or that he had contributed nothing."
+      ],
+      "study_paragraphs": [
+        "When Leo received praise for a clear group presentation, he felt uncomfortable. He believed that another student had done all the important work. His tutor asked him to bring the group's planning notes to their next meeting rather than simply argue about whether he deserved the praise.",
+        "The notes showed that Leo had found the examples, removed repeated slides and practised the conclusion with the team. Seeing these actions did not make him believe that he was perfect. It gave him a more accurate account of his contribution. His tutor suggested recording specific actions after future projects. Evidence of work was more useful than telling himself either that he was brilliant or that he had contributed nothing."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "What did the tutor ask Leo to examine?",
+          "options": [
+            {
+              "key": "A",
+              "text": "His marks from earlier years."
+            },
+            {
+              "key": "B",
+              "text": "The group's planning notes."
+            },
+            {
+              "key": "C",
+              "text": "Other students' personal diaries."
+            },
+            {
+              "key": "D",
+              "text": "The size of the audience."
+            }
+          ],
+          "answer": "B",
+          "explanation": "导师要求带来小组计划笔记，用记录核对贡献。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-4-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "The notes helped Leo _____.",
+          "options": [
+            {
+              "key": "A",
+              "text": "claim that nobody else worked"
+            },
+            {
+              "key": "B",
+              "text": "avoid every future presentation"
+            },
+            {
+              "key": "C",
+              "text": "identify his actual contribution"
+            },
+            {
+              "key": "D",
+              "text": "prove that his slides were perfect"
+            }
+          ],
+          "answer": "C",
+          "explanation": "笔记列出了他实际完成的任务。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-4-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which title best fits the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Replacing Self-Judgment with Evidence"
+            },
+            {
+              "key": "B",
+              "text": "Why Group Work Should End"
+            },
+            {
+              "key": "C",
+              "text": "The Value of a Larger Audience"
+            },
+            {
+              "key": "D",
+              "text": "A Perfect Student Never Doubts"
+            }
+          ],
+          "answer": "A",
+          "explanation": "文章主张用具体证据获得更准确的自我评价。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-4-q-3"
+        }
+      ],
+      "id": "original-cet4-2026-2-section-4"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · A rhythm everyone could enter",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "At an international student evening, the organisers first planned a competition between national music groups. A volunteer proposed a different format: everyone would learn a simple rhythm and then add something from their own experience. No performance would be ranked.",
+        "The first attempt was uneven. Some students started early, and others were afraid of making mistakes. The leader slowed the rhythm and invited people to listen before joining. Gradually, the sound became more varied and more coordinated. The evening did not remove cultural differences. It created a shared activity in which those differences had a place, while giving people enough structure to work together."
+      ],
+      "study_paragraphs": [
+        "At an international student evening, the organisers first planned a competition between national music groups. A volunteer proposed a different format: everyone would learn a simple rhythm and then add something from their own experience. No performance would be ranked.",
+        "The first attempt was uneven. Some students started early, and others were afraid of making mistakes. The leader slowed the rhythm and invited people to listen before joining. Gradually, the sound became more varied and more coordinated. The evening did not remove cultural differences. It created a shared activity in which those differences had a place, while giving people enough structure to work together."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "How did the volunteer's proposal differ from the original plan?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It required expensive tickets."
+            },
+            {
+              "key": "B",
+              "text": "It replaced shared rhythm with silence."
+            },
+            {
+              "key": "C",
+              "text": "It excluded new performers."
+            },
+            {
+              "key": "D",
+              "text": "It replaced competition with participation."
+            }
+          ],
+          "answer": "D",
+          "explanation": "新方案共同学节奏并加入个人经验，不再排名。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-5-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Why did the leader slow the rhythm?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To announce the winners."
+            },
+            {
+              "key": "B",
+              "text": "To help hesitant participants join."
+            },
+            {
+              "key": "C",
+              "text": "To shorten the entire event."
+            },
+            {
+              "key": "D",
+              "text": "To remove cultural variation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "起步不齐、有人害怕犯错，因此放慢节奏帮助参与。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-5-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "What does the passage suggest about shared activities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They require people to abandon their backgrounds."
+            },
+            {
+              "key": "B",
+              "text": "They must always produce the same sound."
+            },
+            {
+              "key": "C",
+              "text": "They can combine common structure with differences."
+            },
+            {
+              "key": "D",
+              "text": "They are useful only when perfectly performed."
+            }
+          ],
+          "answer": "C",
+          "explanation": "共同节奏提供结构，各自经验保留差异。",
+          "points": 2,
+          "id": "original-cet4-2026-2-section-5-q-3"
+        }
+      ],
+      "id": "original-cet4-2026-2-section-5"
+    },
+    {
+      "kind": "translation",
+      "title": "翻译 · 中译英",
+      "instructions": "完成翻译，提交后查看参考译文。",
+      "paragraphs": [
+        "社区图书馆每周举办一次语言交流活动。参加者可以分享家乡的故事，也可以介绍自己喜欢的书。工作人员准备了简单的话题卡片，让第一次参加的人更容易开口。活动不追求毫无错误的表达，而是鼓励大家耐心倾听、相互理解。"
+      ],
+      "study_paragraphs": [
+        "The community library holds a language exchange once a week. Participants can share stories about their hometowns or introduce books they enjoy. Staff prepare simple topic cards to make it easier for first-time visitors to speak. The activity encourages patient listening and mutual understanding rather than error-free expression."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "将上文译成英文。",
+          "options": [],
+          "answer": "The community library holds a language exchange once a week. Participants can share stories about their hometowns or introduce books they enjoy. Staff prepare simple topic cards to make it easier for first-time visitors to speak. The activity encourages patient listening and mutual understanding rather than error-free expression.",
+          "explanation": "可采用不同措辞；重点核对信息完整性、逻辑关系和表达准确性。",
+          "points": 10,
+          "id": "original-cet4-2026-2-section-6-q-1"
+        }
+      ],
+      "id": "original-cet4-2026-2-section-6"
+    }
+  ]
+}

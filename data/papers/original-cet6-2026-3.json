@@ -1,0 +1,593 @@
+{
+  "id": "original-cet6-2026-3",
+  "exam_level": "CET6",
+  "year": 2026,
+  "month": 10,
+  "set_no": 3,
+  "variant": "主题练习",
+  "title": "六级主题练习 03 · 文化与全球协作",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "original",
+  "description": "原创缩编练习，学习情境为虚构，覆盖非听力题型。参考六级试卷中的传统文化、艺术技术和全球议题章节，全文为原创缩编内容。",
+  "reference_paper_id": "cet6-2026-06-3",
+  "source_url": "https://pastpapers.cn/paper/2026-06-cet6-3",
+  "sections": [
+    {
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "按题目要求完成写作。提交后查看参考范文，自行核对。",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Faced with growing global exchange, students need both cultural confidence and cultural curiosity. Cultural confidence allows them to explain the history behind their traditions. Cultural curiosity encourages them to listen when people from other backgrounds describe their experiences. Universities can create this opportunity through joint projects, language exchanges and visits to local cultural sites. The purpose is not to repeat a fixed image of culture, but to understand how traditions change while important memories remain. Such understanding makes international cooperation more respectful and creative."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Write 150–200 words beginning with: “Faced with growing global exchange, students need both cultural confidence and cultural curiosity.”",
+          "options": [],
+          "answer": "Faced with growing global exchange, students need both cultural confidence and cultural curiosity. Cultural confidence allows them to explain the history behind their traditions. Cultural curiosity encourages them to listen when people from other backgrounds describe their experiences. Universities can create this opportunity through joint projects, language exchanges and visits to local cultural sites. The purpose is not to repeat a fixed image of culture, but to understand how traditions change while important memories remain. Such understanding makes international cooperation more respectful and creative.",
+          "explanation": "关注任务完成、论证/结构、语言准确性和字数要求。",
+          "points": 10,
+          "id": "original-cet6-2026-3-section-1-q-1"
+        }
+      ],
+      "id": "original-cet6-2026-3-section-1"
+    },
+    {
+      "kind": "cloze",
+      "title": "选词填空",
+      "instructions": "从词库选词，每词只用一次。",
+      "paragraphs": [
+        "A museum used digital tools to create a new exhibition about local craft. The team [1] ______ the movements of experienced makers and invited young designers to [2] ______ them in a different form. Visitors could compare original objects with new designs. The project did not claim technology could [3] ______ skill. It showed how documentation could [4] ______ knowledge and make it [5] ______ to people who could not visit a workshop."
+      ],
+      "study_paragraphs": [
+        "A museum used digital tools to create a new exhibition about local craft. The team recorded the movements of experienced makers and invited young designers to interpret them in a different form. Visitors could compare original objects with new designs. The project did not claim technology could replace skill. It showed how documentation could preserve knowledge and make it accessible to people who could not visit a workshop."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "第 1 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessible"
+            },
+            {
+              "key": "B",
+              "text": "preserve"
+            },
+            {
+              "key": "C",
+              "text": "replace"
+            },
+            {
+              "key": "D",
+              "text": "interpret"
+            },
+            {
+              "key": "E",
+              "text": "recorded"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "ordinary"
+            }
+          ],
+          "answer": "E",
+          "explanation": "第 1 空填入 recorded，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-2-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 2 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessible"
+            },
+            {
+              "key": "B",
+              "text": "preserve"
+            },
+            {
+              "key": "C",
+              "text": "replace"
+            },
+            {
+              "key": "D",
+              "text": "interpret"
+            },
+            {
+              "key": "E",
+              "text": "recorded"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "ordinary"
+            }
+          ],
+          "answer": "D",
+          "explanation": "第 2 空填入 interpret，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-2-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 3 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessible"
+            },
+            {
+              "key": "B",
+              "text": "preserve"
+            },
+            {
+              "key": "C",
+              "text": "replace"
+            },
+            {
+              "key": "D",
+              "text": "interpret"
+            },
+            {
+              "key": "E",
+              "text": "recorded"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "ordinary"
+            }
+          ],
+          "answer": "C",
+          "explanation": "第 3 空填入 replace，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-2-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 4 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessible"
+            },
+            {
+              "key": "B",
+              "text": "preserve"
+            },
+            {
+              "key": "C",
+              "text": "replace"
+            },
+            {
+              "key": "D",
+              "text": "interpret"
+            },
+            {
+              "key": "E",
+              "text": "recorded"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "ordinary"
+            }
+          ],
+          "answer": "B",
+          "explanation": "第 4 空填入 preserve，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-2-q-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 5 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessible"
+            },
+            {
+              "key": "B",
+              "text": "preserve"
+            },
+            {
+              "key": "C",
+              "text": "replace"
+            },
+            {
+              "key": "D",
+              "text": "interpret"
+            },
+            {
+              "key": "E",
+              "text": "recorded"
+            },
+            {
+              "key": "F",
+              "text": "forget"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "ordinary"
+            }
+          ],
+          "answer": "A",
+          "explanation": "第 5 空填入 accessible，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-2-q-5"
+        }
+      ],
+      "id": "original-cet6-2026-3-section-2"
+    },
+    {
+      "kind": "matching",
+      "title": "信息匹配 · 文化与全球协作",
+      "instructions": "根据段落内容完成匹配。",
+      "paragraphs": [
+        "[A] A festival invited residents to teach a short craft activity. Translation cards helped visitors participate without a long speech.",
+        "[B] A dance group changed rehearsal time after students explained that evening classes conflicted with laboratory work. It kept the music and main movements.",
+        "[C] An archive digitised old letters but checked personal information and added context about the writers.",
+        "[D] Students compared two translations of a poem. They discussed what each version emphasised instead of choosing one as the only correct answer."
+      ],
+      "study_paragraphs": [
+        "A festival invited residents to teach a short craft activity. Translation cards helped visitors participate without a long speech.",
+        "A dance group changed rehearsal time after students explained that evening classes conflicted with laboratory work. It kept the music and main movements.",
+        "An archive digitised old letters but checked personal information and added context about the writers.",
+        "Students compared two translations of a poem. They discussed what each version emphasised instead of choosing one as the only correct answer."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Cultural access also requires ethical care.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C段数字化前检查隐私并补充背景。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-3-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Practical participation can cross language barriers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A段用操作和翻译卡片帮助跨语言参与。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-3-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Comparison can reveal choices rather than one fixed answer.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D段比较译本中的强调和省略。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-3-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Traditions can adapt while remaining meaningful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B段保留核心内容并调整时间。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-3-q-4"
+        }
+      ],
+      "id": "original-cet6-2026-3-section-3"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · A place for both answers",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "A university invited students to suggest a theme for a public art wall. One group wanted local history and another wanted an abstract future design. The facilitator asked what they wanted visitors to feel. The final design combined historical symbols with changing colours. The compromise worked because participants agreed on a purpose before a picture."
+      ],
+      "study_paragraphs": [
+        "A university invited students to suggest a theme for a public art wall. One group wanted local history and another wanted an abstract future design. The facilitator asked what they wanted visitors to feel. The final design combined historical symbols with changing colours. The compromise worked because participants agreed on a purpose before a picture."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Why did groups disagree?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They wanted different artistic directions."
+            },
+            {
+              "key": "B",
+              "text": "They had no wall."
+            },
+            {
+              "key": "C",
+              "text": "They refused to meet."
+            },
+            {
+              "key": "D",
+              "text": "They discussed ticket prices."
+            }
+          ],
+          "answer": "A",
+          "explanation": "一组表现历史，另一组关注未来。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-4-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "What question helped?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Who would clean the wall?"
+            },
+            {
+              "key": "B",
+              "text": "What should visitors feel?"
+            },
+            {
+              "key": "C",
+              "text": "Which group was larger?"
+            },
+            {
+              "key": "D",
+              "text": "How much paint remained?"
+            }
+          ],
+          "answer": "B",
+          "explanation": "主持人让他们描述观众感受。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-4-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Why did compromise work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They copied the first proposal."
+            },
+            {
+              "key": "B",
+              "text": "They avoided history."
+            },
+            {
+              "key": "C",
+              "text": "They shared a purpose."
+            },
+            {
+              "key": "D",
+              "text": "The facilitator chose a winner."
+            }
+          ],
+          "answer": "C",
+          "explanation": "共同目的先于固定画面。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-4-q-3"
+        }
+      ],
+      "id": "original-cet6-2026-3-section-4"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · Power for a small business",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "A rural training centre used a diesel generator for evening computer classes. Fuel prices rose and classes were cancelled when deliveries were late. A local engineer proposed solar power with batteries. It could not run every machine at once, so the centre changed its timetable and trained two residents to maintain it. Within a year, fuel costs fell and classes became more reliable."
+      ],
+      "study_paragraphs": [
+        "A rural training centre used a diesel generator for evening computer classes. Fuel prices rose and classes were cancelled when deliveries were late. A local engineer proposed solar power with batteries. It could not run every machine at once, so the centre changed its timetable and trained two residents to maintain it. Within a year, fuel costs fell and classes became more reliable."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "What problem did the centre face?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fuel shortages and rising costs."
+            },
+            {
+              "key": "B",
+              "text": "No students."
+            },
+            {
+              "key": "C",
+              "text": "A ban on computers."
+            },
+            {
+              "key": "D",
+              "text": "Broken solar panels."
+            }
+          ],
+          "answer": "A",
+          "explanation": "燃料价格上涨且供应延迟。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-5-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "How did it adapt?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It changed timetable and group size."
+            },
+            {
+              "key": "B",
+              "text": "It ran every machine all day."
+            },
+            {
+              "key": "C",
+              "text": "It stopped teaching."
+            },
+            {
+              "key": "D",
+              "text": "It cancelled maintenance training."
+            }
+          ],
+          "answer": "A",
+          "explanation": "按照有限供电调整时间和班级。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-5-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "What does the passage show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Planning can make a limited resource reliable."
+            },
+            {
+              "key": "B",
+              "text": "A system must power everything."
+            },
+            {
+              "key": "C",
+              "text": "Residents cannot maintain technology."
+            },
+            {
+              "key": "D",
+              "text": "Fuel is always cheaper."
+            }
+          ],
+          "answer": "A",
+          "explanation": "方案匹配有限电力和重要工作。",
+          "points": 2,
+          "id": "original-cet6-2026-3-section-5-q-3"
+        }
+      ],
+      "id": "original-cet6-2026-3-section-5"
+    },
+    {
+      "kind": "translation",
+      "title": "翻译 · 中译英",
+      "instructions": "完成翻译，提交后查看参考译文。",
+      "paragraphs": [
+        "中华文化在不断变化的社会中仍然具有生命力。年轻人通过学习传统节日、民间艺术和经典文学，能够更好地理解自己的文化背景。同时，他们也可以用新的方式讲述这些传统，使更多不同国家的人产生兴趣。"
+      ],
+      "study_paragraphs": [
+        "Chinese culture remains alive in a changing society. By learning about traditional festivals, folk arts and classic literature, young people can better understand their cultural background. They can also present these traditions in new ways and arouse interest among people from different countries."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "将上文译成英文。",
+          "options": [],
+          "answer": "Chinese culture remains alive in a changing society. By learning about traditional festivals, folk arts and classic literature, young people can better understand their cultural background. They can also present these traditions in new ways and arouse interest among people from different countries.",
+          "explanation": "可采用不同措辞；重点核对信息完整性、逻辑关系和表达准确性。",
+          "points": 10,
+          "id": "original-cet6-2026-3-section-6-q-1"
+        }
+      ],
+      "id": "original-cet6-2026-3-section-6"
+    }
+  ]
+}

@@ -26,6 +26,7 @@ export const PaperSectionSchema = z.object({
   title: z.string().min(1),
   instructions: z.string().default(''),
   paragraphs: z.array(z.string().min(1)).default([]),
+  study_paragraphs: z.array(z.string().min(1)).default([]),
   questions: z.array(QuestionSchema).default([]),
 }).strict();
 export const ImportPaperSchema = z.object({
@@ -38,6 +39,9 @@ export const ImportPaperSchema = z.object({
   title: z.string().min(1),
   is_demo: z.boolean().default(false),
   content_state: z.enum(['local', 'external']),
+  content_kind: z.enum(['original', 'external', 'demo']).default('original'),
+  description: z.string().default(''),
+  reference_paper_id: Identifier.nullable().default(null),
   source_url: z.string().url().nullable().default(null),
   sections: z.array(PaperSectionSchema).default([]),
 }).strict().superRefine((paper, context) => {
@@ -64,7 +68,7 @@ export type QuestionView = Omit<ExamQuestion, 'answer' | 'explanation'>;
 export type Answers = z.infer<typeof AnswersSchema>;
 export type PaperSummary = Omit<ImportedPaper, 'sections'>;
 export type SentenceView = { id: string; paragraphIndex: number; sentenceIndex: number; source: string; sectionId: string | null };
-export type SectionView = Omit<z.infer<typeof PaperSectionSchema>, 'questions'> & { questions: QuestionView[]; sentences: SentenceView[] };
+export type SectionView = Omit<z.infer<typeof PaperSectionSchema>, 'questions' | 'study_paragraphs'> & { questions: QuestionView[] };
 export type PaperView = PaperSummary & { mode: StudyMode; sections: SectionView[]; sentences: SentenceView[] };
 export type QuestionResult = {
   id: string; answer: string; correctAnswer: string | null; explanation: string;

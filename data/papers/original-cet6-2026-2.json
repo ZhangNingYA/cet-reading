@@ -1,0 +1,593 @@
+{
+  "id": "original-cet6-2026-2",
+  "exam_level": "CET6",
+  "year": 2026,
+  "month": 10,
+  "set_no": 2,
+  "variant": "主题练习",
+  "title": "六级主题练习 02 · 科技、风险与判断",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "original",
+  "description": "原创缩编练习，学习情境为虚构，覆盖非听力题型。参考六级试卷中的金融、生态和数字生活章节，全文为原创缩编内容。",
+  "reference_paper_id": "cet6-2026-06-2",
+  "source_url": "https://pastpapers.cn/paper/2026-06-cet6-2",
+  "sections": [
+    {
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "按题目要求完成写作。提交后查看参考范文，自行核对。",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Universities should teach students how to evaluate information produced by artificial intelligence. AI tools can summarise a large amount of material, but a fluent answer is not necessarily an accurate one. Students need to check sources, compare explanations and recognise when a question requires expert judgment. This training would not mean rejecting AI. A class could ask students to test an AI answer against an academic article and explain every correction. Such work develops digital skills and intellectual honesty. As AI becomes common in study and employment, the ability to question a convenient answer will be as important as the ability to produce one quickly."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Write 150–200 words on whether universities should teach students how to evaluate information produced by artificial intelligence.",
+          "options": [],
+          "answer": "Universities should teach students how to evaluate information produced by artificial intelligence. AI tools can summarise a large amount of material, but a fluent answer is not necessarily an accurate one. Students need to check sources, compare explanations and recognise when a question requires expert judgment. This training would not mean rejecting AI. A class could ask students to test an AI answer against an academic article and explain every correction. Such work develops digital skills and intellectual honesty. As AI becomes common in study and employment, the ability to question a convenient answer will be as important as the ability to produce one quickly.",
+          "explanation": "关注任务完成、论证/结构、语言准确性和字数要求。",
+          "points": 10,
+          "id": "original-cet6-2026-2-section-1-q-1"
+        }
+      ],
+      "id": "original-cet6-2026-2-section-1"
+    },
+    {
+      "kind": "cloze",
+      "title": "选词填空",
+      "instructions": "从词库选词，每词只用一次。",
+      "paragraphs": [
+        "A financial crisis can begin with a small [1] ______ that institutions choose to ignore. When borrowers take on [2] ______ debt, a change in interest rates may make repayments difficult. Banks need to [3] ______ whether customers can continue paying. If information is hidden, confidence may [4] ______ quickly. Good regulation cannot remove every risk, but it can make problems more [5] ______ before they spread."
+      ],
+      "study_paragraphs": [
+        "A financial crisis can begin with a small warning that institutions choose to ignore. When borrowers take on excessive debt, a change in interest rates may make repayments difficult. Banks need to assess whether customers can continue paying. If information is hidden, confidence may collapse quickly. Good regulation cannot remove every risk, but it can make problems more visible before they spread."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "第 1 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "visible"
+            },
+            {
+              "key": "B",
+              "text": "collapse"
+            },
+            {
+              "key": "C",
+              "text": "assess"
+            },
+            {
+              "key": "D",
+              "text": "warning"
+            },
+            {
+              "key": "E",
+              "text": "excessive"
+            },
+            {
+              "key": "F",
+              "text": "borrow"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "steady"
+            }
+          ],
+          "answer": "D",
+          "explanation": "第 1 空填入 warning，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-2-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 2 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "visible"
+            },
+            {
+              "key": "B",
+              "text": "collapse"
+            },
+            {
+              "key": "C",
+              "text": "assess"
+            },
+            {
+              "key": "D",
+              "text": "warning"
+            },
+            {
+              "key": "E",
+              "text": "excessive"
+            },
+            {
+              "key": "F",
+              "text": "borrow"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "steady"
+            }
+          ],
+          "answer": "E",
+          "explanation": "第 2 空填入 excessive，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-2-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 3 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "visible"
+            },
+            {
+              "key": "B",
+              "text": "collapse"
+            },
+            {
+              "key": "C",
+              "text": "assess"
+            },
+            {
+              "key": "D",
+              "text": "warning"
+            },
+            {
+              "key": "E",
+              "text": "excessive"
+            },
+            {
+              "key": "F",
+              "text": "borrow"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "steady"
+            }
+          ],
+          "answer": "C",
+          "explanation": "第 3 空填入 assess，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-2-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 4 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "visible"
+            },
+            {
+              "key": "B",
+              "text": "collapse"
+            },
+            {
+              "key": "C",
+              "text": "assess"
+            },
+            {
+              "key": "D",
+              "text": "warning"
+            },
+            {
+              "key": "E",
+              "text": "excessive"
+            },
+            {
+              "key": "F",
+              "text": "borrow"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "steady"
+            }
+          ],
+          "answer": "B",
+          "explanation": "第 4 空填入 collapse，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-2-q-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 5 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "visible"
+            },
+            {
+              "key": "B",
+              "text": "collapse"
+            },
+            {
+              "key": "C",
+              "text": "assess"
+            },
+            {
+              "key": "D",
+              "text": "warning"
+            },
+            {
+              "key": "E",
+              "text": "excessive"
+            },
+            {
+              "key": "F",
+              "text": "borrow"
+            },
+            {
+              "key": "G",
+              "text": "private"
+            },
+            {
+              "key": "H",
+              "text": "steady"
+            }
+          ],
+          "answer": "A",
+          "explanation": "第 5 空填入 visible，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-2-q-5"
+        }
+      ],
+      "id": "original-cet6-2026-2-section-2"
+    },
+    {
+      "kind": "matching",
+      "title": "信息匹配 · 科技、风险与判断",
+      "instructions": "根据段落内容完成匹配。",
+      "paragraphs": [
+        "[A] A forest team studied native trees before planting. It copied the mixed structure of remaining woodland instead of planting one fast-growing species.",
+        "[B] The team set targets for soil, insects and water as well as tree numbers. Some plots were left alone for comparison.",
+        "[C] Farmers feared that a new forest would take land. The organisers changed the boundary and paid local workers to maintain a firebreak.",
+        "[D] After rain removed seedlings, the team recorded the failure and changed the planting season."
+      ],
+      "study_paragraphs": [
+        "A forest team studied native trees before planting. It copied the mixed structure of remaining woodland instead of planting one fast-growing species.",
+        "The team set targets for soil, insects and water as well as tree numbers. Some plots were left alone for comparison.",
+        "Farmers feared that a new forest would take land. The organisers changed the boundary and paid local workers to maintain a firebreak.",
+        "After rain removed seedlings, the team recorded the failure and changed the planting season."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Local cooperation can reduce conflict over restoration.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C段通过边界调整和就业争取合作。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-3-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Restoration begins by learning from an existing ecosystem.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A段先研究残存本土树木。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-3-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Honest records help a project improve after setbacks.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D段记录失败并调整方案。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-3-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Success is measured through several long-term indicators.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B段目标不只看树木数量。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-3-q-4"
+        }
+      ],
+      "id": "original-cet6-2026-2-section-3"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · The quiet signal",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "A wearable device warned cyclists of vehicles behind them. At first it sounded for every nearby object, so users ignored it. Engineers added speed, distance and direction. The device gave a stronger warning only when several signals suggested real risk. A warning must compete for attention carefully: if every event appears urgent, people hear nothing."
+      ],
+      "study_paragraphs": [
+        "A wearable device warned cyclists of vehicles behind them. At first it sounded for every nearby object, so users ignored it. Engineers added speed, distance and direction. The device gave a stronger warning only when several signals suggested real risk. A warning must compete for attention carefully: if every event appears urgent, people hear nothing."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Why did cyclists ignore the first device?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It warned too often."
+            },
+            {
+              "key": "B",
+              "text": "It never sounded."
+            },
+            {
+              "key": "C",
+              "text": "It was hard to wear."
+            },
+            {
+              "key": "D",
+              "text": "It worked only in rain."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第一版干扰过多。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-4-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "What did engineers add?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A map of every city."
+            },
+            {
+              "key": "B",
+              "text": "Several factors for judging risk."
+            },
+            {
+              "key": "C",
+              "text": "A rule banning bicycles."
+            },
+            {
+              "key": "D",
+              "text": "A larger screen."
+            }
+          ],
+          "answer": "B",
+          "explanation": "系统结合速度、距离和方向。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-4-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "What lesson follows?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Every event should appear urgent."
+            },
+            {
+              "key": "B",
+              "text": "Warnings work better when selective."
+            },
+            {
+              "key": "C",
+              "text": "People never change habits."
+            },
+            {
+              "key": "D",
+              "text": "Silent roads are always dangerous."
+            }
+          ],
+          "answer": "B",
+          "explanation": "过多警报会使人不再注意。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-4-q-3"
+        }
+      ],
+      "id": "original-cet6-2026-2-section-4"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · When a number is not enough",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "A museum announced that an online exhibition had received one million visits. The education team examined how long people stayed and which objects they opened. Many visitors looked briefly at a popular image, while a smaller group read background material for much longer. The museum reported both reach and engagement because a large audience alone could not explain the exhibition’s value."
+      ],
+      "study_paragraphs": [
+        "A museum announced that an online exhibition had received one million visits. The education team examined how long people stayed and which objects they opened. Many visitors looked briefly at a popular image, while a smaller group read background material for much longer. The museum reported both reach and engagement because a large audience alone could not explain the exhibition’s value."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "What did the team examine?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How visitors used the exhibition."
+            },
+            {
+              "key": "B",
+              "text": "The cost of the website."
+            },
+            {
+              "key": "C",
+              "text": "Why the museum closed."
+            },
+            {
+              "key": "D",
+              "text": "Which newspaper wrote the headline."
+            }
+          ],
+          "answer": "A",
+          "explanation": "团队分析停留时间和打开对象。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-5-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "What did the results show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Different kinds of visitors."
+            },
+            {
+              "key": "B",
+              "text": "All visitors studied equally."
+            },
+            {
+              "key": "C",
+              "text": "Nobody returned."
+            },
+            {
+              "key": "D",
+              "text": "The image was unavailable."
+            }
+          ],
+          "answer": "A",
+          "explanation": "访客存在快速浏览和深入阅读的差异。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-5-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "How did the report improve?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It removed the visit number."
+            },
+            {
+              "key": "B",
+              "text": "It included reach and engagement."
+            },
+            {
+              "key": "C",
+              "text": "It counted teachers only."
+            },
+            {
+              "key": "D",
+              "text": "It hid background material."
+            }
+          ],
+          "answer": "B",
+          "explanation": "同时报告访问量和参与度。",
+          "points": 2,
+          "id": "original-cet6-2026-2-section-5-q-3"
+        }
+      ],
+      "id": "original-cet6-2026-2-section-5"
+    },
+    {
+      "kind": "translation",
+      "title": "翻译 · 中译英",
+      "instructions": "完成翻译，提交后查看参考译文。",
+      "paragraphs": [
+        "数字技术正在改变人们获取公共服务的方式。在线平台可以帮助居民提交申请、查询进度和获得提醒，但并不是所有人都能熟练使用数字设备。因此，公共机构还应保留电话和面对面的服务渠道，确保技术进步不会制造新的障碍。"
+      ],
+      "study_paragraphs": [
+        "Digital technology is changing the way people access public services. Online platforms can help residents submit applications, check progress and receive reminders, but not everyone can use digital devices with confidence. Public institutions should keep telephone and face-to-face channels so that technological progress does not create new barriers."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "将上文译成英文。",
+          "options": [],
+          "answer": "Digital technology is changing the way people access public services. Online platforms can help residents submit applications, check progress and receive reminders, but not everyone can use digital devices with confidence. Public institutions should keep telephone and face-to-face channels so that technological progress does not create new barriers.",
+          "explanation": "可采用不同措辞；重点核对信息完整性、逻辑关系和表达准确性。",
+          "points": 10,
+          "id": "original-cet6-2026-2-section-6-q-1"
+        }
+      ],
+      "id": "original-cet6-2026-2-section-6"
+    }
+  ]
+}

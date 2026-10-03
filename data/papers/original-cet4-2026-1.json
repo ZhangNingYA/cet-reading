@@ -1,0 +1,597 @@
+{
+  "id": "original-cet4-2026-1",
+  "exam_level": "CET4",
+  "year": 2026,
+  "month": 10,
+  "set_no": 1,
+  "variant": "主题练习",
+  "title": "四级主题练习 01 · 技术与合作",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "original",
+  "description": "原创缩编练习，学习情境为虚构，覆盖非听力题型。主题参考：校园技术、消费选择与合作。",
+  "reference_paper_id": "cet4-2026-06-1",
+  "source_url": "https://pastpapers.cn/paper/2026-06-cet4-1",
+  "sections": [
+    {
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "按题目要求完成写作。提交后查看参考范文，自行核对。",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "A useful campus library should make routine tasks easy without making students feel that they are speaking only to machines. I propose a simple online reservation system for group study rooms. Students could see available times and receive a reminder before their booking. This would reduce queues and help them plan meetings. However, the library should also keep a desk where students can ask a person for help. New users may not understand the system, and some students may need special arrangements. Staff could collect common questions and use them to improve the website. The university should test the service in one building first and invite feedback after a month. Technology would then support a better service rather than become the only way to receive it."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "Write 120–180 words proposing one way for a campus library to use technology while keeping personal help available.",
+          "options": [],
+          "answer": "A useful campus library should make routine tasks easy without making students feel that they are speaking only to machines. I propose a simple online reservation system for group study rooms. Students could see available times and receive a reminder before their booking. This would reduce queues and help them plan meetings. However, the library should also keep a desk where students can ask a person for help. New users may not understand the system, and some students may need special arrangements. Staff could collect common questions and use them to improve the website. The university should test the service in one building first and invite feedback after a month. Technology would then support a better service rather than become the only way to receive it.",
+          "explanation": "核对是否提出具体措施、解释用途并讨论人工支持；范文采用“建议—好处—边界—试点”的结构。",
+          "points": 10,
+          "id": "original-cet4-2026-1-section-1-q-1"
+        }
+      ],
+      "id": "original-cet4-2026-1-section-1"
+    },
+    {
+      "kind": "cloze",
+      "title": "选词填空",
+      "instructions": "从词库选词，每词只用一次。",
+      "paragraphs": [
+        "When a college bought a machine to carry books, staff expected an immediate improvement. Instead, students were [1] ______ by the pickup messages. The library invited them to [2] ______ the problem and then changed the signs. A worker still checked each delivery, because a machine could not judge whether a damaged book needed [3] ______ handling. After two weeks, the service became more [4] ______. The lesson was simple: a new device creates value only when people can [5] ______ how to use it."
+      ],
+      "study_paragraphs": [
+        "When a college bought a machine to carry books, staff expected an immediate improvement. Instead, students were confused by the pickup messages. The library invited them to describe the problem and then changed the signs. A worker still checked each delivery, because a machine could not judge whether a damaged book needed careful handling. After two weeks, the service became more reliable. The lesson was simple: a new device creates value only when people can understand how to use it."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "第 1 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "reliable"
+            },
+            {
+              "key": "B",
+              "text": "careful"
+            },
+            {
+              "key": "C",
+              "text": "describe"
+            },
+            {
+              "key": "D",
+              "text": "expensive"
+            },
+            {
+              "key": "E",
+              "text": "understand"
+            },
+            {
+              "key": "F",
+              "text": "confused"
+            },
+            {
+              "key": "G",
+              "text": "borrow"
+            },
+            {
+              "key": "H",
+              "text": "silent"
+            }
+          ],
+          "answer": "F",
+          "explanation": "第 1 空填入 confused，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-2-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 2 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "reliable"
+            },
+            {
+              "key": "B",
+              "text": "careful"
+            },
+            {
+              "key": "C",
+              "text": "describe"
+            },
+            {
+              "key": "D",
+              "text": "expensive"
+            },
+            {
+              "key": "E",
+              "text": "understand"
+            },
+            {
+              "key": "F",
+              "text": "confused"
+            },
+            {
+              "key": "G",
+              "text": "borrow"
+            },
+            {
+              "key": "H",
+              "text": "silent"
+            }
+          ],
+          "answer": "C",
+          "explanation": "第 2 空填入 describe，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-2-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 3 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "reliable"
+            },
+            {
+              "key": "B",
+              "text": "careful"
+            },
+            {
+              "key": "C",
+              "text": "describe"
+            },
+            {
+              "key": "D",
+              "text": "expensive"
+            },
+            {
+              "key": "E",
+              "text": "understand"
+            },
+            {
+              "key": "F",
+              "text": "confused"
+            },
+            {
+              "key": "G",
+              "text": "borrow"
+            },
+            {
+              "key": "H",
+              "text": "silent"
+            }
+          ],
+          "answer": "B",
+          "explanation": "第 3 空填入 careful，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-2-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 4 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "reliable"
+            },
+            {
+              "key": "B",
+              "text": "careful"
+            },
+            {
+              "key": "C",
+              "text": "describe"
+            },
+            {
+              "key": "D",
+              "text": "expensive"
+            },
+            {
+              "key": "E",
+              "text": "understand"
+            },
+            {
+              "key": "F",
+              "text": "confused"
+            },
+            {
+              "key": "G",
+              "text": "borrow"
+            },
+            {
+              "key": "H",
+              "text": "silent"
+            }
+          ],
+          "answer": "A",
+          "explanation": "第 4 空填入 reliable，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-2-q-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "第 5 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "reliable"
+            },
+            {
+              "key": "B",
+              "text": "careful"
+            },
+            {
+              "key": "C",
+              "text": "describe"
+            },
+            {
+              "key": "D",
+              "text": "expensive"
+            },
+            {
+              "key": "E",
+              "text": "understand"
+            },
+            {
+              "key": "F",
+              "text": "confused"
+            },
+            {
+              "key": "G",
+              "text": "borrow"
+            },
+            {
+              "key": "H",
+              "text": "silent"
+            }
+          ],
+          "answer": "E",
+          "explanation": "第 5 空填入 understand，结合上下文和句法关系判断。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-2-q-5"
+        }
+      ],
+      "id": "original-cet4-2026-1-section-2"
+    },
+    {
+      "kind": "matching",
+      "title": "信息匹配 · 校园共享",
+      "instructions": "根据段落内容完成匹配。",
+      "paragraphs": [
+        "[A] The repair club meets on Friday afternoons. Students bring broken lamps or bags instead of throwing them away. Before anyone touches a tool, a volunteer explains the basic safety rules. Some items cannot be repaired, but visitors still learn why they failed.",
+        "[B] The food-sharing team posts an ingredient list beside every donated meal. People can choose what suits them and leave unsuitable food for someone else. The team asks donors to label the time of preparation as well. Clear information matters more than a large number of donations.",
+        "[C] The evening walking group welcomes students who dislike competitive sports. Nobody records a finishing time, and the route has several places to rest. Members usually talk about classes while walking. The organiser believes that a comfortable first experience makes returning easier.",
+        "[D] A small lending shelf holds umbrellas and chargers. Borrowers write down what they take and return it when finished. At the end of each week, volunteers check which items are missing or broken. The records help them decide what to buy next."
+      ],
+      "study_paragraphs": [
+        "The repair club meets on Friday afternoons. Students bring broken lamps or bags instead of throwing them away. Before anyone touches a tool, a volunteer explains the basic safety rules. Some items cannot be repaired, but visitors still learn why they failed.",
+        "The food-sharing team posts an ingredient list beside every donated meal. People can choose what suits them and leave unsuitable food for someone else. The team asks donors to label the time of preparation as well. Clear information matters more than a large number of donations.",
+        "The evening walking group welcomes students who dislike competitive sports. Nobody records a finishing time, and the route has several places to rest. Members usually talk about classes while walking. The organiser believes that a comfortable first experience makes returning easier.",
+        "A small lending shelf holds umbrellas and chargers. Borrowers write down what they take and return it when finished. At the end of each week, volunteers check which items are missing or broken. The records help them decide what to buy next."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "The group reduces pressure on beginners.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C 段没有计时并提供休息点，降低参与压力。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-3-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "The activity begins with safety guidance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A 段说明使用工具前有安全讲解。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-3-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Records guide later purchasing decisions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "D",
+          "explanation": "D 段借还记录用于决定后续购买。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-3-q-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Participants receive information before choosing food.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B 段通过配料和制作时间标签支持选择。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-3-q-4"
+        }
+      ],
+      "id": "original-cet4-2026-1-section-3"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · The label and the decision",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "Nora wanted to buy vegetables for a student cooking class. One shop displayed attractive green labels on every packet. Another provided a plain list showing where each vegetable came from and when it had arrived. The green labels looked impressive, but they did not answer Nora's questions about freshness or price.",
+        "She compared the vegetables themselves, asked about delivery times and chose a mixture from both shops. Later, she showed the class her receipts. Some students were surprised that there was no single label they could follow. Nora explained that useful information had to match the decision being made. A label might tell buyers something important, but it could not replace every other question."
+      ],
+      "study_paragraphs": [
+        "Nora wanted to buy vegetables for a student cooking class. One shop displayed attractive green labels on every packet. Another provided a plain list showing where each vegetable came from and when it had arrived. The green labels looked impressive, but they did not answer Nora's questions about freshness or price.",
+        "She compared the vegetables themselves, asked about delivery times and chose a mixture from both shops. Later, she showed the class her receipts. Some students were surprised that there was no single label they could follow. Nora explained that useful information had to match the decision being made. A label might tell buyers something important, but it could not replace every other question."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Why was Nora dissatisfied with the green labels?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were difficult to print."
+            },
+            {
+              "key": "B",
+              "text": "They did not provide the information she needed."
+            },
+            {
+              "key": "C",
+              "text": "They made every vegetable cheaper."
+            },
+            {
+              "key": "D",
+              "text": "They showed that the shop was closed."
+            }
+          ],
+          "answer": "B",
+          "explanation": "Nora 需要新鲜度和价格信息，而标签没有回答这些问题。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-4-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "What did Nora do before buying?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She chose the largest packets."
+            },
+            {
+              "key": "B",
+              "text": "She avoided speaking to sellers."
+            },
+            {
+              "key": "C",
+              "text": "She copied another customer's order."
+            },
+            {
+              "key": "D",
+              "text": "She compared products and asked questions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "第二段写到比较蔬菜并询问送货时间。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-4-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "What is the central message?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A useful choice depends on several relevant kinds of information."
+            },
+            {
+              "key": "B",
+              "text": "Attractive labels always indicate poor quality."
+            },
+            {
+              "key": "C",
+              "text": "Receipts are unnecessary in cooking classes."
+            },
+            {
+              "key": "D",
+              "text": "One shop should provide all campus food."
+            }
+          ],
+          "answer": "A",
+          "explanation": "文章强调信息应服务具体决策，单个标签不能替代全部判断。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-4-q-3"
+        }
+      ],
+      "id": "original-cet4-2026-1-section-4"
+    },
+    {
+      "kind": "reading",
+      "title": "阅读理解 · A job nobody owned",
+      "instructions": "阅读短文，选择最合适的答案。",
+      "paragraphs": [
+        "Four students organised a weekend book sale. Each selected an enjoyable task, such as designing posters or arranging books. Nobody volunteered to carry the boxes home afterwards. When the sale ended, the boxes remained beside the entrance, and everyone thought someone else would remove them.",
+        "For the next event, the group listed every job before dividing the work. They paired popular tasks with less popular ones and allowed members to exchange assignments. They also agreed on a final check before leaving. The change did not require anyone to become more generous overnight. It made the responsibilities visible, so a willing team could turn good intentions into finished work."
+      ],
+      "study_paragraphs": [
+        "Four students organised a weekend book sale. Each selected an enjoyable task, such as designing posters or arranging books. Nobody volunteered to carry the boxes home afterwards. When the sale ended, the boxes remained beside the entrance, and everyone thought someone else would remove them.",
+        "For the next event, the group listed every job before dividing the work. They paired popular tasks with less popular ones and allowed members to exchange assignments. They also agreed on a final check before leaving. The change did not require anyone to become more generous overnight. It made the responsibilities visible, so a willing team could turn good intentions into finished work."
+      ],
+      "questions": [
+        {
+          "type": "choice",
+          "prompt": "Why were the boxes left at the entrance?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They belonged to the library."
+            },
+            {
+              "key": "B",
+              "text": "The students had no transport."
+            },
+            {
+              "key": "C",
+              "text": "The final task had not been assigned."
+            },
+            {
+              "key": "D",
+              "text": "The sale was still running."
+            }
+          ],
+          "answer": "C",
+          "explanation": "搬箱子的职责无人认领，每个人都以为别人会处理。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-5-q-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "What did the group change?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They made a complete task list and shared responsibilities."
+            },
+            {
+              "key": "B",
+              "text": "They cancelled all enjoyable work."
+            },
+            {
+              "key": "C",
+              "text": "They selected a new building."
+            },
+            {
+              "key": "D",
+              "text": "They stopped allowing exchanges."
+            }
+          ],
+          "answer": "A",
+          "explanation": "第二次活动明确列出全部工作并允许交换任务。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-5-q-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "The last paragraph suggests that cooperation benefits from _____.",
+          "options": [
+            {
+              "key": "A",
+              "text": "competition for public attention"
+            },
+            {
+              "key": "B",
+              "text": "clear arrangements"
+            },
+            {
+              "key": "C",
+              "text": "a larger entrance"
+            },
+            {
+              "key": "D",
+              "text": "avoiding difficult tasks"
+            }
+          ],
+          "answer": "B",
+          "explanation": "清楚的责任安排使合作意愿转化为实际完成。",
+          "points": 2,
+          "id": "original-cet4-2026-1-section-5-q-3"
+        }
+      ],
+      "id": "original-cet4-2026-1-section-5"
+    },
+    {
+      "kind": "translation",
+      "title": "翻译 · 中译英",
+      "instructions": "完成翻译，提交后查看参考译文。",
+      "paragraphs": [
+        "校园里的一间旧教室被改造成了共享修理室。学生可以在志愿者的帮助下修理日常用品，也可以把不再使用的工具捐给其他人。这个小空间不仅减少了浪费，还让不同专业的学生有机会一起解决实际问题。"
+      ],
+      "study_paragraphs": [
+        "An old classroom on campus has been turned into a shared repair room. Students can repair everyday items with help from volunteers, or donate tools they no longer use. This small space reduces waste and gives students from different majors a chance to solve practical problems together."
+      ],
+      "questions": [
+        {
+          "type": "text",
+          "prompt": "将上文译成英文。",
+          "options": [],
+          "answer": "An old classroom on campus has been turned into a shared repair room. Students can repair everyday items with help from volunteers, or donate tools they no longer use. This small space reduces waste and gives students from different majors a chance to solve practical problems together.",
+          "explanation": "可采用不同措辞；重点核对信息完整性、逻辑关系和表达准确性。",
+          "points": 10,
+          "id": "original-cet4-2026-1-section-6-q-1"
+        }
+      ],
+      "id": "original-cet4-2026-1-section-6"
+    }
+  ]
+}
