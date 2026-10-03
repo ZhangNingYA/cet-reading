@@ -10,11 +10,6 @@ services:
     volumes:
       - cet_reading_data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d:ro
-      - ./db/migrations/002_seed_demo_sections.sql:/docker-entrypoint-initdb.d/002_seed_demo_sections.sql:ro
-      - ./db/migrations/003_paper_modes.sql:/docker-entrypoint-initdb.d/003_paper_modes.sql:ro
-      - ./db/migrations/004_seed_external_papers.sql:/docker-entrypoint-initdb.d/004_seed_external_papers.sql:ro
-      - ./db/migrations/005_original_practice.sql:/docker-entrypoint-initdb.d/005_original_practice.sql:ro
-      - ./db/migrations/006_seed_original_papers.sql:/docker-entrypoint-initdb.d/006_seed_original_papers.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U cet_reading -d cet_reading"]
       interval: 5s
