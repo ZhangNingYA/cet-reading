@@ -1,0 +1,1617 @@
+{
+  "id": "cet4-2024-06-3",
+  "exam_level": "CET4",
+  "year": 2024,
+  "month": 6,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2024年6月大学英语四级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2024-06-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose your university is seeking students' opinions on whether university canteens should be open to the public. You are now to write an essay to express your view. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-06-3-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose your university is seeking students' opinions on whether university canteens should be open to the public. You are now to write an essay to express your view. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Over the coming decades, millions of jobs will be threatened by robotics and artificial intelligence. Despite intensive academic [26] ______ on these developments, there has been little study on how workers [27] ______ to being replaced through technology",
+        "To find out, business researchers at TUM and Erasmus University Rotterdam conducted 11 studies and surveys with over 2,000 persons from several countries.",
+        "The findings show: In principle, most people view it more [28] ______ when workers are replaced by other people than by robots or intelligent software. This preference [29] ______ , however, when it refers to people's own jobs When that is the case, the majority of workers find it less upsetting to see their own jobs go to robots than to other employees. In the long term, however, the same people see machines as more threatening to their future role in the workforce. These effects can also be observed among people who have recently become unemployed.",
+        "The researchers were able to identify the causes behind these [30] ______ paradoxical results, too: People tend to [31] ______ themselves less with machines than with other people. Consequently, being replaced by a robot or software [32] ______ less of a threat to their feeling of self-worth. This reduced self-threat could even be observed when participants assumed that they were being replaced by other employees who relied on technological abilities such as artificial intelligence in their work.",
+        "“Even when unemployment results from the [33] ______ of new technologies, people still judge it in a social context,” says Christoph Fuchs, one of the authors of the study. “It is important to understand these [34] ______ effects when trying to manage the massive changes in the working world to minimize [35] ______ in society.”"
+      ],
+      "study_paragraphs": [
+        "Over the coming decades, millions of jobs will be threatened by robotics and artificial intelligence. Despite intensive academic debate on these developments, there has been little study on how workers react to being replaced through technology",
+        "To find out, business researchers at TUM and Erasmus University Rotterdam conducted 11 studies and surveys with over 2,000 persons from several countries.",
+        "The findings show: In principle, most people view it more favorably when workers are replaced by other people than by robots or intelligent software. This preference reverses, however, when it refers to people's own jobs When that is the case, the majority of workers find it less upsetting to see their own jobs go to robots than to other employees. In the long term, however, the same people see machines as more threatening to their future role in the workforce. These effects can also be observed among people who have recently become unemployed.",
+        "The researchers were able to identify the causes behind these seemingly paradoxical results, too: People tend to compare themselves less with machines than with other people. Consequently, being replaced by a robot or software poses less of a threat to their feeling of self-worth. This reduced self-threat could even be observed when participants assumed that they were being replaced by other employees who relied on technological abilities such as artificial intelligence in their work.",
+        "“Even when unemployment results from the introduction of new technologies, people still judge it in a social context,” says Christoph Fuchs, one of the authors of the study. “It is important to understand these psychological effects when trying to manage the massive changes in the working world to minimize disruptions in society.”"
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-06-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。intensive academic debate on these developments 指学界对机器人和人工智能发展的深入讨论，与下文缺少工人反应研究形成对照。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。how workers react to being replaced 指工人对被技术取代作何反应，react to 是固定搭配。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。view it more favorably 表示一般而言，人们更赞同员工被其他人而非机器替代；副词 favorably 修饰 view。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。This preference reverses 表示上述偏好在涉及自己的工作时发生反转，下文说人们更能接受自己的工作被机器取代。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。seemingly paradoxical results 指看似矛盾的研究结果，副词 seemingly 修饰形容词 paradoxical。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。compare themselves less with machines than with other people 表示人们较少拿自己与机器比较，更常与其他人比较。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。poses less of a threat to their feeling of self-worth 指被机器取代对自我价值感造成的威胁较小；pose a threat to 是固定搭配。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。the introduction of new technologies 指新技术的引入，空前有定冠词 the，空后接 of。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。these psychological effects 指上述与比较、自我价值和社会情境有关的心理影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "compare"
+            },
+            {
+              "key": "B",
+              "text": "contradicts"
+            },
+            {
+              "key": "C",
+              "text": "conventional"
+            },
+            {
+              "key": "D",
+              "text": "debate"
+            },
+            {
+              "key": "E",
+              "text": "disruptions"
+            },
+            {
+              "key": "F",
+              "text": "drastically"
+            },
+            {
+              "key": "G",
+              "text": "favorably"
+            },
+            {
+              "key": "H",
+              "text": "guarantee"
+            },
+            {
+              "key": "I",
+              "text": "introduction"
+            },
+            {
+              "key": "J",
+              "text": "modifications"
+            },
+            {
+              "key": "K",
+              "text": "poses"
+            },
+            {
+              "key": "L",
+              "text": "psychological"
+            },
+            {
+              "key": "M",
+              "text": "react"
+            },
+            {
+              "key": "N",
+              "text": "reverses"
+            },
+            {
+              "key": "O",
+              "text": "seemingly"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。minimize disruptions in society 指尽量减少工作世界的巨大变化给社会带来的扰动。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· No escape as 'snow day' becomes fe-learning day’",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Certain institutions, such as schools, are likely to close when bad weather, such as snow, flooding or extreme heat or cold, causes travel difficulties, power outages (断供), or otherwise endangers public safety. When snowy weather arrives in the US, it means the chance of school children benefiting from the long-standing tradition of the “snow day”, when schools are forced to close and students get an unexpected day off.",
+        "[B] The criterion for a snow day is primarily the inability of school buses to operate safely on their routes and danger to children who walk to school. Often, the school remains officially open even though buses do not run and classes are canceled. Severe weather that causes cancellation or delay is more likely in regions that are less able to handle the situation. Snow days are less common in more northern areas of the United States that are used to heavy winter snowfall, because municipalities are well equipped to clear roads and remove snow. In areas less accustomed to snow even small snowfalls of an inch or two may render roads unsafe.",
+        "[C] Snow days are a familiar theme in American film and TV shows, with children getting the good news and then running outside for some seasonal snowman-building and snowball throwing, against a background of joyful pop music. But the tradition is now over for pupils in several US states such as South Carolina, Nevada, Georgia and Indiana. This academic year, many school boards have introduced policies which require students to work from home if the school is shut by snow or extreme weather. They are known as “e-learning days”, which certainly sounds less fun than a snow day.",
+        "[D] Teachers are also losing their snow days and instead will be expected to be on hand to take a virtual register and answer students' questions online. A pilot programme in a school district in Anderson County, South Carolina, has supplied students with electronic tablets loaded with assignments to complete in the event of a school closure. If it is successful, it could be rolled out across the state.",
+        "[E] But some parents object to the new policy if the vigorous debate on the Facebook page of Anderson County school district is anything to go by. “When it snows, let the kids enjoy it,” said one commenter. Another said the decision would “ruin school even more”, and someone else called snow days “a fun part of childhood”. But supporters of the policy say it means children will miss fewer days of school. It will also bring to an end a less popular US high school tradition: the “make-up day”, which requires students in many states to make up the time lost due to weather by working during school holidays.",
+        "[F] Students in North Carolina already have several make-up days scheduled because of school closures during Hurricane Florence, which struck in September. Tom Wilson, the superintendent (主管) of Anderson County school district, said the change away from snow days makes practical and financial sense. He said technology has changed every profession, so it makes sense to use it to “eliminate” make-up days. Adam Baker of the Department of Education in Indiana said e-learning days were proving a “great success”. He said most Indiana schools already use digital devices during lessons, so it was an “easy decision” to extend this to days when schools are closed. He denies the decision is depriving children of the chance to enjoy the snow. “Students are still able to enjoy snow days and outside time,” he said. “Many have PE and science assignments that have them out enjoying the weather.” But local school superintendents in Ohio are resisting proposals to adopt e-learning days. They fear that students without internet access at home will be disadvantaged by the policy, and superintendent Tom Roth is concerned that e-learning days will offer a lower quality of education.",
+        "[G] There are also so-called “blizzard bags”, with assignments that children take home ahead of an expected snow closure. But Mr Roth says it is not sufficient as a replacement. “I think we still need the class time to give our kids the education that they deserve,” he said. “You can't get that with a blizzard bag or doing the work from home like that. It's not going to be as effective.”",
+        "[H] There is a long-running debate on whether missing days of school affects attainment. In England, there has been a focus on tackling absenteeism (旷课) from school. The Department for Education (DFE) published research in 2016 arguing that missing any days at school could have a negative impact on results. Even a few days lost in a year could be enough to miss out on getting a good exam grade, the DFE's research concluded. This differed from the findings of a study from Harvard University in the US, which concluded that missing a few occasional days because of the weather did not damage learning.",
+        "[I] The Harvard study examined seven years of school results data and could not find any impact from snow closures. What caused more disruption was when schools tried to stay open in bad weather, even though many staff and pupils were absent. But weather can make a difference to school results, according to another piece of Harvard research published last summer. It's hot weather that has the negative impact. The results of 10 million school students were examined over 13 years and researchers found a “significant” link between years with extremely hot weather and lower results.",
+        "[J] It's obvious that students should go to school every day to get the most out of education. In cases of extreme weather students don't always have that option. However, research shows that authorised absences from school such as during extreme weather are less problematic for students than absences that are not authorised. This is because unauthorised absences tend to reflect patterns and behaviours of student disengagement, or the possible negative attitudes of parents towards education that students adopt and carry with them through schooling. The level of impact on students' educational performance is all to do with the length of time that a student is absent from school and how regularly this occurs."
+      ],
+      "study_paragraphs": [
+        "Certain institutions, such as schools, are likely to close when bad weather, such as snow, flooding or extreme heat or cold, causes travel difficulties, power outages (断供), or otherwise endangers public safety. When snowy weather arrives in the US, it means the chance of school children benefiting from the long-standing tradition of the “snow day”, when schools are forced to close and students get an unexpected day off.",
+        "The criterion for a snow day is primarily the inability of school buses to operate safely on their routes and danger to children who walk to school. Often, the school remains officially open even though buses do not run and classes are canceled. Severe weather that causes cancellation or delay is more likely in regions that are less able to handle the situation. Snow days are less common in more northern areas of the United States that are used to heavy winter snowfall, because municipalities are well equipped to clear roads and remove snow. In areas less accustomed to snow even small snowfalls of an inch or two may render roads unsafe.",
+        "Snow days are a familiar theme in American film and TV shows, with children getting the good news and then running outside for some seasonal snowman-building and snowball throwing, against a background of joyful pop music. But the tradition is now over for pupils in several US states such as South Carolina, Nevada, Georgia and Indiana. This academic year, many school boards have introduced policies which require students to work from home if the school is shut by snow or extreme weather. They are known as “e-learning days”, which certainly sounds less fun than a snow day.",
+        "Teachers are also losing their snow days and instead will be expected to be on hand to take a virtual register and answer students' questions online. A pilot programme in a school district in Anderson County, South Carolina, has supplied students with electronic tablets loaded with assignments to complete in the event of a school closure. If it is successful, it could be rolled out across the state.",
+        "But some parents object to the new policy if the vigorous debate on the Facebook page of Anderson County school district is anything to go by. “When it snows, let the kids enjoy it,” said one commenter. Another said the decision would “ruin school even more”, and someone else called snow days “a fun part of childhood”. But supporters of the policy say it means children will miss fewer days of school. It will also bring to an end a less popular US high school tradition: the “make-up day”, which requires students in many states to make up the time lost due to weather by working during school holidays.",
+        "Students in North Carolina already have several make-up days scheduled because of school closures during Hurricane Florence, which struck in September. Tom Wilson, the superintendent (主管) of Anderson County school district, said the change away from snow days makes practical and financial sense. He said technology has changed every profession, so it makes sense to use it to “eliminate” make-up days. Adam Baker of the Department of Education in Indiana said e-learning days were proving a “great success”. He said most Indiana schools already use digital devices during lessons, so it was an “easy decision” to extend this to days when schools are closed. He denies the decision is depriving children of the chance to enjoy the snow. “Students are still able to enjoy snow days and outside time,” he said. “Many have PE and science assignments that have them out enjoying the weather.” But local school superintendents in Ohio are resisting proposals to adopt e-learning days. They fear that students without internet access at home will be disadvantaged by the policy, and superintendent Tom Roth is concerned that e-learning days will offer a lower quality of education.",
+        "There are also so-called “blizzard bags”, with assignments that children take home ahead of an expected snow closure. But Mr Roth says it is not sufficient as a replacement. “I think we still need the class time to give our kids the education that they deserve,” he said. “You can't get that with a blizzard bag or doing the work from home like that. It's not going to be as effective.”",
+        "There is a long-running debate on whether missing days of school affects attainment. In England, there has been a focus on tackling absenteeism (旷课) from school. The Department for Education (DFE) published research in 2016 arguing that missing any days at school could have a negative impact on results. Even a few days lost in a year could be enough to miss out on getting a good exam grade, the DFE's research concluded. This differed from the findings of a study from Harvard University in the US, which concluded that missing a few occasional days because of the weather did not damage learning.",
+        "The Harvard study examined seven years of school results data and could not find any impact from snow closures. What caused more disruption was when schools tried to stay open in bad weather, even though many staff and pupils were absent. But weather can make a difference to school results, according to another piece of Harvard research published last summer. It's hot weather that has the negative impact. The results of 10 million school students were examined over 13 years and researchers found a “significant” link between years with extremely hot weather and lower results.",
+        "It's obvious that students should go to school every day to get the most out of education. In cases of extreme weather students don't always have that option. However, research shows that authorised absences from school such as during extreme weather are less problematic for students than absences that are not authorised. This is because unauthorised absences tend to reflect patterns and behaviours of student disengagement, or the possible negative attitudes of parents towards education that students adopt and carry with them through schooling. The level of impact on students' educational performance is all to do with the length of time that a student is absent from school and how regularly this occurs."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-06-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. There is opposition to the practice of giving children assignments to take home before extreme weather forces a school closure.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段讨论提前带回家的 blizzard bags 作业，Tom Roth 认为这不能代替课堂，学习效果较差。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. New policies adopted by many US schools require students to do online learning at home in case of a school closure",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说多个美国州的学校董事会要求学生在天气导致停课时在家学习，称为 e-learning days。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. According to some research, extreme hot weather negatively affects students' performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段引用哈佛研究，指出极端炎热的年份与学生成绩下降有显著联系。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. There is a time-honoured tradition in the US for school kids to stay at home on “snow days”.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段明确称 snow day 为 long-standing tradition，学校停课使孩子得到意外假日。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Debates on social media show some parents are opposed to ending the “snow day” tradition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段引用 Facebook 页面上家长的反对意见，他们希望孩子享受雪天和童年乐趣。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. In more northern regions of the US, school is less likely to be affected by snowy weather.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段说美国北部地区习惯大量降雪，具备清理道路的能力，因此 snow days 较少。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Research indicates absences from school with permission do not cause as many problems as those without permission.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段指出因极端天气等获准的缺勤比未经许可的缺勤对学生造成的问题少。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. There is objection to e-learning days owing to fear that students with no access to the Internet at home will suffer",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段的俄亥俄州学校负责人担心没有家庭互联网的学生会因线上学习政策受到不利影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. In a pilot programme, students are given electronic devices to do assignments when schools are closed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段描述试点项目向学生发放预装作业的电子平板，供学校关闭时使用。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. A long-standing debate is going on over the impact of school absences on students' academic performance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段首句说学校缺勤是否影响成绩存在 long-running debate，随后比较英国与哈佛研究的结论。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "It may sound surprising, but you don't have to be interested in fashion, or even in history, to enjoy Dress Codes: How the Laws of Fashion Made History. I happen to be interested in both, and ended up enjoying the book for completely different reasons.",
+        "Richard Thompson Ford is a law professor, and you probably won't forget that for even one page. His carefully reasoned arguments, packed with examples, sound almost like reading a court opinion, only maybe wordier. You will probably never think of fashion as a trifle again.",
+        "Ford's thesis is that the best way to understand what particular fashions meant in any given era is to look at the restrictions placed on them. Through this lens, he shows us that the first laws passed in the 1200s to ensure that only the nobility were allowed to wear certain fabrics, colors and ornaments reflected the rise of the middle class, who were now able to imitate some of these fashions. The status of the upper classes was threatened; fashion was a tool to preserve it.",
+        "Ford takes the reader through the evolution of fashion while examining the underlying motivations of status sex, power, and personality, which, he assumes, influenced all innovations in fashion in the past and which continue to influence us today. His writing is more than a little dense—dense with research, clauses, and precise adjectives and nouns. But there's also humor and enough interesting episodes to make the writing appealing. No one is spared his sharp analysis: not the easy targets of 19th century women's crippling (伤害身体的) fashions nor the modern uniforms of Silicon Valley T-shirts.",
+        "But the greatest strength of this book (on fashion!) is its intellectual profoundness. Ford asks us to question unconscious beliefs, to realize that we almost never do so, to understand that the simplest choices are charged with meaning, and yet that meaning can and does change all the time. Consider the fact that a 1918 catalog insisted that boys and girls be dressed in the appropriate color. We believe our thinking today is evolved; Ford shows us it's not."
+      ],
+      "study_paragraphs": [
+        "It may sound surprising, but you don't have to be interested in fashion, or even in history, to enjoy Dress Codes: How the Laws of Fashion Made History. I happen to be interested in both, and ended up enjoying the book for completely different reasons.",
+        "Richard Thompson Ford is a law professor, and you probably won't forget that for even one page. His carefully reasoned arguments, packed with examples, sound almost like reading a court opinion, only maybe wordier. You will probably never think of fashion as a trifle again.",
+        "Ford's thesis is that the best way to understand what particular fashions meant in any given era is to look at the restrictions placed on them. Through this lens, he shows us that the first laws passed in the 1200s to ensure that only the nobility were allowed to wear certain fabrics, colors and ornaments reflected the rise of the middle class, who were now able to imitate some of these fashions. The status of the upper classes was threatened; fashion was a tool to preserve it.",
+        "Ford takes the reader through the evolution of fashion while examining the underlying motivations of status sex, power, and personality, which, he assumes, influenced all innovations in fashion in the past and which continue to influence us today. His writing is more than a little dense—dense with research, clauses, and precise adjectives and nouns. But there's also humor and enough interesting episodes to make the writing appealing. No one is spared his sharp analysis: not the easy targets of 19th century women's crippling (伤害身体的) fashions nor the modern uniforms of Silicon Valley T-shirts.",
+        "But the greatest strength of this book (on fashion!) is its intellectual profoundness. Ford asks us to question unconscious beliefs, to realize that we almost never do so, to understand that the simplest choices are charged with meaning, and yet that meaning can and does change all the time. Consider the fact that a 1918 catalog insisted that boys and girls be dressed in the appropriate color. We believe our thinking today is evolved; Ford shows us it's not."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-06-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What does the author think of the book Dress Codes: How the Laws of Fashion Made History?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is read by people for entirely different reasons"
+            },
+            {
+              "key": "B",
+              "text": "It is meant for those interested in fashion history"
+            },
+            {
+              "key": "C",
+              "text": "It makes enjoyable as well as informative reading."
+            },
+            {
+              "key": "D",
+              "text": "It converts fashion into something for deliberation."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。作者说即使不对时尚或历史感兴趣也能享受此书，并赞赏其中的研究、分析和思想深度，说明读来有趣且富于信息。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. How can people best understand a particular fashion in an era, according to Ford?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By examining the restraints imposed on it."
+            },
+            {
+              "key": "B",
+              "text": "By looking at what the nobility were wearing."
+            },
+            {
+              "key": "C",
+              "text": "By glancing at its fabrics, colors and ornaments."
+            },
+            {
+              "key": "D",
+              "text": "By doing a survey of the upper and middle classes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段说明了解某个时代时尚含义的最好方式，是观察当时施加在时尚上的限制。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What was the aim of the first laws passed regarding fashion in the 1200s?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To facilitate the rise of the middle class"
+            },
+            {
+              "key": "B",
+              "text": "To loosen restrictions on dress codes."
+            },
+            {
+              "key": "C",
+              "text": "To help initiate some novel fashions."
+            },
+            {
+              "key": "D",
+              "text": "To preserve the status of the nobles."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第三段说中产阶级模仿贵族服饰威胁了上层阶级地位，限制衣着的法律把时尚用作维护其地位的工具。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What does the author think of Ford's writing?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It uses comparison and contrast in describing fashions of different eras"
+            },
+            {
+              "key": "B",
+              "text": "It makes heavy reading but is not lacking in humor or appeal"
+            },
+            {
+              "key": "C",
+              "text": "It is filled with interesting episodes to spare readers intolerable boredom."
+            },
+            {
+              "key": "D",
+              "text": "It is characteristic of academics in presenting arguments."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第四段称 Ford 的文字 dense，但同时具有 humor 和 interesting episodes，因此虽读起来费力，仍有幽默与吸引力。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author say is the greatest strength of Ford's book?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Plentiful information."
+            },
+            {
+              "key": "B",
+              "text": "Meaningful choices."
+            },
+            {
+              "key": "C",
+              "text": "Evolved thinking"
+            },
+            {
+              "key": "D",
+              "text": "Intellectual depth"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。最后一段直接指出此书 greatest strength 是 intellectual profoundness，对应 intellectual depth。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "The art of persuasion means convincing others to agree with your point of view or to follow your course of action. For some of us, persuasion is an instinctive quality and the power of influencing comes naturally. For the rest of us, persuasion skills can be learned and developed over time.",
+        "Employers place a great value on employees with persuasion skills because they can impact several aspects of job performance. Besides, teamwork and leadership rely heavily on the power of persuasion to get things done. Without persuasion skills, employees may not be as committed to or convinced of the importance of an organization's vision and long-term mission. Effective use of persuasion skills will not only help get your coworkers excited about your ideas, it'll also help you motivate them to achieve a common goal.",
+        "In order to learn the art of persuasion at the workplace, you need to understand how to handle conflicts and reach agreements. Good communication is the first step in effective persuasion, but logic and reasoning are just as important. Before you can get somebody on-board with your goal, you should help them understand why they should pursue it. Using visual aids to back up your ideas can help communicate your ideas better and make compelling arguments so your listeners will come to a logical choice and become fully committed to your ideas and plans.",
+        "Successful persuasion skills are based on your ability to have positive interactions and maintain meaningful relationships with people. In order to sustain those relationships, you must be able to work in their best interests as well. Your coworkers are more likely to agree with you when they succeed alongside you. The more they achieve and the greater progress they make, the more they trust your judgement and strength.",
+        "We persuade and get persuaded every day—we're either convincing or being convinced. A vast majority of people prefer collaboration and teamwork over traditional organizational structures; no one likes to be told what to do or to be pushed around. Therefore, organizations and leaders should adopt powerful persuasion skills to bring about necessary changes."
+      ],
+      "study_paragraphs": [
+        "The art of persuasion means convincing others to agree with your point of view or to follow your course of action. For some of us, persuasion is an instinctive quality and the power of influencing comes naturally. For the rest of us, persuasion skills can be learned and developed over time.",
+        "Employers place a great value on employees with persuasion skills because they can impact several aspects of job performance. Besides, teamwork and leadership rely heavily on the power of persuasion to get things done. Without persuasion skills, employees may not be as committed to or convinced of the importance of an organization's vision and long-term mission. Effective use of persuasion skills will not only help get your coworkers excited about your ideas, it'll also help you motivate them to achieve a common goal.",
+        "In order to learn the art of persuasion at the workplace, you need to understand how to handle conflicts and reach agreements. Good communication is the first step in effective persuasion, but logic and reasoning are just as important. Before you can get somebody on-board with your goal, you should help them understand why they should pursue it. Using visual aids to back up your ideas can help communicate your ideas better and make compelling arguments so your listeners will come to a logical choice and become fully committed to your ideas and plans.",
+        "Successful persuasion skills are based on your ability to have positive interactions and maintain meaningful relationships with people. In order to sustain those relationships, you must be able to work in their best interests as well. Your coworkers are more likely to agree with you when they succeed alongside you. The more they achieve and the greater progress they make, the more they trust your judgement and strength.",
+        "We persuade and get persuaded every day—we're either convincing or being convinced. A vast majority of people prefer collaboration and teamwork over traditional organizational structures; no one likes to be told what to do or to be pushed around. Therefore, organizations and leaders should adopt powerful persuasion skills to bring about necessary changes."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-06-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author say about the ability to be persuasive in the first paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People may either be born with it or be able to cultivate it."
+            },
+            {
+              "key": "B",
+              "text": "It proves crucial in making others follow one's course of action."
+            },
+            {
+              "key": "C",
+              "text": "It refers to the natural and instinctive power of influencing one's coworkers."
+            },
+            {
+              "key": "D",
+              "text": "People may view it as both a means to convince others and an art of communication."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说有些人的说服力属于天性，其余人的说服技巧则可以随时间学习和培养。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. Why are persuasion skills greatly valued in the workplace?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They enable employees to be convinced of their long-term gains."
+            },
+            {
+              "key": "B",
+              "text": "They enable employees to trust their leaders unconditionally."
+            },
+            {
+              "key": "C",
+              "text": "They help motivate coworkers to strive for a common goal."
+            },
+            {
+              "key": "D",
+              "text": "They help an organization to broaden its vision effectively."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第二段末句指出有效运用说服技巧可以激励同事实现共同目标。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What should people do to learn the art of persuasion at the workplace?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Acquire effective communication skills."
+            },
+            {
+              "key": "B",
+              "text": "Avoid getting involved in conflicts with others."
+            },
+            {
+              "key": "C",
+              "text": "Understand the reason for pursuing their goals"
+            },
+            {
+              "key": "D",
+              "text": "Commit themselves fully to their ideas and plans"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段明确说 Good communication is the first step in effective persuasion，学习说服首先需要有效沟通。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. When are you more likely to succeed in persuading your coworkers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When they are convinced you work in their interests while sacrificing your own."
+            },
+            {
+              "key": "B",
+              "text": "When they become aware of the potential strength of the judgements you make."
+            },
+            {
+              "key": "C",
+              "text": "When they become aware of the meaningful relationships you keep with them."
+            },
+            {
+              "key": "D",
+              "text": "When they are convinced they will make achievements together with you."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第四段说同事与自己共同获得成功时更可能赞同自己，与相信能一起取得成就相对应。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-06-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. Why are organizations and leaders advised to adopt powerful persuasion skills to bring about necessary changes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To convince employees of the value of collaboration."
+            },
+            {
+              "key": "B",
+              "text": "To allow for the preferences of most people of today"
+            },
+            {
+              "key": "C",
+              "text": "To improve on traditional organizational structures"
+            },
+            {
+              "key": "D",
+              "text": "To adapt to employees' ever-changing working styles."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。最后一段说大多数人偏好协作与团队合作，不愿被命令或推动，因此组织和领导应采用说服技巧，顺应这种偏好。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-06-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "汉语中的“福”字(the character fu)表示幸福和好运，是中国传统文化中最常用的吉祥(auspicious 符号之一。人们通常将一个大大的福字写在红纸上，寓意期盼家庭幸福、社会安定、国家昌盛。春节贴福字是民间由来已久的习俗。为了欢庆春节，家家户户都会将福字贴在门上或墙上，表达对幸福生活的向往、对美好未来的期待。人们有时还将福字倒过来贴，表示幸福已到、好运已到。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2024-06-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
