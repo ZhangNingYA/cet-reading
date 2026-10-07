@@ -30,7 +30,7 @@ for (const file of files) {
         ['position', 'type', 'prompt', 'options_json', 'answer_text', 'explanation', 'points']));
     }
     for (const [paragraphIndex, paragraph] of section.study_paragraphs.entries()) {
-      const sentences = paragraph.trim().split(/(?<=[.!?])\s+(?=[A-Z\["“])/u);
+      const sentences = paragraph.trim().split(/(?<=[.!?])\s+(?=[A-Z\["“])|(?<=[.!?]["”])\s+(?=[A-Z\["“])/u);
       for (const [sentenceIndex, source] of sentences.entries()) {
         const id = `${section.id}-sentence-${paragraphIndex + 1}-${sentenceIndex + 1}`;
         statements.push(insert('sentences',
@@ -45,7 +45,7 @@ for (const file of files) {
 statements.push('COMMIT;');
 const sql = statements.join('\n') + '\n';
 for (const directory of ['init', 'migrations']) {
-  const path = new URL(`../db/${directory}/006_seed_original_papers.sql`, import.meta.url);
+  const path = new URL(`../db/${directory}/009_seed_papers.sql`, import.meta.url);
   if (process.argv.includes('--check')) {
     if (readFileSync(path, 'utf8') !== sql) throw new Error(`${path.pathname} is out of date; run npm run seed:generate`);
   } else writeFileSync(path, sql);

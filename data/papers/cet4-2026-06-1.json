@@ -1,0 +1,1717 @@
+{
+  "id": "cet4-2026-06-1",
+  "exam_level": "CET4",
+  "year": 2026,
+  "month": 6,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2026年6月大学英语四级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理。",
+  "reference_paper_id": null,
+  "source_url": "https://pastpapers.cn/paper/2026-06-cet4-1",
+  "sections": [
+    {
+      "id": "cet4-2026-06-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the university newspaper is inviting submissions from the students for its coming edition on future applications of robots on campus. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2026-06-1-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the university newspaper is inviting submissions from the students for its coming edition on future applications of robots on campus. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2026-06-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "从词库中为每个空格选择一个词；每词最多使用一次。",
+      "paragraphs": [
+        "One of the biggest controversies over the Industrial Revolution is how it affected the working class. The oldest debates were over whether the standards of living rose or fell. Those that believed they fell claimed that the capitalists [26] ______ every ounce of surplus they could from the working class. Those that believed the standards of living rose claimed that the environment was consumer-friendly, with more and more goods [27] ______ to the working class every year.",
+        "Today’s historians agree that overall, the standards of living [28] ______ . They do not agree, however, on when this improvement [29] ______ .",
+        "In an effort to solve this controversy, historians have attempted to define [30] ______ what “standard of living” means. They all seem to agree that it should mean happiness, but happiness is impossible to measure. Instead, historians [31] ______ use “real income” as the measure for the standards of living. Real income is money [32] ______ and then adjusted according to the cost of living. However, it does not take into account unemployment, pollution, health, life expectancy, or free time.",
+        "After [33] ______ debate and analysis of the average income, historians have agreed to disagree on whether there was rapid or slow economic growth during the Industrial Revolution. Instead, they have decided to [34] ______ how the Industrial Revolution was affected by other events. They have determined that the Industrial Revolution had an overall positive [35] ______ , but it quite possibly was neutralized by negative events such as wars, high taxes, and rapid population growth."
+      ],
+      "study_paragraphs": [
+        "One of the biggest controversies over the Industrial Revolution is how it affected the working class. The oldest debates were over whether the standards of living rose or fell. Those that believed they fell claimed that the capitalists squeezed every ounce of surplus they could from the working class. Those that believed the standards of living rose claimed that the environment was consumer-friendly, with more and more goods available to the working class every year.",
+        "Today’s historians agree that overall, the standards of living increased . They do not agree, however, on when this improvement occurred .",
+        "In an effort to solve this controversy, historians have attempted to define exactly what “standard of living” means. They all seem to agree that it should mean happiness, but happiness is impossible to measure. Instead, historians typically use “real income” as the measure for the standards of living. Real income is money earned and then adjusted according to the cost of living. However, it does not take into account unemployment, pollution, health, life expectancy, or free time.",
+        "After exhausting debate and analysis of the average income, historians have agreed to disagree on whether there was rapid or slow economic growth during the Industrial Revolution. Instead, they have decided to interpret how the Industrial Revolution was affected by other events. They have determined that the Industrial Revolution had an overall positive effect , but it quite possibly was neutralized by negative events such as wars, high taxes, and rapid population growth."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2026-06-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N。squeezed every ounce of surplus 表示榨取全部剩余，承接生活水平下降这一观点。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A。goods available to the working class 表示工人阶级能够获得的商品。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I。historians agree that ... increased，说明整体生活水平有所提高。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K。when this improvement occurred 表示这种改善发生的时间。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F。define exactly what ... means，副词 exactly 修饰界定过程。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O。typically use 表示通常采用“实际收入”衡量生活水平。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C。money earned 为过去分词后置修饰，表示挣得的钱。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G。exhausting debate and analysis 表示令人疲惫的争论和分析。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J。interpret how ... was affected 表示解释工业革命如何受到其他事件影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "available"
+            },
+            {
+              "key": "B",
+              "text": "deteriorating"
+            },
+            {
+              "key": "C",
+              "text": "earned"
+            },
+            {
+              "key": "D",
+              "text": "effect"
+            },
+            {
+              "key": "E",
+              "text": "enhance"
+            },
+            {
+              "key": "F",
+              "text": "exactly"
+            },
+            {
+              "key": "G",
+              "text": "exhausting"
+            },
+            {
+              "key": "H",
+              "text": "experience"
+            },
+            {
+              "key": "I",
+              "text": "increased"
+            },
+            {
+              "key": "J",
+              "text": "interpret"
+            },
+            {
+              "key": "K",
+              "text": "occurred"
+            },
+            {
+              "key": "L",
+              "text": "peculiar"
+            },
+            {
+              "key": "M",
+              "text": "probably"
+            },
+            {
+              "key": "N",
+              "text": "squeezed"
+            },
+            {
+              "key": "O",
+              "text": "typically"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D。an overall positive effect 表示总体上的积极影响。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2026-06-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· The Star Quality of New Zealand’s Great Barrier Island",
+      "instructions": "将每条陈述与对应段落匹配；一个段落可以重复使用。",
+      "paragraphs": [
+        "[A] I was glad I had such terrible jetlag. Wide awake at 3:30 am with our nine-year-old daughter on our lodge balcony, I stared for hours at the most incredible night sky I’ve ever seen before the dawn slowly started to rub out the stars on the horizon and the multiple shooting stars faded away.",
+        "[B] We were going to my wife’s big family reunion in Auckland, New Zealand, but when we found out that Great Barrier Island, just off the coast, had been recently awarded Dark Sky Sanctuary status—a typically remote area that has an “exceptional or distinguished quality of starry nights”—we thought it would be the perfect place to relax before our busy schedule. It’s the first island and only the fourth location in the world to achieve this status.",
+        "[C] After a 28-hour flight with two travel-sick children, our hearts sank when we saw the tiny twin engine 10-seater that was to take us the 90 km across the Hauraki Gulf to Great Barrier Island. But we needn’t have worried. Whether it was the gravity force of the plane climbing or the noise of the engine, it put our three-year-old daughter instantly to sleep until we bumped down on the grass at Claris Airport. Our first empty sick bag against all the odds... Things were looking up.",
+        "[D] Great Barrier Island has no public facilities and the 950 people living there (though only about half permanently) rely on solar and wind energy, and bottled gas for cooking. There are no streetlights. There are no cash machines or banks. The police force comprises a husband and wife, and there’s one postman. It’s not just the lack of light but the lack of noise that’s so delightful on this unique and gorgeous scene. It was first discovered by East Polynesians about 700 years ago and the Maori name for the island is Aotea. Captain Cook gave the island its European name, because it acts as a barrier between the Pacific and the Hauraki Gulf.",
+        "[E] The climate here is subtropical (亚热带的) like Auckland’s. The island boasts a beautiful wilderness with dense forests, glorious, unspoilt sandy beaches and plenty of bays and a few mountainous areas where there are good walking tracks among the wetlands and valleys. You can birdwatch, dive, surf and boat. The best beaches are on the eastern side of the island where the surf is better, too. The sheltered western side is where you'll find the best diving and boating. Lots of people come here for the fantastic fishing spots around the island. Like a lot of spots in New Zealand, there are whale-watching trips and you might just catch sight of sharks.",
+        "[F] It’s rare to find an island that really does feel undiscovered—but this is it. When one of my wife’s relations, who comes here regularly, found out that we’d been there, he whispered to us, only half-joking: “Shh—don’t tell anyone!” The locals are a relaxed and friendly bunch—a lot of them told us that it’s like what Waiheke Island (now in effect a suburb of Auckland) was in the 1970s when it was a commune of artists and people wanting to escape the city.",
+        "[G] Our guide for some of our stay was the inestimable Hilde Hoven, a Dark Sky ambassador who runs Good Heavens with Deborah Kilgallon and Orla Cumisky. They bring their Dobsonian telescope and beanbags (it’s hard work staring up wide-eyed in wonder without neck support) and, our elder daughter was glad to hear, hot chocolate to wherever you are on the island. “It’s odd but when the light readings were done,” said Hilde, explaining how the island was awarded its special status, “they found there was more light pollution on the northern side coming from Fiji, which is about 3,000 km away, than Auckland to the south. It’s pretty dark!”",
+        "[H] Beginning their astronomical PowerPoint demonstration using a green laser pointer, Hilde and Orla showed us the Messier 4 spherical cluster (星团) with white dwarf stars (白矮星), Saturn and its rings, the Southern Cross and the Milky Way, which stretched across the sky. Our daughter was especially taken with Hilde’s narrating of the Maori myth of Maui’s fish hook to explain the shape of Scorpius. In the fable, Maui hauled the North Island of New Zealand from the bottom of the ocean with his hook.",
+        "[I] We stayed at Mount St Paul’s Estate, a luxurious lodge run by the friendly Chris and Teara, both from Canada. Teara used to be a chef at the Langham in Auckland and so dinner, eaten around a huge circular table (made of one of the most ancient trees in the world), was every bit as mouth-watering as you'd expect. Eating pancakes on the balcony overlooking the unspoilt white sandy beach was a great way to start the day.",
+        "[J] Another highlight was an hour-long walk to Kaitoke hot pools in the centre of the island, through wetlands and a forest, where we whiled away a good hour sitting in the pools shaded from the heat by layers of delicate umbrella-like plants.",
+        "[K] We also loved visiting the potter (陶艺家) Sarah Harrison, who showed us round her studio at Shoal Bay harbour, and her many pots and jugs, plates and bowls and colourful mosaics (马赛克). In her work, she also uses a lot of materials found on the beach. Our elder daughter loved the gorgeous hidden pool at Medlands beach where the water is separated from the sea in a private rock pool. Other high points were the ancient pohutukawa trees and the incredible views of Okiwi Basin and Whangapoua beach from the top of Windy Canyon, just a 10-minute hike through a narrow valley up some steep wooden steps on the eastern side of the island.",
+        "[L] Apparently the island council turned down famous musician Paul McCartney’s application to buy a property at Great Barrier Island because of the unwelcome attention he would have brought. You can see why he wanted to come here; equally, the island knows exactly what kind of star watching it prefers."
+      ],
+      "study_paragraphs": [
+        "I was glad I had such terrible jetlag. Wide awake at 3:30 am with our nine-year-old daughter on our lodge balcony, I stared for hours at the most incredible night sky I’ve ever seen before the dawn slowly started to rub out the stars on the horizon and the multiple shooting stars faded away.",
+        "We were going to my wife’s big family reunion in Auckland, New Zealand, but when we found out that Great Barrier Island, just off the coast, had been recently awarded Dark Sky Sanctuary status—a typically remote area that has an “exceptional or distinguished quality of starry nights”—we thought it would be the perfect place to relax before our busy schedule. It’s the first island and only the fourth location in the world to achieve this status.",
+        "After a 28-hour flight with two travel-sick children, our hearts sank when we saw the tiny twin engine 10-seater that was to take us the 90 km across the Hauraki Gulf to Great Barrier Island. But we needn’t have worried. Whether it was the gravity force of the plane climbing or the noise of the engine, it put our three-year-old daughter instantly to sleep until we bumped down on the grass at Claris Airport. Our first empty sick bag against all the odds... Things were looking up.",
+        "Great Barrier Island has no public facilities and the 950 people living there (though only about half permanently) rely on solar and wind energy, and bottled gas for cooking. There are no streetlights. There are no cash machines or banks. The police force comprises a husband and wife, and there’s one postman. It’s not just the lack of light but the lack of noise that’s so delightful on this unique and gorgeous scene. It was first discovered by East Polynesians about 700 years ago and the Maori name for the island is Aotea. Captain Cook gave the island its European name, because it acts as a barrier between the Pacific and the Hauraki Gulf.",
+        "The climate here is subtropical (亚热带的) like Auckland’s. The island boasts a beautiful wilderness with dense forests, glorious, unspoilt sandy beaches and plenty of bays and a few mountainous areas where there are good walking tracks among the wetlands and valleys. You can birdwatch, dive, surf and boat. The best beaches are on the eastern side of the island where the surf is better, too. The sheltered western side is where you'll find the best diving and boating. Lots of people come here for the fantastic fishing spots around the island. Like a lot of spots in New Zealand, there are whale-watching trips and you might just catch sight of sharks.",
+        "It’s rare to find an island that really does feel undiscovered—but this is it. When one of my wife’s relations, who comes here regularly, found out that we’d been there, he whispered to us, only half-joking: “Shh—don’t tell anyone!” The locals are a relaxed and friendly bunch—a lot of them told us that it’s like what Waiheke Island (now in effect a suburb of Auckland) was in the 1970s when it was a commune of artists and people wanting to escape the city.",
+        "Our guide for some of our stay was the inestimable Hilde Hoven, a Dark Sky ambassador who runs Good Heavens with Deborah Kilgallon and Orla Cumisky. They bring their Dobsonian telescope and beanbags (it’s hard work staring up wide-eyed in wonder without neck support) and, our elder daughter was glad to hear, hot chocolate to wherever you are on the island. “It’s odd but when the light readings were done,” said Hilde, explaining how the island was awarded its special status, “they found there was more light pollution on the northern side coming from Fiji, which is about 3,000 km away, than Auckland to the south. It’s pretty dark!”",
+        "Beginning their astronomical PowerPoint demonstration using a green laser pointer, Hilde and Orla showed us the Messier 4 spherical cluster (星团) with white dwarf stars (白矮星), Saturn and its rings, the Southern Cross and the Milky Way, which stretched across the sky. Our daughter was especially taken with Hilde’s narrating of the Maori myth of Maui’s fish hook to explain the shape of Scorpius. In the fable, Maui hauled the North Island of New Zealand from the bottom of the ocean with his hook.",
+        "We stayed at Mount St Paul’s Estate, a luxurious lodge run by the friendly Chris and Teara, both from Canada. Teara used to be a chef at the Langham in Auckland and so dinner, eaten around a huge circular table (made of one of the most ancient trees in the world), was every bit as mouth-watering as you'd expect. Eating pancakes on the balcony overlooking the unspoilt white sandy beach was a great way to start the day.",
+        "Another highlight was an hour-long walk to Kaitoke hot pools in the centre of the island, through wetlands and a forest, where we whiled away a good hour sitting in the pools shaded from the heat by layers of delicate umbrella-like plants.",
+        "We also loved visiting the potter (陶艺家) Sarah Harrison, who showed us round her studio at Shoal Bay harbour, and her many pots and jugs, plates and bowls and colourful mosaics (马赛克). In her work, she also uses a lot of materials found on the beach. Our elder daughter loved the gorgeous hidden pool at Medlands beach where the water is separated from the sea in a private rock pool. Other high points were the ancient pohutukawa trees and the incredible views of Okiwi Basin and Whangapoua beach from the top of Windy Canyon, just a 10-minute hike through a narrow valley up some steep wooden steps on the eastern side of the island.",
+        "Apparently the island council turned down famous musician Paul McCartney’s application to buy a property at Great Barrier Island because of the unwelcome attention he would have brought. You can see why he wanted to come here; equally, the island knows exactly what kind of star watching it prefers."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2026-06-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. The author’s daughter slept throughout the last leg of their flight to Great Barrier Island.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C。C 段写三岁的女儿在飞机起飞后马上入睡，一直睡到 Claris Airport 降落。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. The lodge where the author stayed provided very delicious food.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I。I 段写住处的晚餐令人垂涎，并提到主厨的工作经历和阳台上的早餐。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Many people are attracted to Great Barrier Island because of the incredible fishing sites around it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E。E 段明确说很多人因岛周围极好的垂钓地点而来。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. A well-known artist failed to purchase a house on Great Barrier Island.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L。L 段提到岛议会拒绝了音乐家 Paul McCartney 的购房申请。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Unable to fall asleep after a long flight, the author was pleased to enjoy the most gorgeous view of the night sky in his life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A。A 段中作者因时差凌晨清醒，在阳台上欣赏到最壮观的夜空。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Great Barrier Island is compared to another island which attracted a lot of artists and people who wished to stay away from city life half a century ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F。F 段把这里与 20 世纪 70 年代吸引艺术家和逃离城市者的 Waiheke Island 相比。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. One most memorable part of the author’s visit to Great Barrier Island was a one-hour walk to its centre’s hot springs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J。J 段把徒步一小时到岛中心的 Kaitoke hot pools 称为另一项精彩经历。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Great Barrier Island has officially been recognized for its extraordinary starry nights.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B。B 段介绍岛屿获得 Dark Sky Sanctuary 地位及其星空质量。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Great Barrier Island is not connected to any public power supply lines.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D。D 段说明居民依靠太阳能、风能及瓶装燃气，且没有公共设施和路灯。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. It is strange that light pollution on Great Barrier Island mainly comes from a faraway island to the north.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G。G 段指出北方约 3,000 公里外的 Fiji 带来的光污染比南方的 Auckland 更多。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2026-06-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "阅读文章，为每题选择一个最佳答案。",
+      "paragraphs": [
+        "Is organic food worth the higher price? It’s the classic grocery store dilemma. On the one hand, your family dinner table deserves only the best. On the other hand, your wallet can only stretch so far.",
+        "Whether or not to buy organic is a personal decision, said Mike von Massow, professor of Food Agriculture.",
+        "Science won’t give a clear-cut answer to the question of whether organic food is “better.” There are often trade-offs (权衡) and answers become less definitive depending on the product under consideration.",
+        "One thing is definitive: Organic and conventionally grown food are equally nutritious. From a nutrition point of view, there is no difference between organic and traditionally grown products.",
+        "Organic products don’t necessarily have fewer pesticides (杀虫剂)—in fact, they may have more. There is also no big difference between organic and non-organic products from a food-safety perspective. Even organic growers use pesticides. Testing shows little if any pesticide remains on conventionally grown products.",
+        "In fact, organic farmers often use larger quantities of pesticide because they can only use the natural variety of insect-killers. Chemical pesticides generally kill a much wider range of pests (害虫) than any single natural pesticide.",
+        "The use of animal waste in organic agriculture can also be a factor in the spread of bacteria like E. coli and salmonella. Over the past 10 years, Canada has seen more food-safety recalls for organic products, proportionally, than for conventional products.",
+        "On the whole, organic agriculture may have a smaller environmental footprint. That’s mostly because the risk of groundwater contamination from organic farming is lower. Organic farmers never used neonics, the controversial pesticides that have been linked to shrinking bee populations worldwide.",
+        "Traditional agriculture has been making “dramatic improvements” to reduce its impact on the environment.",
+        "It isn’t a black-and-white picture, though.",
+        "Organic farming is much less efficient when it comes to land use, although yields vary considerably depending on the crop.",
+        "On the other hand, advocates of organic farming argue yields and efficiency could be significantly improved if the food industry devoted as much research and money to organic farming as it does conventional agriculture."
+      ],
+      "study_paragraphs": [
+        "Is organic food worth the higher price? It’s the classic grocery store dilemma. On the one hand, your family dinner table deserves only the best. On the other hand, your wallet can only stretch so far.",
+        "Whether or not to buy organic is a personal decision, said Mike von Massow, professor of Food Agriculture.",
+        "Science won’t give a clear-cut answer to the question of whether organic food is “better.” There are often trade-offs (权衡) and answers become less definitive depending on the product under consideration.",
+        "One thing is definitive: Organic and conventionally grown food are equally nutritious. From a nutrition point of view, there is no difference between organic and traditionally grown products.",
+        "Organic products don’t necessarily have fewer pesticides (杀虫剂)—in fact, they may have more. There is also no big difference between organic and non-organic products from a food-safety perspective. Even organic growers use pesticides. Testing shows little if any pesticide remains on conventionally grown products.",
+        "In fact, organic farmers often use larger quantities of pesticide because they can only use the natural variety of insect-killers. Chemical pesticides generally kill a much wider range of pests (害虫) than any single natural pesticide.",
+        "The use of animal waste in organic agriculture can also be a factor in the spread of bacteria like E. coli and salmonella. Over the past 10 years, Canada has seen more food-safety recalls for organic products, proportionally, than for conventional products.",
+        "On the whole, organic agriculture may have a smaller environmental footprint. That’s mostly because the risk of groundwater contamination from organic farming is lower. Organic farmers never used neonics, the controversial pesticides that have been linked to shrinking bee populations worldwide.",
+        "Traditional agriculture has been making “dramatic improvements” to reduce its impact on the environment.",
+        "It isn’t a black-and-white picture, though.",
+        "Organic farming is much less efficient when it comes to land use, although yields vary considerably depending on the crop.",
+        "On the other hand, advocates of organic farming argue yields and efficiency could be significantly improved if the food industry devoted as much research and money to organic farming as it does conventional agriculture."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2026-06-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What is the classic grocery store dilemma?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whether or not one should eat organic food."
+            },
+            {
+              "key": "B",
+              "text": "Whether or not one can stretch their wallet far."
+            },
+            {
+              "key": "C",
+              "text": "Organic food costs more but it certainly tastes better."
+            },
+            {
+              "key": "D",
+              "text": "One wants the best food but their budget is limited."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D。首段的两难是希望给家人最好的食物，同时预算有限。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What do we learn about organic food from science?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whether it is any better remains uncertain."
+            },
+            {
+              "key": "B",
+              "text": "Whether it is healthier is under consideration."
+            },
+            {
+              "key": "C",
+              "text": "Whether it is more nutritious than conventional food is arguable."
+            },
+            {
+              "key": "D",
+              "text": "Whether it is going to replace conventional food is still unclear."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A。第三段明确说科学无法清楚回答有机食品是否“更好”，不同产品存在权衡。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the passage say about organic and non-organic products as far as food safety is concerned?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their difference is the conventions used to test them."
+            },
+            {
+              "key": "B",
+              "text": "They differ in how much pesticide remains on them."
+            },
+            {
+              "key": "C",
+              "text": "One relies on pesticides whereas the other does not."
+            },
+            {
+              "key": "D",
+              "text": "There is no substantial difference between the two."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D。原文从食品安全角度说明两者没有很大的差异。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What does the author say about organic farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may be blamed for the shrinking bee populations in the world."
+            },
+            {
+              "key": "B",
+              "text": "It minimizes the use of controversial pesticides in its operations."
+            },
+            {
+              "key": "C",
+              "text": "It may impact the environment less than conventional farming."
+            },
+            {
+              "key": "D",
+              "text": "It contaminates groundwater as much as conventional farming."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C。原文写有机农业整体上可能具有较小的环境足迹。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What do advocates of organic farming argue about its yields and efficiency?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They would increase quickly with the emergence of new technologies."
+            },
+            {
+              "key": "B",
+              "text": "They would improve remarkably with more research and investment."
+            },
+            {
+              "key": "C",
+              "text": "They would be achieved along with enormous health benefits."
+            },
+            {
+              "key": "D",
+              "text": "They would considerably lower the cost to the environment."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B。末段的支持者认为投入更多研究和资金可显著提高产量与效率。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2026-06-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "阅读文章，为每题选择一个最佳答案。",
+      "paragraphs": [
+        "It is still controversial whether we are fundamentally generous or selfish and whether these tendencies are shaped by our genes or environment.",
+        "Some evidence points to humans being born cooperative. At later stages in life we routinely work together to reach goals and help out in times of need.",
+        "Yet instances of selfish behavior are also plenty. One recent study tested people’s willingness to set aside selfish interests to reach a greater good. It found that being selfish was more advantageous than cooperating. The benefit may be short-lived, however. Another study showed that players who cooperated did better in the long run.",
+        "It seems that human nature supports both pro-social and selfish traits (特征). Genetic studies have made some progress toward identifying their biological roots. By comparing identical twins, who share nearly 100 percent of their genes, and non-identical twins, who share about half, researchers have found overwhelming evidence for genetic effects on behaviors. In these twin studies, identical and non-identical twins are asked, for example, to split a sum of money with a peer. Such studies often also rely on careful psychological assessments and DNA analysis.",
+        "Other work highlights specific genes as key players. My colleagues and I recently identified a gene linked to altruistic (利他的) behavior and found that a particular variant of it was associated with more selfish behavior in preschoolers.",
+        "According to evolutionary scientists, cooperative behavior may have evolved first among relatives to promote the continuation of their genetic line. As communities diversified, mutual support could have broadened to include individuals not linked by blood. Another possibility is that humans cooperate to gain some advantage, such as boosting reputation. Finally, evolutionary processes take place at the group level. Groups of highly cooperative individuals have higher chances of survival because they can work together to reach goals that are unattainable to less cooperative groups.",
+        "Yet almost no behavior is entirely genetic, even among identical twins. Culture, schooling and parenting are important determinants of cooperation. Thus, the degree to which we act cooperatively or selfishly is unique to each individual and depends on a variety of genetic and environmental influences."
+      ],
+      "study_paragraphs": [
+        "It is still controversial whether we are fundamentally generous or selfish and whether these tendencies are shaped by our genes or environment.",
+        "Some evidence points to humans being born cooperative. At later stages in life we routinely work together to reach goals and help out in times of need.",
+        "Yet instances of selfish behavior are also plenty. One recent study tested people’s willingness to set aside selfish interests to reach a greater good. It found that being selfish was more advantageous than cooperating. The benefit may be short-lived, however. Another study showed that players who cooperated did better in the long run.",
+        "It seems that human nature supports both pro-social and selfish traits (特征). Genetic studies have made some progress toward identifying their biological roots. By comparing identical twins, who share nearly 100 percent of their genes, and non-identical twins, who share about half, researchers have found overwhelming evidence for genetic effects on behaviors. In these twin studies, identical and non-identical twins are asked, for example, to split a sum of money with a peer. Such studies often also rely on careful psychological assessments and DNA analysis.",
+        "Other work highlights specific genes as key players. My colleagues and I recently identified a gene linked to altruistic (利他的) behavior and found that a particular variant of it was associated with more selfish behavior in preschoolers.",
+        "According to evolutionary scientists, cooperative behavior may have evolved first among relatives to promote the continuation of their genetic line. As communities diversified, mutual support could have broadened to include individuals not linked by blood. Another possibility is that humans cooperate to gain some advantage, such as boosting reputation. Finally, evolutionary processes take place at the group level. Groups of highly cooperative individuals have higher chances of survival because they can work together to reach goals that are unattainable to less cooperative groups.",
+        "Yet almost no behavior is entirely genetic, even among identical twins. Culture, schooling and parenting are important determinants of cooperation. Thus, the degree to which we act cooperatively or selfishly is unique to each individual and depends on a variety of genetic and environmental influences."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2026-06-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What is the finding of one recent study about being selfish?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may bring certain benefits in the short term."
+            },
+            {
+              "key": "B",
+              "text": "It usually yields more disadvantages than advantages."
+            },
+            {
+              "key": "C",
+              "text": "It serves individual interest rather than a collective’s."
+            },
+            {
+              "key": "D",
+              "text": "It may give way to cooperating in the long run."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A。第三段先说自私更有利，随后指出这种收益可能短暂，而合作长期表现更好。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What have researchers found by studying identical and non-identical twins?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are overwhelmingly different in the amounts of genes."
+            },
+            {
+              "key": "B",
+              "text": "One’s behavior is largely determined by their genetic traits."
+            },
+            {
+              "key": "C",
+              "text": "One’s biological roots can be identified by their genes."
+            },
+            {
+              "key": "D",
+              "text": "They differ from each other in their behavior patterns."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B。双胞胎研究段落强调基因对行为的影响；末段另补充文化、学校和家庭等环境因素。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What did the author and colleagues identify in their recent research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A gene-related selfish behavior in preschool children."
+            },
+            {
+              "key": "B",
+              "text": "Key factors that determine one’s altruistic behavior."
+            },
+            {
+              "key": "C",
+              "text": "A specific gene associated with altruistic behavior."
+            },
+            {
+              "key": "D",
+              "text": "Roles played by genes in shaping one’s character."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C。作者与同事发现一种与利他行为相关的特定基因，并进一步讨论它的变体。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do we learn from evolutionary scientists about cooperative behavior?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may have initially originated in individuals linked by blood."
+            },
+            {
+              "key": "B",
+              "text": "It may have caused the diversification of communities."
+            },
+            {
+              "key": "C",
+              "text": "It helps to build relationships among blood-related people."
+            },
+            {
+              "key": "D",
+              "text": "It guarantees the achievement of goals otherwise unattainable."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A。进化研究段落提出合作可能最先在亲属之间出现，以延续其遗传谱系。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2026-06-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What can we infer from the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cooperative behavior is evident among identical twins."
+            },
+            {
+              "key": "B",
+              "text": "One is born either cooperative or non-cooperative."
+            },
+            {
+              "key": "C",
+              "text": "Genes determine one’s tendency to cooperate."
+            },
+            {
+              "key": "D",
+              "text": "Cooperative behavior may be cultivated."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D。末段说明文化、学校教育和养育影响合作，因此合作行为可以培养。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2026-06-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Part IV · Translation · 30 minutes",
+      "paragraphs": [
+        "中国有句老话：“一日为师，终身为父”。在中国人的观念里，老师不仅传授知识，更教给学生做人的道理。在古代，学生初次见老师时要举行隆重的仪式，足见老师地位之高。为弘扬尊师的优良传统，中国从1985年开始将每年的9月10日定为教师节。在这一天，学生以各种方式表达对老师的敬意。尊师是中华民族的传统美德，在当今社会得到了发扬光大。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2026-06-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

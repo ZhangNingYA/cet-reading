@@ -12,7 +12,7 @@ Astro Web  ---- HTTPS /api ---->  Fastify API
 
 ## 数据边界
 
-- `papers` 保存 CET4/CET6/考研试卷和版本元数据；原创练习通过 `content_kind=original` 标记，外部记录只保留 `source_url`。
+- `papers` 保存 CET4/CET6/考研试卷和版本元数据；用户提供的试卷通过 `content_kind=imported` 标记，原创练习使用 `original`，外部记录只保留 `source_url`。
 - `paper_sections` 保存阅读、完形、匹配、翻译和写作等非听力板块。
 - `questions` 保存做题模式题目；`practice_attempts` 保存答题快照、答案和提交结果。
 - `sentences` 保存可复用的原文句子和顺序。

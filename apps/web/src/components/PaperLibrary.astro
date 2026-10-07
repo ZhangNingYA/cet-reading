@@ -83,13 +83,16 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     for (const section of paper.sections) {
       const block = document.createElement('section'); block.className = 'intensive-section'; block.dataset.sectionKind = section.kind;
       const heading = document.createElement('h3'); heading.textContent = section.title; block.append(heading);
-      if (section.kind === 'writing') {
+      if (section.kind === 'writing' && paper.content_kind !== 'imported') {
         const prompt = document.createElement('p'); prompt.className = 'practice-paragraph'; prompt.textContent = section.questions[0]?.prompt ?? ''; block.append(prompt);
       }
       if (section.kind === 'translation') for (const paragraph of section.paragraphs) {
         const text = document.createElement('p'); text.className = 'practice-paragraph'; text.textContent = paragraph; block.append(text);
       }
       const sentences = paper.sentences.filter(sentence => sentence.sectionId === section.id);
+      if (section.kind === 'cloze' && paper.content_kind === 'imported') {
+        const note = document.createElement('p'); note.className = 'section-instructions'; note.textContent = '空格已按参考答案补全，便于精读。'; block.append(note);
+      }
       let paragraphIndex = null;
       let paragraphBlock;
       for (const [index, sentence] of sentences.entries()) {
@@ -97,7 +100,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
           paragraphIndex = sentence.paragraphIndex;
           paragraphBlock = document.createElement('div'); paragraphBlock.className = 'intensive-paragraph';
           const label = section.kind === 'matching' ? `段落 ${String.fromCharCode(65 + paragraphIndex % 100)}`
-            : section.kind === 'writing' ? '参考范文' : section.kind === 'translation' ? '参考译文' : '';
+            : section.kind === 'writing' ? (paper.content_kind === 'imported' ? '写作要求' : '参考范文') : section.kind === 'translation' ? '参考译文' : '';
           if (label) { const subtitle = document.createElement('h4'); subtitle.textContent = label; paragraphBlock.append(subtitle); }
           block.append(paragraphBlock);
         }
@@ -155,7 +158,17 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     });
     readerContent.append(form);
   }
-  function renderPracticeResult(summary, target) { target.replaceChildren(); const heading = document.createElement('strong'); heading.textContent = `客观题 ${summary.objectiveScore} / ${summary.objectiveTotal} · ${summary.manualCount} 道主观题已保存并附参考答案`; target.append(heading); for (const question of summary.questions) { const line = document.createElement('p'); line.textContent = question.status === 'manual' ? `${question.id}：已保存作答；参考答案：${question.correctAnswer ?? '请结合评分要求自行核对'}` : `${question.id}：${question.status === 'correct' ? '正确' : question.status === 'unanswered' ? '未作答' : `错误，答案 ${question.correctAnswer}`} · ${question.explanation}`; target.append(line); } }
+  function renderPracticeResult(summary, target) {
+    target.replaceChildren();
+    const heading = document.createElement('strong'); heading.textContent = `客观题 ${summary.objectiveScore} / ${summary.objectiveTotal} · ${summary.manualCount} 道主观题已保存`; target.append(heading);
+    if (activePaper.content_kind === 'imported') { const note = document.createElement('p'); note.textContent = '客观题按依据原文整理的参考答案核对。'; target.append(note); }
+    const prompts = new Map(activePaper.sections.flatMap(section => section.questions.map(question => [question.id, question.prompt])));
+    for (const question of summary.questions) {
+      const line = document.createElement('p'); const title = prompts.get(question.id) ?? question.id;
+      line.textContent = question.status === 'manual' ? `${title}：已保存作答${question.correctAnswer ? `；参考答案：${question.correctAnswer}` : '，请自行核对。'}` : `${title}：${question.status === 'correct' ? '正确' : question.status === 'unanswered' ? '未作答' : `错误，参考答案 ${question.correctAnswer}`} · ${question.explanation}`;
+      target.append(line);
+    }
+  }
   function renderAnalysis(analysis, target) {
     target.replaceChildren(); const translation = document.createElement('p'); translation.className = 'translation'; translation.textContent = analysis.translation; const pattern = document.createElement('p'); pattern.className = 'pattern'; pattern.textContent = analysis.pattern; target.append(translation, pattern);
     const grammar = document.createElement('ul'); grammar.className = 'grammar'; grammar.append(Object.assign(document.createElement('li'), { textContent: `${analysis.grammar.sentenceType} · ${analysis.grammar.tense} · ${analysis.grammar.voice}` })); for (const clause of analysis.grammar.clauses) grammar.append(Object.assign(document.createElement('li'), { textContent: `${clause.type}：${clause.explanation}` })); target.append(grammar);

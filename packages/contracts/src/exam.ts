@@ -39,7 +39,7 @@ export const ImportPaperSchema = z.object({
   title: z.string().min(1),
   is_demo: z.boolean().default(false),
   content_state: z.enum(['local', 'external']),
-  content_kind: z.enum(['original', 'external', 'demo']).default('original'),
+  content_kind: z.enum(['original', 'imported', 'external', 'demo']).default('original'),
   description: z.string().default(''),
   reference_paper_id: Identifier.nullable().default(null),
   source_url: z.string().url().nullable().default(null),

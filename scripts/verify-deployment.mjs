@@ -46,17 +46,17 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
-const retainedId = 'original-cet4-2026-1';
+const retainedId = 'cet4-2026-06-1';
 const retainedPaper = papers.papers[0];
 if (papers.papers.length !== 1 || retainedPaper?.id !== retainedId
   || retainedPaper.exam_level !== 'CET4' || retainedPaper.content_state !== 'local'
-  || retainedPaper.content_kind !== 'original' || !retainedPaper.has_content) {
-  throw new Error('Only the first local CET4 practice paper should be published');
+  || retainedPaper.content_kind !== 'imported' || !retainedPaper.has_content) {
+  throw new Error('Only the user-provided first CET4 paper should be published');
 }
 const detailResponse = await fetchWithRetry(`/api/papers/${retainedId}`);
 const paper = await detailResponse.json();
 const sections = paper?.sections;
-const expectedPaper = JSON.parse(readFileSync(new URL('../data/papers/original-cet4-2026-1.json', import.meta.url), 'utf8'));
+const expectedPaper = JSON.parse(readFileSync(new URL('../data/papers/cet4-2026-06-1.json', import.meta.url), 'utf8'));
 if (!Array.isArray(sections) || sections.length !== 6
   || sections.reduce((count, section) => count + section.questions.length, 0) !== 32
   || !Array.isArray(paper.sentences)) {
@@ -66,9 +66,10 @@ for (const expected of expectedPaper.sections) {
   const section = sections.find(item => item.id === expected.id);
   if (!section || section.questions.length !== expected.questions.length
     || JSON.stringify(section.paragraphs) !== JSON.stringify(expected.paragraphs)
-    || !paper.sentences.some(sentence => sentence.sectionId === section.id)) {
+    || JSON.stringify(section.questions) !== JSON.stringify(expected.questions.map(({id, type, prompt, options}) => ({id, type, prompt, options})))
+    || (expected.study_paragraphs.length && !paper.sentences.some(sentence => sentence.sectionId === section.id))) {
     throw new Error(`The complete paper is missing content or study sentences for ${expected.title}`);
   }
 }
 
-console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, one complete CET4 paper)`);
+console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, one imported CET4 paper)`);
