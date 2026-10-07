@@ -8,8 +8,9 @@ COPY apps/web/package.json apps/web/package.json
 COPY apps/api/package.json apps/api/package.json
 COPY apps/worker/package.json apps/worker/package.json
 RUN npm install
+COPY packages/contracts packages/contracts
 COPY apps/web apps/web
-RUN npm run build:web
+RUN npm run build:contracts && npm run build:web
 
 FROM caddy:2-alpine
 COPY --from=build /app/apps/web/dist /srv

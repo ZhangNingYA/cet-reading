@@ -1,5 +1,7 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { tokenize } from './tokens.js';
+export { tokenize } from './tokens.js';
 
 export const BaseTokenSchema = z.object({
   index: z.number().int().nonnegative(),
@@ -66,17 +68,6 @@ export type AIAnalysis = z.infer<typeof AIAnalysisSchema>;
 export type SentenceAnalysis = z.infer<typeof SentenceAnalysisSchema>;
 export type JobStatus = 'pending' | 'running' | 'succeeded' | 'failed';
 export type AnalysisMode = 'demo' | 'ai';
-
-export function tokenize(source: string): BaseToken[] {
-  const expression = /[A-Za-z]+(?:['’][A-Za-z]+)*(?:-[A-Za-z]+(?:['’][A-Za-z]+)*)*|\d+(?:[.,]\d+)*|[^\s]/gu;
-  return Array.from(source.matchAll(expression), (match, index) => ({
-    index,
-    text: match[0],
-    kind: /^[A-Za-z0-9]/.test(match[0]) ? 'word' : 'punctuation',
-    charStart: match.index!,
-    charEnd: match.index! + match[0].length,
-  }));
-}
 
 export function sourceHash(source: string): string {
   return createHash('sha256').update(source).digest('hex');
