@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 const baseUrl = (process.env.DEPLOY_URL || 'http://localhost:8081').replace(/\/+$/, '');
 const timeoutMs = Number(process.env.DEPLOY_VERIFY_TIMEOUT_MS || 15_000);
 const attempts = Number(process.env.DEPLOY_VERIFY_ATTEMPTS || 5);
@@ -54,10 +56,19 @@ if (papers.papers.length !== 1 || retainedPaper?.id !== retainedId
 const detailResponse = await fetchWithRetry(`/api/papers/${retainedId}`);
 const paper = await detailResponse.json();
 const sections = paper?.sections;
+const expectedPaper = JSON.parse(readFileSync(new URL('../data/papers/original-cet4-2026-1.json', import.meta.url), 'utf8'));
 if (!Array.isArray(sections) || sections.length !== 6
-  || sections.reduce((count, section) => count + section.questions.length, 0) !== 17
-  || !Array.isArray(paper.sentences) || paper.sentences.length !== 40) {
-  throw new Error('The retained CET4 paper must keep all six sections, 17 questions and 40 study sentences');
+  || sections.reduce((count, section) => count + section.questions.length, 0) !== 32
+  || !Array.isArray(paper.sentences)) {
+  throw new Error('The CET4 paper must contain all six non-listening sections and 32 questions');
+}
+for (const expected of expectedPaper.sections) {
+  const section = sections.find(item => item.id === expected.id);
+  if (!section || section.questions.length !== expected.questions.length
+    || JSON.stringify(section.paragraphs) !== JSON.stringify(expected.paragraphs)
+    || !paper.sentences.some(sentence => sentence.sectionId === section.id)) {
+    throw new Error(`The complete paper is missing content or study sentences for ${expected.title}`);
+  }
 }
 
 console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, one complete CET4 paper)`);

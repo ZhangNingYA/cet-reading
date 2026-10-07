@@ -143,11 +143,19 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .practice-section { padding: 22px 0 26px; border-bottom: 1px solid #e7e1da; }
 .practice-section:first-child { padding-top: 0; }
 .practice-section h3 { margin: 0 0 14px; color: var(--ink); font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
+.section-instructions { margin: 0 0 18px; color: var(--muted); font-size: .75rem; line-height: 1.7; }
+.intensive-section { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.intensive-section:last-child { border-bottom: 0; }
+.intensive-section h3 { margin: 0 0 18px; color: var(--ink); font-size: 1.1rem; font-weight: 500; }
+.intensive-paragraph h4 { margin: 22px 0 0; color: var(--muted); font-size: .75rem; font-weight: 500; }
+.intensive-paragraph + .intensive-paragraph { margin-top: 12px; }
 .practice-paragraph { margin: 0 0 16px; color: var(--ink); font-family: var(--serif); font-size: 1.03rem; line-height: 1.75; }
 .practice-question { padding: 15px 0 0; margin: 0; border: 0; }
 .practice-question legend { padding: 0; color: var(--ink); font-size: .82rem; line-height: 1.7; }
 .practice-question label { display: block; padding: 7px 0; color: var(--muted); font-size: .75rem; line-height: 1.55; cursor: pointer; }
 .practice-question input { accent-color: var(--clay); }
+.word-bank { display: flex; flex-wrap: wrap; gap: 9px 22px; margin: 18px 0; padding: 14px 0; border-block: 1px solid var(--line); color: var(--ink); font-size: .8rem; }
+.practice-question select { max-width: 100%; margin: 9px 0 6px; padding: 7px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-size: .78rem; }
 .practice-question textarea { width: min(100%, 680px); padding: 10px 12px; margin-top: 9px; color: var(--ink); border: 1px solid var(--line); background: #fff; font-size: .78rem; line-height: 1.65; resize: vertical; }
 .practice-form > .button { margin-top: 25px; }
 .practice-result { margin-top: 20px; padding: 17px 19px; color: var(--muted); background: var(--paper-warm); border-left: 2px solid var(--clay); font-size: .72rem; line-height: 1.7; }

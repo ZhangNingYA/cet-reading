@@ -12,7 +12,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
   <div class="library-toolbar">
     <label class="paper-search">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6" /><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
-      <span class="sr-only">搜索文章标题或年份</span><input id="paper-search" type="search" placeholder="搜索标题或年份" autocomplete="off" />
+      <span class="sr-only">搜索试卷标题或年份</span><input id="paper-search" type="search" placeholder="搜索标题或年份" autocomplete="off" />
     </label>
   </div>
   <div class="library-content"><div class="library-results" aria-busy="true" id="library-results">
@@ -79,11 +79,37 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     readerMeta.textContent = `${levelName(activePaper.exam_level)} · ${activePaper.year} · ${activePaper.variant || `第 ${activePaper.set_no} 套`}`; readerTitle.textContent = activePaper.title; const modeHint = mode === 'intensive' ? '逐句阅读，按需生成精读' : '选择答案并提交，主观题显示参考答案'; readerStatus.textContent = [modeHint, activePaper.description].filter(Boolean).join(' · '); readerContent.replaceChildren(); reader.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (mode === 'intensive') renderIntensive(activePaper); else await renderPractice(activePaper); readerTitle.focus({ preventScroll: true });
   }
-  function renderIntensive(paper) { if (!paper.sentences.length) { readerContent.innerHTML = '<div class="empty-state"><strong>本地尚未导入原文</strong><span>该试卷目前只能从原站查看。</span></div>'; return; } for (const [index, sentence] of paper.sentences.entries()) renderSentence(sentence, index); }
-  function renderSentence(sentence, index) {
+  function renderIntensive(paper) {
+    for (const section of paper.sections) {
+      const block = document.createElement('section'); block.className = 'intensive-section'; block.dataset.sectionKind = section.kind;
+      const heading = document.createElement('h3'); heading.textContent = section.title; block.append(heading);
+      if (section.kind === 'writing') {
+        const prompt = document.createElement('p'); prompt.className = 'practice-paragraph'; prompt.textContent = section.questions[0]?.prompt ?? ''; block.append(prompt);
+      }
+      if (section.kind === 'translation') for (const paragraph of section.paragraphs) {
+        const text = document.createElement('p'); text.className = 'practice-paragraph'; text.textContent = paragraph; block.append(text);
+      }
+      const sentences = paper.sentences.filter(sentence => sentence.sectionId === section.id);
+      let paragraphIndex = null;
+      let paragraphBlock;
+      for (const [index, sentence] of sentences.entries()) {
+        if (sentence.paragraphIndex !== paragraphIndex) {
+          paragraphIndex = sentence.paragraphIndex;
+          paragraphBlock = document.createElement('div'); paragraphBlock.className = 'intensive-paragraph';
+          const label = section.kind === 'matching' ? `段落 ${String.fromCharCode(65 + paragraphIndex % 100)}`
+            : section.kind === 'writing' ? '参考范文' : section.kind === 'translation' ? '参考译文' : '';
+          if (label) { const subtitle = document.createElement('h4'); subtitle.textContent = label; paragraphBlock.append(subtitle); }
+          block.append(paragraphBlock);
+        }
+        renderSentence(sentence, index, paragraphBlock);
+      }
+      readerContent.append(block);
+    }
+  }
+  function renderSentence(sentence, index, target) {
     const article = document.createElement('article'); article.className = 'sentence'; const number = document.createElement('span'); number.className = 'sentence-number'; number.textContent = String(index + 1).padStart(2, '0');
     const content = document.createElement('div'); content.className = 'sentence-content'; const source = document.createElement('p'); source.className = 'source'; source.lang = 'en'; source.textContent = sentence.source;
-    const button = document.createElement('button'); button.className = 'button button-small'; button.textContent = '开始精读'; const result = document.createElement('div'); result.className = 'analysis-result'; button.addEventListener('click', () => analyze(sentence.id, button, result)); content.append(source, button, result); article.append(number, content); readerContent.append(article);
+    const button = document.createElement('button'); button.className = 'button button-small'; button.textContent = '开始精读'; const result = document.createElement('div'); result.className = 'analysis-result'; button.addEventListener('click', () => analyze(sentence.id, button, result)); content.append(source, button, result); article.append(number, content); target.append(article);
   }
   async function analyze(sentenceId, button, result) {
     button.disabled = true; button.textContent = '生成中…';
@@ -101,17 +127,29 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     const attempt = await response.json(); const form = document.createElement('form'); form.className = 'practice-form';
     for (const section of paper.sections) {
       const block = document.createElement('section'); block.className = 'practice-section'; const heading = document.createElement('h3'); heading.textContent = section.title; block.append(heading);
+      if (section.instructions) { const note = document.createElement('p'); note.className = 'section-instructions'; note.textContent = section.instructions; block.append(note); }
+      if (section.kind === 'cloze') {
+        const bank = document.createElement('div'); bank.className = 'word-bank'; bank.setAttribute('aria-label', '选词填空词库');
+        for (const option of section.questions[0]?.options ?? []) { const word = document.createElement('span'); word.textContent = `${option.key}. ${option.text}`; bank.append(word); }
+        block.append(bank);
+      }
       for (const paragraph of section.paragraphs ?? []) { const text = document.createElement('p'); text.className = 'practice-paragraph'; text.textContent = paragraph; block.append(text); }
       for (const question of section.questions) {
         const item = document.createElement('fieldset'); item.className = 'practice-question'; const legend = document.createElement('legend'); legend.textContent = question.prompt; item.append(legend);
-        if (question.type === 'choice') for (const option of question.options) { const label = document.createElement('label'); const input = document.createElement('input'); input.type = 'radio'; input.name = question.id; input.value = option.key; label.append(input, document.createTextNode(` ${option.key}. ${option.text}`)); item.append(label); }
+        if (question.type === 'choice' && ['cloze', 'matching'].includes(section.kind)) {
+          const select = document.createElement('select'); select.name = question.id; select.setAttribute('aria-label', question.prompt);
+          const placeholder = document.createElement('option'); placeholder.value = ''; placeholder.textContent = '选择答案'; select.append(placeholder);
+          for (const option of question.options) { const choice = document.createElement('option'); choice.value = option.key; choice.textContent = `${option.key}. ${option.text}`; select.append(choice); }
+          item.append(select);
+        }
+        else if (question.type === 'choice') for (const option of question.options) { const label = document.createElement('label'); const input = document.createElement('input'); input.type = 'radio'; input.name = question.id; input.value = option.key; label.append(input, document.createTextNode(` ${option.key}. ${option.text}`)); item.append(label); }
         else { const textarea = document.createElement('textarea'); textarea.name = question.id; textarea.rows = 5; textarea.placeholder = '在这里作答'; item.append(textarea); }
         block.append(item);
       }
       form.append(block);
     }
     const submit = document.createElement('button'); submit.type = 'submit'; submit.className = 'button button-small'; submit.textContent = '提交答案'; const result = document.createElement('div'); result.className = 'practice-result'; form.append(submit, result);
-    form.addEventListener('submit', async (event) => { event.preventDefault(); submit.disabled = true; const answers = Object.fromEntries([...form.querySelectorAll('input:checked, textarea')].map((input) => [input.name, input.value]));
+    form.addEventListener('submit', async (event) => { event.preventDefault(); submit.disabled = true; const answers = Object.fromEntries([...form.querySelectorAll('input:checked, textarea, select')].map((input) => [input.name, input.value]));
       try { const saved = await fetch(`${apiBase}/api/attempts/${attempt.id}/answers`, { method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ answers }) }); if (!saved.ok) throw new Error('save failed'); const submittedResponse = await fetch(`${apiBase}/api/attempts/${attempt.id}/submit`, { method: 'POST' }); if (!submittedResponse.ok) throw new Error('submit failed'); renderPracticeResult((await submittedResponse.json()).result, result); }
       catch { result.textContent = '提交失败，请重试。'; submit.disabled = false; }
     });
