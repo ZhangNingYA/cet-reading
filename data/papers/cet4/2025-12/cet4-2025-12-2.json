@@ -1,0 +1,1707 @@
+{
+  "id": "cet4-2025-12-2",
+  "exam_level": "CET4",
+  "year": 2025,
+  "month": 12,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2025年12月大学英语四级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2025-12-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose it is proposed that all university students should be required to learn academic writing. You are now to write a response by stating what you think of the proposal. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-2-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose it is proposed that all university students should be required to learn academic writing. You are now to write a response by stating what you think of the proposal. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Some music inspires you to move your feet, some inspires you to get out there and change the world. In any case, it's [26] ______ to say that music moves people in special ways.",
+        "If you're especially into a piece of music, your brain does something called Autonomous Sensory Meridian Response (ASMR); which [27] ______ to you like a sting in your brain.",
+        "It turns out that ASMR is pretty special. According to a [28] ______ published study in The Journal of Prevention of Alzheimer's Disease, the part of your brain responsible for ASMR doesn't get lost to Alzheimer's. Alzheimer's [29] ______ to put people into layers of confusion, and the study confirms that music can sometimes [30] ______ lift people out of the Alzheimer's haze and bring them back to (at least a likeness of) normalit.… if only for a short while. ASMR is powerful stuff!",
+        "This phenomenon has been [31] ______ several times but rarely studied properly. One of the most famous examples of this is the story of 92-year-old Henry Dryer, who comes out of dementia (痴呆) while listening to songs from his youth.",
+        "Jeff Anderson, associate professor in Radiology at the University of Utah and [32] ______ author on the study, says \"In our society, the diagnoses of dementia are [33] ______ resources to the maximum. No one says playing music will be a cure for Alzheimer's disease, but it might make the symptoms more [34] ______, decrease the cost of care and improve a patient's [35] ______ of life.”"
+      ],
+      "study_paragraphs": [
+        "Some music inspires you to move your feet, some inspires you to get out there and change the world. In any case, it's fair to say that music moves people in special ways.",
+        "If you're especially into a piece of music, your brain does something called Autonomous Sensory Meridian Response (ASMR); which feels to you like a sting in your brain.",
+        "It turns out that ASMR is pretty special. According to a recently published study in The Journal of Prevention of Alzheimer's Disease, the part of your brain responsible for ASMR doesn't get lost to Alzheimer's. Alzheimer's tends to put people into layers of confusion, and the study confirms that music can sometimes actually lift people out of the Alzheimer's haze and bring them back to (at least a likeness of) normalit.… if only for a short while. ASMR is powerful stuff!",
+        "This phenomenon has been observed several times but rarely studied properly. One of the most famous examples of this is the story of 92-year-old Henry Dryer, who comes out of dementia (痴呆) while listening to songs from his youth.",
+        "Jeff Anderson, associate professor in Radiology at the University of Utah and contributing author on the study, says \"In our society, the diagnoses of dementia are taxing resources to the maximum. No one says playing music will be a cure for Alzheimer's disease, but it might make the symptoms more manageable, decrease the cost of care and improve a patient's quality of life.”"
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。it is fair to say 表示可以合理地说，承接音乐以不同方式打动人的例子。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。which feels to you like a sting 描述 ASMR 给人的感觉。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。recently 修饰 published，意为最近发表的研究。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。tends to put people into layers of confusion 表示阿尔茨海默病往往使人陷入混乱。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。actually lift people out 强调音乐确实能暂时帮助患者摆脱混乱。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。has been observed 表示这一现象已被多次观察到，与 rarely studied properly 对应。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。contributing author 表示参与这项研究的作者。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。taxing resources to the maximum 表示痴呆症给社会资源带来极大负担。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。make the symptoms more manageable 表示让症状更易控制，并降低照护成本。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "consequently"
+            },
+            {
+              "key": "C",
+              "text": "contributing"
+            },
+            {
+              "key": "D",
+              "text": "fair"
+            },
+            {
+              "key": "E",
+              "text": "feels"
+            },
+            {
+              "key": "F",
+              "text": "manageable"
+            },
+            {
+              "key": "G",
+              "text": "mends"
+            },
+            {
+              "key": "H",
+              "text": "observed"
+            },
+            {
+              "key": "I",
+              "text": "phase"
+            },
+            {
+              "key": "J",
+              "text": "plotting"
+            },
+            {
+              "key": "K",
+              "text": "quality"
+            },
+            {
+              "key": "L",
+              "text": "recently"
+            },
+            {
+              "key": "M",
+              "text": "taxing"
+            },
+            {
+              "key": "N",
+              "text": "tends"
+            },
+            {
+              "key": "O",
+              "text": "yielded"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。quality of life 是生活质量的固定表达。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Can playing video games help you get a better job?",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] The gaming industry is larger than films and music combined, yet few of us are likely to list our achievements in playing computer games as work experience in our résumé. But why not? Businesses are waking up to the skills gamers can bring to the workplace.",
+        "[B] One start-up is convinced that the skills learned by playing games—hard-won through years of training and battle—can be applied to real-life work situations. And Game Academy reckons its belief is backed up by hard data. Do you enjoy unusual puzzle games like Portal, or tower defence games like Defense Grid? The team has found that IT workers play those more than average. But if you prefer Civilization, Total War, or X-Com, where strategy and resource management are key, then you might have more in common with managers.",
+        "[C] Game Academy's idea is simple: analyse gamers' habits from their online gaming profile, and offer courses in valuable skills that reflect their aptitudes—skills they can practise and refine in-game. And there is already a growing acceptance that gaming skills are transferable.",
+        "[D] Even the military is hiring gamers. \"\"The ability to absorb information, react swifly and coordinate actions whilst remaining calm under pressure are often attributes of people that are good at gaming,\" according to a Royal Air Force spokesperson. Those skills are part of what the Royal Air Force is looking for “in a variety of roles”. “Skills acquired through gaming can be very relevant to certain areas.”",
+        "[E] \"There are plenty of soft skills that gamers can utilise in a professional setting, such as teamwork, problem solving and strategic planning,” says Ryan Gardner, a regional director with Hays recruitment. But does that really mean your top 100 ranking in Overwatch should go down in your résumé?\" It's about how you either make it relevant to the job you are applying for, or how it makes you more interesting as a potential employee,\" Mr.Gardner says.",
+        "[F] Two years ago, a Glasgow University study made headlines for suggesting gaming could make students more successful. But \"the research hasn't really changed minds, at least not yet,\" says one of the authors of the study, Dr.Matthew Barr. He's now writing a book on the topic.\" For now, I think the negative reputation around games means that telling someone you're a determined gamer is more likely to harm your chances of getting a job. But if someone can explain how they've led a team in an online game, for example, they may be able to persuade an employer that this is useful,\" says Dr Barr.",
+        "[G] Playing games casually is unlikely to help your career prospects. But part of Game Academy's suggestion is to transform casual gamers into “conscious” ones, applying critical thinking to developing their skills. “We see gameplay as a resource of talent,\" says co-founder David Barrie. “Why can't we put in our résumé our gaming victories and achievements?\" he asks.\" If they say they want leadership—why can't I point to my years of leading World of Warcraft raids?”",
+        "[H] There are already plenty of gamers out there who know that their hobby has made them who they are. Earlier this year, Matthew Ricci told gaming site Kotaku: “If you're playing EVE Online you basically already have an MBA.” Often made fun of in gaming circles as a “spreadsheet simulator (电子表格模拟器)”, the economy of the fictional EVE universe is driven by real market principles. If you want to build a new spaceship, the raw material has to be mined by another player. Manufacturing costs come into effect, and commodities fluctuate in price based on demand and the distance to haul the commodity.",
+        "[I] Mr.Ricci, who had always dreamed of being the boss of his own company, ran an in-game corporation comprising hundreds of players. Eventually, he realised he could transfer his skills to real-life business—instead of doing it for free. He restructured Zentech, once a taxation vehicle for his father's business, and it is now in its fourth year helping international brands enter the Canadian market. EVE teaches skills like creativity, leadership, organisation, and conflict resolution, he maintains. He credits his success to his family, his strong desire to run his own business—and “a damn good company in Iceland that made a damn good game”.",
+        "[J] Digital entrepreneur and business consultant Mia Bennett says: \"In more traditional settings, gaming is still imagined to be the pursuit of teenage boys—a waste of time.” But there are some links to skills like \"decision-making, the ability to anticipate and future planning,\" she says.\" It also helps with meta-skills—learning how to learn, experimentation, and creative thinking.”",
+        "[K] Twelve years into his career, Mark Long, a radiotherapy physicist with the NHS in Surrey, doesn't get as much gaming time as he used to. “I would love to say that my gaming skills allow me to destroy cancer using linear accelerators like photon (光子) blasters, but that's not quite the reality.\" Instead, he credits old-school games like Palace of Magic with exposing him to computers. Every new gaming upgrade improved his knowledge of how they worked. Gaming also encouraged a competitive spirit—and that, he believes, translates. “When creating treatment plans, the aim is to optimise the radiation dose to the tumour and restrict it as much as possible to healthy surrounding tissues and organs,\" he says. It's about \"repeating the process, but each time doing something slightly different to improve the result\". Not unlike achieving a high score or a perfect run. “Most videogames are essentially puzzles to solve,\" he says. “And problem-solving is a big part of my job.”",
+        "[L] Over at Game Academy, Mr.Barrie is aware they still have a mountain to climb.\" The employer community will need the science,\" he says, but confesses he only became a true believer when he started asking players about their biggest in-game achievements. “The scale and scope of their answers were amazing,\" he says. “But ask them the same about their work, and they don't know.” “The engagement and powerful skills that people get playing a game—why can't work be like that?” he asks."
+      ],
+      "study_paragraphs": [
+        "The gaming industry is larger than films and music combined, yet few of us are likely to list our achievements in playing computer games as work experience in our résumé. But why not? Businesses are waking up to the skills gamers can bring to the workplace.",
+        "One start-up is convinced that the skills learned by playing games—hard-won through years of training and battle—can be applied to real-life work situations. And Game Academy reckons its belief is backed up by hard data. Do you enjoy unusual puzzle games like Portal, or tower defence games like Defense Grid? The team has found that IT workers play those more than average. But if you prefer Civilization, Total War, or X-Com, where strategy and resource management are key, then you might have more in common with managers.",
+        "Game Academy's idea is simple: analyse gamers' habits from their online gaming profile, and offer courses in valuable skills that reflect their aptitudes—skills they can practise and refine in-game. And there is already a growing acceptance that gaming skills are transferable.",
+        "Even the military is hiring gamers. \"\"The ability to absorb information, react swifly and coordinate actions whilst remaining calm under pressure are often attributes of people that are good at gaming,\" according to a Royal Air Force spokesperson. Those skills are part of what the Royal Air Force is looking for “in a variety of roles”. “Skills acquired through gaming can be very relevant to certain areas.”",
+        "\"There are plenty of soft skills that gamers can utilise in a professional setting, such as teamwork, problem solving and strategic planning,” says Ryan Gardner, a regional director with Hays recruitment. But does that really mean your top 100 ranking in Overwatch should go down in your résumé?\" It's about how you either make it relevant to the job you are applying for, or how it makes you more interesting as a potential employee,\" Mr.Gardner says.",
+        "Two years ago, a Glasgow University study made headlines for suggesting gaming could make students more successful. But \"the research hasn't really changed minds, at least not yet,\" says one of the authors of the study, Dr.Matthew Barr. He's now writing a book on the topic.\" For now, I think the negative reputation around games means that telling someone you're a determined gamer is more likely to harm your chances of getting a job. But if someone can explain how they've led a team in an online game, for example, they may be able to persuade an employer that this is useful,\" says Dr Barr.",
+        "Playing games casually is unlikely to help your career prospects. But part of Game Academy's suggestion is to transform casual gamers into “conscious” ones, applying critical thinking to developing their skills. “We see gameplay as a resource of talent,\" says co-founder David Barrie. “Why can't we put in our résumé our gaming victories and achievements?\" he asks.\" If they say they want leadership—why can't I point to my years of leading World of Warcraft raids?”",
+        "There are already plenty of gamers out there who know that their hobby has made them who they are. Earlier this year, Matthew Ricci told gaming site Kotaku: “If you're playing EVE Online you basically already have an MBA.” Often made fun of in gaming circles as a “spreadsheet simulator (电子表格模拟器)”, the economy of the fictional EVE universe is driven by real market principles. If you want to build a new spaceship, the raw material has to be mined by another player. Manufacturing costs come into effect, and commodities fluctuate in price based on demand and the distance to haul the commodity.",
+        "Mr.Ricci, who had always dreamed of being the boss of his own company, ran an in-game corporation comprising hundreds of players. Eventually, he realised he could transfer his skills to real-life business—instead of doing it for free. He restructured Zentech, once a taxation vehicle for his father's business, and it is now in its fourth year helping international brands enter the Canadian market. EVE teaches skills like creativity, leadership, organisation, and conflict resolution, he maintains. He credits his success to his family, his strong desire to run his own business—and “a damn good company in Iceland that made a damn good game”.",
+        "Digital entrepreneur and business consultant Mia Bennett says: \"In more traditional settings, gaming is still imagined to be the pursuit of teenage boys—a waste of time.” But there are some links to skills like \"decision-making, the ability to anticipate and future planning,\" she says.\" It also helps with meta-skills—learning how to learn, experimentation, and creative thinking.”",
+        "Twelve years into his career, Mark Long, a radiotherapy physicist with the NHS in Surrey, doesn't get as much gaming time as he used to. “I would love to say that my gaming skills allow me to destroy cancer using linear accelerators like photon (光子) blasters, but that's not quite the reality.\" Instead, he credits old-school games like Palace of Magic with exposing him to computers. Every new gaming upgrade improved his knowledge of how they worked. Gaming also encouraged a competitive spirit—and that, he believes, translates. “When creating treatment plans, the aim is to optimise the radiation dose to the tumour and restrict it as much as possible to healthy surrounding tissues and organs,\" he says. It's about \"repeating the process, but each time doing something slightly different to improve the result\". Not unlike achieving a high score or a perfect run. “Most videogames are essentially puzzles to solve,\" he says. “And problem-solving is a big part of my job.”",
+        "Over at Game Academy, Mr.Barrie is aware they still have a mountain to climb.\" The employer community will need the science,\" he says, but confesses he only became a true believer when he started asking players about their biggest in-game achievements. “The scale and scope of their answers were amazing,\" he says. “But ask them the same about their work, and they don't know.” “The engagement and powerful skills that people get playing a game—why can't work be like that?” he asks."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Certain gaming skills meet the requirements of the armed forces in Britain.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段引用英国皇家空军发言人，说明吸收信息、迅速反应和压力下协调行动的游戏技能符合部分岗位要求。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. One veteran player has applied his gaming skills to his real-world business and owes his success partly to a game company.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段中 Ricci 把游戏公司管理经验用于现实业务，并将成功部分归功于制作游戏的冰岛公司。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. According to a researcher, bad reputation about games will probably limit a gamer's chances of landing a job.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段的研究者说游戏的负面名声可能损害玩家获得工作的机会。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Businesses are beginning to realise gaming skills are applicable to their employees' work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段说企业开始认识到玩家能够带到工作中的技能。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. A physicist admits gaming has contributed to his computer knowledge and skills of solving problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。K 段的放射治疗物理学家说游戏提升了他的电脑知识，而解决问题也是他工作的重要部分。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Game Academy proposes to help gamers develop their skills using critical thinking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段说 Game Academy 建议玩家有意识地运用批判性思维来发展技能。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. One who enjoys playing games that require management skills to win might possess more qualities of a manager.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段说偏好策略和资源管理游戏的人，可能与管理者有更多共同点。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. In more conventional views, gaming is a time-wasting activity pursued by young boys.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段介绍传统看法仍把游戏当作青少年男孩浪费时间的活动。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. It is suggested that gaming skills be included in a résumé if they enhance a job applicant's appeal.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段的招聘人士建议说明游戏经历如何与申请岗位相关，或让申请者更有吸引力。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Many gamers know their passion for playing games has shaped their identity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段开头说许多玩家已经知道自己的爱好塑造了他们。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Junk food is now a staple of many Americans' diets. Advertising campaigns from the snack food companies, often featuring sports stars, send the message that we can neutralize any negative effects of consuming their products simply by getting more physical exercise. But recent studies show a lack of exercise is not to blame for rising obesity rates. Bad diets are.",
+        "Interventions (干预) to help reduce junk food consumption are especially important for children and teenagers. Prevention is better than cure because obesity is so difficult to treat. Unfortunately, while health education has shown some success among young children, teens have been harder to reach.",
+        "Now a large-scale study has tried an innovative approach to change teenagers' attitudes towards healthy eating, and the results are promising. The researchers argued that previous interventions have probably been unsuccessful because of a major flaw: they focused on a future, healthier you and assumed that this would be enough motivation for teenagers. In contrast, the new intervention cleverly exploits teenagers' instinct for rebelliousness and autonomy, and the value they place on social justice.",
+        "To do this, researchers had students read an article on the food industry. It revealed a secret about the manipulative and deceptive strategies used to make junk food more addictive and characterize the products as healthy. The article also explained how advertising campaigns specifically target very young and poor people, causing harm for these vulnerable groups. Afterwards, the participants read a fictional survey of teens who wanted to “fight back against the companies by buying and eating less processed food”.",
+        "After the intervention, participants associated healthy eating with autonomy and social justice. The teenagers also rated healthy eating as being more appealing. Importantly, there were also some promising effects of the new intervention on actual behavior. A day later the students were offered a choice of snacks and drinks in a seemingly unrelated context. The teens chose healthy snacks and drinks (such as fruit or water) more often over unhealthy options (like biscuits and soda). Apparently associating a healthy diet with teenagers' own values seems to be a promising avenue to prevent obesity."
+      ],
+      "study_paragraphs": [
+        "Junk food is now a staple of many Americans' diets. Advertising campaigns from the snack food companies, often featuring sports stars, send the message that we can neutralize any negative effects of consuming their products simply by getting more physical exercise. But recent studies show a lack of exercise is not to blame for rising obesity rates. Bad diets are.",
+        "Interventions (干预) to help reduce junk food consumption are especially important for children and teenagers. Prevention is better than cure because obesity is so difficult to treat. Unfortunately, while health education has shown some success among young children, teens have been harder to reach.",
+        "Now a large-scale study has tried an innovative approach to change teenagers' attitudes towards healthy eating, and the results are promising. The researchers argued that previous interventions have probably been unsuccessful because of a major flaw: they focused on a future, healthier you and assumed that this would be enough motivation for teenagers. In contrast, the new intervention cleverly exploits teenagers' instinct for rebelliousness and autonomy, and the value they place on social justice.",
+        "To do this, researchers had students read an article on the food industry. It revealed a secret about the manipulative and deceptive strategies used to make junk food more addictive and characterize the products as healthy. The article also explained how advertising campaigns specifically target very young and poor people, causing harm for these vulnerable groups. Afterwards, the participants read a fictional survey of teens who wanted to “fight back against the companies by buying and eating less processed food”.",
+        "After the intervention, participants associated healthy eating with autonomy and social justice. The teenagers also rated healthy eating as being more appealing. Importantly, there were also some promising effects of the new intervention on actual behavior. A day later the students were offered a choice of snacks and drinks in a seemingly unrelated context. The teens chose healthy snacks and drinks (such as fruit or water) more often over unhealthy options (like biscuits and soda). Apparently associating a healthy diet with teenagers' own values seems to be a promising avenue to prevent obesity."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn about advertising campaigns from the snack food companies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They convey the idea that their products are ok if consumers exercise more."
+            },
+            {
+              "key": "B",
+              "text": "They send the message that bad diets are responsible for Americans' obesity."
+            },
+            {
+              "key": "C",
+              "text": "They usually feature sports stars to emphasize the benefits of their snack foods."
+            },
+            {
+              "key": "D",
+              "text": "They claim that lack of exercise is to blame for the increasing obesity rates."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说零食公司的广告传达多运动就可以抵消食用这些产品的不利影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does the passage say about health education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has shed light on teens' instinct for rebellion and autonomy."
+            },
+            {
+              "key": "B",
+              "text": "It has placed much more emphasis on cure than on prevention."
+            },
+            {
+              "key": "C",
+              "text": "It has contributed little to the campaigns against obesity."
+            },
+            {
+              "key": "D",
+              "text": "It has largely failed to turn teens away from junk food."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第二段说健康教育对低龄儿童有些效果，但青少年更难触达。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What is a major flaw in previous interventions to help reduce junk food consumption?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They motivated teens to stay away from junk food only temporarily."
+            },
+            {
+              "key": "B",
+              "text": "They focused on the benefits young people would reap in the future."
+            },
+            {
+              "key": "C",
+              "text": "They were based on the assumption that motivation was the only key."
+            },
+            {
+              "key": "D",
+              "text": "They were incapable of appealing to teens' instinct for rebelliousness."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第三段指出旧干预把注意力放在未来更健康的自己，并假定这足以激励青少年。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. In what way is the new intervention innovative?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It emphasizes people's sense of social responsibility."
+            },
+            {
+              "key": "B",
+              "text": "It cleverly exploits teenagers' personal weaknesses."
+            },
+            {
+              "key": "C",
+              "text": "It takes advantage of teenagers’ natural inclination."
+            },
+            {
+              "key": "D",
+              "text": "It promises immediate rather than future benefits."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。新干预利用青少年的反叛、自主倾向，以及他们对社会正义的重视。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What conclusion can be drawn from the new research?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A totally different approach could be adopted to combat advertising campaigns for snack food."
+            },
+            {
+              "key": "B",
+              "text": "An effective intervention has to be found to persuade teenagers to switch to a healthier lifestyle."
+            },
+            {
+              "key": "C",
+              "text": "Obesity can be hopefully prevented by building links between teenagers' values and healthy eating."
+            },
+            {
+              "key": "D",
+              "text": "An innovative way to beat obesity is to expose food companies' manipulative and deceptive practices."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。末段得出将健康饮食与青少年自身价值观联系起来，是预防肥胖的有希望的途径。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Adults dream during REM (rapid eye movement) sleep and infants have loads of REM. So, it might be fair to assume that babies have tons of dreams.",
+        "But scientists believe REM serves a completely different purpose for newborns and infants than dreaming. When babies are in REM, it allows their brain to develop pathways, connections, and eventually, learn languages.",
+        "Since your baby doesn't dream at this stage of brain development, it's safe to assume babies do not have nightmares, either. Nightmares stem from exposure to trauma (创伤), an overactive imagination, and the normal stresses of everyday life.",
+        "Are you wondering, what do babies dream about? Good question, but the answer is nothing!",
+        "So, when do babies start dreaming? The general consensus is that they start dreaming around the age of two. Psychologist David Foulkes studies children (from very small kids to teens) to bring the secrets of their dreams to the light of day. In his lab, he lets kids fall asleep and then wakes them 3 times a night and asks them to describe what they recall.",
+        "Foulkes' findings are unsurprising. Basically, little kids have little dreams. But exactly what kids see while dreaming depends on their age. As children develop and grow, their dreams do too.",
+        "Dreams of very small kids are usually just snapshots (快照), looking much more like a slideshow than a movie, when compared to the dreams of adults. They heavily feature animals and other familiar sights, like images of people eating. According to Foulkes, “Children's dream life... seems to be similar to their waking imagination and narration.” Kids ages 5—9 begin seeing moving images and characters in action. Dreams now include multiple events strung together, one after the other. They also start developing greater ability to remember dreams. Still, that's not always the case: When roused during REM sleep, 25% of the kids in Foulkes' studies had no recollection of dreaming, a trend that continues through age 9.",
+        "So, if your baby seems to be in a stressful state while sleeping or is upset upon waking, there may be other factors at play."
+      ],
+      "study_paragraphs": [
+        "Adults dream during REM (rapid eye movement) sleep and infants have loads of REM. So, it might be fair to assume that babies have tons of dreams.",
+        "But scientists believe REM serves a completely different purpose for newborns and infants than dreaming. When babies are in REM, it allows their brain to develop pathways, connections, and eventually, learn languages.",
+        "Since your baby doesn't dream at this stage of brain development, it's safe to assume babies do not have nightmares, either. Nightmares stem from exposure to trauma (创伤), an overactive imagination, and the normal stresses of everyday life.",
+        "Are you wondering, what do babies dream about? Good question, but the answer is nothing!",
+        "So, when do babies start dreaming? The general consensus is that they start dreaming around the age of two. Psychologist David Foulkes studies children (from very small kids to teens) to bring the secrets of their dreams to the light of day. In his lab, he lets kids fall asleep and then wakes them 3 times a night and asks them to describe what they recall.",
+        "Foulkes' findings are unsurprising. Basically, little kids have little dreams. But exactly what kids see while dreaming depends on their age. As children develop and grow, their dreams do too.",
+        "Dreams of very small kids are usually just snapshots (快照), looking much more like a slideshow than a movie, when compared to the dreams of adults. They heavily feature animals and other familiar sights, like images of people eating. According to Foulkes, “Children's dream life... seems to be similar to their waking imagination and narration.” Kids ages 5—9 begin seeing moving images and characters in action. Dreams now include multiple events strung together, one after the other. They also start developing greater ability to remember dreams. Still, that's not always the case: When roused during REM sleep, 25% of the kids in Foulkes' studies had no recollection of dreaming, a trend that continues through age 9.",
+        "So, if your baby seems to be in a stressful state while sleeping or is upset upon waking, there may be other factors at play."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do scientists think of REM?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a sign of dreaming in adults and infants alike."
+            },
+            {
+              "key": "B",
+              "text": "It is essential to human beings' language learning."
+            },
+            {
+              "key": "C",
+              "text": "It determines the formation of connections in the brain."
+            },
+            {
+              "key": "D",
+              "text": "It performs a different function in babies than in adults."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第二段说婴儿的 REM 主要支持大脑通路和连接发育，与成人做梦的作用不同。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What can we infer about nightmares from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They occur often in people with an active imagination."
+            },
+            {
+              "key": "B",
+              "text": "They occur in people suffering from emotional stress."
+            },
+            {
+              "key": "C",
+              "text": "They vary in different stages of brain development."
+            },
+            {
+              "key": "D",
+              "text": "They appear in the sleep of both adults and infants."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第三段把创伤和日常生活压力列为噩梦的成因，可推知情绪压力会引发噩梦。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What is the aim of psychologist David Foulkes' study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To reveal the secrets of children's dreams."
+            },
+            {
+              "key": "B",
+              "text": "To see if children start dreaming at age two."
+            },
+            {
+              "key": "C",
+              "text": "To solve the mystery of dreaming and brain growth."
+            },
+            {
+              "key": "D",
+              "text": "To confirm the general consensus on when kids dream."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第五段明确说 Foulkes 研究儿童是为了揭示他们梦境的秘密。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What are Foulkes' findings about kids' dreams?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They feature strange animals."
+            },
+            {
+              "key": "B",
+              "text": "They are unsurprising to adults."
+            },
+            {
+              "key": "C",
+              "text": "They grow and evolve with age."
+            },
+            {
+              "key": "D",
+              "text": "They reflect kids' waking life."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第六段说孩子的梦境取决于年龄，随着儿童成长而发展。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What can we assume about babies who appear upset upon waking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been roused against their will."
+            },
+            {
+              "key": "B",
+              "text": "They have been disturbed by a nightmare"
+            },
+            {
+              "key": "C",
+              "text": "They have trouble recollecting the images of their dreams."
+            },
+            {
+              "key": "D",
+              "text": "They have been affected by something other than dreaming."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段指出婴儿睡眠紧张或醒后不安可能有做梦以外的其他因素。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "近年来，“城市漫步(city walk)”在中国的年轻人中悄然兴起，已成为一种旅游新潮流。与传统旅游不同，城市漫步不追求在短时间内游览尽可能多的景点，而是随意行走或按照主题路线漫步在城市的大街小巷。漫步者品尝地道小吃，欣赏特色建筑，了解当地生活方式。他们还用相机或手机记录城市的风景和人物。这种旅游方式能让城市漫步者更深入了解城市的历史与文化。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2025-12-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
