@@ -1,0 +1,1703 @@
+{
+  "id": "cet4-2024-12-1",
+  "exam_level": "CET4",
+  "year": 2024,
+  "month": 12,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2024年12月大学英语四级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理。原卷词库和长篇阅读的 I 标号存在排印异常，按完整顺序校正。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2024-12-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the business school of your university is conducting a survey to collect students' opinions on the express delivery service industry in China. You are to write a response about its recent development and its impact on people's lives. You will have 30 minutes to write the essav. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-1-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the business school of your university is conducting a survey to collect students' opinions on the express delivery service industry in China. You are to write a response about its recent development and its impact on people's lives. You will have 30 minutes to write the essav. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter: Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "When Toni Morrison died in 2019, the world lost one of its most influential authors. But Morrison was not an early success. Her first novel was not published until she was 39, and her last appeared when she was 84. And Morrison was not [26] ______ in this regard. Numerous writers produce masterpieces well into their 70s and beyond. Such [27] ______ accomplishments highlight an important point. Our capacity to speak, write and learn new vocabulary does not seem to [28] ______ with age. Our eyesight may dim and our recall may weaken, but, by comparison, our ability to produce and to [29] ______ language is well preserved into older adulthood.",
+        "Indeed, the latest research that has emerged on language and aging shows that language mastery is a [30] ______ that we begin as infants and continue on for the rest of our lives. Some aspects of our language abilities, such as our knowledge of word meanings, [31] ______ improve during middle and late adulthood. One study, for example, found that adults over sixty had an average vocabulary size of over 21,000 words. The researchers also studied a [32] ______ of college students and found that their average vocabulary contained [33] ______ 16,000 words. In another study, older adults, with an average age of 75, [34] ______ better than participants in their youth or middle years on tasks that required them to determine the meaning of words. Thus, language seems to be a skill that, contrary to what many might [35] ______ does not weaken with age."
+      ],
+      "study_paragraphs": [
+        "When Toni Morrison died in 2019, the world lost one of its most influential authors. But Morrison was not an early success. Her first novel was not published until she was 39, and her last appeared when she was 84. And Morrison was not unique in this regard. Numerous writers produce masterpieces well into their 70s and beyond. Such literary accomplishments highlight an important point. Our capacity to speak, write and learn new vocabulary does not seem to deteriorate with age. Our eyesight may dim and our recall may weaken, but, by comparison, our ability to produce and to comprehend language is well preserved into older adulthood.",
+        "Indeed, the latest research that has emerged on language and aging shows that language mastery is a journey that we begin as infants and continue on for the rest of our lives. Some aspects of our language abilities, such as our knowledge of word meanings, actually improve during middle and late adulthood. One study, for example, found that adults over sixty had an average vocabulary size of over 21,000 words. The researchers also studied a sample of college students and found that their average vocabulary contained approximately 16,000 words. In another study, older adults, with an average age of 75, performed better than participants in their youth or middle years on tasks that required them to determine the meaning of words. Thus, language seems to be a skill that, contrary to what many might assume does not weaken with age."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。Morrison was not unique in this regard 表示莫里森并非个例，下文说许多作家到七十多岁仍能创作杰作。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。literary accomplishments 指上文作家创作杰作的文学成就，literary 修饰 accomplishments。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。does not seem to deteriorate with age 表示说话、写作和学习词汇的能力似乎不会随年龄增长而衰退。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。produce and comprehend language 分别指生成和理解语言，两者在晚年仍能得到良好保持。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。a journey that we begin as infants and continue on for the rest of our lives 把语言学习比作从婴儿期持续一生的旅程。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。actually improve 指词义知识在中晚年实际上还会增长，后面的研究数据进一步支持这一点。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。a sample of college students 指供研究使用的大学生样本。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。approximately 16,000 words 表示大学生平均词汇量约为一万六千词，副词修饰数量。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。performed better than participants in their youth or middle years 指老年参与者在理解词义的任务中表现更好。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "actually"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "assume"
+            },
+            {
+              "key": "D",
+              "text": "component"
+            },
+            {
+              "key": "E",
+              "text": "comprehend"
+            },
+            {
+              "key": "F",
+              "text": "deteriorate"
+            },
+            {
+              "key": "G",
+              "text": "equivalent"
+            },
+            {
+              "key": "H",
+              "text": "journey"
+            },
+            {
+              "key": "I",
+              "text": "literary"
+            },
+            {
+              "key": "J",
+              "text": "performed"
+            },
+            {
+              "key": "K",
+              "text": "rarely"
+            },
+            {
+              "key": "L",
+              "text": "sample"
+            },
+            {
+              "key": "M",
+              "text": "undermined"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "unit"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。contrary to what many might assume 表示与许多人可能作出的假设相反，语言技能并不随年龄减弱。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Why it's wrong to look at work-life balance as an achievement",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Few topics have been so endlessly analysed as work-life balance. The quest to attain this mysterious state has dominated discussion around careers for years—especially for working parents. The concept is often presented as something to achieve, or a goal to reach. And once you've reached it, congratulations: you've made it; you're a successful human being of the 21st century.",
+        "[B] But the problem is that we often tell ourselves: \"I'm going to put in eight hours' worth of work, and then I'm going to put in eight hours' worth of 'me time', which will include my family, my hobbies, my workout, my everything,\" says Anat Lechner, clinical associate professor of management at New York University. \"I don't think it's such a simple formula.\"",
+        "[C] And, according to new findings, it may not be. Some researchers are now encouraging us to stop thinking about work-life balance as an achievement that you either hit or don't. Instead, they suggest it may be more of a lifelong process—a continuous, never-ending exercise that requires self-awareness and timely adjustments. Researchers Ioana Lupu and Mayra Ruiz-Castro argue that work-life balance is \"a cycle, not an achievement\". In their 2020 study, the researchers interviewed nearly 80 employees at two London-based firms—an equal number of men and women between the ages of 30 and 50, all with at least one dependent child—who worked in middle or senior management roles.",
+        "[D] Although it sounds like the respondents had a lot in common, here's what separated them: about 30% of the men and 50% of the women reported resisting working long hours. The other respondents, meanwhile, all worked long hours because they thought that's what successful professionals should do.",
+        "[E] Lupu and Ruiz-Castro looked at those who rejected the long hours and they found that those workers actually had strikingly similar strategies for maintaining their work-life balance. They had a tendency to reflect and question assumptions in the name of self-awareness and regularly took steps to adjust the things standing in their way to work-life balance.",
+        "[F] Lupu and Ruiz-Castro identified five steps that the respondents in the study who had better work-life balance used in their jobs. First, they paused and reconsidered beliefs such as \"I'm a professional, so I should work, work, work\", and asked themselves questions like, \"What's currently causing me stress?” Second, after identifying the cause, they zeroed in on their resultant emotions. Did they feel angry, sad, energised? Third, they reprioritised, asking \"Is working long hours really worth cutting back on family time? \", for example. Fourth, they considered their alternatives: is there anything at work that could be changed to accommodate these new priorities? And finally, they implemented changes, like asking their supervisor for greater flexibility, or deciding not to take on every project that comes their way.",
+        "[G] This five-step process is something anyone can adopt. Going through the steps, and constantly checking in with yourself, can help you shift and adapt your professional life to something that will better harmonise with your personal one. “Awareness of your emotional state is essential in order to determine the changes you want to make in your work and in your life,\" says Lupu.",
+        "[H] New York University's Lechner agrees that finding that balance is an ongoing pursuit. It's not simply about dividing up the hours in your day between work, the gym, kids and chores. If the underlying emotional sources of stress are still there, then the time you actually spend at home may not be enjoyable. “We come home and even though physically we are there, mentally we still may be processing things that happened at work. We're not present,\" she says. What we call \"work-life balance\" is actually just a substitute to having a sense of fulfillment and contentment.",
+        "[I] Of course, finding that balance probably shouldn't be something you have to do by yourself. Research by Erin Kelly, professor of work and organisation studies at MIT, shows companies and managers can play a key role in creating a better environment for workers. For her book Overload: How Good Jobs Went Bad and What to Do about It, she and co-author Phyllis Moen split more than 1,000 employees at a Fortune 500 company into two groups, one that worked under a management redesign and one that continued working within the existing management structure.",
+        "[J] Under the management redesign, many steps were taken to ensure better work-life balance and prevent burnout (精疲力竭). Managers were regularly reminded to explicitly support their employees. Workers were allowed to make changes, like cancelling 9 am meetings. All of this was done in the name of increasing job satisfaction and giving workers greater flexibility, and to assure workers that it was something management was committed to. Unsurprisingly, Kelly and Moen found that employees in the redesign group reported less stress and less burnout. They were less likely to quit their jobs; indeed, over the next four years, they were 40% less likely to quit than those who kept working under the old policies.",
+        "[K] “Work-life balance is understood to be an individual's response, so people think ‘it's up to me to manage the craziness of my work life'\", says Kelly. But organisations need to examine the demands they're placing on employees. \"The root problem is not how the two pieces of work and life come together. It's that we have unrealistic expectations of what we're asked to do on the work side. \"If your workplace isn't an environment where work-life balance is possible in the first place, any effort you attempt to make toward it on a personal level will be in vain.",
+        "[L] That's a conversation that appears to be gathering pace. The new prevalence of remote and flexible working models will likely all play important roles in how we balance our professional and personal lives. And if it seems like finding that perfect balance remains difficult to achieve, the experts say that keeping some perspective can help. For millions of people, work is about being able to put food on the table. Talking about work-life balance \"is a very privileged conversation”, says Lechner. \"If we're reflecting, maybe we should also reflect on that.\""
+      ],
+      "study_paragraphs": [
+        "Few topics have been so endlessly analysed as work-life balance. The quest to attain this mysterious state has dominated discussion around careers for years—especially for working parents. The concept is often presented as something to achieve, or a goal to reach. And once you've reached it, congratulations: you've made it; you're a successful human being of the 21st century.",
+        "But the problem is that we often tell ourselves: \"I'm going to put in eight hours' worth of work, and then I'm going to put in eight hours' worth of 'me time', which will include my family, my hobbies, my workout, my everything,\" says Anat Lechner, clinical associate professor of management at New York University. \"I don't think it's such a simple formula.\"",
+        "And, according to new findings, it may not be. Some researchers are now encouraging us to stop thinking about work-life balance as an achievement that you either hit or don't. Instead, they suggest it may be more of a lifelong process—a continuous, never-ending exercise that requires self-awareness and timely adjustments. Researchers Ioana Lupu and Mayra Ruiz-Castro argue that work-life balance is \"a cycle, not an achievement\". In their 2020 study, the researchers interviewed nearly 80 employees at two London-based firms—an equal number of men and women between the ages of 30 and 50, all with at least one dependent child—who worked in middle or senior management roles.",
+        "Although it sounds like the respondents had a lot in common, here's what separated them: about 30% of the men and 50% of the women reported resisting working long hours. The other respondents, meanwhile, all worked long hours because they thought that's what successful professionals should do.",
+        "Lupu and Ruiz-Castro looked at those who rejected the long hours and they found that those workers actually had strikingly similar strategies for maintaining their work-life balance. They had a tendency to reflect and question assumptions in the name of self-awareness and regularly took steps to adjust the things standing in their way to work-life balance.",
+        "Lupu and Ruiz-Castro identified five steps that the respondents in the study who had better work-life balance used in their jobs. First, they paused and reconsidered beliefs such as \"I'm a professional, so I should work, work, work\", and asked themselves questions like, \"What's currently causing me stress?” Second, after identifying the cause, they zeroed in on their resultant emotions. Did they feel angry, sad, energised? Third, they reprioritised, asking \"Is working long hours really worth cutting back on family time? \", for example. Fourth, they considered their alternatives: is there anything at work that could be changed to accommodate these new priorities? And finally, they implemented changes, like asking their supervisor for greater flexibility, or deciding not to take on every project that comes their way.",
+        "This five-step process is something anyone can adopt. Going through the steps, and constantly checking in with yourself, can help you shift and adapt your professional life to something that will better harmonise with your personal one. “Awareness of your emotional state is essential in order to determine the changes you want to make in your work and in your life,\" says Lupu.",
+        "New York University's Lechner agrees that finding that balance is an ongoing pursuit. It's not simply about dividing up the hours in your day between work, the gym, kids and chores. If the underlying emotional sources of stress are still there, then the time you actually spend at home may not be enjoyable. “We come home and even though physically we are there, mentally we still may be processing things that happened at work. We're not present,\" she says. What we call \"work-life balance\" is actually just a substitute to having a sense of fulfillment and contentment.",
+        "Of course, finding that balance probably shouldn't be something you have to do by yourself. Research by Erin Kelly, professor of work and organisation studies at MIT, shows companies and managers can play a key role in creating a better environment for workers. For her book Overload: How Good Jobs Went Bad and What to Do about It, she and co-author Phyllis Moen split more than 1,000 employees at a Fortune 500 company into two groups, one that worked under a management redesign and one that continued working within the existing management structure.",
+        "Under the management redesign, many steps were taken to ensure better work-life balance and prevent burnout (精疲力竭). Managers were regularly reminded to explicitly support their employees. Workers were allowed to make changes, like cancelling 9 am meetings. All of this was done in the name of increasing job satisfaction and giving workers greater flexibility, and to assure workers that it was something management was committed to. Unsurprisingly, Kelly and Moen found that employees in the redesign group reported less stress and less burnout. They were less likely to quit their jobs; indeed, over the next four years, they were 40% less likely to quit than those who kept working under the old policies.",
+        "“Work-life balance is understood to be an individual's response, so people think ‘it's up to me to manage the craziness of my work life'\", says Kelly. But organisations need to examine the demands they're placing on employees. \"The root problem is not how the two pieces of work and life come together. It's that we have unrealistic expectations of what we're asked to do on the work side. \"If your workplace isn't an environment where work-life balance is possible in the first place, any effort you attempt to make toward it on a personal level will be in vain.",
+        "That's a conversation that appears to be gathering pace. The new prevalence of remote and flexible working models will likely all play important roles in how we balance our professional and personal lives. And if it seems like finding that perfect balance remains difficult to achieve, the experts say that keeping some perspective can help. For millions of people, work is about being able to put food on the table. Talking about work-life balance \"is a very privileged conversation”, says Lechner. \"If we're reflecting, maybe we should also reflect on that.\""
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. According to a management expert, work-life balance is not as simple as giving equal amounts of time to work and personal life.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段的管理学教授 Anat Lechner 认为，工作和私人生活各分配八小时并非足以实现平衡的简单公式。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Research found that those who are given greater flexibility at work are less stressed and more likely to stay in their jobs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段说获得管理支持和灵活性的员工压力及倦怠更少，四年内的离职概率比旧制度下低 40%。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Workers who rejected working long hours tended to make regular adjustments in order to achieve work-life balance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段说拒绝长时间工作的员工经常反思假设，并采取措施调整妨碍工作生活平衡的事情。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Talking about work-life balance is said to be a privilege reserved for the better-off, not for those who barely make a living.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段说数百万人只靠工作维持温饱，谈论工作生活平衡是一种有特权的讨论。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Knowing one's emotional state is of utmost importance in deciding what changes to make for a better work-life balance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段直接说，了解自己的情绪状态对决定在工作和生活中作出哪些改变至关重要。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. More female professionals reported being reluctant to work overtime than their male counterparts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段说约 30% 的男性、50% 的女性受访者抵制长时间工作，女性比例更高。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Without organisational support, any personal effort to maintain work-life balance will be unsuccessful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。K 段指出，如果工作场所本身不支持工作生活平衡，个人层面的努力将是徒劳的。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. The question of how to achieve work-life balance has long been the main subject of discussion among workers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段说，工作生活平衡多年来一直主导着围绕职业的讨论。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. You may not actually experience emotional wellbeing at home if you remain occupied with what happened at work.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段说，身体虽然回到家中，思绪却可能仍在处理工作中的事情，情绪压力未消失时居家时间未必愉快。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Some researchers suggest that work-life balance is not a goal to achieve, but a process for life to be adjusted promptly.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段把工作生活平衡描述为需要自我意识和及时调整的终身过程、不断循环，不能看作一次性的成就。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "The weakening of the human connection to nature might be good for economic growth but is bad for people. A tipping point was reached in 2020 when human-made materials—such as steel, concrete and plastic— were found to weigh more than all life on Earth. Continuing to grow concrete forests rather than real ones is shortsighted. Simply being in the nearest wood has such health benefits that the Woodland Trust successfully lobbied for it to be prescribed by doctors.",
+        "Yet slipping from popular culture is the wonder and beauty of the natural world. For every three nature-related words in hit songs of the 1950s, researchers found, there was only slightly more than one 50 years later. It is not a moment too soon that teenagers will be able to take a natural history test, given that for decades children have been able to name more video game characters than wildlife species.",
+        "Part of remedying this social disease would be for parliament to pass a \"right to grow\"law, allowing anyone to turn underused public spaces into vegetable and fruit gardens. The idea is for people to get back in touch with the soil—while producing food sustainably.",
+        "Vegetable planting has a respectable tradition. In April 1649, locals responded to high prices and food shortages by cultivating vegetables on common land in Southern England. The practice of throwing seed bombs to turn vacant plots of land green took off in 1970s New York, and has been revived (使复活) by green-thumbed (有园艺才能的) social media influencers who defy local US regulations in a war on ugly spots in cities.",
+        "Apart from the urgent task of providing more healthy nutrients to those who increasingly can't afford them, publicly accessible fruit and vegetable gardens connect what we eat to where it comes from—the means of production, if you will. They can make unlovely spaces lovely, and marry use and beauty as well as help promote a sense of community. Plants are also, of course, our first defence against species loss and climate change. Such planting is a small step for humanity—in the right direction."
+      ],
+      "study_paragraphs": [
+        "The weakening of the human connection to nature might be good for economic growth but is bad for people. A tipping point was reached in 2020 when human-made materials—such as steel, concrete and plastic— were found to weigh more than all life on Earth. Continuing to grow concrete forests rather than real ones is shortsighted. Simply being in the nearest wood has such health benefits that the Woodland Trust successfully lobbied for it to be prescribed by doctors.",
+        "Yet slipping from popular culture is the wonder and beauty of the natural world. For every three nature-related words in hit songs of the 1950s, researchers found, there was only slightly more than one 50 years later. It is not a moment too soon that teenagers will be able to take a natural history test, given that for decades children have been able to name more video game characters than wildlife species.",
+        "Part of remedying this social disease would be for parliament to pass a \"right to grow\"law, allowing anyone to turn underused public spaces into vegetable and fruit gardens. The idea is for people to get back in touch with the soil—while producing food sustainably.",
+        "Vegetable planting has a respectable tradition. In April 1649, locals responded to high prices and food shortages by cultivating vegetables on common land in Southern England. The practice of throwing seed bombs to turn vacant plots of land green took off in 1970s New York, and has been revived (使复活) by green-thumbed (有园艺才能的) social media influencers who defy local US regulations in a war on ugly spots in cities.",
+        "Apart from the urgent task of providing more healthy nutrients to those who increasingly can't afford them, publicly accessible fruit and vegetable gardens connect what we eat to where it comes from—the means of production, if you will. They can make unlovely spaces lovely, and marry use and beauty as well as help promote a sense of community. Plants are also, of course, our first defence against species loss and climate change. Such planting is a small step for humanity—in the right direction."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What does the author want to emphasise in the first paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The year 2020 was a big turning point in human history."
+            },
+            {
+              "key": "B",
+              "text": "Economic growth benefits people little in the long run."
+            },
+            {
+              "key": "C",
+              "text": "It is unwise to weaken the human connection to nature."
+            },
+            {
+              "key": "D",
+              "text": "It is harmful to mankind to use human-made materials."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。首段说人类与自然联系的减弱对人有害，并称继续增加混凝土森林而非真正森林是 shortsighted。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What did researchers find about popular culture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is increasingly detached from the natural world."
+            },
+            {
+              "key": "B",
+              "text": "It is filled with all kinds of video game characters."
+            },
+            {
+              "key": "C",
+              "text": "It is especially appealing to the taste of teenagers."
+            },
+            {
+              "key": "D",
+              "text": "It is still impacted by the hit songs of the 1950s."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第二段指出自然之美正在退出大众文化，流行歌曲中的自然词汇减少，儿童对游戏角色比野生物种更熟悉。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the author propose people do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take measures to ensure sustainable food development."
+            },
+            {
+              "key": "B",
+              "text": "Reconnect with nature through the right to grow."
+            },
+            {
+              "key": "C",
+              "text": "Stand by the parliament in fighting social diseases."
+            },
+            {
+              "key": "D",
+              "text": "Cover public spaces with fruit trees and vegetable plants."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第三段主张通过 right to grow 法律让人们利用闲置公共空间种植果蔬，重新接触土壤和自然。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What do we learn from the passage about vegetable planting?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It all started in 1649 in Southern England."
+            },
+            {
+              "key": "B",
+              "text": "It is protected by US government regulations."
+            },
+            {
+              "key": "C",
+              "text": "It has long been used to increase food supply and improve urban landscape."
+            },
+            {
+              "key": "D",
+              "text": "It has been popularised worldwide with the increasing influence of social media."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第四段追溯 1649 年为应对食物短缺而种菜，以及 1970 年代纽约将空地绿化的做法，体现供给食物与改善景观的长期作用。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What can publicly accessible fruit and vegetable gardens do apart from their practical functions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Raise people's environmental awareness."
+            },
+            {
+              "key": "B",
+              "text": "Add to the great variety of plant species."
+            },
+            {
+              "key": "C",
+              "text": "Act as the first defence against natural disasters."
+            },
+            {
+              "key": "D",
+              "text": "Enhance people's community spirit."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段明确说公共果蔬园除供应营养和美化空间外，还能 help promote a sense of community。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Engineering in the U.S. has long been a male-dominated profession. Fifty years ago, it looked like that might change.",
+        "In 1970, the percentage of women majoring in engineering was less than 1%. In 1979, that number was 9% Many hoped women would continue to enter the field at the same rate. But that's not what happened. Today, only 21% of engineering majors are women, a number largely unchanged since 2000.",
+        "I am a historian who, along with my colleagues, surveyed 251 women engineers who graduated from college in the 1970s. These pioneers reflected on the challenges they faced—and had advice for women entering the field today.",
+        "One survey taker explained, \"The greatest challenge for me was continuing to believe in myself, when all the messages I was getting were that I would never be taken seriously or promoted or given raises at the same rate as men, who were clearly less qualified and not as smart as I was.\"",
+        "A chemical engineer who worked in manufacturing agreed, \"You have to prove yourself just because you are female. And you have to work twice as hard!\"",
+        "A civil engineer said, \"We are 'women engineers.' People don't refer to a man as a ‘man engineer'-he's an engineer. We are constantly reminded that we don't truly belong.\" Another civil engineer stated, \"On many levels, you're never quite one of the groups.\"",
+        "Women also talked about family caregiving responsibilities. A retired vice president from a major chemical company stated, \"Young women engineers are on an equal footing until they have children, then they struggle to balance work and family—and compete with men who don't have the same household responsibilities.\"",
+        "But over the years things have changed a lot. Young women engineers are more accepted mostly because there are just more of them.",
+        "Many women engineers hailed the benefits of their chosen career. A program manager in manufacturing stated that engineering is the best degree. A mechanical engineer said, “It will give you the flexibility to do almost anything. It is also satisfying to see the effects of what you have done.\""
+      ],
+      "study_paragraphs": [
+        "Engineering in the U.S. has long been a male-dominated profession. Fifty years ago, it looked like that might change.",
+        "In 1970, the percentage of women majoring in engineering was less than 1%. In 1979, that number was 9% Many hoped women would continue to enter the field at the same rate. But that's not what happened. Today, only 21% of engineering majors are women, a number largely unchanged since 2000.",
+        "I am a historian who, along with my colleagues, surveyed 251 women engineers who graduated from college in the 1970s. These pioneers reflected on the challenges they faced—and had advice for women entering the field today.",
+        "One survey taker explained, \"The greatest challenge for me was continuing to believe in myself, when all the messages I was getting were that I would never be taken seriously or promoted or given raises at the same rate as men, who were clearly less qualified and not as smart as I was.\"",
+        "A chemical engineer who worked in manufacturing agreed, \"You have to prove yourself just because you are female. And you have to work twice as hard!\"",
+        "A civil engineer said, \"We are 'women engineers.' People don't refer to a man as a ‘man engineer'-he's an engineer. We are constantly reminded that we don't truly belong.\" Another civil engineer stated, \"On many levels, you're never quite one of the groups.\"",
+        "Women also talked about family caregiving responsibilities. A retired vice president from a major chemical company stated, \"Young women engineers are on an equal footing until they have children, then they struggle to balance work and family—and compete with men who don't have the same household responsibilities.\"",
+        "But over the years things have changed a lot. Young women engineers are more accepted mostly because there are just more of them.",
+        "Many women engineers hailed the benefits of their chosen career. A program manager in manufacturing stated that engineering is the best degree. A mechanical engineer said, “It will give you the flexibility to do almost anything. It is also satisfying to see the effects of what you have done.\""
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the passage say about the engineering profession in the United States?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has seen a change in attitude towards women engineers since 1979."
+            },
+            {
+              "key": "B",
+              "text": "It witnessed a significant increase in women engineers in the 1970s"
+            },
+            {
+              "key": "C",
+              "text": "It has experienced the gradual weakening of male dominance."
+            },
+            {
+              "key": "D",
+              "text": "It boasted the largest number of engineering majors in 2000."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第二段给出女性工程专业学生比例从 1970 年不到 1% 上升至 1979 年 9% 的数据，说明七十年代增长显著；之后增长放缓。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does one survey taker say was her greatest challenge?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Not to feel superior to less qualified male engineers."
+            },
+            {
+              "key": "B",
+              "text": "Not to take seriously all the messages she was getting."
+            },
+            {
+              "key": "C",
+              "text": "Not to think highly of her qualifications when promoted or given a pay raise."
+            },
+            {
+              "key": "D",
+              "text": "Not to lose self-confidence though constantly discouraged or unfairly treated."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。受访者说最大挑战是在被轻视、晋升和加薪不公平等信息下继续相信自己，即维持自信。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. How do women engineers frequently feel according to the two civil engineers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Disqualified on many levels."
+            },
+            {
+              "key": "B",
+              "text": "Excluded from the group."
+            },
+            {
+              "key": "C",
+              "text": "Overworked by their organizations."
+            },
+            {
+              "key": "D",
+              "text": "Looked down upon by male colleagues."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。两位土木工程师说自己不被视为真正属于这个职业，never quite one of the groups，表达被群体排除的感受。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What probably makes young women engineers more accepted nowadays?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their success in gaining an equal footing."
+            },
+            {
+              "key": "B",
+              "text": "Their ability to balance work and family."
+            },
+            {
+              "key": "C",
+              "text": "The change in their responsibilities."
+            },
+            {
+              "key": "D",
+              "text": "The increase in their number."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。倒数第二段直接说年轻女工程师更受接纳，主要因为她们的人数增多了。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What can we conclude about many female engineers from the statement of a mechanical engineer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They take great pride in their chosen career."
+            },
+            {
+              "key": "B",
+              "text": "They have reaped the benefits of being flexible."
+            },
+            {
+              "key": "C",
+              "text": "They enjoy doing engineering to the best degree."
+            },
+            {
+              "key": "D",
+              "text": "They have proved capable of doing almost anything."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。最后一段说许多女性赞扬所选职业，机械工程师称其提供灵活性并能从成果中获得满足，体现对职业的认同和自豪。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "中国政府十分重视环境保护。近年来，中国在减少空气、水和土壤污染上取得了显著成效。为了不断改善人们的生活环境，中国采取了一系列有效措施，包括大力发展清洁能源，改善公共交通，推广共享单车，实施垃圾分类。通过这些措施，中国的城市和农村正在绿起来、美起来。中国还积极参与国际合作，为全球环境保护做出了重要贡献。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2024-12-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
