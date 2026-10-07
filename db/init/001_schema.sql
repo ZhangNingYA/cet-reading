@@ -61,13 +61,3 @@ CREATE TABLE IF NOT EXISTS analysis_jobs (
   UNIQUE (sentence_id, source_hash, context_hash, prompt_version, model, mode)
 );
 CREATE INDEX IF NOT EXISTS analysis_jobs_queue ON analysis_jobs (mode, model, prompt_version, status, created_at);
-
-INSERT INTO papers (id, exam_level, year, month, set_no, title, is_demo, status)
-VALUES ('demo-cet4-2026-set1', 'CET4', 2026, 6, 1, '两句精读示例（非真题）', TRUE, 'published')
-ON CONFLICT (id) DO NOTHING;
-
-INSERT INTO sentences (id, paper_id, paragraph_index, sentence_index, source_text)
-VALUES
-  ('demo-sentence-001', 'demo-cet4-2026-set1', 0, 0, 'Although the plan was expensive, it was successful.'),
-  ('demo-sentence-002', 'demo-cet4-2026-set1', 0, 1, 'The result encouraged the team to continue its research.')
-ON CONFLICT (id) DO NOTHING;

@@ -44,18 +44,20 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
-const externalPapers = papers.papers.filter((paper) => paper.content_state === 'external');
-const originalPapers = papers.papers.filter((paper) => paper.content_kind === 'original' && paper.content_state === 'local');
-for (const level of ['CET4', 'CET6', 'NEEP']) {
-  const count = externalPapers.filter((paper) => paper.exam_level === level).length;
-  if (count < 3) throw new Error(`${level} must expose at least three external source records`);
+const retainedId = 'original-cet4-2026-1';
+const retainedPaper = papers.papers[0];
+if (papers.papers.length !== 1 || retainedPaper?.id !== retainedId
+  || retainedPaper.exam_level !== 'CET4' || retainedPaper.content_state !== 'local'
+  || retainedPaper.content_kind !== 'original' || !retainedPaper.has_content) {
+  throw new Error('Only the first local CET4 practice paper should be published');
 }
-if (externalPapers.some((paper) => !paper.source_url || !paper.source_url.startsWith('https://'))) {
-  throw new Error('Every external paper must expose an HTTPS source URL');
-}
-for (const level of ['CET4', 'CET6', 'NEEP']) {
-  const count = originalPapers.filter((paper) => paper.exam_level === level).length;
-  if (count < 3) throw new Error(`${level} must expose at least three original practice records`);
+const detailResponse = await fetchWithRetry(`/api/papers/${retainedId}`);
+const paper = await detailResponse.json();
+const sections = paper?.sections;
+if (!Array.isArray(sections) || sections.length !== 6
+  || sections.reduce((count, section) => count + section.questions.length, 0) !== 17
+  || !Array.isArray(paper.sentences) || paper.sentences.length !== 40) {
+  throw new Error('The retained CET4 paper must keep all six sections, 17 questions and 40 study sentences');
 }
 
-console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} sections, ${papers.papers.length} published papers, ${externalPapers.length} external sources)`);
+console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, one complete CET4 paper)`);
