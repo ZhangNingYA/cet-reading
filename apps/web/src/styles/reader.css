@@ -26,6 +26,7 @@
 .source-sentence { border-radius: 3px; cursor: pointer; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .15s; }
 .source-sentence:hover { background: #f0efea; }
 .source-sentence.is-selected { background: #f3e9e1; }
+.source-unit { white-space: nowrap; }
 .source-word { display: inline; margin: 0; padding: 0; color: inherit; border: 0; border-radius: 0; background: transparent; font: inherit; line-height: inherit; text-align: inherit; vertical-align: baseline; }
 .source-word:hover { color: var(--clay-deep); text-decoration: underline; text-decoration-color: #cf9a85; text-underline-offset: 4px; }
 .source-word.is-active-word { color: #a34d34; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }

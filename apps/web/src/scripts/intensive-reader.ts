@@ -166,8 +166,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     source.setAttribute('role', 'group');
     source.setAttribute('aria-label', `第 ${sentence.sentenceIndex + 1} 句，按回车查看精读`);
     let offset = 0;
+    let unit: HTMLSpanElement | null = null;
     for (const token of tokenize(sentence.source)) {
-      if (token.charStart > offset) source.append(document.createTextNode(sentence.source.slice(offset, token.charStart)));
+      if (token.charStart > offset) {
+        source.append(document.createTextNode(sentence.source.slice(offset, token.charStart)));
+        unit = null;
+      }
+      // Inline buttons can otherwise wrap separately from their following punctuation.
+      if (!unit) { unit = element('span', 'source-unit'); source.append(unit); }
       if (token.kind === 'word') {
         const word = element('button', 'source-word', token.text);
         word.type = 'button';
@@ -178,8 +184,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
           event.stopPropagation();
           void selectSentence(sentence, source, token.index);
         });
-        source.append(word);
-      } else source.append(document.createTextNode(token.text));
+        unit.append(word);
+      } else unit.append(document.createTextNode(token.text));
       offset = token.charEnd;
     }
     source.append(document.createTextNode(sentence.source.slice(offset)));
