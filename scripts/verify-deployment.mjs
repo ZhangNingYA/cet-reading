@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { isDeepStrictEqual } from 'node:util';
+import { readPaperSources, splitStudyParagraph } from './lib/paper-sources.mjs';
 
 const baseUrl = (process.env.DEPLOY_URL || 'http://localhost:8081').replace(/\/+$/, '');
 const timeoutMs = Number(process.env.DEPLOY_VERIFY_TIMEOUT_MS || 15_000);
@@ -46,30 +47,42 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
-const retainedId = 'cet4-2026-06-1';
-const retainedPaper = papers.papers[0];
-if (papers.papers.length !== 1 || retainedPaper?.id !== retainedId
-  || retainedPaper.exam_level !== 'CET4' || retainedPaper.content_state !== 'local'
-  || retainedPaper.content_kind !== 'imported' || !retainedPaper.has_content) {
-  throw new Error('Only the user-provided first CET4 paper should be published');
+const sources = readPaperSources();
+if (!isDeepStrictEqual(papers.papers.map(paper => paper.id).sort(), sources.map(({ paper }) => paper.id).sort())) {
+  throw new Error('The published paper list does not match data/papers');
 }
-const detailResponse = await fetchWithRetry(`/api/papers/${retainedId}`);
-const paper = await detailResponse.json();
-const sections = paper?.sections;
-const expectedPaper = JSON.parse(readFileSync(new URL('../data/papers/cet4-2026-06-1.json', import.meta.url), 'utf8'));
-if (!Array.isArray(sections) || sections.length !== 6
-  || sections.reduce((count, section) => count + section.questions.length, 0) !== 32
-  || !Array.isArray(paper.sentences)) {
-  throw new Error('The CET4 paper must contain all six non-listening sections and 32 questions');
-}
-for (const expected of expectedPaper.sections) {
-  const section = sections.find(item => item.id === expected.id);
-  if (!section || section.questions.length !== expected.questions.length
-    || JSON.stringify(section.paragraphs) !== JSON.stringify(expected.paragraphs)
-    || JSON.stringify(section.questions) !== JSON.stringify(expected.questions.map(({id, type, prompt, options}) => ({id, type, prompt, options})))
-    || (expected.study_paragraphs.length && !paper.sentences.some(sentence => sentence.sectionId === section.id))) {
-    throw new Error(`The complete paper is missing content or study sentences for ${expected.title}`);
+await Promise.all(sources.map(async ({ file, paper: source }) => {
+  const expected = { variant: '', content_kind: 'original', sections: [], ...source };
+  const summary = papers.papers.find(paper => paper.id === expected.id);
+  for (const key of ['exam_level', 'year', 'month', 'set_no', 'variant', 'title', 'content_state', 'content_kind']) {
+    if (summary[key] !== expected[key]) throw new Error(`Incorrect ${key} for ${file}`);
   }
-}
+  if (summary.has_content !== (expected.sections.length > 0)) throw new Error(`Incorrect content state for ${file}`);
 
-console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, one imported CET4 paper)`);
+  const response = await fetchWithRetry(`/api/papers/${expected.id}`);
+  const actual = await response.json();
+  const sections = expected.sections.map(section => ({
+    id: section.id,
+    kind: section.kind,
+    title: section.title,
+    instructions: section.instructions ?? '',
+    paragraphs: section.paragraphs ?? [],
+    questions: (section.questions ?? []).map(({ id, type, prompt, options = [] }) => ({ id, type, prompt, options })),
+  }));
+  const sentences = expected.sections.flatMap((section, sectionIndex) =>
+    (section.study_paragraphs ?? []).flatMap((paragraph, paragraphIndex) =>
+      splitStudyParagraph(paragraph).map((source, sentenceIndex) => ({
+        id: `${section.id}-sentence-${paragraphIndex + 1}-${sentenceIndex + 1}`,
+        paragraphIndex: sectionIndex * 100 + paragraphIndex,
+        sentenceIndex,
+        source,
+        sectionId: section.id,
+      })),
+    ),
+  );
+  if (!isDeepStrictEqual(actual.sections, sections) || !isDeepStrictEqual(actual.sentences, sentences)) {
+    throw new Error(`The deployed sections, questions or study sentences do not match ${file}`);
+  }
+}));
+
+console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, ${sources.length} papers)`);

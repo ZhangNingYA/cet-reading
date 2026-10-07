@@ -18,7 +18,7 @@
     "build:web": "npm run build --workspace apps/web",
     "build:api": "npm run build --workspace apps/api",
     "build:worker": "npm run build --workspace apps/worker",
-    "check": "npm run build:contracts && node scripts/generate-paper-seed.mjs --check && npm run check --workspace apps/web && npm run typecheck --workspace apps/api && npm run typecheck --workspace apps/worker",
+    "check": "npm run build:contracts && node --test scripts/lib/*.test.mjs && node scripts/generate-paper-seed.mjs --check && npm run check --workspace apps/web && npm run typecheck --workspace apps/api && npm run typecheck --workspace apps/worker",
     "seed:generate": "npm run build:contracts && node scripts/generate-paper-seed.mjs",
     "verify:deployment": "node scripts/verify-deployment.mjs"
   }
