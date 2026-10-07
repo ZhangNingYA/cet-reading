@@ -1,4 +1,5 @@
 import { mountIntensive } from './intensive-reader';
+import { createSectionNavigation } from './section-navigation';
 
 const library = document.querySelector('#library');
 const apiBase = library.dataset.apiBase;
@@ -31,11 +32,12 @@ function showPapers() {
   if (!visible.length) { papers.innerHTML = '<div class="empty-state"><strong>暂无试卷</strong></div>'; return; }
   for (const paper of visible) {
     const item = document.createElement('article'); item.className = 'paper-card';
-    const top = document.createElement('div'); top.className = 'paper-card-top';
-    const level = document.createElement('span'); level.className = 'paper-level'; level.textContent = `${levelName(paper.exam_level)} `;
-    const code = document.createElement('small'); code.textContent = paper.exam_level.replace('CET', 'CET-'); level.append(code); top.append(level); item.append(top);
     const heading = document.createElement('h3'); heading.textContent = paper.title; item.append(heading);
-    const bottom = document.createElement('div'); bottom.className = 'paper-card-bottom'; bottom.innerHTML = `<span>${paper.year} · ${String(paper.month).padStart(2, '0')} · ${paper.variant || `第 ${paper.set_no} 套`}</span><span class="paper-type">${paper.content_state === 'external' ? '原站资料' : (paper.content_kind === 'original' ? '原创练习' : (paper.is_demo ? '本地演示' : '已导入'))}</span>`; item.append(bottom);
+    const bottom = document.createElement('div'); bottom.className = 'paper-card-bottom';
+    const date = document.createElement('span'); date.textContent = `${paper.year} · ${String(paper.month).padStart(2, '0')} · ${paper.variant || `第 ${paper.set_no} 套`}`; bottom.append(date);
+    const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.content_kind === 'original' ? '原创练习' : paper.is_demo ? '本地演示' : '';
+    if (typeLabel) { const type = document.createElement('span'); type.className = 'paper-type'; type.textContent = typeLabel; bottom.append(type); }
+    item.append(bottom);
     const actions = document.createElement('div'); actions.className = 'paper-card-actions';
     if (paper.content_state === 'external') {
       const source = document.createElement('a'); source.className = 'button button-small paper-source'; source.href = paper.source_url; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = '原站查看'; actions.append(source);
@@ -77,8 +79,10 @@ async function openPaper(summary, mode, writeHistory = true) {
 async function renderPractice(paper, request) {
   const response = await fetch(`${apiBase}/api/papers/${paper.id}/attempts`, { method: 'POST' }); if (request !== viewRequest) return; if (!response.ok) { readerContent.innerHTML = '<div class="empty-state error-state"><strong>做题模式暂不可用</strong></div>'; return; }
   const attempt = await response.json(); const form = document.createElement('form'); form.className = 'practice-form';
+  const blocks = new Map();
   for (const section of paper.sections) {
     const block = document.createElement('section'); block.className = 'practice-section'; const heading = document.createElement('h3'); heading.textContent = section.title; block.append(heading);
+    block.dataset.sectionKind = section.kind; blocks.set(section.id, block);
     if (section.instructions) { const note = document.createElement('p'); note.className = 'section-instructions'; note.textContent = section.instructions; block.append(note); }
     if (section.kind === 'cloze') {
       const bank = document.createElement('div'); bank.className = 'word-bank'; bank.setAttribute('aria-label', '选词填空词库');
@@ -86,6 +90,7 @@ async function renderPractice(paper, request) {
       block.append(bank);
     }
     for (const paragraph of section.paragraphs ?? []) { const text = document.createElement('p'); text.className = 'practice-paragraph'; text.textContent = paragraph; block.append(text); }
+    const questions = document.createElement('div'); questions.className = `practice-questions${['cloze', 'matching'].includes(section.kind) ? ' compact-questions' : ''}`;
     for (const question of section.questions) {
       const item = document.createElement('fieldset'); item.className = 'practice-question'; const legend = document.createElement('legend'); legend.textContent = question.prompt; item.append(legend);
       if (question.type === 'choice' && ['cloze', 'matching'].includes(section.kind)) {
@@ -96,16 +101,22 @@ async function renderPractice(paper, request) {
       }
       else if (question.type === 'choice') for (const option of question.options) { const label = document.createElement('label'); const input = document.createElement('input'); input.type = 'radio'; input.name = question.id; input.value = option.key; label.append(input, document.createTextNode(` ${option.key}. ${option.text}`)); item.append(label); }
       else { const textarea = document.createElement('textarea'); textarea.name = question.id; textarea.rows = 5; textarea.placeholder = '在这里作答'; item.append(textarea); }
-      block.append(item);
+      questions.append(item);
     }
+    block.append(questions);
     form.append(block);
   }
+  const { navigation, selectSection } = createSectionNavigation(paper.sections, section => {
+    for (const [id, block] of blocks) block.hidden = id !== section.id;
+  }, '做题章节');
+  navigation.classList.add('practice-navigation');
+  selectSection(paper.sections[0].id);
   const submit = document.createElement('button'); submit.type = 'submit'; submit.className = 'button button-small'; submit.textContent = '提交答案'; const result = document.createElement('div'); result.className = 'practice-result'; form.append(submit, result);
   form.addEventListener('submit', async (event) => { event.preventDefault(); submit.disabled = true; const answers = Object.fromEntries([...form.querySelectorAll('input:checked, textarea, select')].map((input) => [input.name, input.value]));
     try { const saved = await fetch(`${apiBase}/api/attempts/${attempt.id}/answers`, { method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ answers }) }); if (!saved.ok) throw new Error('save failed'); const submittedResponse = await fetch(`${apiBase}/api/attempts/${attempt.id}/submit`, { method: 'POST' }); if (!submittedResponse.ok) throw new Error('submit failed'); renderPracticeResult((await submittedResponse.json()).result, result); }
     catch { result.textContent = '提交失败，请重试。'; submit.disabled = false; }
   });
-  readerContent.append(form);
+  readerContent.append(navigation, form);
 }
 function renderPracticeResult(summary, target) {
   target.replaceChildren();

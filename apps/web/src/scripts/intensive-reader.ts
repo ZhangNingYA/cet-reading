@@ -1,5 +1,6 @@
 import { tokenize } from '@cet-reading/contracts/tokens';
 import type { SentenceAnalysis } from '@cet-reading/contracts';
+import { createSectionNavigation } from './section-navigation';
 
 type StudySentence = {
   id: string;
@@ -41,10 +42,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let selected: Selection | null = null;
   let activeTab: AnalysisTab = 'translation';
   let panelOpen = false;
-  let sectionId = '';
-
-  const navigation = element('nav', 'study-navigation');
-  navigation.setAttribute('aria-label', '精读章节');
+  const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节');
   const layout = element('div', 'intensive-layout');
   const documentColumn = element('div', 'reading-document');
   const pane = element('aside', 'analysis-pane');
@@ -271,10 +269,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   }
   function showSection(section: StudySection) {
     dismiss(false);
-    sectionId = section.id;
-    navigation.querySelectorAll<HTMLButtonElement>('button').forEach(button => {
-      button.setAttribute('aria-current', button.dataset.sectionId === sectionId ? 'page' : 'false');
-    });
     const block = element('section', 'passage-section');
     block.dataset.sectionKind = section.kind;
     block.append(element('h3', 'passage-title', section.title));
@@ -300,18 +294,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     documentColumn.replaceChildren(block);
     pane.hidden = !sentences.length;
   }
-  let readingNumber = 0;
-  for (const section of paper.sections) {
-    const label = section.kind === 'reading' ? `阅读 ${++readingNumber}`
-      : (({ writing: '写作', cloze: '选词填空', matching: '长篇阅读', translation: '翻译' } as Record<string, string>)[section.kind] ?? section.title);
-    const button = element('button', 'study-section-link', label);
-    button.type = 'button';
-    button.dataset.sectionId = section.id;
-    button.addEventListener('click', () => showSection(section));
-    navigation.append(button);
-  }
   const initialSection = paper.sections.find(section => section.kind === 'reading') ?? paper.sections[0];
-  if (initialSection) showSection(initialSection);
+  if (initialSection) selectSection(initialSection.id);
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
   document.addEventListener('keydown', escape);
   return () => { controller.abort(); document.removeEventListener('keydown', escape); };
