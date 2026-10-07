@@ -19,6 +19,10 @@ BEGIN
     RAISE EXCEPTION 'Import the complete user-provided CET4 paper before removing simulated content';
   END IF;
 
+  -- An old placeholder ID may later belong to a newly imported real paper.
+  SELECT array_agg(id) INTO removed_ids FROM papers
+  WHERE id = ANY(removed_ids) AND content_kind <> 'imported';
+
   UPDATE papers SET reference_paper_id = NULL WHERE reference_paper_id = ANY(removed_ids);
   DELETE FROM practice_attempts WHERE paper_id = ANY(removed_ids);
   DELETE FROM papers WHERE id = ANY(removed_ids);
