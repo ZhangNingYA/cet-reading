@@ -370,7 +370,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         paragraphIndex = sentence.paragraphIndex;
         paragraph = element('p', 'passage-paragraph');
         paragraph.lang = 'en';
-        if (section.kind === 'matching') paragraph.append(element('span', 'paragraph-label', `${String.fromCharCode(65 + paragraphIndex % 100)} `));
+        if (section.kind === 'matching') {
+          const label = section.paragraphs[paragraphIndex % 100]?.match(/^\[([A-Z])\]/)?.[1];
+          if (label) paragraph.append(element('span', 'paragraph-label', `${label} `));
+        }
         block.append(paragraph);
       } else paragraph.append(document.createTextNode(' '));
       paragraph.append(renderSentence(sentence));

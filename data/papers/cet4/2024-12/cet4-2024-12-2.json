@@ -1,0 +1,1713 @@
+{
+  "id": "cet4-2024-12-2",
+  "exam_level": "CET4",
+  "year": 2024,
+  "month": 12,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2024年12月大学英语四级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理。原卷词库和长篇阅读的 I 标号存在排印异常，按完整顺序校正。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2024-12-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the university newspaper is inviting submissions from the students for its coming edition on how to enrich students' knowledge of traditional Chinese culture. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-2-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the university newspaper is inviting submissions from the students for its coming edition on how to enrich students' knowledge of traditional Chinese culture. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter: Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Scientists have known that depriving adult mice of vision can increase the sensitivity of individual neurons (神经元) in the part of the brain devoted to hearing. New research from biologists at the University of Maryland [26] ______ that sight deprivation also changes the way brain cells [27] ______ with one another, shifting the mice's sensitivity to different frequencies.",
+        "\"This study [28] ______ what we are learning about how manipulating vision can have a [29] ______ effect on the ability of an animal to hear long after the window for auditory (听觉的) learning was thought to have [30] ______ ,” said Patrick Kanold, senior author of the study.",
+        "It was once thought that the sensory regions of the brain were not [31] ______ after a critical period in childhood. This is why children learn languages much more [32] ______ than adults. Kanold's earlier research disproved this idea by showing that depriving adult mice of vision for a short period increased the sensitivity of individual neurons in the auditory cortex (皮质), which is devoted to hearing",
+        "Young brains wire themselves according to the sounds they hear frequently, assigning areas of the auditory cortex to [33] ______ frequencies based on what they are used to hearing. The researchers found that, in adult mice, a week in the dark also changed the [34] ______ of space to different frequencies.",
+        "“We don't know why we are seeing these patterns, \"Kanold said. “We [35] ______ that it may have to do with what the mice are paying attention to while they are in the dark.\""
+      ],
+      "study_paragraphs": [
+        "Scientists have known that depriving adult mice of vision can increase the sensitivity of individual neurons (神经元) in the part of the brain devoted to hearing. New research from biologists at the University of Maryland revealed that sight deprivation also changes the way brain cells interact with one another, shifting the mice's sensitivity to different frequencies.",
+        "\"This study reinforces what we are learning about how manipulating vision can have a significant effect on the ability of an animal to hear long after the window for auditory (听觉的) learning was thought to have closed,” said Patrick Kanold, senior author of the study.",
+        "It was once thought that the sensory regions of the brain were not adaptable after a critical period in childhood. This is why children learn languages much more readily than adults. Kanold's earlier research disproved this idea by showing that depriving adult mice of vision for a short period increased the sensitivity of individual neurons in the auditory cortex (皮质), which is devoted to hearing",
+        "Young brains wire themselves according to the sounds they hear frequently, assigning areas of the auditory cortex to specific frequencies based on what they are used to hearing. The researchers found that, in adult mice, a week in the dark also changed the distribution of space to different frequencies.",
+        "“We don't know why we are seeing these patterns, \"Kanold said. “We speculate that it may have to do with what the mice are paying attention to while they are in the dark.\""
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。New research revealed that... 表示新的研究发现了后面的结果，revealed 作谓语。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。the way brain cells interact with one another 指脑细胞彼此相互作用的方式，interact with 是固定搭配。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。This study reinforces what we are learning 表示这项研究进一步支持了已有认识。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。a significant effect on the ability to hear 指对听觉能力有显著影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。the window for auditory learning was thought to have closed 指原以为听觉学习的窗口已经关闭。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。sensory regions... were not adaptable 指旧观点认为童年关键期后感官脑区不再能适应改变，下文研究否定这一观点。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。learn languages much more readily than adults 指孩子比成人更容易学会语言。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。specific frequencies 指大脑根据常听到的声音，对特定频率分配听觉皮质区域。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。the distribution of space to different frequencies 指不同频率所占脑区空间的分布。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adaptable"
+            },
+            {
+              "key": "B",
+              "text": "closed"
+            },
+            {
+              "key": "C",
+              "text": "distribution"
+            },
+            {
+              "key": "D",
+              "text": "interact"
+            },
+            {
+              "key": "E",
+              "text": "narration"
+            },
+            {
+              "key": "F",
+              "text": "neutral"
+            },
+            {
+              "key": "G",
+              "text": "permanently"
+            },
+            {
+              "key": "H",
+              "text": "prescribes"
+            },
+            {
+              "key": "I",
+              "text": "readily"
+            },
+            {
+              "key": "J",
+              "text": "registered"
+            },
+            {
+              "key": "K",
+              "text": "reinforces"
+            },
+            {
+              "key": "L",
+              "text": "revealed"
+            },
+            {
+              "key": "M",
+              "text": "significant"
+            },
+            {
+              "key": "N",
+              "text": "specific"
+            },
+            {
+              "key": "O",
+              "text": "speculate"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。We speculate that... 表示研究者推测所见模式可能与黑暗中小鼠的注意对象有关。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· If we care about plastic waste, why won't we stop drinking bottled water?",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "We have all seen the damage plastic waste is doing around the world, but sales of bottled water have continued to grow.",
+        "[A] For all the innovation and choice that define the food and drink industries, if you want to make money, you could do a lot worse than fill a bottle with water and sell it. A litre of tap water, the stuff we have cleverly piped into our homes, costs less than half a penny. A litre of bottled water can cost well over a pound, especially for something fancy that has been sucked through a mountain.",
+        "[B] Yet the bottled water market is livelier than ever. It defies our increasing awareness of the harm plastics do to the environment and a broader, growing sense that something has to change. Sales in the UK were worth a record f558.4 million this past year, an increase of 7%, according to the latest figures from the market analyst Kantar. Separate data from other analysts show that last year the British consumed more than 2.2 billion litres of bottled water, including \"take-home\"and \"on-the-go\"products. That's an annual rise in volume of 8.5%.",
+        "[C] Environmental campaigners are struggling to understand why nations blessed with clean tap water grow only fonder of the bottle. \"It's very surprising to me,\" says Sam Chetan-Walsh, a political adviser at Greenpeace and campaigner against ocean plastic. “Public awareness has never been higher, but the message is not quite reaching all the people it needs to. \"Where it is heard, the message is causing concern. Plastic water bottles require oceans of fossil fuels to make and ship. Additionally, single-use plastics of all types are polluting our cities and seas. Numerous documentaries have shown how plastic is ultimately killing wildlife.",
+        "[D] Moves against various plastics have gathered pace, from shopping bags to straws and plastic-lined coffee cups. Chetan-Walsh argues that bottled water is different because the alternatives are so obvious. \"If a product that is so nakedly unnecessary can exist, then the whole system is failing,\" he says.",
+        "[E] Hope is not entirely out of reach. The rate of growth has begun to ease (sales were up 7% in the year, compared with 8% the previous year).",
+        "[F] But even if large numbers of people are quitting bottled water because of care for the environment, others are taking it up. The introduction of the\"sugar tax\"on juices and soda drinks has pushed more people to bottled water, while health awareness has boosted its desirability. Tap water consumption is growing at roughly the same pace (UK consumers still drink almost three times as much tap water as bottled water).",
+        "[G] So the plastic tide only creeps higher. The industry is quick to point out that all its bottles are recyclable. “But collection rates are, at the most generous estimates,56%, so the actual recycling rate will be lower than that, \"Chetan-Walsh says. And while bottles may be recyclable, very few are made of recycled plastic. One water bottle company launched recycled half-litre \"eco\"bottles alongside its standard bottles. Another has pledged to use only recycled plastic across its range by 2025. Chetan-Walsh believes in a ban on single-use bottles. Bans do exist in some places. Organisers of a famous music festival announced that water bottles will not be sold this summer. San Francisco has banned them from city property and events. Last year, the UK government set out plans to ban single-use plastic from its estate.",
+        "[H] Water bottlers, unsurprisingly, don't support bans. But they raise concerns about health rather than profit margins. Last month one chief executive of a water botling company said that bans would \"result in greater consumption of sugary drinks, adding to all the health dangers of obesity, diabetes and tooth decay\". Kinvara Carey, general manager of an association of the biggest bottled water manufacturers, cites a survey in which people were asked what they would do if bottled water were not available. \"Forty-four per cent would buy another drink, which is not great,14% would go without and 4.5% said they would find a fountain,\" she says. “The choice is important.”",
+        "[I] What if fountains were more numerous, and tap water more clearly available in cafes, restaurants and elsewhere? Dozens of fountains are being installed in London. There are similar initiatives elsewhere. Before plastic and the marketing that made people think they needed bottled water in the first place, fountains were an urban fixture. Greenpeace, among others, is also pushing for a\"deposit return\"scheme. This would mean tax on bottled water would be refunded to customers who returned the plastic for recycling.",
+        "[J] Even if bottled water sales are growing slightly more slowly, the industry is racing to adapt to changing concerns and tastes. Flavoured water is booming: sales of the sparkling variety shot up by 20%, according to the latest analyst data. Meanwhile, international water brands, as well as a range of new companies, are selling high-end reusable bottles. And if you must fill them with tap water, why not add flavouring?",
+        "[K] As the owner of multiple sugary drink brands and bottled water, PepsiCo is facing challenges on health and environmental fronts. Last year, the company bought SodaStream (a drinks company that sells machines for making tap water bubbly and then consumers add flavours) for $3.2 billion. It also launched a range of fancy bottles that work with tap water and flavour packets. The bottle is reusable. The packets? Not so much, and, yes, they are made of plastic, although the company invites users to post them back for recycling",
+        "[L] As is so often the case, clever marketing can beat reason; awareness is rarely enough. “There is always this kind of slip between concern, intent and changed behaviour,\" says Giles Quick, an analyst of bottled water. “The best example is five a day, the recommendation to have at least five portions of fruit and vegetables every day. Almost everyone is aware of this, but something like 15% of us achieve it. \"Unless a far-reaching bottle ban does come into force, it will be up to consumers to not only demand change—but to act themselves."
+      ],
+      "study_paragraphs": [
+        "We have all seen the damage plastic waste is doing around the world, but sales of bottled water have continued to grow.",
+        "For all the innovation and choice that define the food and drink industries, if you want to make money, you could do a lot worse than fill a bottle with water and sell it. A litre of tap water, the stuff we have cleverly piped into our homes, costs less than half a penny. A litre of bottled water can cost well over a pound, especially for something fancy that has been sucked through a mountain.",
+        "Yet the bottled water market is livelier than ever. It defies our increasing awareness of the harm plastics do to the environment and a broader, growing sense that something has to change. Sales in the UK were worth a record f558.4 million this past year, an increase of 7%, according to the latest figures from the market analyst Kantar. Separate data from other analysts show that last year the British consumed more than 2.2 billion litres of bottled water, including \"take-home\"and \"on-the-go\"products. That's an annual rise in volume of 8.5%.",
+        "Environmental campaigners are struggling to understand why nations blessed with clean tap water grow only fonder of the bottle. \"It's very surprising to me,\" says Sam Chetan-Walsh, a political adviser at Greenpeace and campaigner against ocean plastic. “Public awareness has never been higher, but the message is not quite reaching all the people it needs to. \"Where it is heard, the message is causing concern. Plastic water bottles require oceans of fossil fuels to make and ship. Additionally, single-use plastics of all types are polluting our cities and seas. Numerous documentaries have shown how plastic is ultimately killing wildlife.",
+        "Moves against various plastics have gathered pace, from shopping bags to straws and plastic-lined coffee cups. Chetan-Walsh argues that bottled water is different because the alternatives are so obvious. \"If a product that is so nakedly unnecessary can exist, then the whole system is failing,\" he says.",
+        "Hope is not entirely out of reach. The rate of growth has begun to ease (sales were up 7% in the year, compared with 8% the previous year).",
+        "But even if large numbers of people are quitting bottled water because of care for the environment, others are taking it up. The introduction of the\"sugar tax\"on juices and soda drinks has pushed more people to bottled water, while health awareness has boosted its desirability. Tap water consumption is growing at roughly the same pace (UK consumers still drink almost three times as much tap water as bottled water).",
+        "So the plastic tide only creeps higher. The industry is quick to point out that all its bottles are recyclable. “But collection rates are, at the most generous estimates,56%, so the actual recycling rate will be lower than that, \"Chetan-Walsh says. And while bottles may be recyclable, very few are made of recycled plastic. One water bottle company launched recycled half-litre \"eco\"bottles alongside its standard bottles. Another has pledged to use only recycled plastic across its range by 2025. Chetan-Walsh believes in a ban on single-use bottles. Bans do exist in some places. Organisers of a famous music festival announced that water bottles will not be sold this summer. San Francisco has banned them from city property and events. Last year, the UK government set out plans to ban single-use plastic from its estate.",
+        "Water bottlers, unsurprisingly, don't support bans. But they raise concerns about health rather than profit margins. Last month one chief executive of a water botling company said that bans would \"result in greater consumption of sugary drinks, adding to all the health dangers of obesity, diabetes and tooth decay\". Kinvara Carey, general manager of an association of the biggest bottled water manufacturers, cites a survey in which people were asked what they would do if bottled water were not available. \"Forty-four per cent would buy another drink, which is not great,14% would go without and 4.5% said they would find a fountain,\" she says. “The choice is important.”",
+        "What if fountains were more numerous, and tap water more clearly available in cafes, restaurants and elsewhere? Dozens of fountains are being installed in London. There are similar initiatives elsewhere. Before plastic and the marketing that made people think they needed bottled water in the first place, fountains were an urban fixture. Greenpeace, among others, is also pushing for a\"deposit return\"scheme. This would mean tax on bottled water would be refunded to customers who returned the plastic for recycling.",
+        "Even if bottled water sales are growing slightly more slowly, the industry is racing to adapt to changing concerns and tastes. Flavoured water is booming: sales of the sparkling variety shot up by 20%, according to the latest analyst data. Meanwhile, international water brands, as well as a range of new companies, are selling high-end reusable bottles. And if you must fill them with tap water, why not add flavouring?",
+        "As the owner of multiple sugary drink brands and bottled water, PepsiCo is facing challenges on health and environmental fronts. Last year, the company bought SodaStream (a drinks company that sells machines for making tap water bubbly and then consumers add flavours) for $3.2 billion. It also launched a range of fancy bottles that work with tap water and flavour packets. The bottle is reusable. The packets? Not so much, and, yes, they are made of plastic, although the company invites users to post them back for recycling",
+        "As is so often the case, clever marketing can beat reason; awareness is rarely enough. “There is always this kind of slip between concern, intent and changed behaviour,\" says Giles Quick, an analyst of bottled water. “The best example is five a day, the recommendation to have at least five portions of fruit and vegetables every day. Almost everyone is aware of this, but something like 15% of us achieve it. \"Unless a far-reaching bottle ban does come into force, it will be up to consumers to not only demand change—but to act themselves."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Judging from the slowing rate of sales growth, there is still hope to combat bottled water.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段说瓶装水销售增速从 8% 降至 7%，认为希望仍然存在。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Bottled water manufacturers base their arguments against bans of plastic bottles on health concerns rather than on profits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段说瓶装水制造商反对禁令时提出的是健康问题，而非利润率。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Sales of bottled water in Britain hit a record high last year even though people are increasingly aware that plastics are environmentally unfriendly.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段说人们环保意识增强，但英国瓶装水销售额仍创纪录。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. It often happens that people can lack reason when faced with skillful marketing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段首句说 clever marketing can beat reason，随后指出知晓问题未必会改变行为。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. One city on the west coast of America has banned single-use bottles from its property and events.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段明确提到 San Francisco 已禁止在市属场所和活动中使用一次性瓶子。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Manufacturing and shipping of plastic water bottles consume a tremendous amount of fossil fuels.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说生产与运输塑料水瓶需要 oceans of fossil fuels。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. One large beverage company has adapted its operations when confronted with challenges from health and environmental advocates.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。K 段描述 PepsiCo 面临健康与环保挑战后，收购 SodaStream 并推出可重复使用的瓶子。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Bottled water is considerably more expensive than tap water.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段比较一升自来水不到半便士，而一升瓶装水可能超过一英镑。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Fountains could be seen in cities before bottled water became popular",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段说在塑料与瓶装水营销兴起前，饮水喷泉是城市常见设施。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. More people have taken to bottled water because of their health awareness.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段说糖税与健康意识促使更多人饮用瓶装水。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre",
+      "paragraphs": [
+        "As a university student, I've come to realise just how little I know about money. I've come to the brutal realisation that Australia's youth are being done a great disservice by not receiving any consistent financial education.",
+        "Diving headfirst into the crash course of starting university, I've quickly tried to get myself up to speed with the financial terms of the modern era to help manage my personal finances.",
+        "I've read some financial education books, done some online learning, and have spoken to my nearest and dearest for their pearls of financial wisdom.",
+        "There are undoubtedly hundreds of great resources out there for those wishing to improve their financial literacy, but while I was researching, I still kept wishing that I didn't have to play catch-up with the money world. I felt that I was sailing the financial seas with no skills and no life jacket!",
+        "However, after talking to my friends who felt the same, I quickly realised that it wasn't my ignorance but the lack of financial education in our schooling system that is leaving high schoolers seriously behind in the modern world of money.",
+        "Let's compare a theoretical financial education subject to the standard compulsory English class. On average, English may not be the most popular subject, but it's consistently on the schedule throughout high school, with all students graduating fluent in English.",
+        "A financial education subject should do just the same. It shouldn't be just a one-day event but a course integrated throughout the whole of high school that would allow students to gradually expand their financial literacy, and would prevent the need for a 'catch up'phase once we're out on our own after graduation",
+        "In the same way that learning a language or new skills takes time, building financial skills requires practice and years to gradually accumulate bits and pieces of knowledge.",
+        "Giving young people the opportunity to become familiar with the world of money would provide them with a great advantage to enter adulthood with confidence and security so that they are able to manage their own money and look after themselves."
+      ],
+      "study_paragraphs": [
+        "As a university student, I've come to realise just how little I know about money. I've come to the brutal realisation that Australia's youth are being done a great disservice by not receiving any consistent financial education.",
+        "Diving headfirst into the crash course of starting university, I've quickly tried to get myself up to speed with the financial terms of the modern era to help manage my personal finances.",
+        "I've read some financial education books, done some online learning, and have spoken to my nearest and dearest for their pearls of financial wisdom.",
+        "There are undoubtedly hundreds of great resources out there for those wishing to improve their financial literacy, but while I was researching, I still kept wishing that I didn't have to play catch-up with the money world. I felt that I was sailing the financial seas with no skills and no life jacket!",
+        "However, after talking to my friends who felt the same, I quickly realised that it wasn't my ignorance but the lack of financial education in our schooling system that is leaving high schoolers seriously behind in the modern world of money.",
+        "Let's compare a theoretical financial education subject to the standard compulsory English class. On average, English may not be the most popular subject, but it's consistently on the schedule throughout high school, with all students graduating fluent in English.",
+        "A financial education subject should do just the same. It shouldn't be just a one-day event but a course integrated throughout the whole of high school that would allow students to gradually expand their financial literacy, and would prevent the need for a 'catch up'phase once we're out on our own after graduation",
+        "In the same way that learning a language or new skills takes time, building financial skills requires practice and years to gradually accumulate bits and pieces of knowledge.",
+        "Giving young people the opportunity to become familiar with the world of money would provide them with a great advantage to enter adulthood with confidence and security so that they are able to manage their own money and look after themselves."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What has the author come to realise since entering university?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He needs a crash course on financial terms."
+            },
+            {
+              "key": "B",
+              "text": "He is very much lacking in financial literacy."
+            },
+            {
+              "key": "C",
+              "text": "It requires consistent education to be financially independent."
+            },
+            {
+              "key": "D",
+              "text": "It is unrealistic to give all Australian youth a financial education."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。首段作者说自己进入大学后意识到对钱知之甚少，缺乏系统的金融知识。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. How did the author feel in today's money world?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Badly equipped to survive."
+            },
+            {
+              "key": "B",
+              "text": "Ignorant of financial literature."
+            },
+            {
+              "key": "C",
+              "text": "Barely capable of moving ahead."
+            },
+            {
+              "key": "D",
+              "text": "Overwhelmed by the resources online."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第四段把自己比作毫无技能、没有救生衣却航行在金融海洋上的人，说明没有做好应对准备。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What did the author realise after talking to his friends?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were as keen as he was on financial matters."
+            },
+            {
+              "key": "B",
+              "text": "The schooling system was to blame for his trouble."
+            },
+            {
+              "key": "C",
+              "text": "High schoolers knew nothing about the modern financial world."
+            },
+            {
+              "key": "D",
+              "text": "Financial courses were as unpopular as compulsory English classes."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第五段说与朋友交流后，作者认识到困境来自学校教育体系缺乏金融教育，而非仅仅个人无知。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is the author's idea of a financial education course?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should foresee students' needs after graduation."
+            },
+            {
+              "key": "B",
+              "text": "It should provide students with some basic knowledge."
+            },
+            {
+              "key": "C",
+              "text": "It should be taught the same way as English is taught."
+            },
+            {
+              "key": "D",
+              "text": "It should be integrated into high school education."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第七段明确主张金融教育应贯穿整个高中阶段，而不应只办一天活动。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What would financial literacy do to young people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Allow them to enter adulthood with financial security."
+            },
+            {
+              "key": "B",
+              "text": "Enable them to look after themselves without worrying about money."
+            },
+            {
+              "key": "C",
+              "text": "Render them confident and secure in terms of money management."
+            },
+            {
+              "key": "D",
+              "text": "Help them become familiar with the world of money."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。末段说金融知识使年轻人进入成年生活时自信且有安全感，能够管理金钱并照顾自己，对应金钱管理方面的自信与安全感。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre",
+      "paragraphs": [
+        "Chocolates save us from many things, especially emotional distress. They comfort us in times of trouble, calming down a racing heart by channelling happy calories inside us. We all have faith in chocolates to delight us in an instant!",
+        "Recently, chocolate lovers were heartbroken as scientists claimed that they can become extinct by 2050! But hey, we have some happy news for you. Scientists can still help save chocolates from dying out! If you are not aware as to why scientists made the statement about the death of this wonderful thing, let us tell you the facts. Chocolate trees, whose seeds are used to make chocolate, grow in the tropical plant world and require very specific weather conditions to prosper.",
+        "Now, fifty percent of the world's cocoa (可可) beans come from two countries in West Africa: Cote d'lvoire and Ghana. Scientists believe that both of these countries will experience a 3.8°F temperature increase by 2050 due to global warming, endangering the cacao (可可树) farms in the rainforests. These farms will then have to be shifted to cooler mountainous areas, which are the natural habitat of wildlife. This will lead to some tough decisions: whether to grow chocolate or save wildlife.",
+        "Unfortunately, the crisis of global warming has already had a serious negative impact on cacao farms' yields, leading to the prices of chocolates skyrocketing.",
+        "Scientists, however, are trying to find a long-term and eco-friendly solution to this problem! They are trying to modify the species with a gene-editing technology, which will transform the seedlings into a species that survives even in a drier and warmer climate.",
+        "According to a report by The Business Insider, in the University of California's new bio-sciences building, tiny green cacao seedlings are lined up in refrigerated greenhouses for a new experiment by using a technology called CRISPR. By manipulating the DNA of plants, this technology is already being used across the world to make plants tougher and cheaper. Similarly, in this unconventional experiment, scientists will make tiny, precise changes to the DNA of the seedlings to make the cocoa crops survive in warmer and drier climates."
+      ],
+      "study_paragraphs": [
+        "Chocolates save us from many things, especially emotional distress. They comfort us in times of trouble, calming down a racing heart by channelling happy calories inside us. We all have faith in chocolates to delight us in an instant!",
+        "Recently, chocolate lovers were heartbroken as scientists claimed that they can become extinct by 2050! But hey, we have some happy news for you. Scientists can still help save chocolates from dying out! If you are not aware as to why scientists made the statement about the death of this wonderful thing, let us tell you the facts. Chocolate trees, whose seeds are used to make chocolate, grow in the tropical plant world and require very specific weather conditions to prosper.",
+        "Now, fifty percent of the world's cocoa (可可) beans come from two countries in West Africa: Cote d'lvoire and Ghana. Scientists believe that both of these countries will experience a 3.8°F temperature increase by 2050 due to global warming, endangering the cacao (可可树) farms in the rainforests. These farms will then have to be shifted to cooler mountainous areas, which are the natural habitat of wildlife. This will lead to some tough decisions: whether to grow chocolate or save wildlife.",
+        "Unfortunately, the crisis of global warming has already had a serious negative impact on cacao farms' yields, leading to the prices of chocolates skyrocketing.",
+        "Scientists, however, are trying to find a long-term and eco-friendly solution to this problem! They are trying to modify the species with a gene-editing technology, which will transform the seedlings into a species that survives even in a drier and warmer climate.",
+        "According to a report by The Business Insider, in the University of California's new bio-sciences building, tiny green cacao seedlings are lined up in refrigerated greenhouses for a new experiment by using a technology called CRISPR. By manipulating the DNA of plants, this technology is already being used across the world to make plants tougher and cheaper. Similarly, in this unconventional experiment, scientists will make tiny, precise changes to the DNA of the seedlings to make the cocoa crops survive in warmer and drier climates."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2024-12-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do people believe chocolates can do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cheer them up instantly."
+            },
+            {
+              "key": "B",
+              "text": "Create happy calories."
+            },
+            {
+              "key": "C",
+              "text": "Conceal emotional distress."
+            },
+            {
+              "key": "D",
+              "text": "Relieve them of heart trouble."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说人们相信巧克力能 in an instant 带来愉悦。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What was scientists' recent assertion about chocolates?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They could become a rare treat in the near future."
+            },
+            {
+              "key": "B",
+              "text": "They could calm people down a bit in times of crisis."
+            },
+            {
+              "key": "C",
+              "text": "They could prevent people from getting heartbroken."
+            },
+            {
+              "key": "D",
+              "text": "They could become unavailable in less than 30 years."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第二段说科学家声称巧克力可能到 2050 年消失；按试卷 2024 年的时间背景，不足三十年。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What would happen if the cacao farms were shifted to cooler mountainous areas?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The natural habitat of wildlife there would be ruined."
+            },
+            {
+              "key": "B",
+              "text": "The cacao farmers would have a tough time to adapt."
+            },
+            {
+              "key": "C",
+              "text": "The rainforests would be shrinking dramatically."
+            },
+            {
+              "key": "D",
+              "text": "The quality of cocoa beans would suffer greatly."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段说较冷的山区是野生动物天然栖息地，搬迁可可农场将迫使人们在种可可和保护野生动物之间选择。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do we learn about the cacao farms in the crisis of global warming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They try to seek help from gene-editing scientists."
+            },
+            {
+              "key": "B",
+              "text": "They decide to move to cooler mountainous areas."
+            },
+            {
+              "key": "C",
+              "text": "They have suffered a lot due to a decrease in produce."
+            },
+            {
+              "key": "D",
+              "text": "They have benefited by raising prices of cocoa beans."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第四段说全球变暖已经严重影响可可产量，导致巧克力价格上涨，说明农场因产量下降受到损失。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2024-12-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What are scientists trying to do in the University of California's new bio-sciences building?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Build rows of refrigerated greenhouses for research on cacao seedlings"
+            },
+            {
+              "key": "B",
+              "text": "Gene-edit cacao seedlings for them to withstand a drier, warmer climate."
+            },
+            {
+              "key": "C",
+              "text": "Produce chocolates with the latest gene-editing technology."
+            },
+            {
+              "key": "D",
+              "text": "Transplant the genes of tougher plants to cacao seedlings."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。末段描述用 CRISPR 精确改变幼苗 DNA，使可可作物能在更温暖干燥的气候中生存。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2024-12-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "近年来，中国新能源汽车产业发展迅速。目前，中国新能源汽车年产量已高达近千万辆，占全球市场份额超过60%,出口量不断创出新高。中国政府通过加大资金投入和政策引导，鼓励新能源汽车企业进行技术创新，不断提高产品在市场上的竞争力。中国新能源汽车产业的发展不仅有力推动了国内经济发展，也为全球新能源利用和环境保护做出了积极贡献。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2024-12-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
