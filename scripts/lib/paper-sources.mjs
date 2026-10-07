@@ -37,5 +37,6 @@ export function readPaperSources(directory = paperDirectory) {
 }
 
 export function splitStudyParagraph(paragraph) {
-  return paragraph.trim().split(/(?<=[.!?])\s+(?=[A-Z\["“])|(?<=[.!?]["”])\s+(?=[A-Z\["“])/u);
+  // A quote starts a sentence only when text follows it; a closing quote stays with its sentence.
+  return paragraph.trim().split(/(?<=[.!?])\s+(?=[A-Z\[]|["“]+[A-Za-z])|(?<=[.!?]["”])\s+(?=[A-Z\[]|["“]+[A-Za-z])/u);
 }

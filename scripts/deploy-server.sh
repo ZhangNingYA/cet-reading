@@ -39,6 +39,8 @@ docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/010_replace_simulated_paper.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/011_analysis_regeneration.sql
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/012_remove_quote_only_sentence.sql
 docker compose up -d --no-build --remove-orphans --wait --wait-timeout 120
 docker compose ps
 

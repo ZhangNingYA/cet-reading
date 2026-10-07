@@ -3,7 +3,7 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import test from 'node:test';
-import { readPaperSources } from './paper-sources.mjs';
+import { readPaperSources, splitStudyParagraph } from './paper-sources.mjs';
 
 function fixture(t) {
   const directory = mkdtempSync(join(tmpdir(), 'cet-paper-sources-'));
@@ -44,4 +44,35 @@ test('rejects duplicate IDs before conflicting data can be written to the databa
 
 test('rejects an empty paper directory', t => {
   assert.throws(() => readPaperSources(fixture(t)), /No paper JSON files/);
+});
+
+test('keeps a separated closing quote with its sentence without changing source text', () => {
+  const paragraph = '“Last night, we were honored. We are grateful to our guests. "';
+  const sentences = splitStudyParagraph(paragraph);
+  assert.deepEqual(sentences, ['“Last night, we were honored.', 'We are grateful to our guests. "']);
+  assert.equal(sentences.join(' '), paragraph);
+});
+
+test('splits quoted sentences and retains legitimate short questions', () => {
+  assert.deepEqual(splitStudyParagraph('He replied. "We can try." Then they left.'), [
+    'He replied.', '"We can try."', 'Then they left.',
+  ]);
+  assert.deepEqual(splitStudyParagraph('“It works.” “we agree.” Next step?'), [
+    '“It works.”', '“we agree.”', 'Next step?',
+  ]);
+  assert.deepEqual(splitStudyParagraph('His aim? But why not? Bottom line?'), [
+    'His aim?', 'But why not?', 'Bottom line?',
+  ]);
+});
+
+test('imported study sentences contain text rather than isolated punctuation', () => {
+  for (const { paper } of readPaperSources()) {
+    for (const section of paper.sections) {
+      for (const paragraph of section.study_paragraphs) {
+        for (const sentence of splitStudyParagraph(paragraph)) {
+          assert.match(sentence, /\p{L}/u, `${section.id}: ${JSON.stringify(sentence)}`);
+        }
+      }
+    }
+  }
 });
