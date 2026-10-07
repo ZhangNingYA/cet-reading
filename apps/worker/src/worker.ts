@@ -121,6 +121,8 @@ function buildPrompt(job: Job) {
     rules: [
       'words 必须覆盖每一个 word token，index 必须来自 token skeleton；不要解释标点。',
       'tokenStart 包含，tokenEnd 不包含；所有范围必须在 token skeleton 内。',
+      'grammar 的 components 和 clauses 必须对应原文中实际存在的非空范围：0 <= tokenStart < tokenEnd <= tokenSkeleton.length。',
+      '祈使句省略的主语或其他隐含成分只在 explanation 或 keyPoints 中说明，不得虚构 token，不得返回 tokenStart=tokenEnd 的空范围。',
       'vocabulary 同时考虑重点单词和词组：较难的单词、熟词生义、考试常见用法、固定搭配和容易误解的表达。只收录本句值得学的内容，最多 6 项；没有时返回 []，不要凑数或重复列出所有单词。',
       'kind=word 对应一个原文 word token，kind=phrase 至少对应两个。meaning 和 usage 用中文，结合当前语境，简短说明搭配、词形或用法。',
       'ranges 按原文顺序排列且不重叠，可用多个范围表示被宾语隔开的搭配；只引用当前句子，不要把整句作为一个词组。',

@@ -59,6 +59,12 @@ test('rejects fabricated token positions, overlapping ranges and mislabeled word
   }
 });
 
+test('rejects an empty token range used for an implied grammar component', () => {
+  const analysis = raw([word]);
+  analysis.grammar.components = [{ role: 'subject', tokenStart: 0, tokenEnd: 0, explanation: '省略的主语。' }];
+  assert.throws(() => buildAnalysis(source, analysis), /tokenEnd/);
+});
+
 test('versions new prompts while retaining the configured old version for cache lookup', () => {
   const config = readConfig({ AI_DRY_RUN: 'true', PROMPT_VERSION: 'custom-v2' });
   assert.equal(config.promptVersion, 'custom-v2-vocabulary-v1');
