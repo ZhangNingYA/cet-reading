@@ -1,0 +1,1829 @@
+{
+  "id": "cet4-2025-12-1",
+  "exam_level": "CET4",
+  "year": 2025,
+  "month": 12,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2025年12月大学英语四级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2025-12-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the student union of your university is collecting opinions on improving its work for the coming year: You are now to write a response by suggesting how it can better enrich student life. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-1-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the student union of your university is collecting opinions on improving its work for the coming year: You are now to write a response by suggesting how it can better enrich student life. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter: Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "People tend to want as many choices as possible. They believe this will maximize their [26] ______ of making the best decision. But research shows that, when it comes to actually making a [27] ______ from all of these choices, people can become [28] ______ and avoid making a decision altogether. Even worse, when people finally do decide, they are generally less satisfied with their decision and feel more regretful over whatever choice they made.",
+        "Why does this happen? Research shows that when people choose from many options, they [29] ______ more in the decision, but feel less confident in their ability to decide well. In other words, when we are [30] ______ with more choices, making the “right” or “correct” decision begins to feel more [31] ______ and, at the same time, more difficult to do. This may contribute to the deep fear that we will make the wrong decision.",
+        "How can we solve this problem? I believe this fear could be tempered by putting decisions into perspective. It might help to remember that many of the choices you make, such as what to have for lunch, will not [32] ______ much in the future and that, even more important choices, like accepting a new job, can [33] ______ be changed. It could also help to [34] ______ these situations with clear guidelines and ideas of what you want from the [35] ______ of options, which can narrow the possible choices, and also make you more confident about your ability to make the right decision."
+      ],
+      "study_paragraphs": [
+        "People tend to want as many choices as possible. They believe this will maximize their chance of making the best decision. But research shows that, when it comes to actually making a selection from all of these choices, people can become confused and avoid making a decision altogether. Even worse, when people finally do decide, they are generally less satisfied with their decision and feel more regretful over whatever choice they made.",
+        "Why does this happen? Research shows that when people choose from many options, they invest more in the decision, but feel less confident in their ability to decide well. In other words, when we are presented with more choices, making the “right” or “correct” decision begins to feel more crucial and, at the same time, more difficult to do. This may contribute to the deep fear that we will make the wrong decision.",
+        "How can we solve this problem? I believe this fear could be tempered by putting decisions into perspective. It might help to remember that many of the choices you make, such as what to have for lunch, will not matter much in the future and that, even more important choices, like accepting a new job, can ultimately be changed. It could also help to enter these situations with clear guidelines and ideas of what you want from the range of options, which can narrow the possible choices, and also make you more confident about your ability to make the right decision."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。maximize their chance of making the best decision 表示提高作出最佳决定的机会。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。making a selection from all of these choices 指从众多备选项中作出选择。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。become confused 表示选项过多让人困惑，因而干脆不作决定。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。invest more in the decision 指在决策上投入更多，与信心下降形成对比。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。be presented with more choices 表示面前出现更多选择。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。crucial 指重要、关键，说明选择越多，作出正确决定越显得重要且困难。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。will not matter much in the future 表示午餐等日常选择将来不会有太大影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。can ultimately be changed 表示即使接受新工作等重要选择最终也能改变。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。enter these situations with clear guidelines 表示带着明确的准则和目标面对决策情境。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "approximately"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "chance"
+            },
+            {
+              "key": "D",
+              "text": "confused"
+            },
+            {
+              "key": "E",
+              "text": "crucial"
+            },
+            {
+              "key": "F",
+              "text": "deposited"
+            },
+            {
+              "key": "G",
+              "text": "enter"
+            },
+            {
+              "key": "H",
+              "text": "invest"
+            },
+            {
+              "key": "I",
+              "text": "matter"
+            },
+            {
+              "key": "J",
+              "text": "presented"
+            },
+            {
+              "key": "K",
+              "text": "range"
+            },
+            {
+              "key": "L",
+              "text": "regular"
+            },
+            {
+              "key": "M",
+              "text": "seize"
+            },
+            {
+              "key": "N",
+              "text": "selection"
+            },
+            {
+              "key": "O",
+              "text": "ultimately"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。the range of options 指备选项的范围，明确目标有助于缩小选择范围。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· The battle over bike lanes needs a mindset shift",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Five years ago, the city of Queens, New York, announced that it would be putting bike lanes onto a stretch of Skillman Ave—and removing 116 parking spots. Cyclists loved the plan, but local business owners got very angry. Taking out those parking spots, as they argued at protests and in letters to the city council, would ruin stores and restaurants along Skillman. \"Parking here is already a nightmare,\" one shouted at a protest rally.",
+        "[B] But the bike lanes were a done deal, and soon they were in place. Early this year, Jesse Coburn—an investigative writer with Streetsblog New York—wondered whether those predictions of economic collapse came true. So he asked the city's Department of Finance to give him a few years’ worth of sales figures for that stretch of Skillman Ave. How had the businesses on that street fared?",
+        "[C] Quite well, it turns out. In the year after the bike lanes arrived, businesses on Skillman saw sales rise by 12 percent, compared to 3 percent for Queens in general. What's more, that section of road saw new businesses open, while Queens overall had a net loss.",
+        "[D] The thing is, the actual merchants along Skillman? They didn't believe it. When Coburn spoke to them and described what he'd found, only a few store owners admitted the lanes had helped. Many still insisted the lanes were killing their part of the city. And emotions ran hot: Someone scattered tacks (大头钉) on the bike lane.",
+        "[E] This little story turns out to be a fascinating glimpse at the challenges cities face as they try to update their urban infrastructure—to clean up the air, reduce greenhouse emissions, and speed up travel by making towns more bike-friendly. There's a rising amount of data showing that installing bike lanes and making streets more pedestrian-friendly boosts the economic fortunes of a place. Removing cars and parking spots works. But the folks who run local businesses simply aren't convinced, even when their own street performs. Given that sort of mess, can political fights over bike lanes ever end?",
+        "[F] In 2013, researchers at New York City's Department of Transportation studied seven stretches of road that had installed bike lanes or created pedestrian-friendly areas. The city analyzed the data for businesses along those routes and found that by the third year, sales grew faster on five of the streets than in the district overall, on average—up to five times faster, in fact.",
+        "[G] Beyond New York, a survey of research from 23 cities found that bike lanes and pedestrian-friendly design didn't hurt local retail and food stores. (\"Fears of disastrous consequences for local businesses are unfounded,\" the researchers concluded.) More recent work has shown roughly the same.",
+        "[H] The truth is that in fairly dense areas, bikes are more efficient at moving people around. You might lose one car driver's business—but you gain shoppers who now can arrive more easily on bikes. “Cyclists and pedestrians are consumers too,\" notes Professor Susan Handy. Plus, streets redesigned for bikes and pedestrians tend to become more pleasant places to hang around, so “in a lot of cases, that's created much nicer environments that are really good for those businesses.”",
+        "[I] Mom-and-pop shops are usually pretty quick at recognizing situations that will help their bottom lines. So why the blind spot here? Perhaps it's that attention focuses on horror stories—and some merchants do get hit when bike lanes come in.",
+        "[J] I spoke to Cindy Hughes, a hairdresser (理发师) in Cambridge, Massachusetts. She said business fell by at least 40 percent when the city removed nearby parking to put in a bike lane. The majority of her customers drive, with many coming from nearby towns. Only a very few have shifted to cycling, and even those almost certainly won't cycle in Boston's snowy winters. So while Hughes supports bike lanes—“cyclists deserve to be safe”—she sees the parking loss as an existential risk. \"Look, 90 percent of my customers drive,\" she told me. “For our business, the bike lanes are way worse than Covid was.”",
+        "[K] For others, the pushback is cultural, says Henry Grabar, a writer for the Slate Magazine. Small business owners are frequently drivers who commute from other parts of the city by car, Grabar points out. They're also often longtime locals. \"They tend to be people with deep roots in the city, who have hung around since before the neighborhood became what it is today,\" he adds. Driving around town in a car is so normal to them that cycling seems weird and unusual—despite its boost from Covid, when bike sales exploded by 75 percent.",
+        "[L] Psychology beats all! Who knew, right? The fierce divide between store owners and bike-lane advocates seems similar to our larger culture wars over climate change. If we've learned anything about culture wars, it's that data isn't much good at changing minds.",
+        "[M] When Janette Sadik-Khan was the head of New York City's Transportation Department back in the early 2000s, she oversaw a rollout (推出) of bike lanes—and got angry blowback from residents and business owners who claimed there weren't enough cyclists to justify installing lanes. Now, she notes ironically, the lanes are so full of activity that opponents have turned to claiming the problem is the opposite: There are too many cyclists getting in the way of cars.",
+        "[N] Maybe bike lanes will always be charged with emotion, until enough of the public is finally concerned about climate change—and it seems reckless (鲁莽的) to not have them.",
+        "[O] Crises, after all, have a way of opening people's eyes to possibilities. During Covid, restaurants and cafés lost so much business that cities nationwide began allowing them to build curbside seating areas where people could sit, safely, in the open air. It greatly reduced parking—but because, well, shop owners didn't see any way around it. Customers loved the outdoor seating so much that cities are making it permanent: A New York City study of several streets closed during Covid found store owners making more than before, and diners enjoying the outdoor lifestyle. If data won't change minds, customers might."
+      ],
+      "study_paragraphs": [
+        "Five years ago, the city of Queens, New York, announced that it would be putting bike lanes onto a stretch of Skillman Ave—and removing 116 parking spots. Cyclists loved the plan, but local business owners got very angry. Taking out those parking spots, as they argued at protests and in letters to the city council, would ruin stores and restaurants along Skillman. \"Parking here is already a nightmare,\" one shouted at a protest rally.",
+        "But the bike lanes were a done deal, and soon they were in place. Early this year, Jesse Coburn—an investigative writer with Streetsblog New York—wondered whether those predictions of economic collapse came true. So he asked the city's Department of Finance to give him a few years’ worth of sales figures for that stretch of Skillman Ave. How had the businesses on that street fared?",
+        "Quite well, it turns out. In the year after the bike lanes arrived, businesses on Skillman saw sales rise by 12 percent, compared to 3 percent for Queens in general. What's more, that section of road saw new businesses open, while Queens overall had a net loss.",
+        "The thing is, the actual merchants along Skillman? They didn't believe it. When Coburn spoke to them and described what he'd found, only a few store owners admitted the lanes had helped. Many still insisted the lanes were killing their part of the city. And emotions ran hot: Someone scattered tacks (大头钉) on the bike lane.",
+        "This little story turns out to be a fascinating glimpse at the challenges cities face as they try to update their urban infrastructure—to clean up the air, reduce greenhouse emissions, and speed up travel by making towns more bike-friendly. There's a rising amount of data showing that installing bike lanes and making streets more pedestrian-friendly boosts the economic fortunes of a place. Removing cars and parking spots works. But the folks who run local businesses simply aren't convinced, even when their own street performs. Given that sort of mess, can political fights over bike lanes ever end?",
+        "In 2013, researchers at New York City's Department of Transportation studied seven stretches of road that had installed bike lanes or created pedestrian-friendly areas. The city analyzed the data for businesses along those routes and found that by the third year, sales grew faster on five of the streets than in the district overall, on average—up to five times faster, in fact.",
+        "Beyond New York, a survey of research from 23 cities found that bike lanes and pedestrian-friendly design didn't hurt local retail and food stores. (\"Fears of disastrous consequences for local businesses are unfounded,\" the researchers concluded.) More recent work has shown roughly the same.",
+        "The truth is that in fairly dense areas, bikes are more efficient at moving people around. You might lose one car driver's business—but you gain shoppers who now can arrive more easily on bikes. “Cyclists and pedestrians are consumers too,\" notes Professor Susan Handy. Plus, streets redesigned for bikes and pedestrians tend to become more pleasant places to hang around, so “in a lot of cases, that's created much nicer environments that are really good for those businesses.”",
+        "Mom-and-pop shops are usually pretty quick at recognizing situations that will help their bottom lines. So why the blind spot here? Perhaps it's that attention focuses on horror stories—and some merchants do get hit when bike lanes come in.",
+        "I spoke to Cindy Hughes, a hairdresser (理发师) in Cambridge, Massachusetts. She said business fell by at least 40 percent when the city removed nearby parking to put in a bike lane. The majority of her customers drive, with many coming from nearby towns. Only a very few have shifted to cycling, and even those almost certainly won't cycle in Boston's snowy winters. So while Hughes supports bike lanes—“cyclists deserve to be safe”—she sees the parking loss as an existential risk. \"Look, 90 percent of my customers drive,\" she told me. “For our business, the bike lanes are way worse than Covid was.”",
+        "For others, the pushback is cultural, says Henry Grabar, a writer for the Slate Magazine. Small business owners are frequently drivers who commute from other parts of the city by car, Grabar points out. They're also often longtime locals. \"They tend to be people with deep roots in the city, who have hung around since before the neighborhood became what it is today,\" he adds. Driving around town in a car is so normal to them that cycling seems weird and unusual—despite its boost from Covid, when bike sales exploded by 75 percent.",
+        "Psychology beats all! Who knew, right? The fierce divide between store owners and bike-lane advocates seems similar to our larger culture wars over climate change. If we've learned anything about culture wars, it's that data isn't much good at changing minds.",
+        "When Janette Sadik-Khan was the head of New York City's Transportation Department back in the early 2000s, she oversaw a rollout (推出) of bike lanes—and got angry blowback from residents and business owners who claimed there weren't enough cyclists to justify installing lanes. Now, she notes ironically, the lanes are so full of activity that opponents have turned to claiming the problem is the opposite: There are too many cyclists getting in the way of cars.",
+        "Maybe bike lanes will always be charged with emotion, until enough of the public is finally concerned about climate change—and it seems reckless (鲁莽的) to not have them.",
+        "Crises, after all, have a way of opening people's eyes to possibilities. During Covid, restaurants and cafés lost so much business that cities nationwide began allowing them to build curbside seating areas where people could sit, safely, in the open air. It greatly reduced parking—but because, well, shop owners didn't see any way around it. Customers loved the outdoor seating so much that cities are making it permanent: A New York City study of several streets closed during Covid found store owners making more than before, and diners enjoying the outdoor lifestyle. If data won't change minds, customers might."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. An increasing amount of data indicates that installing bike lanes raises local business revenues.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段指出越来越多的数据表明，自行车道和适合步行的街道有利于当地经济。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. According to a magazine writer, some small business owners'resistance to bike lanes arises from cultural factors.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。K 段引用杂志作者 Henry Grabar，说明部分小商家的反对来自习惯开车的文化因素。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. A stretch of Skillman Ave witnessed not only a big increase in sales but also the opening of new businesses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说 Skillman 的销售额增长 12%，同时出现了新开业的商家。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. When people have no way out in crises, they are more likely to embrace changes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。O 段用疫情期间允许路边露天座位的例子，说明危机让人接受新的可能性。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. According to one survey, city design with bike lanes and pedestrian space did not negatively impact local businesses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段介绍对 23 个城市研究的综述，认为自行车道和步行空间并未损害当地零售及餐饮业。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Despite increased business activity on Skillman Ave, many store owners insisted the bike lanes were destroying their area.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段说即使得知销售增长，许多店主仍坚持认为自行车道在破坏街区。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. In a war of culture, data does not help much in changing people's minds.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段将争论比作文化战争，并指出数据并不善于改变人们的想法。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. A businesswoman said her business dropped sharply when parking space gave way to a bike lane, because most of her customers came by car.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段中理发师说附近停车位改为自行车道后生意下降至少 40%，而 90% 的顾客开车来。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Local business owners on Skillman Ave argued that their businesses would be ruined when parking spots were replaced by bike lanes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段介绍商家最初反对取消停车位，并声称这会毁掉街上的商店和餐馆。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. People may find it more pleasant to wander around streets redesigned for cycling and walking.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段说为骑行和步行重新设计的街道更宜人，顾客更愿意逗留。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "All living organisms on Earth are exposed to a 24-hour day-night cycle. This cycle is the reason why people rest at night and are active during the day. Consequently, all human body functions also follow this daily rhythm, and the timing of behaviors like exercise or food intake can significantly influence your health. For example, eating at night can lead to weight gain over time because food intake at night leads to increased fat storage.",
+        "Many drug targets in the body follow a 24-hour cycle, too. This means that the specific proteins a drug is designed to modify can react differently to the medicine over the course of a 24-hour time period. Because how the body responds to a drug can differ depending on the time it is taken, it logically follows that taking medicines at specific times could help increase their effectiveness and reduce unwanted side effects.",
+        "When doctors prescribe medicine for people, they rarely consider the best time to take it. There are two main reasons for that oversight. First, many physicians are not aware that some drugs work better during a specific time of the day. And second, most drugs have not been studied for possible different effects during a 24-hour cycle. Therefore, patients are directed to take most drugs during the morning or evening primarily to ensure compliance.",
+        "Over 50 years ago, researchers found that the cholesterol drug simvastatin is more effective at lowering cholesterol levels when taken at night rather than during the day. This is because the liver enzyme (酶) these drugs target is more active at night.",
+        "Taking medicine at the wrong time can even cause harm. My colleagues and I wondered whether midazolam, the most common sedative (镇静剂) used in surgical procedures worldwide, might interfere with the internal clock that protects the heart at night. Currently, there are no guidelines regarding when midazolam should be administered.",
+        "More research is needed to determine the best times to administer treatments for different diseases. I believe taking drug timing into account could help make treatments more effective and help more people worldwide."
+      ],
+      "study_paragraphs": [
+        "All living organisms on Earth are exposed to a 24-hour day-night cycle. This cycle is the reason why people rest at night and are active during the day. Consequently, all human body functions also follow this daily rhythm, and the timing of behaviors like exercise or food intake can significantly influence your health. For example, eating at night can lead to weight gain over time because food intake at night leads to increased fat storage.",
+        "Many drug targets in the body follow a 24-hour cycle, too. This means that the specific proteins a drug is designed to modify can react differently to the medicine over the course of a 24-hour time period. Because how the body responds to a drug can differ depending on the time it is taken, it logically follows that taking medicines at specific times could help increase their effectiveness and reduce unwanted side effects.",
+        "When doctors prescribe medicine for people, they rarely consider the best time to take it. There are two main reasons for that oversight. First, many physicians are not aware that some drugs work better during a specific time of the day. And second, most drugs have not been studied for possible different effects during a 24-hour cycle. Therefore, patients are directed to take most drugs during the morning or evening primarily to ensure compliance.",
+        "Over 50 years ago, researchers found that the cholesterol drug simvastatin is more effective at lowering cholesterol levels when taken at night rather than during the day. This is because the liver enzyme (酶) these drugs target is more active at night.",
+        "Taking medicine at the wrong time can even cause harm. My colleagues and I wondered whether midazolam, the most common sedative (镇静剂) used in surgical procedures worldwide, might interfere with the internal clock that protects the heart at night. Currently, there are no guidelines regarding when midazolam should be administered.",
+        "More research is needed to determine the best times to administer treatments for different diseases. I believe taking drug timing into account could help make treatments more effective and help more people worldwide."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn from the passage about the timing of our behaviors?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has a considerable impact on our health."
+            },
+            {
+              "key": "B",
+              "text": "It confines us to a 24-hour day-night cycle."
+            },
+            {
+              "key": "C",
+              "text": "It requires us to follow a particular rhythm."
+            },
+            {
+              "key": "D",
+              "text": "It holds the key to all human body functions."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说运动、进食等行为发生的时间会显著影响健康。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does the author say about the proteins in our body?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can modify the effects of medicines in different ways."
+            },
+            {
+              "key": "B",
+              "text": "They can reduce unwanted side effects of certain medicines."
+            },
+            {
+              "key": "C",
+              "text": "Their reaction to medicines changes during the day-night cycle."
+            },
+            {
+              "key": "D",
+              "text": "Their design determines how differently they react to medicines."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第二段说药物作用的蛋白质在 24 小时内对药物的反应可能不同。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What do doctors do when prescribing medicine for people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They give little thought to the time of taking it for maximum effect."
+            },
+            {
+              "key": "B",
+              "text": "They rarely consider which medicine works better for which patient."
+            },
+            {
+              "key": "C",
+              "text": "They tell patients its possible side effects during a period of 24 hours."
+            },
+            {
+              "key": "D",
+              "text": "They tell patients to comply with the directions of drug manufacturers."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段明确说医生开药时很少考虑最佳服药时间。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. Why do doctors advise patients to take most drugs in the morning or in the evening?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To discourage them from making complaints."
+            },
+            {
+              "key": "B",
+              "text": "To ensure they take the drugs as instructed."
+            },
+            {
+              "key": "C",
+              "text": "To comply with new research findings strictly."
+            },
+            {
+              "key": "D",
+              "text": "To guarantee the maximum effect of the drugs."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第三段末句说通常安排早晚服药，主要是为了确保患者依从医嘱。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author suggest near the end of the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Considering drug-taking timing when prescribing drugs for patients."
+            },
+            {
+              "key": "B",
+              "text": "Making treatments less complex by taking drug timing into account."
+            },
+            {
+              "key": "C",
+              "text": "Conducting more studies to find out the best timing for treating different diseases."
+            },
+            {
+              "key": "D",
+              "text": "Finding out the most effective drugs for treating diseases through further research."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。末段明确指出需要更多研究来确定不同疾病的最佳治疗时间。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Katharine Abraham, an economics professor, was chatting with her hairdresser (理发师) about retirement plans. The economist said she plans to continue working because she wants to. The hairdresser agreed but for a different reason: She needs the money.",
+        "Both scenarios (情况) are contributing to a big increase in the number of people in the US working into their 70s. Over the past 20 years, the share of Americans working in their 70s has risen from less than 10% to nearly 15%.",
+        "In addition to people being healthier and living much longer, economists say that a combination of financial considerations such as years of slow rise in real wages and a shift away from traditional pensions in the private sector are some of the reasons people delay retirement. The decline of manufacturing and the increase in the number of people working in less labor-intensive occupations also has contributed to the trend, says Abraham, who researches work and retirement decisions of older Americans.",
+        "\"Which matters more depends on what your history up until that point has been in the type of work you're doing,\" Abraham says.",
+        "The overall trend is hitting Americans of all different levels of educational attainment, although the percentages vary by category. The share of Americans with bachelor's degrees who were working into their 70s reached nearly 20% in 2018. For those with a high school degree or less, the proportion of those working in their 70s had risen to around 10%, while those with some college education were in the middle at around 15%.",
+        "Martin Neil Baily, an economist who is leading a research project on retirement security, notes that quitting a career can lead to feelings of isolation and loneliness, particularly for men. He suggests that many college-educated workers are choosing to stay in the labor force more for social benefits than for financial reasons. They're also more likely to be in professional occupations where they tend to enjoy their work more.",
+        "Workers in more physical jobs, meanwhile, may be more likely to look forward to retiring, Baily says, suggesting those who stay on are more likely doing so for financial reasons."
+      ],
+      "study_paragraphs": [
+        "Katharine Abraham, an economics professor, was chatting with her hairdresser (理发师) about retirement plans. The economist said she plans to continue working because she wants to. The hairdresser agreed but for a different reason: She needs the money.",
+        "Both scenarios (情况) are contributing to a big increase in the number of people in the US working into their 70s. Over the past 20 years, the share of Americans working in their 70s has risen from less than 10% to nearly 15%.",
+        "In addition to people being healthier and living much longer, economists say that a combination of financial considerations such as years of slow rise in real wages and a shift away from traditional pensions in the private sector are some of the reasons people delay retirement. The decline of manufacturing and the increase in the number of people working in less labor-intensive occupations also has contributed to the trend, says Abraham, who researches work and retirement decisions of older Americans.",
+        "\"Which matters more depends on what your history up until that point has been in the type of work you're doing,\" Abraham says.",
+        "The overall trend is hitting Americans of all different levels of educational attainment, although the percentages vary by category. The share of Americans with bachelor's degrees who were working into their 70s reached nearly 20% in 2018. For those with a high school degree or less, the proportion of those working in their 70s had risen to around 10%, while those with some college education were in the middle at around 15%.",
+        "Martin Neil Baily, an economist who is leading a research project on retirement security, notes that quitting a career can lead to feelings of isolation and loneliness, particularly for men. He suggests that many college-educated workers are choosing to stay in the labor force more for social benefits than for financial reasons. They're also more likely to be in professional occupations where they tend to enjoy their work more.",
+        "Workers in more physical jobs, meanwhile, may be more likely to look forward to retiring, Baily says, suggesting those who stay on are more likely doing so for financial reasons."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2025-12-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn from the passage about the economics professor and her hairdresser?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They differ in their reasons for continuing to work."
+            },
+            {
+              "key": "B",
+              "text": "They are both committed to working into their 70s."
+            },
+            {
+              "key": "C",
+              "text": "They are happy about their current financial situation."
+            },
+            {
+              "key": "D",
+              "text": "They hold different views about postponing retirement."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段中教授因为愿意而继续工作，理发师则因为需要钱，两人的原因不同。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What is one of the reasons for people to delay retirement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More and more people have switched to less intellectually challenging jobs."
+            },
+            {
+              "key": "B",
+              "text": "The number of jobs suitable for older people has increased in the private sector."
+            },
+            {
+              "key": "C",
+              "text": "The rate of wage increase in terms of purchasing power has slowed down for years."
+            },
+            {
+              "key": "D",
+              "text": "More and more people in the workplace find it hard to rely on traditional pensions."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第三段把多年实际工资缓慢上涨列为延迟退休的经济因素。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What is the general trend in people delaying retirement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The higher their earnings, the more likely they are tempted to delay retirement."
+            },
+            {
+              "key": "B",
+              "text": "Those who have more job satisfaction tend to retire later than those who have less."
+            },
+            {
+              "key": "C",
+              "text": "More men than women are likely to stay in the labor force until their late seventies."
+            },
+            {
+              "key": "D",
+              "text": "The higher their educational level, the more likely they are to delay retirement."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。按学历列出的数据分别约为 20%、15% 和 10%，说明学历越高，70 多岁仍工作的人比例越大。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What is the chief reason for college-educated workers delaying retirement according to an economist?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Enjoying financial security."
+            },
+            {
+              "key": "B",
+              "text": "Staying connected socially."
+            },
+            {
+              "key": "C",
+              "text": "Contributing more professionally."
+            },
+            {
+              "key": "D",
+              "text": "Increasing social security payments"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。经济学家指出许多大学毕业者继续工作主要为了保持社会联系，而非经济需要。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2025-12-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the passage say about people doing manual work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are eager to enjoy life after retiring."
+            },
+            {
+              "key": "B",
+              "text": "They are likely to have financial troubles."
+            },
+            {
+              "key": "C",
+              "text": "They generally don't enjoy doing it."
+            },
+            {
+              "key": "D",
+              "text": "They tend to anticipate retirement."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段说从事体力劳动的人更可能期待退休，继续工作者往往出于经济原因。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2025-12-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "近年来，中国政府高度重视民营经济(private economy)的发展，出台了一系列政策支持民营企业。截至2025年3月底，全国民营企业数量超过5700万家，占企业总量的92.3%。民营企业不仅数量稳步增长，质量和结构也在不断提升。民营企业的研发投人不断增加，在新一代信息技术、人工智能等领域发展迅速。民营企业核心竞争力的增强为中国经济的高质量发展提供了有力支撑。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2025-12-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
