@@ -190,9 +190,9 @@ export async function getCachedAnalysis(sentenceId: string, sourceHash: string, 
   const result = await pool.query(
     `SELECT analysis_json FROM sentence_analyses
      WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
-       AND prompt_version = $4 AND model = $5 AND mode = $6 AND status = 'succeeded'
-     ORDER BY created_at DESC LIMIT 1`,
-    [sentenceId, sourceHash, contextHashValue, config.promptVersion, config.model, config.mode],
+       AND prompt_version IN ($4, $7) AND model = $5 AND mode = $6 AND status = 'succeeded'
+     ORDER BY (prompt_version = $4) DESC, created_at DESC LIMIT 1`,
+    [sentenceId, sourceHash, contextHashValue, config.promptVersion, config.model, config.mode, config.legacyPromptVersion],
   );
   return result.rows[0]?.analysis_json as SentenceAnalysis | undefined;
 }
@@ -206,15 +206,8 @@ export async function enqueueAnalysis(sentence: {
         prompt_version, model, mode, status)
      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending')
      ON CONFLICT (sentence_id, source_hash, context_hash, prompt_version, model, mode)
-     DO UPDATE SET status = CASE
-                              WHEN analysis_jobs.status = 'failed' THEN 'pending'
-                              ELSE analysis_jobs.status
-                            END,
-                   error_message = CASE
-                                     WHEN analysis_jobs.status = 'failed' THEN NULL
-                                     ELSE analysis_jobs.error_message
-                                   END,
-                   updated_at = NOW()
+       WHERE status IN ('pending', 'running')
+     DO UPDATE SET updated_at = analysis_jobs.updated_at
      RETURNING id, status`,
     [sentence.id, sentence.source_text, sentence.source_hash, sentence.context_hash,
       JSON.stringify(sentence.context), config.promptVersion, config.model, config.mode],

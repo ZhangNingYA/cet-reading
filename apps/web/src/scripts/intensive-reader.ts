@@ -23,8 +23,10 @@ type StudyPaper = {
   sentences: StudySentence[];
 };
 type Selection = { sentence: StudySentence; element: HTMLElement; wordIndex: number | null };
-type AnalysisTab = 'translation' | 'structure' | 'pattern';
+type AnalysisTab = 'translation' | 'structure' | 'pattern' | 'vocabulary';
+type AnalysisRequest = { promise: Promise<SentenceAnalysis>; regenerating: boolean; controller: AbortController };
 const completed = new Map<string, SentenceAnalysis>();
+const requests = new Map<string, AnalysisRequest>();
 const roleNames: Record<string, string> = {
   subject: '主语', predicate: '谓语', object: '宾语', complement: '补语', modifier: '修饰语', connector: '连接词',
 };
@@ -38,7 +40,8 @@ function element<K extends keyof HTMLElementTagNameMap>(tag: K, className: strin
 
 export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLElement) {
   const controller = new AbortController();
-  const requests = new Map<string, Promise<SentenceAnalysis>>();
+  const ownedRequests = new Set<AnalysisRequest>();
+  const feedback = new Map<string, string>();
   let selected: Selection | null = null;
   let activeTab: AnalysisTab = 'translation';
   let panelOpen = false;
@@ -49,6 +52,15 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   pane.setAttribute('aria-label', '当前句子精读');
   const paneHeader = element('div', 'analysis-heading');
   const paneTitle = element('h3', 'analysis-title', '精读');
+  const actions = element('div', 'analysis-actions');
+  const regenerate = element('button', 'analysis-regenerate', '重新生成');
+  regenerate.type = 'button';
+  regenerate.hidden = true;
+  regenerate.addEventListener('click', () => {
+    if (selected && !requests.has(cacheKey(selected.sentence))) {
+      void selectSentence(selected.sentence, selected.element, selected.wordIndex, true);
+    }
+  });
   const close = element('button', 'analysis-close', '收起');
   close.type = 'button';
   close.hidden = true;
@@ -63,16 +75,31 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     if (restoreFocus && previous) previous.element.focus({ preventScroll: true });
   };
   close.addEventListener('click', () => dismiss());
-  paneHeader.append(paneTitle, close);
+  actions.append(regenerate, close);
+  paneHeader.append(paneTitle, actions);
+  const notice = element('p', 'analysis-feedback');
+  notice.setAttribute('role', 'status');
+  notice.hidden = true;
   const paneBody = element('div', 'analysis-body');
   paneBody.setAttribute('aria-live', 'polite');
-  pane.append(paneHeader, paneBody);
+  pane.append(paneHeader, notice, paneBody);
   layout.append(documentColumn, pane);
   target.append(navigation, layout);
 
   function showEmpty(message = '点击原文中的单词或句子') {
     paneTitle.textContent = '精读';
+    updateActions();
     paneBody.replaceChildren(element('p', 'analysis-empty', message));
+  }
+  function updateActions() {
+    const sentence = selected?.sentence;
+    const request = sentence ? requests.get(cacheKey(sentence)) : undefined;
+    regenerate.hidden = !sentence || !completed.has(cacheKey(sentence));
+    regenerate.disabled = Boolean(request);
+    regenerate.textContent = request?.regenerating ? '重新生成中…' : '重新生成';
+    const message = sentence ? feedback.get(sentence.id) ?? '' : '';
+    notice.textContent = message;
+    notice.hidden = !message;
   }
   function clearHighlights() {
     target.querySelectorAll('.is-selected, .is-active-word, .is-structure').forEach(node => {
@@ -92,35 +119,45 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   }
   function cacheKey(sentence: StudySentence) { return `${paper.id}:${sentence.id}:${sentence.source}`; }
 
-  async function jsonRequest(path: string, method = 'GET') {
-    const response = await fetch(`${apiBase}${path}`, { method, signal: controller.signal });
-    if (!response.ok) throw new Error('精读请求失败');
-    return response.json();
+  async function jsonRequest(path: string, method: string, signal: AbortSignal) {
+    const requestController = new AbortController();
+    const cancel = () => requestController.abort(signal.reason);
+    signal.addEventListener('abort', cancel, { once: true });
+    if (signal.aborted) cancel();
+    const timeout = setTimeout(() => requestController.abort(), 15_000);
+    try {
+      const response = await fetch(`${apiBase}${path}`, { method, signal: requestController.signal });
+      if (!response.ok) throw new Error('精读请求失败');
+      return await response.json();
+    } finally {
+      clearTimeout(timeout);
+      signal.removeEventListener('abort', cancel);
+    }
   }
-  function waitForJob() {
+  function waitForJob(signal: AbortSignal) {
     return new Promise<void>((resolve, reject) => {
-      const aborted = () => { clearTimeout(timer); reject(controller.signal.reason); };
-      const timer = setTimeout(() => { controller.signal.removeEventListener('abort', aborted); resolve(); }, 1500);
-      controller.signal.addEventListener('abort', aborted, { once: true });
-      if (controller.signal.aborted) aborted();
+      const aborted = () => { clearTimeout(timer); reject(signal.reason); };
+      const timer = setTimeout(() => { signal.removeEventListener('abort', aborted); resolve(); }, 1500);
+      signal.addEventListener('abort', aborted, { once: true });
+      if (signal.aborted) aborted();
     });
   }
-  async function fetchAnalysis(sentence: StudySentence): Promise<SentenceAnalysis> {
+  async function fetchAnalysis(sentence: StudySentence, regenerate: boolean, signal: AbortSignal): Promise<SentenceAnalysis> {
     const path = `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive`;
-    let response = await jsonRequest(path, 'POST');
+    let response = await jsonRequest(regenerate ? `${path}&regenerate=true` : path, 'POST', signal);
     const deadline = Date.now() + 180_000;
     while (response.status !== 'ready') {
       if (!response.jobId || Date.now() > deadline) throw new Error('生成暂未完成');
-      await waitForJob();
-      const job = await jsonRequest(`/api/jobs/${encodeURIComponent(response.jobId)}`);
+      await waitForJob(signal);
+      const job = await jsonRequest(`/api/jobs/${encodeURIComponent(response.jobId)}`, 'GET', signal);
       if (job.status === 'failed') throw new Error('生成失败');
-      if (job.status === 'succeeded') response = await jsonRequest(path, 'POST');
+      if (job.status === 'succeeded') response = await jsonRequest(path, 'POST', signal);
     }
     if (!response.result?.tokens || !response.result?.grammar) throw new Error('精读结果不完整');
     completed.set(cacheKey(sentence), response.result);
     return response.result;
   }
-  async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null) {
+  async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false) {
     selected = { sentence, element: source, wordIndex };
     panelOpen = true;
     pane.classList.add('is-open');
@@ -136,20 +173,38 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       });
     }
     const cached = completed.get(cacheKey(sentence));
-    if (cached) { renderAnalysis(cached); return; }
-    const loading = element('p', 'analysis-loading', '正在解析这一句…');
-    loading.setAttribute('role', 'status');
-    paneBody.replaceChildren(loading);
+    const key = cacheKey(sentence);
+    let request = requests.get(key);
+    if (cached && !regenerate && !request) { renderAnalysis(cached); return; }
+    if (!request) {
+      feedback.delete(sentence.id);
+      const requestController = new AbortController();
+      request = {
+        regenerating: regenerate,
+        controller: requestController,
+        promise: fetchAnalysis(sentence, regenerate, requestController.signal).finally(() => {
+          requests.delete(key);
+          ownedRequests.delete(request!);
+        }),
+      };
+      requests.set(key, request);
+      ownedRequests.add(request);
+    }
+    if (cached) renderAnalysis(cached);
+    else {
+      const loading = element('p', 'analysis-loading', '正在解析这一句…');
+      loading.setAttribute('role', 'status');
+      paneBody.replaceChildren(loading);
+    }
+    updateActions();
     try {
-      let request = requests.get(sentence.id);
-      if (!request) {
-        request = fetchAnalysis(sentence).finally(() => requests.delete(sentence.id));
-        requests.set(sentence.id, request);
-      }
-      const analysis = await request;
+      const analysis = await request.promise;
+      feedback.delete(sentence.id);
       if (!controller.signal.aborted && panelOpen && selected?.sentence.id === sentence.id) renderAnalysis(analysis);
     } catch {
+      if (!controller.signal.aborted && cached) feedback.set(sentence.id, '重新生成失败，已保留原结果。');
       if (controller.signal.aborted || !panelOpen || selected?.sentence.id !== sentence.id) return;
+      if (cached) { renderAnalysis(cached); return; }
       const message = element('p', 'analysis-empty', '暂时无法生成精读，请重试。');
       const retry = element('button', 'analysis-retry', '重试');
       retry.type = 'button';
@@ -157,6 +212,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         if (selected) void selectSentence(selected.sentence, selected.element, selected.wordIndex);
       });
       paneBody.replaceChildren(message, retry);
+      updateActions();
     }
   }
   function renderSentence(sentence: StudySentence) {
@@ -201,13 +257,17 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     return source;
   }
   function highlightRange(start: number, end: number) {
+    highlightRanges([{ tokenStart: start, tokenEnd: end }]);
+  }
+  function highlightRanges(ranges: { tokenStart: number; tokenEnd: number }[]) {
     selected?.element.querySelectorAll('.source-word').forEach(word => {
       const index = Number((word as HTMLElement).dataset.tokenIndex);
-      word.classList.toggle('is-structure', index >= start && index < end);
+      word.classList.toggle('is-structure', ranges.some(range => index >= range.tokenStart && index < range.tokenEnd));
     });
   }
   function renderAnalysis(analysis: SentenceAnalysis) {
     if (!selected) return;
+    updateActions();
     highlightSelection();
     paneBody.replaceChildren();
     if (selected.wordIndex !== null) {
@@ -228,7 +288,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const body = element('div', 'analysis-tab-content');
     body.id = 'sentence-analysis-content';
     body.setAttribute('role', 'tabpanel');
-    const tabDefinitions: [AnalysisTab, string][] = [['translation', '翻译'], ['structure', '结构'], ['pattern', '句型']];
+    const tabDefinitions: [AnalysisTab, string][] = [['translation', '翻译'], ['structure', '结构'], ['pattern', '句型'], ['vocabulary', '词汇']];
     for (const [index, [tab, label]] of tabDefinitions.entries()) {
       const button = element('button', 'analysis-tab', label);
       button.type = 'button';
@@ -244,7 +304,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       button.addEventListener('keydown', event => {
         if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
         event.preventDefault();
-        const next = event.key === 'Home' ? 0 : event.key === 'End' ? 2 : (index + (event.key === 'ArrowRight' ? 1 : 2)) % 3;
+        const count = tabDefinitions.length;
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? count - 1 : (index + (event.key === 'ArrowRight' ? 1 : count - 1)) % count;
         activeTab = tabDefinitions[next]![0];
         renderAnalysis(analysis);
         paneBody.querySelector<HTMLButtonElement>(`#analysis-tab-${activeTab}`)?.focus();
@@ -258,6 +319,23 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       const points = element('ul', 'analysis-key-points');
       for (const point of analysis.keyPoints ?? []) points.append(element('li', '', point));
       body.append(points);
+    } else if (activeTab === 'vocabulary') {
+      if (!analysis.vocabulary?.length) {
+        body.append(element('p', 'analysis-empty', analysis.vocabulary ? '暂无重点词汇' : '重新生成以补充重点单词和词组'));
+      } else {
+        const list = element('div', 'vocabulary-list');
+        for (const item of analysis.vocabulary) {
+          const row = element('button', 'vocabulary-item');
+          row.type = 'button';
+          row.dataset.kind = item.kind;
+          row.append(element('strong', 'vocabulary-expression', item.expression),
+            element('span', 'vocabulary-meaning', item.meaning),
+            element('span', 'vocabulary-usage', item.usage));
+          row.addEventListener('click', () => highlightRanges(item.ranges));
+          list.append(row);
+        }
+        body.append(list);
+      }
     } else {
       body.append(element('p', 'grammar-summary', [analysis.grammar.sentenceType, analysis.grammar.tense, analysis.grammar.voice].filter(Boolean).join(' · ')));
       const structure = element('div', 'grammar-structure');
@@ -304,5 +382,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   if (initialSection) selectSection(initialSection.id);
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
   document.addEventListener('keydown', escape);
-  return () => { controller.abort(); document.removeEventListener('keydown', escape); };
+  return () => {
+    controller.abort();
+    // Regeneration can finish and update its cache while the user changes modes/papers.
+    for (const request of ownedRequests) if (!request.regenerating) request.controller.abort();
+    document.removeEventListener('keydown', escape);
+  };
 }

@@ -40,6 +40,17 @@ export const AIWordSchema = z.object({
   contextMeaning: z.string().min(1),
 }).strict();
 
+export const VocabularyItemSchema = z.object({
+  kind: z.enum(['word', 'phrase']),
+  expression: z.string().min(1).max(160),
+  meaning: z.string().min(1).max(300),
+  usage: z.string().min(1).max(300),
+  ranges: z.array(z.object({
+    tokenStart: z.number().int().nonnegative(),
+    tokenEnd: z.number().int().positive(),
+  }).strict()).min(1).max(3),
+}).strict();
+
 export const AIAnalysisSchema = z.object({
   translation: z.string().min(1),
   pattern: z.string().min(1),
@@ -51,6 +62,7 @@ export const AIAnalysisSchema = z.object({
     components: z.array(RangeSchema.extend({ role: z.string().min(1) }).strict()),
   }).strict(),
   words: z.array(AIWordSchema).min(1),
+  vocabulary: z.array(VocabularyItemSchema).max(6),
   keyPoints: z.array(z.string().min(1)).min(1),
 }).strict();
 
@@ -59,6 +71,7 @@ export const SentenceAnalysisSchema = z.object({
   pattern: z.string().min(1),
   grammar: FinalGrammarSchema,
   tokens: z.array(TokenSchema).min(1),
+  vocabulary: z.array(VocabularyItemSchema).max(6).optional(),
   keyPoints: z.array(z.string().min(1)).min(1),
 }).strict();
 
@@ -82,6 +95,23 @@ function ensureChineseTranslation(translation: string, source: string) {
       /MYMEMORY|AVAILABLE FREE TRANSLATIONS|\b(?:undefined|null)\b|^\s*(?:ERROR|WARNING)\s*:/i.test(translation) ||
       translation.includes(source)) {
     throw new Error('Translation is an error message or untranslated source');
+  }
+}
+
+function ensureVocabularyRanges(tokens: BaseToken[], vocabulary: z.infer<typeof VocabularyItemSchema>[] = []) {
+  for (const item of vocabulary) {
+    let previousEnd = -1;
+    let wordCount = 0;
+    for (const range of item.ranges) {
+      if (range.tokenStart >= range.tokenEnd || range.tokenEnd > tokens.length || range.tokenStart < previousEnd) {
+        throw new Error('Vocabulary ranges must be ordered, non-overlapping and inside the source');
+      }
+      wordCount += tokens.slice(range.tokenStart, range.tokenEnd).filter(token => token.kind === 'word').length;
+      previousEnd = range.tokenEnd;
+    }
+    if (item.kind === 'word' ? wordCount !== 1 : wordCount < 2) {
+      throw new Error('Vocabulary must match one source word or a phrase of at least two words');
+    }
   }
 }
 
@@ -120,11 +150,13 @@ export function buildAnalysis(source: string, raw: unknown): SentenceAnalysis {
     }
   }
   ensureChineseTranslation(ai.translation, source);
+  ensureVocabularyRanges(baseTokens, ai.vocabulary);
   return SentenceAnalysisSchema.parse({
     translation: ai.translation,
     pattern: ai.pattern,
     grammar: { ...ai.grammar, clauses, components },
     tokens,
+    vocabulary: ai.vocabulary,
     keyPoints: ai.keyPoints,
   });
 }
@@ -140,6 +172,7 @@ export function validateAnalysis(source: string, value: unknown): SentenceAnalys
     }
   }
   ensureChineseTranslation(analysis.translation, source);
+  ensureVocabularyRanges(expected, analysis.vocabulary);
   return analysis;
 }
 

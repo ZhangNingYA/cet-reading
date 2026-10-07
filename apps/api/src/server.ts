@@ -31,14 +31,19 @@ app.get<{ Params: { id: string } }>('/api/papers/:id', async (request, reply) =>
   return paper;
 });
 
-app.post<{ Params: { id: string }; Querystring: { mode?: string } }>('/api/sentences/:id/analyze', async (request, reply) => {
+app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: string } }>('/api/sentences/:id/analyze', async (request, reply) => {
   if (request.query.mode !== 'intensive') return reply.code(400).send({ error: 'analysis_requires_intensive_mode' });
+  if (request.query.regenerate !== undefined && !['true', 'false'].includes(request.query.regenerate)) {
+    return reply.code(400).send({ error: 'invalid_regeneration_option' });
+  }
   const sentence = await getSentence(request.params.id);
   if (!sentence) return reply.code(404).send({ error: 'sentence_not_found' });
 
-  const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash);
-  if (cached) {
-    return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
+  if (request.query.regenerate !== 'true') {
+    const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash);
+    if (cached) {
+      return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
+    }
   }
 
   const job = await enqueueAnalysis(sentence);

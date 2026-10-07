@@ -23,7 +23,10 @@ git checkout --force -B main origin/main
 git reset --hard origin/main
 
 docker compose config --quiet
-docker compose up -d --build --remove-orphans --wait --wait-timeout 120
+docker compose build
+docker compose up -d postgres --wait --wait-timeout 120
+# The queue index changes with this release; migrate before starting the new API/Worker.
+docker compose stop api worker
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/003_paper_modes.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
@@ -34,6 +37,9 @@ docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/009_seed_papers.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/010_replace_simulated_paper.sql
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/011_analysis_regeneration.sql
+docker compose up -d --no-build --remove-orphans --wait --wait-timeout 120
 docker compose ps
 
 curl --fail --silent --show-error --retry 10 --retry-delay 2 \

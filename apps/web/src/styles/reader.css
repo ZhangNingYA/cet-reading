@@ -37,6 +37,11 @@
 .analysis-pane { position: sticky; top: 28px; min-width: 0; max-height: calc(100dvh - 56px); padding-left: 24px; border-left: 1px solid var(--line); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .analysis-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
 .analysis-title { margin: 0; color: var(--muted); font-size: var(--text-caption); font-weight: 400; }
+.analysis-actions { display: flex; align-items: center; gap: 12px; }
+.analysis-regenerate { padding: 3px 0; color: var(--muted); border: 0; background: transparent; font-size: var(--text-caption); white-space: nowrap; }
+.analysis-regenerate:hover { color: var(--clay-deep); }
+.analysis-regenerate:disabled { color: var(--quiet); cursor: wait; }
+.analysis-feedback { margin: 0 0 14px; color: var(--clay-deep); font-size: var(--text-caption); line-height: 1.8; }
 .analysis-close { padding: 3px 0 3px 8px; color: var(--muted); border: 0; background: transparent; font-size: var(--text-caption); }
 .analysis-close:hover { color: var(--ink); }
 .analysis-empty, .analysis-loading { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.8; }
@@ -61,6 +66,11 @@
 .component-explanation { color: var(--muted); font-size: var(--text-body); }
 .analysis-key-points { margin: 17px 0 0; padding-left: 18px; font-size: var(--text-body); }
 .analysis-key-points li + li { margin-top: 8px; }
+.vocabulary-list { display: grid; gap: 18px; }
+.vocabulary-item { display: grid; gap: 4px; padding: 0; color: inherit; border: 0; background: transparent; font: inherit; line-height: 1.8; text-align: left; }
+.vocabulary-expression { color: var(--ink); font-weight: 500; }
+.vocabulary-item:hover .vocabulary-expression { color: var(--clay-deep); }
+.vocabulary-usage { color: var(--muted); font-size: var(--text-ui); }
 
 /* Practice keeps a readable column and preserves answers while chapters change. */
 .practice-form { max-width: 760px; }
