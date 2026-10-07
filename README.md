@@ -16,6 +16,10 @@
 
 详细范围见 [项目目标](docs/PROJECT_GOAL.md) 和 [架构说明](docs/ARCHITECTURE.md)。
 
+## 新增试卷
+
+把手动下载的 PDF 放入 `data/inbox/`，告诉 Codex“处理新增试卷”即可。执行者按照 [试卷导入流程](docs/PAPER_IMPORT_WORKFLOW.md) 完成分类、原件归档、非听力内容校对、数据库新增、检查和上线验证；项目 [AGENTS.md](AGENTS.md) 会引导后续执行者读取该规范。
+
 ## 本地启动
 
 需要 Node.js 22+、Docker 和 Docker Compose。
