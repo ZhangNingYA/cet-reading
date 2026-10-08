@@ -1,0 +1,1712 @@
+{
+  "id": "cet6-2021-06-3",
+  "exam_level": "CET6",
+  "year": 2021,
+  "month": 6,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2021年6月大学英语六级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。写作图表直接从原 PDF 提取并保留。排印异常的段落或词库标号按顺序恢复，正文按原件保留。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2021-06-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay based on the chart below. You should start your essay with a brief description of the chart and comment on China's achievements in poverty alleviation. You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-06-3-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay based on the chart below. You should start your essay with a brief description of the chart and comment on China's achievements in poverty alleviation. You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ],
+      "images": [
+        {
+          "src": "/papers/cet6-2021-06-3/writing-1.png",
+          "alt": "原题图表：中国农村贫困人口与贫困发生率（2012–2020），左轴为百万人，右轴为农村人口百分比，保留两条数据序列、年份和原题来源。"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word. bank following the passage. Read the passage through carefully before making yourchoices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "At 43, I've reached the stage where women are warned to watch out for the creeping sadness of middle age. We're served up an endless stream of advice on“how to survive your 40s”, as if we're in the endurance stage of a slow limp toward [26] ______ . This is the age women start to become“invisible”—our value, attractiveness and power supposedly [27] ______ by the vanishing of youth. But I don't feel like I'm fading into [28] ______ . I feel more seen than I ever have, and for the first time in my life, I have a clear-eyed view of myself that is [29] ______ , compassionate and accepting.",
+        "When I look in the mirror, I'm proud of who I am—even those“broken”parts that for so long seemed impossible to love. So when advertisers try to sell me ways to“turn back the clock”, I have to [30] ______ a laugh. I wouldn't go back to the crippling self-consciousness of my youth if you paid me. This hard-won sense of self-acceptance is one of the joys of being an older woman. But it's a narrative often [31] ______ out by the shame that marketers rely on to peddle us their diet pills, miracle face creams and breathable yoga pants—as if self-love is a [32] ______ commodity.",
+        "For some women I know, this sense of trust and self-belief later in life gave them the courage to leave dysfunctional relationships or [33] ______ on new career paths. Others talked about enjoying their own company, of growth through [34] ______ , deepening bonds of friendships, the ability to be more compassionate, less judgmental and to listen more and appreciate the small pleasures. Life past 40 is far from smooth sailing, but it's so much more than the reductive [35] ______ we see in women's magazines and on the Hollywood big screen."
+      ],
+      "study_paragraphs": [
+        "At 43, I've reached the stage where women are warned to watch out for the creeping sadness of middle age. We're served up an endless stream of advice on“how to survive your 40s”, as if we're in the endurance stage of a slow limp toward fragility. This is the age women start to become“invisible”—our value, attractiveness and power supposedly diminished by the vanishing of youth. But I don't feel like I'm fading into obscurity. I feel more seen than I ever have, and for the first time in my life, I have a clear-eyed view of myself that is authentic, compassionate and accepting.",
+        "When I look in the mirror, I'm proud of who I am—even those“broken”parts that for so long seemed impossible to love. So when advertisers try to sell me ways to“turn back the clock”, I have to suppress a laugh. I wouldn't go back to the crippling self-consciousness of my youth if you paid me. This hard-won sense of self-acceptance is one of the joys of being an older woman. But it's a narrative often drowned out by the shame that marketers rely on to peddle us their diet pills, miracle face creams and breathable yoga pants—as if self-love is a purchasable commodity.",
+        "For some women I know, this sense of trust and self-belief later in life gave them the courage to leave dysfunctional relationships or embark on new career paths. Others talked about enjoying their own company, of growth through adversity, deepening bonds of friendships, the ability to be more compassionate, less judgmental and to listen more and appreciate the small pleasures. Life past 40 is far from smooth sailing, but it's so much more than the reductive depictions we see in women's magazines and on the Hollywood big screen."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-06-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。fragility 指文章开头描述的中年女性脆弱状态。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。diminished by 指被青春流逝削弱的价值和吸引力。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。fading into obscurity 指逐渐被忽视、淡出视线。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。authentic 与 compassionate、accepting 并列，说明真实而坦然的自我认识。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。suppress a laugh 指忍住笑。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。drowned out 指自我接纳的叙事被商业宣传压过。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。purchasable commodity 指似乎可以买到的商品。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。embark on new career paths 指开始新的职业道路。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。growth through adversity 指在逆境中成长。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversity"
+            },
+            {
+              "key": "B",
+              "text": "authentic"
+            },
+            {
+              "key": "C",
+              "text": "convey"
+            },
+            {
+              "key": "D",
+              "text": "depictions"
+            },
+            {
+              "key": "E",
+              "text": "diminished"
+            },
+            {
+              "key": "F",
+              "text": "drowned"
+            },
+            {
+              "key": "G",
+              "text": "embark"
+            },
+            {
+              "key": "H",
+              "text": "fragility"
+            },
+            {
+              "key": "I",
+              "text": "neglected"
+            },
+            {
+              "key": "J",
+              "text": "obscurity"
+            },
+            {
+              "key": "K",
+              "text": "outlines"
+            },
+            {
+              "key": "L",
+              "text": "prevalent"
+            },
+            {
+              "key": "M",
+              "text": "purchasable"
+            },
+            {
+              "key": "N",
+              "text": "submit"
+            },
+            {
+              "key": "O",
+              "text": "suppress"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。reductive depictions 指杂志和电影里简化的描述。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· What Are the Ethics of CGI Actors—And Will They Replace Real Ones?",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Digital humans are coming to a screen near you. As computer-generated imagery(CGI)has become cheaper and more sophisticated, the film industry can now convincingly recreate people on screen— even actors who have been dead for decades. The technology's ability to effectively keep celebrities alive beyond the grave is raising questions about public legacies and image rights.",
+        "[B] Late in 2019, it was announced that US actor James Dean, who died in 1955, will star in a Vietnam War film scheduled for release later this year. In the film, which will be called Finding Jack, Dean will be recreated on screen with CGI based on old footage(影片镜头)and photographs, with another actor voicing him. The news was met with excitement by those keen to see Dean digitally brought back to life for only his fourth film, but it also drew sharp criticism. “This is puppeteering the dead for their fame alone, \"actress Zelda Williams wrote on Twitter. “It sets such an awful precedent for the future of performance. \"Her father, Robin Williams, who died in 2014, was keen to avoid the same fate. Before his death, he filed a deed protecting the use of his image until 2039, preventing others from recreating him using CGI to appear in a film, TV show or as a hologram (全息影像).",
+        "[C] The James Dean film is a way to keep the actor's image relevant for younger generations, says Mark Roesler of CMG Worldwide, the firm that represents Dean's estate. “I think this is the beginning of an entire wave, \"says Travis Cloyd, CEO of Worldwide XR, one of the companies behind the digital recreation of Dean. “Moving into the future, we want James Dean to be brought into different gaming environments, or different virtual reality environments, or augmented reality environments, \"he says.",
+        "[D] O ther actors have been revived, with the permission of their estates, for advertising purposes: for example, a 2011 advertisement for Dior featured contemporary actress Charlize Theron alongside iconic 20th-century stars Marilyn Monroe, Grace Kelly and Marlene Dietrich. Later, Audrey Hepburn was digitally recreated for a chocolate commercial in 2013. In the same year, a CGI Bruce Lee appeared in a Chinese-language ad for a whisky brand, which offended many fans because Lee was widely known not to drink alcohol at all. “In the last five years, it's become more affordable and more achievable in a whole movie,”says Tim Webber at UK visual effects firm Framestore, the company behind the Hepburn chocolate ad. Framestore used body doubles with resemblance to Hepburn's facial structure and body shape as a framework for manual animation. The process was extremely difficult and expensive, says Webber, but the technology has moved on.",
+        "[E] Now, a person can be animated from scratch. “If they're alive today, you can put them in scanning rigs, you can get every detail of their body analysed very carefully and that makes it much easier, whereas working from available photographs is tricky,”says Webber, who won an Academy Award for his visual effects work on the 2013 film Gravity. “I also see a lot of actors today who will have the desire to take advantage of this technology: to have their likeness captured and stored for future content, \"says Cloyd. “They foresee this being something that could give their estates and give their families the ability to make money from their likeness when they're gone.”",
+        "[F] A hidden hazard of digitally recreating a deceased ( 已故的)celebrity is the risk of damaging their legacy. “We have to respect the security and the integrity of rights holders,”says John Canning at Digital Domain, a US firm that created a hologram rapper(说唱艺人) ·Tupac Shakur, which appeared at the Coachella music festival in 2012,15 years after his death.",
+        "[G] Legally, a person's rights to control the commercial use of their name and image beyond their death differ between and even within countries. In certain US states, for example, these rights are treated similarly to property rights, and are transferable to a person's heirs. In California, under the Celebrities Rights Act, the personality rights for a celebrity last for 70 years after their death. “We've got a societal debate going on about access to our public commons, as it were, about famous faces, \" says Lilian Edwards at Newcastle University, UK. Should the public be allowed to use or reproduce images of famous people, given how iconic they are? And what is in the best interest of a deceased person's legacy may conflict with the desires of their family or the public, says Edwards.",
+        "[H] A recreation, however lifelike, willnever be indistinguishable from a real actor, says Webber. “When we are bringing someone back, representing someone who is no longer alive on the screen, what we are doing is extremely sophisticated digital make-up,”he says. “A performance is a lot more than a physical resemblance. \"",
+        "[I] As it becomes easier to digitally recreate celebrities and to entirely manufacture on-screen identities, could this kind of technology put actors out of jobs? “I think actors are worried about this,”says Edwards. “But I think it will take a very long time.”This is partly because of the risk that viewers find virtual humans scary. Edwards cites widespread backlash to the digital recreation of Carrie Fisher as-a young Princess Leia in Rogue One, a trick later repeated in the recent Star Wars: The Rise of Skywalker, which was filmed after Fisher's death in 2016. “People didn't like it,”she says. “They discovered the uncanny valley(诡异谷). ”",
+        "[J] This refers to the idea that when objects trying to resemble humans aren't quite perfect, they can make viewers feel uneasy because they fall somewhere between obviously non-human and fully human. “That's always a danger when you're doing anything human or human-like,”says Webber. “There're a thousand things that could go wrong with a computer-generated facial performance, and any one of those could make it fall into the uncanny valley, \"he says: “Your brain just knows there's something wrong. \"The problem often arises around the eyes or mouth, says Webber. “They're the areas that you look at when you're talking to someone. \"",
+        "[K] An unfamiliar digital human that has been created through CGI will also face the same challenge as an unknown actor: they don't have the appeal of an established name. “You have to spend substantial capital in creating awareness around their likeness and making sure people are familiar with who they are, \"says Cloyd. This is now starting to happen. “The way you pre-sell a movie in a foreign market is based on relevant talent, \"he says. \"I think we're a long way away from having virtual beings that have the ability to pre-sell content.”",
+        "[L] Webber expects that we will see more digital humans on screen. \"It's happening because it can happen, \"he says. Referring to a line from Jurassic Park(侏罗纪公园), he adds: “People are too busy thinking about what they can do to think about whether they should do it.”"
+      ],
+      "study_paragraphs": [
+        "Digital humans are coming to a screen near you. As computer-generated imagery(CGI)has become cheaper and more sophisticated, the film industry can now convincingly recreate people on screen— even actors who have been dead for decades. The technology's ability to effectively keep celebrities alive beyond the grave is raising questions about public legacies and image rights.",
+        "Late in 2019, it was announced that US actor James Dean, who died in 1955, will star in a Vietnam War film scheduled for release later this year. In the film, which will be called Finding Jack, Dean will be recreated on screen with CGI based on old footage(影片镜头)and photographs, with another actor voicing him. The news was met with excitement by those keen to see Dean digitally brought back to life for only his fourth film, but it also drew sharp criticism. “This is puppeteering the dead for their fame alone, \"actress Zelda Williams wrote on Twitter. “It sets such an awful precedent for the future of performance. \"Her father, Robin Williams, who died in 2014, was keen to avoid the same fate. Before his death, he filed a deed protecting the use of his image until 2039, preventing others from recreating him using CGI to appear in a film, TV show or as a hologram (全息影像).",
+        "The James Dean film is a way to keep the actor's image relevant for younger generations, says Mark Roesler of CMG Worldwide, the firm that represents Dean's estate. “I think this is the beginning of an entire wave, \"says Travis Cloyd, CEO of Worldwide XR, one of the companies behind the digital recreation of Dean. “Moving into the future, we want James Dean to be brought into different gaming environments, or different virtual reality environments, or augmented reality environments, \"he says.",
+        "O ther actors have been revived, with the permission of their estates, for advertising purposes: for example, a 2011 advertisement for Dior featured contemporary actress Charlize Theron alongside iconic 20th-century stars Marilyn Monroe, Grace Kelly and Marlene Dietrich. Later, Audrey Hepburn was digitally recreated for a chocolate commercial in 2013. In the same year, a CGI Bruce Lee appeared in a Chinese-language ad for a whisky brand, which offended many fans because Lee was widely known not to drink alcohol at all. “In the last five years, it's become more affordable and more achievable in a whole movie,”says Tim Webber at UK visual effects firm Framestore, the company behind the Hepburn chocolate ad. Framestore used body doubles with resemblance to Hepburn's facial structure and body shape as a framework for manual animation. The process was extremely difficult and expensive, says Webber, but the technology has moved on.",
+        "Now, a person can be animated from scratch. “If they're alive today, you can put them in scanning rigs, you can get every detail of their body analysed very carefully and that makes it much easier, whereas working from available photographs is tricky,”says Webber, who won an Academy Award for his visual effects work on the 2013 film Gravity. “I also see a lot of actors today who will have the desire to take advantage of this technology: to have their likeness captured and stored for future content, \"says Cloyd. “They foresee this being something that could give their estates and give their families the ability to make money from their likeness when they're gone.”",
+        "A hidden hazard of digitally recreating a deceased ( 已故的)celebrity is the risk of damaging their legacy. “We have to respect the security and the integrity of rights holders,”says John Canning at Digital Domain, a US firm that created a hologram rapper(说唱艺人) ·Tupac Shakur, which appeared at the Coachella music festival in 2012,15 years after his death.",
+        "Legally, a person's rights to control the commercial use of their name and image beyond their death differ between and even within countries. In certain US states, for example, these rights are treated similarly to property rights, and are transferable to a person's heirs. In California, under the Celebrities Rights Act, the personality rights for a celebrity last for 70 years after their death. “We've got a societal debate going on about access to our public commons, as it were, about famous faces, \" says Lilian Edwards at Newcastle University, UK. Should the public be allowed to use or reproduce images of famous people, given how iconic they are? And what is in the best interest of a deceased person's legacy may conflict with the desires of their family or the public, says Edwards.",
+        "A recreation, however lifelike, willnever be indistinguishable from a real actor, says Webber. “When we are bringing someone back, representing someone who is no longer alive on the screen, what we are doing is extremely sophisticated digital make-up,”he says. “A performance is a lot more than a physical resemblance. \"",
+        "As it becomes easier to digitally recreate celebrities and to entirely manufacture on-screen identities, could this kind of technology put actors out of jobs? “I think actors are worried about this,”says Edwards. “But I think it will take a very long time.”This is partly because of the risk that viewers find virtual humans scary. Edwards cites widespread backlash to the digital recreation of Carrie Fisher as-a young Princess Leia in Rogue One, a trick later repeated in the recent Star Wars: The Rise of Skywalker, which was filmed after Fisher's death in 2016. “People didn't like it,”she says. “They discovered the uncanny valley(诡异谷). ”",
+        "This refers to the idea that when objects trying to resemble humans aren't quite perfect, they can make viewers feel uneasy because they fall somewhere between obviously non-human and fully human. “That's always a danger when you're doing anything human or human-like,”says Webber. “There're a thousand things that could go wrong with a computer-generated facial performance, and any one of those could make it fall into the uncanny valley, \"he says: “Your brain just knows there's something wrong. \"The problem often arises around the eyes or mouth, says Webber. “They're the areas that you look at when you're talking to someone. \"",
+        "An unfamiliar digital human that has been created through CGI will also face the same challenge as an unknown actor: they don't have the appeal of an established name. “You have to spend substantial capital in creating awareness around their likeness and making sure people are familiar with who they are, \"says Cloyd. This is now starting to happen. “The way you pre-sell a movie in a foreign market is based on relevant talent, \"he says. \"I think we're a long way away from having virtual beings that have the ability to pre-sell content.”",
+        "Webber expects that we will see more digital humans on screen. \"It's happening because it can happen, \"he says. Referring to a line from Jurassic Park(侏罗纪公园), he adds: “People are too busy thinking about what they can do to think about whether they should do it.”"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-06-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. There is an ongoing debate among the public as to whether the images of deceased celebrities should be recreated.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：Legally, a person's rights to control the commercial use of their name and image beyond their death differ between and even within countries. In certain US states, for example, these rights are treated similarly to property rights, and are transferable to a person's heirs. In California, under the Celebrities Rights Act, the personality rights for a celebrity last for 70 years after their death. “We've got a societal debate going on about access to our public commons, as it were, about famous faces, \" says Lilian Edwards at Newcastle University, UK. Should the public be allowed to use or reproduce images of famous people, given how iconic they are? And what is in the best interest of a deceased person's legacy may conflict with the desires of their family or the public, says Edwards.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. The CGI technology allows the image of the deceased James Dean to be presented to young people in new settings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：The James Dean film is a way to keep the actor's image relevant for younger generations, says Mark Roesler of CMG Worldwide, the firm that represents Dean's estate. “I think this is the beginning of an entire wave, \"says Travis Cloyd, CEO of Worldwide XR, one of the companies behind the digital recreation of Dean. “Moving into the future, we want James Dean to be brought into different gaming environments, or different virtual reality environments, or augmented reality environments, \"he says.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. It is very likely that the CGI-recreated image of a deceased celebrity will fail to match the real actor especially in facial expressions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：This refers to the idea that when objects trying to resemble humans aren't quite perfect, they can make viewers feel uneasy because they fall somewhere between obviously non-human and fully human. “That's always a danger when you're doing anything human or human-like,”says Webber. “There're a thousand things that could go wrong with a computer-generated facial performance, and any one of those could make it fall into the uncanny valley, \"he says: “Your brain just knows there's something wrong. \"The problem often arises around the eyes or mouth, says Webber. “They're the areas that you look at when you're talking to someone. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. The use of digital technology can bring images of deceased celebrities back to the screen.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：Digital humans are coming to a screen near you. As computer-generated imagery(CGI)has become cheaper and more sophisticated, the film industry can now convincingly recreate people on screen— even actors who have been dead for decades. The technology's ability to effectively keep celebrities alive beyond the grave is raising questions about public legacies and image rights.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Recreating a deceased famous actor or actress may violate their legitimate rights.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：A hidden hazard of digitally recreating a deceased ( 已故的)celebrity is the risk of damaging their legacy. “We have to respect the security and the integrity of rights holders,”says John Canning at Digital Domain, a US firm that created a hologram rapper(说唱艺人) ·Tupac Shakur, which appeared at the Coachella music festival in 2012,15 years after his death.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. More CGI-recreated images of deceased celebrities are expected to appear on screen.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：Webber expects that we will see more digital humans on screen. \"It's happening because it can happen, \"he says. Referring to a line from Jurassic Park(侏罗纪公园), he adds: “People are too busy thinking about what they can do to think about whether they should do it.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. The image of James Dean will be recreated on screen with his voice dubbed by someone else.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Late in 2019, it was announced that US actor James Dean, who died in 1955, will star in a Vietnam War film scheduled for release later this year. In the film, which will be called Finding Jack, Dean will be recreated on screen with CGI based on old footage(影片镜头)and photographs, with another actor voicing him. The news was met with excitement by those keen to see Dean digitally brought back to life for only his fourth film, but it also drew sharp criticism. “This is puppeteering the dead for their fame alone, \"actress Zelda Williams wrote on Twitter. “It sets such an awful precedent for the future of performance. \"Her father, Robin Williams, who died in 2014, was keen to avoid the same fate. Before his death, he filed a deed protecting the use of his image until 2039, preventing others from recreating him using CGI to appear in a film, TV show or as a hologram (全息影像).",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. However advanced the CGI technology is, the recreated image will differ in a way from the real actor.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：A recreation, however lifelike, willnever be indistinguishable from a real actor, says Webber. “When we are bringing someone back, representing someone who is no longer alive on the screen, what we are doing is extremely sophisticated digital make-up,”he says. “A performance is a lot more than a physical resemblance. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. A lot of actors today are likely to make use of the CGI technology to have their images stored for the benefit of their families.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：Now, a person can be animated from scratch. “If they're alive today, you can put them in scanning rigs, you can get every detail of their body analysed very carefully and that makes it much easier, whereas working from available photographs is tricky,”says Webber, who won an Academy Award for his visual effects work on the 2013 film Gravity. “I also see a lot of actors today who will have the desire to take advantage of this technology: to have their likeness captured and stored for future content, \"says Cloyd. “They foresee this being something that could give their estates and give their families the ability to make money from their likeness when they're gone.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Some actors are concerned that they may lose jobs because of the CGI technology.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：As it becomes easier to digitally recreate celebrities and to entirely manufacture on-screen identities, could this kind of technology put actors out of jobs? “I think actors are worried about this,”says Edwards. “But I think it will take a very long time.”This is partly because of the risk that viewers find virtual humans scary. Edwards cites widespread backlash to the digital recreation of Carrie Fisher as-a young Princess Leia in Rogue One, a trick later repeated in the recent Star Wars: The Rise of Skywalker, which was filmed after Fisher's death in 2016. “People didn't like it,”she says. “They discovered the uncanny valley(诡异谷). ”",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "You can't see it, smell it, or hear it, and people disagree on how precisely to define it, or where exactly it comes from. It isn't a school subject or an academic discipline, but it can be learned. It is a quality that is required of artists, but it is also present in the lives of scientists and entrepreneurs. All of us benefit from it and we thrive mentally and spiritually when we are able to wield it. It is a delicate thing, easily stamped out; in fact, it flourishes most fully when people are playful and childlike. Meanwhile, it works best in conjunction with deep knowledge and expertise.",
+        "This mysterious-but teachable—quality is creativity, the subject of a recently-published report by Durham Commission on Creativity and Education. The report concludes that creativity should not inhabit the school curriculum only as it relates to drama, music, art and other obviously creative subjects, but that creative thinking ought to run through all of school life, infusing(充满)the way humanities and natural sciences are learned.",
+        "The authors, who focus on education in England, offer a number of sensible recommendations, some of which are an attempt to alleviate the uninspiring and fact-based approach to education that has crept into policy in recent years. When children are regarded as vessels to be filled with facts, creativity does not prosper; nor does it when teachers'sole objective is coaching children towards exams. One suggestion from the commission is a network of teacher-led\"creativity collaboratives\", along the lines of existing maths hubs( 中心) , with the aim of supporting teaching for creativity through the school curriculum.",
+        "Nevertheless, it is arts subjects through which creativity can most obviously be fostered. The value placed on them by the independent education sector is clear. One only has to look at the remarkable arts facilities at Britain's top private schools to comprehend this. But in the state sector the excessive focus on English, maths and science threatens to crush arts subjects; meanwhile, reduced school budgets mean diminishing extracurricular activities. There has been a 28.1%decline in students taking creative subjects at high schools since 2014, though happily, art and design have seen a recent increase.",
+        "This discrepancy between state and private education is a matter of social justice. It is simply wrong and unfair that most children have a fraction of the access to choirs, orchestras, art studios and drama that their more privileged peers enjoy. As lives are affected by any number of looming challenges-climate crisis, automation in the workplace—humans are going to need creative thinking more than ever. For all of our sakes, creativity in education, and for all, must become a priority."
+      ],
+      "study_paragraphs": [
+        "You can't see it, smell it, or hear it, and people disagree on how precisely to define it, or where exactly it comes from. It isn't a school subject or an academic discipline, but it can be learned. It is a quality that is required of artists, but it is also present in the lives of scientists and entrepreneurs. All of us benefit from it and we thrive mentally and spiritually when we are able to wield it. It is a delicate thing, easily stamped out; in fact, it flourishes most fully when people are playful and childlike. Meanwhile, it works best in conjunction with deep knowledge and expertise.",
+        "This mysterious-but teachable—quality is creativity, the subject of a recently-published report by Durham Commission on Creativity and Education. The report concludes that creativity should not inhabit the school curriculum only as it relates to drama, music, art and other obviously creative subjects, but that creative thinking ought to run through all of school life, infusing(充满)the way humanities and natural sciences are learned.",
+        "The authors, who focus on education in England, offer a number of sensible recommendations, some of which are an attempt to alleviate the uninspiring and fact-based approach to education that has crept into policy in recent years. When children are regarded as vessels to be filled with facts, creativity does not prosper; nor does it when teachers'sole objective is coaching children towards exams. One suggestion from the commission is a network of teacher-led\"creativity collaboratives\", along the lines of existing maths hubs( 中心) , with the aim of supporting teaching for creativity through the school curriculum.",
+        "Nevertheless, it is arts subjects through which creativity can most obviously be fostered. The value placed on them by the independent education sector is clear. One only has to look at the remarkable arts facilities at Britain's top private schools to comprehend this. But in the state sector the excessive focus on English, maths and science threatens to crush arts subjects; meanwhile, reduced school budgets mean diminishing extracurricular activities. There has been a 28.1%decline in students taking creative subjects at high schools since 2014, though happily, art and design have seen a recent increase.",
+        "This discrepancy between state and private education is a matter of social justice. It is simply wrong and unfair that most children have a fraction of the access to choirs, orchestras, art studios and drama that their more privileged peers enjoy. As lives are affected by any number of looming challenges-climate crisis, automation in the workplace—humans are going to need creative thinking more than ever. For all of our sakes, creativity in education, and for all, must become a priority."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-06-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn from the passage about creativity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It develops best when people are spiritually prepared."
+            },
+            {
+              "key": "B",
+              "text": "It is most often wielded by scientists and entrepreneurs."
+            },
+            {
+              "key": "C",
+              "text": "It is founded on scientific knowledge and analytical skills."
+            },
+            {
+              "key": "D",
+              "text": "It contributes to intellectual growth but can easily be killed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。首段说明创造力有益于精神与智力成长，却很容易被扼杀。第 1 段原文依据：You can't see it, smell it, or hear it, and people disagree on how precisely to define it, or where exactly it comes from. It isn't a school subject or an academic discipline, but it can be learned. It is a quality that is required of artists, but it is also present in the lives of scientists and entrepreneurs. All of us benefit from it and we thrive mentally and spiritually when we are able to wield it. It is a delicate thing, easily stamped out; in fact, it flourishes most fully when people are playful and childlike. Meanwhile, it works best in conjunction with deep knowledge and expertise.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What is the conclusion of a recently-published report?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Natural sciences should be learned the way humanities courses are."
+            },
+            {
+              "key": "B",
+              "text": "Cultivation of creativity should permeate the entire school curriculum."
+            },
+            {
+              "key": "C",
+              "text": "Art courses should be made compulsory for all students."
+            },
+            {
+              "key": "D",
+              "text": "Students should learn more obviously creative subjects."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第二段说创造性思维应贯穿学校所有课程。第 2 段原文依据：This mysterious-but teachable—quality is creativity, the subject of a recently-published report by Durham Commission on Creativity and Education. The report concludes that creativity should not inhabit the school curriculum only as it relates to drama, music, art and other obviously creative subjects, but that creative thinking ought to run through all of school life, infusing(充满)the way humanities and natural sciences are learned.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the report say is detrimental to the fostering of creativity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Alleviation of pressure."
+            },
+            {
+              "key": "B",
+              "text": "Teacher-led school activities."
+            },
+            {
+              "key": "C",
+              "text": "Test-oriented teaching."
+            },
+            {
+              "key": "D",
+              "text": "Independent learning."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第三段批评事实灌输和以考试为唯一目标的教学。第 3 段原文依据：The authors, who focus on education in England, offer a number of sensible recommendations, some of which are an attempt to alleviate the uninspiring and fact-based approach to education that has crept into policy in recent years. When children are regarded as vessels to be filled with facts, creativity does not prosper; nor does it when teachers'sole objective is coaching children towards exams. One suggestion from the commission is a network of teacher-led\"creativity collaboratives\", along the lines of existing maths hubs( 中心) , with the aim of supporting teaching for creativity through the school curriculum.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What do we learn about the private schools in the UK?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They encourage extracurricular activities."
+            },
+            {
+              "key": "B",
+              "text": "They attach great importance to arts education."
+            },
+            {
+              "key": "C",
+              "text": "They prioritize arts subjects over maths and sciences."
+            },
+            {
+              "key": "D",
+              "text": "They cater to students from different family backgrounds."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第四段指出英国私立学校有卓越的艺术设施，重视艺术教育。第 4 段原文依据：Nevertheless, it is arts subjects through which creativity can most obviously be fostered. The value placed on them by the independent education sector is clear. One only has to look at the remarkable arts facilities at Britain's top private schools to comprehend this. But in the state sector the excessive focus on English, maths and science threatens to crush arts subjects; meanwhile, reduced school budgets mean diminishing extracurricular activities. There has been a 28.1%decline in students taking creative subjects at high schools since 2014, though happily, art and design have seen a recent increase.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What should be done to meet the future challenges?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Increasing government investment in school education."
+            },
+            {
+              "key": "B",
+              "text": "Narrowing the existing gap between the rich and the poor."
+            },
+            {
+              "key": "C",
+              "text": "Providing all children with equal access to arts education."
+            },
+            {
+              "key": "D",
+              "text": "Focusing on meeting the needs of under-privileged students."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。末段强调所有儿童都应公平获得艺术教育以应对未来挑战。第 5 段原文依据：This discrepancy between state and private education is a matter of social justice. It is simply wrong and unfair that most children have a fraction of the access to choirs, orchestras, art studios and drama that their more privileged peers enjoy. As lives are affected by any number of looming challenges-climate crisis, automation in the workplace—humans are going to need creative thinking more than ever. For all of our sakes, creativity in education, and for all, must become a priority.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Emulating your conversation partner's actions is a common human behavior classified as“mirroring” and has been known and studied by psychologists for years. We all tend to subconsciously copy gestures of people we like. But why do we act like this?",
+        "As a rule, mirroring means that conversationalists enjoy their communication and that there's a certain level of agreement between them. The topic of discussion is equally interesting for both and they know their interests meet.",
+        "Repeating someone's behavior is typical of talented communicators, not always because the person is sympathetic, but because there is a goal to be achieved. This way new idols have been brought to the stage: politicians, celebrities, and other big names. Popular culture makes people want to look popular, and act and speak like popular people.",
+        "Nowadays celebrities steal lyrics from each other and struggle with copyright violation accusations or straightforwardly claim themselves to be the authors, even though all the work was done by other people.",
+        "Among celebrities, it's trendy nowadays to use their own speech writers as politicians do. The so-called“ghostwriting”can take various forms: books, articles, autobiographies, and even social media posts.",
+        "Who is a true copycat(抄袭者)and who gets copycatted? Sometimes, it is a hard nut to crack without an expert's help. But new authorship defending methods based on identifying individual writing patterns are already here. Their aim is to protect intellectual property. Using scientific methods, some of them can define authorship with 85%accuracy.",
+        "Writing is not an easy craft to master. If you want to write like a professional without plagiarism( 抄袭) , there are a few lessons to learn and the first one is: “Copy from one, it's plagiarism; copy from two, it's research.”The correct interpretation of this statement is not about copying, but rather about creating your own style. When you study an author's writing style, don't stop on a single one, but explore numerous styles instead. Examine types of sentences they use, pay attention to their metaphors, and focus on stories you feel you could write a pretty cool sequel (续篇)to.",
+        "Imitation is rather paradoxical. As an integral part of learning, it brings about positive changes, making people develop and grow. However, it may do a lot of harm. Copying someone's thoughts, ideas or inventions is completely unacceptable. It infringes on intellectual property rights of others.",
+        "Still, many things we do are about copying others one way. or another. So if you want to compliment someone on the work they have done and imitate it, just make sure you do it the right way to avoid committing plagiarism."
+      ],
+      "study_paragraphs": [
+        "Emulating your conversation partner's actions is a common human behavior classified as“mirroring” and has been known and studied by psychologists for years. We all tend to subconsciously copy gestures of people we like. But why do we act like this?",
+        "As a rule, mirroring means that conversationalists enjoy their communication and that there's a certain level of agreement between them. The topic of discussion is equally interesting for both and they know their interests meet.",
+        "Repeating someone's behavior is typical of talented communicators, not always because the person is sympathetic, but because there is a goal to be achieved. This way new idols have been brought to the stage: politicians, celebrities, and other big names. Popular culture makes people want to look popular, and act and speak like popular people.",
+        "Nowadays celebrities steal lyrics from each other and struggle with copyright violation accusations or straightforwardly claim themselves to be the authors, even though all the work was done by other people.",
+        "Among celebrities, it's trendy nowadays to use their own speech writers as politicians do. The so-called“ghostwriting”can take various forms: books, articles, autobiographies, and even social media posts.",
+        "Who is a true copycat(抄袭者)and who gets copycatted? Sometimes, it is a hard nut to crack without an expert's help. But new authorship defending methods based on identifying individual writing patterns are already here. Their aim is to protect intellectual property. Using scientific methods, some of them can define authorship with 85%accuracy.",
+        "Writing is not an easy craft to master. If you want to write like a professional without plagiarism( 抄袭) , there are a few lessons to learn and the first one is: “Copy from one, it's plagiarism; copy from two, it's research.”The correct interpretation of this statement is not about copying, but rather about creating your own style. When you study an author's writing style, don't stop on a single one, but explore numerous styles instead. Examine types of sentences they use, pay attention to their metaphors, and focus on stories you feel you could write a pretty cool sequel (续篇)to.",
+        "Imitation is rather paradoxical. As an integral part of learning, it brings about positive changes, making people develop and grow. However, it may do a lot of harm. Copying someone's thoughts, ideas or inventions is completely unacceptable. It infringes on intellectual property rights of others.",
+        "Still, many things we do are about copying others one way. or another. So if you want to compliment someone on the work they have done and imitate it, just make sure you do it the right way to avoid committing plagiarism."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-06-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do people tend to do while engaging in a conversation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Repeat what their partners say one way or another."
+            },
+            {
+              "key": "B",
+              "text": "Focus as much as possible on topics of mutual interest."
+            },
+            {
+              "key": "C",
+              "text": "Imitate their partners'gestures without their knowing it."
+            },
+            {
+              "key": "D",
+              "text": "Observe carefully how their partners make use of gestures."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。首段明确说人们会下意识模仿喜欢的人的手势。第 1 段原文依据：Emulating your conversation partner's actions is a common human behavior classified as“mirroring” and has been known and studied by psychologists for years. We all tend to subconsciously copy gestures of people we like. But why do we act like this?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. When does mirroring usually take place in a conversation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When both sides are sympathetic with each other."
+            },
+            {
+              "key": "B",
+              "text": "When both sides have a lot of things in common."
+            },
+            {
+              "key": "C",
+              "text": "When both sides make interesting contributions."
+            },
+            {
+              "key": "D",
+              "text": "When both sides try to seek common ground."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第二段说明镜像行为发生在双方享受沟通并相互认同的时候。第 2 段原文依据：As a rule, mirroring means that conversationalists enjoy their communication and that there's a certain level of agreement between them. The topic of discussion is equally interesting for both and they know their interests meet.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What do we learn about popular culture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It encourages people to imitate."
+            },
+            {
+              "key": "B",
+              "text": "It appeals mostly to big names."
+            },
+            {
+              "key": "C",
+              "text": "It acquaints young people with their idols."
+            },
+            {
+              "key": "D",
+              "text": "It can change people's mode of cognition."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第三段指出流行文化促使人们模仿受欢迎的人。第 3 段原文依据：Repeating someone's behavior is typical of talented communicators, not always because the person is sympathetic, but because there is a goal to be achieved. This way new idols have been brought to the stage: politicians, celebrities, and other big names. Popular culture makes people want to look popular, and act and speak like popular people.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. Why is the saying“copy from two, it's research”a lesson to learn?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It facilitates the creation of one's own writing style."
+            },
+            {
+              "key": "B",
+              "text": "It helps to protect one's intellectual property rights."
+            },
+            {
+              "key": "C",
+              "text": "It fosters correct interpretation of professional writing."
+            },
+            {
+              "key": "D",
+              "text": "It enables one to write intriguing sequels to famous stories."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第七段说明研究多个作者的风格能帮助形成自己的写作方式。第 7 段原文依据：Writing is not an easy craft to master. If you want to write like a professional without plagiarism( 抄袭) , there are a few lessons to learn and the first one is: “Copy from one, it's plagiarism; copy from two, it's research.”The correct interpretation of this statement is not about copying, but rather about creating your own style. When you study an author's writing style, don't stop on a single one, but explore numerous styles instead. Examine types of sentences they use, pay attention to their metaphors, and focus on stories you feel you could write a pretty cool sequel (续篇)to.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-06-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. Why does the author say imitation is rather paradoxical?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is liable to different interpretations."
+            },
+            {
+              "key": "B",
+              "text": "It is by and large a necessary evil."
+            },
+            {
+              "key": "C",
+              "text": "It can give rise to endless disputes."
+            },
+            {
+              "key": "D",
+              "text": "It may do harm as well as good."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第八段同时描述模仿对学习的益处和侵犯知识产权的伤害。第 8 段原文依据：Imitation is rather paradoxical. As an integral part of learning, it brings about positive changes, making people develop and grow. However, it may do a lot of harm. Copying someone's thoughts, ideas or inventions is completely unacceptable. It infringes on intellectual property rights of others.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "云南是位于中国西南的一个省份，平均海拔1500米。云南历史悠久，风景秀丽，气候宜人。云南生态环境优越，生物多种多样，被誉为野生动植物的天堂。云南还有多种矿藏和充足的水资源，为全省经济的可持续发展提供了有利条件。",
+        "云南居住着25个少数民族，他们大多有自己的语言、习俗和宗教。云南独特的自然景色和丰富的民族文化使其成为中国最受欢迎的旅游目的地之一，每年都吸引着大批国内外游客前往观光旅游。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2021-06-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

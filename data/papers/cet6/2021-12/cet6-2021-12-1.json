@@ -1,0 +1,1699 @@
+{
+  "id": "cet6-2021-12-1",
+  "exam_level": "CET6",
+  "year": 2021,
+  "month": 12,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2021年12月大学英语六级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2021-12-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay related to the short passage given below. In your essay, you are to comment on the phenomenon described in the passage and suggest measures to address the issue. You should write at least 150 words but no more than 200 words. Young people spend a lot of time on the Internet. However, they are sometimes unable to recognize false information on the Internet, judge the reliability of online information sources, or tell real news stories from fake ones."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-1-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay related to the short passage given below. In your essay, you are to comment on the phenomenon described in the passage and suggest measures to address the issue. You should write at least 150 words but no more than 200 words. Young people spend a lot of time on the Internet. However, they are sometimes unable to recognize false information on the Internet, judge the reliability of online information sources, or tell real news stories from fake ones.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one wordfor each blankfrom a list ofchoices given in a word bankfollowing thepassage. Read the passage through carefully before makingyour choices. Each choice in the bank is identified by a letter: Please mark the corresponding letterfor each item on Answer Sheet 2 with a single line through the centre. You may not use any ofthe words in the bank more than once.",
+      "paragraphs": [
+        "If you think life is wonderful and expect it to stay that way, then you may have a good chance of living to a ripe old age, at least that is what the findings of a new study suggest. That study found that participants who reported the highest levels of optimism were far more likely to live to age 85or [26] ______ . This was compared to those participants who reported the lowest levels of optimism. It is [27] ______ that the findings held even after the researchers considered factors that could [28] ______ the link, including whether participants had health conditions such as heart disease or cancer, or whether they experienced depression. The results add to a growing body of evidence that certain psychological factors may predict a longer life [29] ______ . For example, previous studies have found that more optimistic people have a lower risk of developing chronic diseases, and a lower risk of [30] ______ death. However, the new study appears to be the first to [31] ______ look at the relationship between optimism and longevity. The researchers [32] ______ that the link found in the new study was not as strong when they factored in the effects of certain health behaviors, including exercise levels, sleep habits and diet. This suggests that these behaviors may, at least in part, explain the link. In other words, optimism may. [33] ______ good habits that bolster health. It is also important to note that the study found only a [34] ______ , as researchers did not prove for certain that optimism leads to a longer life. However, if the findings are true, they suggest that optimism could serve as a psychological [35] ______ that promotes health and a longer life."
+      ],
+      "study_paragraphs": [
+        "If you think life is wonderful and expect it to stay that way, then you may have a good chance of living to a ripe old age, at least that is what the findings of a new study suggest. That study found that participants who reported the highest levels of optimism were far more likely to live to age 85or beyond. This was compared to those participants who reported the lowest levels of optimism. It is noteworthy that the findings held even after the researchers considered factors that could affect the link, including whether participants had health conditions such as heart disease or cancer, or whether they experienced depression. The results add to a growing body of evidence that certain psychological factors may predict a longer life span. For example, previous studies have found that more optimistic people have a lower risk of developing chronic diseases, and a lower risk of premature death. However, the new study appears to be the first to specifically look at the relationship between optimism and longevity. The researchers conceded that the link found in the new study was not as strong when they factored in the effects of certain health behaviors, including exercise levels, sleep habits and diet. This suggests that these behaviors may, at least in part, explain the link. In other words, optimism may. foster good habits that bolster health. It is also important to note that the study found only a correlation, as researchers did not prove for certain that optimism leads to a longer life. However, if the findings are true, they suggest that optimism could serve as a psychological trait that promotes health and a longer life."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。age 85 or beyond 指活到 85 岁或更高年龄。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。noteworthy 指值得注意的是控制其他因素后结论仍成立。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。affect the link 指可能影响关联的疾病和心理因素。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。life span 指寿命。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。premature death 指过早死亡。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。specifically look at 指专门考察乐观与长寿的关系。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。conceded 指研究者承认加入健康行为因素后关联减弱。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。foster good habits 指乐观有助于培养良好的生活习惯。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。correlation 指研究仅发现相关性，没有证明因果关系。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affect"
+            },
+            {
+              "key": "B",
+              "text": "beyond"
+            },
+            {
+              "key": "C",
+              "text": "conceded"
+            },
+            {
+              "key": "D",
+              "text": "correlation"
+            },
+            {
+              "key": "E",
+              "text": "foster"
+            },
+            {
+              "key": "F",
+              "text": "henceforth"
+            },
+            {
+              "key": "G",
+              "text": "lofty"
+            },
+            {
+              "key": "H",
+              "text": "noteworthy"
+            },
+            {
+              "key": "I",
+              "text": "plausibly"
+            },
+            {
+              "key": "J",
+              "text": "premature"
+            },
+            {
+              "key": "K",
+              "text": "reconciled"
+            },
+            {
+              "key": "L",
+              "text": "span"
+            },
+            {
+              "key": "M",
+              "text": "specifically"
+            },
+            {
+              "key": "N",
+              "text": "spiral"
+            },
+            {
+              "key": "O",
+              "text": "trait"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。psychological trait 指促进健康的心理特质。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· No one in fashion is surprised that Burberry burnt f28 million of stock",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter:. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Last week, Burberry's annual report revealed that f28.6 million worth of stock was burnt last year. The news has left investors and consumers outraged but comes as little surprise to those in the fashion industry.",
+        "[B] The practice of destroying unsold stock, and even rolls of unused fabric, is commonplace for luxury labels. Becoming too widely available at a cheaper price through discount stores discourages full-price sales. Sending products for recycling leaves them vulnerable to being stolen and sold on the black market. Jasmine Bina, CEO of brand strategy agency Concept Bureau explains, \"Typically, luxury brands rally around exclusivity to protect their business interests, namely intellectual property and preservation of brand equity(资产). ”She stated she had heard rumors of stock burning but not specific cases until this week.",
+        "[C] Another reason for the commonplace practice is a financial incentive for brands exporting goods to America. United States Customs states that if imported merchandise is unused and destroyed under their supervision,99%of the duties, taxes or fees paid on the merchandise may be recovered. It is incredibly difficult to calculate how much dead stock currently goes to waste. While there are incentives to do it, there's no legal obligation to report it.",
+        "[D] A source, who chose to remain anonymous, shared her experience working in a Burberry store in New York in October 2016. \"My job was to toss items in boxes so they could be sent to be burned. It was killing me inside because all that leather and fur went to waste and animals had died for nothing. I couldn't stay there any longer, their business practices threw me off the roof. \"In May this year, Burberry announced it was taking fur out of its catwalk shows and reviewing its use elsewhere in the business. \"Even though we asked the management, they refused to give us detailed answers as to why they would do this with their collection, \"continued the source, who left her role within two weeks. She has since worked with another high-profile, luxury label.",
+        "[E] In an online forum post, which asked if it's true that Louis Vuitton burned its bags, Ahmed Bouchfaa, who claimed to work for Louis Vuitton, responded that the brand holds sales of old stock for staff members twice a year. Items which have still not sold after several sales are destroyed. \"Louis Vuitton doesn't have public sales. They either sell a product at a given price or discontinue it. This is to make sure that everybody pays the same price for an item, \"he says. He goes on to disclose the strict guidelines around the employee sales: \"You may buy gifts for someone, but they track each item, and if your gift ends up online they know who to ask. \"One investor commenting on the Burberry figures was reportedly outraged that the unsold goods were not even offered to investors before they were destroyed.",
+        "[F] Richemont, who owns several luxury brands, hit the headlines in May for taking back f437 million of watches for destruction in the last two years to avoid marked-down prices. It's not just luxury brands either. In October last year, a Danish TV show exposed H&M for burning 12 tonnes of unsold clothing since 2013. In a statement, the high street retailer defended itself by saying that the burnt clothing had failed safety tests: “The products to which the media are referring have been tested in external laboratories. The test results show that one of the products is mold infested and the other product contains levels of lead that are too high. Those products have rightly been stopped in accordance with our safety routines. \"In March, a report revealed that H&M was struggling with $4.3 billion worth of unsold stock. The brand told The New York Times that theplan was to reduceprices to move the stock, arguably encouraging consumers to buy and throw away with little thought",
+        "[G] Over-production is perhaps the biggest concern for Burberry. While there has been much outrage at the elitist connotation of burning goods rather than making them affordable, executives at the British fashion house are no doubt struggling to defend how they miscalculated production. The waste has been put down to burning old cosmetic stock to make way for their new beauty range. However, while the value of destroyed stock is up from f26.9 million last year, it's an even more significant increase from 2016's figure off18.8 million, highlighting that this is an ongoing issue.",
+        "[H] In September 2016, Burberry switched to a \"see now, buy now\"catwalk show format. The move was a switch to leverage on the coverage of their fashion week show to make stock available immediately to consumers. This is opposed to the traditional format of presenting to the industry, taking orders for production and becoming available in six months, time. While Burberry announced \"record-breaking\" online reach and engagement, there has been little evidence to suggest that the strategy has had a significant effect on sales, particularly as the hype( 炒作)slows across the season. In February they made adjustments to the format, dropping some catwalk items immediately and promising that others would launch in the coming months.",
+        "[I] In a statement, Burberry denied that switching to\"see now, buy now\"has had an impact on waste. A Burberry spokesperson further said, “On the occasions when disposal of products is necessary, we do so in a responsible manner. We are always seeking ways to reduce and revalue our waste. This is a core part of our strategy and we have forged partnerships and committed support to innovative organizations to help reach this goal. \"",
+        "[J] One such partnership is with Elvis &Kresse, an accessories brand working with reclaimed materials. Co-founder Kresse Wesling said, \"Late last year we launched an ambitious five-year partnership with the Burberry Foundation. The main aim of this is to scale our leather rescue project, starting with off-cuts from the production of Burberry leather goods. We are working tirelessly to expand our solutions and would love to welcome anyone to our workshop to come and see what we are doing. \" At the moment, the partnership only addresses waste at the production stage and not unsold goods.",
+        "[K] While these are honorable schemes, it makes it harder for Burberry to defend these latest figures. Fifteen years ago, Burberry was at crisis point as their signature check pattern was widely imitated by cheap, imitation brands. It deterred luxury consumers who found their expensive clothing more closely associated with working-class youth culture than a prestigious heritage fashion house. In the year 2004, at the height of over-exposure of the Burberry check, the brand's turnover was f715.5 million. Under Christopher Bailey as creative director they turned the brand around and this past year revenue hit f2.73 billion.",
+        "[L] Bina believes that brands need to readdress their exclusivity tactic. \"Exclusivity is starting to be challenged, \"she says, \"I think that goes hand in hand with how luxury itself is being challenged. Access to fashion, and the brands who police it, are becoming less and less relevant. Things like health, enlightenment, and social and environmental responsibility are the new luxuries. These all come from within, not without. That's the challenge that traditional luxury brands will have to contend with in the mid-to long-term future. \""
+      ],
+      "study_paragraphs": [
+        "Last week, Burberry's annual report revealed that f28.6 million worth of stock was burnt last year. The news has left investors and consumers outraged but comes as little surprise to those in the fashion industry.",
+        "The practice of destroying unsold stock, and even rolls of unused fabric, is commonplace for luxury labels. Becoming too widely available at a cheaper price through discount stores discourages full-price sales. Sending products for recycling leaves them vulnerable to being stolen and sold on the black market. Jasmine Bina, CEO of brand strategy agency Concept Bureau explains, \"Typically, luxury brands rally around exclusivity to protect their business interests, namely intellectual property and preservation of brand equity(资产). ”She stated she had heard rumors of stock burning but not specific cases until this week.",
+        "Another reason for the commonplace practice is a financial incentive for brands exporting goods to America. United States Customs states that if imported merchandise is unused and destroyed under their supervision,99%of the duties, taxes or fees paid on the merchandise may be recovered. It is incredibly difficult to calculate how much dead stock currently goes to waste. While there are incentives to do it, there's no legal obligation to report it.",
+        "A source, who chose to remain anonymous, shared her experience working in a Burberry store in New York in October 2016. \"My job was to toss items in boxes so they could be sent to be burned. It was killing me inside because all that leather and fur went to waste and animals had died for nothing. I couldn't stay there any longer, their business practices threw me off the roof. \"In May this year, Burberry announced it was taking fur out of its catwalk shows and reviewing its use elsewhere in the business. \"Even though we asked the management, they refused to give us detailed answers as to why they would do this with their collection, \"continued the source, who left her role within two weeks. She has since worked with another high-profile, luxury label.",
+        "In an online forum post, which asked if it's true that Louis Vuitton burned its bags, Ahmed Bouchfaa, who claimed to work for Louis Vuitton, responded that the brand holds sales of old stock for staff members twice a year. Items which have still not sold after several sales are destroyed. \"Louis Vuitton doesn't have public sales. They either sell a product at a given price or discontinue it. This is to make sure that everybody pays the same price for an item, \"he says. He goes on to disclose the strict guidelines around the employee sales: \"You may buy gifts for someone, but they track each item, and if your gift ends up online they know who to ask. \"One investor commenting on the Burberry figures was reportedly outraged that the unsold goods were not even offered to investors before they were destroyed.",
+        "Richemont, who owns several luxury brands, hit the headlines in May for taking back f437 million of watches for destruction in the last two years to avoid marked-down prices. It's not just luxury brands either. In October last year, a Danish TV show exposed H&M for burning 12 tonnes of unsold clothing since 2013. In a statement, the high street retailer defended itself by saying that the burnt clothing had failed safety tests: “The products to which the media are referring have been tested in external laboratories. The test results show that one of the products is mold infested and the other product contains levels of lead that are too high. Those products have rightly been stopped in accordance with our safety routines. \"In March, a report revealed that H&M was struggling with $4.3 billion worth of unsold stock. The brand told The New York Times that theplan was to reduceprices to move the stock, arguably encouraging consumers to buy and throw away with little thought",
+        "Over-production is perhaps the biggest concern for Burberry. While there has been much outrage at the elitist connotation of burning goods rather than making them affordable, executives at the British fashion house are no doubt struggling to defend how they miscalculated production. The waste has been put down to burning old cosmetic stock to make way for their new beauty range. However, while the value of destroyed stock is up from f26.9 million last year, it's an even more significant increase from 2016's figure off18.8 million, highlighting that this is an ongoing issue.",
+        "In September 2016, Burberry switched to a \"see now, buy now\"catwalk show format. The move was a switch to leverage on the coverage of their fashion week show to make stock available immediately to consumers. This is opposed to the traditional format of presenting to the industry, taking orders for production and becoming available in six months, time. While Burberry announced \"record-breaking\" online reach and engagement, there has been little evidence to suggest that the strategy has had a significant effect on sales, particularly as the hype( 炒作)slows across the season. In February they made adjustments to the format, dropping some catwalk items immediately and promising that others would launch in the coming months.",
+        "In a statement, Burberry denied that switching to\"see now, buy now\"has had an impact on waste. A Burberry spokesperson further said, “On the occasions when disposal of products is necessary, we do so in a responsible manner. We are always seeking ways to reduce and revalue our waste. This is a core part of our strategy and we have forged partnerships and committed support to innovative organizations to help reach this goal. \"",
+        "One such partnership is with Elvis &Kresse, an accessories brand working with reclaimed materials. Co-founder Kresse Wesling said, \"Late last year we launched an ambitious five-year partnership with the Burberry Foundation. The main aim of this is to scale our leather rescue project, starting with off-cuts from the production of Burberry leather goods. We are working tirelessly to expand our solutions and would love to welcome anyone to our workshop to come and see what we are doing. \" At the moment, the partnership only addresses waste at the production stage and not unsold goods.",
+        "While these are honorable schemes, it makes it harder for Burberry to defend these latest figures. Fifteen years ago, Burberry was at crisis point as their signature check pattern was widely imitated by cheap, imitation brands. It deterred luxury consumers who found their expensive clothing more closely associated with working-class youth culture than a prestigious heritage fashion house. In the year 2004, at the height of over-exposure of the Burberry check, the brand's turnover was f715.5 million. Under Christopher Bailey as creative director they turned the brand around and this past year revenue hit f2.73 billion.",
+        "Bina believes that brands need to readdress their exclusivity tactic. \"Exclusivity is starting to be challenged, \"she says, \"I think that goes hand in hand with how luxury itself is being challenged. Access to fashion, and the brands who police it, are becoming less and less relevant. Things like health, enlightenment, and social and environmental responsibility are the new luxuries. These all come from within, not without. That's the challenge that traditional luxury brands will have to contend with in the mid-to long-term future. \""
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Burberry's executives are trying hard to attribute their practice of destroying old products to miscalculated production.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：Over-production is perhaps the biggest concern for Burberry. While there has been much outrage at the elitist connotation of burning goods rather than making them affordable, executives at the British fashion house are no doubt struggling to defend how they miscalculated production. The waste has been put down to burning old cosmetic stock to make way for their new beauty range. However, while the value of destroyed stock is up from f26.9 million last year, it's an even more significant increase from 2016's figure off18.8 million, highlighting that this is an ongoing issue.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Selling products at a discount will do greater harm to luxury brands than destroying them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：The practice of destroying unsold stock, and even rolls of unused fabric, is commonplace for luxury labels. Becoming too widely available at a cheaper price through discount stores discourages full-price sales. Sending products for recycling leaves them vulnerable to being stolen and sold on the black market. Jasmine Bina, CEO of brand strategy agency Concept Bureau explains, \"Typically, luxury brands rally around exclusivity to protect their business interests, namely intellectual property and preservation of brand equity(资产). ”She stated she had heard rumors of stock burning but not specific cases until this week.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Imitated Burberry products discouraged luxury consumers from buying its genuine products.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：While these are honorable schemes, it makes it harder for Burberry to defend these latest figures. Fifteen years ago, Burberry was at crisis point as their signature check pattern was widely imitated by cheap, imitation brands. It deterred luxury consumers who found their expensive clothing more closely associated with working-class youth culture than a prestigious heritage fashion house. In the year 2004, at the height of over-exposure of the Burberry check, the brand's turnover was f715.5 million. Under Christopher Bailey as creative director they turned the brand around and this past year revenue hit f2.73 billion.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Staff members of a luxury brand may buy its old stock at cheaper prices, but they are not allowed to resell them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：In an online forum post, which asked if it's true that Louis Vuitton burned its bags, Ahmed Bouchfaa, who claimed to work for Louis Vuitton, responded that the brand holds sales of old stock for staff members twice a year. Items which have still not sold after several sales are destroyed. \"Louis Vuitton doesn't have public sales. They either sell a product at a given price or discontinue it. This is to make sure that everybody pays the same price for an item, \"he says. He goes on to disclose the strict guidelines around the employee sales: \"You may buy gifts for someone, but they track each item, and if your gift ends up online they know who to ask. \"One investor commenting on the Burberry figures was reportedly outraged that the unsold goods were not even offered to investors before they were destroyed.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. In future traditional luxury brands will have to adapt their business strategies to the changing concepts of luxury.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：Bina believes that brands need to readdress their exclusivity tactic. \"Exclusivity is starting to be challenged, \"she says, \"I think that goes hand in hand with how luxury itself is being challenged. Access to fashion, and the brands who police it, are becoming less and less relevant. Things like health, enlightenment, and social and environmental responsibility are the new luxuries. These all come from within, not without. That's the challenge that traditional luxury brands will have to contend with in the mid-to long-term future. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. One luxury brand employee quit her job because she simply couldn't bear to see the destruction of unsold products.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：A source, who chose to remain anonymous, shared her experience working in a Burberry store in New York in October 2016. \"My job was to toss items in boxes so they could be sent to be burned. It was killing me inside because all that leather and fur went to waste and animals had died for nothing. I couldn't stay there any longer, their business practices threw me off the roof. \"In May this year, Burberry announced it was taking fur out of its catwalk shows and reviewing its use elsewhere in the business. \"Even though we asked the management, they refused to give us detailed answers as to why they would do this with their collection, \"continued the source, who left her role within two weeks. She has since worked with another high-profile, luxury label.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Destroying old stock is a practice not just of luxury brands but of less prestigious fashion brands.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Richemont, who owns several luxury brands, hit the headlines in May for taking back f437 million of watches for destruction in the last two years to avoid marked-down prices. It's not just luxury brands either. In October last year, a Danish TV show exposed H&M for burning 12 tonnes of unsold clothing since 2013. In a statement, the high street retailer defended itself by saying that the burnt clothing had failed safety tests: “The products to which the media are referring have been tested in external laboratories. The test results show that one of the products is mold infested and the other product contains levels of lead that are too high. Those products have rightly been stopped in accordance with our safety routines. \"In March, a report revealed that H&M was struggling with $4.3 billion worth of unsold stock. The brand told The New York Times that theplan was to reduceprices to move the stock, arguably encouraging consumers to buy and throw away with little thought",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Burberry is working with a partner to make full use of leather materials to reduce waste",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：One such partnership is with Elvis &Kresse, an accessories brand working with reclaimed materials. Co-founder Kresse Wesling said, \"Late last year we launched an ambitious five-year partnership with the Burberry Foundation. The main aim of this is to scale our leather rescue project, starting with off-cuts from the production of Burberry leather goods. We are working tirelessly to expand our solutions and would love to welcome anyone to our workshop to come and see what we are doing. \" At the moment, the partnership only addresses waste at the production stage and not unsold goods.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Burberry's plan to destroy its unsold products worth millions of dollars aroused public indignation.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：Last week, Burberry's annual report revealed that f28.6 million worth of stock was burnt last year. The news has left investors and consumers outraged but comes as little surprise to those in the fashion industry.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Burberry's change of marketing strategy to make a product available as soon as consumers see it on the fashion show did not turn out to be as effective as expected.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：In September 2016, Burberry switched to a \"see now, buy now\"catwalk show format. The move was a switch to leverage on the coverage of their fashion week show to make stock available immediately to consumers. This is opposed to the traditional format of presenting to the industry, taking orders for production and becoming available in six months, time. While Burberry announced \"record-breaking\" online reach and engagement, there has been little evidence to suggest that the strategy has had a significant effect on sales, particularly as the hype( 炒作)slows across the season. In February they made adjustments to the format, dropping some catwalk items immediately and promising that others would launch in the coming months.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage isfollowed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Social media is absolutely everywhere. Billions of people use social media on a daily basis to create, share, and exchange ideas, messages, and information. Both individuals and businesses post regularly to engage and interact with people from around the world. It is a powerful communication medium that simultaneously provides immediate, frequent, permanent, and wide-reaching information across the globe.",
+        "People post their lives on social media for the world to see. Facebook, Twitter, Linkedln, and countless other social channels provide a quick and simple way to glimpse into a job candidate's personal life—both the positive and negative sides of it. Social media screening is tempting to use as part of the hiring process, but should employers make use of it when researching a potential candidate's background?",
+        "Incorporating the use of social media to screen job candidates is not an uncommon practice. A 2018 survey found that almost 70%of employers use social media to screen candidates before hiring them. But there are consequences and potential legal risks involved too. When done inappropriately, social media screening can be considered Unethical or even illegal.",
+        "Social media screening is essentially scrutinising a job candidate's private life. It can reveal information about protected characteristics like age, race, nationality, disability, gender, religion, etc., and that could bias a hiring decision. Pictures or comments on a private page that are taken out of context could ruin a perfectly good candidate's chances of getting hired. This process could potentially give an unfair advantage to one candidate over another. It creates an unequal playing field and potentially provides hiring managers with information that can impact their hiring decision in a negative way.",
+        "It's hard to ignore social media as a screening tool. While there are things that you shouldn't see, there are some things that can be lawfully considered—making it a valuable source of relevant information too. Using social media screening appropriately can help ensure that you don't hire a toxic employee who will cost you money or stain your company's reputation. Consider the lawful side of this process and you may be able to hire the best employee ever. There is a delicate balance.",
+        "Screening job candidates on social media must be done professionally and responsibly. Companies should stipulate that they will never ask for passwords, be consistent, document decisions, consider the source used and be aware that other laws may apply. In light of this it is probably best to look later in the process and ask human resources for help in navigating it. Social media is here to stay. But before using social media to screen job candidates, consulting with management and legal teams beforehand is essential in order to comply with all laws."
+      ],
+      "study_paragraphs": [
+        "Social media is absolutely everywhere. Billions of people use social media on a daily basis to create, share, and exchange ideas, messages, and information. Both individuals and businesses post regularly to engage and interact with people from around the world. It is a powerful communication medium that simultaneously provides immediate, frequent, permanent, and wide-reaching information across the globe.",
+        "People post their lives on social media for the world to see. Facebook, Twitter, Linkedln, and countless other social channels provide a quick and simple way to glimpse into a job candidate's personal life—both the positive and negative sides of it. Social media screening is tempting to use as part of the hiring process, but should employers make use of it when researching a potential candidate's background?",
+        "Incorporating the use of social media to screen job candidates is not an uncommon practice. A 2018 survey found that almost 70%of employers use social media to screen candidates before hiring them. But there are consequences and potential legal risks involved too. When done inappropriately, social media screening can be considered Unethical or even illegal.",
+        "Social media screening is essentially scrutinising a job candidate's private life. It can reveal information about protected characteristics like age, race, nationality, disability, gender, religion, etc., and that could bias a hiring decision. Pictures or comments on a private page that are taken out of context could ruin a perfectly good candidate's chances of getting hired. This process could potentially give an unfair advantage to one candidate over another. It creates an unequal playing field and potentially provides hiring managers with information that can impact their hiring decision in a negative way.",
+        "It's hard to ignore social media as a screening tool. While there are things that you shouldn't see, there are some things that can be lawfully considered—making it a valuable source of relevant information too. Using social media screening appropriately can help ensure that you don't hire a toxic employee who will cost you money or stain your company's reputation. Consider the lawful side of this process and you may be able to hire the best employee ever. There is a delicate balance.",
+        "Screening job candidates on social media must be done professionally and responsibly. Companies should stipulate that they will never ask for passwords, be consistent, document decisions, consider the source used and be aware that other laws may apply. In light of this it is probably best to look later in the process and ask human resources for help in navigating it. Social media is here to stay. But before using social media to screen job candidates, consulting with management and legal teams beforehand is essential in order to comply with all laws."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What does the author mainly discuss in the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The advantage of using social media in screening job candidates."
+            },
+            {
+              "key": "B",
+              "text": "The potentially invasive nature of social media in everyday life."
+            },
+            {
+              "key": "C",
+              "text": "Whether the benefits of social media outweigh the drawbacks."
+            },
+            {
+              "key": "D",
+              "text": "Whether social media should be used to screen job candidates."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第二段直接提出是否应使用社交媒体筛选应聘者的问题。第 2 段原文依据：People post their lives on social media for the world to see. Facebook, Twitter, Linkedln, and countless other social channels provide a quick and simple way to glimpse into a job candidate's personal life—both the positive and negative sides of it. Social media screening is tempting to use as part of the hiring process, but should employers make use of it when researching a potential candidate's background?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What might happen when social media is used to screen job candidates?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Moral or legal issues might arise."
+            },
+            {
+              "key": "B",
+              "text": "Company reputation might suffer."
+            },
+            {
+              "key": "C",
+              "text": "Sensational information might surface."
+            },
+            {
+              "key": "D",
+              "text": "Hiring decisions might be complicated."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第三段提醒不当使用可能不合伦理甚至违法。第 3 段原文依据：Incorporating the use of social media to screen job candidates is not an uncommon practice. A 2018 survey found that almost 70%of employers use social media to screen candidates before hiring them. But there are consequences and potential legal risks involved too. When done inappropriately, social media screening can be considered Unethical or even illegal.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. When could online personal information be detrimental to candidates?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When it is separated from context."
+            },
+            {
+              "key": "B",
+              "text": "When it is scrutinised by an employer."
+            },
+            {
+              "key": "C",
+              "text": "When it is magnified to a ruinous degree."
+            },
+            {
+              "key": "D",
+              "text": "When it is revealed to the human resources."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第四段指出脱离背景的照片或评论可能损害应聘者机会。第 4 段原文依据：Social media screening is essentially scrutinising a job candidate's private life. It can reveal information about protected characteristics like age, race, nationality, disability, gender, religion, etc., and that could bias a hiring decision. Pictures or comments on a private page that are taken out of context could ruin a perfectly good candidate's chances of getting hired. This process could potentially give an unfair advantage to one candidate over another. It creates an unequal playing field and potentially provides hiring managers with information that can impact their hiring decision in a negative way.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. How can employers use social media information to their advantage while avoiding unnecessary risks?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By tipping the delicate balance."
+            },
+            {
+              "key": "B",
+              "text": "By using it in a legitimate way."
+            },
+            {
+              "key": "C",
+              "text": "By keeping personal information on record."
+            },
+            {
+              "key": "D",
+              "text": "By separating relevant from irrelevant data."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第五段说明合法、恰当使用相关信息可带来招聘优势。第 5 段原文依据：It's hard to ignore social media as a screening tool. While there are things that you shouldn't see, there are some things that can be lawfully considered—making it a valuable source of relevant information too. Using social media screening appropriately can help ensure that you don't hire a toxic employee who will cost you money or stain your company's reputation. Consider the lawful side of this process and you may be able to hire the best employee ever. There is a delicate balance.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author suggest doing before screening job candidates on social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Hiring professionals to navigate the whole process."
+            },
+            {
+              "key": "B",
+              "text": "Anticipating potential risks involved in the process."
+            },
+            {
+              "key": "C",
+              "text": "Seeking advice from management and legal experts."
+            },
+            {
+              "key": "D",
+              "text": "Stipulating a set of rules for asking specific questions."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。末段要求事先咨询管理层和法律团队以遵守法律。第 6 段原文依据：Screening job candidates on social media must be done professionally and responsibly. Companies should stipulate that they will never ask for passwords, be consistent, document decisions, consider the source used and be aware that other laws may apply. In light of this it is probably best to look later in the process and ask human resources for help in navigating it. Social media is here to stay. But before using social media to screen job candidates, consulting with management and legal teams beforehand is essential in order to comply with all laws.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage isfollowed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "In recent years, the food industry has increased its use of labels. Whether the labels say ‘non-GMO ( 非转基因的)'or ‘no sugar,'or 'zero carbohydrates', consumers are increasingly demanding more information about what's in their food. One report found that 39 percent of consumers would switch from the brands they currently buy to others that provide clearer, more accurate product information. Food manufacturers are responding to the report with new labels to meet that demand, and they're doing so with an eye towards giving their products an advantage over the competition, and bolstering profits.",
+        "This strategy makes intuitive sense. If consumers say they want transparency, tell them exactly what is in your product. That is simply supplying a certain demand. But the marketing strategy in response to this consumer demand has gone beyond articulating what is in a product, to labeling what is NOT in the food. These labels are known as\"absence claims\"labels, and they represent an emerging labeling trend that is detrimental both to the consumers who purchase the products and the industry that supplies them.",
+        "For example, Hunt's put a \"non-GMO\"label on its canned crushed tomatoes a few years ago—despite the fact that at the time there was no such thing as a GMO tomato on the market. Some dairy companies are using the \"non-GMO\"label on their milk, despite the fact that all milk is naturally GMO-free, another label that creates unnecessary fear around food.",
+        "While creating labels that play on consumer fears and misconceptions about their food may give a company a temporary marketing advantage over competing products on the grocery aisle, in the long term this strategy will have just the opposite effect: by injecting fear into the discourse about our food, we run the risk of eroding consumer trust in not just a single product, but the entire food business.",
+        "Eventually, it becomes a question in consumers, minds: Were these foods ever safe? By purchasing and consuming these types of products, have I already done some kind of harm to my family or the planet?",
+        "For food manufacturers, it will mean damaged consumer trust and lower sales for everyone. And this isn't just supposition. A recent study found that absence claims labels can create a stigma around foods even when there is no scientific evidence that they cause harm.",
+        "It's clear that food manufacturers must tread carefully when it comes to using absence claims. In addition to the likely negative long-term impact on sales, this verbal trick sends a message that innovations in farming and food processing are unwelcome, eventually leading to less efficiency, fewer choices for consumers, and ultimately, more costly food products. If we allow this kind of labeling to continue, we will all lose."
+      ],
+      "study_paragraphs": [
+        "In recent years, the food industry has increased its use of labels. Whether the labels say ‘non-GMO ( 非转基因的)'or ‘no sugar,'or 'zero carbohydrates', consumers are increasingly demanding more information about what's in their food. One report found that 39 percent of consumers would switch from the brands they currently buy to others that provide clearer, more accurate product information. Food manufacturers are responding to the report with new labels to meet that demand, and they're doing so with an eye towards giving their products an advantage over the competition, and bolstering profits.",
+        "This strategy makes intuitive sense. If consumers say they want transparency, tell them exactly what is in your product. That is simply supplying a certain demand. But the marketing strategy in response to this consumer demand has gone beyond articulating what is in a product, to labeling what is NOT in the food. These labels are known as\"absence claims\"labels, and they represent an emerging labeling trend that is detrimental both to the consumers who purchase the products and the industry that supplies them.",
+        "For example, Hunt's put a \"non-GMO\"label on its canned crushed tomatoes a few years ago—despite the fact that at the time there was no such thing as a GMO tomato on the market. Some dairy companies are using the \"non-GMO\"label on their milk, despite the fact that all milk is naturally GMO-free, another label that creates unnecessary fear around food.",
+        "While creating labels that play on consumer fears and misconceptions about their food may give a company a temporary marketing advantage over competing products on the grocery aisle, in the long term this strategy will have just the opposite effect: by injecting fear into the discourse about our food, we run the risk of eroding consumer trust in not just a single product, but the entire food business.",
+        "Eventually, it becomes a question in consumers, minds: Were these foods ever safe? By purchasing and consuming these types of products, have I already done some kind of harm to my family or the planet?",
+        "For food manufacturers, it will mean damaged consumer trust and lower sales for everyone. And this isn't just supposition. A recent study found that absence claims labels can create a stigma around foods even when there is no scientific evidence that they cause harm.",
+        "It's clear that food manufacturers must tread carefully when it comes to using absence claims. In addition to the likely negative long-term impact on sales, this verbal trick sends a message that innovations in farming and food processing are unwelcome, eventually leading to less efficiency, fewer choices for consumers, and ultimately, more costly food products. If we allow this kind of labeling to continue, we will all lose."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What trend has been observed in a report?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Food manufacturers, rising awareness of product safety."
+            },
+            {
+              "key": "B",
+              "text": "Food manufacturers, changing strategies to bolster profits."
+            },
+            {
+              "key": "C",
+              "text": "Consumers, growing demand for eye-catching food labels."
+            },
+            {
+              "key": "D",
+              "text": "Consumers, increasing desire for clear product information."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。首段报告消费者希望获得更清晰准确的产品信息。第 1 段原文依据：In recent years, the food industry has increased its use of labels. Whether the labels say ‘non-GMO ( 非转基因的)'or ‘no sugar,'or 'zero carbohydrates', consumers are increasingly demanding more information about what's in their food. One report found that 39 percent of consumers would switch from the brands they currently buy to others that provide clearer, more accurate product information. Food manufacturers are responding to the report with new labels to meet that demand, and they're doing so with an eye towards giving their products an advantage over the competition, and bolstering profits.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does the author say is manufacturers new marketing strategy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stressing the absence of certain elements in their products"
+            },
+            {
+              "key": "B",
+              "text": "Articulating the unique nutritional value of their products"
+            },
+            {
+              "key": "C",
+              "text": "Supplying detailed information of their products."
+            },
+            {
+              "key": "D",
+              "text": "Designing transparent labels for their products."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第二段将新标签策略概括为强调产品不含什么成分。第 2 段原文依据：This strategy makes intuitive sense. If consumers say they want transparency, tell them exactly what is in your product. That is simply supplying a certain demand. But the marketing strategy in response to this consumer demand has gone beyond articulating what is in a product, to labeling what is NOT in the food. These labels are known as\"absence claims\"labels, and they represent an emerging labeling trend that is detrimental both to the consumers who purchase the products and the industry that supplies them.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What point does the author make about non-GMO labels?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are increasingly attracting customers'attention."
+            },
+            {
+              "key": "B",
+              "text": "They create lots of trouble for GMO food producers."
+            },
+            {
+              "key": "C",
+              "text": "They should be used more for vegetables and milk."
+            },
+            {
+              "key": "D",
+              "text": "They cause anxiety about food among consumers."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第三段说明非转基因标签会制造不必要的食物恐惧。第 3 段原文依据：For example, Hunt's put a \"non-GMO\"label on its canned crushed tomatoes a few years ago—despite the fact that at the time there was no such thing as a GMO tomato on the market. Some dairy companies are using the \"non-GMO\"label on their milk, despite the fact that all milk is naturally GMO-free, another label that creates unnecessary fear around food.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does the author say absence claims labels will do to food manufacturers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cause changes in their marketing strategies."
+            },
+            {
+              "key": "B",
+              "text": "Help remove stigma around their products."
+            },
+            {
+              "key": "C",
+              "text": "Erode consumer trust and reduce sales."
+            },
+            {
+              "key": "D",
+              "text": "Decrease support from food scientists."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第六段指出这种策略会损害消费者信任并降低销售。第 6 段原文依据：For food manufacturers, it will mean damaged consumer trust and lower sales for everyone. And this isn't just supposition. A recent study found that absence claims labels can create a stigma around foods even when there is no scientific evidence that they cause harm.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author suggest food manufacturers do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Take measures to lower the cost of food products."
+            },
+            {
+              "key": "B",
+              "text": "Exercise caution about the use of absence claims."
+            },
+            {
+              "key": "C",
+              "text": "Welcome new innovations in food processing."
+            },
+            {
+              "key": "D",
+              "text": "Promote efficiency and increase food variety."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。末段明确要求制造商谨慎使用不含某成分的标签。第 7 段原文依据：It's clear that food manufacturers must tread carefully when it comes to using absence claims. In addition to the likely negative long-term impact on sales, this verbal trick sends a message that innovations in farming and food processing are unwelcome, eventually leading to less efficiency, fewer choices for consumers, and ultimately, more costly food products. If we allow this kind of labeling to continue, we will all lose.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "中国共产党第一次全国代表大会会址位于上海兴业路76号，是一栋典型的上海式住宅，建于1920年秋。1921年7月23日，中国共产党第一次全国代表大会在此召开，大会通过了中国共产党的第一个纲领和第一个决议，选举产生了中央领导机构，宣告了中国共产党的诞生。1952年9月，中共一大会址修复，建立纪念馆并对外开放。纪念馆除了介绍参加一大的代表之外，还介绍党的历史发展进程，现已成为了解党史，缅怀革命先烈的爱国主义教育基地。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2021-12-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
