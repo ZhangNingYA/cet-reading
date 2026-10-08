@@ -1,0 +1,584 @@
+{
+  "scope": "当前 2020–2024 年六级 PDF 下载批次；保留全部原始下载及副本。",
+  "download_count": 60,
+  "paper_count": 37,
+  "imported_count": 35,
+  "held_count": 2,
+  "papers": [
+    {
+      "id": "cet6-2020-07-1",
+      "status": "held",
+      "archive": "data/sources/cet6/2020-07/2020-07-CET6-1.pdf",
+      "archive_sha256": "56a2810e7c0f4a9f49dcb4aa83a5d6da9163a47ee61d4aface252610b6012aaf",
+      "pages": 12,
+      "downloads": [
+        {
+          "path": "data/2020-07-CET6-1 (1).pdf",
+          "sha256": "ab1964cda414f516399f9fa7b5db1d3292ac643e9860606e4b846a4b0e63f451"
+        },
+        {
+          "path": "data/2020-07-CET6-1.pdf",
+          "sha256": "56a2810e7c0f4a9f49dcb4aa83a5d6da9163a47ee61d4aface252610b6012aaf"
+        }
+      ],
+      "reason": "原件说明阅读由往年试题拼凑，不能核实为完整当期真题。"
+    },
+    {
+      "id": "cet6-2020-09-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2020-09/2020-09-CET6-1.pdf",
+      "archive_sha256": "13d8b60b7e973e334c6ae5c69d8c03afcd7284dfa225f1bbc5aa2fd0c25e814d",
+      "pages": 14,
+      "downloads": [
+        {
+          "path": "data/2020-09-CET6-1 (1).pdf",
+          "sha256": "2fd1b7b24bac6277dbc361e201807a69b4cb7443b0bbfbe15b9099fdd65fd046"
+        },
+        {
+          "path": "data/2020-09-CET6-1.pdf",
+          "sha256": "13d8b60b7e973e334c6ae5c69d8c03afcd7284dfa225f1bbc5aa2fd0c25e814d"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2020-09/2020-09-CET6-2.pdf",
+      "archive_sha256": "9cc029318f801d8257cb92569f26cdb35e3f276fb1e625e4ee6a8f5be32d48bf",
+      "pages": 10,
+      "downloads": [
+        {
+          "path": "data/2020-09-CET6-2 (1).pdf",
+          "sha256": "c3c4cce101bdc1f5ee6e3088ce8d4fa00b8f5e05471fcade5b7e672e576dd9bc"
+        },
+        {
+          "path": "data/2020-09-CET6-2.pdf",
+          "sha256": "9cc029318f801d8257cb92569f26cdb35e3f276fb1e625e4ee6a8f5be32d48bf"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2020-09/2020-09-CET6-3.pdf",
+      "archive_sha256": "4e20a7e5f9a9e0c2971753853d2fb1ddd6b0a0263745c6f6a2e67db127a299e5",
+      "pages": 1,
+      "downloads": [
+        {
+          "path": "data/2020-09-CET6-3 (1).pdf",
+          "sha256": "e463eb8de11f303fcc8ee170289151bb4611335640458e6cebcb82c277530aaa"
+        },
+        {
+          "path": "data/2020-09-CET6-3 (2).pdf",
+          "sha256": "c8bcf914b71f3f7b6ae027a4e5b3bf27765f866c06e9f108685529b1174907e1"
+        },
+        {
+          "path": "data/2020-09-CET6-3.pdf",
+          "sha256": "4e20a7e5f9a9e0c2971753853d2fb1ddd6b0a0263745c6f6a2e67db127a299e5"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-1",
+      "status": "held",
+      "archive": "data/sources/cet6/2020-12/2020-12-CET6-1.pdf",
+      "archive_sha256": "18bddea5f02c39b8c931e406e8a5534d71f107e964b6edc74a112709408cc256",
+      "pages": 14,
+      "downloads": [
+        {
+          "path": "data/2020-12-CET6-1 (1).pdf",
+          "sha256": "ca29d1b5a9bb57aabe5582353119e007a1f632cac94eff472c180f6e9eb19ffd"
+        },
+        {
+          "path": "data/2020-12-CET6-1.pdf",
+          "sha256": "18bddea5f02c39b8c931e406e8a5534d71f107e964b6edc74a112709408cc256"
+        }
+      ],
+      "reason": "两份原件都缺少第 51 题题干及 A–D 选项，待补齐完整来源。"
+    },
+    {
+      "id": "cet6-2020-12-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2020-12/2020-12-CET6-2.pdf",
+      "archive_sha256": "aa3cd30de99ff1b43931dc61d70dd1b56f912745528479456ef40f8fb676d369",
+      "pages": 14,
+      "downloads": [
+        {
+          "path": "data/2020-12-CET6-2 (1).pdf",
+          "sha256": "1c2b9c3fe357be916c26cc06c14ee1d31d0335214098be30513adcd904576c82"
+        },
+        {
+          "path": "data/2020-12-CET6-2.pdf",
+          "sha256": "aa3cd30de99ff1b43931dc61d70dd1b56f912745528479456ef40f8fb676d369"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2020-12/2020-12-CET6-3.pdf",
+      "archive_sha256": "00d79f43d2cfb17c622f3346a381916c7f207afa625eac83382c6aeb923566e8",
+      "pages": 11,
+      "downloads": [
+        {
+          "path": "data/2020-12-CET6-3 (1).pdf",
+          "sha256": "640e1e6c13cb3e25ea33efc53212149ab2b86838263082b1199cc9c21cba9261"
+        },
+        {
+          "path": "data/2020-12-CET6-3.pdf",
+          "sha256": "00d79f43d2cfb17c622f3346a381916c7f207afa625eac83382c6aeb923566e8"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2021-06/2021-06-CET6-1.pdf",
+      "archive_sha256": "a50cfd300df2c2abbff4cf30135023dac39c47efc23c4f157397e5540bd45e56",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2021-06-CET6-1 (1).pdf",
+          "sha256": "7a683b79243f7efbe4d55962cb0b13f4b93f1d0f288993e7cf5a319f49941af1"
+        },
+        {
+          "path": "data/2021-06-CET6-1.pdf",
+          "sha256": "a50cfd300df2c2abbff4cf30135023dac39c47efc23c4f157397e5540bd45e56"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2021-06/2021-06-CET6-2.pdf",
+      "archive_sha256": "8f698fccc7ece1df5982fc6d5bc9b0bb92663dc48ebd8f9fe7c6ec21635cb645",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2021-06-CET6-2 (1).pdf",
+          "sha256": "8ba087326674b2f228bff8ff9738127071375901f8aac8ab90050b06e65415fb"
+        },
+        {
+          "path": "data/2021-06-CET6-2.pdf",
+          "sha256": "8f698fccc7ece1df5982fc6d5bc9b0bb92663dc48ebd8f9fe7c6ec21635cb645"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-06-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2021-06/2021-06-CET6-3.pdf",
+      "archive_sha256": "84f8e784bb8988ab76e89e9f3eb9a083918c06b7c7191b9de1b2d29005337d07",
+      "pages": 6,
+      "downloads": [
+        {
+          "path": "data/2021-06-CET6-3 (1).pdf",
+          "sha256": "d53f3eb50bb9bf3d80dcf10530a7d53c9f0a35c09a442dd759cbb772a75fed9c"
+        },
+        {
+          "path": "data/2021-06-CET6-3.pdf",
+          "sha256": "84f8e784bb8988ab76e89e9f3eb9a083918c06b7c7191b9de1b2d29005337d07"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2021-12/2021-12-CET6-1.pdf",
+      "archive_sha256": "d69cdfb5222209b475c465c513bff4bef97c55a9cdf943b8f328ba14ac96e3b2",
+      "pages": 11,
+      "downloads": [
+        {
+          "path": "data/2021-12-CET6-1 (1).pdf",
+          "sha256": "9f63a1c3cf692ec220e64e169834ef6cceb4c0064ce77a707f54a4d6d6600514"
+        },
+        {
+          "path": "data/2021-12-CET6-1.pdf",
+          "sha256": "d69cdfb5222209b475c465c513bff4bef97c55a9cdf943b8f328ba14ac96e3b2"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2021-12/2021-12-CET6-2.pdf",
+      "archive_sha256": "53b11eb3d54b66b799aa205f98be86663d7a0f0656538ba664f93370856f11b3",
+      "pages": 11,
+      "downloads": [
+        {
+          "path": "data/2021-12-CET6-2 (1).pdf",
+          "sha256": "243c9717e68619ebf8952d3ecbda730ffecffd046d5a5f3eae810447f0a8a888"
+        },
+        {
+          "path": "data/2021-12-CET6-2.pdf",
+          "sha256": "53b11eb3d54b66b799aa205f98be86663d7a0f0656538ba664f93370856f11b3"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2021-12/2021-12-CET6-3.pdf",
+      "archive_sha256": "90b2baeacd2bc28ac2987cdd952eb7f0be9969c48e78604fbffb4d1b18ed4b4d",
+      "pages": 7,
+      "downloads": [
+        {
+          "path": "data/2021-12-CET6-3 (1).pdf",
+          "sha256": "750f5f5b043199393b14fcfa21294e05d7f9e39552e979e05a18a6b987d6b241"
+        },
+        {
+          "path": "data/2021-12-CET6-3.pdf",
+          "sha256": "90b2baeacd2bc28ac2987cdd952eb7f0be9969c48e78604fbffb4d1b18ed4b4d"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-06/2022-06-CET6-1.pdf",
+      "archive_sha256": "872e758b235500d487d0e035a984110a3d1049b3ff40453d9e7c0c75473298e3",
+      "pages": 10,
+      "downloads": [
+        {
+          "path": "data/2022-06-CET6-1 (1).pdf",
+          "sha256": "8c8839b8f7936183124cc9473390ce1339c19515bbc87e85b8b71bbd51a521a3"
+        },
+        {
+          "path": "data/2022-06-CET6-1.pdf",
+          "sha256": "872e758b235500d487d0e035a984110a3d1049b3ff40453d9e7c0c75473298e3"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-06/2022-06-CET6-2.pdf",
+      "archive_sha256": "777810374a26dc473344104ae447560bec8d8507f1251f91745a0a6d5b90a58b",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2022-06-CET6-2 (1).pdf",
+          "sha256": "e08dd149b5f96dacbdd4e501973fd4105d8fd310d4ba345dabbfcc4cc4584a72"
+        },
+        {
+          "path": "data/2022-06-CET6-2.pdf",
+          "sha256": "777810374a26dc473344104ae447560bec8d8507f1251f91745a0a6d5b90a58b"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-06/2022-06-CET6-3.pdf",
+      "archive_sha256": "442f24af212090601ea4247e5f3f4fa44c2afacfe39ca6b5c5fd90936cc15f07",
+      "pages": 1,
+      "downloads": [
+        {
+          "path": "data/2022-06-CET6-3 (1).pdf",
+          "sha256": "fc0fbe0cfd5b19f5857c12c7704d2b4a832c965d8dd9b2e5f798eaa0e756d436"
+        },
+        {
+          "path": "data/2022-06-CET6-3.pdf",
+          "sha256": "442f24af212090601ea4247e5f3f4fa44c2afacfe39ca6b5c5fd90936cc15f07"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-09-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-09/2022-09-CET6-1.pdf",
+      "archive_sha256": "7cadbfc8822775799a210e4b8637ceaecad6ea576e027f644267305a0cb5dffc",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2022-09-CET6-1 (1).pdf",
+          "sha256": "704ee52263a6d8dc2262560162cb64ace43714ea19c1eca8e6635ea0ab1f9c3c"
+        },
+        {
+          "path": "data/2022-09-CET6-1.pdf",
+          "sha256": "7cadbfc8822775799a210e4b8637ceaecad6ea576e027f644267305a0cb5dffc"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-09-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-09/2022-09-CET6-2.pdf",
+      "archive_sha256": "b71ed3823e096ca0cea100b657bf725083bc69f7ffee590b36f10a40b5c67520",
+      "pages": 1,
+      "downloads": [
+        {
+          "path": "data/2022-09-CET6-2 (1).pdf",
+          "sha256": "be58eea010cb83275ee01472c64985001e14663e41cab5c61a29f72e49640eae"
+        },
+        {
+          "path": "data/2022-09-CET6-2.pdf",
+          "sha256": "b71ed3823e096ca0cea100b657bf725083bc69f7ffee590b36f10a40b5c67520"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-09-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-09/2022-09-CET6-3.pdf",
+      "archive_sha256": "14bdddb07c7000995fff9103e13149c4eca0a97681c77dc77e9c39b9845d5c2a",
+      "pages": 1,
+      "downloads": [
+        {
+          "path": "data/2022-09-CET6-3 (1).pdf",
+          "sha256": "77d9cee7fec2d5e1fe32fcfe7dceb353c03eceffc5c347a219f08bc1f1b75048"
+        },
+        {
+          "path": "data/2022-09-CET6-3.pdf",
+          "sha256": "14bdddb07c7000995fff9103e13149c4eca0a97681c77dc77e9c39b9845d5c2a"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-12/2022-12-CET6-1.pdf",
+      "archive_sha256": "96ecc33e072b9fbcccb5ed5cbc15e95eb12e025efcf97f82b858e260bd62b9be",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2022-12-CET6-1 (1).pdf",
+          "sha256": "93e3dd6fa46c01ccba4db6d7d0c17f7dc56d5d090fa8781a13dd11a76ae7ddea"
+        },
+        {
+          "path": "data/2022-12-CET6-1.pdf",
+          "sha256": "96ecc33e072b9fbcccb5ed5cbc15e95eb12e025efcf97f82b858e260bd62b9be"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-12/2022-12-CET6-2.pdf",
+      "archive_sha256": "839de8a5d86194e06a1df78a154c6cf10bf51f84ec4b3d28efef07ce60a02293",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2022-12-CET6-2 (1).pdf",
+          "sha256": "488e177e4b71965b298bdf05f0e47f0d3425ba9472a0539cc2c06a52ada461de"
+        },
+        {
+          "path": "data/2022-12-CET6-2.pdf",
+          "sha256": "839de8a5d86194e06a1df78a154c6cf10bf51f84ec4b3d28efef07ce60a02293"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2022-12/2022-12-CET6-3.pdf",
+      "archive_sha256": "77511c30dab11075ab545422b71c060919ed46b08f2245429186d229ae81cb97",
+      "pages": 6,
+      "downloads": [
+        {
+          "path": "data/2022-12-CET6-3 (1).pdf",
+          "sha256": "b92b028b2f71b966bc2f67cc43473cc1acd7ba5075fe56406621378be984f095"
+        },
+        {
+          "path": "data/2022-12-CET6-3.pdf",
+          "sha256": "77511c30dab11075ab545422b71c060919ed46b08f2245429186d229ae81cb97"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-03-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-03/2023-03-CET6-1.pdf",
+      "archive_sha256": "c54be7a4ac045595735733852a0222217b15f54ba2ec7a94c5fe373ebd3ba036",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2023-03-CET6-1.pdf",
+          "sha256": "c54be7a4ac045595735733852a0222217b15f54ba2ec7a94c5fe373ebd3ba036"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-03-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-03/2023-03-CET6-2.pdf",
+      "archive_sha256": "387dca82800f3ebe67bfce0bb1ae0a7361ef75ba74d120b5a1d991543788d861",
+      "pages": 1,
+      "downloads": [
+        {
+          "path": "data/2023-03-CET6-2.pdf",
+          "sha256": "387dca82800f3ebe67bfce0bb1ae0a7361ef75ba74d120b5a1d991543788d861"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-03-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-03/2023-03-CET6-3.pdf",
+      "archive_sha256": "975e96498c00171bc244e96e8903d643b01ec70564fc194c1322a84b144a1ae0",
+      "pages": 1,
+      "downloads": [
+        {
+          "path": "data/2023-03-CET6-3.pdf",
+          "sha256": "975e96498c00171bc244e96e8903d643b01ec70564fc194c1322a84b144a1ae0"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-06/2023-06-CET6-1.pdf",
+      "archive_sha256": "e4b9161fbf78d2e50c57cc76fd3a9bea020970c83b5671b4d32d522a98dc24ad",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2023-06-CET6-1.pdf",
+          "sha256": "e4b9161fbf78d2e50c57cc76fd3a9bea020970c83b5671b4d32d522a98dc24ad"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-06/2023-06-CET6-2.pdf",
+      "archive_sha256": "73c6aae0a38b5b2265f78586fe417a89dc057b4b240de3fda6d679e697acbf68",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2023-06-CET6-2.pdf",
+          "sha256": "73c6aae0a38b5b2265f78586fe417a89dc057b4b240de3fda6d679e697acbf68"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-06/2023-06-CET6-3.pdf",
+      "archive_sha256": "aa7b122319f67314771d7560e479683f9ca498fde53802fe9287b2e94070b072",
+      "pages": 6,
+      "downloads": [
+        {
+          "path": "data/2023-06-CET6-3.pdf",
+          "sha256": "aa7b122319f67314771d7560e479683f9ca498fde53802fe9287b2e94070b072"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-12/2023-12-CET6-1.pdf",
+      "archive_sha256": "5a1f750ffdd4799c957255cc0aa1961f6c61225c2c6f60d77a6b3d3eccdfacc7",
+      "pages": 9,
+      "downloads": [
+        {
+          "path": "data/2023-12-CET6-1.pdf",
+          "sha256": "5a1f750ffdd4799c957255cc0aa1961f6c61225c2c6f60d77a6b3d3eccdfacc7"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-12/2023-12-CET6-2.pdf",
+      "archive_sha256": "c7852490ef5dcc2e9da0db92d7ee394da7fc0f9e415ed995bfb34daebdcf9b34",
+      "pages": 9,
+      "downloads": [
+        {
+          "path": "data/2023-12-CET6-2.pdf",
+          "sha256": "c7852490ef5dcc2e9da0db92d7ee394da7fc0f9e415ed995bfb34daebdcf9b34"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2023-12/2023-12-CET6-3.pdf",
+      "archive_sha256": "9b3859ab4faea44c6cb6bbbc1ac388e3bba541333179f661ada3c2e49a8b4e5a",
+      "pages": 7,
+      "downloads": [
+        {
+          "path": "data/2023-12-CET6-3.pdf",
+          "sha256": "9b3859ab4faea44c6cb6bbbc1ac388e3bba541333179f661ada3c2e49a8b4e5a"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2024-06/2024-06-CET6-1.pdf",
+      "archive_sha256": "3a015d905854bcde556d1fd5a5eebd1f45fb78f21b5d1c3c6b4561b2ed9f432c",
+      "pages": 9,
+      "downloads": [
+        {
+          "path": "data/2024-06-CET6-1.pdf",
+          "sha256": "3a015d905854bcde556d1fd5a5eebd1f45fb78f21b5d1c3c6b4561b2ed9f432c"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2024-06/2024-06-CET6-2.pdf",
+      "archive_sha256": "815df5379d2f165bbf33febec0fcab6ecbdf72911a457dfa67d22a6a768d5c86",
+      "pages": 9,
+      "downloads": [
+        {
+          "path": "data/2024-06-CET6-2.pdf",
+          "sha256": "815df5379d2f165bbf33febec0fcab6ecbdf72911a457dfa67d22a6a768d5c86"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2024-06/2024-06-CET6-3.pdf",
+      "archive_sha256": "9cc821ed7e96435fdc50bdbc09955baed9fa6e2f4376a0b54c99d8fb2b5c4687",
+      "pages": 6,
+      "downloads": [
+        {
+          "path": "data/2024-06-CET6-3.pdf",
+          "sha256": "9cc821ed7e96435fdc50bdbc09955baed9fa6e2f4376a0b54c99d8fb2b5c4687"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-1",
+      "status": "imported",
+      "archive": "data/sources/cet6/2024-12/2024-12-CET6-1.pdf",
+      "archive_sha256": "9bf907dcddcf6f9e7ace6d0b2d3675f944937eb2c502635f5a76d03dbfeff056",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2024-12-CET6-1.pdf",
+          "sha256": "9bf907dcddcf6f9e7ace6d0b2d3675f944937eb2c502635f5a76d03dbfeff056"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-2",
+      "status": "imported",
+      "archive": "data/sources/cet6/2024-12/2024-12-CET6-2.pdf",
+      "archive_sha256": "e985ab3faf009d21aa77403f5ae0f7c6c9463135025b1d5bf6e5ac22ef214518",
+      "pages": 8,
+      "downloads": [
+        {
+          "path": "data/2024-12-CET6-2.pdf",
+          "sha256": "e985ab3faf009d21aa77403f5ae0f7c6c9463135025b1d5bf6e5ac22ef214518"
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3",
+      "status": "imported",
+      "archive": "data/sources/cet6/2024-12/2024-12-CET6-3.pdf",
+      "archive_sha256": "752464e74919ada010cec6c698c650a5aa3ea12a369989abd9e3d47f92f79998",
+      "pages": 6,
+      "downloads": [
+        {
+          "path": "data/2024-12-CET6-3.pdf",
+          "sha256": "752464e74919ada010cec6c698c650a5aa3ea12a369989abd9e3d47f92f79998"
+        }
+      ]
+    }
+  ]
+}

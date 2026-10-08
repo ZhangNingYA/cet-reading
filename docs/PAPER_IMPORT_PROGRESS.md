@@ -2,7 +2,7 @@
 
 当前下载批次共 60 个 PDF 文件，对应 37 套六级试卷。按考试年月和套次每批最多三套，当前批次内容、项目检查和线上验收全部合格后，自动继续下一批。重复下载不重复入库，全部原始下载及归档副本保留。
 
-原件归档到 `data/sources/cet6/YYYY-MM/`，结构化内容保存到 `data/papers/cet6/YYYY-MM/`。不提前生成 AI 精读，做题模式不调用 AI。
+原件归档到 `data/sources/cet6/YYYY-MM/`，结构化内容保存到 `data/papers/cet6/YYYY-MM/`。全部 35 套合格试卷已完成线上验收；2 套待补全原件也已分类归档。逐个下载文件的哈希、归档路径及状态见 [来源清单](../data/sources/cet6/import-index.json)。不提前生成 AI 精读，做题模式不调用 AI。
 
 ## 已完成线上验收的批次
 
@@ -17,6 +17,7 @@
 - 第 9 批：cet6-2023-06-2、cet6-2023-06-3、cet6-2023-12-1；[CI/CD 验证通过](https://github.com/ZhangNingYA/cet-reading/actions/runs/37795892045)，上线后共 64 套。
 - 第 10 批：cet6-2023-12-2、cet6-2023-12-3、cet6-2024-06-1；[CI/CD 验证通过](https://github.com/ZhangNingYA/cet-reading/actions/runs/37796458864)，上线后共 67 套。
 - 第 11 批：cet6-2024-06-2、cet6-2024-06-3、cet6-2024-12-1；[CI/CD 验证通过](https://github.com/ZhangNingYA/cet-reading/actions/runs/37797392558)，上线后共 70 套。
+- 第 12 批：cet6-2024-12-2、cet6-2024-12-3；[CI/CD 验证通过](https://github.com/ZhangNingYA/cet-reading/actions/runs/37798200377)，上线后共 72 套。
 
 ## 文件状态
 
@@ -57,8 +58,8 @@
 | cet6-2024-06-2 | 1 | 已上线 |
 | cet6-2024-06-3 | 1 | 已上线 |
 | cet6-2024-12-1 | 1 | 已上线 |
-| cet6-2024-12-2 | 1 | 本批待线上验收 |
-| cet6-2024-12-3 | 1 | 本批待线上验收 |
+| cet6-2024-12-2 | 1 | 已上线 |
+| cet6-2024-12-3 | 1 | 已上线 |
 
 ## 待补全的来源
 
