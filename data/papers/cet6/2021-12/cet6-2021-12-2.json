@@ -1,0 +1,1821 @@
+{
+  "id": "cet6-2021-12-2",
+  "exam_level": "CET6",
+  "year": 2021,
+  "month": 12,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2021年12月大学英语六级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2021-12-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay related to the short passage given below. In your essay, you are to comment on the phenomenon described in the passage and suggest measures to address the issue. You should write at least 150 words but no more than 200 words Nowadays star chasing is prevalent among many teenagers. They take pop stars as their idols, imitating their way of talking, following their style of dressing, and seeking every chance to meet them in person at great expenses."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-2-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay related to the short passage given below. In your essay, you are to comment on the phenomenon described in the passage and suggest measures to address the issue. You should write at least 150 words but no more than 200 words Nowadays star chasing is prevalent among many teenagers. They take pop stars as their idols, imitating their way of talking, following their style of dressing, and seeking every chance to meet them in person at great expenses.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one wordfor each blankfrom a list ofchoices given ina word bankfollowing thepassage. Read the passage through carefully before makingyour choices. Each choice in the bank is identified by a letter: Please mark the corresponding letterfor each item on Answer Sheet 2 with a single line through the centre. You may not use any ofthe words in the bank more than once.",
+      "paragraphs": [
+        "According to psychologist Sharon Draper, our clothing choices can absolutely affect our well-being. When we wear ill-fitting clothes, or feel over-or under-dressed for an event, it's natural to feel self-conscious or even stressed. Conversely, she says, opting for clothes that fit well and [26] ______ with your sense of style can improve your confidence.",
+        "But can you improve your health through your [27] ______ clothing, without having to dash out and buy a whole new [28] ______ ? “Absolutely,”says Draper. If your goal is to improve your thinking, she recommends picking clothes that fit well and are unlikely to encourage restlessness, so, avoid bows, ties and unnecessary [29] ______ . It also helps to opt for clothes you [30] ______ as tying in with your goals, so, if you want to perform better at work, select pieces you view as professional. Draper says this fits in with the concept of behavioral activation, whereby [31] ______ in a behavior (in this case, selecting clothes)can set you on the path to then achieving your goals(working harder)",
+        "Another way to improve your [32] ______ of mind is to mix things up. Draper says we often eel stuck in a rut ( 常规) if we wear the same clothes—even if they're our favorites—thus opting for an item you don't wear often, or adding something different to an outfit, such as a hat, can [33] ______ shift your mood. On days when you're really [34] ______ to brave the world, Draper suggests selecting sentimental items of clothing, such as ones you wore on a special day, or given to you by a loved one, as clothes with [35] ______ associations can help you tap into constructive emotions."
+      ],
+      "study_paragraphs": [
+        "According to psychologist Sharon Draper, our clothing choices can absolutely affect our well-being. When we wear ill-fitting clothes, or feel over-or under-dressed for an event, it's natural to feel self-conscious or even stressed. Conversely, she says, opting for clothes that fit well and align with your sense of style can improve your confidence.",
+        "But can you improve your health through your current clothing, without having to dash out and buy a whole new wardrobe? “Absolutely,”says Draper. If your goal is to improve your thinking, she recommends picking clothes that fit well and are unlikely to encourage restlessness, so, avoid bows, ties and unnecessary accessories. It also helps to opt for clothes you perceive as tying in with your goals, so, if you want to perform better at work, select pieces you view as professional. Draper says this fits in with the concept of behavioral activation, whereby engaging in a behavior (in this case, selecting clothes)can set you on the path to then achieving your goals(working harder)",
+        "Another way to improve your frame of mind is to mix things up. Draper says we often eel stuck in a rut ( 常规) if we wear the same clothes—even if they're our favorites—thus opting for an item you don't wear often, or adding something different to an outfit, such as a hat, can positively shift your mood. On days when you're really reluctant to brave the world, Draper suggests selecting sentimental items of clothing, such as ones you wore on a special day, or given to you by a loved one, as clothes with fond associations can help you tap into constructive emotions."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。align with 表示与个人风格相契合。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。current clothing 指现在已有的衣服。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。wardrobe 指整套衣物或衣橱。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。accessories 指蝴蝶结、领带等附加配饰。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。perceive as 表示认为某物具有某种特性。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。engaging in a behavior 表示采取或参与某种行为。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。frame of mind 为固定搭配，指心态。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。positively shift your mood 表示积极改变心情。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。reluctant to 表示不愿意做某事。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accessories"
+            },
+            {
+              "key": "B",
+              "text": "align"
+            },
+            {
+              "key": "C",
+              "text": "concurrently"
+            },
+            {
+              "key": "D",
+              "text": "current"
+            },
+            {
+              "key": "E",
+              "text": "engaging"
+            },
+            {
+              "key": "F",
+              "text": "fond"
+            },
+            {
+              "key": "G",
+              "text": "frame"
+            },
+            {
+              "key": "H",
+              "text": "locations"
+            },
+            {
+              "key": "I",
+              "text": "perceive"
+            },
+            {
+              "key": "J",
+              "text": "positively"
+            },
+            {
+              "key": "K",
+              "text": "profile"
+            },
+            {
+              "key": "L",
+              "text": "prospering"
+            },
+            {
+              "key": "M",
+              "text": "reluctant"
+            },
+            {
+              "key": "N",
+              "text": "showcase"
+            },
+            {
+              "key": "O",
+              "text": "wardrobe"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。fond associations 指温暖美好的联想。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter:. Answer the questions by marking the corresponding letter on AnswerSheet 2. Do music lessons really make children smarter?",
+      "instructions": "",
+      "paragraphs": [
+        "[A] A recent analysis found that most research mischaracterizes the relationship between music and skills enhancement.",
+        "[B] In 2004, a paper appeared in the journal Psychological Science, titled \"Music Lessons Enhance IQ. \"The author, composer and psychologist Glenn Schellenberg had conducted an experiment with 144 children randomly assigned to four groups: one learned the keyboard for a year, one took singing lessons, one joined an acting class, and a control group had no extracurricular training. The IQ of the children in the two musical groups rose by an average of seven points in the course of a year; those in the other two groups gained an average of 4.3 points.",
+        "[C] Schellenberg had long been skeptical of the science supporting claims that music education enhances children's abstract reasoning, math, or language skills. If children who play the piano are smarter, he says, it doesn't necessarily mean they are smarter because they play the piano. It could be that the youngsters who play the piano also happen to be more ambitious or better at focusing on a task. Correlation, after all, does not prove causation.",
+        "[D] The 2004 paper was specifically designed to address those concerns. And as a passionate musician, Schellenberg was delighted when he turned up credible evidence that music has transfer effects on general intelligence. But nearly a decade later, in 2013, the Education Endowment Foundation funded a bigger study with more than 900 students. That study failed to confirm Schellenberg's findings, producing no evidence that music lessons improved math and literacy skills.",
+        "[E] Schellenberg took that news in stride while continuing to cast a skeptical eye on the research in his field. Recently, he decided to formally investigate just how often his fellow researchers in psychology and neuroscience make what he believes are erroneous —or at least premature—causal connections between music and intelligence. His results, published in May, suggest that many of his peers do just that.",
+        "[F] For his recent study, Schellenberg asked two research assistants to look for correlational studies on the effects of music education. They found a total of 114 papers published since 2000. To assess whether the authors claimed any causation, researchers then looked for telltale verbs in each paper's title and abstract, verbs like \"enhance, \" \"promote, \"“facilitate, \"and \"strengthen. \"The papers were categorized as neuroscience if the study employed a brain imaging method like magnetic resonance, or if the study appeared in a journal that had \"brain, \"\"neuroscience, \"or a related term in its title Otherwise the papers were categorized as psychology. Schellenberg didn't tell his assistants what exactly he was trying to prove.",
+        "[G] After computing their assessments, Schellenberg concluded that the majority of the articles erroneously claimed that music training had a causal effect. The overselling, he also found, was more prevalent among neuroscience studies, three quarters of which mischaracterized a mere association between music training and skills enhancement as a cause-and-effect relationship. This may come as a surprise to some. Psychologists have been battling charges that they don't do \"real\"science for some time—in large part because many findings from classic experiments have proved unreproducible. Neuroscientists, on the other hand, armed with brain scans and EEGs(脑电图), have not been subject to the same degree of critique.",
+        "[H] To argue for a cause-and-effect relationship, scientists must attempt to explain why and how a connection could occur. When it comes to transfer effects of music, scientists frequently point to brain plasticity—the fact that the brain changes according to how we use it. When a child learns to play the violin, for example, several studies have shown that the brain region responsible for the fine motor skills of the left hand's fingers is likely to grow. And many experiments have shown that musical training improves certain hearing capabilities, like filtering voices from background noise or distinguishing the difference between the consonants (辅音)'b'and 'g'",
+        "[I] But Schellenberg remains highly critical of how the concept of plasticity has been applied in his field. \"Plasticity has become an industry of its own, \"he wrote in his May paper. Practice does change the brain, he allows, but what is questionable is the assertion that these changes affect other brain regions, such as those responsible for spatial reasoning or math problems.",
+        "[J] Neuropsychologist Lutz Jancke agrees. \"Most of these studies don't allow for causal inferences, \"he said. For over two decades, Jancke has researched the effects of music lessons, and like Schellenberg, he believes that the only way to truly understand their effects is to run longitudinal studies. In such studies, researchers would need to follow groups of children with and without music lessons over a long period of time—even if the assignments are not completely random. Then they could compare outcomes for each group.",
+        "[K] Some researchers are starting to do just that. The neuroscientist Peter Schneider from Heidelberg University in Germany, for example, has been following a group of children for ten years now. Some of them were handed musical instruments and given lessons through a school-based program in the Ruhr region of Germany called Jedem Kind ein Instrument, or \"an instrument for every child, \"which was carried out with government funding. Among these children, Schneider has found that those who were enthusiastic about music and who practiced voluntarily showed improvements in hearing ability, as well as in more general competencies, such as the ability to concentrate.",
+        "[L] To establish whether effects such as improved concentration are caused by music participation itself, and not by investing time in an extracurricular activity of any kind, Assal Habibi, a psychology professor at the University of Southern California, is conducting a five-year longitudinal study with children from low-income communities in Los Angeles. The youngsters fall into three groups: those who take after-school music, those who do after-school sports, and those with no structured after-school program at all. After two years, Habibi and her colleagues reported seeing structural changes in the brains of the musically trained children, both locally and in the pathways connecting different parts ofthe brain.",
+        "[M] That may seem compelling, but Habibi's children were not selected randomly. Did the children who were drawn to music perhaps have something in them from the start that made them different but eluded the brain scanners? \"As somebody who started taking piano lessons at the age of five and got up every morning at seven to practice, that experience changed me and made me part of who I am today, \"Schellenberg said. \"The question is whether those kinds of experiences do so systematically across individuals and create exactly the same changes. And I think that is that huge leap of faith. \"",
+        "[N] Did he have a hidden talent that others didn't have? Or more endurance than his peers? Music researchers tend, like Schellenberg, to be musicians themselves, and as he noted in his recent paper, \"the idea of positive cognitive and neural side effects from music training(and other pleasurable activities)is inherently appealing. \"He also admits that if he had children of his own, he would encourage them to take music lessons and go to university. \"I would think that it makes them better people, more critical, just wiser in general, \"he said.",
+        "[O] But those convictions should be checked at the entrance to the lab, he added. Otherwise, the work becomes religion or faith. “You have to let go of your faith if you want to be a scientist. \""
+      ],
+      "study_paragraphs": [
+        "A recent analysis found that most research mischaracterizes the relationship between music and skills enhancement.",
+        "In 2004, a paper appeared in the journal Psychological Science, titled \"Music Lessons Enhance IQ. \"The author, composer and psychologist Glenn Schellenberg had conducted an experiment with 144 children randomly assigned to four groups: one learned the keyboard for a year, one took singing lessons, one joined an acting class, and a control group had no extracurricular training. The IQ of the children in the two musical groups rose by an average of seven points in the course of a year; those in the other two groups gained an average of 4.3 points.",
+        "Schellenberg had long been skeptical of the science supporting claims that music education enhances children's abstract reasoning, math, or language skills. If children who play the piano are smarter, he says, it doesn't necessarily mean they are smarter because they play the piano. It could be that the youngsters who play the piano also happen to be more ambitious or better at focusing on a task. Correlation, after all, does not prove causation.",
+        "The 2004 paper was specifically designed to address those concerns. And as a passionate musician, Schellenberg was delighted when he turned up credible evidence that music has transfer effects on general intelligence. But nearly a decade later, in 2013, the Education Endowment Foundation funded a bigger study with more than 900 students. That study failed to confirm Schellenberg's findings, producing no evidence that music lessons improved math and literacy skills.",
+        "Schellenberg took that news in stride while continuing to cast a skeptical eye on the research in his field. Recently, he decided to formally investigate just how often his fellow researchers in psychology and neuroscience make what he believes are erroneous —or at least premature—causal connections between music and intelligence. His results, published in May, suggest that many of his peers do just that.",
+        "For his recent study, Schellenberg asked two research assistants to look for correlational studies on the effects of music education. They found a total of 114 papers published since 2000. To assess whether the authors claimed any causation, researchers then looked for telltale verbs in each paper's title and abstract, verbs like \"enhance, \" \"promote, \"“facilitate, \"and \"strengthen. \"The papers were categorized as neuroscience if the study employed a brain imaging method like magnetic resonance, or if the study appeared in a journal that had \"brain, \"\"neuroscience, \"or a related term in its title Otherwise the papers were categorized as psychology. Schellenberg didn't tell his assistants what exactly he was trying to prove.",
+        "After computing their assessments, Schellenberg concluded that the majority of the articles erroneously claimed that music training had a causal effect. The overselling, he also found, was more prevalent among neuroscience studies, three quarters of which mischaracterized a mere association between music training and skills enhancement as a cause-and-effect relationship. This may come as a surprise to some. Psychologists have been battling charges that they don't do \"real\"science for some time—in large part because many findings from classic experiments have proved unreproducible. Neuroscientists, on the other hand, armed with brain scans and EEGs(脑电图), have not been subject to the same degree of critique.",
+        "To argue for a cause-and-effect relationship, scientists must attempt to explain why and how a connection could occur. When it comes to transfer effects of music, scientists frequently point to brain plasticity—the fact that the brain changes according to how we use it. When a child learns to play the violin, for example, several studies have shown that the brain region responsible for the fine motor skills of the left hand's fingers is likely to grow. And many experiments have shown that musical training improves certain hearing capabilities, like filtering voices from background noise or distinguishing the difference between the consonants (辅音)'b'and 'g'",
+        "But Schellenberg remains highly critical of how the concept of plasticity has been applied in his field. \"Plasticity has become an industry of its own, \"he wrote in his May paper. Practice does change the brain, he allows, but what is questionable is the assertion that these changes affect other brain regions, such as those responsible for spatial reasoning or math problems.",
+        "Neuropsychologist Lutz Jancke agrees. \"Most of these studies don't allow for causal inferences, \"he said. For over two decades, Jancke has researched the effects of music lessons, and like Schellenberg, he believes that the only way to truly understand their effects is to run longitudinal studies. In such studies, researchers would need to follow groups of children with and without music lessons over a long period of time—even if the assignments are not completely random. Then they could compare outcomes for each group.",
+        "Some researchers are starting to do just that. The neuroscientist Peter Schneider from Heidelberg University in Germany, for example, has been following a group of children for ten years now. Some of them were handed musical instruments and given lessons through a school-based program in the Ruhr region of Germany called Jedem Kind ein Instrument, or \"an instrument for every child, \"which was carried out with government funding. Among these children, Schneider has found that those who were enthusiastic about music and who practiced voluntarily showed improvements in hearing ability, as well as in more general competencies, such as the ability to concentrate.",
+        "To establish whether effects such as improved concentration are caused by music participation itself, and not by investing time in an extracurricular activity of any kind, Assal Habibi, a psychology professor at the University of Southern California, is conducting a five-year longitudinal study with children from low-income communities in Los Angeles. The youngsters fall into three groups: those who take after-school music, those who do after-school sports, and those with no structured after-school program at all. After two years, Habibi and her colleagues reported seeing structural changes in the brains of the musically trained children, both locally and in the pathways connecting different parts ofthe brain.",
+        "That may seem compelling, but Habibi's children were not selected randomly. Did the children who were drawn to music perhaps have something in them from the start that made them different but eluded the brain scanners? \"As somebody who started taking piano lessons at the age of five and got up every morning at seven to practice, that experience changed me and made me part of who I am today, \"Schellenberg said. \"The question is whether those kinds of experiences do so systematically across individuals and create exactly the same changes. And I think that is that huge leap of faith. \"",
+        "Did he have a hidden talent that others didn't have? Or more endurance than his peers? Music researchers tend, like Schellenberg, to be musicians themselves, and as he noted in his recent paper, \"the idea of positive cognitive and neural side effects from music training(and other pleasurable activities)is inherently appealing. \"He also admits that if he had children of his own, he would encourage them to take music lessons and go to university. \"I would think that it makes them better people, more critical, just wiser in general, \"he said.",
+        "But those convictions should be checked at the entrance to the lab, he added. Otherwise, the work becomes religion or faith. “You have to let go of your faith if you want to be a scientist. \""
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Glenn Schellenberg's latest research suggests many psychologists and neuroscientists wrongly believe in the causal relationship between music and IQ",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：Schellenberg took that news in stride while continuing to cast a skeptical eye on the research in his field. Recently, he decided to formally investigate just how often his fellow researchers in psychology and neuroscience make what he believes are erroneous —or at least premature—causal connections between music and intelligence. His results, published in May, suggest that many of his peers do just that.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. The belief in the positive effects of music training appeals to many researchers who are musicians themselves.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。对应 N 段。原文依据：Did he have a hidden talent that others didn't have? Or more endurance than his peers? Music researchers tend, like Schellenberg, to be musicians themselves, and as he noted in his recent paper, \"the idea of positive cognitive and neural side effects from music training(and other pleasurable activities)is inherently appealing. \"He also admits that if he had children of his own, he would encourage them to take music lessons and go to university. \"I would think that it makes them better people, more critical, just wiser in general, \"he said.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Glenn Schellenberg was doubtful about the claim that music education helps enhance children's intelligence.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Schellenberg had long been skeptical of the science supporting claims that music education enhances children's abstract reasoning, math, or language skills. If children who play the piano are smarter, he says, it doesn't necessarily mean they are smarter because they play the piano. It could be that the youngsters who play the piano also happen to be more ambitious or better at focusing on a task. Correlation, after all, does not prove causation.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Glenn Schellenberg came to the conclusion that most of the papers assessed made the wrong claim regarding music's effect on intelligence.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：After computing their assessments, Schellenberg concluded that the majority of the articles erroneously claimed that music training had a causal effect. The overselling, he also found, was more prevalent among neuroscience studies, three quarters of which mischaracterized a mere association between music training and skills enhancement as a cause-and-effect relationship. This may come as a surprise to some. Psychologists have been battling charges that they don't do \"real\"science for some time—in large part because many findings from classic experiments have proved unreproducible. Neuroscientists, on the other hand, armed with brain scans and EEGs(脑电图), have not been subject to the same degree of critique.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. You must abandon your unverified beliefs before you become a scientist.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。对应 O 段。原文依据：But those convictions should be checked at the entrance to the lab, he added. Otherwise, the work becomes religion or faith. “You have to let go of your faith if you want to be a scientist. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Lots of experiments have demonstrated that people with music training can better differentiate certain sounds.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：To argue for a cause-and-effect relationship, scientists must attempt to explain why and how a connection could occur. When it comes to transfer effects of music, scientists frequently point to brain plasticity—the fact that the brain changes according to how we use it. When a child learns to play the violin, for example, several studies have shown that the brain region responsible for the fine motor skills of the left hand's fingers is likely to grow. And many experiments have shown that musical training improves certain hearing capabilities, like filtering voices from background noise or distinguishing the difference between the consonants (辅音)'b'and 'g'",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Glenn Schellenberg's findings at the beginning of this century were not supported by a larger study carried out some ten years later.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：The 2004 paper was specifically designed to address those concerns. And as a passionate musician, Schellenberg was delighted when he turned up credible evidence that music has transfer effects on general intelligence. But nearly a decade later, in 2013, the Education Endowment Foundation funded a bigger study with more than 900 students. That study failed to confirm Schellenberg's findings, producing no evidence that music lessons improved math and literacy skills.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. One researcher shares Glenn Schellenberg'view that it is necessary to conduct long-term developmental studies to understand the effects of music training.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：Neuropsychologist Lutz Jancke agrees. \"Most of these studies don't allow for causal inferences, \"he said. For over two decades, Jancke has researched the effects of music lessons, and like Schellenberg, he believes that the only way to truly understand their effects is to run longitudinal studies. In such studies, researchers would need to follow groups of children with and without music lessons over a long period of time—even if the assignments are not completely random. Then they could compare outcomes for each group.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Glenn Schellenberg's research assistants had no idea what he was trying to prove in his new study.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：For his recent study, Schellenberg asked two research assistants to look for correlational studies on the effects of music education. They found a total of 114 papers published since 2000. To assess whether the authors claimed any causation, researchers then looked for telltale verbs in each paper's title and abstract, verbs like \"enhance, \" \"promote, \"“facilitate, \"and \"strengthen. \"The papers were categorized as neuroscience if the study employed a brain imaging method like magnetic resonance, or if the study appeared in a journal that had \"brain, \"\"neuroscience, \"or a related term in its title Otherwise the papers were categorized as psychology. Schellenberg didn't tell his assistants what exactly he was trying to prove.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Glenn Schellenberg admits that practice can change certain areas of the brain but doubts that the change can affect other areas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：But Schellenberg remains highly critical of how the concept of plasticity has been applied in his field. \"Plasticity has become an industry of its own, \"he wrote in his May paper. Practice does change the brain, he allows, but what is questionable is the assertion that these changes affect other brain regions, such as those responsible for spatial reasoning or math problems.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "The trend toward rationality and enlightenment was endangered long before the advent of the World Wide Web. As Neil Postman noted in his 1985 book Amusing Ourselves to Death, the rise of television introduced not just a new medium but a new discourse: a gradual shift from a typographic( 印刷的)culture to a photographic one, which in turn meant a shift from rationality to emotions, exposition to entertainment. In an image-centered and pleasure-driven world, Postman noted, there is no place for rational thinking, because you simply cannot think with images. It is text that enables us to \"uncover lies, confusions and overgeneralizations, and to detect abuses of logic and common sense. It also means to weigh ideas, to compare and contrast assertions, to connect one generalization to another. \"",
+        "The dominance of television was not confined to our living rooms. It overtumed all of those habits of mind, fundamentally changing our experience of the world, affecting the conduct of politics, religion, business, and culture. It reduced many aspects of modern life to entertainment, sensationalism, and commerce. “Americans don't talk to each other, we entertain each other, \"Postman wrote. \"They don't exchange ideas, they exchange images. They do not argue with propositions, they argue with good looks, celebrities and commercials. \"",
+        "At first, the web seemed to push against this trend. When it emerged towards the end of the 1980s as a purely text-based medium, it was seen as a tool to pursue knowledge, not pleasure. Reason and thought were most valued in this garden—all derived from the project of the Enlightenment. Universities around the world were among the first to connect to this new medium, which hosted discussion groups, informative personal or group blogs, electronic magazines, and academic mailing lists and forums. It was an intellectual project, not about commerce or control, created in a scientific research center in Switzerland. And for more than a decade, the web created an alternative space that threatened television's grip on society.",
+        "Social networks, though, have since colonized the web for television's values. From Facebook to Instagram, the medium refocuses our attention on videos and images, rewarding emotional appeals—like'buttons—over rational ones. Instead of a quest for knowledge, it engages us in an endless zest(热情)for instant approval from an audience, for which we are constantly but unconsciously performing.(It's telling that, while Google began life as a PhD thesis, Facebook started as a tool to judge classmates, appearances.) It reduces our curiosity by showing us exactly what we already want and think, based on our profiles and preferences. The Enlightenment's motto( 座右铭)of 'Dare to know'has become 'Dare not to care to know.'"
+      ],
+      "study_paragraphs": [
+        "The trend toward rationality and enlightenment was endangered long before the advent of the World Wide Web. As Neil Postman noted in his 1985 book Amusing Ourselves to Death, the rise of television introduced not just a new medium but a new discourse: a gradual shift from a typographic( 印刷的)culture to a photographic one, which in turn meant a shift from rationality to emotions, exposition to entertainment. In an image-centered and pleasure-driven world, Postman noted, there is no place for rational thinking, because you simply cannot think with images. It is text that enables us to \"uncover lies, confusions and overgeneralizations, and to detect abuses of logic and common sense. It also means to weigh ideas, to compare and contrast assertions, to connect one generalization to another. \"",
+        "The dominance of television was not confined to our living rooms. It overtumed all of those habits of mind, fundamentally changing our experience of the world, affecting the conduct of politics, religion, business, and culture. It reduced many aspects of modern life to entertainment, sensationalism, and commerce. “Americans don't talk to each other, we entertain each other, \"Postman wrote. \"They don't exchange ideas, they exchange images. They do not argue with propositions, they argue with good looks, celebrities and commercials. \"",
+        "At first, the web seemed to push against this trend. When it emerged towards the end of the 1980s as a purely text-based medium, it was seen as a tool to pursue knowledge, not pleasure. Reason and thought were most valued in this garden—all derived from the project of the Enlightenment. Universities around the world were among the first to connect to this new medium, which hosted discussion groups, informative personal or group blogs, electronic magazines, and academic mailing lists and forums. It was an intellectual project, not about commerce or control, created in a scientific research center in Switzerland. And for more than a decade, the web created an alternative space that threatened television's grip on society.",
+        "Social networks, though, have since colonized the web for television's values. From Facebook to Instagram, the medium refocuses our attention on videos and images, rewarding emotional appeals—like'buttons—over rational ones. Instead of a quest for knowledge, it engages us in an endless zest(热情)for instant approval from an audience, for which we are constantly but unconsciously performing.(It's telling that, while Google began life as a PhD thesis, Facebook started as a tool to judge classmates, appearances.) It reduces our curiosity by showing us exactly what we already want and think, based on our profiles and preferences. The Enlightenment's motto( 座右铭)of 'Dare to know'has become 'Dare not to care to know.'"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What did Neil Postman say about the rise of television?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It initiated a change from dominance of reason to supremacy of pleasure."
+            },
+            {
+              "key": "B",
+              "text": "It brought about a gradual shift from cinema going to home entertainment."
+            },
+            {
+              "key": "C",
+              "text": "It started a revolution in photographic technology."
+            },
+            {
+              "key": "D",
+              "text": "It marked a new age in the entertainment industry."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。电视把理性主导的文化变成以图像和娱乐为中心的文化。第 1 段原文依据：The trend toward rationality and enlightenment was endangered long before the advent of the World Wide Web. As Neil Postman noted in his 1985 book Amusing Ourselves to Death, the rise of television introduced not just a new medium but a new discourse: a gradual shift from a typographic( 印刷的)culture to a photographic one, which in turn meant a shift from rationality to emotions, exposition to entertainment. In an image-centered and pleasure-driven world, Postman noted, there is no place for rational thinking, because you simply cannot think with images. It is text that enables us to \"uncover lies, confusions and overgeneralizations, and to detect abuses of logic and common sense. It also means to weigh ideas, to compare and contrast assertions, to connect one generalization to another. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. According to the passage, what is the advantage of text reading?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It gives one access to huge amounts of information."
+            },
+            {
+              "key": "B",
+              "text": "It allows more information to be processed quickly."
+            },
+            {
+              "key": "C",
+              "text": "It is capable of enriching one's life."
+            },
+            {
+              "key": "D",
+              "text": "It is conducive to critical thinking."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。文字可揭示谎言、比较观点并检验逻辑，帮助批判性思考。第 1 段原文依据：The trend toward rationality and enlightenment was endangered long before the advent of the World Wide Web. As Neil Postman noted in his 1985 book Amusing Ourselves to Death, the rise of television introduced not just a new medium but a new discourse: a gradual shift from a typographic( 印刷的)culture to a photographic one, which in turn meant a shift from rationality to emotions, exposition to entertainment. In an image-centered and pleasure-driven world, Postman noted, there is no place for rational thinking, because you simply cannot think with images. It is text that enables us to \"uncover lies, confusions and overgeneralizations, and to detect abuses of logic and common sense. It also means to weigh ideas, to compare and contrast assertions, to connect one generalization to another. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. How has television impacted Americans?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has given them a lot more to argue about"
+            },
+            {
+              "key": "B",
+              "text": "It has brought celebrities closer to their lives."
+            },
+            {
+              "key": "C",
+              "text": "It has made them care more about what they say."
+            },
+            {
+              "key": "D",
+              "text": "It has rendered their interactions more superficial."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。人们以图像、名人和广告交流，互动趋于表面化。第 2 段原文依据：The dominance of television was not confined to our living rooms. It overtumed all of those habits of mind, fundamentally changing our experience of the world, affecting the conduct of politics, religion, business, and culture. It reduced many aspects of modern life to entertainment, sensationalism, and commerce. “Americans don't talk to each other, we entertain each other, \"Postman wrote. \"They don't exchange ideas, they exchange images. They do not argue with propositions, they argue with good looks, celebrities and commercials. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What does the passage say about the World Wide Web?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was developed primarily for universities worldwide."
+            },
+            {
+              "key": "B",
+              "text": "It was created to connect people in different countries."
+            },
+            {
+              "key": "C",
+              "text": "It was viewed as a means to quest for knowledge."
+            },
+            {
+              "key": "D",
+              "text": "It was designed as a discussion forum for university students."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。互联网最初被视为求知工具，大学和学术群体率先接入。第 3 段原文依据：At first, the web seemed to push against this trend. When it emerged towards the end of the 1980s as a purely text-based medium, it was seen as a tool to pursue knowledge, not pleasure. Reason and thought were most valued in this garden—all derived from the project of the Enlightenment. Universities around the world were among the first to connect to this new medium, which hosted discussion groups, informative personal or group blogs, electronic magazines, and academic mailing lists and forums. It was an intellectual project, not about commerce or control, created in a scientific research center in Switzerland. And for more than a decade, the web created an alternative space that threatened television's grip on society.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What do we learn about users of social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are bent on looking for an alternative space for escape."
+            },
+            {
+              "key": "B",
+              "text": "They are constantly seeking approval from their audience."
+            },
+            {
+              "key": "C",
+              "text": "They are forever engaged in hunting for new information."
+            },
+            {
+              "key": "D",
+              "text": "They are unable to focus their attention on tasks for long."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。社交媒体驱动用户不断寻求观众的即时认可。第 4 段原文依据：Social networks, though, have since colonized the web for television's values. From Facebook to Instagram, the medium refocuses our attention on videos and images, rewarding emotional appeals—like'buttons—over rational ones. Instead of a quest for knowledge, it engages us in an endless zest(热情)for instant approval from an audience, for which we are constantly but unconsciously performing.(It's telling that, while Google began life as a PhD thesis, Facebook started as a tool to judge classmates, appearances.) It reduces our curiosity by showing us exactly what we already want and think, based on our profiles and preferences. The Enlightenment's motto( 座右铭)of 'Dare to know'has become 'Dare not to care to know.'",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "According to a recent study, a small but growing proportion of the workforce is affected to some degree by a sense of entitlement. Work is less about what they can contribute but more about what they can take. It can lead to workplace dysfunction and diminish their own job satisfaction. Fm not referring to employees who are legitimately dissatisfied with their employment conditions due to, say, being denied fair pay or flexible work practices. I'm talking about those who consistently believe they deserve special treatment and generous rewards. It's an expectation that exists irrespective of their abilities or levels of performance.",
+        "As a result of that discrepancy between the privileges they feel they're owed and their inflated sense of self-worth, they don't work as hard for their employer. They prefer instead to slack off. It's a tendency which many scholars believe begins in childhood due to parents who overindulge their kids. This thereby leads them to expect the same kind of spoilt treatment throughout their adult lives. And yet despite how these employees feel, it's obviously important for their manager to nonetheless find out how to keep them motivated. And, by virtue of that heightened motivation, to perform well.",
+        "The research team from several American universities surveyed more than 240 individuals. They sampled managers as well as team members. Employee entitlement was measured by statements such as \"I honestly feel I'm just more deserving than others. \" The respondents had to rate the extent of their agreement. Employee engagement, meanwhile, was assessed with statements like “I really throw myself into my work.” The findings revealed ethical leadership is precisely what alleviates the negative effects of employee entitlement. That's because rather than indulging employees or neglecting them, ethical leaders communicate very direct and clear expectations. They also hold employees accountable for their behaviors and are genuinely committed to doing the right thing. Additionally, these leaders are consistent in their standards. They're also less likely to deviate in how they treat employees",
+        "This means, when confronted by an entitled team member, an ethical leader is significantly disinclined to accommodate their demands. He or she will instead point out, constructively and tactfully, exactly how their inflated sense of deservingness is somewhat distorted. They'd then go further to explain the specific, and objective, criteria the employee must meet to receive their desired rewards. This shift away from unrealistic expectations is successful because entitled employees feel more confident that ethical leaders will deliver on their promises. This occurs because they're perceived to be fair and trustworthy.",
+        "The researchers, however, exercise caution by warning no one single response is the perfect remedy. But there's no denying ethical leadership is at least a critical step in the right direction."
+      ],
+      "study_paragraphs": [
+        "According to a recent study, a small but growing proportion of the workforce is affected to some degree by a sense of entitlement. Work is less about what they can contribute but more about what they can take. It can lead to workplace dysfunction and diminish their own job satisfaction. Fm not referring to employees who are legitimately dissatisfied with their employment conditions due to, say, being denied fair pay or flexible work practices. I'm talking about those who consistently believe they deserve special treatment and generous rewards. It's an expectation that exists irrespective of their abilities or levels of performance.",
+        "As a result of that discrepancy between the privileges they feel they're owed and their inflated sense of self-worth, they don't work as hard for their employer. They prefer instead to slack off. It's a tendency which many scholars believe begins in childhood due to parents who overindulge their kids. This thereby leads them to expect the same kind of spoilt treatment throughout their adult lives. And yet despite how these employees feel, it's obviously important for their manager to nonetheless find out how to keep them motivated. And, by virtue of that heightened motivation, to perform well.",
+        "The research team from several American universities surveyed more than 240 individuals. They sampled managers as well as team members. Employee entitlement was measured by statements such as \"I honestly feel I'm just more deserving than others. \" The respondents had to rate the extent of their agreement. Employee engagement, meanwhile, was assessed with statements like “I really throw myself into my work.” The findings revealed ethical leadership is precisely what alleviates the negative effects of employee entitlement. That's because rather than indulging employees or neglecting them, ethical leaders communicate very direct and clear expectations. They also hold employees accountable for their behaviors and are genuinely committed to doing the right thing. Additionally, these leaders are consistent in their standards. They're also less likely to deviate in how they treat employees",
+        "This means, when confronted by an entitled team member, an ethical leader is significantly disinclined to accommodate their demands. He or she will instead point out, constructively and tactfully, exactly how their inflated sense of deservingness is somewhat distorted. They'd then go further to explain the specific, and objective, criteria the employee must meet to receive their desired rewards. This shift away from unrealistic expectations is successful because entitled employees feel more confident that ethical leaders will deliver on their promises. This occurs because they're perceived to be fair and trustworthy.",
+        "The researchers, however, exercise caution by warning no one single response is the perfect remedy. But there's no denying ethical leadership is at least a critical step in the right direction."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2021-12-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does a recent study find about a growing number of workers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They attempt to make more contributions"
+            },
+            {
+              "key": "B",
+              "text": "They feel they deserve more than they get."
+            },
+            {
+              "key": "C",
+              "text": "They attach importance to job satisfaction."
+            },
+            {
+              "key": "D",
+              "text": "They try to diminish workplace dysfunction."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。有特权感的员工认为自己应获特殊待遇和丰厚回报。第 1 段原文依据：According to a recent study, a small but growing proportion of the workforce is affected to some degree by a sense of entitlement. Work is less about what they can contribute but more about what they can take. It can lead to workplace dysfunction and diminish their own job satisfaction. Fm not referring to employees who are legitimately dissatisfied with their employment conditions due to, say, being denied fair pay or flexible work practices. I'm talking about those who consistently believe they deserve special treatment and generous rewards. It's an expectation that exists irrespective of their abilities or levels of performance.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. Why don't some employees work hard according to many scholars?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They lack a strong sense of self-worth."
+            },
+            {
+              "key": "B",
+              "text": "They were spoiled when growing up."
+            },
+            {
+              "key": "C",
+              "text": "They have received unfair treatment."
+            },
+            {
+              "key": "D",
+              "text": "They are overindulged by their boss."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。一些学者将怠工倾向追溯到童年被父母过度宠爱。第 2 段原文依据：As a result of that discrepancy between the privileges they feel they're owed and their inflated sense of self-worth, they don't work as hard for their employer. They prefer instead to slack off. It's a tendency which many scholars believe begins in childhood due to parents who overindulge their kids. This thereby leads them to expect the same kind of spoilt treatment throughout their adult lives. And yet despite how these employees feel, it's obviously important for their manager to nonetheless find out how to keep them motivated. And, by virtue of that heightened motivation, to perform well.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What is a manager supposed to do to enable workers to do a better job?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Be aware of their emotions."
+            },
+            {
+              "key": "B",
+              "text": "Give them timely promotions."
+            },
+            {
+              "key": "C",
+              "text": "Keep a record of their performance."
+            },
+            {
+              "key": "D",
+              "text": "Seek ways to sustain their motivation."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。管理者需要找到持续激励员工的方法，促进工作表现。第 2 段原文依据：As a result of that discrepancy between the privileges they feel they're owed and their inflated sense of self-worth, they don't work as hard for their employer. They prefer instead to slack off. It's a tendency which many scholars believe begins in childhood due to parents who overindulge their kids. This thereby leads them to expect the same kind of spoilt treatment throughout their adult lives. And yet despite how these employees feel, it's obviously important for their manager to nonetheless find out how to keep them motivated. And, by virtue of that heightened motivation, to perform well.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do the research findings reveal about ethical leaders?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are held accountable by their employees."
+            },
+            {
+              "key": "B",
+              "text": "They are always transparent in their likes and dislikes."
+            },
+            {
+              "key": "C",
+              "text": "They convey their requirements in a straightforward way."
+            },
+            {
+              "key": "D",
+              "text": "They make it a point to be on good terms with their employees."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。合乎伦理的领导清晰、直接地传达期望并要求员工负责。第 3 段原文依据：The research team from several American universities surveyed more than 240 individuals. They sampled managers as well as team members. Employee entitlement was measured by statements such as \"I honestly feel I'm just more deserving than others. \" The respondents had to rate the extent of their agreement. Employee engagement, meanwhile, was assessed with statements like “I really throw myself into my work.” The findings revealed ethical leadership is precisely what alleviates the negative effects of employee entitlement. That's because rather than indulging employees or neglecting them, ethical leaders communicate very direct and clear expectations. They also hold employees accountable for their behaviors and are genuinely committed to doing the right thing. Additionally, these leaders are consistent in their standards. They're also less likely to deviate in how they treat employees",
+          "points": 2
+        },
+        {
+          "id": "cet6-2021-12-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What kind of leaders are viewed as ethical by entitled employees?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Those who can be counted on to fulfill commitments."
+            },
+            {
+              "key": "B",
+              "text": "Those who can do things beyond normal expectations."
+            },
+            {
+              "key": "C",
+              "text": "Those who exercise caution in making major decisions."
+            },
+            {
+              "key": "D",
+              "text": "Those who know how to satisfy their employees, needs."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。这些员工相信公平可信的领导会兑现承诺。第 4 段原文依据：This means, when confronted by an entitled team member, an ethical leader is significantly disinclined to accommodate their demands. He or she will instead point out, constructively and tactfully, exactly how their inflated sense of deservingness is somewhat distorted. They'd then go further to explain the specific, and objective, criteria the employee must meet to receive their desired rewards. This shift away from unrealistic expectations is successful because entitled employees feel more confident that ethical leaders will deliver on their promises. This occurs because they're perceived to be fair and trustworthy.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2021-12-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passagefrom Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "延安位于陕西省北部，地处黄河中游，是中国革命的圣地。毛泽东等老一辈革命家曾在这里生活战斗了十三个春秋，领导了抗日战争和解放战争，培育了延安精神，为中国革命做出了巨大贡献。延安的革命旧址全国数量最大、分布最广，级别最高。延安是全国爱国主义、革命传统和延安精神教育基地。延安有9个革命纪念馆，珍藏着中共中央和老一辈革命家在延安时期留存下来的大量重要物品，因此享有“中国革命博物馆城”的美誉。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2021-12-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
