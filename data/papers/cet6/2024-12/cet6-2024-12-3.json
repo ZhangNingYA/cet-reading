@@ -1,0 +1,1751 @@
+{
+  "id": "cet6-2024-12-3",
+  "exam_level": "CET6",
+  "year": 2024,
+  "month": 12,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2024年12月大学英语六级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。排印异常的段落或词库标号按顺序恢复，正文按原件保留。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2024-12-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence “College provides a great opportunity for students to explore various possibilities and find the right path for themselves.” You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-12-3-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence “College provides a great opportunity for students to explore various possibilities and find the right path for themselves.” You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blankfrom a list ofchoices given in a word bankfollowing the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified bya letter. Please mark the corresponding letterfor each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "About 23%of the global population lives in absolute poverty. In developing countries there is a low life expectancy, a high infant [26] ______ rate, high levels of unemployment and illiteracy, nutritional levels below acceptable standards and widespread disease with very little or poor quality medical assistance. Others live [27] ______ wealthy and luxurious lives and so the wealth is distributed in a very [28] ______ manner. These are the central problems to questions of charity though charity also includes many other areas such as assisting the elderly.",
+        "We all [29] ______ when very rich people pledge to give away most of their billions, but they are usually left with millions to pass on, still much more than most people would expect to earn in their lifetime. Even comparatively [30] ______ salaries in the west are very high when compared globally. Someone on f20,000 could easily afford to give away f2,000 per year and still have plenty to live on plus some luxuries.",
+        "Most people agree that giving to charity is morally [31] ______ but charitable behaviour tends to be regarded as above and beyond the call of duty. Some argue, however, that charitable behaviour is morally required. This means that to fail to behave charitably would be wrong. The majority of arguments in this vein refer to giving aid to poorer nations but they may also refer to giving time within one's [32] ______ community. Arguments tend to place different requirements on people in different income brackets and [33] ______ entirely people who are merely making ends meet. Some argue that people should allcontribute a certain percentage of their earnings. I will [34] ______ together all those arguments that place a moral requirement on people to give to charity, despite the fact that there is wide disagreement as to the [35] ______ of that moral requirement."
+      ],
+      "study_paragraphs": [
+        "About 23%of the global population lives in absolute poverty. In developing countries there is a low life expectancy, a high infant mortality rate, high levels of unemployment and illiteracy, nutritional levels below acceptable standards and widespread disease with very little or poor quality medical assistance. Others live incredibly wealthy and luxurious lives and so the wealth is distributed in a very unequal manner. These are the central problems to questions of charity though charity also includes many other areas such as assisting the elderly.",
+        "We all applaud when very rich people pledge to give away most of their billions, but they are usually left with millions to pass on, still much more than most people would expect to earn in their lifetime. Even comparatively moderate salaries in the west are very high when compared globally. Someone on f20,000 could easily afford to give away f2,000 per year and still have plenty to live on plus some luxuries.",
+        "Most people agree that giving to charity is morally praiseworthy but charitable behaviour tends to be regarded as above and beyond the call of duty. Some argue, however, that charitable behaviour is morally required. This means that to fail to behave charitably would be wrong. The majority of arguments in this vein refer to giving aid to poorer nations but they may also refer to giving time within one's immediate community. Arguments tend to place different requirements on people in different income brackets and exclude entirely people who are merely making ends meet. Some argue that people should allcontribute a certain percentage of their earnings. I will group together all those arguments that place a moral requirement on people to give to charity, despite the fact that there is wide disagreement as to the extent of that moral requirement."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-12-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。infant mortality rate 指婴儿死亡率。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。incredibly wealthy 指极其富裕。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。unequal manner 指财富分配不平等。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。applaud 指人们赞赏富人的慈善承诺。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。moderate salaries 指西方相对中等的收入。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。morally praiseworthy 表示道德上值得赞扬。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。immediate community 指身边的社区。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。exclude 指不向仅能维持生计的人要求捐助。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。group together 指把要求慈善义务的论点归为一类。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "applaud"
+            },
+            {
+              "key": "B",
+              "text": "casualty"
+            },
+            {
+              "key": "C",
+              "text": "exclude"
+            },
+            {
+              "key": "D",
+              "text": "extent"
+            },
+            {
+              "key": "E",
+              "text": "group"
+            },
+            {
+              "key": "F",
+              "text": "hierarchical"
+            },
+            {
+              "key": "G",
+              "text": "immediate"
+            },
+            {
+              "key": "H",
+              "text": "incredibly"
+            },
+            {
+              "key": "I",
+              "text": "moderate"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "overt"
+            },
+            {
+              "key": "L",
+              "text": "praiseworthy"
+            },
+            {
+              "key": "M",
+              "text": "probe"
+            },
+            {
+              "key": "N",
+              "text": "sceptically"
+            },
+            {
+              "key": "O",
+              "text": "unequal"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。extent 指道德要求的程度。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· TheFree-TradeParadox",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Trade is one of the policy areas where the hostility that exists between populists(民粹主义者)and classical liberals is most visible. Free-traders point to the undeniable good that tariff-free trade has done for consumers across the world and to the observable alleviation of poverty in corners of the world where previously closed markets have been opened up. Protectionists point to the domestic producers who've paid the price for this globalized economy in the form of lost livelihoods and hollowed-out communities.",
+        "[B] The ongoing conservative civil war often degenerates into content-free tribal warfare, but trade is a rare exception. There are substantial, thought-out policy proposals on both sides of the argument.",
+        "[C] Consequently, trade as a topic of discussion provides an opportunity for liberals and populists to have a real meeting of minds. Fruitful debates might actually take place in this area, as opposed to the familiar ritual we've become accustomed to of condemnation met with counter-condemnation.",
+        "[D] Strange as it might sound, the problem with trade in the modern world isn't a matter of dollars and cents. It's a matter of false consciousness. This observation is bound to set Marxist alarm bells ringing in the minds of some readers, but it was first made by Alexis de Tocqueville in 1840.",
+        "[E] Tracking the economic development of mankind from primitive to modern societies, Tocqueville observed a paradox unfolding over the centuries as economic realities and human experience of those realities strayed further and further from each other. In primitive societies, he notes, the division of labor was as yet undeveloped for the most part, requiring each person, family, or tribe to be relatively independent when it came to meeting their own basic material needs. Men built their own dwellings, farmed their own land, tended to their own livestock. This is not to deny that basic forms of trade took place, but, for the most part, our primitive ancestors lived fairly self-reliant, if crushingly poor, lives.",
+        "[F] However, the exclusively local and face-to-face nature of economic and political organization in the ancient and prehistoric worlds constantly impressed upon these primitive peoples the uncontrollable reality of others and their needs. As Tocqueville notes, \"as soon as a man begins to deal with common affairs in public, he begins to perceive that he is not so independent of his fellow men as he had first imagined, and that in order to obtain their support he must often lend them his cooperation. \"",
+        "[G] At the advent of the modern world, the division of labor spread further and further throughout society. Each person became more and more dependent on others for their basic needs. And yet, robbed of the engagement with our neighbors and with our local communities that our ancestors were forced into by circumstance, we feel ourselves to be more and more independent of one another. As we become more and more dependent on others, we become less and less conscious of our dependence on others. This is the paradox of trade in the modern world.",
+        "[H] The false consciousness that this paradox generates causes havoc on the debates we have about free trade. There is scarcely a single commodity in any American household that isn't dependent for its manufacture and sale, through one supply chain or another, on scores of different people spread out across the entire globe. But as Tocqueville already foresaw in 1840, we do not feel dependent on these strangers for our way of life. No sense of the dependence of our own material welfare on their work ever strikes our national consciousness. We rarely contemplate the globalized avenues of free trade with gratitude.",
+        "[I] There are two reasons for this. The first, to put it bluntly, is money. Money allows us to purchase the work of others without giving any thought to them as human beings. Unlike our ancestors in their primitive townships, we rarely have to meet face-to-face the people who've invented, built, shipped, or supplied our goods. No relationship has to be built before an exchange can take place. Simply agree on a price, and you can have any goods you wish without taking a second thought for the human being involved on the other side of the transaction. In this way, money makes us feel more independent than we actually are. Each of us senses the hold that it has over our fellows. We know that if we bid highly enough we can buy ourselves out of the time-consuming labor of building relationships. Money is kind of like magic in that way. It gives us a set of rituals to perform and promises that if we do so we'll be able to wield power over others. The illusion is created that having enough money to buy something is the equivalent of knowing how to make it yourself. Gratitude for the anonymous men and women who make up the supply chain rarely makes its way into our consciousness.",
+        "[J] Anonymity, in fact, is the second root cause of the free-trade paradox. Modernity has emancipated everyone from the limits of location and community. By and large, when we trade, we trade with strangers; when we vote, we vote for strangers; when we watch, read, or listen to stories, the tellers of the tales are strangers. As opposed to the ancestors Tocqueville compares us to, we do not know the people with whom we have to do, in either the economic or the political sphere. This is simply the shadow side of the miracle of markets, which, for the first time in history, have allowed strangers to look after each other. They've also allowed each of us to live more and more of our lives exclusively as strangers to other people. This is how Tocqueville—rather pessimistically—describes us: Each, standing apart, is like a stranger to the destiny of others; his children and personal friends forming for him the entire human race. As for the remainder of his fellow citizens, he is beside them, but he does not see them. He touches them, but he does not feel them. He exists only in and for himself.",
+        "[K] The last sentence but one is as apt a summary as one could hope to come by of how each of us functions in the modern economy: “He touches them, but he does not feel them.”",
+        "[L] This is the greatest challenge facing defenders of free trade. It's exceedingly difficult for human beings to feel gratitude toward strangers, and the global marketplace that has made us so rich has also made us strangers to one another. Our brains are hardwired for tribal life, and tribes do not take kindly to strangers. Impressing a sense of dependence upon and gratitude toward foreign strangers is therefore an uphill task.",
+        "[M] If free-traders are going to win policy arguments in the future, they'll have to find a way of forging bonds of affection between American consumers and foreign producers. Only by de-anonymizing the men and women who supply us with the goods and services we enjoy from overseas and by creating a sense of solidarity and relationship across borders that transcends economic interest can free trade win the day. Otherwise, the inborn biological upper hand that protectionists have in the form of nationalist solidarity is bound to win the day at the ballot box."
+      ],
+      "study_paragraphs": [
+        "Trade is one of the policy areas where the hostility that exists between populists(民粹主义者)and classical liberals is most visible. Free-traders point to the undeniable good that tariff-free trade has done for consumers across the world and to the observable alleviation of poverty in corners of the world where previously closed markets have been opened up. Protectionists point to the domestic producers who've paid the price for this globalized economy in the form of lost livelihoods and hollowed-out communities.",
+        "The ongoing conservative civil war often degenerates into content-free tribal warfare, but trade is a rare exception. There are substantial, thought-out policy proposals on both sides of the argument.",
+        "Consequently, trade as a topic of discussion provides an opportunity for liberals and populists to have a real meeting of minds. Fruitful debates might actually take place in this area, as opposed to the familiar ritual we've become accustomed to of condemnation met with counter-condemnation.",
+        "Strange as it might sound, the problem with trade in the modern world isn't a matter of dollars and cents. It's a matter of false consciousness. This observation is bound to set Marxist alarm bells ringing in the minds of some readers, but it was first made by Alexis de Tocqueville in 1840.",
+        "Tracking the economic development of mankind from primitive to modern societies, Tocqueville observed a paradox unfolding over the centuries as economic realities and human experience of those realities strayed further and further from each other. In primitive societies, he notes, the division of labor was as yet undeveloped for the most part, requiring each person, family, or tribe to be relatively independent when it came to meeting their own basic material needs. Men built their own dwellings, farmed their own land, tended to their own livestock. This is not to deny that basic forms of trade took place, but, for the most part, our primitive ancestors lived fairly self-reliant, if crushingly poor, lives.",
+        "However, the exclusively local and face-to-face nature of economic and political organization in the ancient and prehistoric worlds constantly impressed upon these primitive peoples the uncontrollable reality of others and their needs. As Tocqueville notes, \"as soon as a man begins to deal with common affairs in public, he begins to perceive that he is not so independent of his fellow men as he had first imagined, and that in order to obtain their support he must often lend them his cooperation. \"",
+        "At the advent of the modern world, the division of labor spread further and further throughout society. Each person became more and more dependent on others for their basic needs. And yet, robbed of the engagement with our neighbors and with our local communities that our ancestors were forced into by circumstance, we feel ourselves to be more and more independent of one another. As we become more and more dependent on others, we become less and less conscious of our dependence on others. This is the paradox of trade in the modern world.",
+        "The false consciousness that this paradox generates causes havoc on the debates we have about free trade. There is scarcely a single commodity in any American household that isn't dependent for its manufacture and sale, through one supply chain or another, on scores of different people spread out across the entire globe. But as Tocqueville already foresaw in 1840, we do not feel dependent on these strangers for our way of life. No sense of the dependence of our own material welfare on their work ever strikes our national consciousness. We rarely contemplate the globalized avenues of free trade with gratitude.",
+        "There are two reasons for this. The first, to put it bluntly, is money. Money allows us to purchase the work of others without giving any thought to them as human beings. Unlike our ancestors in their primitive townships, we rarely have to meet face-to-face the people who've invented, built, shipped, or supplied our goods. No relationship has to be built before an exchange can take place. Simply agree on a price, and you can have any goods you wish without taking a second thought for the human being involved on the other side of the transaction. In this way, money makes us feel more independent than we actually are. Each of us senses the hold that it has over our fellows. We know that if we bid highly enough we can buy ourselves out of the time-consuming labor of building relationships. Money is kind of like magic in that way. It gives us a set of rituals to perform and promises that if we do so we'll be able to wield power over others. The illusion is created that having enough money to buy something is the equivalent of knowing how to make it yourself. Gratitude for the anonymous men and women who make up the supply chain rarely makes its way into our consciousness.",
+        "Anonymity, in fact, is the second root cause of the free-trade paradox. Modernity has emancipated everyone from the limits of location and community. By and large, when we trade, we trade with strangers; when we vote, we vote for strangers; when we watch, read, or listen to stories, the tellers of the tales are strangers. As opposed to the ancestors Tocqueville compares us to, we do not know the people with whom we have to do, in either the economic or the political sphere. This is simply the shadow side of the miracle of markets, which, for the first time in history, have allowed strangers to look after each other. They've also allowed each of us to live more and more of our lives exclusively as strangers to other people. This is how Tocqueville—rather pessimistically—describes us: Each, standing apart, is like a stranger to the destiny of others; his children and personal friends forming for him the entire human race. As for the remainder of his fellow citizens, he is beside them, but he does not see them. He touches them, but he does not feel them. He exists only in and for himself.",
+        "The last sentence but one is as apt a summary as one could hope to come by of how each of us functions in the modern economy: “He touches them, but he does not feel them.”",
+        "This is the greatest challenge facing defenders of free trade. It's exceedingly difficult for human beings to feel gratitude toward strangers, and the global marketplace that has made us so rich has also made us strangers to one another. Our brains are hardwired for tribal life, and tribes do not take kindly to strangers. Impressing a sense of dependence upon and gratitude toward foreign strangers is therefore an uphill task.",
+        "If free-traders are going to win policy arguments in the future, they'll have to find a way of forging bonds of affection between American consumers and foreign producers. Only by de-anonymizing the men and women who supply us with the goods and services we enjoy from overseas and by creating a sense of solidarity and relationship across borders that transcends economic interest can free trade win the day. Otherwise, the inborn biological upper hand that protectionists have in the form of nationalist solidarity is bound to win the day at the ballot box."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-12-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. People became more and more reliant on others for basic needs as they entered the modern world even though they might feel less so.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：At the advent of the modern world, the division of labor spread further and further throughout society. Each person became more and more dependent on others for their basic needs. And yet, robbed of the engagement with our neighbors and with our local communities that our ancestors were forced into by circumstance, we feel ourselves to be more and more independent of one another. As we become more and more dependent on others, we become less and less conscious of our dependence on others. This is the paradox of trade in the modern world.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. On the topic of trade, productive debates might be possible, in contrast to the familiar mutual condemnation in discussing other issues.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Consequently, trade as a topic of discussion provides an opportunity for liberals and populists to have a real meeting of minds. Fruitful debates might actually take place in this area, as opposed to the familiar ritual we've become accustomed to of condemnation met with counter-condemnation.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. We feel greater independence than we actually possess because money allows us to buy things without building any relationships.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：There are two reasons for this. The first, to put it bluntly, is money. Money allows us to purchase the work of others without giving any thought to them as human beings. Unlike our ancestors in their primitive townships, we rarely have to meet face-to-face the people who've invented, built, shipped, or supplied our goods. No relationship has to be built before an exchange can take place. Simply agree on a price, and you can have any goods you wish without taking a second thought for the human being involved on the other side of the transaction. In this way, money makes us feel more independent than we actually are. Each of us senses the hold that it has over our fellows. We know that if we bid highly enough we can buy ourselves out of the time-consuming labor of building relationships. Money is kind of like magic in that way. It gives us a set of rituals to perform and promises that if we do so we'll be able to wield power over others. The illusion is created that having enough money to buy something is the equivalent of knowing how to make it yourself. Gratitude for the anonymous men and women who make up the supply chain rarely makes its way into our consciousness.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. The trouble with today's trade stems from misconceptions rather than money.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：Strange as it might sound, the problem with trade in the modern world isn't a matter of dollars and cents. It's a matter of false consciousness. This observation is bound to set Marxist alarm bells ringing in the minds of some readers, but it was first made by Alexis de Tocqueville in 1840.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. For their arguments to prevail, advocates of free trade must try to forge bonds of affection between consumers at home and producers overseas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。对应 M 段。原文依据：If free-traders are going to win policy arguments in the future, they'll have to find a way of forging bonds of affection between American consumers and foreign producers. Only by de-anonymizing the men and women who supply us with the goods and services we enjoy from overseas and by creating a sense of solidarity and relationship across borders that transcends economic interest can free trade win the day. Otherwise, the inborn biological upper hand that protectionists have in the form of nationalist solidarity is bound to win the day at the ballot box.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. According to Tocqueville, unlike our ancestors, we and the people we do trade with are strangers to each other.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：Anonymity, in fact, is the second root cause of the free-trade paradox. Modernity has emancipated everyone from the limits of location and community. By and large, when we trade, we trade with strangers; when we vote, we vote for strangers; when we watch, read, or listen to stories, the tellers of the tales are strangers. As opposed to the ancestors Tocqueville compares us to, we do not know the people with whom we have to do, in either the economic or the political sphere. This is simply the shadow side of the miracle of markets, which, for the first time in history, have allowed strangers to look after each other. They've also allowed each of us to live more and more of our lives exclusively as strangers to other people. This is how Tocqueville—rather pessimistically—describes us: Each, standing apart, is like a stranger to the destiny of others; his children and personal friends forming for him the entire human race. As for the remainder of his fellow citizens, he is beside them, but he does not see them. He touches them, but he does not feel them. He exists only in and for himself.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. In primitive societies, people had to rely mostly on themselves to meet their personal needs.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：Tracking the economic development of mankind from primitive to modern societies, Tocqueville observed a paradox unfolding over the centuries as economic realities and human experience of those realities strayed further and further from each other. In primitive societies, he notes, the division of labor was as yet undeveloped for the most part, requiring each person, family, or tribe to be relatively independent when it came to meeting their own basic material needs. Men built their own dwellings, farmed their own land, tended to their own livestock. This is not to deny that basic forms of trade took place, but, for the most part, our primitive ancestors lived fairly self-reliant, if crushingly poor, lives.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Few commodities in American homes are not reliant on people abroad in the process of manufacture and sale.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：The false consciousness that this paradox generates causes havoc on the debates we have about free trade. There is scarcely a single commodity in any American household that isn't dependent for its manufacture and sale, through one supply chain or another, on scores of different people spread out across the entire globe. But as Tocqueville already foresaw in 1840, we do not feel dependent on these strangers for our way of life. No sense of the dependence of our own material welfare on their work ever strikes our national consciousness. We rarely contemplate the globalized avenues of free trade with gratitude.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Protectionists argue against free trade by referring to the losses suffered by domestic producers and communities.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：Trade is one of the policy areas where the hostility that exists between populists(民粹主义者)and classical liberals is most visible. Free-traders point to the undeniable good that tariff-free trade has done for consumers across the world and to the observable alleviation of poverty in corners of the world where previously closed markets have been opened up. Protectionists point to the domestic producers who've paid the price for this globalized economy in the form of lost livelihoods and hollowed-out communities.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. It is extremely hard to make people feel dependent on and grateful to strangers overseas.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：This is the greatest challenge facing defenders of free trade. It's exceedingly difficult for human beings to feel gratitude toward strangers, and the global marketplace that has made us so rich has also made us strangers to one another. Our brains are hardwired for tribal life, and tribes do not take kindly to strangers. Impressing a sense of dependence upon and gratitude toward foreign strangers is therefore an uphill task.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "There are hundreds of personality quizzes online that assert they can ascertain whether the right or left half of your brain is dominant. Left-brained people are supposedly logical and excel at language and math while right-brained people are more imaginative, emotionally intelligent and skilled with spatial reasoning. There's just one problem: That's not how brains work.",
+        "Popular science enthusiasts sort of took this idea and ran with it, and it's become woven in popular culture now, and it's not going away.",
+        "Despite this enduring belief, there's no such thing as being“right-brained”or“left-brained”. Whether you're someone who tends more towards creativity or logic has nothing to do with one hemisphere of your brain being dominant over the other. But the actual science of how the two halves of our brains work together is sometimes stranger than fiction.",
+        "The human brain is divided into two hemispheres, the left and right. In all vertebrate(脊椎的)animals, the right hemisphere controls the left side of the body and vice versa. And scientists have long known, thanks to the behaviors of patients who suffered brain injuries, that different areas of the brain do different things.",
+        "But many scientists struggled with this idea, because the very suggestion that the left and right halves of the brain operate differently disrupted the idea that nature tends toward perfect symmetry.",
+        "Work by neuroscientists(神经科学家)has revealed the importance of different hemispheres of the brain for different activities. However, their research quickly saw some misinterpretations in the general public: Some presumed creative people must be right-brained and logical people left-brained. It is proven that not only is personality unrelated to the different halves of the brain, but people aren't really right-or left-brained to begin with. The idea that we have left-dominant people and right-dominant people, and that this is related to personality, is categorically false. That's never been supported in the neuroscience community. Neuroscientists don't believe that and never have.",
+        "What scientists learned is that there are really important differences between the left hemisphere and the right hemisphere. It's just that they have nothing to do with personality or whether cognitive strategy is more logical or free spirited or creative. While researchers have shown the limitations of how the hemispheres of our brains influence our lives, it's not difficult to understand the appeal of such ideas. People are endlessly fascinated by themselves and their friends, and the subtle differences in how people think about the world are really meaningful to them. When you come up with an online quiz that tells us something about ourselves, we're drawn to that. It's irresistible. But you have to take it with an enormous grain of salt."
+      ],
+      "study_paragraphs": [
+        "There are hundreds of personality quizzes online that assert they can ascertain whether the right or left half of your brain is dominant. Left-brained people are supposedly logical and excel at language and math while right-brained people are more imaginative, emotionally intelligent and skilled with spatial reasoning. There's just one problem: That's not how brains work.",
+        "Popular science enthusiasts sort of took this idea and ran with it, and it's become woven in popular culture now, and it's not going away.",
+        "Despite this enduring belief, there's no such thing as being“right-brained”or“left-brained”. Whether you're someone who tends more towards creativity or logic has nothing to do with one hemisphere of your brain being dominant over the other. But the actual science of how the two halves of our brains work together is sometimes stranger than fiction.",
+        "The human brain is divided into two hemispheres, the left and right. In all vertebrate(脊椎的)animals, the right hemisphere controls the left side of the body and vice versa. And scientists have long known, thanks to the behaviors of patients who suffered brain injuries, that different areas of the brain do different things.",
+        "But many scientists struggled with this idea, because the very suggestion that the left and right halves of the brain operate differently disrupted the idea that nature tends toward perfect symmetry.",
+        "Work by neuroscientists(神经科学家)has revealed the importance of different hemispheres of the brain for different activities. However, their research quickly saw some misinterpretations in the general public: Some presumed creative people must be right-brained and logical people left-brained. It is proven that not only is personality unrelated to the different halves of the brain, but people aren't really right-or left-brained to begin with. The idea that we have left-dominant people and right-dominant people, and that this is related to personality, is categorically false. That's never been supported in the neuroscience community. Neuroscientists don't believe that and never have.",
+        "What scientists learned is that there are really important differences between the left hemisphere and the right hemisphere. It's just that they have nothing to do with personality or whether cognitive strategy is more logical or free spirited or creative. While researchers have shown the limitations of how the hemispheres of our brains influence our lives, it's not difficult to understand the appeal of such ideas. People are endlessly fascinated by themselves and their friends, and the subtle differences in how people think about the world are really meaningful to them. When you come up with an online quiz that tells us something about ourselves, we're drawn to that. It's irresistible. But you have to take it with an enormous grain of salt."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-12-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do numerous personality quizzes online claim they are able to do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Distinguish between the two hemispheres of one's brain."
+            },
+            {
+              "key": "B",
+              "text": "Determine whether one is left-brained or right-brained."
+            },
+            {
+              "key": "C",
+              "text": "Tell if one is more of a linguist or of a mathematician."
+            },
+            {
+              "key": "D",
+              "text": "Ascertain how one's brain performs different tasks."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。网络测验声称能判定左右脑主导类型。第 1 段原文依据：There are hundreds of personality quizzes online that assert they can ascertain whether the right or left half of your brain is dominant. Left-brained people are supposedly logical and excel at language and math while right-brained people are more imaginative, emotionally intelligent and skilled with spatial reasoning. There's just one problem: That's not how brains work.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does the author say is sometimes stranger than fiction?",
+          "options": [
+            {
+              "key": "A",
+              "text": "How one hemisphere of the brain impacts creativity."
+            },
+            {
+              "key": "B",
+              "text": "How the two halves of our brains work alternately."
+            },
+            {
+              "key": "C",
+              "text": "How the two hemispheres of our brains cooperate."
+            },
+            {
+              "key": "D",
+              "text": "How one half of the brain dominates the other."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。作者认为大脑两半怎样协同工作的真实科学更奇特。第 3 段原文依据：Despite this enduring belief, there's no such thing as being“right-brained”or“left-brained”. Whether you're someone who tends more towards creativity or logic has nothing to do with one hemisphere of your brain being dominant over the other. But the actual science of how the two halves of our brains work together is sometimes stranger than fiction.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. Why did many scientists have difficulty endorsing the idea that different areas of the brain do different things?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It contradicts the assumption that the two hemispheres of the brain are symmetrical."
+            },
+            {
+              "key": "B",
+              "text": "It dismisses the view that the universe has been evolving in a consistent manner."
+            },
+            {
+              "key": "C",
+              "text": "It is in conflict with the suggestion that the left and right halves of the brain work together."
+            },
+            {
+              "key": "D",
+              "text": "It disrupts the idea that the right hemisphere of the brain controls the left side of the body."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。左右功能差异冲击了自然倾向对称的旧假设。第 5 段原文依据：But many scientists struggled with this idea, because the very suggestion that the left and right halves of the brain operate differently disrupted the idea that nature tends toward perfect symmetry.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What belief have neuroscientists long rejected according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There are left-dominant people and right-dominant people with different personalities."
+            },
+            {
+              "key": "B",
+              "text": "There are noticeable differences between the left and right hemispheres of the brain."
+            },
+            {
+              "key": "C",
+              "text": "One's personality is hardly related to the different halves of the brain."
+            },
+            {
+              "key": "D",
+              "text": "Different areas of the brain are responsible for different activities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。神经科学家一直否认左右脑主导对应不同人格的说法。第 6 段原文依据：Work by neuroscientists(神经科学家)has revealed the importance of different hemispheres of the brain for different activities. However, their research quickly saw some misinterpretations in the general public: Some presumed creative people must be right-brained and logical people left-brained. It is proven that not only is personality unrelated to the different halves of the brain, but people aren't really right-or left-brained to begin with. The idea that we have left-dominant people and right-dominant people, and that this is related to personality, is categorically false. That's never been supported in the neuroscience community. Neuroscientists don't believe that and never have.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What are we advised to do with an online quiz that tells us something about ourselves?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Challenge its authority."
+            },
+            {
+              "key": "B",
+              "text": "Scrutinize its originality."
+            },
+            {
+              "key": "C",
+              "text": "Evaluate its popularity."
+            },
+            {
+              "key": "D",
+              "text": "Question its reliability."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。应对这类在线测验的可靠性保持怀疑。第 7 段原文依据：What scientists learned is that there are really important differences between the left hemisphere and the right hemisphere. It's just that they have nothing to do with personality or whether cognitive strategy is more logical or free spirited or creative. While researchers have shown the limitations of how the hemispheres of our brains influence our lives, it's not difficult to understand the appeal of such ideas. People are endlessly fascinated by themselves and their friends, and the subtle differences in how people think about the world are really meaningful to them. When you come up with an online quiz that tells us something about ourselves, we're drawn to that. It's irresistible. But you have to take it with an enormous grain of salt.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "One hundred thirty-five students, four teachers, one giant classroom: This is what 9th grade looks like at Westwood High School, in Mesa, Arizona's largest school system. There, an innovative teaching model has taken hold, and is spreading to other schools in the district and beyond.",
+        "Five years ago, faced with high teacher turnover and declining student enrollment, Westwood's leaders decided to try something different. Working with professors at Arizona State University's teachers college, they piloted a classroom model known as team teaching, which allows teachers to dissolve the walls that separate their classes across physical or grade divides.",
+        "The teachers share large groups of students- sometimes 100 or more—and rotate between group instruction, one-on-one interventions, small study groups, or whatever the teachers as a team agree is a priority that day. What looks at times like chaos is in fact a carefully orchestrated plan: Each morning, the Westwood teams meet to hammer out a personalized program for every student the team willfocus on that day.",
+        "By giving teachers more opportunity to collaborate, Mesa's administrators hoped to fill staffing gaps and boost teacher morale and retention. Initial research suggests the gamble could pay off.",
+        "“Teachers are doing fantastic things, but it's very rare a teacher walks into another room to see what's happening, \"said Andi Fourlis, superintendent of Mesa Public Schools. “Our profession is so slow to advance because we are working in isolation. \"",
+        "Of course, overhauling teaching approaches can't fix all the frustrations teachers have, such as low pay, but early results from Mesa show team teaching may be helping to reverse low morale. In a survey of hundreds of the district's teachers, researchers found those who worked on teams reported greater job satisfaction, more frequent collaborations with colleagues, and more positive interactions with students.",
+        "Another benefit of teams, teachers say, is that they can help each other improve their instruction. During one planning session, English teacher Jeff Hall shared a performance appraisal with a science teacher: Her recent lecture on something she called\"the central dogma of biology\"had bewildered him and their other teammates.",
+        "“If the science is too confusing for me, can you imagine the frustration you feel as kids?”Hall said. But the science teacher, he said, wouldn't have known about the confusion on her own.",
+        "The model is not for everyone. Some teachers approached about volunteering for a team have said they prefer to work alone. Team teaching can also be a scheduling nightmare, especially at schools like Westwood where only some staff work in teams. There are also thorny questions like how to evaluate four teachers on the performance of 135 students. But for the time being, it seems to be working."
+      ],
+      "study_paragraphs": [
+        "One hundred thirty-five students, four teachers, one giant classroom: This is what 9th grade looks like at Westwood High School, in Mesa, Arizona's largest school system. There, an innovative teaching model has taken hold, and is spreading to other schools in the district and beyond.",
+        "Five years ago, faced with high teacher turnover and declining student enrollment, Westwood's leaders decided to try something different. Working with professors at Arizona State University's teachers college, they piloted a classroom model known as team teaching, which allows teachers to dissolve the walls that separate their classes across physical or grade divides.",
+        "The teachers share large groups of students- sometimes 100 or more—and rotate between group instruction, one-on-one interventions, small study groups, or whatever the teachers as a team agree is a priority that day. What looks at times like chaos is in fact a carefully orchestrated plan: Each morning, the Westwood teams meet to hammer out a personalized program for every student the team willfocus on that day.",
+        "By giving teachers more opportunity to collaborate, Mesa's administrators hoped to fill staffing gaps and boost teacher morale and retention. Initial research suggests the gamble could pay off.",
+        "“Teachers are doing fantastic things, but it's very rare a teacher walks into another room to see what's happening, \"said Andi Fourlis, superintendent of Mesa Public Schools. “Our profession is so slow to advance because we are working in isolation. \"",
+        "Of course, overhauling teaching approaches can't fix all the frustrations teachers have, such as low pay, but early results from Mesa show team teaching may be helping to reverse low morale. In a survey of hundreds of the district's teachers, researchers found those who worked on teams reported greater job satisfaction, more frequent collaborations with colleagues, and more positive interactions with students.",
+        "Another benefit of teams, teachers say, is that they can help each other improve their instruction. During one planning session, English teacher Jeff Hall shared a performance appraisal with a science teacher: Her recent lecture on something she called\"the central dogma of biology\"had bewildered him and their other teammates.",
+        "“If the science is too confusing for me, can you imagine the frustration you feel as kids?”Hall said. But the science teacher, he said, wouldn't have known about the confusion on her own.",
+        "The model is not for everyone. Some teachers approached about volunteering for a team have said they prefer to work alone. Team teaching can also be a scheduling nightmare, especially at schools like Westwood where only some staff work in teams. There are also thorny questions like how to evaluate four teachers on the performance of 135 students. But for the time being, it seems to be working."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-12-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn about team teaching from the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is generally conducted in classrooms without walls."
+            },
+            {
+              "key": "B",
+              "text": "It allows students to choose teachers they favor most."
+            },
+            {
+              "key": "C",
+              "text": "It prioritizes peer work over classroom instruction."
+            },
+            {
+              "key": "D",
+              "text": "It is closely coordinated despite seeming confusion."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。团队教师每天制定计划，看似混乱实则精心协调。第 3 段原文依据：The teachers share large groups of students- sometimes 100 or more—and rotate between group instruction, one-on-one interventions, small study groups, or whatever the teachers as a team agree is a priority that day. What looks at times like chaos is in fact a carefully orchestrated plan: Each morning, the Westwood teams meet to hammer out a personalized program for every student the team willfocus on that day.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does initial research suggest regarding Westwood's innovative teaching model?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It could help raise teachers'pay."
+            },
+            {
+              "key": "B",
+              "text": "It could turn out to be a success."
+            },
+            {
+              "key": "C",
+              "text": "It could cut down overall costs."
+            },
+            {
+              "key": "D",
+              "text": "It could end up like a gamble."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。初步研究表明团队教学的尝试可能成功。第 4 段原文依据：By giving teachers more opportunity to collaborate, Mesa's administrators hoped to fill staffing gaps and boost teacher morale and retention. Initial research suggests the gamble could pay off.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What did superintendent Andi Fourlis say about the teaching profession?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Morale cannot be boosted until teaching models are overhauled."
+            },
+            {
+              "key": "B",
+              "text": "Teachers are simply too busy to visit classes of their colleagues."
+            },
+            {
+              "key": "C",
+              "text": "Progress is slow due to lack of collaboration among teachers."
+            },
+            {
+              "key": "D",
+              "text": "Teachers often do fantastic things without being noticed."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。Fourlis 认为教师孤立工作使行业进步缓慢。第 5 段原文依据：“Teachers are doing fantastic things, but it's very rare a teacher walks into another room to see what's happening, \"said Andi Fourlis, superintendent of Mesa Public Schools. “Our profession is so slow to advance because we are working in isolation. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does the author want to show by citing English teacher Jeff Hall's experience?",
+          "options": [
+            {
+              "key": "A",
+              "text": "English teachers and science teachers are complementary in performing their tasks."
+            },
+            {
+              "key": "B",
+              "text": "A teacher of arts and letters is completely puzzled by what a science teacher teaches."
+            },
+            {
+              "key": "C",
+              "text": "The new teaching model helps inform the teacher how their instruction is received."
+            },
+            {
+              "key": "D",
+              "text": "Science teachers will hardly know the confusion they create without a performance appraisal."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。同事反馈帮助教师了解学生可能感到困惑的内容。第 7 段原文依据：Another benefit of teams, teachers say, is that they can help each other improve their instruction. During one planning session, English teacher Jeff Hall shared a performance appraisal with a science teacher: Her recent lecture on something she called\"the central dogma of biology\"had bewildered him and their other teammates.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-12-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author think is one of the difficult problems in implementing the new teaching model?",
+          "options": [
+            {
+              "key": "A",
+              "text": "What to do with teachers working alone."
+            },
+            {
+              "key": "B",
+              "text": "What to include in teaching schedules."
+            },
+            {
+              "key": "C",
+              "text": "How to recruit volunteers for a team."
+            },
+            {
+              "key": "D",
+              "text": "How to assess each teacher's performance."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。难点之一是如何把共同教授一百多名学生的表现归于每位教师。第 9 段原文依据：The model is not for everyone. Some teachers approached about volunteering for a team have said they prefer to work alone. Team teaching can also be a scheduling nightmare, especially at schools like Westwood where only some staff work in teams. There are also thorny questions like how to evaluate four teachers on the performance of 135 students. But for the time being, it seems to be working.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-12-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "遨游太空历来是中华民族的梦想。2003年，神舟五号飞船发射成功，杨利伟成为第一个飞入太空的中国宇航员。2008年，神舟七号升空，翟志刚成为中国历史上首位进行太空行走的宇航员。近年来，中国航天进入创新发展“快车道”,太空基础设施建设稳步推进，中国空间站于2022年全面建成。中国航天事业的迅速发展在中华民族的历史上写下了辉煌一页，也为人类文明进步做出了巨大贡献。未来，中国探索太空的脚步将迈得更稳、更远。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2024-12-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
