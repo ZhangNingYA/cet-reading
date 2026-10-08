@@ -37,30 +37,41 @@ function showPapers() {
   paperCount.textContent = visible.length ? `${visible.length} 套` : '';
   status.textContent = query ? `找到 ${visible.length} 套试卷` : '题库已加载';
   if (!visible.length) { const empty = document.createElement('div'); empty.className = 'empty-state'; const message = document.createElement('strong'); message.textContent = query ? '没有找到相关试卷' : '暂无试卷'; empty.append(message); papers.append(empty); return; }
-  const groups = new Map();
+  const years = new Map();
   for (const paper of visible) {
-    const groupKey = paper.exam_level === 'NEEP' ? String(paper.year) : `${paper.year}-${paper.month}`;
-    if (!groups.has(groupKey)) {
-      const group = document.createElement('section'); group.className = 'paper-group'; group.setAttribute('aria-label', paper.exam_level === 'NEEP' ? `${paper.year} 年试卷` : `${paper.year} 年 ${paper.month} 月试卷`);
-      const date = document.createElement('h2'); date.className = 'paper-group-heading'; date.textContent = paper.year;
-      if (paper.exam_level !== 'NEEP') { const month = document.createElement('span'); month.className = 'paper-group-month'; month.textContent = `· ${paper.month}月`; date.append(month); }
-      const list = document.createElement('div'); list.className = 'paper-group-list'; group.append(date, list); papers.append(group); groups.set(groupKey, list);
+    if (!years.has(paper.year)) {
+      const group = document.createElement('section'); group.className = 'paper-year'; group.setAttribute('aria-label', `${paper.year} 年试卷`);
+      const year = document.createElement('h2'); year.className = 'paper-year-heading'; year.textContent = paper.year;
+      const list = document.createElement('div'); list.className = 'paper-year-list'; group.append(year, list); papers.append(group);
+      years.set(paper.year, { list, months: new Map() });
     }
-    const item = document.createElement('article'); item.className = 'paper-card';
-    const heading = document.createElement('h3'); heading.className = 'paper-card-title';
+    const year = years.get(paper.year);
+    let target = year.list;
+    if (paper.exam_level !== 'NEEP') {
+      if (!year.months.has(paper.month)) {
+        const group = document.createElement('section'); group.className = 'paper-month-group'; group.setAttribute('aria-label', `${paper.year} 年 ${paper.month} 月试卷`);
+        const month = document.createElement('h3'); month.className = 'paper-month-heading'; month.textContent = `${paper.month}月`;
+        const list = document.createElement('div'); list.className = 'paper-month-list'; group.append(month, list); year.list.append(group);
+        year.months.set(paper.month, list);
+      }
+      target = year.months.get(paper.month);
+    }
+    const item = document.createElement('article'); item.className = 'paper-row';
+    const copy = document.createElement('div'); copy.className = 'paper-row-copy';
+    const heading = document.createElement(paper.exam_level === 'NEEP' ? 'h3' : 'h4'); heading.className = 'paper-row-title';
     const fullTitle = document.createElement('span'); fullTitle.className = 'sr-only'; fullTitle.textContent = paper.title;
     const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = paper.variant || `第 ${paper.set_no} 套`;
-    heading.append(fullTitle, edition); item.append(heading);
-    const bottom = document.createElement('div'); bottom.className = 'paper-card-bottom';
+    heading.append(fullTitle, edition); copy.append(heading); item.append(copy);
+    const bottom = document.createElement('div'); bottom.className = 'paper-row-meta';
     const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.content_kind === 'original' ? '原创练习' : paper.is_demo ? '本地演示' : '';
     if (typeLabel) { const type = document.createElement('span'); type.className = 'paper-type'; type.textContent = typeLabel; bottom.append(type); }
-    if (typeLabel) item.append(bottom);
-    const actions = document.createElement('div'); actions.className = 'paper-card-actions';
+    if (typeLabel) copy.append(bottom);
+    const actions = document.createElement('div'); actions.className = 'paper-row-actions';
     if (paper.content_state === 'external') {
       const source = document.createElement('a'); source.className = 'button button-small paper-source'; source.href = paper.source_url; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = '原站查看'; actions.append(source);
       const note = document.createElement('span'); note.className = 'paper-mode-note'; note.textContent = '内容未托管'; actions.append(note);
     } else actions.append(createModeButton('精读', 'intensive', paper), createModeButton('做题', 'practice', paper));
-    item.append(actions); groups.get(groupKey).append(item);
+    item.append(actions); target.append(item);
   }
 }
 async function fetchPaper(id) { const response = await fetch(`${apiBase}/api/papers/${encodeURIComponent(id)}`); if (!response.ok) throw new Error('paper request failed'); return response.json(); }
