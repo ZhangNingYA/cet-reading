@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/reader.css';
+import { readingSections } from '../data/sections';
 
 const {
   title = 'CET Reading · 英语阅读',
@@ -14,7 +15,7 @@ const isHome = Astro.url.pathname === '/';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#fafaf8" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
@@ -23,11 +24,14 @@ const isHome = Astro.url.pathname === '/';
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="CET Reading 首页">
-          <span class="brand-name"><span>CET</span> READING</span>
+          <span class="brand-name"><span class="brand-initials">CET</span><span class="brand-divider" aria-hidden="true">/</span><span class="brand-word">reading</span></span>
         </a>
         {!isHome && (
           <nav class="site-nav" aria-label="网站导航">
             <a href="/">首页</a>
+            {readingSections.map((section) => (
+              <a href={`/${section.slug}/`} aria-current={Astro.url.pathname === `/${section.slug}/` ? 'page' : undefined}>{section.label}</a>
+            ))}
           </nav>
         )}
       </div>

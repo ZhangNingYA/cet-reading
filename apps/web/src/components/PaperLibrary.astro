@@ -9,11 +9,10 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 
 <section class="library-section container" id="library" data-api-base={apiBase} data-exam-levels={JSON.stringify(examLevels)} aria-labelledby="library-title">
   <div class="library-heading">
-    <div class="section-heading"><h2 id="library-title">{label}</h2></div>
+    <div class="section-heading"><p class="library-eyebrow">{examLevels.join(' · ')}</p><div class="library-title-line"><h1 id="library-title">{label}</h1><span class="paper-count" id="paper-count"></span></div></div>
     <div class="library-toolbar">
       <label class="paper-search">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6" /><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
-        <span class="sr-only">搜索试卷标题或年份</span><input id="paper-search" type="search" placeholder="搜索标题或年份" autocomplete="off" />
+        <span class="sr-only">搜索试卷标题或年份</span><input id="paper-search" type="search" placeholder="搜索试卷或年份" autocomplete="off" />
       </label>
     </div>
   </div>
@@ -29,7 +28,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     <button type="button" class="text-link" id="close-reader"><span aria-hidden="true">←</span> 返回题库</button>
     <div class="mode-switch" role="group" aria-label="学习模式"><button type="button" data-reader-mode="intensive">精读</button><button type="button" data-reader-mode="practice">做题</button></div>
   </div>
-  <div class="reader-panel"><header class="reader-heading"><p class="reader-meta" id="reader-meta"></p><h2 id="reader-title" tabindex="-1">准备开始</h2><p id="reader-status" role="status" aria-live="polite"></p></header><div id="reader-content"></div></div>
+  <div class="reader-panel"><header class="reader-heading"><p class="reader-meta sr-only" id="reader-meta"></p><h1 id="reader-title" tabindex="-1">准备开始</h1><p id="reader-status" role="status" aria-live="polite"></p></header><div id="reader-content"></div></div>
 </section>
 
 <script>
