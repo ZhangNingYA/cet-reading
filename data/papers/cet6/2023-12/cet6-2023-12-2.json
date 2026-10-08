@@ -1,0 +1,1741 @@
+{
+  "id": "cet6-2023-12-2",
+  "exam_level": "CET6",
+  "year": 2023,
+  "month": 12,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2023年12月大学英语六级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2023-12-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"Nowadays parents are increasingly aware that allowing kids more freedom to explore and learn on their own helps foster their independence and boost their confidence. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words (not including the sentence given)."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-2-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"Nowadays parents are increasingly aware that allowing kids more freedom to explore and learn on their own helps foster their independence and boost their confidence. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words (not including the sentence given).",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Our brains respond to language expressing facts differently than they do to words conveying possibility, scientists at New York University have recently found. Their work offers new insights into the impact word choice has on how we [26] ______ between statements expressing what is real versus what is merely possible. The researchers assert their findings are important because we are presented with false information all the time. Some of this is [27] ______ , as is the case with deceptive advertisements, but the problem is [28] ______ by individuals who believe they are sharing correct information. Thus, it is more important than ever to separate the factual from the possible or merely [29] ______ in how we communicate. This is especially true as the study makes clear that information presented as fact [30] ______ special responses in our brains, which are distinct from when we process the same content with clear indicators of [31] ______ .",
+        "In their new study, the scientists intended to [32] ______ how the brain computes possibilities as expressed by words such as \"may, \" \"might,” and \"if.” The researchers compared brain responses to statements expressing factual [33] ______ and those expressing possibility. \"There is a monster under my bed\" exemplifies a factual statement. \"I will stay home,” is also factual. This is opposed to statements that express possibility, like \"There might be a monster under my bed,” or \"If it rains, I will stay home. \" The results of the study showed that factual language [34] ______ a rapid increase in brain activity, with the brain responding more powerfully and showing more engagement with factual phrases compared to those communicating possibility. Thus, facts rule when it comes to the brain. Brain regions involved in processing [35] ______ rapidly distinguish facts from possibilities. Further, these regions respond in a much more robust fashion to factual statements."
+      ],
+      "study_paragraphs": [
+        "Our brains respond to language expressing facts differently than they do to words conveying possibility, scientists at New York University have recently found. Their work offers new insights into the impact word choice has on how we differentiate between statements expressing what is real versus what is merely possible. The researchers assert their findings are important because we are presented with false information all the time. Some of this is deliberate, as is the case with deceptive advertisements, but the problem is aggravated by individuals who believe they are sharing correct information. Thus, it is more important than ever to separate the factual from the possible or merely speculative in how we communicate. This is especially true as the study makes clear that information presented as fact evokes special responses in our brains, which are distinct from when we process the same content with clear indicators of uncertainty.",
+        "In their new study, the scientists intended to ascertain how the brain computes possibilities as expressed by words such as \"may, \" \"might,” and \"if.” The researchers compared brain responses to statements expressing factual scenarios and those expressing possibility. \"There is a monster under my bed\" exemplifies a factual statement. \"I will stay home,” is also factual. This is opposed to statements that express possibility, like \"There might be a monster under my bed,” or \"If it rains, I will stay home. \" The results of the study showed that factual language activated a rapid increase in brain activity, with the brain responding more powerfully and showing more engagement with factual phrases compared to those communicating possibility. Thus, facts rule when it comes to the brain. Brain regions involved in processing discourse rapidly distinguish facts from possibilities. Further, these regions respond in a much more robust fashion to factual statements."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。differentiate between 指区分事实与可能。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。deliberate 指故意散布的虚假信息。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。aggravated 表示误以为正确的人继续分享，使问题恶化。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。speculative 指猜测性的内容。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。evokes 表示事实性陈述引起独特大脑反应。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。uncertainty 指可能性或不确定性标记。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。ascertain 表示查明大脑如何处理可能性。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。scenarios 指事实性的情境。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。activated 表示事实语言激发了脑活动的快速增加。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "activated"
+            },
+            {
+              "key": "B",
+              "text": "aggravated"
+            },
+            {
+              "key": "C",
+              "text": "ascertain"
+            },
+            {
+              "key": "D",
+              "text": "deliberate"
+            },
+            {
+              "key": "E",
+              "text": "differentiate"
+            },
+            {
+              "key": "F",
+              "text": "discourse"
+            },
+            {
+              "key": "G",
+              "text": "evokes"
+            },
+            {
+              "key": "H",
+              "text": "inhibit"
+            },
+            {
+              "key": "I",
+              "text": "manuscript"
+            },
+            {
+              "key": "J",
+              "text": "marvels"
+            },
+            {
+              "key": "K",
+              "text": "remnants"
+            },
+            {
+              "key": "L",
+              "text": "scenarios"
+            },
+            {
+              "key": "M",
+              "text": "speculative"
+            },
+            {
+              "key": "N",
+              "text": "unanimous"
+            },
+            {
+              "key": "O",
+              "text": "uncertainty"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。discourse 指大脑处理的语言或话语。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Treasure Fever",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Most visitors come to Cape Canaveral, on the northeast coast of Florida, for the tourist attractions. It's home to the second-busiest cruise ship port in the world and is a gateway to the cosmos. Nearly 1.5 million visitors flock here every year to watch rockets, spacecraft, and satellites blast off into the solar system from Kennedy Space Center Visitor Complex. Nearly 64 kilometers of undeveloped beach and 648 square kilometers of protected refuge fan out from the cape's sandy shores.",
+        "[B] Yet some of Cape Canaveral's most legendary attractions lie unseen, wedged under the sea's surface in mud and sand, for this part of the world has a reputation as a deadly ship trap. Over the centuries, dozens of majestic Old World sailing ships smashed and sank on this irregular stretch of windy Florida coast. They were vessels built for war and commerce, crossing the globe carrying everything from coins to cannons, boxes of silver and gold, chests of jewels and porcelain, and pearls from the Caribbean.",
+        "[C] Cape Canaveral contains one of the greatest concentrations of colonial shipwrecks in the world. In recent years, advances in radar, diving, detection equipment, computers, and GPS have transformed the hunt. The naked eye might see a pile of rocks, but technology can reveal the precious artifacts ( 人工制品) that lie hidden on the ocean floor.",
+        "[D] As technology renders the seabed more accessible, the hunt for treasure-filled ships has drawn a fresh tide of salvors (打捞人员) and their investors—as well as marine archaeologists (考古学家) wanting to bring to light the lost relics. But of late, when salvors have found vessels, their rights have been challenged in court. The big question: who should have control of these treasures?",
+        "[E] High-stakes fights over shipwrecks pit archaeologists against treasure hunters in a vicious cycle of accusations. Archaeologists regard themselves as protectors of history, and they see salvors as careless destroyers. Salvors feel they do the hard work of searching for ships, only to have them stolen from under them when discovered. This kind of clash inevitably takes place on a grand scale. Aside from the salvors, their investors, and the maritime archaeologists who serve as expert witnesses, the battles sweep in local and international governments and organizations like UNESCO that work to protect under-water heritage. The court cases that ensue stretch on for years. Are finders keepers, or do the ships belong to the countries that made them and sent them sailing centuries ago? Where once salvors and archaeologists worked side by side, now they belong to opposing, and equally contemptuous, tribes.",
+        "[F] Nearly three million vessels lie wrecked on the Earth's ocean floor—from old canoes to the Titanic—and likely less than one percent have been explored. Some-like an ancient Roman ship found off Antikythera, Greece, dated between 70 and 60 BC and carrying astonishingly sophisticated gears and dials for navigating by the sun —are critical to a new understanding of our past. No wonder there is an eternal stirring among everybody from salvors to scholars to find them.",
+        "[G] In May 2016, a salvor named Bobby Pritchett, president of Global Marine Exploration (GME) in Tampa, Florida, announced that he had discovered scattered remains of a ship buried a kilometer off Cape Canaveral. Over the prior three years, he and his crew had obtained 14 state permits to survey a nearly 260-square-kilometer area off the cape; they worked 250 days a year, backed by investor funds of, he claims, US S4million. It was hard work. Crew members were up at dawn, dragging sensors from their expedition vessels back and forth, day in and day out, year after year, to detect metal of any kind. Using computer technology, Pritchett and his crew created intricate, color-coded maps marked with the GPS coordinates of thousands of finds, all invisible under a meter of sand.",
+        "[H] One day in 2015, the magnetometer (磁力计) picked up metal that turned out to be an iron cannon; when the divers blew the sand away, they also discovered a more precious bronze cannon with markings indicating French royalty and, not far off, a famous marble column carved with the coat of arms of France, known from historical paintings. The discovery was cause for celebration. The artifacts indicated the divers had likely found the wreck of La Trinité, a 16th-century French vessel that had been at the center of a bloody battle between France and Spain that changed the fate of the United States of America.",
+        "[I] And then the legal storm began, with GME and Pritchett pitted against Florida and France. The Sunken Military Craft Act of 2004, a US federal act, protects any vessel that was on a military mission, allowing the originating country to claim their ship even centuries later. In 2018, two long years after Pritchett's discovery, the federal district court ruled in favor of France. For Pritchett, the decision was devastating. Millions of dollars of investor funding and years of labor were lost.",
+        "[J] But this is far from the first time a salvor has lost all rights to a discovery. In 2012, for instance, Spain won a five-year legal battle against Odyssey Marine Exploration, which had hauled 594,000 gold and silver coins from a Spanish wreck off the coast of Portugal across the Atlantic to the United States. \"Treasure hunters can be naive, \" says attorney David Concannon, who has had several maritime archaeologists as clients and represented two sides in the battles over the Titanic for 20 years. \"Many treasure hunters don't understand they are going to have to fight for their rights against a government that has an endless supply of money for legal battles that treasure hunters are likely to lose. \"",
+        "[K] Putting an inflated price on artifacts rather than viewing them as cultural and historical treasures that transcend any price is what irritates many archaeologists. For the archaeologist, everything in a wreck matters—hair, fabric, a fragment of a newspaper, rat bones—all things speak volumes. Archaeologists don't want artifacts ending up in a private collection instead of taking humanity on a journey of understanding.",
+        "[L] George Bass is one of the pioneers of under-water archaeology, and a researcher at Texas A&M University. He has testified in court against treasure hunters, but says archaeology is not without its own serious problems. He believes archaeologists need to do a better job themselves instead of routinely criticizing treasure hunters. “Archaeology has a terrible reputation for not publishing enough on its excavations (发掘)and finds, \" he says. Gathering data, unearthing and meticulously preserving and examining finds, verifying identity and origin, piecing together the larger story, and writing and publishing a comprehensive paper or book can take decades. A bit cynically, Bass describes colleagues who never published because they waited so long they became ill or died. Who is more at fault, Bass asks, the professional archaeologist who carefully excavates a site and never publishes on it or the treasure hunter who locates a submerged wreck, salvages part, conserves part, and publishes a book on the operation?",
+        "[M] Pritchett concedes that his find deserves careful excavation and preservation. \"I think what I found should go in a museum,” he says. \"But I also think I should get paid for what I found.” Indeed, it's a bit of a mystery why governments, archaeologists, and treasure hunters can't work together—and why salvors aren't at least given a substantial finder's fee before the original owner takes possession of the vessel and its artifacts."
+      ],
+      "study_paragraphs": [
+        "Most visitors come to Cape Canaveral, on the northeast coast of Florida, for the tourist attractions. It's home to the second-busiest cruise ship port in the world and is a gateway to the cosmos. Nearly 1.5 million visitors flock here every year to watch rockets, spacecraft, and satellites blast off into the solar system from Kennedy Space Center Visitor Complex. Nearly 64 kilometers of undeveloped beach and 648 square kilometers of protected refuge fan out from the cape's sandy shores.",
+        "Yet some of Cape Canaveral's most legendary attractions lie unseen, wedged under the sea's surface in mud and sand, for this part of the world has a reputation as a deadly ship trap. Over the centuries, dozens of majestic Old World sailing ships smashed and sank on this irregular stretch of windy Florida coast. They were vessels built for war and commerce, crossing the globe carrying everything from coins to cannons, boxes of silver and gold, chests of jewels and porcelain, and pearls from the Caribbean.",
+        "Cape Canaveral contains one of the greatest concentrations of colonial shipwrecks in the world. In recent years, advances in radar, diving, detection equipment, computers, and GPS have transformed the hunt. The naked eye might see a pile of rocks, but technology can reveal the precious artifacts ( 人工制品) that lie hidden on the ocean floor.",
+        "As technology renders the seabed more accessible, the hunt for treasure-filled ships has drawn a fresh tide of salvors (打捞人员) and their investors—as well as marine archaeologists (考古学家) wanting to bring to light the lost relics. But of late, when salvors have found vessels, their rights have been challenged in court. The big question: who should have control of these treasures?",
+        "High-stakes fights over shipwrecks pit archaeologists against treasure hunters in a vicious cycle of accusations. Archaeologists regard themselves as protectors of history, and they see salvors as careless destroyers. Salvors feel they do the hard work of searching for ships, only to have them stolen from under them when discovered. This kind of clash inevitably takes place on a grand scale. Aside from the salvors, their investors, and the maritime archaeologists who serve as expert witnesses, the battles sweep in local and international governments and organizations like UNESCO that work to protect under-water heritage. The court cases that ensue stretch on for years. Are finders keepers, or do the ships belong to the countries that made them and sent them sailing centuries ago? Where once salvors and archaeologists worked side by side, now they belong to opposing, and equally contemptuous, tribes.",
+        "Nearly three million vessels lie wrecked on the Earth's ocean floor—from old canoes to the Titanic—and likely less than one percent have been explored. Some-like an ancient Roman ship found off Antikythera, Greece, dated between 70 and 60 BC and carrying astonishingly sophisticated gears and dials for navigating by the sun —are critical to a new understanding of our past. No wonder there is an eternal stirring among everybody from salvors to scholars to find them.",
+        "In May 2016, a salvor named Bobby Pritchett, president of Global Marine Exploration (GME) in Tampa, Florida, announced that he had discovered scattered remains of a ship buried a kilometer off Cape Canaveral. Over the prior three years, he and his crew had obtained 14 state permits to survey a nearly 260-square-kilometer area off the cape; they worked 250 days a year, backed by investor funds of, he claims, US S4million. It was hard work. Crew members were up at dawn, dragging sensors from their expedition vessels back and forth, day in and day out, year after year, to detect metal of any kind. Using computer technology, Pritchett and his crew created intricate, color-coded maps marked with the GPS coordinates of thousands of finds, all invisible under a meter of sand.",
+        "One day in 2015, the magnetometer (磁力计) picked up metal that turned out to be an iron cannon; when the divers blew the sand away, they also discovered a more precious bronze cannon with markings indicating French royalty and, not far off, a famous marble column carved with the coat of arms of France, known from historical paintings. The discovery was cause for celebration. The artifacts indicated the divers had likely found the wreck of La Trinité, a 16th-century French vessel that had been at the center of a bloody battle between France and Spain that changed the fate of the United States of America.",
+        "And then the legal storm began, with GME and Pritchett pitted against Florida and France. The Sunken Military Craft Act of 2004, a US federal act, protects any vessel that was on a military mission, allowing the originating country to claim their ship even centuries later. In 2018, two long years after Pritchett's discovery, the federal district court ruled in favor of France. For Pritchett, the decision was devastating. Millions of dollars of investor funding and years of labor were lost.",
+        "But this is far from the first time a salvor has lost all rights to a discovery. In 2012, for instance, Spain won a five-year legal battle against Odyssey Marine Exploration, which had hauled 594,000 gold and silver coins from a Spanish wreck off the coast of Portugal across the Atlantic to the United States. \"Treasure hunters can be naive, \" says attorney David Concannon, who has had several maritime archaeologists as clients and represented two sides in the battles over the Titanic for 20 years. \"Many treasure hunters don't understand they are going to have to fight for their rights against a government that has an endless supply of money for legal battles that treasure hunters are likely to lose. \"",
+        "Putting an inflated price on artifacts rather than viewing them as cultural and historical treasures that transcend any price is what irritates many archaeologists. For the archaeologist, everything in a wreck matters—hair, fabric, a fragment of a newspaper, rat bones—all things speak volumes. Archaeologists don't want artifacts ending up in a private collection instead of taking humanity on a journey of understanding.",
+        "George Bass is one of the pioneers of under-water archaeology, and a researcher at Texas A&M University. He has testified in court against treasure hunters, but says archaeology is not without its own serious problems. He believes archaeologists need to do a better job themselves instead of routinely criticizing treasure hunters. “Archaeology has a terrible reputation for not publishing enough on its excavations (发掘)and finds, \" he says. Gathering data, unearthing and meticulously preserving and examining finds, verifying identity and origin, piecing together the larger story, and writing and publishing a comprehensive paper or book can take decades. A bit cynically, Bass describes colleagues who never published because they waited so long they became ill or died. Who is more at fault, Bass asks, the professional archaeologist who carefully excavates a site and never publishes on it or the treasure hunter who locates a submerged wreck, salvages part, conserves part, and publishes a book on the operation?",
+        "Pritchett concedes that his find deserves careful excavation and preservation. \"I think what I found should go in a museum,” he says. \"But I also think I should get paid for what I found.” Indeed, it's a bit of a mystery why governments, archaeologists, and treasure hunters can't work together—and why salvors aren't at least given a substantial finder's fee before the original owner takes possession of the vessel and its artifacts."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Exploration of shipwrecks on the sea floor is crucial in updating our understanding of humanity's past.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Nearly three million vessels lie wrecked on the Earth's ocean floor—from old canoes to the Titanic—and likely less than one percent have been explored. Some-like an ancient Roman ship found off Antikythera, Greece, dated between 70 and 60 BC and carrying astonishingly sophisticated gears and dials for navigating by the sun —are critical to a new understanding of our past. No wonder there is an eternal stirring among everybody from salvors to scholars to find them.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Quite a number of majestic ships sailing from Europe to America were wrecked off the Florida coast over the centuries.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Yet some of Cape Canaveral's most legendary attractions lie unseen, wedged under the sea's surface in mud and sand, for this part of the world has a reputation as a deadly ship trap. Over the centuries, dozens of majestic Old World sailing ships smashed and sank on this irregular stretch of windy Florida coast. They were vessels built for war and commerce, crossing the globe carrying everything from coins to cannons, boxes of silver and gold, chests of jewels and porcelain, and pearls from the Caribbean.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Pritchett suffered a heavy loss when a US district court ruled against him.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：And then the legal storm began, with GME and Pritchett pitted against Florida and France. The Sunken Military Craft Act of 2004, a US federal act, protects any vessel that was on a military mission, allowing the originating country to claim their ship even centuries later. In 2018, two long years after Pritchett's discovery, the federal district court ruled in favor of France. For Pritchett, the decision was devastating. Millions of dollars of investor funding and years of labor were lost.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Recently, people who found treasures in shipwrecks have been sued over their rights to own them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：As technology renders the seabed more accessible, the hunt for treasure-filled ships has drawn a fresh tide of salvors (打捞人员) and their investors—as well as marine archaeologists (考古学家) wanting to bring to light the lost relics. But of late, when salvors have found vessels, their rights have been challenged in court. The big question: who should have control of these treasures?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Pritchett claims he got support of millions of dollars from investors for his shipwreck exploration.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：In May 2016, a salvor named Bobby Pritchett, president of Global Marine Exploration (GME) in Tampa, Florida, announced that he had discovered scattered remains of a ship buried a kilometer off Cape Canaveral. Over the prior three years, he and his crew had obtained 14 state permits to survey a nearly 260-square-kilometer area off the cape; they worked 250 days a year, backed by investor funds of, he claims, US S4million. It was hard work. Crew members were up at dawn, dragging sensors from their expedition vessels back and forth, day in and day out, year after year, to detect metal of any kind. Using computer technology, Pritchett and his crew created intricate, color-coded maps marked with the GPS coordinates of thousands of finds, all invisible under a meter of sand.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. One pioneer marine scientist thinks archaeologists should make greater efforts to publish their findings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：George Bass is one of the pioneers of under-water archaeology, and a researcher at Texas A&M University. He has testified in court against treasure hunters, but says archaeology is not without its own serious problems. He believes archaeologists need to do a better job themselves instead of routinely criticizing treasure hunters. “Archaeology has a terrible reputation for not publishing enough on its excavations (发掘)and finds, \" he says. Gathering data, unearthing and meticulously preserving and examining finds, verifying identity and origin, piecing together the larger story, and writing and publishing a comprehensive paper or book can take decades. A bit cynically, Bass describes colleagues who never published because they waited so long they became ill or died. Who is more at fault, Bass asks, the professional archaeologist who carefully excavates a site and never publishes on it or the treasure hunter who locates a submerged wreck, salvages part, conserves part, and publishes a book on the operation?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. With technological advancement in recent years, salvors now can detect the invaluable man-made objects lying buried under the sea.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Cape Canaveral contains one of the greatest concentrations of colonial shipwrecks in the world. In recent years, advances in radar, diving, detection equipment, computers, and GPS have transformed the hunt. The naked eye might see a pile of rocks, but technology can reveal the precious artifacts ( 人工制品) that lie hidden on the ocean floor.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. According to a lawyer, many treasure hunters are susceptible to loss because they are unaware they face a financially stronger opponent in court.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：But this is far from the first time a salvor has lost all rights to a discovery. In 2012, for instance, Spain won a five-year legal battle against Odyssey Marine Exploration, which had hauled 594,000 gold and silver coins from a Spanish wreck off the coast of Portugal across the Atlantic to the United States. \"Treasure hunters can be naive, \" says attorney David Concannon, who has had several maritime archaeologists as clients and represented two sides in the battles over the Titanic for 20 years. \"Many treasure hunters don't understand they are going to have to fight for their rights against a government that has an endless supply of money for legal battles that treasure hunters are likely to lose. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Salvors of treasures in sunken ships and marine archaeologists are now hostile to each other.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：High-stakes fights over shipwrecks pit archaeologists against treasure hunters in a vicious cycle of accusations. Archaeologists regard themselves as protectors of history, and they see salvors as careless destroyers. Salvors feel they do the hard work of searching for ships, only to have them stolen from under them when discovered. This kind of clash inevitably takes place on a grand scale. Aside from the salvors, their investors, and the maritime archaeologists who serve as expert witnesses, the battles sweep in local and international governments and organizations like UNESCO that work to protect under-water heritage. The court cases that ensue stretch on for years. Are finders keepers, or do the ships belong to the countries that made them and sent them sailing centuries ago? Where once salvors and archaeologists worked side by side, now they belong to opposing, and equally contemptuous, tribes.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Archaeologists want to see artifacts help humans understand their past instead of being sold to private collectors at an outrageous price.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：Putting an inflated price on artifacts rather than viewing them as cultural and historical treasures that transcend any price is what irritates many archaeologists. For the archaeologist, everything in a wreck matters—hair, fabric, a fragment of a newspaper, rat bones—all things speak volumes. Archaeologists don't want artifacts ending up in a private collection instead of taking humanity on a journey of understanding.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Could you get by without using the internet for four and a half years? That's exactly what singer and actress Selena Gomez has done in a bid to improve her mental health.",
+        "She has spoken extensively about the relationship between her social media usage and her mental wellbeing, recalling feeling like \"an addict\" when she became Instagram's most followed user in 2016. \"Taking a break from social media was the best decision that I've ever made for my mental health”, says she. \"The unnecessary hate and comparisons went away once I put my phone down.”",
+        "Ditching the web at large, however, is a far more subtle and complicated prospect. The increasing digitisation of our society means that everything from paying a gas bill to plotting a route to a friend's house and even making a phone call is at the mercy of your internet connection. Actively opting out of using the internet becomes a matter of privilege.",
+        "Ms Gomez's multi-millionaire status has allowed her to take the “social” out of social media, so she can continue to leverage her enormous fame while keeping the trolls (恶意挑衅的帖子) at bay. The fact that she's still the second most-followed woman on Instagram suggests it's entirely possible to maintain a significant web profile to promote various projects—by way of a dedicated team—without being exposed to the cruel comments, hate mail and rape or death threats.",
+        "It goes without saying that this is fundamentally different from how the rest of us without beauty deals and films to publicise use the likes of Instagram, TikTok and Twitter, but even the concept of a digital detox ( 戒瘾)requires having a device and connectivity to choose to disconnect from.",
+        "The UK's digital divide has worsened over the past two years, leaving poorer families without broadband connections in their homes. Digital exclusion is a major threat to wider societal equality in the UK, so witnessing companies like Facebook championing the metaverse (元宇宙) as the next great frontier when school children are struggling to complete their homework feels particularly irritating.",
+        "Consequently, it's worth bearing in mind that while deleting all social media accounts will undoubtedly make some feel infinitely better, many other people benefit from the strong sense of community that sharing platforms can breed.",
+        "Internet access will continue to grow in importance as we edge further towards web 3.0, and greater resources and initiatives are needed to provide the underprivileged with the connectivity they desperately need to learn, work and live. It's crucial that people who feel that social media is having a detrimental effect on their mental health are allowed to switch off and for those living in digital exclusion to be able to switch on in the first place."
+      ],
+      "study_paragraphs": [
+        "Could you get by without using the internet for four and a half years? That's exactly what singer and actress Selena Gomez has done in a bid to improve her mental health.",
+        "She has spoken extensively about the relationship between her social media usage and her mental wellbeing, recalling feeling like \"an addict\" when she became Instagram's most followed user in 2016. \"Taking a break from social media was the best decision that I've ever made for my mental health”, says she. \"The unnecessary hate and comparisons went away once I put my phone down.”",
+        "Ditching the web at large, however, is a far more subtle and complicated prospect. The increasing digitisation of our society means that everything from paying a gas bill to plotting a route to a friend's house and even making a phone call is at the mercy of your internet connection. Actively opting out of using the internet becomes a matter of privilege.",
+        "Ms Gomez's multi-millionaire status has allowed her to take the “social” out of social media, so she can continue to leverage her enormous fame while keeping the trolls (恶意挑衅的帖子) at bay. The fact that she's still the second most-followed woman on Instagram suggests it's entirely possible to maintain a significant web profile to promote various projects—by way of a dedicated team—without being exposed to the cruel comments, hate mail and rape or death threats.",
+        "It goes without saying that this is fundamentally different from how the rest of us without beauty deals and films to publicise use the likes of Instagram, TikTok and Twitter, but even the concept of a digital detox ( 戒瘾)requires having a device and connectivity to choose to disconnect from.",
+        "The UK's digital divide has worsened over the past two years, leaving poorer families without broadband connections in their homes. Digital exclusion is a major threat to wider societal equality in the UK, so witnessing companies like Facebook championing the metaverse (元宇宙) as the next great frontier when school children are struggling to complete their homework feels particularly irritating.",
+        "Consequently, it's worth bearing in mind that while deleting all social media accounts will undoubtedly make some feel infinitely better, many other people benefit from the strong sense of community that sharing platforms can breed.",
+        "Internet access will continue to grow in importance as we edge further towards web 3.0, and greater resources and initiatives are needed to provide the underprivileged with the connectivity they desperately need to learn, work and live. It's crucial that people who feel that social media is having a detrimental effect on their mental health are allowed to switch off and for those living in digital exclusion to be able to switch on in the first place."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn about singer and actress Selena Gomez in the past four and a half years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She has had worsening mental problems."
+            },
+            {
+              "key": "B",
+              "text": "She has won Instagram's most followers."
+            },
+            {
+              "key": "C",
+              "text": "She has refrained from using social media."
+            },
+            {
+              "key": "D",
+              "text": "She has succeeded in a bid on the internet."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。Gomez 通过数年离开互联网改善精神健康。第 1 段原文依据：Could you get by without using the internet for four and a half years? That's exactly what singer and actress Selena Gomez has done in a bid to improve her mental health.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. Why does actively opting out of using the internet become a matter of privilege?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Most people find it subtle and complicated to give up using the internet."
+            },
+            {
+              "key": "B",
+              "text": "Most people can hardly ditch the web while avoiding hate and comparisons."
+            },
+            {
+              "key": "C",
+              "text": "Most people can hardly get by without the internet due to growing digitisation."
+            },
+            {
+              "key": "D",
+              "text": "Most people have been seriously addicted to the web without being aware of it."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。生活持续数字化，多数人无法像富裕名人那样脱离网络。第 3 段原文依据：Ditching the web at large, however, is a far more subtle and complicated prospect. The increasing digitisation of our society means that everything from paying a gas bill to plotting a route to a friend's house and even making a phone call is at the mercy of your internet connection. Actively opting out of using the internet becomes a matter of privilege.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. Why does the author say “witnessing companies... feels particularly irritating” (Lines 2-4, Para. 6)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The UK digital divide would further worsen due to the metaverse."
+            },
+            {
+              "key": "B",
+              "text": "The concept of the metaverse is believed to be still quite illusory."
+            },
+            {
+              "key": "C",
+              "text": "School children would be drawn farther away from the real world."
+            },
+            {
+              "key": "D",
+              "text": "Most families in the UK do not have stable broadband connections."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。在贫困儿童难以联网完成作业时追逐元宇宙，作者担忧数字鸿沟继续加剧；据语境推断。第 6 段原文依据：The UK's digital divide has worsened over the past two years, leaving poorer families without broadband connections in their homes. Digital exclusion is a major threat to wider societal equality in the UK, so witnessing companies like Facebook championing the metaverse (元宇宙) as the next great frontier when school children are struggling to complete their homework feels particularly irritating.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is worth bearing in mind concerning social media platforms?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are conducive to promoting societal equality."
+            },
+            {
+              "key": "B",
+              "text": "They help many people feel connected with others."
+            },
+            {
+              "key": "C",
+              "text": "They provide a necessary device for a digital detox."
+            },
+            {
+              "key": "D",
+              "text": "They create a virtual community on the internet."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。分享平台带来的社区感也能让许多人受益。第 7 段原文依据：Consequently, it's worth bearing in mind that while deleting all social media accounts will undoubtedly make some feel infinitely better, many other people benefit from the strong sense of community that sharing platforms can breed.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author think is really important for those living in digital exclusion?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Having access to the internet."
+            },
+            {
+              "key": "B",
+              "text": "Edging further towards web 3.0."
+            },
+            {
+              "key": "C",
+              "text": "Getting more educational resources."
+            },
+            {
+              "key": "D",
+              "text": "Opening more social media accounts."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。数字排斥中的人首先需要获得网络连接。第 8 段原文依据：Internet access will continue to grow in importance as we edge further towards web 3.0, and greater resources and initiatives are needed to provide the underprivileged with the connectivity they desperately need to learn, work and live. It's crucial that people who feel that social media is having a detrimental effect on their mental health are allowed to switch off and for those living in digital exclusion to be able to switch on in the first place.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Psychologists have long been in disagreement as to whether competition is a learned or a genetic component of human behavior. Whatever it is, you cannot but recognize the effect competition is exerting in academics and many other areas of contemporary life.",
+        "Psychologically speaking, competition has been seen as an inevitable consequence of human drives. According to Sigmund Freud, humans are born screaming for attention and full of organic drives for fulfillment in various areas. Initially, we compete for the attention of our parents. Thereafter, we are at the mercy of a battle between our base impulses for self-fulfillment and social and cultural norms which prohibit pure indulgence.",
+        "Current work in anthropology (人类学) has suggested, however, that this view of the role of competition in human behavior may be incorrect. Thomas Hobbes, one of the great philosophers of the seventeenth century, is perhaps best remembered for his characterization of the \"natural world,” that is, the world before the imposition of the will of humanity, as being \"nasty, brutish, and short.” This image of the pre-rational world is still widely held, reinforced by Charles Darwin's highly influential work, The Origin of Species, which established the doctrine of natural selection. This doctrine, which takes for granted that those species best able to adapt to and master the natural environment in which they live will survive, has suggested that the struggle for survival is an inherent human trait which determines a person's success. Darwin's theory has even been summarized as “survival of the fittest”—a phrase Darwin himself never used—further highlighting competition's role in success. As it has often been pointed out, however, there is nothing in the concept of natural selection that suggests that competition is the most successful strategy for \"survival of the fittest.” Darwin asserted in The Origin of Species that the struggles he was describing should be viewed as metaphors and could easily include dependence and cooperation.",
+        "Many studies have been conducted to test the importance placed on competition as opposed to other values, such as cooperation—by various cultures, and generally conclude that Americans uniquely praise competition as natural, inevitable, and desirable. In 1937, the world-renowned anthropologist Margaret Mead published Cooperation and Competition among Primitive Peoples, based on her studies of several societies that did not prize competition, and, in fact, seemed at times to place a negative value on it. One such society was the Zuni Indians of Arizona, and they, Mead found, valued cooperation far more than competition. After studying dozens of such cultures, Mead's final conclusion was that competitiveness is a culturally created aspect of human behavior, and that its prevalence in a particular society is relative to how that society values it."
+      ],
+      "study_paragraphs": [
+        "Psychologists have long been in disagreement as to whether competition is a learned or a genetic component of human behavior. Whatever it is, you cannot but recognize the effect competition is exerting in academics and many other areas of contemporary life.",
+        "Psychologically speaking, competition has been seen as an inevitable consequence of human drives. According to Sigmund Freud, humans are born screaming for attention and full of organic drives for fulfillment in various areas. Initially, we compete for the attention of our parents. Thereafter, we are at the mercy of a battle between our base impulses for self-fulfillment and social and cultural norms which prohibit pure indulgence.",
+        "Current work in anthropology (人类学) has suggested, however, that this view of the role of competition in human behavior may be incorrect. Thomas Hobbes, one of the great philosophers of the seventeenth century, is perhaps best remembered for his characterization of the \"natural world,” that is, the world before the imposition of the will of humanity, as being \"nasty, brutish, and short.” This image of the pre-rational world is still widely held, reinforced by Charles Darwin's highly influential work, The Origin of Species, which established the doctrine of natural selection. This doctrine, which takes for granted that those species best able to adapt to and master the natural environment in which they live will survive, has suggested that the struggle for survival is an inherent human trait which determines a person's success. Darwin's theory has even been summarized as “survival of the fittest”—a phrase Darwin himself never used—further highlighting competition's role in success. As it has often been pointed out, however, there is nothing in the concept of natural selection that suggests that competition is the most successful strategy for \"survival of the fittest.” Darwin asserted in The Origin of Species that the struggles he was describing should be viewed as metaphors and could easily include dependence and cooperation.",
+        "Many studies have been conducted to test the importance placed on competition as opposed to other values, such as cooperation—by various cultures, and generally conclude that Americans uniquely praise competition as natural, inevitable, and desirable. In 1937, the world-renowned anthropologist Margaret Mead published Cooperation and Competition among Primitive Peoples, based on her studies of several societies that did not prize competition, and, in fact, seemed at times to place a negative value on it. One such society was the Zuni Indians of Arizona, and they, Mead found, valued cooperation far more than competition. After studying dozens of such cultures, Mead's final conclusion was that competitiveness is a culturally created aspect of human behavior, and that its prevalence in a particular society is relative to how that society values it."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author think is easy to see in many areas of contemporary life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The disagreement on the inevitability of competition."
+            },
+            {
+              "key": "B",
+              "text": "The consequence of psychological investigation."
+            },
+            {
+              "key": "C",
+              "text": "The effect of human drives."
+            },
+            {
+              "key": "D",
+              "text": "The impact of competition."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。当代学术及生活许多领域都明显受到竞争影响。第 1 段原文依据：Psychologists have long been in disagreement as to whether competition is a learned or a genetic component of human behavior. Whatever it is, you cannot but recognize the effect competition is exerting in academics and many other areas of contemporary life.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. According to psychology, what do people strive to do following the initial stage of their life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fulfill individual needs without incurring adverse effects of human drives."
+            },
+            {
+              "key": "B",
+              "text": "Indulge in cultural pursuits while keeping their base impulses at bay."
+            },
+            {
+              "key": "C",
+              "text": "Gain extensive recognition without exposing pure indulgence."
+            },
+            {
+              "key": "D",
+              "text": "Satisfy their own desires while observing social conventions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。早期争夺父母注意之后，人要在欲望和社会规范之间协调。第 2 段原文依据：Psychologically speaking, competition has been seen as an inevitable consequence of human drives. According to Sigmund Freud, humans are born screaming for attention and full of organic drives for fulfillment in various areas. Initially, we compete for the attention of our parents. Thereafter, we are at the mercy of a battle between our base impulses for self-fulfillment and social and cultural norms which prohibit pure indulgence.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What do we learn about the \"natural world” characterized by Thomas Hobbes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It gets misrepresented by philosophers and anthropologists."
+            },
+            {
+              "key": "B",
+              "text": "It gets distorted in Darwin's The Origin of Species."
+            },
+            {
+              "key": "C",
+              "text": "It is free from the rational intervention of humans."
+            },
+            {
+              "key": "D",
+              "text": "It is the pre-rational world rarely appreciated nowadays."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。Hobbes 描述的是人类理性意志尚未施加之前的世界。第 3 段原文依据：Current work in anthropology (人类学) has suggested, however, that this view of the role of competition in human behavior may be incorrect. Thomas Hobbes, one of the great philosophers of the seventeenth century, is perhaps best remembered for his characterization of the \"natural world,” that is, the world before the imposition of the will of humanity, as being \"nasty, brutish, and short.” This image of the pre-rational world is still widely held, reinforced by Charles Darwin's highly influential work, The Origin of Species, which established the doctrine of natural selection. This doctrine, which takes for granted that those species best able to adapt to and master the natural environment in which they live will survive, has suggested that the struggle for survival is an inherent human trait which determines a person's success. Darwin's theory has even been summarized as “survival of the fittest”—a phrase Darwin himself never used—further highlighting competition's role in success. As it has often been pointed out, however, there is nothing in the concept of natural selection that suggests that competition is the most successful strategy for \"survival of the fittest.” Darwin asserted in The Origin of Species that the struggles he was describing should be viewed as metaphors and could easily include dependence and cooperation.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What can we conclude from Darwin's assertion in The Origin of Species?",
+          "options": [
+            {
+              "key": "A",
+              "text": "All species inherently depend on others for survival."
+            },
+            {
+              "key": "B",
+              "text": "Struggles for survival do not exclude mutual support."
+            },
+            {
+              "key": "C",
+              "text": "Competition weighs as much as cooperation as a survival strategy."
+            },
+            {
+              "key": "D",
+              "text": "The strongest species proves to be the fittest in natural selection."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。Darwin 的生存斗争是比喻，可以包含相互依赖与合作。第 3 段原文依据：Current work in anthropology (人类学) has suggested, however, that this view of the role of competition in human behavior may be incorrect. Thomas Hobbes, one of the great philosophers of the seventeenth century, is perhaps best remembered for his characterization of the \"natural world,” that is, the world before the imposition of the will of humanity, as being \"nasty, brutish, and short.” This image of the pre-rational world is still widely held, reinforced by Charles Darwin's highly influential work, The Origin of Species, which established the doctrine of natural selection. This doctrine, which takes for granted that those species best able to adapt to and master the natural environment in which they live will survive, has suggested that the struggle for survival is an inherent human trait which determines a person's success. Darwin's theory has even been summarized as “survival of the fittest”—a phrase Darwin himself never used—further highlighting competition's role in success. As it has often been pointed out, however, there is nothing in the concept of natural selection that suggests that competition is the most successful strategy for \"survival of the fittest.” Darwin asserted in The Origin of Species that the struggles he was describing should be viewed as metaphors and could easily include dependence and cooperation.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What conclusion did Margaret Mead reach after studying dozens of different cultures?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is characteristic of humans to be competitive."
+            },
+            {
+              "key": "B",
+              "text": "Americans are uniquely opposed to cooperation."
+            },
+            {
+              "key": "C",
+              "text": "Competition is relatively more prevalent in Western societies."
+            },
+            {
+              "key": "D",
+              "text": "People's attitude towards competition is actually culture-bound."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。Mead 认为竞争性是文化创造的行为特征。第 4 段原文依据：Many studies have been conducted to test the importance placed on competition as opposed to other values, such as cooperation—by various cultures, and generally conclude that Americans uniquely praise competition as natural, inevitable, and desirable. In 1937, the world-renowned anthropologist Margaret Mead published Cooperation and Competition among Primitive Peoples, based on her studies of several societies that did not prize competition, and, in fact, seemed at times to place a negative value on it. One such society was the Zuni Indians of Arizona, and they, Mead found, valued cooperation far more than competition. After studying dozens of such cultures, Mead's final conclusion was that competitiveness is a culturally created aspect of human behavior, and that its prevalence in a particular society is relative to how that society values it.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "随着经济与社会的发展，中国人口结构发生了显著变化，逐渐步入老龄化社会。中国老年人口将持续增加，人口老龄化趋势将更加明显。为了应对人口老龄化带来的种种挑战，国家正积极采取措施，加大对养老的支持。通过改革社会保障（social security）制度，政府不断增加社会保障经费，逐步扩大社会保障覆盖范围，使更多老年人受益。政府还鼓励各种社会团体为老年人提供服务。在政府和社会团体的共同努力下，老年人将生活得更加幸福。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2023-12-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

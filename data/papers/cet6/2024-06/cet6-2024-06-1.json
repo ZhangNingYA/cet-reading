@@ -1,0 +1,1845 @@
+{
+  "id": "cet6-2024-06-1",
+  "exam_level": "CET6",
+  "year": 2024,
+  "month": 6,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2024年6月大学英语六级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2024-06-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence“There is a growing awareness of the importance ofdigital literacy and skills in today's world.”You can make comments, cite examples or use yourpersonal experiences to develop your essay. You should write at least 150 words but no more than 200 words You should copy the sentence given in quotes at the beginning ofyour essay."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-1-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence“There is a growing awareness of the importance ofdigital literacy and skills in today's world.”You can make comments, cite examples or use yourpersonal experiences to develop your essay. You should write at least 150 words but no more than 200 words You should copy the sentence given in quotes at the beginning ofyour essay.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one wordfor each blank from a list of choices given in a word bankfollowing the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any ofthewords in the bank more than once.",
+      "paragraphs": [
+        "It's quite remarkable how different genres of music can spark unique feelings, emotions, and memories. Studies have shown that music can reduce stress and anxiety before surgeries and we are all attracted toward our own unique life soundtrack.",
+        "If you're looking to [26] ______ stress, you might want to give classical music a try.",
+        "The sounds of classical music produce a calming effect letting [27] ______ pleasure-inducing dopamine(多巴胺)in the brain that helps control attention, learning and emotional responses. It can also turn down the body's stress response, resulting in an overall happier mood. It turns out a pleasant mood can lead to [28] ______ in a person's thinking.",
+        "Although there are many great [29] ______ of classical music like Bach, Beethoven and Handel, none of these artists'music seems to have the same health effects as Mozart's does. According to researchers, listening to Mozart can increase brain wave activity and improve [30] ______ function. Another study found that the distinctive features of Mozart's music trigger parts of the brain that are responsible for high-level mental functions. Even maternity [31] ______ use Mozart to help newborn babies adapt to life outside of the mother's belly.",
+        "It has been found that listening to classical music [32] ______ reduces a person's blood pressure. Researchers believe that the calming sounds of classical music may help your heart [33] ______ from stress. Classical music can also be a great tool to help people who have trouble sleeping. One study found that students who had trouble sleeping slept better while they were listening to classical music.",
+        "Whether classical music is something that you listen to on a regular basis or not, it wouldn't [34] ______ totake time out of your day to listen to music that you find [35] ______ . You will be surprised at how good it makes you feel and the potentially positive change in your health"
+      ],
+      "study_paragraphs": [
+        "It's quite remarkable how different genres of music can spark unique feelings, emotions, and memories. Studies have shown that music can reduce stress and anxiety before surgeries and we are all attracted toward our own unique life soundtrack.",
+        "If you're looking to alleviate stress, you might want to give classical music a try.",
+        "The sounds of classical music produce a calming effect letting loose pleasure-inducing dopamine(多巴胺)in the brain that helps control attention, learning and emotional responses. It can also turn down the body's stress response, resulting in an overall happier mood. It turns out a pleasant mood can lead to clarity in a person's thinking.",
+        "Although there are many great composers of classical music like Bach, Beethoven and Handel, none of these artists'music seems to have the same health effects as Mozart's does. According to researchers, listening to Mozart can increase brain wave activity and improve cognitive function. Another study found that the distinctive features of Mozart's music trigger parts of the brain that are responsible for high-level mental functions. Even maternity wards use Mozart to help newborn babies adapt to life outside of the mother's belly.",
+        "It has been found that listening to classical music significantly reduces a person's blood pressure. Researchers believe that the calming sounds of classical music may help your heart recover from stress. Classical music can also be a great tool to help people who have trouble sleeping. One study found that students who had trouble sleeping slept better while they were listening to classical music.",
+        "Whether classical music is something that you listen to on a regular basis or not, it wouldn't hurt totake time out of your day to listen to music that you find soothing. You will be surprised at how good it makes you feel and the potentially positive change in your health"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。alleviate stress 指减轻压力。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。let loose 表示释放多巴胺。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。clarity in thinking 指思考更加清楚。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。composers 指巴赫、贝多芬等作曲家。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。cognitive function 指认知功能。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。maternity wards 指产科病房。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。significantly reduces 指显著降低血压。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。recover from stress 指从压力状态恢复。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。wouldn't hurt to 表示花时间听音乐没有坏处。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviate"
+            },
+            {
+              "key": "B",
+              "text": "clarity"
+            },
+            {
+              "key": "C",
+              "text": "cognitive"
+            },
+            {
+              "key": "D",
+              "text": "composers"
+            },
+            {
+              "key": "E",
+              "text": "hurt"
+            },
+            {
+              "key": "F",
+              "text": "inhibiting"
+            },
+            {
+              "key": "G",
+              "text": "interrogation"
+            },
+            {
+              "key": "H",
+              "text": "intrinsically"
+            },
+            {
+              "key": "I",
+              "text": "loose"
+            },
+            {
+              "key": "J",
+              "text": "majestic"
+            },
+            {
+              "key": "K",
+              "text": "mandatory"
+            },
+            {
+              "key": "L",
+              "text": "recover"
+            },
+            {
+              "key": "M",
+              "text": "significantly"
+            },
+            {
+              "key": "N",
+              "text": "soothing"
+            },
+            {
+              "key": "O",
+              "text": "wards"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。soothing 指令人放松舒缓的音乐。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· The Curious Case of the Tree That Owns Itself",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify theparagraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions bymarking the corresponding letteron Answer Sheet 2.",
+      "paragraphs": [
+        "[A] In the city of Athens, Georgia, there exists a rather curious local landmark—a large white oak that is almost universally stated to own itself. Because of this, it is considered one of the most famous trees in the world. So how did this treecome to own itself and the land around it?",
+        "[B] Sometime in the 19th century a Georgian called Colonel William Jackson reportedly took a liking to the said tree and endeavored to protect it from any danger. As to why he loved it so, the earliest documented account of this story is an anonymously written front page article in the Athens WeeklyBanner published on August 12,1890. It states, “Col. Jackson had watched the tree grow from his childhood, and grew to love it almost as he would a human. Its luxuriant leaves and sturdy limbs had often protected him from the heavy rains, and out of its highest branches he had many a time gotten the eggs of the feathered singers. He watched its growth, and when reaching a ripe old age he saw the tree standing in its magnificent proportions, he was pained to think that after his death it would fall into the hands of those who might destroy it.”",
+        "[C] Towards this end, Jackson transferred by means of a deed ownership of the tree and a little land around it to the tree itself. The deed read, “W.H.Jackson for and in consideration of the great affection which he bears the said tree, and his great desire to see it protected has conveyed unto the said oak tree entire possession of itself and of all land within eight feet of it on all sides.”",
+        "[D] In time, the tree came to be something ofa tourist attraction, known as The TreeThat Owns Itself. However, in the early 20th century, the tree started showing signs of its slow death, with little that could be done about it. Father time comes for us all eventually, even our often long lived, tall and leafy fellow custodians(看管者) of Earth. Finally, on October 9,1942, the over 30 meter tall and 200-400 year old tree fell, rumor has it, as a result of a severe windstorm and/or via having previously died and its roots rotted.",
+        "[E] About four years later, members of the Junior Ladies Garden Club(who'd tended to the tree before its unfortunate death)tracked down a small tree grown from a nut taken from the original tree. And so it was that on October 9,1946, under the direction of Professor Roy Bowden of the College of Agriculture at the University of Georgia, this little tree was transplanted to the location of its ancestor. A couple of months later, an official ceremony was held featuring none other than the Mayor ofAthens, Robert L McWhorter, to commemorate the occasion.",
+        "[F] This new tree became known as The Son of the Tree That Owns Itself and it was assumed that, as the original tree's heir, it naturally inherited the land it stood on. Of course, there are many dozens of other trees known to exist descending from the original, as people taking a nut from it to grow elsewhere was a certainty. That said, to date, none of the original tree's other children have petitioned the courts for their share of the land, so it seems all good. In any event, The Son of the Tree That Owns Itself still stands today, though often referred to simply as The Tree That Owns Itself.",
+        "[G] Thisall brings us around to whether Jackson ever actually gave legal ownership of the tree to itself in the first place and whether such a deed is legally binding.",
+        "[H] Well, to begin with, it turns out Jackson only spent about three years of his life in Athens, starting at the age of 43 from 1829 to 1832, sort of dismissing the idea that he loved the tree from spending time under it as a child and watching it grow, and then worrying about what would happen to it after he died. Further, an extensive search of land ownership records in Athens does not seem to indicate Jackson ever owned the land the tree sits on.",
+        "[I] He did live on a lot of land directly next to it for those three years, but whether he owned that land or not isn't clear. Whatever the case, in 1832 a four acre parcel, which included the land the tree was on and the neighboring land Jackson lived on, among others, was sold to University professor Malthus A Ward. In the transaction, Wardwas required to pay Jackson a sum of $1,200(about $31,000 today), either for the property itself or simply in compensation for improvements Jackson had made on the lot. In the end, whether he ever owned the neighboring lot or was simply allowed to use it while he allegedly worked at the University, he definitely never owned the lot the tree grew on, which is the most important bit for the topic at hand.",
+        "[J] After Professor Ward purchased the land, Jackson and his family purchased a 655 acre parcel a few miles away and moved there. Ten years later, in 1844, Jackson seemed to have come into financial difficulties and had his little plantation seized by the Clarke County Sheriff's office and auctioned off to settle the mortgage. Thus, had he owned some land in Athens itself, including the land the tree sat on, presumably he would have sold it to raise funds or otherwise had it takenas well.",
+        "[K] And whatever the case there, Jackson would have known property taxes needed to be paid on the deeded land for the tree to be truly secure in its future. Yet no account or record indicates any trust or the like was set up to facilitate this",
+        "[L] On top of all this, there is no hard evidence such a deed ever existed, despite the fact that deed records in Athens go back many decades before Jackson's death in 1876 and that it was supposed to have existed in 1890 in the archives according to the original anonymous news reporter who claims to have seen it.",
+        "[M] As you might imagine from all of this, few give credit to this side of the story. So how did all of this come about then?",
+        "[N] It is speculated to have been invented by the imagination of the said anonymous author at the Athens Weekly Banner in the aforementioned 1890 front page article titled“Deeded to Itself”, which by the way contained several elements that are much more easily proved to be false. As to why the author would do this, it's speculated perhaps it was a 19th century version of a click-bait thought exercise on whether it would be legal for someone to deed such a non-conscious living thing to itselfor not.",
+        "[O] Whatever the case, the next known instance of the TreeThat Owns Itselfbeing mentioned wasn't until 1901 in the Centennial Edition of that same paper, the Athens Weekly Banner. This featured another account very clearly just copying the original article published about a decade before, only slightly reworded. The next account was in 1906, again in the Athens Weekly Banner, again very clearly copying the original account, only slightly reworded, the 19th century equivalent of re-posts when the audience has forgotten about the original."
+      ],
+      "study_paragraphs": [
+        "In the city of Athens, Georgia, there exists a rather curious local landmark—a large white oak that is almost universally stated to own itself. Because of this, it is considered one of the most famous trees in the world. So how did this treecome to own itself and the land around it?",
+        "Sometime in the 19th century a Georgian called Colonel William Jackson reportedly took a liking to the said tree and endeavored to protect it from any danger. As to why he loved it so, the earliest documented account of this story is an anonymously written front page article in the Athens WeeklyBanner published on August 12,1890. It states, “Col. Jackson had watched the tree grow from his childhood, and grew to love it almost as he would a human. Its luxuriant leaves and sturdy limbs had often protected him from the heavy rains, and out of its highest branches he had many a time gotten the eggs of the feathered singers. He watched its growth, and when reaching a ripe old age he saw the tree standing in its magnificent proportions, he was pained to think that after his death it would fall into the hands of those who might destroy it.”",
+        "Towards this end, Jackson transferred by means of a deed ownership of the tree and a little land around it to the tree itself. The deed read, “W.H.Jackson for and in consideration of the great affection which he bears the said tree, and his great desire to see it protected has conveyed unto the said oak tree entire possession of itself and of all land within eight feet of it on all sides.”",
+        "In time, the tree came to be something ofa tourist attraction, known as The TreeThat Owns Itself. However, in the early 20th century, the tree started showing signs of its slow death, with little that could be done about it. Father time comes for us all eventually, even our often long lived, tall and leafy fellow custodians(看管者) of Earth. Finally, on October 9,1942, the over 30 meter tall and 200-400 year old tree fell, rumor has it, as a result of a severe windstorm and/or via having previously died and its roots rotted.",
+        "About four years later, members of the Junior Ladies Garden Club(who'd tended to the tree before its unfortunate death)tracked down a small tree grown from a nut taken from the original tree. And so it was that on October 9,1946, under the direction of Professor Roy Bowden of the College of Agriculture at the University of Georgia, this little tree was transplanted to the location of its ancestor. A couple of months later, an official ceremony was held featuring none other than the Mayor ofAthens, Robert L McWhorter, to commemorate the occasion.",
+        "This new tree became known as The Son of the Tree That Owns Itself and it was assumed that, as the original tree's heir, it naturally inherited the land it stood on. Of course, there are many dozens of other trees known to exist descending from the original, as people taking a nut from it to grow elsewhere was a certainty. That said, to date, none of the original tree's other children have petitioned the courts for their share of the land, so it seems all good. In any event, The Son of the Tree That Owns Itself still stands today, though often referred to simply as The Tree That Owns Itself.",
+        "Thisall brings us around to whether Jackson ever actually gave legal ownership of the tree to itself in the first place and whether such a deed is legally binding.",
+        "Well, to begin with, it turns out Jackson only spent about three years of his life in Athens, starting at the age of 43 from 1829 to 1832, sort of dismissing the idea that he loved the tree from spending time under it as a child and watching it grow, and then worrying about what would happen to it after he died. Further, an extensive search of land ownership records in Athens does not seem to indicate Jackson ever owned the land the tree sits on.",
+        "He did live on a lot of land directly next to it for those three years, but whether he owned that land or not isn't clear. Whatever the case, in 1832 a four acre parcel, which included the land the tree was on and the neighboring land Jackson lived on, among others, was sold to University professor Malthus A Ward. In the transaction, Wardwas required to pay Jackson a sum of $1,200(about $31,000 today), either for the property itself or simply in compensation for improvements Jackson had made on the lot. In the end, whether he ever owned the neighboring lot or was simply allowed to use it while he allegedly worked at the University, he definitely never owned the lot the tree grew on, which is the most important bit for the topic at hand.",
+        "After Professor Ward purchased the land, Jackson and his family purchased a 655 acre parcel a few miles away and moved there. Ten years later, in 1844, Jackson seemed to have come into financial difficulties and had his little plantation seized by the Clarke County Sheriff's office and auctioned off to settle the mortgage. Thus, had he owned some land in Athens itself, including the land the tree sat on, presumably he would have sold it to raise funds or otherwise had it takenas well.",
+        "And whatever the case there, Jackson would have known property taxes needed to be paid on the deeded land for the tree to be truly secure in its future. Yet no account or record indicates any trust or the like was set up to facilitate this",
+        "On top of all this, there is no hard evidence such a deed ever existed, despite the fact that deed records in Athens go back many decades before Jackson's death in 1876 and that it was supposed to have existed in 1890 in the archives according to the original anonymous news reporter who claims to have seen it.",
+        "As you might imagine from all of this, few give credit to this side of the story. So how did all of this come about then?",
+        "It is speculated to have been invented by the imagination of the said anonymous author at the Athens Weekly Banner in the aforementioned 1890 front page article titled“Deeded to Itself”, which by the way contained several elements that are much more easily proved to be false. As to why the author would do this, it's speculated perhaps it was a 19th century version of a click-bait thought exercise on whether it would be legal for someone to deed such a non-conscious living thing to itselfor not.",
+        "Whatever the case, the next known instance of the TreeThat Owns Itselfbeing mentioned wasn't until 1901 in the Centennial Edition of that same paper, the Athens Weekly Banner. This featured another account very clearly just copying the original article published about a decade before, only slightly reworded. The next account was in 1906, again in the Athens Weekly Banner, again very clearly copying the original account, only slightly reworded, the 19th century equivalent of re-posts when the audience has forgotten about the original."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Jackson was said to have transferred his ownership of the oak tree to itself in order to protect it from being destroyed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Towards this end, Jackson transferred by means of a deed ownership of the tree and a little land around it to the tree itself. The deed read, “W.H.Jackson for and in consideration of the great affection which he bears the said tree, and his great desire to see it protected has conveyed unto the said oak tree entire possession of itself and of all land within eight feet of it on all sides.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. No proof has been found from an extensive search that Jackson had ever owned the land where the oak tree grew",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Well, to begin with, it turns out Jackson only spent about three years of his life in Athens, starting at the age of 43 from 1829 to 1832, sort of dismissing the idea that he loved the tree from spending time under it as a child and watching it grow, and then worrying about what would happen to it after he died. Further, an extensive search of land ownership records in Athens does not seem to indicate Jackson ever owned the land the tree sits on.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. When it was raining heavily, Jackson often took shelter under a big tree that is said to own itself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Sometime in the 19th century a Georgian called Colonel William Jackson reportedly took a liking to the said tree and endeavored to protect it from any danger. As to why he loved it so, the earliest documented account of this story is an anonymously written front page article in the Athens WeeklyBanner published on August 12,1890. It states, “Col. Jackson had watched the tree grow from his childhood, and grew to love it almost as he would a human. Its luxuriant leaves and sturdy limbs had often protected him from the heavy rains, and out of its highest branches he had many a time gotten the eggs of the feathered singers. He watched its growth, and when reaching a ripe old age he saw the tree standing in its magnificent proportions, he was pained to think that after his death it would fall into the hands of those who might destroy it.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. There is no evidence that Jacksonhad made arrangements to pay property taxes for the land onwhich the oak tree sat.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：And whatever the case there, Jackson would have known property taxes needed to be paid on the deeded land for the tree to be truly secure in its future. Yet no account or record indicates any trust or the like was set up to facilitate this",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Professor Ward paid Jackson over one thousand dollars when purchasing a piece ofland from him.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：He did live on a lot of land directly next to it for those three years, but whether he owned that land or not isn't clear. Whatever the case, in 1832 a four acre parcel, which included the land the tree was on and the neighboring land Jackson lived on, among others, was sold to University professor Malthus A Ward. In the transaction, Wardwas required to pay Jackson a sum of $1,200(about $31,000 today), either for the property itself or simply in compensation for improvements Jackson had made on the lot. In the end, whether he ever owned the neighboring lot or was simply allowed to use it while he allegedly worked at the University, he definitely never owned the lot the tree grew on, which is the most important bit for the topic at hand.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. It is said the tree that owned itself fell in a heavy windstorm.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：In time, the tree came to be something ofa tourist attraction, known as The TreeThat Owns Itself. However, in the early 20th century, the tree started showing signs of its slow death, with little that could be done about it. Father time comes for us all eventually, even our often long lived, tall and leafy fellow custodians(看管者) of Earth. Finally, on October 9,1942, the over 30 meter tall and 200-400 year old tree fell, rumor has it, as a result of a severe windstorm and/or via having previously died and its roots rotted.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. The story of the oak tree is suspected to have been invented as a thought exercise.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。对应 N 段。原文依据：It is speculated to have been invented by the imagination of the said anonymous author at the Athens Weekly Banner in the aforementioned 1890 front page article titled“Deeded to Itself”, which by the way contained several elements that are much more easily proved to be false. As to why the author would do this, it's speculated perhaps it was a 19th century version of a click-bait thought exercise on whether it would be legal for someone to deed such a non-conscious living thing to itselfor not.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Jackson's little plantation was auctioned off to settle his debt in the mid-19th century",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：After Professor Ward purchased the land, Jackson and his family purchased a 655 acre parcel a few miles away and moved there. Ten years later, in 1844, Jackson seemed to have come into financial difficulties and had his little plantation seized by the Clarke County Sheriff's office and auctioned off to settle the mortgage. Thus, had he owned some land in Athens itself, including the land the tree sat on, presumably he would have sold it to raise funds or otherwise had it takenas well.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. An official ceremony was held to celebrate the transplantingof a small tree to where its ancestor had stood.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：About four years later, members of the Junior Ladies Garden Club(who'd tended to the tree before its unfortunate death)tracked down a small tree grown from a nut taken from the original tree. And so it was that on October 9,1946, under the direction of Professor Roy Bowden of the College of Agriculture at the University of Georgia, this little tree was transplanted to the location of its ancestor. A couple of months later, an official ceremony was held featuring none other than the Mayor ofAthens, Robert L McWhorter, to commemorate the occasion.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. The story of the Tree That Owns Itself appeared in the local paper several times, with slight alterations in wording.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。对应 O 段。原文依据：Whatever the case, the next known instance of the TreeThat Owns Itselfbeing mentioned wasn't until 1901 in the Centennial Edition of that same paper, the Athens Weekly Banner. This featured another account very clearly just copying the original article published about a decade before, only slightly reworded. The next account was in 1906, again in the Athens Weekly Banner, again very clearly copying the original account, only slightly reworded, the 19th century equivalent of re-posts when the audience has forgotten about the original.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on AnswerSheet 2 with a single linethrough the centre.",
+      "paragraphs": [
+        "It is irrefutable that employees know the difference between right and wrong. So why don't more employees intervene when they see someone exhibiting at-risk behavior in the workplace?",
+        "There are a number of factors that influence whether people intervene. First, they need to be able to see a risky situation beginning to unfold. Second, the company's culture needs to make them feel safe to speak up. And third, they need to have the communication skills to say something effectively.",
+        "This is not strictly a workplace problem; it's a growing problem off the job too. Every day people witness things on the street and choose to stand idly by. This is known as the bystander effect—the more people who witness an event, the less likely anyone in that group is to help the victim. The psychology behind this is called diffusion of responsibility. Basically, the larger the crowd, the more people assume that someone else will take care of it—meaning no one effectively intervenes or acts in a moment of need.",
+        "This crowd mentality is strong enough for people to evade their known responsibilities. But it's not only frontline workers who don't make safety interventions in the workplace. There are also instances where supervisors do not intervene either.",
+        "When a group of employees sees unsafe behavior not being addressed at a leadership level it creates the precedent that this is how these situations should be addressed, thus defining the safety culture for everyone.",
+        "Despite the fact that workers are encouraged to intervene when they observe unsafe operations, this happens less than half of the time. Fear is the ultimate factor in not intervening. There is a fear of penalty, a fear that they'll have to do more work if they intervene. Unsuccessful attempts in the past are another strong contributing factor to why people don't intervene—they tend to prefer to defer that action to someone else for all future situations.",
+        "On many worksites, competent workers must be appointed. Part of theirjob is to intervene when workers perform a taskwithoutthe proper equipment or if the conditions are unsafe. Competentworkers are alsorequired to stop work from continuing when there's a danger.",
+        "Supervisors also play a critical role. Even if a competent person isn't required, supervisors need a broad set of skills to not only identify and alleviate workplace hazards but also build a safety climate within theirteam that supports intervening and open communication among them.",
+        "Beyond competent workers and supervisors, it's important to educate everyone within the organization that they are obliged to intervene if they witness a possible unsafe act, whether you're adesignated competent person, a supervisoror a frontline worker"
+      ],
+      "study_paragraphs": [
+        "It is irrefutable that employees know the difference between right and wrong. So why don't more employees intervene when they see someone exhibiting at-risk behavior in the workplace?",
+        "There are a number of factors that influence whether people intervene. First, they need to be able to see a risky situation beginning to unfold. Second, the company's culture needs to make them feel safe to speak up. And third, they need to have the communication skills to say something effectively.",
+        "This is not strictly a workplace problem; it's a growing problem off the job too. Every day people witness things on the street and choose to stand idly by. This is known as the bystander effect—the more people who witness an event, the less likely anyone in that group is to help the victim. The psychology behind this is called diffusion of responsibility. Basically, the larger the crowd, the more people assume that someone else will take care of it—meaning no one effectively intervenes or acts in a moment of need.",
+        "This crowd mentality is strong enough for people to evade their known responsibilities. But it's not only frontline workers who don't make safety interventions in the workplace. There are also instances where supervisors do not intervene either.",
+        "When a group of employees sees unsafe behavior not being addressed at a leadership level it creates the precedent that this is how these situations should be addressed, thus defining the safety culture for everyone.",
+        "Despite the fact that workers are encouraged to intervene when they observe unsafe operations, this happens less than half of the time. Fear is the ultimate factor in not intervening. There is a fear of penalty, a fear that they'll have to do more work if they intervene. Unsuccessful attempts in the past are another strong contributing factor to why people don't intervene—they tend to prefer to defer that action to someone else for all future situations.",
+        "On many worksites, competent workers must be appointed. Part of theirjob is to intervene when workers perform a taskwithoutthe proper equipment or if the conditions are unsafe. Competentworkers are alsorequired to stop work from continuing when there's a danger.",
+        "Supervisors also play a critical role. Even if a competent person isn't required, supervisors need a broad set of skills to not only identify and alleviate workplace hazards but also build a safety climate within theirteam that supports intervening and open communication among them.",
+        "Beyond competent workers and supervisors, it's important to educate everyone within the organization that they are obliged to intervene if they witness a possible unsafe act, whether you're adesignated competent person, a supervisoror a frontline worker"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What is one of the factors contributing to failure of intervention in face of riskybehavior in the workplace?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Slack supervision style"
+            },
+            {
+              "key": "B",
+              "text": "Unfavorable workplace culture."
+            },
+            {
+              "key": "C",
+              "text": "Unforeseeable risk."
+            },
+            {
+              "key": "D",
+              "text": "Blocked communication."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。公司文化需让员工敢于开口，否则难以及时干预风险。第 2 段原文依据：There are a number of factors that influence whether people intervene. First, they need to be able to see a risky situation beginning to unfold. Second, the company's culture needs to make them feel safe to speak up. And third, they need to have the communication skills to say something effectively.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does the author mean by“diffusion of responsibility”(Line 4, Para.3)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The more people are around, the more they need to worry about their personal safety."
+            },
+            {
+              "key": "B",
+              "text": "The more people who witness an event, the less likely anyone will venture to participate."
+            },
+            {
+              "key": "C",
+              "text": "The more people idling around on the street, the more likely they need taking care of."
+            },
+            {
+              "key": "D",
+              "text": "The more people are around, the less chance someone will step forward to intervene."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。旁观者越多，越容易以为别人会行动而无人干预。第 3 段原文依据：This is not strictly a workplace problem; it's a growing problem off the job too. Every day people witness things on the street and choose to stand idly by. This is known as the bystander effect—the more people who witness an event, the less likely anyone in that group is to help the victim. The psychology behind this is called diffusion of responsibility. Basically, the larger the crowd, the more people assume that someone else will take care of it—meaning no one effectively intervenes or acts in a moment of need.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What happens when unsafe behavior at the workplace is not addressed by the leaders?",
+          "options": [
+            {
+              "key": "A",
+              "text": "No one will intervene when they see similar behaviors."
+            },
+            {
+              "key": "B",
+              "text": "Everyone will see it as the easiest way to deal with crisis."
+            },
+            {
+              "key": "C",
+              "text": "Workers have to take extra caution executing their duties"
+            },
+            {
+              "key": "D",
+              "text": "Workers are left to take care of the emergency themselves."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。领导不处置危险行为会形成默许的安全文化。第 5 段原文依据：When a group of employees sees unsafe behavior not being addressed at a leadership level it creates the precedent that this is how these situations should be addressed, thus defining the safety culture for everyone.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is the ultimate reason workers won't act when they see unsafe operations?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Preference of deferring the action to others."
+            },
+            {
+              "key": "B",
+              "text": "Anticipation of leadership intervention."
+            },
+            {
+              "key": "C",
+              "text": "Fear of being isolated by coworkers"
+            },
+            {
+              "key": "D",
+              "text": "Fear of having to do more work"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。员工害怕受罚或增加工作，因而不干预。第 6 段原文依据：Despite the fact that workers are encouraged to intervene when they observe unsafe operations, this happens less than half of the time. Fear is the ultimate factor in not intervening. There is a fear of penalty, a fear that they'll have to do more work if they intervene. Unsuccessful attempts in the past are another strong contributing factor to why people don't intervene—they tend to prefer to defer that action to someone else for all future situations.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What is critical to ensuring workplace safety?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Workers be trained to operate their equipment properly"
+            },
+            {
+              "key": "B",
+              "text": "Workers exhibiting at-risk behavior be strictly disciplined."
+            },
+            {
+              "key": "C",
+              "text": "Supervisors create a safety environment for timely intervention."
+            },
+            {
+              "key": "D",
+              "text": "Supervisors conduct effective communication with frontline workers."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。主管要建立支持干预和开放沟通的安全氛围。第 8 段原文依据：Supervisors also play a critical role. Even if a competent person isn't required, supervisors need a broad set of skills to not only identify and alleviate workplace hazards but also build a safety climate within theirteam that supports intervening and open communication among them.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on AnswerSheet 2 with a single linethrough the centre.",
+      "paragraphs": [
+        "The term“environmentalist”can mean different things. It used to refer to people trying to protect wildlife and natural ecosystems. In the 21st century, the term has evolved to capture the need to combat human-made climate change",
+        "The distinction between these two strands of environmentalism is the cause of a split within the scientific community about nuclear energy",
+        "On one side are purists who believe nuclear power isn't worth the risk and the exclusive solution to the climate crisis is renewable energy. The opposing side agrees that renewables are crucial, but says society needs an amount of power available to meet consumers'basic demands when the sun isn't shining and the wind isn't blowing. Nuclear energy, being far cleaner than oil, gas and coal, is a natural option, especially where hydroelectric capacity is limited",
+        "Leon Clarke, who helped author reports for the UN's Intergovernmental Panel on Climate Change, isn't an uncritical supporter of nuclear energy, but says it's a valuable option to have if we're serious about reaching carbon neutrality.",
+        "“Core to all of this is the degree to which you think we can actually meet climate goals with 100% renewables,”he said. “If you don't believe we can do it, and you care about the climate, you are forced to think about something like nuclear.”",
+        "The achievability of universal 100%renewability is similarly contentious. Cities such as Burlington, Vermont, have been“100%renewable”for years. But these cities often have small populations, occasionally still rely on fossil fuel energy and have significant renewable resources at their immediate disposal. Meanwhile, countries that manage to run off renewables typically do so thanks to extraordinary hydroelectric capabilities.",
+        "Germany stands as the best case study for a large, industrialized country pushing into green energy Chancellor Angela Merkel in 2011 announced Energiewende, an energy transition that would phase out nuclear and coal while phasing in renewables. Wind and solar power generation has increased over 400%since 2010, and renewables provided 46%of the country's electricity in 2019.",
+        "But progress has halted in recent years. The instability of renewables doesn't just mean energy is often not produced at night, but also that solar and wind can overwhelm the grid during the day, forcing utilities to pay customers to use their electricity. Lagging grid infrastructure struggles to transport this overabundance of green energy from Germany's north to its industrial south, meaning many factories still run on coal and gas. The political limit has also been reached in some places, with citizens meeting the construction of new wind turbines with loud protests.",
+        "The result is that Germany's greenhouse gas emissions have fallen by around 11.5%since 2010—slower than the EU average of 13.5%."
+      ],
+      "study_paragraphs": [
+        "The term“environmentalist”can mean different things. It used to refer to people trying to protect wildlife and natural ecosystems. In the 21st century, the term has evolved to capture the need to combat human-made climate change",
+        "The distinction between these two strands of environmentalism is the cause of a split within the scientific community about nuclear energy",
+        "On one side are purists who believe nuclear power isn't worth the risk and the exclusive solution to the climate crisis is renewable energy. The opposing side agrees that renewables are crucial, but says society needs an amount of power available to meet consumers'basic demands when the sun isn't shining and the wind isn't blowing. Nuclear energy, being far cleaner than oil, gas and coal, is a natural option, especially where hydroelectric capacity is limited",
+        "Leon Clarke, who helped author reports for the UN's Intergovernmental Panel on Climate Change, isn't an uncritical supporter of nuclear energy, but says it's a valuable option to have if we're serious about reaching carbon neutrality.",
+        "“Core to all of this is the degree to which you think we can actually meet climate goals with 100% renewables,”he said. “If you don't believe we can do it, and you care about the climate, you are forced to think about something like nuclear.”",
+        "The achievability of universal 100%renewability is similarly contentious. Cities such as Burlington, Vermont, have been“100%renewable”for years. But these cities often have small populations, occasionally still rely on fossil fuel energy and have significant renewable resources at their immediate disposal. Meanwhile, countries that manage to run off renewables typically do so thanks to extraordinary hydroelectric capabilities.",
+        "Germany stands as the best case study for a large, industrialized country pushing into green energy Chancellor Angela Merkel in 2011 announced Energiewende, an energy transition that would phase out nuclear and coal while phasing in renewables. Wind and solar power generation has increased over 400%since 2010, and renewables provided 46%of the country's electricity in 2019.",
+        "But progress has halted in recent years. The instability of renewables doesn't just mean energy is often not produced at night, but also that solar and wind can overwhelm the grid during the day, forcing utilities to pay customers to use their electricity. Lagging grid infrastructure struggles to transport this overabundance of green energy from Germany's north to its industrial south, meaning many factories still run on coal and gas. The political limit has also been reached in some places, with citizens meeting the construction of new wind turbines with loud protests.",
+        "The result is that Germany's greenhouse gas emissions have fallen by around 11.5%since 2010—slower than the EU average of 13.5%."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What accounts for the divide within the scientific community about nuclear energy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Attention to combating human-made climate change."
+            },
+            {
+              "key": "B",
+              "text": "Emphasis on protecting wildlife and natural ecosystems."
+            },
+            {
+              "key": "C",
+              "text": "Evolution of the term ‘green energy'over the last century"
+            },
+            {
+              "key": "D",
+              "text": "Adherence to different interpretations of environmentalism."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对环境主义两种不同理解导致核能争论。第 2 段原文依据：The distinction between these two strands of environmentalism is the cause of a split within the scientific community about nuclear energy",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What is the solution to energy shortage proposed by purists'opponents?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Relying on renewables firmly and exclusively."
+            },
+            {
+              "key": "B",
+              "text": "Using fossil fuel and green energy alternately."
+            },
+            {
+              "key": "C",
+              "text": "Opting for nuclear energy when necessary"
+            },
+            {
+              "key": "D",
+              "text": "Limiting people's non-basic consumption."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。反对纯可再生派的人认为需要稳定基础供电，核能可作补充。第 3 段原文依据：On one side are purists who believe nuclear power isn't worth the risk and the exclusive solution to the climate crisis is renewable energy. The opposing side agrees that renewables are crucial, but says society needs an amount of power available to meet consumers'basic demands when the sun isn't shining and the wind isn't blowing. Nuclear energy, being far cleaner than oil, gas and coal, is a natural option, especially where hydroelectric capacity is limited",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What point does the author want to make with cities like Burlington as an example?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is controversial whether the goal of the whole world's exclusive dependence on renewables is attainable"
+            },
+            {
+              "key": "B",
+              "text": "It is contentious whether cities with large populations have renewable resources at their immediate disposal."
+            },
+            {
+              "key": "C",
+              "text": "It is arguable whether cities that manage to run off renewables have sustainable hydroelectric capabilities."
+            },
+            {
+              "key": "D",
+              "text": "It is debatable whether traditional fossil fuel energy can be done away with entirely throughout the world."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。Burlington 等条件特殊城市不能直接证明全球都可完全依赖可再生能源。第 6 段原文依据：The achievability of universal 100%renewability is similarly contentious. Cities such as Burlington, Vermont, have been“100%renewable”for years. But these cities often have small populations, occasionally still rely on fossil fuel energy and have significant renewable resources at their immediate disposal. Meanwhile, countries that manage to run off renewables typically do so thanks to extraordinary hydroelectric capabilities.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do we learn about Germany regarding renewable energy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has increased its wind and solar power generation four times over the last two decades."
+            },
+            {
+              "key": "B",
+              "text": "It represents a good example of a major industrialized country promoting green energy."
+            },
+            {
+              "key": "C",
+              "text": "It relies on renewable energy to generate more than half ofits electricity."
+            },
+            {
+              "key": "D",
+              "text": "It has succeeded in reaching the goal of energy transition setby Merkel."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。德国是大型工业国推动绿色能源转型的典型案例。第 7 段原文依据：Germany stands as the best case study for a large, industrialized country pushing into green energy Chancellor Angela Merkel in 2011 announced Energiewende, an energy transition that would phase out nuclear and coal while phasing in renewables. Wind and solar power generation has increased over 400%since 2010, and renewables provided 46%of the country's electricity in 2019.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What may be one ofthe reasons for Germany's progress having halted in recent years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its grid infrastructure's capacityhas fallen behind its development of greenenergy"
+            },
+            {
+              "key": "B",
+              "text": "Its overabundance of green energy has forced power plants to suspend operation during daytime."
+            },
+            {
+              "key": "C",
+              "text": "Its industrial south is used to running factories on conventional energy supplies"
+            },
+            {
+              "key": "D",
+              "text": "Its renewable energy supplies areunstable both at night and during the day"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。落后的电网难以将北部多余绿电输往工业南部。第 8 段原文依据：But progress has halted in recent years. The instability of renewables doesn't just mean energy is often not produced at night, but also that solar and wind can overwhelm the grid during the day, forcing utilities to pay customers to use their electricity. Lagging grid infrastructure struggles to transport this overabundance of green energy from Germany's north to its industrial south, meaning many factories still run on coal and gas. The political limit has also been reached in some places, with citizens meeting the construction of new wind turbines with loud protests.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passagefrom Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "中国的传统婚礼习俗历史悠久，从周朝开始就逐渐形成了一套完整的婚礼仪式，有些一直沿用至今。如今的中式婚礼习俗已有很大变化，但婚礼庆典仍然十分隆重。婚礼场地经过精心装饰，以象征喜庆(jubilance) 的红色为主色调，摆放着许多祝愿新人幸福的物件。在婚礼上，新人要拜天地(bow to Heaven and Earth),拜父母和相互对拜，然后设宴招待宾客，并向宾客敬酒致谢。今天，许多年轻人依然钟情于传统的中式婚礼，体验独特而美好的中国式浪漫。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2024-06-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
