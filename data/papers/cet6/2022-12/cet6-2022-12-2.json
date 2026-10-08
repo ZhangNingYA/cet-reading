@@ -1,0 +1,1880 @@
+{
+  "id": "cet6-2022-12-2",
+  "exam_level": "CET6",
+  "year": 2022,
+  "month": 12,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2022年12月大学英语六级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。原件中错位的匹配题句尾按对应题号归位，不增加或删减题文。排印异常的段落或词库标号按顺序恢复，正文按原件保留。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2022-12-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"In an era of information explosion, it is vitally important to develop the ability to think critically and make rational choices. \" You can make statements, give reasons, or cite examples to develop your essay. You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-12-2-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"In an era of information explosion, it is vitally important to develop the ability to think critically and make rational choices. \" You can make statements, give reasons, or cite examples to develop your essay. You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "The task of the global strategist of a business is to build a platform of capabilities derived from the resources, experiences and innovations of units operating in multiple locations, to transplant those capabilities wherever [26] ______ , and then to systematically upgrade and renew them-ahead of the competition.",
+        "Apple is an outstanding case of a company whose unique capabilities give it a worldwide [27] ______ advantage, particularly with respect to its ability to build platforms from a product base that integrates functional and [28] ______ design. Apple has been able to leverage and exploit its California-based design and marketing advantages successfully throughout the world. IKEA is another such case. The do-it-yourself furniture and houseware company first developed a compelling set of capabilities to design, manufacture and [29] ______ furniture at low cost and sell it in a novel way in Sweden. Later, IKEA successfully [30] ______ this formula in many other countries.",
+        "By contrast, Telefónica, a Spanish telecommunications company that is now the world's fifth largest telecom by [31] ______ , first developed its special advantage abroad. In 1989 and 1990, Telefónica had the opportunity to enter Chile and Argentina, countries that shared many institutional and cultural characteristics with its home country but that were [32] ______ more rapid market reform. Throughout the 1990s, Telefónica took what it learned in Chile and Argentina about reconstructing former state-owned telecoms to other Latin American countries that were privatizing their state telecoms and deregulating their telecom markets.",
+        "These examples might lead the reader to believe that creating a global advantage is an easy task. But many other [33] ______ of expensive failed experiments suggest that creating a lasting global advantage actually requires a great deal of [34] ______ and operational finesse (技巧). Our research suggests that global winners typically create and sustain their international presence through a systematic process of [35] ______ , renewing and enhancing their core capabilities."
+      ],
+      "study_paragraphs": [
+        "The task of the global strategist of a business is to build a platform of capabilities derived from the resources, experiences and innovations of units operating in multiple locations, to transplant those capabilities wherever appropriate, and then to systematically upgrade and renew them-ahead of the competition.",
+        "Apple is an outstanding case of a company whose unique capabilities give it a worldwide competitive advantage, particularly with respect to its ability to build platforms from a product base that integrates functional and aesthetic design. Apple has been able to leverage and exploit its California-based design and marketing advantages successfully throughout the world. IKEA is another such case. The do-it-yourself furniture and houseware company first developed a compelling set of capabilities to design, manufacture and ship furniture at low cost and sell it in a novel way in Sweden. Later, IKEA successfully reproduced this formula in many other countries.",
+        "By contrast, Telefónica, a Spanish telecommunications company that is now the world's fifth largest telecom by revenues, first developed its special advantage abroad. In 1989 and 1990, Telefónica had the opportunity to enter Chile and Argentina, countries that shared many institutional and cultural characteristics with its home country but that were undergoing more rapid market reform. Throughout the 1990s, Telefónica took what it learned in Chile and Argentina about reconstructing former state-owned telecoms to other Latin American countries that were privatizing their state telecoms and deregulating their telecom markets.",
+        "These examples might lead the reader to believe that creating a global advantage is an easy task. But many other instances of expensive failed experiments suggest that creating a lasting global advantage actually requires a great deal of strategic and operational finesse (技巧). Our research suggests that global winners typically create and sustain their international presence through a systematic process of exploiting, renewing and enhancing their core capabilities."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-12-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。appropriate 表示在适合的地方移植企业能力。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。competitive advantage 指竞争优势。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。aesthetic design 指审美设计。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。ship furniture 指运输家具。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。reproduced 表示在其他国家复用这套模式。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。by revenues 指按营收排序。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。undergoing market reform 表示正经历市场改革。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。instances of failed experiments 指失败试验的实例。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。strategic and operational finesse 指战略与运营技巧。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "aesthetic"
+            },
+            {
+              "key": "B",
+              "text": "appropriate"
+            },
+            {
+              "key": "C",
+              "text": "clusters"
+            },
+            {
+              "key": "D",
+              "text": "competitive"
+            },
+            {
+              "key": "E",
+              "text": "exploiting"
+            },
+            {
+              "key": "F",
+              "text": "fiscal"
+            },
+            {
+              "key": "G",
+              "text": "instances"
+            },
+            {
+              "key": "H",
+              "text": "rehabilitated"
+            },
+            {
+              "key": "I",
+              "text": "reproduced"
+            },
+            {
+              "key": "J",
+              "text": "revenues"
+            },
+            {
+              "key": "K",
+              "text": "safeguarding"
+            },
+            {
+              "key": "L",
+              "text": "ship"
+            },
+            {
+              "key": "M",
+              "text": "strategic"
+            },
+            {
+              "key": "N",
+              "text": "transcend"
+            },
+            {
+              "key": "O",
+              "text": "undergoing"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。exploiting capabilities 指发挥和利用核心能力。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Fear of Nature: An Emerging Threat to Conservation",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] What do we lose when natural spaces and species disappear? Increasingly, research has shown that as species and ecosystems vanish, it also chips away at our ability to preserve what remains—because we no longer understand what we're losing.",
+        "[B] You probably see it all the time. The neighbor who puts pesticides on his lawn rather than deal with annoying bees. The politician who votes against wildlife protection because she's never seen a wolf in the wild. The corporation that wants to bulldoze (用推土机推平) the habitat of a rare frog.",
+        "[C] At best this can be termed \"the extinction of experience, \" where our cultural and natural histories fade from our memories and therefore our reality. At its worst it becomes something even more concerning: \"biophobia, \" the fear of living things and a complete aversion to nature.",
+        "[D] This isn't the fiction of living in a cold, empty dystopia (绝望的世界). Sadly, it's becoming a way of life for too many people — especially children. A recent study in Japan paints a striking portrait of this problem. A survey of more than 5,300 school children in the Tochigi Prefecture examined their perception of 14 local insect species and one spider. The results? A collective \"ew! \" Most of the students saw the species as things to dislike or fear, or even as sources of danger. The less experience the students had with nature, the more negative their feelings.",
+        "[E] The results were published earlier this year in the journal Biological Conservation. Lead researcher Masashi Soga with the University of Tokyo says the study stemmed from observations about today's nature-deficient children. \"Humans inherently avoid dangerous organisms such as bees, but children these days avoid even harmless insects such as butterflies and dragonflies (蜻蜓), \" he says. \"I have long wondered why so many of today's children react like this. \"",
+        "[F] Although the children's reactions were somewhat expected, the new study did contain an unexpected finding: Many of the surveyed children revealed that their parents also expressed fear or disgust of the same animals. In fact these parental emotions were strong enough to overwhelm any positive experiences the children might have gained from direct experiences in nature. As Soga and his coauthors wrote in their paper, \"Our results suggest that there is likely a feedback loop in which an increase in people who have negative attitudes towards nature in one generation will lead to a further increase in people with similar attitudes in the next generation. \"",
+        "[G] And that's possibly the greater threat posed by extinction of experience. Soga suggests the generational loss—a condition previously dubbed environmental generational amnesia (遗忘)-could chip away at our societal ability to preserve what we're losing. \"I believe that increased biophobia is a major, but invisible, threat to global biodiversity, \" Soga says. \"As the number of children who have biophobia increases, public interest and support for biodiversity conservation will gradually decline. Although many conservation biologists still consider that preventing the loss of wildlife habitat is the most important way to conserve biodiversity, I think preventing increased biophobia is also important for conservation. \"",
+        "[H] What's to be done about this? The paper makes several recommendations, the most obvious of which is that children should experience nature more often. The authors also suggest establishing policies to guide these natural experiences and increasing educational programs about the natural world.",
+        "[I] Helping parents to see species around them in a new light would make a difference, too. And, of course, maintaining support for preserving the wild spaces where these \"scary\" creatures live is the most important thing of all. That's a point reinforced by another recent study, which found that wild spaces located within urban areas and the plants and animals that thrive in them-are particularly important for human health and well-being.",
+        "[J] Published in the journal Frontiers in Sustainable Cities, the study examined attitudes toward Discovery Park, the heavily forested 534-acre public park in Seattle, Washington. It found that the public had the most appreciation for-and gained the most value from-the wildest parts of the park. \"I have seen whales, seals, fish, eagles, shorebirds and many other sea creatures in their natural habitat, \" one survey participant wrote. \"Coming here with people has allowed me to connect and talk with them about conversation that simply does not happen in everyday life, \" wrote another.",
+        "[K] The participants reported that their most valuable experiences in the park included encountering wildlife, walking through open spaces, exploring the beach and finding beautiful views. \"We saw that a large majority of participants' interactions, especially their most meaningful interactions, depended on Discovery Park's relative wildness, \" says lead author Elizabeth Lev, a master's student in the university of Washington's Human Interaction with Nature Lab. This is only possible because the park is relatively wild. After all, you can't enjoy watching birds if there are no birds to follow; gaze at the sunset if it's obscured by skyscrapers; or stop and smell the flowers if they don't have room to grow.",
+        "[L] And yet even this long-protected space could someday become less hospitable to nature. Over the past few years a lot of people and organizations have suggested developing parts of Discovery Park or the neighboring area. Most recently a plan proposed building 34 acres of much-needed affordable housing and parking spaces adjacent to the park, bringing with them noise, traffic and pollution.",
+        "[M] If anything like that happened, both the park and the people of Seattle could lose something vital. And that would continue the trend of chipping away at Seattle's-and the world's-natural spaces, leaving just tiny pocket parks and green-but-empty spaces that offer little real value to wildlife, plants or people.",
+        "[N] \"It is true that any interaction with nature is better than none, but I don't want people to be satisfied with any small bit of grass and trees, \" Lev says. \"We have been in this cycle of environmental generational amnesia for a long time, where the baseline keeps shifting and we don't even realize what we're losing until it's gone. If we can get people to understand how much meaning and value can come from having more experiences with more wild forms of nature, then maybe we can stop this cycle and move toward conserving and restoring what we have left.",
+        "[O] Building this understanding in an ever-more fearful and disconnected world may be the biggest challenge. Peter Kahn, the senior author of Lev's paper and the director of the Human Interaction with Nature Lab, made several suggestions for bridging this gap in this 2011 book, Technological Nature. They echo the recommendation about getting children into nature, but also include telling stories of how things used to be, imagining what things might be like in the future, and developing a common language about nature, \"a way of speaking about wild and domestic interaction patterns, and the meaningful, deep and often joyful feelings that they generate. \"",
+        "[P] No matter what techniques we use, this growing field of research illustrates that saving nature requires encouraging people to experience it more often and more deeply. That calls for additional research-Lev and her coauthors have published a toolkit that other municipalities can follow to study the value of their own wild spaces-and clear communication of the results. \"If we can continue to show people the benefits of these wild spaces, \" Lev says, \"maybe people will begin to see more value in keeping these areas undeveloped—for the sake of our mutual benefit.”"
+      ],
+      "study_paragraphs": [
+        "What do we lose when natural spaces and species disappear? Increasingly, research has shown that as species and ecosystems vanish, it also chips away at our ability to preserve what remains—because we no longer understand what we're losing.",
+        "You probably see it all the time. The neighbor who puts pesticides on his lawn rather than deal with annoying bees. The politician who votes against wildlife protection because she's never seen a wolf in the wild. The corporation that wants to bulldoze (用推土机推平) the habitat of a rare frog.",
+        "At best this can be termed \"the extinction of experience, \" where our cultural and natural histories fade from our memories and therefore our reality. At its worst it becomes something even more concerning: \"biophobia, \" the fear of living things and a complete aversion to nature.",
+        "This isn't the fiction of living in a cold, empty dystopia (绝望的世界). Sadly, it's becoming a way of life for too many people — especially children. A recent study in Japan paints a striking portrait of this problem. A survey of more than 5,300 school children in the Tochigi Prefecture examined their perception of 14 local insect species and one spider. The results? A collective \"ew! \" Most of the students saw the species as things to dislike or fear, or even as sources of danger. The less experience the students had with nature, the more negative their feelings.",
+        "The results were published earlier this year in the journal Biological Conservation. Lead researcher Masashi Soga with the University of Tokyo says the study stemmed from observations about today's nature-deficient children. \"Humans inherently avoid dangerous organisms such as bees, but children these days avoid even harmless insects such as butterflies and dragonflies (蜻蜓), \" he says. \"I have long wondered why so many of today's children react like this. \"",
+        "Although the children's reactions were somewhat expected, the new study did contain an unexpected finding: Many of the surveyed children revealed that their parents also expressed fear or disgust of the same animals. In fact these parental emotions were strong enough to overwhelm any positive experiences the children might have gained from direct experiences in nature. As Soga and his coauthors wrote in their paper, \"Our results suggest that there is likely a feedback loop in which an increase in people who have negative attitudes towards nature in one generation will lead to a further increase in people with similar attitudes in the next generation. \"",
+        "And that's possibly the greater threat posed by extinction of experience. Soga suggests the generational loss—a condition previously dubbed environmental generational amnesia (遗忘)-could chip away at our societal ability to preserve what we're losing. \"I believe that increased biophobia is a major, but invisible, threat to global biodiversity, \" Soga says. \"As the number of children who have biophobia increases, public interest and support for biodiversity conservation will gradually decline. Although many conservation biologists still consider that preventing the loss of wildlife habitat is the most important way to conserve biodiversity, I think preventing increased biophobia is also important for conservation. \"",
+        "What's to be done about this? The paper makes several recommendations, the most obvious of which is that children should experience nature more often. The authors also suggest establishing policies to guide these natural experiences and increasing educational programs about the natural world.",
+        "Helping parents to see species around them in a new light would make a difference, too. And, of course, maintaining support for preserving the wild spaces where these \"scary\" creatures live is the most important thing of all. That's a point reinforced by another recent study, which found that wild spaces located within urban areas and the plants and animals that thrive in them-are particularly important for human health and well-being.",
+        "Published in the journal Frontiers in Sustainable Cities, the study examined attitudes toward Discovery Park, the heavily forested 534-acre public park in Seattle, Washington. It found that the public had the most appreciation for-and gained the most value from-the wildest parts of the park. \"I have seen whales, seals, fish, eagles, shorebirds and many other sea creatures in their natural habitat, \" one survey participant wrote. \"Coming here with people has allowed me to connect and talk with them about conversation that simply does not happen in everyday life, \" wrote another.",
+        "The participants reported that their most valuable experiences in the park included encountering wildlife, walking through open spaces, exploring the beach and finding beautiful views. \"We saw that a large majority of participants' interactions, especially their most meaningful interactions, depended on Discovery Park's relative wildness, \" says lead author Elizabeth Lev, a master's student in the university of Washington's Human Interaction with Nature Lab. This is only possible because the park is relatively wild. After all, you can't enjoy watching birds if there are no birds to follow; gaze at the sunset if it's obscured by skyscrapers; or stop and smell the flowers if they don't have room to grow.",
+        "And yet even this long-protected space could someday become less hospitable to nature. Over the past few years a lot of people and organizations have suggested developing parts of Discovery Park or the neighboring area. Most recently a plan proposed building 34 acres of much-needed affordable housing and parking spaces adjacent to the park, bringing with them noise, traffic and pollution.",
+        "If anything like that happened, both the park and the people of Seattle could lose something vital. And that would continue the trend of chipping away at Seattle's-and the world's-natural spaces, leaving just tiny pocket parks and green-but-empty spaces that offer little real value to wildlife, plants or people.",
+        "\"It is true that any interaction with nature is better than none, but I don't want people to be satisfied with any small bit of grass and trees, \" Lev says. \"We have been in this cycle of environmental generational amnesia for a long time, where the baseline keeps shifting and we don't even realize what we're losing until it's gone. If we can get people to understand how much meaning and value can come from having more experiences with more wild forms of nature, then maybe we can stop this cycle and move toward conserving and restoring what we have left.",
+        "Building this understanding in an ever-more fearful and disconnected world may be the biggest challenge. Peter Kahn, the senior author of Lev's paper and the director of the Human Interaction with Nature Lab, made several suggestions for bridging this gap in this 2011 book, Technological Nature. They echo the recommendation about getting children into nature, but also include telling stories of how things used to be, imagining what things might be like in the future, and developing a common language about nature, \"a way of speaking about wild and domestic interaction patterns, and the meaningful, deep and often joyful feelings that they generate. \"",
+        "No matter what techniques we use, this growing field of research illustrates that saving nature requires encouraging people to experience it more often and more deeply. That calls for additional research-Lev and her coauthors have published a toolkit that other municipalities can follow to study the value of their own wild spaces-and clear communication of the results. \"If we can continue to show people the benefits of these wild spaces, \" Lev says, \"maybe people will begin to see more value in keeping these areas undeveloped—for the sake of our mutual benefit.”"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-12-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. A new study found parents' aversion to certain animals would pass on to their children.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Although the children's reactions were somewhat expected, the new study did contain an unexpected finding: Many of the surveyed children revealed that their parents also expressed fear or disgust of the same animals. In fact these parental emotions were strong enough to overwhelm any positive experiences the children might have gained from direct experiences in nature. As Soga and his coauthors wrote in their paper, \"Our results suggest that there is likely a feedback loop in which an increase in people who have negative attitudes towards nature in one generation will lead to a further increase in people with similar attitudes in the next generation. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. The disappearance of species and ecological systems erodes our ability to keep what is left.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：What do we lose when natural spaces and species disappear? Increasingly, research has shown that as species and ecosystems vanish, it also chips away at our ability to preserve what remains—because we no longer understand what we're losing.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. A study showed that the wildest areas of Discovery Park appealed most to the public.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：Published in the journal Frontiers in Sustainable Cities, the study examined attitudes toward Discovery Park, the heavily forested 534-acre public park in Seattle, Washington. It found that the public had the most appreciation for-and gained the most value from-the wildest parts of the park. \"I have seen whales, seals, fish, eagles, shorebirds and many other sea creatures in their natural habitat, \" one survey participant wrote. \"Coming here with people has allowed me to connect and talk with them about conversation that simply does not happen in everyday life, \" wrote another.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. The fear of living organisms is becoming more worrisome.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：At best this can be termed \"the extinction of experience, \" where our cultural and natural histories fade from our memories and therefore our reality. At its worst it becomes something even more concerning: \"biophobia, \" the fear of living things and a complete aversion to nature.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Preventing the increase in children's fear of living creatures is also important for conserving biodiversity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：And that's possibly the greater threat posed by extinction of experience. Soga suggests the generational loss—a condition previously dubbed environmental generational amnesia (遗忘)-could chip away at our societal ability to preserve what we're losing. \"I believe that increased biophobia is a major, but invisible, threat to global biodiversity, \" Soga says. \"As the number of children who have biophobia increases, public interest and support for biodiversity conservation will gradually decline. Although many conservation biologists still consider that preventing the loss of wildlife habitat is the most important way to conserve biodiversity, I think preventing increased biophobia is also important for conservation. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Research shows that more and deeper experience people have with nature will help save it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "参考答案 P，依据原文整理，非官方答案。对应 P 段。原文依据：No matter what techniques we use, this growing field of research illustrates that saving nature requires encouraging people to experience it more often and more deeply. That calls for additional research-Lev and her coauthors have published a toolkit that other municipalities can follow to study the value of their own wild spaces-and clear communication of the results. \"If we can continue to show people the benefits of these wild spaces, \" Lev says, \"maybe people will begin to see more value in keeping these areas undeveloped—for the sake of our mutual benefit.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Though humans naturally tend to avoid dangerous animals, today's children try to stay away from even harmless ones.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：The results were published earlier this year in the journal Biological Conservation. Lead researcher Masashi Soga with the University of Tokyo says the study stemmed from observations about today's nature-deficient children. \"Humans inherently avoid dangerous organisms such as bees, but children these days avoid even harmless insects such as butterflies and dragonflies (蜻蜓), \" he says. \"I have long wondered why so many of today's children react like this. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Development in and around Discovery Park could cause heavy losses to the park and the local residents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。对应 M 段。原文依据：If anything like that happened, both the park and the people of Seattle could lose something vital. And that would continue the trend of chipping away at Seattle's-and the world's-natural spaces, leaving just tiny pocket parks and green-but-empty spaces that offer little real value to wildlife, plants or people.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. A large survey of school children found that their negative feelings grew as their experience with nature diminished.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：This isn't the fiction of living in a cold, empty dystopia (绝望的世界). Sadly, it's becoming a way of life for too many people — especially children. A recent study in Japan paints a striking portrait of this problem. A survey of more than 5,300 school children in the Tochigi Prefecture examined their perception of 14 local insect species and one spider. The results? A collective \"ew! \" Most of the students saw the species as things to dislike or fear, or even as sources of danger. The less experience the students had with nature, the more negative their feelings.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Elizabeth Lev believes increased contact with more wildlife helps conserve biodiversity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。对应 N 段。原文依据：\"It is true that any interaction with nature is better than none, but I don't want people to be satisfied with any small bit of grass and trees, \" Lev says. \"We have been in this cycle of environmental generational amnesia for a long time, where the baseline keeps shifting and we don't even realize what we're losing until it's gone. If we can get people to understand how much meaning and value can come from having more experiences with more wild forms of nature, then maybe we can stop this cycle and move toward conserving and restoring what we have left.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Some people in the US have asserted that forgiving student loan debt is one way to stimulate the economy and give assistance to those in need. One government proposition is to eliminate $ 10,000 of debt for 'economically distressed' students. Some in US Congress have gone so far as to suggest forgiving up to $ 50,000 in debt per student borrower, but does forgiving student debt necessarily correlate to helping the economically disadvantaged?",
+        "The answer is no. This policy is just giving money away to universities and the most affluent students in attendance. Federal Reserve data reveals that the highest-income 40 percent of households owe approximately 60 percent of outstanding student debt, while the lowest 40 percent owe just under 20percent. This could be due to a combination of factors: students from high-income households are more likely to go to expensive colleges, less likely to receive financial aid, and more likely to have high incomes post-graduation. Plus, the majority of student debt is held by graduate degree earners, who earn approximately 25 percent more than their undergraduate counterparts. Clearly, giving free reign to banks to forgive student debt is a step in the wrong direction.",
+        "Other proposals for broader, long-term student loan plans have some fundamental problems. One idea is to cancel student debt only for undergraduate degrees and for students making less than $ 125,000.",
+        "This attempts to address the fact that Congress' previously mentioned student loan forgiveness plan largely helps out the wealthy, but is an adverse incentive for universities to keep raising tuition and for students to choose to major in low-earning degree programs. Colleges have no reason to make their programs more affordable if they believe students will just take out more debt. And, students will feel more comfortable making the irresponsible decision to go tens of thousands of dollars in debt to major in impractical or idealistic subjects if they know their loans will be forgiven.",
+        "This is especially concerning given the pandemic (大流行病) has rendered a college education practically worthless. Students are paying tens of thousands of dollars per year to live at home and be lectured on the Internet. Do we really want to tell colleges that they can get away with providing below-average service for an outrageous cost?",
+        "In the case of any of these student debt plans, working-class Americans who chose not to or could not afford to go to college will be subsidizing the education of the professional class. Plumbers and retail workers will be paying for the degrees of doctors and lawyers.",
+        "The US government's effort to help those in debt is commendable but is this really the solution that will help the poor financially recover?"
+      ],
+      "study_paragraphs": [
+        "Some people in the US have asserted that forgiving student loan debt is one way to stimulate the economy and give assistance to those in need. One government proposition is to eliminate $ 10,000 of debt for 'economically distressed' students. Some in US Congress have gone so far as to suggest forgiving up to $ 50,000 in debt per student borrower, but does forgiving student debt necessarily correlate to helping the economically disadvantaged?",
+        "The answer is no. This policy is just giving money away to universities and the most affluent students in attendance. Federal Reserve data reveals that the highest-income 40 percent of households owe approximately 60 percent of outstanding student debt, while the lowest 40 percent owe just under 20percent. This could be due to a combination of factors: students from high-income households are more likely to go to expensive colleges, less likely to receive financial aid, and more likely to have high incomes post-graduation. Plus, the majority of student debt is held by graduate degree earners, who earn approximately 25 percent more than their undergraduate counterparts. Clearly, giving free reign to banks to forgive student debt is a step in the wrong direction.",
+        "Other proposals for broader, long-term student loan plans have some fundamental problems. One idea is to cancel student debt only for undergraduate degrees and for students making less than $ 125,000.",
+        "This attempts to address the fact that Congress' previously mentioned student loan forgiveness plan largely helps out the wealthy, but is an adverse incentive for universities to keep raising tuition and for students to choose to major in low-earning degree programs. Colleges have no reason to make their programs more affordable if they believe students will just take out more debt. And, students will feel more comfortable making the irresponsible decision to go tens of thousands of dollars in debt to major in impractical or idealistic subjects if they know their loans will be forgiven.",
+        "This is especially concerning given the pandemic (大流行病) has rendered a college education practically worthless. Students are paying tens of thousands of dollars per year to live at home and be lectured on the Internet. Do we really want to tell colleges that they can get away with providing below-average service for an outrageous cost?",
+        "In the case of any of these student debt plans, working-class Americans who chose not to or could not afford to go to college will be subsidizing the education of the professional class. Plumbers and retail workers will be paying for the degrees of doctors and lawyers.",
+        "The US government's effort to help those in debt is commendable but is this really the solution that will help the poor financially recover?"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-12-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. Why do some people advocate forgiving student loan debt?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They assert it will narrow the gap between the wealthy and the poor."
+            },
+            {
+              "key": "B",
+              "text": "They believe it will benefit both the economy and the underprivileged."
+            },
+            {
+              "key": "C",
+              "text": "They claim it will eliminate economic distress among college students."
+            },
+            {
+              "key": "D",
+              "text": "They think the cost of education is the responsibility of the government."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。支持者认为免除学生债务能刺激经济并帮助弱势群体。第 1 段原文依据：Some people in the US have asserted that forgiving student loan debt is one way to stimulate the economy and give assistance to those in need. One government proposition is to eliminate $ 10,000 of debt for 'economically distressed' students. Some in US Congress have gone so far as to suggest forgiving up to $ 50,000 in debt per student borrower, but does forgiving student debt necessarily correlate to helping the economically disadvantaged?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What do we learn from the Federal Reserve data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Approximately 60% of student debt remains unpaid."
+            },
+            {
+              "key": "B",
+              "text": "Cancelling student debt benefits wealthy families most."
+            },
+            {
+              "key": "C",
+              "text": "Forgiving student debt provides little benefit to universities."
+            },
+            {
+              "key": "D",
+              "text": "Low-income families owe the biggest amount of student debt."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。高收入家庭欠债占比最大，减免首先有利于富裕家庭。第 2 段原文依据：The answer is no. This policy is just giving money away to universities and the most affluent students in attendance. Federal Reserve data reveals that the highest-income 40 percent of households owe approximately 60 percent of outstanding student debt, while the lowest 40 percent owe just under 20percent. This could be due to a combination of factors: students from high-income households are more likely to go to expensive colleges, less likely to receive financial aid, and more likely to have high incomes post-graduation. Plus, the majority of student debt is held by graduate degree earners, who earn approximately 25 percent more than their undergraduate counterparts. Clearly, giving free reign to banks to forgive student debt is a step in the wrong direction.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the author say students are likely to do if they know they needn't repay their loans?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will choose to study subjects without considering their job prospects."
+            },
+            {
+              "key": "B",
+              "text": "They will be free to pursue their goals without being burdened financially."
+            },
+            {
+              "key": "C",
+              "text": "They will over-borrow and live beyond their means."
+            },
+            {
+              "key": "D",
+              "text": "They will be able to enroll in expensive universities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。贷款若无需偿还，学生可能不考虑就业前景而选择低回报专业。第 4 段原文依据：This attempts to address the fact that Congress' previously mentioned student loan forgiveness plan largely helps out the wealthy, but is an adverse incentive for universities to keep raising tuition and for students to choose to major in low-earning degree programs. Colleges have no reason to make their programs more affordable if they believe students will just take out more debt. And, students will feel more comfortable making the irresponsible decision to go tens of thousands of dollars in debt to major in impractical or idealistic subjects if they know their loans will be forgiven.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What does the author imply about colleges offering online education?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They cannot get away with the serious consequences."
+            },
+            {
+              "key": "B",
+              "text": "They have suffered greatly from the current pandemic."
+            },
+            {
+              "key": "C",
+              "text": "The tuition they charge is not justified by the quality of their service."
+            },
+            {
+              "key": "D",
+              "text": "The tuition they charge has surged outrageously during the pandemic."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。作者质疑居家网课的服务质量不足以支撑高额学费。第 5 段原文依据：This is especially concerning given the pandemic (大流行病) has rendered a college education practically worthless. Students are paying tens of thousands of dollars per year to live at home and be lectured on the Internet. Do we really want to tell colleges that they can get away with providing below-average service for an outrageous cost?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What will happen if any of the proposed student debt plans is implemented?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Plumbers and retail workers will have a chance of becoming professionals."
+            },
+            {
+              "key": "B",
+              "text": "Working-class students will have increasing access to subsidized education."
+            },
+            {
+              "key": "C",
+              "text": "Blue-collar workers will have to bear the cost of educating would-be high-earners."
+            },
+            {
+              "key": "D",
+              "text": "A growing number of students will be able to earn degrees in medicine and law."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。未上大学的蓝领工人将承担未来高收入专业人士的教育成本。第 6 段原文依据：In the case of any of these student debt plans, working-class Americans who chose not to or could not afford to go to college will be subsidizing the education of the professional class. Plumbers and retail workers will be paying for the degrees of doctors and lawyers.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "If there's one rule that most parents cling to in the confusing, fast-changing world of kids and media, it’s \"No screens before age 2. \"",
+        "As of today, that rule has been thrown out the window.",
+        "The American Academy of Pediatrics (AAP), which first issued that recommendation back in 1999, has extensively updated and revised its guidelines for children and adolescents to reflect new research and new habits.",
+        "The new guidelines, especially for very young children, shift the focus from WHAT is on the screen to WHO else is in the room. And in doing so, they raise some intriguing points about the future of learning from media.",
+        "For babies younger than 18 months, AAP still says no screens at all are the best idea-with one notable exception: Live video chat. Surveys indicate that families already popularly believe that \"Face time doesn't count\", or at least that the benefit of virtual visits with grandparents or other relatives outweighs the potential cost of exposing babies to the laptop or smartphone.",
+        "The AAP doesn't cite positive evidence that infants actually get something out of this kind of \"conversation\", the way that they clearly do from live social interaction. But there's some observational research that infants as young as six months old are emotionally engaged by playing live peekaboo (躲猫猫游戏) with Grandma online.",
+        "For infants and toddlers (学步儿童), ages 15 months to 2 years old, there's limited evidence from a couple of very small studies that they can learn new words from educational media, if and only if parents are watching alongside them, repeating what the video says and/or drawing attention to what is on the screen. In other words, treating a video or an app like a picture book is the best bet.",
+        "The flip side of this is that many studies have actually shown poorer language skills correlated with earlier solo viewing of \"educational\" videos. There's also research that shows language delays in children who watch more TV and start watching earlier. In both cases, the problem seems to be media replacing interaction with people. For this reason, the new AAP guideline has changed from \"avoid all screens under age 2\" to \"avoid solo media use in this age group.”",
+        "For preschoolers ages 2 to 5, there's more evidence that they have the ability to transfer knowledge from screens to the real world, including early literacy and math. For this age group, AAP recommends no more than an hour a day of screen use. And, just as with younger children, they want care-givers to take part in screen time: \"Co-view with your children, help children understand what they are seeing, and help them apply what they learn to the world around them. \""
+      ],
+      "study_paragraphs": [
+        "If there's one rule that most parents cling to in the confusing, fast-changing world of kids and media, it’s \"No screens before age 2. \"",
+        "As of today, that rule has been thrown out the window.",
+        "The American Academy of Pediatrics (AAP), which first issued that recommendation back in 1999, has extensively updated and revised its guidelines for children and adolescents to reflect new research and new habits.",
+        "The new guidelines, especially for very young children, shift the focus from WHAT is on the screen to WHO else is in the room. And in doing so, they raise some intriguing points about the future of learning from media.",
+        "For babies younger than 18 months, AAP still says no screens at all are the best idea-with one notable exception: Live video chat. Surveys indicate that families already popularly believe that \"Face time doesn't count\", or at least that the benefit of virtual visits with grandparents or other relatives outweighs the potential cost of exposing babies to the laptop or smartphone.",
+        "The AAP doesn't cite positive evidence that infants actually get something out of this kind of \"conversation\", the way that they clearly do from live social interaction. But there's some observational research that infants as young as six months old are emotionally engaged by playing live peekaboo (躲猫猫游戏) with Grandma online.",
+        "For infants and toddlers (学步儿童), ages 15 months to 2 years old, there's limited evidence from a couple of very small studies that they can learn new words from educational media, if and only if parents are watching alongside them, repeating what the video says and/or drawing attention to what is on the screen. In other words, treating a video or an app like a picture book is the best bet.",
+        "The flip side of this is that many studies have actually shown poorer language skills correlated with earlier solo viewing of \"educational\" videos. There's also research that shows language delays in children who watch more TV and start watching earlier. In both cases, the problem seems to be media replacing interaction with people. For this reason, the new AAP guideline has changed from \"avoid all screens under age 2\" to \"avoid solo media use in this age group.”",
+        "For preschoolers ages 2 to 5, there's more evidence that they have the ability to transfer knowledge from screens to the real world, including early literacy and math. For this age group, AAP recommends no more than an hour a day of screen use. And, just as with younger children, they want care-givers to take part in screen time: \"Co-view with your children, help children understand what they are seeing, and help them apply what they learn to the world around them. \""
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-12-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn about the \"No screens under 2\" rule?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has met more and more resistance from parents."
+            },
+            {
+              "key": "B",
+              "text": "It has proved helpful to children's healthy growth."
+            },
+            {
+              "key": "C",
+              "text": "It confuses parents with regard to kids' education."
+            },
+            {
+              "key": "D",
+              "text": "It has been discarded in line with recent research."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。新研究和媒介习惯促使 AAP 放弃一刀切的两岁以下禁屏规定。第 3 段原文依据：The American Academy of Pediatrics (AAP), which first issued that recommendation back in 1999, has extensively updated and revised its guidelines for children and adolescents to reflect new research and new habits.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What do the new AAP guidelines advocate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Young children should be accompanied by parents during screen time."
+            },
+            {
+              "key": "B",
+              "text": "Parents should be emotionally involved in their children's upbringing."
+            },
+            {
+              "key": "C",
+              "text": "Young children should watch videos carefully selected by parents."
+            },
+            {
+              "key": "D",
+              "text": "Parents should protect their children from too much media exposure."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。重点转向屏幕前由谁陪同，鼓励父母共同观看并解释。第 4 段原文依据：The new guidelines, especially for very young children, shift the focus from WHAT is on the screen to WHO else is in the room. And in doing so, they raise some intriguing points about the future of learning from media.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What do families think of live video chat according to surveys?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It should not be regarded as screen time."
+            },
+            {
+              "key": "B",
+              "text": "It helps babies to develop their verbal skills."
+            },
+            {
+              "key": "C",
+              "text": "It is not as harmful as playing games on laptops."
+            },
+            {
+              "key": "D",
+              "text": "It is a good substitute for video viewing."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。家庭普遍认为实时视频通话不算屏幕时间。第 5 段原文依据：For babies younger than 18 months, AAP still says no screens at all are the best idea-with one notable exception: Live video chat. Surveys indicate that families already popularly believe that \"Face time doesn't count\", or at least that the benefit of virtual visits with grandparents or other relatives outweighs the potential cost of exposing babies to the laptop or smartphone.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do researches find about kids solo viewing educational videos?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It arouses their interest in language learning."
+            },
+            {
+              "key": "B",
+              "text": "It works no better than reading picture books."
+            },
+            {
+              "key": "C",
+              "text": "It hampers their development of language skills."
+            },
+            {
+              "key": "D",
+              "text": "It helps them acquire independent learning skills."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。独自观看教育视频与更差的语言能力和语言发展延迟相关。第 8 段原文依据：The flip side of this is that many studies have actually shown poorer language skills correlated with earlier solo viewing of \"educational\" videos. There's also research that shows language delays in children who watch more TV and start watching earlier. In both cases, the problem seems to be media replacing interaction with people. For this reason, the new AAP guideline has changed from \"avoid all screens under age 2\" to \"avoid solo media use in this age group.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-12-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author say about preschoolers ages 2 to 5?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can understand pretty well what they see on the screen."
+            },
+            {
+              "key": "B",
+              "text": "They can learn on their own without much parental guidance."
+            },
+            {
+              "key": "C",
+              "text": "They can make use of educational videos to develop digital literacy."
+            },
+            {
+              "key": "D",
+              "text": "They can relate what they learn on the screen to real life situations."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。两到五岁的儿童能把屏幕上学到的知识应用到现实。第 9 段原文依据：For preschoolers ages 2 to 5, there's more evidence that they have the ability to transfer knowledge from screens to the real world, including early literacy and math. For this age group, AAP recommends no more than an hour a day of screen use. And, just as with younger children, they want care-givers to take part in screen time: \"Co-view with your children, help children understand what they are seeing, and help them apply what they learn to the world around them. \"",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-12-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "黄土高原(the Loess Plateau)是中国第三大高原,面积约60万平方公里,平均海拔1000-2000 米,绝大部分覆盖着50-80 米厚的黄土,是世界上黄土分布最集中、覆盖厚度最大的区域。这是大自然创造的一个奇迹，在世界上也是绝无仅有的。",
+        "黄土高原是中华民族的发祥地之一。早在5500 年前,人们就已经在黄土高原上开始农耕。随着农耕业的持续发展,黄土高原人口不断增加,在秦汉时期就成为中国的政治和经济中心。如今,随着西部大开发战略的实施，黄土高原地区的经济得到了迅速发展。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2022-12-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
