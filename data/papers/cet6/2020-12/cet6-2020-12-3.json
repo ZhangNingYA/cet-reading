@@ -1,0 +1,1877 @@
+{
+  "id": "cet6-2020-12-3",
+  "exam_level": "CET6",
+  "year": 2020,
+  "month": 12,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2020年12月大学英语六级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。客观题参考答案按随卷答案页逐题核对，来源为 PDF 所附参考答案，非官方答案；原件未提供范文和参考译文。做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2020-12-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay on why students should be encouraged to develop the ability to meet challenges. You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-12-3-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay on why students should be encouraged to develop the ability to meet challenges. You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Social distancing is putting people out of work, canceling school and tanking the stock market. It has been [26] ______ by fear, and it is creating even more fear as money problems and uncertainty grow. However, at its core is love, and a sacrifice to protect those most [27] ______ to the coronavirus (冠状病毒)effects — the elderly, people with compromised immune systems, and those whose life-saving resources would be used up by a [28] ______ epidemic.",
+        "Americans make life-saving decisions every day as a matter of course. We cut food into bite-sized pieces, we wear seatbelts, and we take care not to exceed the speed limit. But social distancing is [29] ______ in that it is completely self-sacrificing. Those who will benefit may be the elderly relatives of the [30] ______ person we didn’t pass in Starbucks, on the subway, or in the elevator.",
+        "Social distancing is millions of people making hundreds of sacrifices to keep the elderly alive. It doesn’t include the [31] ______ to run from society or make an excuse to avoid one’s obligations — such as life-saving medical work or the parental obligation to buy groceries. What it does include is applying love through caution. And in doing so, it offers an [32] ______ opportunity for those who care about the elderly to find new ways to love them.",
+        "If we’re not [33] ______ as much in our normal work or school, we have extra time to call parents and grandparents. We can also ask elderly relatives how to best support them [34] ______ and use our sacrifices as an opportunity to bring us, our community and the world [35] ______ ."
+      ],
+      "study_paragraphs": [
+        "Social distancing is putting people out of work, canceling school and tanking the stock market. It has been driven by fear, and it is creating even more fear as money problems and uncertainty grow. However, at its core is love, and a sacrifice to protect those most vulnerable to the coronavirus (冠状病毒)effects — the elderly, people with compromised immune systems, and those whose life-saving resources would be used up by a malignant epidemic.",
+        "Americans make life-saving decisions every day as a matter of course. We cut food into bite-sized pieces, we wear seatbelts, and we take care not to exceed the speed limit. But social distancing is unique in that it is completely self-sacrificing. Those who will benefit may be the elderly relatives of the random person we didn’t pass in Starbucks, on the subway, or in the elevator.",
+        "Social distancing is millions of people making hundreds of sacrifices to keep the elderly alive. It doesn’t include the temptations to run from society or make an excuse to avoid one’s obligations — such as life-saving medical work or the parental obligation to buy groceries. What it does include is applying love through caution. And in doing so, it offers an amazing opportunity for those who care about the elderly to find new ways to love them.",
+        "If we’re not engaged as much in our normal work or school, we have extra time to call parents and grandparents. We can also ask elderly relatives how to best support them spiritually and use our sacrifices as an opportunity to bring us, our community and the world closer."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-12-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，按随卷参考答案页核对，非官方答案。be driven by fear 表示由恐惧推动。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，按随卷参考答案页核对，非官方答案。vulnerable to 表示容易受到某事的伤害。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，按随卷参考答案页核对，非官方答案。malignant epidemic 表示恶性流行病。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，按随卷参考答案页核对，非官方答案。unique in that 表示独特之处在于其完全自我牺牲。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，按随卷参考答案页核对，非官方答案。a random person 指偶然遇到的陌生人。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，按随卷参考答案页核对，非官方答案。the temptations to run from society 指逃离社会或逃避义务的诱惑。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，按随卷参考答案页核对，非官方答案。an amazing opportunity 表示一个令人赞叹的机会。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，按随卷参考答案页核对，非官方答案。engaged in work or school 表示忙于工作或上学。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，按随卷参考答案页核对，非官方答案。support them spiritually 表示给予精神上的支持。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "amazing"
+            },
+            {
+              "key": "B",
+              "text": "closer"
+            },
+            {
+              "key": "C",
+              "text": "driven"
+            },
+            {
+              "key": "D",
+              "text": "engaged"
+            },
+            {
+              "key": "E",
+              "text": "malignant"
+            },
+            {
+              "key": "F",
+              "text": "oppressing"
+            },
+            {
+              "key": "G",
+              "text": "premises"
+            },
+            {
+              "key": "H",
+              "text": "random"
+            },
+            {
+              "key": "I",
+              "text": "sentimentally"
+            },
+            {
+              "key": "J",
+              "text": "spiritually"
+            },
+            {
+              "key": "K",
+              "text": "temptations"
+            },
+            {
+              "key": "L",
+              "text": "thriftier"
+            },
+            {
+              "key": "M",
+              "text": "tickled"
+            },
+            {
+              "key": "N",
+              "text": "unique"
+            },
+            {
+              "key": "O",
+              "text": "vulnerable"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，按随卷参考答案页核对，非官方答案。bring ... closer 表示使彼此更加亲近。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Why Lifelong Learning Is the International Passport to Success",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer sheet 2.",
+      "paragraphs": [
+        "[A] Picture yourself at a college graduation day, with a fresh cohort (一群)of students about to set sail for new horizons. What are they thinking while they throw their caps in the air? What is it with this thin sheet of paper that makes it so precious? It’s not only the proof of acquired knowledge but plays into the reputation game of where you were trained. Being a graduate from Harvard Law School carries that extra glamour, doesn’t it? Yet take a closer look, and the diploma is the perfect ending to the modern tragedy of education.",
+        "[B] Why? Because universities and curricula are designed along the three unities of French classical tragedy: time, action, and place. Students meet at the university campus (unity of place) for classes (unity of action) during their 20s (unity of time). This classical model has traditionally produced prestigious universities, but it is now challenged by the digitalisation of society—which allows everybody who is connected to the internet to access learning — and by the need to acquire skills in step with a fast-changing world. Universities must realise that learning in your 20s won’t be enough. If technological diffusion and implementation develop faster, workers will have to constantly refresh their skills.",
+        "[C] The university model needs to evolve. It must equip students with the right skills and knowledge to compete in a world ‘where value will be derived largely from human interaction and the ability to invent and interpret things that machines cannot’，as the English futurist Richard Watson puts it. By teaching foundational knowledge and up-to-date skills, universities will provide students with the future-proof skills of lifelong learning, not just get them ‘job-ready’.",
+        "[D] Some universities already play a critical role in lifelong learning as they want to keep the value of their diplomas. This new role comes with a huge set of challenges, and needs largely to be invented. One way to start this transformation process could be to go beyond the ‘five-year diploma model’ to adapt curricula to lifelong learning. We call this model the lifelong passport.",
+        "[E] The Bachelor’s degree could be your passport to lifelong learning. For the first few years, students would ‘learn to learn’ and get endowed with reasoning skills that remain with them for the rest of their lives. For instance, physics allows you to observe and rationalise the world, but also to integrate observations into models and, sometimes, models into theories or laws that can be used to make predictions. Mathematics is the language used to formulate the laws of physics or economy, and to make rigorous computations that turn into predictions. These two disciplines naturally form the foundational pillars of education in technical universities.",
+        "[F] Recent advances in computational methods and data science push us into rethinking science and engineering. Computers increasingly become principal actors in leveraging data to formulate questions, which requires radically new ways of reasoning. Therefore, a new discipline blending computer science, programming, statistics and machine learning should be added to the traditional foundational topics of mathematics and physics. These three pillars would allow you to keep learning complex technical subjects all your life because numeracy ( 计算)is the foundation upon which everything else is eventually built.",
+        "[G] According to this new model, the Master of Science (MSc) would become the first stamp in the lifelong learning journey. The MSc curriculum should prepare students for their professional career by allowing them to focus on acquiring practical skills through projects.",
+        "[H] Those projects are then interwoven with fast-paced technical modules (模块)learned ‘on-the-fly ’ and ‘at will’ depending on the nature of the project. If, for instance, your project is developing an integrated circuit, you will have to take a module on advanced concepts in microelectronics. The most critical skills will be developed before the project even starts, in the form of boot camps (短期强化训练)，while the rest can be fostered along with the project, putting them to immediate use and thus providing a rich learning context.",
+        "[I] In addition to technical capabilities, the very nature of projects develops social and entrepreneurial skills, such as design thinking, initiative taking, team leading, activity reporting or resource planning. Not only will those skills be actually integrated into the curriculum but they will be very important to have in the future because they are difficult to automate.",
+        "[J] After the MSc diploma is earned, there would be many more stamps of lifelong learning over the years. If universities decide to engage in this learning model, they will have to cope with many organisational challenges that might shake their unity of place and action. First, the number of students would be unpredictable. If all of a university’s alumni (往届毕业生)were to become students again, the student body would be much bigger than it is now, and it could become unsustainable for the campus in terms of both size and resources. Second, freshly graduated students would mix with professionally experienced ones. This would change the classroom dynamics, perhaps for the best. Project-based learning with a mixed team reflects the reality of the professional world and could therefore be a better preparation for it.",
+        "[K] Sound like science fiction? In many countries, part-time studying is not exceptional: on average across OECD countries, part-time students in 2016 represented 20 per cent of enrolment in tertiary education. In many countries, this share is higher and can exceed 40 per cent in Australia, New Zealand and Sweden.",
+        "[L] If lifelong learning were to become a priority and the new norm, diplomas, just like passports, could be revalidated periodically. A time-determined revalidation would ease administration for everybody. Universities as well as employers and employees would know when they have to retrain. For instance, graduates from the year 2000 would have to come back in 2005.",
+        "[M] This could fix the main organisational challenges for the university, but not for the learners, due to lack of time, family obligations or funds. Here, online learning might be an option because it allows you to save your ‘travel time’, but it has its limits. So far, none of the major employers associated with online learning platforms such as Coursera and Udacity has committed to hire or even interview graduates of their new online programmes.",
+        "[N] Even if time were not an issue, who will pay for lifelong learning? That’s the eternal debate: should it be the learner’s responsibility, that of his employer, or of the state? For example, in Massachusetts, the healthcare professions require continuing education credits, which are carefully evidenced and documented. Yet the same state’s lawyers don’t require continuing legal education, although most lawyers do participate in it informally. One explanation is that technology is less of a factor in law than it is in healthcare.",
+        "[O] Europe has many scenarios, but the French and Swiss ones are interesting to compare. In France, every individual has a right to lifelong learning organised via a personal learning account that is credited as you work. In Switzerland, lifelong learning is a personal responsibility and not a government one. However, employers and the state encourage continuing education either by funding parts of it or by allowing employees to attend it.",
+        "[P] Universities have a fundamental role to play in this journey, and higher education is in for a change. Just like classical theatre, the old university model produced talent and value for society. We are not advocating its abolition but rather calling for the adaptation of its characteristics to meet the needs of today."
+      ],
+      "study_paragraphs": [
+        "Picture yourself at a college graduation day, with a fresh cohort (一群)of students about to set sail for new horizons. What are they thinking while they throw their caps in the air? What is it with this thin sheet of paper that makes it so precious? It’s not only the proof of acquired knowledge but plays into the reputation game of where you were trained. Being a graduate from Harvard Law School carries that extra glamour, doesn’t it? Yet take a closer look, and the diploma is the perfect ending to the modern tragedy of education.",
+        "Why? Because universities and curricula are designed along the three unities of French classical tragedy: time, action, and place. Students meet at the university campus (unity of place) for classes (unity of action) during their 20s (unity of time). This classical model has traditionally produced prestigious universities, but it is now challenged by the digitalisation of society—which allows everybody who is connected to the internet to access learning — and by the need to acquire skills in step with a fast-changing world. Universities must realise that learning in your 20s won’t be enough. If technological diffusion and implementation develop faster, workers will have to constantly refresh their skills.",
+        "The university model needs to evolve. It must equip students with the right skills and knowledge to compete in a world ‘where value will be derived largely from human interaction and the ability to invent and interpret things that machines cannot’，as the English futurist Richard Watson puts it. By teaching foundational knowledge and up-to-date skills, universities will provide students with the future-proof skills of lifelong learning, not just get them ‘job-ready’.",
+        "Some universities already play a critical role in lifelong learning as they want to keep the value of their diplomas. This new role comes with a huge set of challenges, and needs largely to be invented. One way to start this transformation process could be to go beyond the ‘five-year diploma model’ to adapt curricula to lifelong learning. We call this model the lifelong passport.",
+        "The Bachelor’s degree could be your passport to lifelong learning. For the first few years, students would ‘learn to learn’ and get endowed with reasoning skills that remain with them for the rest of their lives. For instance, physics allows you to observe and rationalise the world, but also to integrate observations into models and, sometimes, models into theories or laws that can be used to make predictions. Mathematics is the language used to formulate the laws of physics or economy, and to make rigorous computations that turn into predictions. These two disciplines naturally form the foundational pillars of education in technical universities.",
+        "Recent advances in computational methods and data science push us into rethinking science and engineering. Computers increasingly become principal actors in leveraging data to formulate questions, which requires radically new ways of reasoning. Therefore, a new discipline blending computer science, programming, statistics and machine learning should be added to the traditional foundational topics of mathematics and physics. These three pillars would allow you to keep learning complex technical subjects all your life because numeracy ( 计算)is the foundation upon which everything else is eventually built.",
+        "According to this new model, the Master of Science (MSc) would become the first stamp in the lifelong learning journey. The MSc curriculum should prepare students for their professional career by allowing them to focus on acquiring practical skills through projects.",
+        "Those projects are then interwoven with fast-paced technical modules (模块)learned ‘on-the-fly ’ and ‘at will’ depending on the nature of the project. If, for instance, your project is developing an integrated circuit, you will have to take a module on advanced concepts in microelectronics. The most critical skills will be developed before the project even starts, in the form of boot camps (短期强化训练)，while the rest can be fostered along with the project, putting them to immediate use and thus providing a rich learning context.",
+        "In addition to technical capabilities, the very nature of projects develops social and entrepreneurial skills, such as design thinking, initiative taking, team leading, activity reporting or resource planning. Not only will those skills be actually integrated into the curriculum but they will be very important to have in the future because they are difficult to automate.",
+        "After the MSc diploma is earned, there would be many more stamps of lifelong learning over the years. If universities decide to engage in this learning model, they will have to cope with many organisational challenges that might shake their unity of place and action. First, the number of students would be unpredictable. If all of a university’s alumni (往届毕业生)were to become students again, the student body would be much bigger than it is now, and it could become unsustainable for the campus in terms of both size and resources. Second, freshly graduated students would mix with professionally experienced ones. This would change the classroom dynamics, perhaps for the best. Project-based learning with a mixed team reflects the reality of the professional world and could therefore be a better preparation for it.",
+        "Sound like science fiction? In many countries, part-time studying is not exceptional: on average across OECD countries, part-time students in 2016 represented 20 per cent of enrolment in tertiary education. In many countries, this share is higher and can exceed 40 per cent in Australia, New Zealand and Sweden.",
+        "If lifelong learning were to become a priority and the new norm, diplomas, just like passports, could be revalidated periodically. A time-determined revalidation would ease administration for everybody. Universities as well as employers and employees would know when they have to retrain. For instance, graduates from the year 2000 would have to come back in 2005.",
+        "This could fix the main organisational challenges for the university, but not for the learners, due to lack of time, family obligations or funds. Here, online learning might be an option because it allows you to save your ‘travel time’, but it has its limits. So far, none of the major employers associated with online learning platforms such as Coursera and Udacity has committed to hire or even interview graduates of their new online programmes.",
+        "Even if time were not an issue, who will pay for lifelong learning? That’s the eternal debate: should it be the learner’s responsibility, that of his employer, or of the state? For example, in Massachusetts, the healthcare professions require continuing education credits, which are carefully evidenced and documented. Yet the same state’s lawyers don’t require continuing legal education, although most lawyers do participate in it informally. One explanation is that technology is less of a factor in law than it is in healthcare.",
+        "Europe has many scenarios, but the French and Swiss ones are interesting to compare. In France, every individual has a right to lifelong learning organised via a personal learning account that is credited as you work. In Switzerland, lifelong learning is a personal responsibility and not a government one. However, employers and the state encourage continuing education either by funding parts of it or by allowing employees to attend it.",
+        "Universities have a fundamental role to play in this journey, and higher education is in for a change. Just like classical theatre, the old university model produced talent and value for society. We are not advocating its abolition but rather calling for the adaptation of its characteristics to meet the needs of today."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-12-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Students should develop the key skills before they start a project.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，按随卷参考答案页核对，非官方答案。对应 H 段。原文依据：Those projects are then interwoven with fast-paced technical modules (模块)learned ‘on-the-fly ’ and ‘at will’ depending on the nature of the project. If, for instance, your project is developing an integrated circuit, you will have to take a module on advanced concepts in microelectronics. The most critical skills will be developed before the project even starts, in the form of boot camps (短期强化训练)，while the rest can be fostered along with the project, putting them to immediate use and thus providing a rich learning context.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. By acquiring reasoning skills in the first few years of college, students can lay a foundation for lifelong learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，按随卷参考答案页核对，非官方答案。对应 E 段。原文依据：The Bachelor’s degree could be your passport to lifelong learning. For the first few years, students would ‘learn to learn’ and get endowed with reasoning skills that remain with them for the rest of their lives. For instance, physics allows you to observe and rationalise the world, but also to integrate observations into models and, sometimes, models into theories or laws that can be used to make predictions. Mathematics is the language used to formulate the laws of physics or economy, and to make rigorous computations that turn into predictions. These two disciplines naturally form the foundational pillars of education in technical universities.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. The easy access to learning and rapid technological changes have brought the traditional model of education under challenge.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，按随卷参考答案页核对，非官方答案。对应 B 段。原文依据：Why? Because universities and curricula are designed along the three unities of French classical tragedy: time, action, and place. Students meet at the university campus (unity of place) for classes (unity of action) during their 20s (unity of time). This classical model has traditionally produced prestigious universities, but it is now challenged by the digitalisation of society—which allows everybody who is connected to the internet to access learning — and by the need to acquire skills in step with a fast-changing world. Universities must realise that learning in your 20s won’t be enough. If technological diffusion and implementation develop faster, workers will have to constantly refresh their skills.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Unbelievable as it may seem, part-time students constitute a considerable portion of the student body in many universities across the world.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，按随卷参考答案页核对，非官方答案。对应 K 段。原文依据：Sound like science fiction? In many countries, part-time studying is not exceptional: on average across OECD countries, part-time students in 2016 represented 20 per cent of enrolment in tertiary education. In many countries, this share is higher and can exceed 40 per cent in Australia, New Zealand and Sweden.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Some social and managerial skills, which are not easily automated, will be of great importance to students’ future careers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，按随卷参考答案页核对，非官方答案。对应 I 段。原文依据：In addition to technical capabilities, the very nature of projects develops social and entrepreneurial skills, such as design thinking, initiative taking, team leading, activity reporting or resource planning. Not only will those skills be actually integrated into the curriculum but they will be very important to have in the future because they are difficult to automate.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. A new model of college education should provide students with the knowledge and skills that will make them more inventive and capable of lifelong learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，按随卷参考答案页核对，非官方答案。对应 C 段。原文依据：The university model needs to evolve. It must equip students with the right skills and knowledge to compete in a world ‘where value will be derived largely from human interaction and the ability to invent and interpret things that machines cannot’，as the English futurist Richard Watson puts it. By teaching foundational knowledge and up-to-date skills, universities will provide students with the future-proof skills of lifelong learning, not just get them ‘job-ready’.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. A mixed student body may change the classroom dynamics and benefit learning.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，按随卷参考答案页核对，非官方答案。对应 J 段。原文依据：After the MSc diploma is earned, there would be many more stamps of lifelong learning over the years. If universities decide to engage in this learning model, they will have to cope with many organisational challenges that might shake their unity of place and action. First, the number of students would be unpredictable. If all of a university’s alumni (往届毕业生)were to become students again, the student body would be much bigger than it is now, and it could become unsustainable for the campus in terms of both size and resources. Second, freshly graduated students would mix with professionally experienced ones. This would change the classroom dynamics, perhaps for the best. Project-based learning with a mixed team reflects the reality of the professional world and could therefore be a better preparation for it.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. The question of who will bear the cost of lifelong learning is a topic of constant debate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，按随卷参考答案页核对，非官方答案。对应 N 段。原文依据：Even if time were not an issue, who will pay for lifelong learning? That’s the eternal debate: should it be the learner’s responsibility, that of his employer, or of the state? For example, in Massachusetts, the healthcare professions require continuing education credits, which are carefully evidenced and documented. Yet the same state’s lawyers don’t require continuing legal education, although most lawyers do participate in it informally. One explanation is that technology is less of a factor in law than it is in healthcare.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. To the traditional subjects of math and physics should be added a new discipline which combines computer science with statistics and other components.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，按随卷参考答案页核对，非官方答案。对应 F 段。原文依据：Recent advances in computational methods and data science push us into rethinking science and engineering. Computers increasingly become principal actors in leveraging data to formulate questions, which requires radically new ways of reasoning. Therefore, a new discipline blending computer science, programming, statistics and machine learning should be added to the traditional foundational topics of mathematics and physics. These three pillars would allow you to keep learning complex technical subjects all your life because numeracy ( 计算)is the foundation upon which everything else is eventually built.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Students who are burdened with family duties might choose to take online courses.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，按随卷参考答案页核对，非官方答案。对应 M 段。原文依据：This could fix the main organisational challenges for the university, but not for the learners, due to lack of time, family obligations or funds. Here, online learning might be an option because it allows you to save your ‘travel time’, but it has its limits. So far, none of the major employers associated with online learning platforms such as Coursera and Udacity has committed to hire or even interview graduates of their new online programmes.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Why does social media trigger feelings of loneliness and inadequacy? Because instead of being real life, it is, for the most part, impression management, a way of marketing yourself, carefully choosing and filtering the pictures and words to put your best face forward.",
+        "Online “friends” made through social media do not follow the normal psychological progression of an interpersonal relationship. You share neither physical time nor emotional conversations over the Internet. You simply communicate photographs and catchy posts to a diverse group of people whom you have “friended” or “followed” based on an accidental interaction. This is not to say that your social media friends can’t be real friends. They absolutely can, but the two are not synonymous.",
+        "Generally speaking, there are no unfiltered comments or casually taken photos on our social media pages. And, rightfully so, because it wouldn’t feel safe to be completely authentic and vulnerable with some of our “ friends ” whom we don’t actually know or with whom trust has yet to be built.",
+        "Social media can certainly be an escape from the daily grind, but we must be cautioned against the negative effects, such as addiction, on a person’s overall psychological well-being.",
+        "As humans, we yearn for social connection. Scrolling ( 滚动)through pages of pictures and comments, however, does not provide the same degree of fulfillment as face-to-face interactions do. Also, we tend to idealize others’ lives and compare our downfalls to their greatest accomplishments, ending in feelings of loneliness and inadequacy.",
+        "Social media can lead people on the unhealthy quest for perfection. Some people begin to attend certain events or travel to different places so that they can snap that “ perfect ” photo. They begin to seek validation through the number of people who “ like ” their posts. In order for it to play a psychologically healthy role in your social life, social media should supplement an already healthy social network. Pictures and posts should be byproducts of life’s treasured moments and fun times, not the planned and calculated image that one is putting out into cyberspace in an attempt to fill insecurities or unmet needs.",
+        "Ultimately, social media has increased our ability to connect with various types of people all over the globe. It has opened doors for businesses and allowed us to stay connected to people whom we may not otherwise get to follow. However, social media should feel like a fun experience, not one that contributes to negative thoughts and feelings. If the latter is the case, increasing face-to-face time with trusted friends, and minimizing time scrolling online, will prove to be a reminder that your social network is much more rewarding than any “ like,” “ follow ” or “ share ” can be."
+      ],
+      "study_paragraphs": [
+        "Why does social media trigger feelings of loneliness and inadequacy? Because instead of being real life, it is, for the most part, impression management, a way of marketing yourself, carefully choosing and filtering the pictures and words to put your best face forward.",
+        "Online “friends” made through social media do not follow the normal psychological progression of an interpersonal relationship. You share neither physical time nor emotional conversations over the Internet. You simply communicate photographs and catchy posts to a diverse group of people whom you have “friended” or “followed” based on an accidental interaction. This is not to say that your social media friends can’t be real friends. They absolutely can, but the two are not synonymous.",
+        "Generally speaking, there are no unfiltered comments or casually taken photos on our social media pages. And, rightfully so, because it wouldn’t feel safe to be completely authentic and vulnerable with some of our “ friends ” whom we don’t actually know or with whom trust has yet to be built.",
+        "Social media can certainly be an escape from the daily grind, but we must be cautioned against the negative effects, such as addiction, on a person’s overall psychological well-being.",
+        "As humans, we yearn for social connection. Scrolling ( 滚动)through pages of pictures and comments, however, does not provide the same degree of fulfillment as face-to-face interactions do. Also, we tend to idealize others’ lives and compare our downfalls to their greatest accomplishments, ending in feelings of loneliness and inadequacy.",
+        "Social media can lead people on the unhealthy quest for perfection. Some people begin to attend certain events or travel to different places so that they can snap that “ perfect ” photo. They begin to seek validation through the number of people who “ like ” their posts. In order for it to play a psychologically healthy role in your social life, social media should supplement an already healthy social network. Pictures and posts should be byproducts of life’s treasured moments and fun times, not the planned and calculated image that one is putting out into cyberspace in an attempt to fill insecurities or unmet needs.",
+        "Ultimately, social media has increased our ability to connect with various types of people all over the globe. It has opened doors for businesses and allowed us to stay connected to people whom we may not otherwise get to follow. However, social media should feel like a fun experience, not one that contributes to negative thoughts and feelings. If the latter is the case, increasing face-to-face time with trusted friends, and minimizing time scrolling online, will prove to be a reminder that your social network is much more rewarding than any “ like,” “ follow ” or “ share ” can be."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-12-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What does the author imply social media may do to our life?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may facilitate our interpersonal relationships."
+            },
+            {
+              "key": "B",
+              "text": "It may filter our negative impressions of others."
+            },
+            {
+              "key": "C",
+              "text": "It may make us feel isolated and incompetent."
+            },
+            {
+              "key": "D",
+              "text": "It may render us vulnerable and inauthentic."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，按随卷参考答案页核对，非官方答案。首段解释社交媒体为何会引发孤独和不足感。第 1 段原文依据：Why does social media trigger feelings of loneliness and inadequacy? Because instead of being real life, it is, for the most part, impression management, a way of marketing yourself, carefully choosing and filtering the pictures and words to put your best face forward.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. Why do people post comments selectively on social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They do not find all their online friends trustworthy."
+            },
+            {
+              "key": "B",
+              "text": "They want to avoid offending any of their audience."
+            },
+            {
+              "key": "C",
+              "text": "They do not want to lose their followers."
+            },
+            {
+              "key": "D",
+              "text": "They are eager to boost their popularity."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，按随卷参考答案页核对，非官方答案。第三段说明对有些网络朋友尚未建立信任，不宜完全暴露自己。第 3 段原文依据：Generally speaking, there are no unfiltered comments or casually taken photos on our social media pages. And, rightfully so, because it wouldn’t feel safe to be completely authentic and vulnerable with some of our “ friends ” whom we don’t actually know or with whom trust has yet to be built.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What are humans inclined to do according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Exaggerate their life’s accomplishments."
+            },
+            {
+              "key": "B",
+              "text": "Strive for perfection regardless of the cost."
+            },
+            {
+              "key": "C",
+              "text": "Paint a rosy picture of other people’s lives."
+            },
+            {
+              "key": "D",
+              "text": "Learn lessons from other people’s downfalls."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，按随卷参考答案页核对，非官方答案。第五段指出人们倾向于理想化别人的生活。第 5 段原文依据：As humans, we yearn for social connection. Scrolling ( 滚动)through pages of pictures and comments, however, does not provide the same degree of fulfillment as face-to-face interactions do. Also, we tend to idealize others’ lives and compare our downfalls to their greatest accomplishments, ending in feelings of loneliness and inadequacy.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is the author’s view of pictures and posts on social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They should record the memorable moments in people’s lives."
+            },
+            {
+              "key": "B",
+              "text": "They should be carefully edited so as to present the best image."
+            },
+            {
+              "key": "C",
+              "text": "They should be shown in a way that meets one’s security needs."
+            },
+            {
+              "key": "D",
+              "text": "They should keep people from the unhealthy quest for perfection."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，按随卷参考答案页核对，非官方答案。第六段说照片和帖子应当是珍贵生活经历的副产品。第 6 段原文依据：Social media can lead people on the unhealthy quest for perfection. Some people begin to attend certain events or travel to different places so that they can snap that “ perfect ” photo. They begin to seek validation through the number of people who “ like ” their posts. In order for it to play a psychologically healthy role in your social life, social media should supplement an already healthy social network. Pictures and posts should be byproducts of life’s treasured moments and fun times, not the planned and calculated image that one is putting out into cyberspace in an attempt to fill insecurities or unmet needs.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author advise people to do when they find their online experience unconstructive?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Use social media to increase their ability to connect with various types of people."
+            },
+            {
+              "key": "B",
+              "text": "Stay connected to those whom they may not otherwise get to know and befriend."
+            },
+            {
+              "key": "C",
+              "text": "Try to prevent negative thoughts and feelings from getting into the online pages."
+            },
+            {
+              "key": "D",
+              "text": "Strengthen ties with real-life friends instead of caring about their online image."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，按随卷参考答案页核对，非官方答案。末段建议增加与可信任朋友的面对面相处，并减少在线浏览。第 7 段原文依据：Ultimately, social media has increased our ability to connect with various types of people all over the globe. It has opened doors for businesses and allowed us to stay connected to people whom we may not otherwise get to follow. However, social media should feel like a fun experience, not one that contributes to negative thoughts and feelings. If the latter is the case, increasing face-to-face time with trusted friends, and minimizing time scrolling online, will prove to be a reminder that your social network is much more rewarding than any “ like,” “ follow ” or “ share ” can be.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Imagine that an alien species landed on Earth and, through their mere presence, those aliens caused our art to vanish, our music to homogenize, and our technological know-how to disappear. That is effectively what humans have been doing to our closest relatives — chimps (大猩猩).",
+        "Back in 1999, a team of scientists led by Andrew Whiten showed that chimps from different parts of Africa behave very differently from one another. Some groups would get each other’s attention by rapping branches with their knuckles (指关节)，while others did it by loudly ripping leaves with their teeth. The team identified 39 of these traditions that are practiced by some communities but not others — a pattern that, at the time, hadn’t been seen in any animal except humans. It was evidence, the team said, that chimps have their own cultures.",
+        "It took a long time to convince skeptics that such cultures exist, but now we have plenty of examples of animals learning local traditions from one another.",
+        "But just when many scientists have come to accept the existence of animal cultures, many of those cultures might vanish. Ammie Kalan and her colleagues have shown, through years of intensive fieldwork, that the very presence of humans has eroded the diversity of chimp behavior. Where we flourish, their cultures wither. It is a bitterly ironic thing to learn on the 20th anniversary of Whiten’s classic study.",
+        "“ It’s amazing to think that just 60 years ago, we knew next to nothing of the behavior of our sister species in the wild,” Whiten says. “ But now, just as we are truly getting to know our primate(灵长类)cousins, the actions of humans are closing the window on all we have discovered.”",
+        "“ Sometimes in the rush to conserve the species, I think we forget about the individuals,” says Cat Hobaiter, a professor at the University of St. Andrews. “ Each population, each community, even each generation of chimps is unique. An event might only have a small impact on the total population of chimps, but it may wipe out an entire community — an entire culture. No matter what we do to restore habitat or support population growth, we may never be able to restore that culture.”",
+        "No one knows whether the destruction of chimp culture is getting worse. Few places have tracked chimp behavior over long periods, and those that have are also more likely to have protected their animals from human influence.",
+        "Obviously, conservationists need to think about saving species in a completely new way — by preserving animal traditions as well as bodies and genes. “ Instead of focusing only on the conservation of genetically based entities like species, we now need to also consider culturally based entities,” says Andrew Whiten."
+      ],
+      "study_paragraphs": [
+        "Imagine that an alien species landed on Earth and, through their mere presence, those aliens caused our art to vanish, our music to homogenize, and our technological know-how to disappear. That is effectively what humans have been doing to our closest relatives — chimps (大猩猩).",
+        "Back in 1999, a team of scientists led by Andrew Whiten showed that chimps from different parts of Africa behave very differently from one another. Some groups would get each other’s attention by rapping branches with their knuckles (指关节)，while others did it by loudly ripping leaves with their teeth. The team identified 39 of these traditions that are practiced by some communities but not others — a pattern that, at the time, hadn’t been seen in any animal except humans. It was evidence, the team said, that chimps have their own cultures.",
+        "It took a long time to convince skeptics that such cultures exist, but now we have plenty of examples of animals learning local traditions from one another.",
+        "But just when many scientists have come to accept the existence of animal cultures, many of those cultures might vanish. Ammie Kalan and her colleagues have shown, through years of intensive fieldwork, that the very presence of humans has eroded the diversity of chimp behavior. Where we flourish, their cultures wither. It is a bitterly ironic thing to learn on the 20th anniversary of Whiten’s classic study.",
+        "“ It’s amazing to think that just 60 years ago, we knew next to nothing of the behavior of our sister species in the wild,” Whiten says. “ But now, just as we are truly getting to know our primate(灵长类)cousins, the actions of humans are closing the window on all we have discovered.”",
+        "“ Sometimes in the rush to conserve the species, I think we forget about the individuals,” says Cat Hobaiter, a professor at the University of St. Andrews. “ Each population, each community, even each generation of chimps is unique. An event might only have a small impact on the total population of chimps, but it may wipe out an entire community — an entire culture. No matter what we do to restore habitat or support population growth, we may never be able to restore that culture.”",
+        "No one knows whether the destruction of chimp culture is getting worse. Few places have tracked chimp behavior over long periods, and those that have are also more likely to have protected their animals from human influence.",
+        "Obviously, conservationists need to think about saving species in a completely new way — by preserving animal traditions as well as bodies and genes. “ Instead of focusing only on the conservation of genetically based entities like species, we now need to also consider culturally based entities,” says Andrew Whiten."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-12-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author say we humans have been doing to chimps?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ruining their culture."
+            },
+            {
+              "key": "B",
+              "text": "Accelerating their extinction."
+            },
+            {
+              "key": "C",
+              "text": "Treating them as alien species."
+            },
+            {
+              "key": "D",
+              "text": "Homogenizing their living habits."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，按随卷参考答案页核对，非官方答案。首段用外星人类比人类使黑猩猩文化消失的影响。第 1 段原文依据：Imagine that an alien species landed on Earth and, through their mere presence, those aliens caused our art to vanish, our music to homogenize, and our technological know-how to disappear. That is effectively what humans have been doing to our closest relatives — chimps (大猩猩).",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What is the finding of Andrew Whiten’s team?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Chimps demonstrate highly developed skills of communication."
+            },
+            {
+              "key": "B",
+              "text": "Chimps rely heavily upon their body language to communicate."
+            },
+            {
+              "key": "C",
+              "text": "Chimps behave in ways quite similar to those of human beings."
+            },
+            {
+              "key": "D",
+              "text": "Different chimp groups differ in their way of communication."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，按随卷参考答案页核对，非官方答案。第二段举出不同黑猩猩群体吸引注意的方式不同。第 2 段原文依据：Back in 1999, a team of scientists led by Andrew Whiten showed that chimps from different parts of Africa behave very differently from one another. Some groups would get each other’s attention by rapping branches with their knuckles (指关节)，while others did it by loudly ripping leaves with their teeth. The team identified 39 of these traditions that are practiced by some communities but not others — a pattern that, at the time, hadn’t been seen in any animal except humans. It was evidence, the team said, that chimps have their own cultures.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What did Ammie Kalan and her colleagues find through their intensive fieldwork?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Whiten’s classic study has little impact on the diversity of chimp behavior."
+            },
+            {
+              "key": "B",
+              "text": "Chimp behavior becomes less varied with the increase of human activity."
+            },
+            {
+              "key": "C",
+              "text": "Chimps alter their culture to quickly adapt to the changed environment."
+            },
+            {
+              "key": "D",
+              "text": "It might already be too late to prevent animal cultures from extinction."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，按随卷参考答案页核对，非官方答案。第四段指出人类活动侵蚀了黑猩猩行为的多样性。第 4 段原文依据：But just when many scientists have come to accept the existence of animal cultures, many of those cultures might vanish. Ammie Kalan and her colleagues have shown, through years of intensive fieldwork, that the very presence of humans has eroded the diversity of chimp behavior. Where we flourish, their cultures wither. It is a bitterly ironic thing to learn on the 20th anniversary of Whiten’s classic study.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does Cat Hobaiter think we should do for chimp conservation?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Try to understand our sister species’ behavior in the wild."
+            },
+            {
+              "key": "B",
+              "text": "Make efforts to preserve each individual chimp community."
+            },
+            {
+              "key": "C",
+              "text": "Study the unique characteristics of each generation of chimps."
+            },
+            {
+              "key": "D",
+              "text": "Endeavor to restore chimp habitats to expand its total population."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，按随卷参考答案页核对，非官方答案。第六段强调每一个群体和社区的文化都独特，需要分别保护。第 6 段原文依据：“ Sometimes in the rush to conserve the species, I think we forget about the individuals,” says Cat Hobaiter, a professor at the University of St. Andrews. “ Each population, each community, even each generation of chimps is unique. An event might only have a small impact on the total population of chimps, but it may wipe out an entire community — an entire culture. No matter what we do to restore habitat or support population growth, we may never be able to restore that culture.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-12-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author suggest conservationists do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Focus entirely on culturally-based entities rather than genetically-based ones."
+            },
+            {
+              "key": "B",
+              "text": "Place more stress on animal traditions than on their physical conservation."
+            },
+            {
+              "key": "C",
+              "text": "Conserve animal species in a novel and all-round way."
+            },
+            {
+              "key": "D",
+              "text": "Explore the cultures of species before they vanish."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，按随卷参考答案页核对，非官方答案。末段要求同时保存动物传统、身体和基因，采取全面的新方式。第 8 段原文依据：Obviously, conservationists need to think about saving species in a completely new way — by preserving animal traditions as well as bodies and genes. “ Instead of focusing only on the conservation of genetically based entities like species, we now need to also consider culturally based entities,” says Andrew Whiten.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-12-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "北京大兴国际机场位于天安门广场以南46 公里处，于2019 年9 月30 日投入使用。该巨型工程于2014 年开工建设，高峰时工地上有4 万多工人。航站楼设计紧凑，可以允许最大数量的飞机直接停靠在最靠近航站楼中心的位置，这给乘客提供了极大的方便。航站楼共有82 个登机口，但乘客通过安检后，只需不到8 分钟就能抵达任何一个登机口。机场的设计可确保每小时300 架次起降。机场年客运量2040 年将达到1 亿人次，有望成为世界上最繁忙的机场。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2020-12-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

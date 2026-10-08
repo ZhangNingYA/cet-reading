@@ -32,8 +32,8 @@
 .source-sentence { border-radius: 3px; cursor: pointer; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .15s; }
 .source-sentence:hover { background: #f1f5f2; }
 .source-sentence.is-selected { background: #e7f1e9; }
-.source-unit { white-space: nowrap; }
-.source-word { display: inline; margin: 0; padding: 0; color: inherit; border: 0; border-radius: 0; background: transparent; font: inherit; line-height: inherit; text-align: inherit; vertical-align: baseline; }
+.source-unit { white-space: normal; }
+.source-word { display: inline; margin: 0; padding: 0; color: inherit; border: 0; border-radius: 0; background: transparent; font: inherit; line-height: inherit; white-space: nowrap; text-align: inherit; vertical-align: baseline; }
 .source-word:hover { color: var(--accent-deep); text-decoration: underline; text-decoration-color: #84b397; text-underline-offset: 4px; }
 .source-word.is-active-word { color: var(--accent-deep); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .source-word.is-structure { background: #dbeadc; text-decoration: underline; text-decoration-color: #578068; text-underline-offset: 4px; }
