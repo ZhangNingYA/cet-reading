@@ -1,6 +1,7 @@
 import { mountIntensive } from './intensive-reader';
 import { createSectionNavigation } from './section-navigation';
 import { createSharedSectionNotice } from './section-reference';
+import { appendMaterialText, appendSectionImages } from './section-material';
 
 const library = document.querySelector('#library');
 const apiBase = library.dataset.apiBase;
@@ -46,9 +47,9 @@ function showPapers() {
     const item = document.createElement('article'); item.className = 'paper-card';
     const heading = document.createElement('h3'); heading.className = 'paper-card-title';
     const fullTitle = document.createElement('span'); fullTitle.className = 'sr-only'; fullTitle.textContent = paper.title;
-    const month = document.createElement('span'); month.className = 'paper-month'; month.setAttribute('aria-hidden', 'true'); month.textContent = `${paper.month} 月`;
+    const month = document.createElement('span'); month.className = 'paper-month'; month.setAttribute('aria-hidden', 'true'); month.textContent = paper.exam_level === 'NEEP' ? paper.variant : `${paper.month} 月`;
     const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = paper.variant || `第 ${paper.set_no} 套`;
-    heading.append(fullTitle, month, edition); item.append(heading);
+    heading.append(fullTitle, month); if (paper.exam_level !== 'NEEP') heading.append(edition); item.append(heading);
     const bottom = document.createElement('div'); bottom.className = 'paper-card-bottom';
     const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.content_kind === 'original' ? '原创练习' : paper.is_demo ? '本地演示' : '';
     if (typeLabel) { const type = document.createElement('span'); type.className = 'paper-type'; type.textContent = typeLabel; bottom.append(type); }
@@ -107,16 +108,18 @@ async function renderPractice(paper, request) {
       continue;
     }
     if (section.instructions) { const note = document.createElement('p'); note.className = 'section-instructions'; note.textContent = section.instructions; material.append(note); }
-    if (section.kind === 'cloze') {
+    const sharedWordBank = section.kind === 'cloze' && paper.exam_level !== 'NEEP';
+    if (sharedWordBank) {
       const bank = document.createElement('div'); bank.className = 'word-bank'; bank.setAttribute('aria-label', '选词填空词库');
       for (const option of section.questions[0]?.options ?? []) { const word = document.createElement('span'); word.textContent = `${option.key}. ${option.text}`; bank.append(word); }
       material.append(bank);
     }
-    for (const paragraph of section.paragraphs ?? []) { const text = document.createElement('p'); text.className = 'practice-paragraph'; text.lang = section.kind === 'translation' ? 'zh-CN' : 'en'; text.textContent = paragraph; material.append(text); }
-    const questions = document.createElement('div'); questions.className = `practice-questions${['cloze', 'matching'].includes(section.kind) ? ' compact-questions' : ''}`;
+    for (const paragraph of section.paragraphs ?? []) { const text = document.createElement('p'); text.className = 'practice-paragraph'; text.lang = section.kind === 'translation' && paper.exam_level !== 'NEEP' ? 'zh-CN' : 'en'; appendMaterialText(text, paragraph, section, paper.exam_level); material.append(text); }
+    appendSectionImages(material, section);
+    const questions = document.createElement('div'); questions.className = `practice-questions${sharedWordBank || section.kind === 'matching' ? ' compact-questions' : ''}`;
     for (const question of section.questions) {
       const item = document.createElement('fieldset'); item.className = 'practice-question'; const legend = document.createElement('legend'); legend.textContent = question.prompt; item.append(legend);
-      if (question.type === 'choice' && ['cloze', 'matching'].includes(section.kind)) {
+      if (question.type === 'choice' && (sharedWordBank || section.kind === 'matching')) {
         const select = document.createElement('select'); select.name = question.id; select.setAttribute('aria-label', question.prompt);
         const placeholder = document.createElement('option'); placeholder.value = ''; placeholder.textContent = '选择答案'; select.append(placeholder);
         for (const option of question.options) { const choice = document.createElement('option'); choice.value = option.key; choice.textContent = `${option.key}. ${option.text}`; select.append(choice); }
@@ -131,7 +134,7 @@ async function renderPractice(paper, request) {
   }
   const { navigation, selectSection } = createSectionNavigation(paper.sections, section => {
     for (const [id, block] of blocks) block.hidden = id !== section.id;
-  }, '做题章节');
+  }, '做题章节', paper.exam_level);
   navigation.classList.add('practice-navigation');
   selectSection(paper.sections[0].id);
   const submitBar = document.createElement('div'); submitBar.className = 'practice-submit-bar';

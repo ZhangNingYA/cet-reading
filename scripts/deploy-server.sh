@@ -34,6 +34,8 @@ docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/008_imported_papers.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/013_exam_materials.sql
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/009_seed_papers.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/010_replace_simulated_paper.sql

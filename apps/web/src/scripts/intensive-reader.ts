@@ -4,6 +4,7 @@ import { createSectionNavigation } from './section-navigation';
 import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
 import type { SectionReference } from '@cet-reading/contracts/exam';
 import { createSharedSectionNotice } from './section-reference';
+import { appendSectionImages } from './section-material';
 
 type StudySentence = {
   id: string;
@@ -19,10 +20,12 @@ type StudySection = {
   paragraphs: string[];
   questions: { prompt: string }[];
   reference?: SectionReference;
+  images?: { src: string; alt: string }[];
 };
 type StudyPaper = {
   id: string;
   content_kind: string;
+  exam_level: string;
   sections: StudySection[];
   sentences: StudySentence[];
 };
@@ -58,7 +61,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let selected: Selection | null = null;
   let activeTab: AnalysisTab = 'translation';
   let panelOpen = false;
-  const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节');
+  const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
   const documentColumn = element('div', 'reading-document');
   const pane = element('aside', 'analysis-pane');
@@ -239,7 +242,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       updateActions();
     }
   }
-  function renderSentence(sentence: StudySentence) {
+  function renderSentence(sentence: StudySentence, underlined: { start: number; end: number }[] = []) {
     const source = element('span', 'source-sentence');
     source.dataset.sentenceId = sentence.id;
     source.tabIndex = 0;
@@ -254,6 +257,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       }
       // Inline buttons can otherwise wrap separately from their following punctuation.
       if (!unit) { unit = element('span', 'source-unit'); source.append(unit); }
+      if (underlined.some(range => token.charStart >= range.start && token.charEnd <= range.end)) unit.classList.add('is-translation-target');
       if (token.kind === 'word') {
         const word = element('button', 'source-word', token.text);
         word.type = 'button';
@@ -395,10 +399,19 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       showEmpty('本节保留中文原文');
     }
     let paragraphIndex = -1;
+    let paragraphOffset = 0;
+    let underlined: { start: number; end: number }[] = [];
     let paragraph = element('p', 'passage-paragraph');
     for (const sentence of sentences) {
       if (sentence.paragraphIndex !== paragraphIndex) {
         paragraphIndex = sentence.paragraphIndex;
+        paragraphOffset = 0;
+        const text = sentences.filter(item => item.paragraphIndex === paragraphIndex).map(item => item.source).join(' ');
+        underlined = section.kind === 'translation' && paper.exam_level === 'NEEP' ? section.questions.map(question => {
+          const segment = question.prompt.replace(/^\d+\.\s*/, '');
+          const start = text.indexOf(segment);
+          return { start, end: start + segment.length };
+        }).filter(range => range.start >= 0) : [];
         paragraph = element('p', 'passage-paragraph');
         paragraph.lang = 'en';
         if (section.kind === 'matching') {
@@ -407,8 +420,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         }
         block.append(paragraph);
       } else paragraph.append(document.createTextNode(' '));
-      paragraph.append(renderSentence(sentence));
+      paragraph.append(renderSentence(sentence, underlined.map(range => ({ start: range.start - paragraphOffset, end: range.end - paragraphOffset }))));
+      paragraphOffset += sentence.source.length + 1;
     }
+    appendSectionImages(block, section);
     documentColumn.replaceChildren(block);
     pane.hidden = !sentences.length;
   }

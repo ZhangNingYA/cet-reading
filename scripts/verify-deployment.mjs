@@ -1,4 +1,5 @@
 import { isDeepStrictEqual } from 'node:util';
+import { readFileSync } from 'node:fs';
 import { readPaperSources, splitStudyParagraph } from './lib/paper-sources.mjs';
 import { presentPaper } from '../packages/contracts/dist/shared-reading.js';
 
@@ -56,6 +57,7 @@ function sectionViews(paper) {
     title: section.title,
     instructions: section.instructions ?? '',
     paragraphs: section.paragraphs ?? [],
+    ...(section.images?.length ? { images: section.images } : {}),
     questions: (section.questions ?? []).map(({ id, type, prompt, options = [] }) => ({ id, type, prompt, options })),
   }));
 }
@@ -89,6 +91,13 @@ await Promise.all(sources.map(async ({ file, paper: source }) => {
   if (!isDeepStrictEqual(actual.sections, presented.sections) || !isDeepStrictEqual(actual.sentences, presented.sentences)) {
     throw new Error(`The deployed sections, questions or study sentences do not match ${file}`);
   }
+  await Promise.all(expected.sections.flatMap(section => section.images ?? []).map(async image => {
+    const response = await fetchWithRetry(image.src);
+    const bytes = Buffer.from(await response.arrayBuffer());
+    if (!bytes.equals(readFileSync(new URL(`../apps/web/public${image.src}`, import.meta.url)))) {
+      throw new Error(`The deployed paper image does not match ${image.src}`);
+    }
+  }));
 }));
 
 console.log(`Deployment verified: ${baseUrl} (${sectionPaths.length} categories, ${sources.length} papers)`);

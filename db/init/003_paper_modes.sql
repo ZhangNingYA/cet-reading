@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS paper_sections (
   title TEXT NOT NULL,
   instructions TEXT NOT NULL DEFAULT '',
   paragraphs_json JSONB NOT NULL DEFAULT '[]' CHECK (jsonb_typeof(paragraphs_json) = 'array'),
+  images_json JSONB NOT NULL DEFAULT '[]' CHECK (jsonb_typeof(images_json) = 'array'),
   UNIQUE (paper_id, position)
 );
 CREATE TABLE IF NOT EXISTS questions (
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS questions (
   options_json JSONB NOT NULL DEFAULT '[]' CHECK (jsonb_typeof(options_json) = 'array'),
   answer_text TEXT,
   explanation TEXT NOT NULL DEFAULT '',
-  points INTEGER NOT NULL CHECK (points > 0),
+  points NUMERIC(6, 2) NOT NULL CHECK (points > 0),
   UNIQUE (section_id, position)
 );
 ALTER TABLE sentences ADD COLUMN IF NOT EXISTS section_id TEXT REFERENCES paper_sections(id) ON DELETE SET NULL;

@@ -1,6 +1,6 @@
 type Section = { id: string; title: string; kind: string };
 
-export function createSectionNavigation<T extends Section>(sections: T[], onSelect: (section: T) => void, label: string) {
+export function createSectionNavigation<T extends Section>(sections: T[], onSelect: (section: T) => void, label: string, examLevel?: string) {
   const navigation = document.createElement('nav');
   navigation.className = 'study-navigation';
   navigation.setAttribute('aria-label', label);
@@ -20,7 +20,7 @@ export function createSectionNavigation<T extends Section>(sections: T[], onSele
     button.type = 'button';
     button.className = 'study-section-link';
     button.dataset.sectionId = section.id;
-    button.textContent = section.kind === 'reading' ? `阅读 ${++readingNumber}` : sectionNames[section.kind] ?? section.title;
+    button.textContent = section.kind === 'reading' ? `阅读 ${++readingNumber}` : examLevel === 'NEEP' ? section.title : sectionNames[section.kind] ?? section.title;
     button.addEventListener('click', () => selectSection(section.id));
     buttons.set(section.id, button);
     navigation.append(button);

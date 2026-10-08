@@ -13,6 +13,7 @@ function readingContent(section: SectionView) {
     kind: section.kind,
     instructions: section.instructions,
     paragraphs: section.paragraphs,
+    images: section.images ?? [],
     questions: section.questions.map(({ type, prompt, options }) => ({ type, prompt, options })),
   });
 }
@@ -31,6 +32,7 @@ export function presentPaper<T extends PresentedPaper>(paper: T, reference: Refe
       instructions: '',
       paragraphs: [],
       questions: [],
+      ...(section.images ? { images: [] } : {}),
       reference: { paperId: reference.id, title: reference.title, variant: reference.variant },
     } : section),
     sentences: paper.sentences.filter(sentence => !sentence.sectionId || !shared.has(sentence.sectionId)),

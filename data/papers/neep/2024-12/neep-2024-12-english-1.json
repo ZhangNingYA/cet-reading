@@ -1,0 +1,1530 @@
+{
+  "id": "neep-2024-12-english-1",
+  "exam_level": "NEEP",
+  "year": 2024,
+  "month": 12,
+  "set_no": 1,
+  "variant": "英语一",
+  "title": "2024年考研英语一",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的2024年全国硕士研究生招生考试英语（一）PDF 导入全部内容，含完形填空、四篇阅读、新题型、英译汉、小作文及大作文原图。年份采用卷面考试年度。PDF 未附答案，客观题参考答案依据原文整理，并非官方答案；翻译和写作保留为主观题。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "neep-2024-12-english-1-section-1",
+      "kind": "cloze",
+      "title": "完形填空",
+      "instructions": "Section I · Use of English. Read the following text.Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET.(10 points)",
+      "paragraphs": [
+        "There’s nothing more welcoming than a door opening for you. ____(1)____ the need to be touched to open or close, automatic doors are essential in ____(2)____ disabled access to buildings and helping provide general ____(3)____ to commercial buildings.",
+        "Self-sliding doors began to emerge as a commercial product in 1960 after being invented six years ____(4)____ by Americans Dee Horton and Lew Hewitt. They ____(5)____ as a novelty feature, but as their use has grown, their ____(6)____ have extended within our technologically advanced world. Particularly ____(7)____ in busy locations or during times of emergency, the doors ____(8)____ crowd management by reducing the obstacles put in peoples’ way.",
+        "____(9)____ making access both in and out of buildings easier for people, the difference in the way many of these doors open helps reduce the total area ____(10)____ by them. Automatic doors often open to the side, with the panels sliding across one another. Replacing swing doors, these ____(11)____ smaller buildings to maximise the usable space inside without having to ____(12)____ the way for a large, sticking-out door. There are many different types of automatic door, with each ____(13)____ specific signals to tell them when to open. ____(14)____ these methods differ, the main ____(15)____ remain the same.",
+        "Each automatic door system ____(16)____ the light, sound, weight or movement in their vicinity as a signal to open. Sensor types are chosen to ____(17)____ the different environments they are needed in. ____(18)____ , a busy street might not ____(19)____ a motion-sensored door, as it would constantly be opening for passers-by. A pressure-sensitive mat would be more ____(20)____ to limit the surveyed area."
+      ],
+      "study_paragraphs": [
+        "There’s nothing more welcoming than a door opening for you. Without the need to be touched to open or close, automatic doors are essential in improving disabled access to buildings and helping provide general convenience to commercial buildings.",
+        "Self-sliding doors began to emerge as a commercial product in 1960 after being invented six years previously by Americans Dee Horton and Lew Hewitt. They started out as a novelty feature, but as their use has grown, their benefits have extended within our technologically advanced world. Particularly useful in busy locations or during times of emergency, the doors act as crowd management by reducing the obstacles put in peoples’ way.",
+        "As well as making access both in and out of buildings easier for people, the difference in the way many of these doors open helps reduce the total area occupied by them. Automatic doors often open to the side, with the panels sliding across one another. Replacing swing doors, these allow smaller buildings to maximise the usable space inside without having to clear the way for a large, sticking-out door. There are many different types of automatic door, with each relying on specific signals to tell them when to open. Although these methods differ, the main principles remain the same.",
+        "Each automatic door system analyses the light, sound, weight or movement in their vicinity as a signal to open. Sensor types are chosen to complement the different environments they are needed in. For example , a busy street might not suit a motion-sensored door, as it would constantly be opening for passers-by. A pressure-sensitive mat would be more appropriate to limit the surveyed area."
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-1-q-1",
+          "type": "choice",
+          "prompt": "1.",
+          "options": [
+            {
+              "key": "A",
+              "text": "Through"
+            },
+            {
+              "key": "B",
+              "text": "Despite"
+            },
+            {
+              "key": "C",
+              "text": "Besides"
+            },
+            {
+              "key": "D",
+              "text": "Without"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。Without the need 表示不必触碰即可开关，符合自动门的特点。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-2",
+          "type": "choice",
+          "prompt": "2.",
+          "options": [
+            {
+              "key": "A",
+              "text": "revealing"
+            },
+            {
+              "key": "B",
+              "text": "demanding"
+            },
+            {
+              "key": "C",
+              "text": "improving"
+            },
+            {
+              "key": "D",
+              "text": "tracing"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。improving disabled access 指改善残障人士进入建筑的便利性。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-3",
+          "type": "choice",
+          "prompt": "3.",
+          "options": [
+            {
+              "key": "A",
+              "text": "experience"
+            },
+            {
+              "key": "B",
+              "text": "convenience"
+            },
+            {
+              "key": "C",
+              "text": "guidance"
+            },
+            {
+              "key": "D",
+              "text": "reference"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。general convenience 指为商业建筑提供普遍的便利。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-4",
+          "type": "choice",
+          "prompt": "4.",
+          "options": [
+            {
+              "key": "A",
+              "text": "previously"
+            },
+            {
+              "key": "B",
+              "text": "temporarily"
+            },
+            {
+              "key": "C",
+              "text": "successively"
+            },
+            {
+              "key": "D",
+              "text": "eventually"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。previously 与 six years 连用，表示商业化之前六年已发明。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-5",
+          "type": "choice",
+          "prompt": "5.",
+          "options": [
+            {
+              "key": "A",
+              "text": "held on"
+            },
+            {
+              "key": "B",
+              "text": "started out"
+            },
+            {
+              "key": "C",
+              "text": "settled down"
+            },
+            {
+              "key": "D",
+              "text": "went by"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。started out as 表示起初作为一种新奇设施。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-6",
+          "type": "choice",
+          "prompt": "6.",
+          "options": [
+            {
+              "key": "A",
+              "text": "relations"
+            },
+            {
+              "key": "B",
+              "text": "volumes"
+            },
+            {
+              "key": "C",
+              "text": "benefits"
+            },
+            {
+              "key": "D",
+              "text": "sources"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。benefits have extended 表示随着应用增长，益处扩大。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-7",
+          "type": "choice",
+          "prompt": "7.",
+          "options": [
+            {
+              "key": "A",
+              "text": "useful"
+            },
+            {
+              "key": "B",
+              "text": "simple"
+            },
+            {
+              "key": "C",
+              "text": "flexible"
+            },
+            {
+              "key": "D",
+              "text": "stable"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。useful in busy locations 指在繁忙地点或紧急情况下尤其有用。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-8",
+          "type": "choice",
+          "prompt": "8.",
+          "options": [
+            {
+              "key": "A",
+              "text": "call for"
+            },
+            {
+              "key": "B",
+              "text": "yield to"
+            },
+            {
+              "key": "C",
+              "text": "insist on"
+            },
+            {
+              "key": "D",
+              "text": "act as"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。act as crowd management 表示自动门发挥人群管理的作用。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-9",
+          "type": "choice",
+          "prompt": "9.",
+          "options": [
+            {
+              "key": "A",
+              "text": "As well as"
+            },
+            {
+              "key": "B",
+              "text": "In terms of"
+            },
+            {
+              "key": "C",
+              "text": "Thanks to"
+            },
+            {
+              "key": "D",
+              "text": "Rather than"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。As well as 表示除了便利出入，自动门还节省面积。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-10",
+          "type": "choice",
+          "prompt": "10.",
+          "options": [
+            {
+              "key": "A",
+              "text": "connected"
+            },
+            {
+              "key": "B",
+              "text": "shared"
+            },
+            {
+              "key": "C",
+              "text": "represented"
+            },
+            {
+              "key": "D",
+              "text": "occupied"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。area occupied by them 指门所占用的总面积。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-11",
+          "type": "choice",
+          "prompt": "11.",
+          "options": [
+            {
+              "key": "A",
+              "text": "allow"
+            },
+            {
+              "key": "B",
+              "text": "expect"
+            },
+            {
+              "key": "C",
+              "text": "require"
+            },
+            {
+              "key": "D",
+              "text": "direct"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。allow smaller buildings to maximise 表示使较小建筑能够充分利用空间。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-12",
+          "type": "choice",
+          "prompt": "12.",
+          "options": [
+            {
+              "key": "A",
+              "text": "adopt"
+            },
+            {
+              "key": "B",
+              "text": "lead"
+            },
+            {
+              "key": "C",
+              "text": "clear"
+            },
+            {
+              "key": "D",
+              "text": "change"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。clear the way 指为外伸的门清出空间。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-13",
+          "type": "choice",
+          "prompt": "13.",
+          "options": [
+            {
+              "key": "A",
+              "text": "adapting to"
+            },
+            {
+              "key": "B",
+              "text": "deriving from"
+            },
+            {
+              "key": "C",
+              "text": "relying on"
+            },
+            {
+              "key": "D",
+              "text": "pointing at"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。relying on specific signals 指依靠特定信号判断何时开门。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-14",
+          "type": "choice",
+          "prompt": "14.",
+          "options": [
+            {
+              "key": "A",
+              "text": "Once"
+            },
+            {
+              "key": "B",
+              "text": "Since"
+            },
+            {
+              "key": "C",
+              "text": "Unless"
+            },
+            {
+              "key": "D",
+              "text": "Although"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。Although 引出不同检测方式与相同原理之间的让步关系。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-15",
+          "type": "choice",
+          "prompt": "15.",
+          "options": [
+            {
+              "key": "A",
+              "text": "records"
+            },
+            {
+              "key": "B",
+              "text": "positions"
+            },
+            {
+              "key": "C",
+              "text": "principles"
+            },
+            {
+              "key": "D",
+              "text": "reasons"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。principles remain the same 指自动门的基本工作原理不变。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-16",
+          "type": "choice",
+          "prompt": "16.",
+          "options": [
+            {
+              "key": "A",
+              "text": "controls"
+            },
+            {
+              "key": "B",
+              "text": "analyses"
+            },
+            {
+              "key": "C",
+              "text": "produces"
+            },
+            {
+              "key": "D",
+              "text": "mixes"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。analyses the light, sound, weight or movement 指分析传感信号。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-17",
+          "type": "choice",
+          "prompt": "17.",
+          "options": [
+            {
+              "key": "A",
+              "text": "decorate"
+            },
+            {
+              "key": "B",
+              "text": "compare"
+            },
+            {
+              "key": "C",
+              "text": "protect"
+            },
+            {
+              "key": "D",
+              "text": "complement"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。complement the different environments 指传感器应配合所在环境。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-18",
+          "type": "choice",
+          "prompt": "18.",
+          "options": [
+            {
+              "key": "A",
+              "text": "In conclusion"
+            },
+            {
+              "key": "B",
+              "text": "By contrast"
+            },
+            {
+              "key": "C",
+              "text": "For example"
+            },
+            {
+              "key": "D",
+              "text": "Above all"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。For example 引出繁忙街道上的具体例子。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-19",
+          "type": "choice",
+          "prompt": "19.",
+          "options": [
+            {
+              "key": "A",
+              "text": "identify"
+            },
+            {
+              "key": "B",
+              "text": "suit"
+            },
+            {
+              "key": "C",
+              "text": "secure"
+            },
+            {
+              "key": "D",
+              "text": "include"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。suit a motion-sensored door 指这种环境可能不适合运动感应门。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2024-12-english-1-section-1-q-20",
+          "type": "choice",
+          "prompt": "20.",
+          "options": [
+            {
+              "key": "A",
+              "text": "appropriate"
+            },
+            {
+              "key": "B",
+              "text": "obvious"
+            },
+            {
+              "key": "C",
+              "text": "impressive"
+            },
+            {
+              "key": "D",
+              "text": "delicate"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。appropriate to limit the surveyed area 表示压力垫更适合限制检测范围。",
+          "points": 0.5
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-2",
+      "kind": "reading",
+      "title": "阅读 1",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "Nearly 2,000 years ago, as the Romans began to pull out of Scotland, they left behind a curious treasure: 10 tons of nails, nearly a million of the things. The nail hoard was discovered in 1960 in a four-metre-deep pit covered by two metres of gravel.",
+        "Why had the Romans buried a million nails? The likely explanation is that the withdrawal was rushed, and they didn’t want the local Caledonians getting their hands on 10 tons of weapon-grade iron. The Romans buried the nails so deep that they would not be discovered for almost two millennia.",
+        "Later civilisations would value the skilled blacksmith’s labour in a nail even more than the raw material. As Roma Agrawal explains in her new delightful book Nuts and Bolts, early 17th-century Virginians would sometimes bum down their homes if they were planning to relocate. This was an attempt to recover the valuable nails, which could be reused after sifting the ashes. The idea that one might bum down an entire house just to reclaim the nails underlines how scarce, costly and valuable the simple-seeming technology was.",
+        "The price of nails fell by 90% between the late 1700s and mid-1900s, as economist Daniel Sichel points out in a research paper. According to Sichel, although the falling price of nails was driven partly by cheaper iron and cheaper energy, most of the credit goes to nail manufacturers who simply found more efficient ways to turn steel into nails.",
+        "Nails themselves have changed over the years, but Sichel studied them because they haven’t changed much. Roman lamps and Roman chariots are very different from LED strips and sports cars, but Roman nails are still clearly nails. It would be absurd to try to track the changing price of sports cars since 1695, but to ask the same question of nails makes perfect sense.",
+        "I make no apology for being obsessed by a particular feature of these objects: their price. I am an economist, after all. After writing two books about the history of inventions, one thing I’ve learnt is that while it is the enchantingly sophisticated technologies that get all the hype, it’s the cheap technologies that change the world.",
+        "The Gutenberg printing press transformed civilisation not by changing the nature of writing but by changing its cost—and it would have achieved little without a parallel collapse in the price of surfaces to write on, thanks to an often-overlooked technology called paper. Solar panels had few niche uses until they became cheap; now they are transforming the global energy system."
+      ],
+      "study_paragraphs": [
+        "Nearly 2,000 years ago, as the Romans began to pull out of Scotland, they left behind a curious treasure: 10 tons of nails, nearly a million of the things. The nail hoard was discovered in 1960 in a four-metre-deep pit covered by two metres of gravel.",
+        "Why had the Romans buried a million nails? The likely explanation is that the withdrawal was rushed, and they didn’t want the local Caledonians getting their hands on 10 tons of weapon-grade iron. The Romans buried the nails so deep that they would not be discovered for almost two millennia.",
+        "Later civilisations would value the skilled blacksmith’s labour in a nail even more than the raw material. As Roma Agrawal explains in her new delightful book Nuts and Bolts, early 17th-century Virginians would sometimes bum down their homes if they were planning to relocate. This was an attempt to recover the valuable nails, which could be reused after sifting the ashes. The idea that one might bum down an entire house just to reclaim the nails underlines how scarce, costly and valuable the simple-seeming technology was.",
+        "The price of nails fell by 90% between the late 1700s and mid-1900s, as economist Daniel Sichel points out in a research paper. According to Sichel, although the falling price of nails was driven partly by cheaper iron and cheaper energy, most of the credit goes to nail manufacturers who simply found more efficient ways to turn steel into nails.",
+        "Nails themselves have changed over the years, but Sichel studied them because they haven’t changed much. Roman lamps and Roman chariots are very different from LED strips and sports cars, but Roman nails are still clearly nails. It would be absurd to try to track the changing price of sports cars since 1695, but to ask the same question of nails makes perfect sense.",
+        "I make no apology for being obsessed by a particular feature of these objects: their price. I am an economist, after all. After writing two books about the history of inventions, one thing I’ve learnt is that while it is the enchantingly sophisticated technologies that get all the hype, it’s the cheap technologies that change the world.",
+        "The Gutenberg printing press transformed civilisation not by changing the nature of writing but by changing its cost—and it would have achieved little without a parallel collapse in the price of surfaces to write on, thanks to an often-overlooked technology called paper. Solar panels had few niche uses until they became cheap; now they are transforming the global energy system."
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-2-q-21",
+          "type": "choice",
+          "prompt": "21. The Romans buried the nails probably for the sake of",
+          "options": [
+            {
+              "key": "A",
+              "text": "saving them for future use."
+            },
+            {
+              "key": "B",
+              "text": "keeping them from rusting."
+            },
+            {
+              "key": "C",
+              "text": "letting them grow in value."
+            },
+            {
+              "key": "D",
+              "text": "hiding them from the locals."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第二段说明罗马人不希望当地人获得可制造武器的铁，因此深埋铁钉。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-2-q-22",
+          "type": "choice",
+          "prompt": "22. The example of early 17th-century Virginians is used to",
+          "options": [
+            {
+              "key": "A",
+              "text": "highlight the thriftiness of early American colonists."
+            },
+            {
+              "key": "B",
+              "text": "illustrate the high status of blacksmiths in that period."
+            },
+            {
+              "key": "C",
+              "text": "contrast the attitudes of different civilisations towards nails."
+            },
+            {
+              "key": "D",
+              "text": "show the preciousness of nail-making technology at that time."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段以烧屋取钉的例子强调当时制钉技术稀缺、昂贵且有价值。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-2-q-23",
+          "type": "choice",
+          "prompt": "23. What played the major role in lowering the price of nails after the late 1700s?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Increased productivity."
+            },
+            {
+              "key": "B",
+              "text": "Wider use of new energies."
+            },
+            {
+              "key": "C",
+              "text": "Fiercer market competition."
+            },
+            {
+              "key": "D",
+              "text": "Reduced cost of raw materials."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段说降价主要归功于厂家找到更高效的钢铁制钉方式，即生产效率提高。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-2-q-24",
+          "type": "choice",
+          "prompt": "24. It can be learned from Paragraph 5 that nails",
+          "options": [
+            {
+              "key": "A",
+              "text": "have undergone many technological improvements."
+            },
+            {
+              "key": "B",
+              "text": "have remained basically the same since Roman times."
+            },
+            {
+              "key": "C",
+              "text": "are less studied than other everyday products."
+            },
+            {
+              "key": "D",
+              "text": "are one of the world’s most significant inventions."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第五段说明铁钉变化不大，罗马铁钉今天仍可被清楚识别为铁钉。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-2-q-25",
+          "type": "choice",
+          "prompt": "25. Which of the following best summarises the last two paragraphs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cheap technologies bring about revolutionary change."
+            },
+            {
+              "key": "B",
+              "text": "Technological innovation is integral to economic success."
+            },
+            {
+              "key": "C",
+              "text": "Technology defines people’s understanding of the world."
+            },
+            {
+              "key": "D",
+              "text": "Sophisticated technologies develop from small inventions."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。最后两段强调廉价技术改变世界，并以印刷、纸张和太阳能板举例。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-3",
+      "kind": "reading",
+      "title": "阅读 2",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "Parenting tips obtained from hunter-gatherers in Africa may be the key to bringing up more contented children, researchers have suggested. The idea is based on studies of communities such as the Kung of Botswana, where each child is cared for by many adults. Kung children as young as four will help to look after younger ones and “baby-wearing”, in which infants are carried in slings, is considered the norm.",
+        "According to Dr Nikhil Chaudhary, an evolutionary anthropologist at Cambridge University, these practices, known as alloparenting, could lead to less anxiety for children and parents.",
+        "Dr Annie Swanepoel, a child psychiatrist, believes that there are ways to incorporate them into western life. In Germany, one scheme has paired an old people’s home with a nursery. The residents help to look after the children, an arrangement akin to alloparenting. Another measure could be encouraging friendships between children in different school years, to mirror the unsupervised mixed-age playgroups in hunter-gatherer communities.",
+        "In a paper published in the Journal of Child Psychology and Psychiatry, researchers said that the western nuclear family was a recent invention which broke with evolutionary history. This abrupt shift to an “intensive mothering narrative”, which suggests that mothers should manage childcare alone, was likely to have been harmful. “Such narratives can lead to maternal exhaustion and have dangerous consequences,” they wrote.",
+        "By contrast, in hunter-gatherer societies adults other than the parents can provide almost half of a child’s care. One previous study looked at the Efé people of the Democratic Republic of Congo. It found that infants had an average of 14 alloparents a day by the time they were 18 weeks old, and were passed between caregivers eight times an hour.",
+        "Chaudhary said that parents now have less childcare support from family and social networks than during most of humans’ evolutionary history, but introducing additional caregivers could reduce stress and maternal depression, which could have a “knock-on” benefit to a child’s wellbeing. An infant born to a hunter-gatherer society could have more than ten caregivers-this contrasts starkly to nursery settings in the UK where regulations call for a ratio of one carer to four children aged two to three.",
+        "While hunter-gatherer children learnt from observation and imitation in mixed-age playgroups, researchers said that western “instructive teaching”, where pupils are asked to sit still, may contribute to conditions such as attention deficit hyperactivity disorder. Chaudhary said that Britain should explore the possibility that older siblings helping their parents “might also enhance their own social development.”"
+      ],
+      "study_paragraphs": [
+        "Parenting tips obtained from hunter-gatherers in Africa may be the key to bringing up more contented children, researchers have suggested. The idea is based on studies of communities such as the Kung of Botswana, where each child is cared for by many adults. Kung children as young as four will help to look after younger ones and “baby-wearing”, in which infants are carried in slings, is considered the norm.",
+        "According to Dr Nikhil Chaudhary, an evolutionary anthropologist at Cambridge University, these practices, known as alloparenting, could lead to less anxiety for children and parents.",
+        "Dr Annie Swanepoel, a child psychiatrist, believes that there are ways to incorporate them into western life. In Germany, one scheme has paired an old people’s home with a nursery. The residents help to look after the children, an arrangement akin to alloparenting. Another measure could be encouraging friendships between children in different school years, to mirror the unsupervised mixed-age playgroups in hunter-gatherer communities.",
+        "In a paper published in the Journal of Child Psychology and Psychiatry, researchers said that the western nuclear family was a recent invention which broke with evolutionary history. This abrupt shift to an “intensive mothering narrative”, which suggests that mothers should manage childcare alone, was likely to have been harmful. “Such narratives can lead to maternal exhaustion and have dangerous consequences,” they wrote.",
+        "By contrast, in hunter-gatherer societies adults other than the parents can provide almost half of a child’s care. One previous study looked at the Efé people of the Democratic Republic of Congo. It found that infants had an average of 14 alloparents a day by the time they were 18 weeks old, and were passed between caregivers eight times an hour.",
+        "Chaudhary said that parents now have less childcare support from family and social networks than during most of humans’ evolutionary history, but introducing additional caregivers could reduce stress and maternal depression, which could have a “knock-on” benefit to a child’s wellbeing. An infant born to a hunter-gatherer society could have more than ten caregivers-this contrasts starkly to nursery settings in the UK where regulations call for a ratio of one carer to four children aged two to three.",
+        "While hunter-gatherer children learnt from observation and imitation in mixed-age playgroups, researchers said that western “instructive teaching”, where pupils are asked to sit still, may contribute to conditions such as attention deficit hyperactivity disorder. Chaudhary said that Britain should explore the possibility that older siblings helping their parents “might also enhance their own social development.”"
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-3-q-26",
+          "type": "choice",
+          "prompt": "26. According to the first two paragraphs, alloparenting refers to the practice of",
+          "options": [
+            {
+              "key": "A",
+              "text": "sharing childcare among community members."
+            },
+            {
+              "key": "B",
+              "text": "assigning babies to specific adult caregivers."
+            },
+            {
+              "key": "C",
+              "text": "teaching parenting skills to older children."
+            },
+            {
+              "key": "D",
+              "text": "carrying infants around by their parents."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。前两段描述一个孩子由许多成年人照料，这就是群体共同育儿。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-3-q-27",
+          "type": "choice",
+          "prompt": "27. The scheme in Germany is mentioned to illustrate",
+          "options": [
+            {
+              "key": "A",
+              "text": "an attempt to facilitate intergenerational communication."
+            },
+            {
+              "key": "B",
+              "text": "an approach to integrating alloparenting into western society."
+            },
+            {
+              "key": "C",
+              "text": "the conventional parenting style in western culture."
+            },
+            {
+              "key": "D",
+              "text": "the differences between western and African ways of living."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段提到德国养老院与托儿所合作，是将共同育儿融入西方社会的方式。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-3-q-28",
+          "type": "choice",
+          "prompt": "28. According to Paragraph 4, the “intensive mothering narrative”",
+          "options": [
+            {
+              "key": "A",
+              "text": "alleviates parenting pressure."
+            },
+            {
+              "key": "B",
+              "text": "consolidates family relationships."
+            },
+            {
+              "key": "C",
+              "text": "results in the child-centered family."
+            },
+            {
+              "key": "D",
+              "text": "departs from the course of evolution."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段明确说核心家庭和密集母职观念偏离了人类的进化历史。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-3-q-29",
+          "type": "choice",
+          "prompt": "29. According to Paragraph 6, what can we learn about the nurseries in the UK?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They tend to fall short of official requirements."
+            },
+            {
+              "key": "B",
+              "text": "They have difficulty finding enough caregivers."
+            },
+            {
+              "key": "C",
+              "text": "They ought to improve their carer-to-child ratio."
+            },
+            {
+              "key": "D",
+              "text": "They should try to prevent parental depression."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。第六段比较十余名照料者与英国一对四比例，暗示应改善照料者与儿童比例。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-3-q-30",
+          "type": "choice",
+          "prompt": "30. Which of the following would be the best title for the text?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Instructive teaching: a dilemma for anxious parents"
+            },
+            {
+              "key": "B",
+              "text": "For a happier family, learn from the hunter-gatherers"
+            },
+            {
+              "key": "C",
+              "text": "Mixed-age playgroup, a better choice for lonely children"
+            },
+            {
+              "key": "D",
+              "text": "Tracing the history of parenting: from Africa to Europe"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。全文借狩猎采集社会的共同育儿经验讨论如何减少家庭焦虑、提升幸福感。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-4",
+      "kind": "reading",
+      "title": "阅读 3",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "A Polish digital artist who uses classical painting styles to create dreamy fantasy landscapes, Greg Rutkowski has made illustrations for games such as Dungeons & Dragons and Magic: The Gathering. And he’s become a sudden hit in the new world of text-to-image AI generation.",
+        "His distinctive style is now one of the most commonly used prompts in the new open-source AI art generator Stable Diffusion.The tool, along with other popular image-generation AI models, allows anyone to create impressive images based on text prompts. For example, type in “Wizard with sword and a glowing orb of magic fire fights a fierce dragon Greg Rutkowski,” and the system will produce something that looks not a million miles away from works in Rutkowski’s style.",
+        "But these open-source programs are built by scraping images from the internet, often without permission and proper attribution to artists. As a result, they are raising tricky questions about ethics and copyright. And artists like Rutkowski have had enough.",
+        "According to the website Lexica, which tracks over 10 million images and prompts generated by Stable Diffusion, Rutkowski’s name has been used as a prompt around 93,000 times. Rutkowski was initially surprised but thought it might be a good way to reach new audiences. Then he tried searching for his name to see if a piece he had worked on had been published. The online search brought back work that had his name attached to it but wasn’t his.",
+        "“It’s been just a month.What about in a year? I probably won’t be able to find my work out there because the internet will be flooded with AI art,” Rutkowski says. “That’s concerning.”",
+        "Other artists besides Rutkowski have been surprised by the apparent popularity of their work in text-to-image generators—and some are now fighting back. Karla Ortiz, an illustrator based in San Francisco who found her work in Stable Diffusion’s data set, has been raising awareness about the issues around AI art and copyright.",
+        "Artists say they risk losing income as people start using AI-generated images based on copyrighted material for commercial purposes. But it’s also a lot more personal, Ortiz says, arguing that because art is so closely linked to a person, it could raise data protection and privacy problems.",
+        "“There is a coalition growing within artist industries to figure out how to tackle or mitigate this,” says Ortiz. The group is in its early days of mobilization, which could involve pushing for new policies or regulation. One suggestion is that AI models could be trained on images in the public domain, and AI companies could forge partnerships with museums and artists, Ortiz says."
+      ],
+      "study_paragraphs": [
+        "A Polish digital artist who uses classical painting styles to create dreamy fantasy landscapes, Greg Rutkowski has made illustrations for games such as Dungeons & Dragons and Magic: The Gathering. And he’s become a sudden hit in the new world of text-to-image AI generation.",
+        "His distinctive style is now one of the most commonly used prompts in the new open-source AI art generator Stable Diffusion.The tool, along with other popular image-generation AI models, allows anyone to create impressive images based on text prompts. For example, type in “Wizard with sword and a glowing orb of magic fire fights a fierce dragon Greg Rutkowski,” and the system will produce something that looks not a million miles away from works in Rutkowski’s style.",
+        "But these open-source programs are built by scraping images from the internet, often without permission and proper attribution to artists. As a result, they are raising tricky questions about ethics and copyright. And artists like Rutkowski have had enough.",
+        "According to the website Lexica, which tracks over 10 million images and prompts generated by Stable Diffusion, Rutkowski’s name has been used as a prompt around 93,000 times. Rutkowski was initially surprised but thought it might be a good way to reach new audiences. Then he tried searching for his name to see if a piece he had worked on had been published. The online search brought back work that had his name attached to it but wasn’t his.",
+        "“It’s been just a month.What about in a year? I probably won’t be able to find my work out there because the internet will be flooded with AI art,” Rutkowski says. “That’s concerning.”",
+        "Other artists besides Rutkowski have been surprised by the apparent popularity of their work in text-to-image generators—and some are now fighting back. Karla Ortiz, an illustrator based in San Francisco who found her work in Stable Diffusion’s data set, has been raising awareness about the issues around AI art and copyright.",
+        "Artists say they risk losing income as people start using AI-generated images based on copyrighted material for commercial purposes. But it’s also a lot more personal, Ortiz says, arguing that because art is so closely linked to a person, it could raise data protection and privacy problems.",
+        "“There is a coalition growing within artist industries to figure out how to tackle or mitigate this,” says Ortiz. The group is in its early days of mobilization, which could involve pushing for new policies or regulation. One suggestion is that AI models could be trained on images in the public domain, and AI companies could forge partnerships with museums and artists, Ortiz says."
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-4-q-31",
+          "type": "choice",
+          "prompt": "31. What can be learned about Rutkowski from the first two paragraphs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He is enthusiastic about using AI models."
+            },
+            {
+              "key": "B",
+              "text": "He is popular with the users of an AI art generator."
+            },
+            {
+              "key": "C",
+              "text": "He attracts admiration from other illustrators."
+            },
+            {
+              "key": "D",
+              "text": "He specializes in classical painting digitalization."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第二段说 Rutkowski 的风格是 Stable Diffusion 最常用的提示之一。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-4-q-32",
+          "type": "choice",
+          "prompt": "32. The problem with open-source AI art generators is that they",
+          "options": [
+            {
+              "key": "A",
+              "text": "lack flexibility in responding to prompts."
+            },
+            {
+              "key": "B",
+              "text": "produce artworks in unpredictable styles."
+            },
+            {
+              "key": "C",
+              "text": "make unauthorized use of online images."
+            },
+            {
+              "key": "D",
+              "text": "collect user information without consent."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段指出开源程序常在没有许可和适当署名时抓取网上图片。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-4-q-33",
+          "type": "choice",
+          "prompt": "33. After searching online, Rutkowski found",
+          "options": [
+            {
+              "key": "A",
+              "text": "a unique way to reach audiences."
+            },
+            {
+              "key": "B",
+              "text": "a new method to identify AI images."
+            },
+            {
+              "key": "C",
+              "text": "Ai-generated work bearing his name."
+            },
+            {
+              "key": "D",
+              "text": "heated disputes regarding his copyright."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段说搜索返回带有他名字却不是他的作品，即使用其姓名的 AI 作品。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-4-q-34",
+          "type": "choice",
+          "prompt": "34. According to Ortiz, AI companies are advised to",
+          "options": [
+            {
+              "key": "A",
+              "text": "campaign for new policies or regulation."
+            },
+            {
+              "key": "B",
+              "text": "offer their services to public institutions."
+            },
+            {
+              "key": "C",
+              "text": "strengthen their relationships with AI users."
+            },
+            {
+              "key": "D",
+              "text": "adopt a different strategy for AI model training."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。末段建议使用公有领域图片训练并与博物馆、艺术家合作，改变训练素材策略。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-4-q-35",
+          "type": "choice",
+          "prompt": "35. What is the text mainly about?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Artists’ responses to AI art generation."
+            },
+            {
+              "key": "B",
+              "text": "Al’s expanded role in artistic creation."
+            },
+            {
+              "key": "C",
+              "text": "Privacy issues in the application of AI."
+            },
+            {
+              "key": "D",
+              "text": "Opposing views on AI development."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。文章围绕艺术家面对 AI 图像生成的忧虑、维权和应对行动展开。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-5",
+      "kind": "reading",
+      "title": "阅读 4",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "The miracle of the Chesapeake Bay lies not in its depths, but in the complexity of its natural construction, the interaction of fresh and saline waters, and the mix of land and water. The shallows provide homes for hundreds of species while storing floodwaters, filtering pollutants from water, and protecting nearby communities from potentially destructive storm surges.",
+        "All this was put at great risk late last month, when the U.S. Supreme Court issued a ruling in an Idaho case that provides the U.S. Environmental Protection Agency (EPA) far less authority to regulate wetlands and waterways. Specifically, a 5-4 majority decided that wetlands protected by the EPA under its Clean Water Act authority must have a “continuous surface connection” to bodies of water. This narrowing of the regulatory scope was a victory for builders, mining operators and other commercial interests often at odds with environmental rules. And it carries “significant repercussions for water quality and flood control throughout the United States,” as Justice Brett Kavanaugh observed.",
+        "In Maryland, the good news is that there are many state laws in place that provide wetlands protections. But that’s a very shortsighted view, particularly when it comes to the Chesapeake Bay. The reality is that water, and the pollutants that so often come with it, don’t respect state boundaries. The Chesapeake draws from a 64,000-square-mile watershed that extends into Virginia, Pennsylvania, New York, West Virginia, the District of Columbia and Delaware. Will those jurisdictions extend the same protections now denied under Sackett v. EPA? Perhaps some, but all? That seems unlikely.",
+        "It is too easy, and misleading, to see such court rulings as merely standing up for the rights of land owners when the consequences can be so dire for their neighbors. And it’s a reminder that the EPA’s involvement in the Chesapeake Bay Program has long been crucial as the means to transcend the influence of deep-pocketed special interests in neighboring states. Pennsylvania farmers, to use one telling example, aren’t thinking about next year’s blue crab harvest in Maryland when they decide whether to spread animal waste on their fields, yet the runoff into nearby creeks can have enormous impact downstream.",
+        "And so we would call on state lawmakers from Richmond to Albany to consider reviewing their own wetlands protections and see for themselves the enormous stakes involved. We can offer them a visit to Blackwater National Wildlife Refuge in Dorchester County where bald eagles fly over tidal marshes so shallow you could not paddle a boat across them but teaming with aquatic life. It’s worth the scenic drive."
+      ],
+      "study_paragraphs": [
+        "The miracle of the Chesapeake Bay lies not in its depths, but in the complexity of its natural construction, the interaction of fresh and saline waters, and the mix of land and water. The shallows provide homes for hundreds of species while storing floodwaters, filtering pollutants from water, and protecting nearby communities from potentially destructive storm surges.",
+        "All this was put at great risk late last month, when the U.S. Supreme Court issued a ruling in an Idaho case that provides the U.S. Environmental Protection Agency (EPA) far less authority to regulate wetlands and waterways. Specifically, a 5-4 majority decided that wetlands protected by the EPA under its Clean Water Act authority must have a “continuous surface connection” to bodies of water. This narrowing of the regulatory scope was a victory for builders, mining operators and other commercial interests often at odds with environmental rules. And it carries “significant repercussions for water quality and flood control throughout the United States,” as Justice Brett Kavanaugh observed.",
+        "In Maryland, the good news is that there are many state laws in place that provide wetlands protections. But that’s a very shortsighted view, particularly when it comes to the Chesapeake Bay. The reality is that water, and the pollutants that so often come with it, don’t respect state boundaries. The Chesapeake draws from a 64,000-square-mile watershed that extends into Virginia, Pennsylvania, New York, West Virginia, the District of Columbia and Delaware. Will those jurisdictions extend the same protections now denied under Sackett v. EPA? Perhaps some, but all? That seems unlikely.",
+        "It is too easy, and misleading, to see such court rulings as merely standing up for the rights of land owners when the consequences can be so dire for their neighbors. And it’s a reminder that the EPA’s involvement in the Chesapeake Bay Program has long been crucial as the means to transcend the influence of deep-pocketed special interests in neighboring states. Pennsylvania farmers, to use one telling example, aren’t thinking about next year’s blue crab harvest in Maryland when they decide whether to spread animal waste on their fields, yet the runoff into nearby creeks can have enormous impact downstream.",
+        "And so we would call on state lawmakers from Richmond to Albany to consider reviewing their own wetlands protections and see for themselves the enormous stakes involved. We can offer them a visit to Blackwater National Wildlife Refuge in Dorchester County where bald eagles fly over tidal marshes so shallow you could not paddle a boat across them but teaming with aquatic life. It’s worth the scenic drive."
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-5-q-36",
+          "type": "choice",
+          "prompt": "36. The Chesapeake Bay is described in Paragraph 1 as",
+          "options": [
+            {
+              "key": "A",
+              "text": "a valuable natural environment."
+            },
+            {
+              "key": "B",
+              "text": "a controversial conservation area."
+            },
+            {
+              "key": "C",
+              "text": "a place with commercial potential."
+            },
+            {
+              "key": "D",
+              "text": "a headache for nearby communities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。第一段强调海湾生态的物种栖息、蓄洪、净水及防护价值。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-5-q-37",
+          "type": "choice",
+          "prompt": "37. The U.S. Supreme Court’s ruling in the Idaho case",
+          "options": [
+            {
+              "key": "A",
+              "text": "reinforces water pollution control."
+            },
+            {
+              "key": "B",
+              "text": "weakens the EPA’s regulatory power."
+            },
+            {
+              "key": "C",
+              "text": "will end conflicts among local residents."
+            },
+            {
+              "key": "D",
+              "text": "may face opposition from mining operators."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第二段指出裁决缩小监管范围，让环保署监管湿地和水道的权限大幅降低。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-5-q-38",
+          "type": "choice",
+          "prompt": "38. How does the author feel about future of the Chesapeake Bay?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Worried."
+            },
+            {
+              "key": "B",
+              "text": "Puzzled."
+            },
+            {
+              "key": "C",
+              "text": "Relieved."
+            },
+            {
+              "key": "D",
+              "text": "Encouraged."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段质疑各州是否都会保护跨界流域，作者对海湾的未来感到担忧。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-5-q-39",
+          "type": "choice",
+          "prompt": "39. What can be inferred about the EPA’s involvement in the Chesapeake Bay Program?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It has restored the balance among neighboring jurisdictions."
+            },
+            {
+              "key": "B",
+              "text": "It has triggered a radical reform in commercial fisheries."
+            },
+            {
+              "key": "C",
+              "text": "It has set a fine example of respecting state authorities."
+            },
+            {
+              "key": "D",
+              "text": "It has ensured the coordination of protection efforts."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段强调环保署可超越邻州特殊利益集团的影响，协调流域保护。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-5-q-40",
+          "type": "choice",
+          "prompt": "40. The author holds that the state lawmakers should",
+          "options": [
+            {
+              "key": "A",
+              "text": "be cautious about the influence of landowners."
+            },
+            {
+              "key": "B",
+              "text": "attach due importance to wetlands protections."
+            },
+            {
+              "key": "C",
+              "text": "recognize the need to expand wildlife refuges."
+            },
+            {
+              "key": "D",
+              "text": "improve the wellbeing of endangered species."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。最后一段呼吁州立法者审查湿地保护并认识其中巨大的利害关系。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-6",
+      "kind": "matching",
+      "title": "新题型",
+      "instructions": "Section II · Part B. Read the following comments on a report about American museums returning artifacts to their countries of origin and a list of statements summarizing the comments. Choose the best statement from the list A-G for each numbered name (41-45). There are two extra choices which you do not need to use. Mark your answers on the ANSWER SHEET.(10 points)",
+      "paragraphs": [
+        "(41) Hannah Simply, there are people in Nigeria who cannot travel to the Smithsonian Institution to see that part of their history and culture represented by the Benin Bronzes. These should be available to them as part of their cultural heritage and history and as a source of national pride. There is no good reason that these artifacts should be beyond the ordinary reach of the educational objectives or inspiration of the generations to which they were left. They serve no purpose in a museum in the United States or elsewhere except as curious objects. They cannot be compared to works of art produced for sale which can be passed from hand to hand and place to place by purchase. ",
+        "(42) Buck We know very exact reproductions of artwork can be and are regularly produced. Perhaps museums and governments might explore some role for the use of nearly exact reproductions as a means of resolving issues relating to returning works of art and antiquities. The context of any exhibit is more important to me than whether the object being displayed is 2000 years old or 2 months old. In many cases the experts have a hard time agreeing on what is the real object and what is a forgery. Again, the story an exhibit is trying to tell is what matters. The monetary value of the objects on display is a distant second place in importance. ",
+        "(43) Sara When visiting the Baltimore Museum of Art, I came across a magnificent 15th-century Chinese sculpture. It inspired me to learn more about the culture that it represented. Artifacts in museums have the power to inspire, and perhaps spark that need to learn and understand the nature of their creators. Having said that, I do feel that whatever artifacts find their way to public museums should, in fact, be sanctioned as having been obtained on loan, legally purchased, or obtained by treaty. Stealing artifacts from other peoples’ cultures is obscene; it robs not only the physical objects, but the dignity and spirit of their creators. ",
+        "(44) Victor Ancient art that is displayed in foreign countries by all means should be returned to the original country. The foreign countries have no right to hold back returning the items. I would ask that the foreign nations and the original country discuss the terms of transfer. Yes, there is the risk that the original country will not have as good security as do the foreign countries. But look at what happened to Boston’s Gardner Museum theft in 1990, including the loss of Rembrandt, Vermeer, Manet, and other masterpieces. Nothing is absolutely safe, nowhere. And now Climate Change agitators are attacking publicly displayed works in European museums. ",
+        "(45) Julia To those of you in the comments section who are having strong feelings about artifacts being removed from cities in the US and Britain and returned to their countries of origin, I would ask you to consider: why do you think Americans have more of a right to easily access the Benin Bronzes than the people of Nigeria? Why are people who live within a day’s drive of London entitled to go and see the Elgin Marbles whenever they want, but the people of Athens aren’t? What intrinsic factors make the West a suitable home for these artifacts but preclude them from being preserved and displayed by their countries of origin? If your conclusion is that the West is better able to preserve these artifacts, think about why you’re assuming that to be true."
+      ],
+      "study_paragraphs": [
+        "Hannah Simply, there are people in Nigeria who cannot travel to the Smithsonian Institution to see that part of their history and culture represented by the Benin Bronzes. These should be available to them as part of their cultural heritage and history and as a source of national pride. There is no good reason that these artifacts should be beyond the ordinary reach of the educational objectives or inspiration of the generations to which they were left. They serve no purpose in a museum in the United States or elsewhere except as curious objects. They cannot be compared to works of art produced for sale which can be passed from hand to hand and place to place by purchase. ",
+        "Buck We know very exact reproductions of artwork can be and are regularly produced. Perhaps museums and governments might explore some role for the use of nearly exact reproductions as a means of resolving issues relating to returning works of art and antiquities. The context of any exhibit is more important to me than whether the object being displayed is 2000 years old or 2 months old. In many cases the experts have a hard time agreeing on what is the real object and what is a forgery. Again, the story an exhibit is trying to tell is what matters. The monetary value of the objects on display is a distant second place in importance. ",
+        "Sara When visiting the Baltimore Museum of Art, I came across a magnificent 15th-century Chinese sculpture. It inspired me to learn more about the culture that it represented. Artifacts in museums have the power to inspire, and perhaps spark that need to learn and understand the nature of their creators. Having said that, I do feel that whatever artifacts find their way to public museums should, in fact, be sanctioned as having been obtained on loan, legally purchased, or obtained by treaty. Stealing artifacts from other peoples’ cultures is obscene; it robs not only the physical objects, but the dignity and spirit of their creators. ",
+        "Victor Ancient art that is displayed in foreign countries by all means should be returned to the original country. The foreign countries have no right to hold back returning the items. I would ask that the foreign nations and the original country discuss the terms of transfer. Yes, there is the risk that the original country will not have as good security as do the foreign countries. But look at what happened to Boston’s Gardner Museum theft in 1990, including the loss of Rembrandt, Vermeer, Manet, and other masterpieces. Nothing is absolutely safe, nowhere. And now Climate Change agitators are attacking publicly displayed works in European museums. ",
+        "Julia To those of you in the comments section who are having strong feelings about artifacts being removed from cities in the US and Britain and returned to their countries of origin, I would ask you to consider: why do you think Americans have more of a right to easily access the Benin Bronzes than the people of Nigeria? Why are people who live within a day’s drive of London entitled to go and see the Elgin Marbles whenever they want, but the people of Athens aren’t? What intrinsic factors make the West a suitable home for these artifacts but preclude them from being preserved and displayed by their countries of origin? If your conclusion is that the West is better able to preserve these artifacts, think about why you’re assuming that to be true."
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-6-q-41",
+          "type": "choice",
+          "prompt": "41. Hannah",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is clear that the countries of origin have never been compensated for the stolen artifacts."
+            },
+            {
+              "key": "B",
+              "text": "It is a flawed line of reasoning to argue against returning artifacts to their countries of origin."
+            },
+            {
+              "key": "C",
+              "text": "Museum visitors can still learn as much from artifacts’ copies after the originals are returned."
+            },
+            {
+              "key": "D",
+              "text": "Reproductions, even if perfectly made, cannot take the place of the authentic objects."
+            },
+            {
+              "key": "E",
+              "text": "The real value of artifacts can only be recognized in their countries of origin rather than anywhere else."
+            },
+            {
+              "key": "F",
+              "text": "Ways to get artifacts from other countries must be decent and lawful."
+            },
+            {
+              "key": "G",
+              "text": "Concern over security is no excuse for refusing to return artifacts to their countries of origin."
+            }
+          ],
+          "answer": "E",
+          "explanation": "依据原文整理的参考答案，非官方答案。Hannah 强调文物只能在原属国充分实现文化传承与民族自豪的价值，对应 E。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-6-q-42",
+          "type": "choice",
+          "prompt": "42. Buck",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is clear that the countries of origin have never been compensated for the stolen artifacts."
+            },
+            {
+              "key": "B",
+              "text": "It is a flawed line of reasoning to argue against returning artifacts to their countries of origin."
+            },
+            {
+              "key": "C",
+              "text": "Museum visitors can still learn as much from artifacts’ copies after the originals are returned."
+            },
+            {
+              "key": "D",
+              "text": "Reproductions, even if perfectly made, cannot take the place of the authentic objects."
+            },
+            {
+              "key": "E",
+              "text": "The real value of artifacts can only be recognized in their countries of origin rather than anywhere else."
+            },
+            {
+              "key": "F",
+              "text": "Ways to get artifacts from other countries must be decent and lawful."
+            },
+            {
+              "key": "G",
+              "text": "Concern over security is no excuse for refusing to return artifacts to their countries of origin."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。Buck 认为展览的故事和语境更重要，复制品同样可以提供教育价值，对应 C。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-6-q-43",
+          "type": "choice",
+          "prompt": "43. Sara",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is clear that the countries of origin have never been compensated for the stolen artifacts."
+            },
+            {
+              "key": "B",
+              "text": "It is a flawed line of reasoning to argue against returning artifacts to their countries of origin."
+            },
+            {
+              "key": "C",
+              "text": "Museum visitors can still learn as much from artifacts’ copies after the originals are returned."
+            },
+            {
+              "key": "D",
+              "text": "Reproductions, even if perfectly made, cannot take the place of the authentic objects."
+            },
+            {
+              "key": "E",
+              "text": "The real value of artifacts can only be recognized in their countries of origin rather than anywhere else."
+            },
+            {
+              "key": "F",
+              "text": "Ways to get artifacts from other countries must be decent and lawful."
+            },
+            {
+              "key": "G",
+              "text": "Concern over security is no excuse for refusing to return artifacts to their countries of origin."
+            }
+          ],
+          "answer": "F",
+          "explanation": "依据原文整理的参考答案，非官方答案。Sara 主张借展、合法购买或条约取得文物，反对盗取其他文化的文物，对应 F。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-6-q-44",
+          "type": "choice",
+          "prompt": "44. Victor",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is clear that the countries of origin have never been compensated for the stolen artifacts."
+            },
+            {
+              "key": "B",
+              "text": "It is a flawed line of reasoning to argue against returning artifacts to their countries of origin."
+            },
+            {
+              "key": "C",
+              "text": "Museum visitors can still learn as much from artifacts’ copies after the originals are returned."
+            },
+            {
+              "key": "D",
+              "text": "Reproductions, even if perfectly made, cannot take the place of the authentic objects."
+            },
+            {
+              "key": "E",
+              "text": "The real value of artifacts can only be recognized in their countries of origin rather than anywhere else."
+            },
+            {
+              "key": "F",
+              "text": "Ways to get artifacts from other countries must be decent and lawful."
+            },
+            {
+              "key": "G",
+              "text": "Concern over security is no excuse for refusing to return artifacts to their countries of origin."
+            }
+          ],
+          "answer": "G",
+          "explanation": "依据原文整理的参考答案，非官方答案。Victor 用博物馆盗案等例子指出没有地方绝对安全，不能以安全为借口拒绝归还，对应 G。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-6-q-45",
+          "type": "choice",
+          "prompt": "45. Julia",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is clear that the countries of origin have never been compensated for the stolen artifacts."
+            },
+            {
+              "key": "B",
+              "text": "It is a flawed line of reasoning to argue against returning artifacts to their countries of origin."
+            },
+            {
+              "key": "C",
+              "text": "Museum visitors can still learn as much from artifacts’ copies after the originals are returned."
+            },
+            {
+              "key": "D",
+              "text": "Reproductions, even if perfectly made, cannot take the place of the authentic objects."
+            },
+            {
+              "key": "E",
+              "text": "The real value of artifacts can only be recognized in their countries of origin rather than anywhere else."
+            },
+            {
+              "key": "F",
+              "text": "Ways to get artifacts from other countries must be decent and lawful."
+            },
+            {
+              "key": "G",
+              "text": "Concern over security is no excuse for refusing to return artifacts to their countries of origin."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。Julia 质疑西方比原属国更有权或更适合保存文物的假设，对应 B。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-7",
+      "kind": "translation",
+      "title": "翻译",
+      "instructions": "Section II · Part C. Read the following text carefully and then translate the underlined segments into Chinese.Write your answers on the ANSWER SHEET. (10 points)",
+      "paragraphs": [
+        "“Elephants never forget”—or so they say—and that piece of folklore seems to have some foundation.",
+        "The African savanna elephant, also known as the African bush elephant, is distributed across 37 African countries. They move between a variety of habitats, including forests, grasslands, woodlands, wetlands and agricultural land. (46) They sometimes travel more than sixty miles to find food or water, and are very good at working out where other elephants are—even when they are out of sight. Using tracking devices, researchers have shown that they have “remarkable spatial acuity.” When finding their way to waterholes, they headed off in exactly the right direction, on one occasion from a distance of roughly thirty miles. What is more, they almost always seem to choose the nearest waterhole. (47) The researchers are convinced that the elephants always know precisely where they are in relation to all the resources they need, and can therefore take shortcuts, as well as following familiar routes.",
+        "Although the cues used by African elephants for long-distance navigation are not yet understood, smell may well play a part.",
+        "Elephants are very choosy eaters, but until recently little was known about how they selected their food. (48) One possibility was that they merely used their eyes and tried out the plants they found, but that would probably result in a lot of wasted time and energy, not least because their eyesight is actually not very good.",
+        "(49) The volatile chemicals produced by plants can be carried a long way, and they are very characteristic: Each plant or tree has its own particular odor signature. What is more, they can be detected even when they are not actually visible. New research suggests that smell is a crucial factor in guiding elephants—and probably other herbivores—to the best food resources.",
+        "The researchers first established what kinds of plant the elephants preferred either to eat or avoid when foraging freely.They then set up a “food station” experiment, in which they gave the elephants a series of choices based only on smell. (50) The experiment showed that elephants may well use smell to identify patches of trees that are good to eat, and secondly to assess the quality of the trees within each patch. Free-ranging elephants presumably also use this information to locate their preferred food.",
+        "Their well-developed hippocampal structures may enable elephants, like rats and people, to construct cognitive maps."
+      ],
+      "study_paragraphs": [
+        "“Elephants never forget”—or so they say—and that piece of folklore seems to have some foundation.",
+        "The African savanna elephant, also known as the African bush elephant, is distributed across 37 African countries. They move between a variety of habitats, including forests, grasslands, woodlands, wetlands and agricultural land. (46) They sometimes travel more than sixty miles to find food or water, and are very good at working out where other elephants are—even when they are out of sight. Using tracking devices, researchers have shown that they have “remarkable spatial acuity.” When finding their way to waterholes, they headed off in exactly the right direction, on one occasion from a distance of roughly thirty miles. What is more, they almost always seem to choose the nearest waterhole. (47) The researchers are convinced that the elephants always know precisely where they are in relation to all the resources they need, and can therefore take shortcuts, as well as following familiar routes.",
+        "Although the cues used by African elephants for long-distance navigation are not yet understood, smell may well play a part.",
+        "Elephants are very choosy eaters, but until recently little was known about how they selected their food. (48) One possibility was that they merely used their eyes and tried out the plants they found, but that would probably result in a lot of wasted time and energy, not least because their eyesight is actually not very good.",
+        "(49) The volatile chemicals produced by plants can be carried a long way, and they are very characteristic: Each plant or tree has its own particular odor signature. What is more, they can be detected even when they are not actually visible. New research suggests that smell is a crucial factor in guiding elephants—and probably other herbivores—to the best food resources.",
+        "The researchers first established what kinds of plant the elephants preferred either to eat or avoid when foraging freely.They then set up a “food station” experiment, in which they gave the elephants a series of choices based only on smell. (50) The experiment showed that elephants may well use smell to identify patches of trees that are good to eat, and secondly to assess the quality of the trees within each patch. Free-ranging elephants presumably also use this information to locate their preferred food.",
+        "Their well-developed hippocampal structures may enable elephants, like rats and people, to construct cognitive maps."
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-7-q-46",
+          "type": "text",
+          "prompt": "46. They sometimes travel more than sixty miles to find food or water, and are very good at working out where other elephants are—even when they are out of sight.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-7-q-47",
+          "type": "text",
+          "prompt": "47. The researchers are convinced that the elephants always know precisely where they are in relation to all the resources they need, and can therefore take shortcuts, as well as following familiar routes.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-7-q-48",
+          "type": "text",
+          "prompt": "48. One possibility was that they merely used their eyes and tried out the plants they found, but that would probably result in a lot of wasted time and energy, not least because their eyesight is actually not very good.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-7-q-49",
+          "type": "text",
+          "prompt": "49. The volatile chemicals produced by plants can be carried a long way, and they are very characteristic: Each plant or tree has its own particular odor signature.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 2
+        },
+        {
+          "id": "neep-2024-12-english-1-section-7-q-50",
+          "type": "text",
+          "prompt": "50. The experiment showed that elephants may well use smell to identify patches of trees that are good to eat, and secondly to assess the quality of the trees within each patch.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-8",
+      "kind": "writing",
+      "title": "小作文",
+      "instructions": "Section III · Writing · Part A · 10 points",
+      "paragraphs": [
+        "Read the following email from an international student and write a reply.",
+        "Dear Li Ming,",
+        "I’ve got a class assignment to make an oral report on an ancient Chinese scientist, but I’m not sure how to prepare for it. Can you give me some advice? Thank you for your help.",
+        "Yours, Paul",
+        "Write your answer in about 100 words on the ANSWER SHEET. Do not use your own name in your email; use “Li Ming” instead.(10 points)"
+      ],
+      "study_paragraphs": [
+        "Read the following email from an international student and write a reply.",
+        "Dear Li Ming,",
+        "I’ve got a class assignment to make an oral report on an ancient Chinese scientist, but I’m not sure how to prepare for it. Can you give me some advice? Thank you for your help.",
+        "Yours, Paul",
+        "Write your answer in about 100 words on the ANSWER SHEET. Do not use your own name in your email; use “Li Ming” instead.(10 points)"
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-8-q-51",
+          "type": "text",
+          "prompt": "51. Directions:",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "neep-2024-12-english-1-section-9",
+      "kind": "writing",
+      "title": "大作文",
+      "instructions": "Section III · Writing · Part B · 20 points",
+      "paragraphs": [
+        "Write an essay based on the picture and the chart below.In your essay, you should",
+        "1) describe the picture and the chart briefly,",
+        "2) interpret the implied meaning, and",
+        "3) give your comments.",
+        "Write your answer in 160-200 words on the ANSWER SHEET.(20 points)"
+      ],
+      "study_paragraphs": [
+        "Write an essay based on the picture and the chart below.In your essay, you should",
+        "1) describe the picture and the chart briefly,",
+        "2) interpret the implied meaning, and",
+        "3) give your comments.",
+        "Write your answer in 160-200 words on the ANSWER SHEET.(20 points)"
+      ],
+      "questions": [
+        {
+          "id": "neep-2024-12-english-1-section-9-q-52",
+          "type": "text",
+          "prompt": "52. Directions:",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 20
+        }
+      ],
+      "images": [
+        {
+          "src": "/papers/neep-2024-12-english-1/writing-52.jpeg",
+          "alt": "漫画：市民在家门口新建的公园锻炼。图表：某市近三年公园数量，2020年406座、2021年532座、2022年670座。"
+        }
+      ]
+    }
+  ]
+}

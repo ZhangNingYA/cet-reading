@@ -27,6 +27,8 @@
 .passage-note { margin: -10px 0 22px; color: var(--quiet); font-size: var(--text-caption); }
 .shared-reading-notice { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }
 .shared-reading-notice a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.section-image { display: block; max-width: 100%; height: auto; margin: 24px auto 0; }
+.source-unit.is-translation-target { text-decoration: underline; text-underline-offset: 4px; }
 .source-sentence { border-radius: 3px; cursor: pointer; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .15s; }
 .source-sentence:hover { background: #f1f5f2; }
 .source-sentence.is-selected { background: #e7f1e9; }

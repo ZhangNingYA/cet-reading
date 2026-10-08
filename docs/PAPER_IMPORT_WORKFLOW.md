@@ -83,6 +83,10 @@ data/
 
 实际导入的试卷使用 `content_state: "local"`、`content_kind: "imported"`、`is_demo: false`。没有可核实的来源网址时，`source_url` 填 `null`，不编造链接。
 
+考研的 `year` 使用卷面考试年度，`month` 表示初试月份；例如卷面“2024 年英语一”使用 `neep-2024-12-english-1`，页面按年度与英语一、英语二区分，不展示会混淆考试年度和实际举办日期的月份。
+
+带漫画、统计图或其他原题图片的章节可增加 `images: [{ src, alt }]`。从原 PDF 直接提取图片，保存在 `apps/web/public/papers/<试卷ID>/`，`src` 使用 `/papers/` 下的本地图片路径，`alt` 准确描述题图和图中数据；不能用改画的示意图替换原题。图片同时在精读和做题材料中展示。分值 `points` 支持 0.5 分的倍数，按原卷填写；考研完形每题 0.5 分，不套用四级选词填空的公共词库。
+
 `paragraphs` 保存做题模式使用的原始材料；`study_paragraphs` 保存适合逐句阅读的英文材料：
 
 - 普通阅读保留英文文章和段落顺序。

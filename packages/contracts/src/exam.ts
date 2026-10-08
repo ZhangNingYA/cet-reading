@@ -4,6 +4,10 @@ export const StudyModeSchema = z.enum(['intensive', 'practice']);
 export const SectionKindSchema = z.enum(['reading', 'cloze', 'matching', 'translation', 'writing']);
 const Identifier = z.string().min(1).max(160).regex(/^[a-z0-9-]+$/);
 export const OptionSchema = z.object({ key: z.string().min(1).max(4), text: z.string().min(1) }).strict();
+export const SectionImageSchema = z.object({
+  src: z.string().regex(/^\/papers\/[a-z0-9/-]+\.(?:png|jpg|jpeg|webp)$/),
+  alt: z.string().min(1),
+}).strict();
 export const QuestionSchema = z.object({
   id: Identifier,
   type: z.enum(['choice', 'text']),
@@ -11,7 +15,7 @@ export const QuestionSchema = z.object({
   options: z.array(OptionSchema).max(26).default([]),
   answer: z.string().nullable().default(null),
   explanation: z.string().default(''),
-  points: z.number().int().positive().max(100).default(1),
+  points: z.number().positive().max(100).multipleOf(0.5).default(1),
 }).strict().superRefine((question, context) => {
   const keys = question.options.map((option) => option.key);
   if (new Set(keys).size !== keys.length) context.addIssue({ code: 'custom', message: 'Option keys must be unique' });
@@ -27,6 +31,7 @@ export const PaperSectionSchema = z.object({
   instructions: z.string().default(''),
   paragraphs: z.array(z.string().min(1)).default([]),
   study_paragraphs: z.array(z.string().min(1)).default([]),
+  images: z.array(SectionImageSchema).max(10).optional(),
   questions: z.array(QuestionSchema).default([]),
 }).strict();
 export const ImportPaperSchema = z.object({

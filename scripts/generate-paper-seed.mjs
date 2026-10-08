@@ -20,9 +20,9 @@ for (const source of sources) {
 
   for (const [sectionIndex, section] of paper.sections.entries()) {
     statements.push(insert('paper_sections',
-      ['id', 'paper_id', 'position', 'kind', 'title', 'instructions', 'paragraphs_json', 'study_paragraphs_json'],
-      [quote(section.id), quote(paper.id), sectionIndex, quote(section.kind), quote(section.title), quote(section.instructions), json(section.paragraphs), json(section.study_paragraphs)],
-      ['position', 'kind', 'title', 'instructions', 'paragraphs_json', 'study_paragraphs_json']));
+      ['id', 'paper_id', 'position', 'kind', 'title', 'instructions', 'paragraphs_json', 'study_paragraphs_json', ...(section.images ? ['images_json'] : [])],
+      [quote(section.id), quote(paper.id), sectionIndex, quote(section.kind), quote(section.title), quote(section.instructions), json(section.paragraphs), json(section.study_paragraphs), ...(section.images ? [json(section.images)] : [])],
+      ['position', 'kind', 'title', 'instructions', 'paragraphs_json', 'study_paragraphs_json', ...(section.images ? ['images_json'] : [])]));
     for (const [questionIndex, question] of section.questions.entries()) {
       statements.push(insert('questions',
         ['id', 'section_id', 'position', 'type', 'prompt', 'options_json', 'answer_text', 'explanation', 'points'],

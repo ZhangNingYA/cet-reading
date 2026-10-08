@@ -36,6 +36,7 @@ async function getStoredPaper(id: string) {
             COALESCE((SELECT json_agg(json_build_object(
               'id', ps.id, 'kind', ps.kind, 'title', ps.title,
               'instructions', ps.instructions, 'paragraphs', ps.paragraphs_json,
+              'images', ps.images_json,
               'questions', COALESCE((SELECT json_agg(json_build_object(
                 'id', q.id, 'type', q.type, 'prompt', q.prompt,
                 'options', q.options_json
@@ -51,7 +52,9 @@ async function getStoredPaper(id: string) {
      GROUP BY p.id`,
     [id],
   );
-  return result.rows[0] ?? null;
+  const paper = result.rows[0] ?? null;
+  for (const section of paper?.sections ?? []) if (!section.images.length) delete section.images;
+  return paper;
 }
 
 export async function getPaper(id: string) {
@@ -74,7 +77,7 @@ type PracticeQuestion = {
 async function getPracticeQuestions(paperId: string) {
   const result = await pool.query<PracticeQuestion>(
     `SELECT q.id, q.type, q.prompt, q.options_json AS options,
-            q.answer_text AS answer, q.explanation, q.points
+            q.answer_text AS answer, q.explanation, q.points::double precision AS points
      FROM questions q JOIN paper_sections ps ON ps.id = q.section_id
      WHERE ps.paper_id = $1 ORDER BY ps.position, q.position`,
     [paperId],
