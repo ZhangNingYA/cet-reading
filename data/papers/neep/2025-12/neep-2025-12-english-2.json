@@ -1,0 +1,1504 @@
+{
+  "id": "neep-2025-12-english-2",
+  "exam_level": "NEEP",
+  "year": 2025,
+  "month": 12,
+  "set_no": 2,
+  "variant": "英语二",
+  "title": "2025年考研英语二",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的2025年全国硕士研究生招生考试英语（二）PDF 导入全部内容，含完形填空、四篇阅读、小标题匹配、整段英译汉、两篇写作及大作文原统计图。PDF 未附答案，客观题参考答案依据原文整理，并非官方答案；主观题保留作答。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "neep-2025-12-english-2-section-1",
+      "kind": "cloze",
+      "title": "完形填空",
+      "instructions": "Section I · Use of English. Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)",
+      "paragraphs": [
+        "There are many understandable reasons why you might find it difficult to ask for help when you need it. Psychologists have been interested in this ____(1)____ for decades, not least because people’s widespread ____(2)____ to ask for help has led to some high-profile failures.",
+        "Asking for help takes ____(3)____. It involves communicating a need on your part — there’s something you can’t do. ____(4)____, you’re broadcasting your own weakness, which can be ____(5)____. You might have ____(6)____ about losing control of whatever it is you are asking for help with. ____(7)____ someone starts to help, perhaps they will take over, or get a credit for your early efforts. Yet another ____(8)____ that you might be worried about is being a nuisance or ____(9)____ the person you go to for help.",
+        "If you struggle with low self-esteem, you might find it especially difficult to ____(10)____ for help because you have the added worry of the other person ____(11)____ your request. You might see such refusals as implying something ____(12)____ about the status of your relationship with them. To ____(13)____ these difficulties, try to remind yourself that everyone needs help sometimes. Nobody knows everything and can do everything all by themselves. And while you might ____(14)____ coming across as incompetent, there’s actually research that shows that advice-seekers are ____(15)____ as more competent, not less.",
+        "Perhaps most encouraging of all is a paper from 2022 by researchers at Stanford University, in California, that involved a mix of contrived help-seeking interactions and asking people to ____(16)____ times they’d sought help in the past. The findings showed that help-seekers generally underestimate how ____(17)____ other people will be to help and how good it will make the help-giver feel (for most people, having the chance to help someone is highly ____(18)____).",
+        "So bear all this in mind the next time you need to ask for help. ____(19)____, take care over who you ask and when you ask them. And if someone can’t help right now, avoid taking it personally. They might just be too ____(20)____, or they might not feel confident about their ability to help."
+      ],
+      "study_paragraphs": [
+        "There are many understandable reasons why you might find it difficult to ask for help when you need it. Psychologists have been interested in this question for decades, not least because people’s widespread reluctance to ask for help has led to some high-profile failures.",
+        "Asking for help takes courage. It involves communicating a need on your part — there’s something you can’t do. In  other  words, you’re broadcasting your own weakness, which can be uncomfortable. You might have concerns about losing control of whatever it is you are asking for help with. Once someone starts to help, perhaps they will take over, or get a credit for your early efforts. Yet another factor that you might be worried about is being a nuisance or inconveniencing the person you go to for help.",
+        "If you struggle with low self-esteem, you might find it especially difficult to reach  out for help because you have the added worry of the other person declining your request. You might see such refusals as implying something negative about the status of your relationship with them. To overcome these difficulties, try to remind yourself that everyone needs help sometimes. Nobody knows everything and can do everything all by themselves. And while you might fear coming across as incompetent, there’s actually research that shows that advice-seekers are perceived as more competent, not less.",
+        "Perhaps most encouraging of all is a paper from 2022 by researchers at Stanford University, in California, that involved a mix of contrived help-seeking interactions and asking people to recall times they’d sought help in the past. The findings showed that help-seekers generally underestimate how willing other people will be to help and how good it will make the help-giver feel (for most people, having the chance to help someone is highly rewarding).",
+        "So bear all this in mind the next time you need to ask for help. Also, take care over who you ask and when you ask them. And if someone can’t help right now, avoid taking it personally. They might just be too busy, or they might not feel confident about their ability to help."
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-1-q-1",
+          "type": "choice",
+          "prompt": "1.",
+          "options": [
+            {
+              "key": "A",
+              "text": "illusion"
+            },
+            {
+              "key": "B",
+              "text": "discussion"
+            },
+            {
+              "key": "C",
+              "text": "tradition"
+            },
+            {
+              "key": "D",
+              "text": "question"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。question 指为何人们难以求助的问题。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-2",
+          "type": "choice",
+          "prompt": "2.",
+          "options": [
+            {
+              "key": "A",
+              "text": "reluctance"
+            },
+            {
+              "key": "B",
+              "text": "ambition"
+            },
+            {
+              "key": "C",
+              "text": "tendency"
+            },
+            {
+              "key": "D",
+              "text": "enthusiasm"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。reluctance to ask for help 指不愿求助。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-3",
+          "type": "choice",
+          "prompt": "3.",
+          "options": [
+            {
+              "key": "A",
+              "text": "attention"
+            },
+            {
+              "key": "B",
+              "text": "talent"
+            },
+            {
+              "key": "C",
+              "text": "courage"
+            },
+            {
+              "key": "D",
+              "text": "patience"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。takes courage 表示求助需要勇气。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-4",
+          "type": "choice",
+          "prompt": "4.",
+          "options": [
+            {
+              "key": "A",
+              "text": "At  any  time"
+            },
+            {
+              "key": "B",
+              "text": "In  other  words"
+            },
+            {
+              "key": "C",
+              "text": "By  all  means"
+            },
+            {
+              "key": "D",
+              "text": "On  the  contrary"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。In other words 重述求助意味着暴露弱点。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-5",
+          "type": "choice",
+          "prompt": "5.",
+          "options": [
+            {
+              "key": "A",
+              "text": "unrealistic"
+            },
+            {
+              "key": "B",
+              "text": "deceptive"
+            },
+            {
+              "key": "C",
+              "text": "tiresome"
+            },
+            {
+              "key": "D",
+              "text": "uncomfortable"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。uncomfortable 表示暴露弱点使人不自在。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-6",
+          "type": "choice",
+          "prompt": "6.",
+          "options": [
+            {
+              "key": "A",
+              "text": "doubts"
+            },
+            {
+              "key": "B",
+              "text": "concerns"
+            },
+            {
+              "key": "C",
+              "text": "suggestions"
+            },
+            {
+              "key": "D",
+              "text": "secrets"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。concerns about losing control 指担心失去控制。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-7",
+          "type": "choice",
+          "prompt": "7.",
+          "options": [
+            {
+              "key": "A",
+              "text": "Once"
+            },
+            {
+              "key": "B",
+              "text": "Unless"
+            },
+            {
+              "key": "C",
+              "text": "Although"
+            },
+            {
+              "key": "D",
+              "text": "Before"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。Once 引出有人开始帮忙之后的可能情况。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-8",
+          "type": "choice",
+          "prompt": "8.",
+          "options": [
+            {
+              "key": "A",
+              "text": "theory"
+            },
+            {
+              "key": "B",
+              "text": "choice"
+            },
+            {
+              "key": "C",
+              "text": "factor"
+            },
+            {
+              "key": "D",
+              "text": "context"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。factor 指另一个使人担忧的因素。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-9",
+          "type": "choice",
+          "prompt": "9.",
+          "options": [
+            {
+              "key": "A",
+              "text": "overpraising"
+            },
+            {
+              "key": "B",
+              "text": "outperforming"
+            },
+            {
+              "key": "C",
+              "text": "reassessing"
+            },
+            {
+              "key": "D",
+              "text": "inconveniencing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。inconveniencing 指给别人带来不便。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-10",
+          "type": "choice",
+          "prompt": "10.",
+          "options": [
+            {
+              "key": "A",
+              "text": "reach  out"
+            },
+            {
+              "key": "B",
+              "text": "settle  down"
+            },
+            {
+              "key": "C",
+              "text": "turn  over"
+            },
+            {
+              "key": "D",
+              "text": "look  back"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。reach out for help 指寻求帮助。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-11",
+          "type": "choice",
+          "prompt": "11.",
+          "options": [
+            {
+              "key": "A",
+              "text": "declining"
+            },
+            {
+              "key": "B",
+              "text": "considering"
+            },
+            {
+              "key": "C",
+              "text": "criticizing"
+            },
+            {
+              "key": "D",
+              "text": "evaluating"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。declining your request 指拒绝请求。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-12",
+          "type": "choice",
+          "prompt": "12.",
+          "options": [
+            {
+              "key": "A",
+              "text": "unnecessary"
+            },
+            {
+              "key": "B",
+              "text": "negative"
+            },
+            {
+              "key": "C",
+              "text": "strange"
+            },
+            {
+              "key": "D",
+              "text": "impractical"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。negative 指把拒绝看作关系的负面信号。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-13",
+          "type": "choice",
+          "prompt": "13.",
+          "options": [
+            {
+              "key": "A",
+              "text": "explain"
+            },
+            {
+              "key": "B",
+              "text": "identify"
+            },
+            {
+              "key": "C",
+              "text": "predict"
+            },
+            {
+              "key": "D",
+              "text": "overcome"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。overcome these difficulties 指克服困难。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-14",
+          "type": "choice",
+          "prompt": "14.",
+          "options": [
+            {
+              "key": "A",
+              "text": "deny"
+            },
+            {
+              "key": "B",
+              "text": "forget"
+            },
+            {
+              "key": "C",
+              "text": "miss"
+            },
+            {
+              "key": "D",
+              "text": "fear"
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。fear coming across as incompetent 指担心显得无能。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-15",
+          "type": "choice",
+          "prompt": "15.",
+          "options": [
+            {
+              "key": "A",
+              "text": "disguised"
+            },
+            {
+              "key": "B",
+              "text": "perceived"
+            },
+            {
+              "key": "C",
+              "text": "followed"
+            },
+            {
+              "key": "D",
+              "text": "introduced"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。perceived as more competent 指求助者被认为更有能力。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-16",
+          "type": "choice",
+          "prompt": "16.",
+          "options": [
+            {
+              "key": "A",
+              "text": "recall"
+            },
+            {
+              "key": "B",
+              "text": "classify"
+            },
+            {
+              "key": "C",
+              "text": "analyse"
+            },
+            {
+              "key": "D",
+              "text": "compare"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。recall times 指回忆过去求助的经历。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-17",
+          "type": "choice",
+          "prompt": "17.",
+          "options": [
+            {
+              "key": "A",
+              "text": "brave"
+            },
+            {
+              "key": "B",
+              "text": "disapproving"
+            },
+            {
+              "key": "C",
+              "text": "willing"
+            },
+            {
+              "key": "D",
+              "text": "hesitant"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。willing to help 指别人愿意提供帮助。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-18",
+          "type": "choice",
+          "prompt": "18.",
+          "options": [
+            {
+              "key": "A",
+              "text": "relaxing"
+            },
+            {
+              "key": "B",
+              "text": "surprising"
+            },
+            {
+              "key": "C",
+              "text": "rewarding"
+            },
+            {
+              "key": "D",
+              "text": "demanding"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。rewarding 指帮助别人使人感到有价值。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-19",
+          "type": "choice",
+          "prompt": "19.",
+          "options": [
+            {
+              "key": "A",
+              "text": "Thus"
+            },
+            {
+              "key": "B",
+              "text": "Also"
+            },
+            {
+              "key": "C",
+              "text": "Finally"
+            },
+            {
+              "key": "D",
+              "text": "Instead"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。Also 补充选择求助对象和时机的建议。",
+          "points": 0.5
+        },
+        {
+          "id": "neep-2025-12-english-2-section-1-q-20",
+          "type": "choice",
+          "prompt": "20.",
+          "options": [
+            {
+              "key": "A",
+              "text": "polite"
+            },
+            {
+              "key": "B",
+              "text": "proud"
+            },
+            {
+              "key": "C",
+              "text": "busy"
+            },
+            {
+              "key": "D",
+              "text": "lazy"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。busy 指无法帮忙可能只是太忙。",
+          "points": 0.5
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-2",
+      "kind": "reading",
+      "title": "阅读 1",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "U.S. customers historically tipped people they assumed were earning most of their income via tips, such as restaurant servers earning less than the minimum wage. In the early 2010s, a wide range of businesses started processing purchases with iPads and other digital payment systems. These systems often prompted customers to tip for services that were not previously tipped.",
+        "Today’s tip requests are often not connected to the salary and service norms that used to determine when and how people tip. Customers in the past nearly always paid tips after receiving a service, such as at the conclusion of a restaurant meal, after getting a haircut or once a pizza was delivered. That timing could reward high-quality service and give workers an incentive to provide it.",
+        "It’s becoming more common for tips to be requested beforehand. And new tipping technology may even automatically add tips.",
+        "The prevalence of digital payment devices has made it easier to ask customers for a tip. That helps explain why tip requests are creeping into new kinds of services. Customers now routinely see menus of suggested default options — often well above 20% of what they owe. The amounts have risen from 10% or less in the 1950s to 15% around the year 2000 to 20% or higher today. This increase is sometimes called tipflation — the expectation of ever-higher tip amounts.",
+        "Tipping has always been a vital source of income for workers in historically tipped services, like restaurants, where the tipped minimum wage can be as low as US $2.13 an hour. Tip creep and tipflation are now further supplementing the income of many low-wage service workers.",
+        "Notably, tipping primarily benefits some of these workers, such as waiters, but not others, such as cooks and dishwashers. To ensure that all employees were paid fair wages, some restaurants banned tipping and increased prices, but this movement towards no-tipping services has largely fizzled out.",
+        "So to increase employee wages without raising prices, more employers are succumbing to temptations of tip creep and tipflation. However, many customers are frustrated because they feel they are being asked for too high of a tip too often. And, as our research emphasizes, tipping now seems to be more coercive, less generous, and often completely dissociated from service quality."
+      ],
+      "study_paragraphs": [
+        "U.S. customers historically tipped people they assumed were earning most of their income via tips, such as restaurant servers earning less than the minimum wage. In the early 2010s, a wide range of businesses started processing purchases with iPads and other digital payment systems. These systems often prompted customers to tip for services that were not previously tipped.",
+        "Today’s tip requests are often not connected to the salary and service norms that used to determine when and how people tip. Customers in the past nearly always paid tips after receiving a service, such as at the conclusion of a restaurant meal, after getting a haircut or once a pizza was delivered. That timing could reward high-quality service and give workers an incentive to provide it.",
+        "It’s becoming more common for tips to be requested beforehand. And new tipping technology may even automatically add tips.",
+        "The prevalence of digital payment devices has made it easier to ask customers for a tip. That helps explain why tip requests are creeping into new kinds of services. Customers now routinely see menus of suggested default options — often well above 20% of what they owe. The amounts have risen from 10% or less in the 1950s to 15% around the year 2000 to 20% or higher today. This increase is sometimes called tipflation — the expectation of ever-higher tip amounts.",
+        "Tipping has always been a vital source of income for workers in historically tipped services, like restaurants, where the tipped minimum wage can be as low as US $2.13 an hour. Tip creep and tipflation are now further supplementing the income of many low-wage service workers.",
+        "Notably, tipping primarily benefits some of these workers, such as waiters, but not others, such as cooks and dishwashers. To ensure that all employees were paid fair wages, some restaurants banned tipping and increased prices, but this movement towards no-tipping services has largely fizzled out.",
+        "So to increase employee wages without raising prices, more employers are succumbing to temptations of tip creep and tipflation. However, many customers are frustrated because they feel they are being asked for too high of a tip too often. And, as our research emphasizes, tipping now seems to be more coercive, less generous, and often completely dissociated from service quality."
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-2-q-21",
+          "type": "choice",
+          "prompt": "21. According to Paragraph 1, the practice of tipping in the U.S. ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "was regarded as a sign of generosity."
+            },
+            {
+              "key": "B",
+              "text": "was considered essential for waiters."
+            },
+            {
+              "key": "C",
+              "text": "was a way of rewarding diligence."
+            },
+            {
+              "key": "D",
+              "text": "was optional in most businesses."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。首段说明美国顾客向主要依赖小费收入的服务人员付小费。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-2-q-22",
+          "type": "choice",
+          "prompt": "22. Compared with tips in the past, today’s tips ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "are paid much less frequently."
+            },
+            {
+              "key": "B",
+              "text": "are less often requested in advance."
+            },
+            {
+              "key": "C",
+              "text": "have less to do with service quality."
+            },
+            {
+              "key": "D",
+              "text": "contribute less to workers’ income."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段指出如今小费常在服务前索取，末段说与服务质量脱节。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-2-q-23",
+          "type": "choice",
+          "prompt": "23. Tip requests are creeping into new kinds of services as a result of ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "the advancement of technology."
+            },
+            {
+              "key": "B",
+              "text": "the desire for income increase."
+            },
+            {
+              "key": "C",
+              "text": "the diversification of business."
+            },
+            {
+              "key": "D",
+              "text": "the emergence of tipflation."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段说数字支付设备普及使索取小费更容易。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-2-q-24",
+          "type": "choice",
+          "prompt": "24. The movement toward no-tipping services was intended to ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "promote consumption."
+            },
+            {
+              "key": "B",
+              "text": "enrich income sources."
+            },
+            {
+              "key": "C",
+              "text": "maintain reasonable prices."
+            },
+            {
+              "key": "D",
+              "text": "guarantee income fairness."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第六段明确说取消小费是为了确保所有员工获得公平工资。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-2-q-25",
+          "type": "choice",
+          "prompt": "25. It can be learned from the last paragraph that tipping ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "is becoming a burden for customers."
+            },
+            {
+              "key": "B",
+              "text": "helps encourage quality service."
+            },
+            {
+              "key": "C",
+              "text": "is vital to business development."
+            },
+            {
+              "key": "D",
+              "text": "reflects the need to reduce prices."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。末段顾客因金额太高、频率太高而感到沮丧。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-3",
+      "kind": "reading",
+      "title": "阅读 2",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "When it was established, the National Health Service (NHS) was visionary: offering high-quality, timely care to meet the dominant needs of the population it served. Nearly 75 years on, with the UK facing very different health challenges, it is clear that the model is out of date.",
+        "From life expectancy to cancer and infant mortality rates, we are lagging behind many of our peers. With more than 6.8 million on waitlists, healthcare is becoming increasingly inaccessible for those who cannot opt to pay for private treatment; and the cost of providing healthcare is increasingly squeezing our investment in other public services. As demand for healthcare continues to grow, pressures on the workforce — which is already near breaking point — will only become more acute.",
+        "Many of the answers to the crisis in health and care are well rehearsed. We need to be much better at reducing and diverting demand on health services, rather than simply managing it. Much more needs to be invested in communities and primary care to reduce our reliance on hospitals. And capacity in social care needs to be greater, to support the growing number of people living with long-term conditions.",
+        "Yet despite two decades of strategies and a number of major health reforms, we have failed to make meaningful progress on any of these aims. That is why the Reform think tank is launching a new programme of work entitled “Reimagining health”, supported by ten former health ministers. Together, we are calling for a much more open and honest conversation about the future of health in the UK, and an “urgent rethink” of the hospital-centric model we retain.",
+        "This must begin with the question of how we maximise the health of the nation, rather than “fix” the NHS. It is estimated, for example, that healthcare accounts for only about 20% of health outcomes. Much more important are the places we live, work and socialise — yet there is no clear cross-government strategy for improving these social determinants of health. Worse, when policies like the national obesity strategy are scrapped, taxpayers are left with the hefty price tag of treating the illnesses, like diabetes, that result.",
+        "Reform wants to ask how power and resources should be distributed in our health system. What health functions should remain at the centre, and what should be given to local leaders, often responsible for services that create health, and with a much better understanding of the needs of their populations?"
+      ],
+      "study_paragraphs": [
+        "When it was established, the National Health Service (NHS) was visionary: offering high-quality, timely care to meet the dominant needs of the population it served. Nearly 75 years on, with the UK facing very different health challenges, it is clear that the model is out of date.",
+        "From life expectancy to cancer and infant mortality rates, we are lagging behind many of our peers. With more than 6.8 million on waitlists, healthcare is becoming increasingly inaccessible for those who cannot opt to pay for private treatment; and the cost of providing healthcare is increasingly squeezing our investment in other public services. As demand for healthcare continues to grow, pressures on the workforce — which is already near breaking point — will only become more acute.",
+        "Many of the answers to the crisis in health and care are well rehearsed. We need to be much better at reducing and diverting demand on health services, rather than simply managing it. Much more needs to be invested in communities and primary care to reduce our reliance on hospitals. And capacity in social care needs to be greater, to support the growing number of people living with long-term conditions.",
+        "Yet despite two decades of strategies and a number of major health reforms, we have failed to make meaningful progress on any of these aims. That is why the Reform think tank is launching a new programme of work entitled “Reimagining health”, supported by ten former health ministers. Together, we are calling for a much more open and honest conversation about the future of health in the UK, and an “urgent rethink” of the hospital-centric model we retain.",
+        "This must begin with the question of how we maximise the health of the nation, rather than “fix” the NHS. It is estimated, for example, that healthcare accounts for only about 20% of health outcomes. Much more important are the places we live, work and socialise — yet there is no clear cross-government strategy for improving these social determinants of health. Worse, when policies like the national obesity strategy are scrapped, taxpayers are left with the hefty price tag of treating the illnesses, like diabetes, that result.",
+        "Reform wants to ask how power and resources should be distributed in our health system. What health functions should remain at the centre, and what should be given to local leaders, often responsible for services that create health, and with a much better understanding of the needs of their populations?"
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-3-q-26",
+          "type": "choice",
+          "prompt": "26. According to the first two paragraphs, the NHS ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "is troubled by funding deficiencies."
+            },
+            {
+              "key": "B",
+              "text": "can hardly satisfy people’s needs."
+            },
+            {
+              "key": "C",
+              "text": "can barely retain its current employees."
+            },
+            {
+              "key": "D",
+              "text": "is rivalled by private medical services."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。前两段指出旧模式已过时、医疗越来越难以获取。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-3-q-27",
+          "type": "choice",
+          "prompt": "27. One answer to the crisis in health and care is to ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost the efficiency of hospitals."
+            },
+            {
+              "key": "B",
+              "text": "lighten the burden on social care."
+            },
+            {
+              "key": "C",
+              "text": "increase resources for primary care."
+            },
+            {
+              "key": "D",
+              "text": "reduce the pressure on communities."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段要求加大社区与初级医疗投入。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-3-q-28",
+          "type": "choice",
+          "prompt": "28. “Reimagining health” is aimed to ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "reinforce hospital management."
+            },
+            {
+              "key": "B",
+              "text": "readjust healthcare regulations."
+            },
+            {
+              "key": "C",
+              "text": "restructure the health system."
+            },
+            {
+              "key": "D",
+              "text": "resume suspended health reforms."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段呼吁重新思考以医院为中心的模式。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-3-q-29",
+          "type": "choice",
+          "prompt": "29. To maximise the nation’s health, the author suggests ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "introducing relevant taxation policies."
+            },
+            {
+              "key": "B",
+              "text": "paying due attention to social factors."
+            },
+            {
+              "key": "C",
+              "text": "reevaluating major health outcomes."
+            },
+            {
+              "key": "D",
+              "text": "enhancing the quality of healthcare."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第五段认为生活、工作和社交环境等社会因素更重要。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-3-q-30",
+          "type": "choice",
+          "prompt": "30. It can be inferred that local leaders should ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "exercise their power more reasonably."
+            },
+            {
+              "key": "B",
+              "text": "develop a stronger sense of responsibility."
+            },
+            {
+              "key": "C",
+              "text": "play a bigger role in the health system."
+            },
+            {
+              "key": "D",
+              "text": "understand people’s health needs better."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。末段探讨把权力和资源分配给更了解地方的领导者。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-4",
+      "kind": "reading",
+      "title": "阅读 3",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "Heat action plans, or HAPs, have been proliferating in India in the past few years. In general, an HAP spells out when and how officials should issue heat warnings and alert hospitals and other institutions. Nagpur’s plan, for instance, calls for hospitals to set aside “cold wards” in the summer for treating heatstroke patients, and advises builders to give construction laborers a break from work on very hot days.",
+        "But implementation of existing HAPs has been uneven, according to a report from the center for Policy Research. Many lack adequate funding, it found. And their triggering thresholds often are not customized to the local climate. In some areas, high daytime temperatures alone might serve as an adequate trigger for alerts. But in other places, nighttime temperatures or humidity might be as important a gauge of risk as daytime highs.",
+        "Mumbai’s April heat stroke deaths highlighted the need for more nuanced and localized warnings, researchers say. That day’s high temperature of roughly 36°C was 1°C shy of the heat wave alert threshold for coastal cities set by national meteorological authorities. But the effects of the heat were amplified by humidity — an often neglected factor in heat alert systems — and the lack of shade at the late-morning outdoor ceremony.",
+        "To help improve HAPs, urban planner Kotharkar’s team is working on a model plan that outlines best practices and could be adapted to local conditions. Among other things, she says, all cities should create a vulnerability map to help focus responses on the populations most at risk.",
+        "Such mapping doesn’t need to be complex, Kotharkar says. “A useful map can be created by looking at even a few key parameters.” For example, neighborhoods with a large elderly population or informal dwellings that cope poorly with heat could get special warnings or be bolstered with cooling centers. The Nagpur project has already created a risk and vulnerability map, which enabled Kotharkar to tell officials which neighborhoods to focus on in the event of a heat wave this summer.",
+        "HAPs shouldn’t just include short-term emergency responses, researchers say, but also recommend medium- to long-term measures that could make communities cooler. In Nagpur, for example, Kotharkar’s team has been able to advise city officials about where to plant trees to provide shade. HAPs could also guide efforts to retrofit homes or modify building regulations. “Reducing deaths in an emergency is a good target to have, but it’s the lowest target,” says Climate researcher Chandni Singh."
+      ],
+      "study_paragraphs": [
+        "Heat action plans, or HAPs, have been proliferating in India in the past few years. In general, an HAP spells out when and how officials should issue heat warnings and alert hospitals and other institutions. Nagpur’s plan, for instance, calls for hospitals to set aside “cold wards” in the summer for treating heatstroke patients, and advises builders to give construction laborers a break from work on very hot days.",
+        "But implementation of existing HAPs has been uneven, according to a report from the center for Policy Research. Many lack adequate funding, it found. And their triggering thresholds often are not customized to the local climate. In some areas, high daytime temperatures alone might serve as an adequate trigger for alerts. But in other places, nighttime temperatures or humidity might be as important a gauge of risk as daytime highs.",
+        "Mumbai’s April heat stroke deaths highlighted the need for more nuanced and localized warnings, researchers say. That day’s high temperature of roughly 36°C was 1°C shy of the heat wave alert threshold for coastal cities set by national meteorological authorities. But the effects of the heat were amplified by humidity — an often neglected factor in heat alert systems — and the lack of shade at the late-morning outdoor ceremony.",
+        "To help improve HAPs, urban planner Kotharkar’s team is working on a model plan that outlines best practices and could be adapted to local conditions. Among other things, she says, all cities should create a vulnerability map to help focus responses on the populations most at risk.",
+        "Such mapping doesn’t need to be complex, Kotharkar says. “A useful map can be created by looking at even a few key parameters.” For example, neighborhoods with a large elderly population or informal dwellings that cope poorly with heat could get special warnings or be bolstered with cooling centers. The Nagpur project has already created a risk and vulnerability map, which enabled Kotharkar to tell officials which neighborhoods to focus on in the event of a heat wave this summer.",
+        "HAPs shouldn’t just include short-term emergency responses, researchers say, but also recommend medium- to long-term measures that could make communities cooler. In Nagpur, for example, Kotharkar’s team has been able to advise city officials about where to plant trees to provide shade. HAPs could also guide efforts to retrofit homes or modify building regulations. “Reducing deaths in an emergency is a good target to have, but it’s the lowest target,” says Climate researcher Chandni Singh."
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-4-q-31",
+          "type": "choice",
+          "prompt": "31. According to Paragraph 1, Nagpur’s plan proposes measures to ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "tackle extreme weather."
+            },
+            {
+              "key": "B",
+              "text": "ensure construction quality."
+            },
+            {
+              "key": "C",
+              "text": "monitor emergency warnings."
+            },
+            {
+              "key": "D",
+              "text": "address excessive workloads."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。首段冷病房与高温停工措施用于应对极端高温。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-4-q-32",
+          "type": "choice",
+          "prompt": "32. One problem with existing HAPs is that they ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "prove too costly to be implemented."
+            },
+            {
+              "key": "B",
+              "text": "lack localized alert-issuing criteria."
+            },
+            {
+              "key": "C",
+              "text": "give delayed responses to heat waves."
+            },
+            {
+              "key": "D",
+              "text": "keep hospitals under great pressure."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第二段说预警阈值常未因地制宜。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-4-q-33",
+          "type": "choice",
+          "prompt": "33. Mumbai’s case shows that India’s heat alert systems need to ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "include other factors besides temperature."
+            },
+            {
+              "key": "B",
+              "text": "take subtle weather changes into account."
+            },
+            {
+              "key": "C",
+              "text": "prioritize potentially disastrous heat waves."
+            },
+            {
+              "key": "D",
+              "text": "draw further support from local authorities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段强调湿度和遮阴不足会放大高温风险。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-4-q-34",
+          "type": "choice",
+          "prompt": "34. Kotharkar holds that a vulnerability map can help ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "prevent the harm of high humidity."
+            },
+            {
+              "key": "B",
+              "text": "target areas needing special attention."
+            },
+            {
+              "key": "C",
+              "text": "expand the Nagpur project’s coverage."
+            },
+            {
+              "key": "D",
+              "text": "make relief plans for heat-stricken people."
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。第五段说地图帮助确定热浪时重点关注的社区。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-4-q-35",
+          "type": "choice",
+          "prompt": "35. According to the last paragraph, researchers believe that HAPs should ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "focus more on heatstroke treatment."
+            },
+            {
+              "key": "B",
+              "text": "invite wider public participation."
+            },
+            {
+              "key": "C",
+              "text": "apply for more government grants."
+            },
+            {
+              "key": "D",
+              "text": "serve a broader range of purposes."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。末段提出中长期措施，目标不应局限于减少紧急死亡。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-5",
+      "kind": "reading",
+      "title": "阅读 4",
+      "instructions": "Section II · Reading Comprehension · Part A. Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)",
+      "paragraphs": [
+        "Navigating beyond the organised pavements and parks of our urban spaces, desire paths are the unofficial footprints of a community, revealing the unspoken preferences, shared shortcuts and collective choices of humans. Often appearing as trodden dirt tracks through otherwise neat green spaces, these routes of collective disobedience cut corners, bisect lawns and cross hills, representing the natural capability of people (and animals) to go from point A to point B most effectively.",
+        "Urban planners interpret desire paths as more than just convenient shortcuts; they offer valuable insights into the dynamics between planning and behaviour. Ohio State University allowed its students to navigate the Oval, a lawn in the centre of campus, freely, then proceeded to pave the desire paths, creating a web of effective routes students had established.",
+        "Yet, reluctance persists among other planners to integrate desire paths into formal plans, citing concerns about safety, environmental impact, or primarily, aesthetics. A Reddit webpage devoted to the phenomenon, boasting nearly 50,000 members, showcases images of local desire paths adorned with signs instructing pedestrians to adhere to designated walkways, underscoring the rebellious nature inherent in these human-made tracks. This clash highlights an ongoing struggle between the organic, user-driven evolution of public spaces and the desire for a visually curated and controlled urban environment.",
+        "The Wickquasgeck Trail is an example of a historical desire path, created by Native Americans to cross the forests of Manhattan and move between settlements quickly. This trail, when Dutch colonists arrived, was widened and made into one of the main trade roads across the island, known at the time as de Heere Straat, or Gentlemen’s Street. Following the British assumption of control in New York, the street was renamed Broadway. Notably, Broadway stands out as one of the few areas in NYC that defies the grid-based system applied to the rest of the city, cutting a diagonal across parts of the city.",
+        "In online spaces, desire paths have sparked a fascination that can approach obsession, with the Reddit page serving as a hub. Contributors offer a wide array of stories, from little-known new shortcuts to long-established alternate routes.",
+        "Animal desire paths, such as ducks forging trails through frozen ponds or dogs carving direct routes in gardens, highlight the adaptability of these trails in both human and animal experiences. As desire paths criss-cross through both physical and virtual landscapes, they stand as a proof of the collective insistence on forging unconventional routes and embracing the spirit of communal choice."
+      ],
+      "study_paragraphs": [
+        "Navigating beyond the organised pavements and parks of our urban spaces, desire paths are the unofficial footprints of a community, revealing the unspoken preferences, shared shortcuts and collective choices of humans. Often appearing as trodden dirt tracks through otherwise neat green spaces, these routes of collective disobedience cut corners, bisect lawns and cross hills, representing the natural capability of people (and animals) to go from point A to point B most effectively.",
+        "Urban planners interpret desire paths as more than just convenient shortcuts; they offer valuable insights into the dynamics between planning and behaviour. Ohio State University allowed its students to navigate the Oval, a lawn in the centre of campus, freely, then proceeded to pave the desire paths, creating a web of effective routes students had established.",
+        "Yet, reluctance persists among other planners to integrate desire paths into formal plans, citing concerns about safety, environmental impact, or primarily, aesthetics. A Reddit webpage devoted to the phenomenon, boasting nearly 50,000 members, showcases images of local desire paths adorned with signs instructing pedestrians to adhere to designated walkways, underscoring the rebellious nature inherent in these human-made tracks. This clash highlights an ongoing struggle between the organic, user-driven evolution of public spaces and the desire for a visually curated and controlled urban environment.",
+        "The Wickquasgeck Trail is an example of a historical desire path, created by Native Americans to cross the forests of Manhattan and move between settlements quickly. This trail, when Dutch colonists arrived, was widened and made into one of the main trade roads across the island, known at the time as de Heere Straat, or Gentlemen’s Street. Following the British assumption of control in New York, the street was renamed Broadway. Notably, Broadway stands out as one of the few areas in NYC that defies the grid-based system applied to the rest of the city, cutting a diagonal across parts of the city.",
+        "In online spaces, desire paths have sparked a fascination that can approach obsession, with the Reddit page serving as a hub. Contributors offer a wide array of stories, from little-known new shortcuts to long-established alternate routes.",
+        "Animal desire paths, such as ducks forging trails through frozen ponds or dogs carving direct routes in gardens, highlight the adaptability of these trails in both human and animal experiences. As desire paths criss-cross through both physical and virtual landscapes, they stand as a proof of the collective insistence on forging unconventional routes and embracing the spirit of communal choice."
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-5-q-36",
+          "type": "choice",
+          "prompt": "36. According to Paragraph 1, desire paths are a result of ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "the curiosity to explore surrounding hills."
+            },
+            {
+              "key": "B",
+              "text": "the necessity to preserve green spaces."
+            },
+            {
+              "key": "C",
+              "text": "the tendency to pursue convenience."
+            },
+            {
+              "key": "D",
+              "text": "the wish to find comfort in solitude."
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。首段说明欲望小径使人更高效地从甲地到乙地。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-5-q-37",
+          "type": "choice",
+          "prompt": "37. It can be inferred that Ohio State University ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "intends to improve its desire paths."
+            },
+            {
+              "key": "B",
+              "text": "leads in the research on desire paths."
+            },
+            {
+              "key": "C",
+              "text": "guides the creation of its desire paths."
+            },
+            {
+              "key": "D",
+              "text": "takes a positive view of desire paths."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第二段俄亥俄州立大学把学生走出的小径铺成道路。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-5-q-38",
+          "type": "choice",
+          "prompt": "38. The images on the Reddit webpage reflect ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "conflicting opinions on the use of desire paths."
+            },
+            {
+              "key": "B",
+              "text": "the call to upgrade the designing of public spaces."
+            },
+            {
+              "key": "C",
+              "text": "the demand for proper planning of desire paths."
+            },
+            {
+              "key": "D",
+              "text": "growing concerns over the loss of public spaces."
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。第三段网页图片展示行人选择与规划者要求之间的冲突。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-5-q-39",
+          "type": "choice",
+          "prompt": "39. The example of the Wickguasgeck Trail illustrates ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "the growth of New York City."
+            },
+            {
+              "key": "B",
+              "text": "the Dutch origin of desire paths."
+            },
+            {
+              "key": "C",
+              "text": "the importance of urban planning."
+            },
+            {
+              "key": "D",
+              "text": "the recognition of desire paths."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。第四段旧小径被拓宽成贸易道路并演化为百老汇。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-5-q-40",
+          "type": "choice",
+          "prompt": "40. It can be learned from the last paragraph that desire paths ____",
+          "options": [
+            {
+              "key": "A",
+              "text": "reveal humans’ deep respect for nature."
+            },
+            {
+              "key": "B",
+              "text": "are crucial to humans’ mental wellbeing."
+            },
+            {
+              "key": "C",
+              "text": "are a human imitation of animal behavior."
+            },
+            {
+              "key": "D",
+              "text": "show a shared trait in humans and animals."
+            }
+          ],
+          "answer": "D",
+          "explanation": "依据原文整理的参考答案，非官方答案。末段以鸭、狗说明人和动物都选择直接、方便的路线。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-6",
+      "kind": "matching",
+      "title": "新题型",
+      "instructions": "Section II · Reading Comprehension · Part B. Read the following text and answer the questions by choosing the most suitable subheading from the list A-G for each of the numbered paragraphs (41-45). There are two extra subheadings which you do not need to use. Mark your answers on the ANSWER SHEET. (10 points)",
+      "paragraphs": [
+        "Five Steps to Suggesting a Change at Work That’ll Actually Get Taken Seriously",
+        "Everyone wants to be that person — the one who looks at the same information as everyone else, but who sees a fresh, innovative solution. However, it takes more than simply having a good idea. How you share it is as important as the suggestion itself.",
+        "Why? Because writing a new script — literally or figuratively — means that other team members will have to adapt to something new. So whether you’re suggesting a (seemingly) benign change like streamlining outdated protocol, or a bigger change like adding an hour to each workday so people can leave early on Fridays, you’re asking others to reimagine their workflow or schedule. Not to mention, if the process you’re scrapping is one someone else suggested, there’s the possibility of hurt feelings.",
+        "To gain buy-in on an innovative, new idea, follow these steps:",
+        "41. _________________________",
+        "Great ideas don’t stand alone. In other words, you can’t mention your suggestion once and expect it to be adopted. To see a change, you’ll need to champion your plan and sell its merits. In addition, you need to be willing to stand up to scrutiny and criticism and be prepared to explain your innovation in different ways for various audiences.",
+        "42. _________________________",
+        "Sometimes it makes sense to go to your boss first. But other times, it’s useful to build a coalition among your co-workers or other stakeholders. When it works, it works great — because you’re ready for your stubborn supervisor’s pushback with answers like, “Actually, I connected with a few people in our tech department to discuss how much time these kinds of website updates would take, and they suggested they have the bandwidth.”",
+        "43. _________________________",
+        "One of the biggest barriers to gaining buy-in occurs when the owner of an idea is viewed as argumentative, defensive, or close-minded. Because, let’s be honest: No one likes a know-it-all. So, if people disagree with you, don’t be indignant. Instead, listen to their concerns fully, try to understand their perspective, and include their concerns (and possible remedies) in future discussions.",
+        "So, instead of saying, “Martha, our current slogan is confusing and should be updated,” you could try, “Martha raises a great point that our current slogan has a long history for our stakeholders, but I wonder if we might be able to brainstorm a tagline that could build on that — and be clearer for new customers.”",
+        "44. _________________________",
+        "New ideas are the grandchildren of old ones. In other words, don’t throw old solutions under the bus to make your improvement stand out. Remember that in light of whatever the problem the old system solved — or, maybe, has failed to solve in recent memory — it was a great idea at the time. Appreciating the older contributions as you suggest future innovations helps bolster the credibility of your idea.",
+        "45. _________________________",
+        "When pitching a new idea, it’s important to use the language of abundance instead of the language of deficit. Instead of saying what is wrong, broken, or suboptimal, talk about what is right, fixable, or ideal. For example, try, “I can see lots of applications for this new approach” rather than, “This innovation is the only way.” Be optimistic but realistic, and you will stand out."
+      ],
+      "study_paragraphs": [
+        "Five Steps to Suggesting a Change at Work That’ll Actually Get Taken Seriously",
+        "Everyone wants to be that person — the one who looks at the same information as everyone else, but who sees a fresh, innovative solution. However, it takes more than simply having a good idea. How you share it is as important as the suggestion itself.",
+        "Why? Because writing a new script — literally or figuratively — means that other team members will have to adapt to something new. So whether you’re suggesting a (seemingly) benign change like streamlining outdated protocol, or a bigger change like adding an hour to each workday so people can leave early on Fridays, you’re asking others to reimagine their workflow or schedule. Not to mention, if the process you’re scrapping is one someone else suggested, there’s the possibility of hurt feelings.",
+        "To gain buy-in on an innovative, new idea, follow these steps:",
+        "Be  a  salesman",
+        "Great ideas don’t stand alone. In other words, you can’t mention your suggestion once and expect it to be adopted. To see a change, you’ll need to champion your plan and sell its merits. In addition, you need to be willing to stand up to scrutiny and criticism and be prepared to explain your innovation in different ways for various audiences.",
+        "Use  channels",
+        "Sometimes it makes sense to go to your boss first. But other times, it’s useful to build a coalition among your co-workers or other stakeholders. When it works, it works great — because you’re ready for your stubborn supervisor’s pushback with answers like, “Actually, I connected with a few people in our tech department to discuss how much time these kinds of website updates would take, and they suggested they have the bandwidth.”",
+        "Be  humble",
+        "One of the biggest barriers to gaining buy-in occurs when the owner of an idea is viewed as argumentative, defensive, or close-minded. Because, let’s be honest: No one likes a know-it-all. So, if people disagree with you, don’t be indignant. Instead, listen to their concerns fully, try to understand their perspective, and include their concerns (and possible remedies) in future discussions.",
+        "So, instead of saying, “Martha, our current slogan is confusing and should be updated,” you could try, “Martha raises a great point that our current slogan has a long history for our stakeholders, but I wonder if we might be able to brainstorm a tagline that could build on that — and be clearer for new customers.”",
+        "Respect  the  past",
+        "New ideas are the grandchildren of old ones. In other words, don’t throw old solutions under the bus to make your improvement stand out. Remember that in light of whatever the problem the old system solved — or, maybe, has failed to solve in recent memory — it was a great idea at the time. Appreciating the older contributions as you suggest future innovations helps bolster the credibility of your idea.",
+        "Stay  positive",
+        "When pitching a new idea, it’s important to use the language of abundance instead of the language of deficit. Instead of saying what is wrong, broken, or suboptimal, talk about what is right, fixable, or ideal. For example, try, “I can see lots of applications for this new approach” rather than, “This innovation is the only way.” Be optimistic but realistic, and you will stand out."
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-6-q-41",
+          "type": "choice",
+          "prompt": "41. _________________________",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stay  positive"
+            },
+            {
+              "key": "B",
+              "text": "Respect  the  past"
+            },
+            {
+              "key": "C",
+              "text": "Use  channels"
+            },
+            {
+              "key": "D",
+              "text": "Give  it  time"
+            },
+            {
+              "key": "E",
+              "text": "Invite  resistance"
+            },
+            {
+              "key": "F",
+              "text": "Be  a  salesman"
+            },
+            {
+              "key": "G",
+              "text": "Be  humble"
+            }
+          ],
+          "answer": "F",
+          "explanation": "依据原文整理的参考答案，非官方答案。41段要求推销计划优点、面向不同受众解释。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-6-q-42",
+          "type": "choice",
+          "prompt": "42. _________________________",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stay  positive"
+            },
+            {
+              "key": "B",
+              "text": "Respect  the  past"
+            },
+            {
+              "key": "C",
+              "text": "Use  channels"
+            },
+            {
+              "key": "D",
+              "text": "Give  it  time"
+            },
+            {
+              "key": "E",
+              "text": "Invite  resistance"
+            },
+            {
+              "key": "F",
+              "text": "Be  a  salesman"
+            },
+            {
+              "key": "G",
+              "text": "Be  humble"
+            }
+          ],
+          "answer": "C",
+          "explanation": "依据原文整理的参考答案，非官方答案。42段建议选择上司、同事或其他相关方等渠道。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-6-q-43",
+          "type": "choice",
+          "prompt": "43. _________________________",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stay  positive"
+            },
+            {
+              "key": "B",
+              "text": "Respect  the  past"
+            },
+            {
+              "key": "C",
+              "text": "Use  channels"
+            },
+            {
+              "key": "D",
+              "text": "Give  it  time"
+            },
+            {
+              "key": "E",
+              "text": "Invite  resistance"
+            },
+            {
+              "key": "F",
+              "text": "Be  a  salesman"
+            },
+            {
+              "key": "G",
+              "text": "Be  humble"
+            }
+          ],
+          "answer": "G",
+          "explanation": "依据原文整理的参考答案，非官方答案。43段强调倾听分歧和意见，避免自以为无所不知。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-6-q-44",
+          "type": "choice",
+          "prompt": "44. _________________________",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stay  positive"
+            },
+            {
+              "key": "B",
+              "text": "Respect  the  past"
+            },
+            {
+              "key": "C",
+              "text": "Use  channels"
+            },
+            {
+              "key": "D",
+              "text": "Give  it  time"
+            },
+            {
+              "key": "E",
+              "text": "Invite  resistance"
+            },
+            {
+              "key": "F",
+              "text": "Be  a  salesman"
+            },
+            {
+              "key": "G",
+              "text": "Be  humble"
+            }
+          ],
+          "answer": "B",
+          "explanation": "依据原文整理的参考答案，非官方答案。44段要求肯定旧方案及其贡献。",
+          "points": 2
+        },
+        {
+          "id": "neep-2025-12-english-2-section-6-q-45",
+          "type": "choice",
+          "prompt": "45. _________________________",
+          "options": [
+            {
+              "key": "A",
+              "text": "Stay  positive"
+            },
+            {
+              "key": "B",
+              "text": "Respect  the  past"
+            },
+            {
+              "key": "C",
+              "text": "Use  channels"
+            },
+            {
+              "key": "D",
+              "text": "Give  it  time"
+            },
+            {
+              "key": "E",
+              "text": "Invite  resistance"
+            },
+            {
+              "key": "F",
+              "text": "Be  a  salesman"
+            },
+            {
+              "key": "G",
+              "text": "Be  humble"
+            }
+          ],
+          "answer": "A",
+          "explanation": "依据原文整理的参考答案，非官方答案。45段要求用积极语言，保持乐观又现实。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-7",
+      "kind": "translation",
+      "title": "翻译",
+      "instructions": "Section III · Translation. Translate the following text into Chinese. Write your translation on the ANSWER SHEET. (15 points)",
+      "paragraphs": [
+        "You know the moment — the conversation slows, then there’s a pause. It’s awkward, and so awkward that some people will panic and say anything. Do we all find such silences so stressful?",
+        "Researchers analysed the frequency and impact of gaps greater than 2 seconds during conversations, including an overview of previous studies which indicate that the fear of awkward silences can be so extreme that people avoid talking to strangers, even though doing so is likely to be an enjoyable experience.",
+        "During conversations with short gaps, people feel more connected to their conversation partners. But such feelings of connection markedly dip when entering a long gap. Long gaps between strangers are likely to be followed by a change in topic.",
+        "But the opposite seems to be true for conversations between friends. Long gaps there saw increased connection. Between friends, longer gaps seem to provide natural moments for reflection and expression."
+      ],
+      "study_paragraphs": [
+        "You know the moment — the conversation slows, then there’s a pause. It’s awkward, and so awkward that some people will panic and say anything. Do we all find such silences so stressful?",
+        "Researchers analysed the frequency and impact of gaps greater than 2 seconds during conversations, including an overview of previous studies which indicate that the fear of awkward silences can be so extreme that people avoid talking to strangers, even though doing so is likely to be an enjoyable experience.",
+        "During conversations with short gaps, people feel more connected to their conversation partners. But such feelings of connection markedly dip when entering a long gap. Long gaps between strangers are likely to be followed by a change in topic.",
+        "But the opposite seems to be true for conversations between friends. Long gaps there saw increased connection. Between friends, longer gaps seem to provide natural moments for reflection and expression."
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-7-q-46",
+          "type": "text",
+          "prompt": "46. Directions:",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 15
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-8",
+      "kind": "writing",
+      "title": "小作文",
+      "instructions": "Section IV · Writing · Part A · 10 points",
+      "paragraphs": [
+        "Suppose you are planning a short play based on a classic Chinese novel. Write your friend John an email to:",
+        "1) introduce  the  play,  and",
+        "2) invite  him  to  take  part  in  it.",
+        "Write  your  answer  in  about  100  words  on  the  ANSWER  SHEET.",
+        "Do  not  use  your  own  name  in  your  email.  Use  “Li  Ming”  instead.  (10  points)"
+      ],
+      "study_paragraphs": [
+        "Suppose you are planning a short play based on a classic Chinese novel. Write your friend John an email to:",
+        "1) introduce  the  play,  and",
+        "2) invite  him  to  take  part  in  it.",
+        "Write  your  answer  in  about  100  words  on  the  ANSWER  SHEET.",
+        "Do  not  use  your  own  name  in  your  email.  Use  “Li  Ming”  instead.  (10  points)"
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-8-q-47",
+          "type": "text",
+          "prompt": "47. Directions:",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "neep-2025-12-english-2-section-9",
+      "kind": "writing",
+      "title": "大作文",
+      "instructions": "Section IV · Writing · Part B · 15 points",
+      "paragraphs": [
+        "Write  an  essay  based  on  the  chart  below.  In  your  essay,  you  should",
+        "1) describe  and  interpret  the  chart,  and",
+        "2) give  your  comments.",
+        "Write  your  answer  in  about  150  words  on  the  ANSWER  SHEET.  (15  points)"
+      ],
+      "study_paragraphs": [
+        "Write  an  essay  based  on  the  chart  below.  In  your  essay,  you  should",
+        "1) describe  and  interpret  the  chart,  and",
+        "2) give  your  comments.",
+        "Write  your  answer  in  about  150  words  on  the  ANSWER  SHEET.  (15  points)"
+      ],
+      "questions": [
+        {
+          "id": "neep-2025-12-english-2-section-9-q-48",
+          "type": "text",
+          "prompt": "48. Directions:",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文或范文；作答保留供自行核对。",
+          "points": 15
+        }
+      ],
+      "images": [
+        {
+          "src": "/papers/neep-2025-12-english-2/writing-48.png",
+          "alt": "某社区老年人主要日常休闲活动调查：看电视90.80%，散步68.30%，养花34.70%，阅读31.80%，下棋18.40%。"
+        }
+      ]
+    }
+  ]
+}

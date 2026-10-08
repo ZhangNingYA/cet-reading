@@ -1,0 +1,1883 @@
+{
+  "id": "cet6-2025-12-1",
+  "exam_level": "CET6",
+  "year": 2025,
+  "month": 12,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2025年12月大学英语六级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，并非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2025-12-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence “Living in an increasingly competitive world, college students should better prepare themselves to confront various challenges.”You can make comments, cite examples or use yourpersonal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2025-12-1-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence “Living in an increasingly competitive world, college students should better prepare themselves to confront various challenges.”You can make comments, cite examples or use yourpersonal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-12-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: I n this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter: Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "By now, it is generally accepted that regular exercise comes with an assortment of health benefits for people who maintain the habit over time. But is it [26] ______ too late to start?",
+        "New research looked at people who increased their exercise levels after their 40s beyond levels they had when they were younger and those individuals showed declines in their risk of early [27] ______ which were similar to those of people who exercised consistently throughout their lives. This was a [28] ______ of 32%to 35%compared to people who did not exercise. Those who began exercising in middle age also saw reductions in their incidence of [29] ______ diseases, such as heart disease and cancer, which were similar to the steady exercisers.",
+        "So why bother exercising consistently throughout your life? The authors of the study [30] ______ that some might interpret the study's findings to mean that they can delay starting an exercise program but this would be a mistake. There are other benefits, both mental and physical, to staying consistently active that we should not [31] ______ . These real health benefits include better [32] ______ functioning and lowered risk of gaining weight. The latter is [33] ______ important given the global obesity epidemic. In addition, experts assert that starting younger is better because, if you make a habit of exercising when you are young, you are more likely to keep up those [34] ______ later in life. It is ideal, then, for people to start exercising when they are children or [35] ______ , and it is good to maintain an active lifestyle at all times regardless of your age. However, this study does indicate that, if you have not been active, you can still benefit if you start becoming active in your 40s and 50s."
+      ],
+      "study_paragraphs": [
+        "By now, it is generally accepted that regular exercise comes with an assortment of health benefits for people who maintain the habit over time. But is it ever too late to start?",
+        "New research looked at people who increased their exercise levels after their 40s beyond levels they had when they were younger and those individuals showed declines in their risk of early mortality which were similar to those of people who exercised consistently throughout their lives. This was a drop of 32%to 35%compared to people who did not exercise. Those who began exercising in middle age also saw reductions in their incidence of chronic diseases, such as heart disease and cancer, which were similar to the steady exercisers.",
+        "So why bother exercising consistently throughout your life? The authors of the study concede that some might interpret the study's findings to mean that they can delay starting an exercise program but this would be a mistake. There are other benefits, both mental and physical, to staying consistently active that we should not disregard. These real health benefits include better cognitive functioning and lowered risk of gaining weight. The latter is particularly important given the global obesity epidemic. In addition, experts assert that starting younger is better because, if you make a habit of exercising when you are young, you are more likely to keep up those patterns later in life. It is ideal, then, for people to start exercising when they are children or adolescents, and it is good to maintain an active lifestyle at all times regardless of your age. However, this study does indicate that, if you have not been active, you can still benefit if you start becoming active in your 40s and 50s."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2025-12-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。此处填入 ever。上下文补全为： benefits for people who maintain the habit over time. But is it ever too late to start?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。此处填入 mortality。上下文补全为：ger and those individuals showed declines in their risk of early mortality which were similar to those of people who exercised consistently througho",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。此处填入 drop。上下文补全为：le who exercised consistently throughout their lives. This was a drop of 32%to 35%compared to people who did not exercise. Those who began exer",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。此处填入 chronic。上下文补全为：ercising in middle age also saw reductions in their incidence of chronic diseases, such as heart disease and cancer, which were similar to the ste",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。此处填入 concede。上下文补全为：sing consistently throughout your life? The authors of the study concede that some might interpret the study's findings to mean that they can dela",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。此处填入 disregard。上下文补全为： and physical, to staying consistently active that we should not disregard. These real health benefits include better cognitive functioning and l",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。此处填入 cognitive。上下文补全为：ould not disregard. These real health benefits include better cognitive functioning and lowered risk of gaining weight. The latter is particularly",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。此处填入 particularly。上下文补全为：__ functioning and lowered risk of gaining weight. The latter is particularly important given the global obesity epidemic. In addition, experts assert ",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。此处填入 patterns。上下文补全为：rcising when you are young, you are more likely to keep up those patterns later in life. It is ideal, then, for people to start exercising when the",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adolescents"
+            },
+            {
+              "key": "B",
+              "text": "arbitrarily"
+            },
+            {
+              "key": "C",
+              "text": "chronic"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "concede"
+            },
+            {
+              "key": "F",
+              "text": "disregard"
+            },
+            {
+              "key": "G",
+              "text": "drop"
+            },
+            {
+              "key": "H",
+              "text": "ever"
+            },
+            {
+              "key": "I",
+              "text": "maneuver"
+            },
+            {
+              "key": "J",
+              "text": "mortality"
+            },
+            {
+              "key": "K",
+              "text": "particularly"
+            },
+            {
+              "key": "L",
+              "text": "patterns"
+            },
+            {
+              "key": "M",
+              "text": "refute"
+            },
+            {
+              "key": "N",
+              "text": "stereotype"
+            },
+            {
+              "key": "O",
+              "text": "vocal"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。此处填入 adolescents。上下文补全为：, then, for people to start exercising when they are children or adolescents, and it is good to maintain an active lifestyle at all times regardless ",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-12-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Restaurants are now employing robots—should chefs be worried?",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter: Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Like most chefs, Flippy is not afraid of hard work. Since last summer, that has meant 11lam until 7pm shifts at Caliburger in Pasadena, California, as well as short assignments at Chick-N-Tots at Dodger Stadium in Los Angeles. These are long hours of repetitive work, where the boss demands absolute consistency. But you won't hear Flippy complain or say anything, in fact. For Flippy is a robot—a cloud-connected mechanical arm with 3D thermal scanners for eyes—that can flip burgers or fry 80 baskets of food an hour, monitor that food and even clean up afterwards.",
+        "[B] Flippy was created by Miso Robotics, part of the Cali Group, which is described by its CEO, John Miller, as: “A technology company that happens to sell cheeseburgers.”Cali creates new machines that it road-tests in its Caliburger restaurants across the world, into which Flippy will be deployed this year. And Flippy is not alone. Also in California, Bear Robotics has developed a self-guiding robot, Penny, which has so far served 40,000 diners.",
+        "[C] Ten years ago, robot-chefs and waiters were pure science fiction. Today, they are a reality, and at prices that make them a plausible investment. From May, Penny will be shipped on a subscription basis that offers “an immediate return”, says Bear Robotics'chief operating officer, Juan Higueros. Flippy will cost a reported $60,000 to $100,000. Fully automated burger restaurants managed with minimal human oversight—where customers order at screens, pay electronically and eat food cooked and delivered by robots—are now a possibility",
+        "[D] The technology exists, it just needs knitting together cost-effectively and in a way diners buy into. In an industry keen to slash labour costs and increase profits, further automation seems inevitable. After an eight-month test at Kang Nam Tofu House in California, Bear Robotics credited Penny with driving a 28%increase in sales. Meanwhile, in US trials, the self-ordering screens that McDonald's is currently installing at its 1,300 UK restaurants yielded a reported 30%rise in order values.",
+        "[E] Personalisation is seen as key to the appeal of this technology, alongside its ability to reliably push so-called “upsells”(meal deals, extras, larger drinks)to customers. Soon when you log into a restaurant app, it will be able to use your data and purchasing history to recommend dishes to you—factoring in everything from thee weather to, if you are ordering at a screen that can read your face, your mood.",
+        "[F] \"Right now people compromise on choice. We're presented with a one-size-fits-all menu. Ultimately, technology can allow us to make personal choices. You love spicy food and chicken? Here's the dish people like you mostly order, \"says Tom Weaver, CEO at the hospitality tech company Flyt. He talks enthusiastically about the Helsinki pop-up Take-In, a full-service restaurant where diners ordered dishes in from various delivery services. \"For the first time in a few hundred years, digital is allowing us to create new versions of restaurants. \"",
+        "[G] If high-street fast food is automation-ready, its impact on high-end restaurants is likely to be subtler and slower. \"It'll probably be a very long time before we see a five-star robot-chef, \"says Noel Sharkey, professor of AI and robotics at the University of Sheffield. “Apart from the AI creativity gap, great cooking involves a subtle understanding of ingredients and delicate cooking that would be enormously challenging for robots. Placing fragile foods on plates would be incredibly slow.”",
+        "[H] Currently, robots have limited functionality. A human needs to load Penny with plates that diners lift off themselves. At the robot-powered US pizza-delivery company Zume, the more difficult jobs, such as topping pizzas, are stilldone by humans. But Moley, which will launch soon, offers an idea of the sophistication to come. Modelled on the movements of a MasterChef contest winner, Tim Anderson, its robotic arms are fixed over a stove and programmed to prepare dishes from raw ingredients. It is designed for domestic use, but a commercial version is planned that opens up the possibility of restaurant kitchens automating even highly technically challenging tasks.",
+        "[I] For now, the kitchen technology that QSR Automations supplies to Mitchells &Butlers'pubs or KFC is less glamorous. Rather than having a chef shouting out diners'orders, the QSR system automatically distributes those orders across screens. The kitchen screens then tell chefs when to start cooking each dish, so that your plate of fish, chips and peas comes together at the right time.",
+        "[J] The restaurant industry is currently suffering a severe shortage of skilled chefs—a deficit of 11,000, according to the skills agency People 1st. “Automation systems designed to make the process more idiot-proof are trying to bridge that gap, \"says Stefan Chomka, the editor of Restaurant magazine.",
+        "[K] In terms of simplifying or enhancing the customer experience, online restaurant booking has been the easily-won success of the internet age. Automated at-table ordering and payment is seen as the next landmark. Until then, early adopters, such as the Manchester bar owner Andy Smith, who uses the Ordoo app at his venue 33 Oldham Street, may well experience growing but “lower than expected”acceptance.",
+        "[L] Embarrassing failures in restaurant tech frequently hit the headlines. The TGI Fridays drone(无人机)that injured a Brooklyn Daily photographer; US burger chain Shake Shack having to retreat from plans for entirely cashless ordering sites. But, says Chomka, such technology could miss the mark if it only offers “solutions to problems that don't really exist\". \"Payments being automatic\"could be useful, he adds. But, in an expensive restaurant, “how quick do you need dinner to be?”",
+        "[M] That attachment to the human art of hospitality willbe heartening for staff who see automation as a threat to jobs. \"Unite is concerned that without safeguards, any benefits will bypass workers in low-paying jobs, such as waiters, \"says the union's London regional officer, Dave Turnbull. “We're urging Members of Parliament to ensure automation does not just benefit a wealthy few like previous industrial revolutions.”",
+        "[N] The industry principle is that automation will allow it to redeploy staff more effectively. Jobs will change, if not immediately decrease in number. \"Self-order screens mean more demand for people front-of-house. Last year, we recruited 1,000 new managers, \"says McDonald's COO, Jason Clark. Caliburger has a programme to retrain staff as robot engineers or “chef techs”.",
+        "[O] But ultimately the chance to reduce overheads(管理费用)by employing fewer people or at lower rates will be what attracts big brands to technology. Invariably, over the next 10 years, jobs will go in conventional bricks-built restaurants, not least because automation will boost their rapidly growing rival: delivery. Companies such as Domino and Just Eat have both experimented with robot and drone delivery, which is already legal in Reykjavik, Iceland. “Robot food deliveries are the future, \"says Noel Sharkey. “Small,4mph ground robots are safe and will work 24 hours a day.”",
+        "[P] Combined with machine learning of anticipated order volumes and the minute-by-minute cooking data generated by systems such as QSR, that robot fleet could deliver almost instantly. \"Restaurants willprepare food ahead of orders coming in, \"predicts Just Eat's director of engineering, Daniel Richardson. \"I'll be able to say 'Let's have pizza'to my family, my intelligent assistant will hear and 10 minutes later the food will be at my door. \"No one is putting an exact date on it yet. But in the dining room and on your doorstep, the robots are coming."
+      ],
+      "study_paragraphs": [
+        "Like most chefs, Flippy is not afraid of hard work. Since last summer, that has meant 11lam until 7pm shifts at Caliburger in Pasadena, California, as well as short assignments at Chick-N-Tots at Dodger Stadium in Los Angeles. These are long hours of repetitive work, where the boss demands absolute consistency. But you won't hear Flippy complain or say anything, in fact. For Flippy is a robot—a cloud-connected mechanical arm with 3D thermal scanners for eyes—that can flip burgers or fry 80 baskets of food an hour, monitor that food and even clean up afterwards.",
+        "Flippy was created by Miso Robotics, part of the Cali Group, which is described by its CEO, John Miller, as: “A technology company that happens to sell cheeseburgers.”Cali creates new machines that it road-tests in its Caliburger restaurants across the world, into which Flippy will be deployed this year. And Flippy is not alone. Also in California, Bear Robotics has developed a self-guiding robot, Penny, which has so far served 40,000 diners.",
+        "Ten years ago, robot-chefs and waiters were pure science fiction. Today, they are a reality, and at prices that make them a plausible investment. From May, Penny will be shipped on a subscription basis that offers “an immediate return”, says Bear Robotics'chief operating officer, Juan Higueros. Flippy will cost a reported $60,000 to $100,000. Fully automated burger restaurants managed with minimal human oversight—where customers order at screens, pay electronically and eat food cooked and delivered by robots—are now a possibility",
+        "The technology exists, it just needs knitting together cost-effectively and in a way diners buy into. In an industry keen to slash labour costs and increase profits, further automation seems inevitable. After an eight-month test at Kang Nam Tofu House in California, Bear Robotics credited Penny with driving a 28%increase in sales. Meanwhile, in US trials, the self-ordering screens that McDonald's is currently installing at its 1,300 UK restaurants yielded a reported 30%rise in order values.",
+        "Personalisation is seen as key to the appeal of this technology, alongside its ability to reliably push so-called “upsells”(meal deals, extras, larger drinks)to customers. Soon when you log into a restaurant app, it will be able to use your data and purchasing history to recommend dishes to you—factoring in everything from thee weather to, if you are ordering at a screen that can read your face, your mood.",
+        "\"Right now people compromise on choice. We're presented with a one-size-fits-all menu. Ultimately, technology can allow us to make personal choices. You love spicy food and chicken? Here's the dish people like you mostly order, \"says Tom Weaver, CEO at the hospitality tech company Flyt. He talks enthusiastically about the Helsinki pop-up Take-In, a full-service restaurant where diners ordered dishes in from various delivery services. \"For the first time in a few hundred years, digital is allowing us to create new versions of restaurants. \"",
+        "If high-street fast food is automation-ready, its impact on high-end restaurants is likely to be subtler and slower. \"It'll probably be a very long time before we see a five-star robot-chef, \"says Noel Sharkey, professor of AI and robotics at the University of Sheffield. “Apart from the AI creativity gap, great cooking involves a subtle understanding of ingredients and delicate cooking that would be enormously challenging for robots. Placing fragile foods on plates would be incredibly slow.”",
+        "Currently, robots have limited functionality. A human needs to load Penny with plates that diners lift off themselves. At the robot-powered US pizza-delivery company Zume, the more difficult jobs, such as topping pizzas, are stilldone by humans. But Moley, which will launch soon, offers an idea of the sophistication to come. Modelled on the movements of a MasterChef contest winner, Tim Anderson, its robotic arms are fixed over a stove and programmed to prepare dishes from raw ingredients. It is designed for domestic use, but a commercial version is planned that opens up the possibility of restaurant kitchens automating even highly technically challenging tasks.",
+        "For now, the kitchen technology that QSR Automations supplies to Mitchells &Butlers'pubs or KFC is less glamorous. Rather than having a chef shouting out diners'orders, the QSR system automatically distributes those orders across screens. The kitchen screens then tell chefs when to start cooking each dish, so that your plate of fish, chips and peas comes together at the right time.",
+        "The restaurant industry is currently suffering a severe shortage of skilled chefs—a deficit of 11,000, according to the skills agency People 1st. “Automation systems designed to make the process more idiot-proof are trying to bridge that gap, \"says Stefan Chomka, the editor of Restaurant magazine.",
+        "In terms of simplifying or enhancing the customer experience, online restaurant booking has been the easily-won success of the internet age. Automated at-table ordering and payment is seen as the next landmark. Until then, early adopters, such as the Manchester bar owner Andy Smith, who uses the Ordoo app at his venue 33 Oldham Street, may well experience growing but “lower than expected”acceptance.",
+        "Embarrassing failures in restaurant tech frequently hit the headlines. The TGI Fridays drone(无人机)that injured a Brooklyn Daily photographer; US burger chain Shake Shack having to retreat from plans for entirely cashless ordering sites. But, says Chomka, such technology could miss the mark if it only offers “solutions to problems that don't really exist\". \"Payments being automatic\"could be useful, he adds. But, in an expensive restaurant, “how quick do you need dinner to be?”",
+        "That attachment to the human art of hospitality willbe heartening for staff who see automation as a threat to jobs. \"Unite is concerned that without safeguards, any benefits will bypass workers in low-paying jobs, such as waiters, \"says the union's London regional officer, Dave Turnbull. “We're urging Members of Parliament to ensure automation does not just benefit a wealthy few like previous industrial revolutions.”",
+        "The industry principle is that automation will allow it to redeploy staff more effectively. Jobs will change, if not immediately decrease in number. \"Self-order screens mean more demand for people front-of-house. Last year, we recruited 1,000 new managers, \"says McDonald's COO, Jason Clark. Caliburger has a programme to retrain staff as robot engineers or “chef techs”.",
+        "But ultimately the chance to reduce overheads(管理费用)by employing fewer people or at lower rates will be what attracts big brands to technology. Invariably, over the next 10 years, jobs will go in conventional bricks-built restaurants, not least because automation will boost their rapidly growing rival: delivery. Companies such as Domino and Just Eat have both experimented with robot and drone delivery, which is already legal in Reykjavik, Iceland. “Robot food deliveries are the future, \"says Noel Sharkey. “Small,4mph ground robots are safe and will work 24 hours a day.”",
+        "Combined with machine learning of anticipated order volumes and the minute-by-minute cooking data generated by systems such as QSR, that robot fleet could deliver almost instantly. \"Restaurants willprepare food ahead of orders coming in, \"predicts Just Eat's director of engineering, Daniel Richardson. \"I'll be able to say 'Let's have pizza'to my family, my intelligent assistant will hear and 10 minutes later the food will be at my door. \"No one is putting an exact date on it yet. But in the dining room and on your doorstep, the robots are coming."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2025-12-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. It is now possible to fully automate a burger restaurant with little human supervision.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Fully automated burger restaurants managed with minimal human oversight—where customers order at screens, pay electronically and eat food cooked and delivered by robots—are now a possibility",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. At a robot-powered US company, complicated tasks still have to be performed by humans.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：At the robot-powered US pizza-delivery company Zume, the more difficult jobs, such as topping pizzas, are stilldone by humans.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. More automation appears to be a certainty in industries eager to cut labour costs and raise profits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：In an industry keen to slash labour costs and increase profits, further automation seems inevitable.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. There are often front-page reports of failures in technological innovation of the restaurant industry.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：Embarrassing failures in restaurant tech frequently hit the headlines.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Robot-chef Flippy does not fear laborious work, nor does it make any complaints.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：Like most chefs, Flippy is not afraid of hard work.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Digital technology makes it possible for businesses to innovate restaurant models",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Ultimately, technology can allow us to make personal choices.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Fondness for human warmth in catering to customers will give hope to employees who are afraid of losing jobs to robots.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。对应 M 段。原文依据：That attachment to the human art of hospitality willbe heartening for staff who see automation as a threat to jobs.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. There is an acute shortage of experienced chefs in the catering industry and automated cooking is expected to fill the gap.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：The restaurant industry is currently suffering a severe shortage of skilled chefs—a deficit of 11,000, according to the skills agency People 1st.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Over the coming decade, many jobs in traditional restaurants will disappear due to robot delivery.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。对应 O 段。原文依据：Invariably, over the next 10 years, jobs will go in conventional bricks-built restaurants, not least because automation will boost their rapidly growing rival: delivery.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. According to an expert in AI and robotics, it may be quite some time before a master robot-chef appears.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：\"It'll probably be a very long time before we see a five-star robot-chef, \"says Noel Sharkey, professor of AI and robotics at the University of Sheffield.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-12-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Many see friendships as a comfort blanket: a shoulder to cry on, a reliable soul to confide in. However, more often than not, in our eagerness to seek individual success, we lose friends along the way and that has become part of the process.",
+        "The chaos and never-ending turmoil that accompanies everyday life is an aggressive obstacle in the pursuit of stable friendships. As students, we use this excuse to shrug off losing people who we once thought to be loved ones.",
+        "Instead of viewing our lives as a race, where everyone is on their own path to some form of success, we must relearn to value the connections we make along the track. We must reevaluate the harm of radical, individual freedom.",
+        "Radical individualism elevates the freedom of the individual over the collective. It argues, for instance, that universal healthcare, an example of collectivism, threatened the dream of many Americans.",
+        "Many of us have fallen victim to an individualistic culture. Society tends to celebrate personal achievement and commend it based on the assumption that winning or succeeding is a consequence of working harder than the next person.",
+        "As a society, we idolize the concept of“losing friends on the road to success.”I remember hearing in high school, \"Don't worry about losing friendships, just focus on study and getting into college. That's all that will matter in the long run, \"a sentiment that is not unique to my experience. It's preached in many success stories, and it's embedded in the way we see growth. Motivational speakers will push their audience to be complacent to the inevitable end of losing friends. Spend too much time with friends? You're losing time better utilized on your achievements. Invest time in your relationships? Invest time in your work instead.",
+        "This constant need to succeed has blinded us from seeing through the whirlwind of change that accompanies our everyday lives. We are expected to tangibly succeed, earn awards, get higher positions, earn better grades. In order to succeed, we lose friends, and that has sadly become normalized.",
+        "We cannot be complacent with losing friendships because they are our anchors.",
+        "Yes, pursue success. Challenge yourself. Push limits. But contrary to all the self-proclaimed success experts, doing it alone does not make you more successful or any better than someone who achieved it with the help of others.",
+        "Put effort into fostering healthy relationships, and maintaining them through your busy schedule that seems like it leaves no time for anyone else. Although we may be living in a society that treasures the independent pursuit of achievement, having people to support and love you on the way is far more important than any end result."
+      ],
+      "study_paragraphs": [
+        "Many see friendships as a comfort blanket: a shoulder to cry on, a reliable soul to confide in. However, more often than not, in our eagerness to seek individual success, we lose friends along the way and that has become part of the process.",
+        "The chaos and never-ending turmoil that accompanies everyday life is an aggressive obstacle in the pursuit of stable friendships. As students, we use this excuse to shrug off losing people who we once thought to be loved ones.",
+        "Instead of viewing our lives as a race, where everyone is on their own path to some form of success, we must relearn to value the connections we make along the track. We must reevaluate the harm of radical, individual freedom.",
+        "Radical individualism elevates the freedom of the individual over the collective. It argues, for instance, that universal healthcare, an example of collectivism, threatened the dream of many Americans.",
+        "Many of us have fallen victim to an individualistic culture. Society tends to celebrate personal achievement and commend it based on the assumption that winning or succeeding is a consequence of working harder than the next person.",
+        "As a society, we idolize the concept of“losing friends on the road to success.”I remember hearing in high school, \"Don't worry about losing friendships, just focus on study and getting into college. That's all that will matter in the long run, \"a sentiment that is not unique to my experience. It's preached in many success stories, and it's embedded in the way we see growth. Motivational speakers will push their audience to be complacent to the inevitable end of losing friends. Spend too much time with friends? You're losing time better utilized on your achievements. Invest time in your relationships? Invest time in your work instead.",
+        "This constant need to succeed has blinded us from seeing through the whirlwind of change that accompanies our everyday lives. We are expected to tangibly succeed, earn awards, get higher positions, earn better grades. In order to succeed, we lose friends, and that has sadly become normalized.",
+        "We cannot be complacent with losing friendships because they are our anchors.",
+        "Yes, pursue success. Challenge yourself. Push limits. But contrary to all the self-proclaimed success experts, doing it alone does not make you more successful or any better than someone who achieved it with the help of others.",
+        "Put effort into fostering healthy relationships, and maintaining them through your busy schedule that seems like it leaves no time for anyone else. Although we may be living in a society that treasures the independent pursuit of achievement, having people to support and love you on the way is far more important than any end result."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2025-12-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What often happens when people are eager to pursue individual success?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They lack a shoulder to cry on."
+            },
+            {
+              "key": "B",
+              "text": "They have no soul to confide in."
+            },
+            {
+              "key": "C",
+              "text": "They cannot find reliable friends."
+            },
+            {
+              "key": "D",
+              "text": "They ignore their ties with friends."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第 1 段原文依据：However, more often than not, in our eagerness to seek individual success, we lose friends along the way and that has become part of the process. 对应选项：They ignore their ties with friends.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does the author advise people to do in their pursuit of radical individualism?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Reexamine its detrimental effects."
+            },
+            {
+              "key": "B",
+              "text": "Shrug off the loss of their loved ones."
+            },
+            {
+              "key": "C",
+              "text": "Avoid the chaos and turmoil involved."
+            },
+            {
+              "key": "D",
+              "text": "Remove aggressive obstacles in the way."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第 3 段原文依据：We must reevaluate the harm of radical, individual freedom. 对应选项：Reexamine its detrimental effects.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What is American society's assumption of personal achievement?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is to be duly celebrated and highly commended."
+            },
+            {
+              "key": "B",
+              "text": "It is a sure way to fulfill a person's dream."
+            },
+            {
+              "key": "C",
+              "text": "It revolves around an individualistic culture."
+            },
+            {
+              "key": "D",
+              "text": "It reflects a person's exceptional endeavor."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第 5 段原文依据：Society tends to celebrate personal achievement and commend it based on the assumption that winning or succeeding is a consequence of working harder than the next person. 对应选项：It reflects a person's exceptional endeavor.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is preached in many success stories?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Attaching importance to academic gains on the road to success."
+            },
+            {
+              "key": "B",
+              "text": "Investing one's time in work instead of connecting with friends."
+            },
+            {
+              "key": "C",
+              "text": "Trying to strengthen friendships in one's pursuit of personal success."
+            },
+            {
+              "key": "D",
+              "text": "Excelling in academic performance to get into a prestigious college."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第 6 段原文依据：It's preached in many success stories, and it's embedded in the way we see growth. 对应选项：Investing one's time in work instead of connecting with friends.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What can we infer from the passage regarding the pursuit of success?",
+          "options": [
+            {
+              "key": "A",
+              "text": "No one can succeed without pushing limits."
+            },
+            {
+              "key": "B",
+              "text": "No one can afford to neglect close friends."
+            },
+            {
+              "key": "C",
+              "text": "Collectivism is superior to individualism."
+            },
+            {
+              "key": "D",
+              "text": "Success experts often lead people to ruin."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第 10 段原文依据：Although we may be living in a society that treasures the independent pursuit of achievement, having people to support and love you on the way is far more important than any end result. 对应选项：No one can afford to neglect close friends.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-12-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "During his acceptance speech for the Nobel Peace Prize, Martin Luther King Jr. said, \"I believe that unarmed truth and unconditional love will have the final word in reality.”",
+        "More than five decades later, our society is still struggling to separate truth from fantasy, fact from fiction. From disputes over the climate change to debates about how slavery is taught, America is at a crossroads. And the battle for equity is at the heart of these vital conversations.",
+        "Study after study shows that inequity has had appalling consequences. A 2020 report by Citi indicated that “Black students could have increased their lifetime incomes $90-$113 billon”if equity issues related to higher education had been adequately addressed over the past two decades.",
+        "This statistic represents a flood of issues we've failed to confront as a nation. It also highlights one truth: We're missing out on valuable opportunities to bridge the differences that divide us. However, by honoring King's legacy, we can get our country back on the path toward true equity.",
+        "Students—and adults for that matter—simply cannot understand the conflicts we have today without understanding what caused them in the first place. That means we have a responsibility to help them make connections between U.S.history and current events. It also means giving them the tools they need to address inequity and bias in their own lives. Adherence to these principles, along with a commitment to truthful dialogue, can help every student better appreciate how far we've come and more clearly see the roads we have yet to travel.",
+        "With more truthful analysis of the need for more qualified, diverse educators, we can improve our recruiting, training, and retention strategies for schools across the country.",
+        "Unfortunately, our deeply rooted divisions are delaying these advancements. A recent survey found that 77 percent of Americans believe the nation is “more divided than ever before”. But reports of increased polarization shouldn’t persuade us to look away from one another. Instead, they should compel us to address our shared issues head-on.",
+        "We are not, as some would suggest, living in a “post-racial society”. We simply cannot afford to keep our heads buried in the sand when it comes to racial inequity. Unless we get honest about intolerance, bias, and how these social diseases impact the ways we treat one another, injustice will continue to haunt us. But our children and our grandchildren deserve better.",
+        "On this Martin Luther King Day and beyond, let's commit to working together to disrupt the status quo. Let's continue to build a better, more inclusive nation; and in the words of Martin Luther King Jr., “A society at peace with itself, a society that can live with its conscience.”"
+      ],
+      "study_paragraphs": [
+        "During his acceptance speech for the Nobel Peace Prize, Martin Luther King Jr. said, \"I believe that unarmed truth and unconditional love will have the final word in reality.”",
+        "More than five decades later, our society is still struggling to separate truth from fantasy, fact from fiction. From disputes over the climate change to debates about how slavery is taught, America is at a crossroads. And the battle for equity is at the heart of these vital conversations.",
+        "Study after study shows that inequity has had appalling consequences. A 2020 report by Citi indicated that “Black students could have increased their lifetime incomes $90-$113 billon”if equity issues related to higher education had been adequately addressed over the past two decades.",
+        "This statistic represents a flood of issues we've failed to confront as a nation. It also highlights one truth: We're missing out on valuable opportunities to bridge the differences that divide us. However, by honoring King's legacy, we can get our country back on the path toward true equity.",
+        "Students—and adults for that matter—simply cannot understand the conflicts we have today without understanding what caused them in the first place. That means we have a responsibility to help them make connections between U.S.history and current events. It also means giving them the tools they need to address inequity and bias in their own lives. Adherence to these principles, along with a commitment to truthful dialogue, can help every student better appreciate how far we've come and more clearly see the roads we have yet to travel.",
+        "With more truthful analysis of the need for more qualified, diverse educators, we can improve our recruiting, training, and retention strategies for schools across the country.",
+        "Unfortunately, our deeply rooted divisions are delaying these advancements. A recent survey found that 77 percent of Americans believe the nation is “more divided than ever before”. But reports of increased polarization shouldn’t persuade us to look away from one another. Instead, they should compel us to address our shared issues head-on.",
+        "We are not, as some would suggest, living in a “post-racial society”. We simply cannot afford to keep our heads buried in the sand when it comes to racial inequity. Unless we get honest about intolerance, bias, and how these social diseases impact the ways we treat one another, injustice will continue to haunt us. But our children and our grandchildren deserve better.",
+        "On this Martin Luther King Day and beyond, let's commit to working together to disrupt the status quo. Let's continue to build a better, more inclusive nation; and in the words of Martin Luther King Jr., “A society at peace with itself, a society that can live with its conscience.”"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2025-12-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author think about today's America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is struggling to transform fiction into reality."
+            },
+            {
+              "key": "B",
+              "text": "It has been the focus of many vital conversations."
+            },
+            {
+              "key": "C",
+              "text": "It still has a long way to go before equity can be truly realized."
+            },
+            {
+              "key": "D",
+              "text": "It has got to a point where people disagree on nearly every issue."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第 2 段原文依据：More than five decades later, our society is still struggling to separate truth from fantasy, fact from fiction. 对应选项：It still has a long way to go before equity can be truly realized.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What do we learn from the passage about black students in the past 20 years?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have been unfairly treated regarding higher education."
+            },
+            {
+              "key": "B",
+              "text": "They have been battling hard to address equity issues."
+            },
+            {
+              "key": "C",
+              "text": "They have boosted their lifetime incomes by billions of dollars."
+            },
+            {
+              "key": "D",
+              "text": "They have come to see the consequences of racial discrimination."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第 3 段原文依据：A 2020 report by Citi indicated that “Black students could have increased their lifetime incomes $90-$113 billon”if equity issues related to higher education had been adequately addressed over the past two decades. 对应选项：They have been unfairly treated regarding higher education.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. How can Americans bridge the differences that divide them?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By dealing with the thorny issues confronting them."
+            },
+            {
+              "key": "B",
+              "text": "By seizing every chance to enhance racial harmony."
+            },
+            {
+              "key": "C",
+              "text": "By continuing to pursue Martin Luther King Jr.'s cause."
+            },
+            {
+              "key": "D",
+              "text": "By striving to identify exceedingly valuable opportunities."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第 4 段原文依据：It also highlights one truth: We're missing out on valuable opportunities to bridge the differences that divide us. 对应选项：By continuing to pursue Martin Luther King Jr.'s cause.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. How do most Americans view America as a nation according to a recent survey?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is compelled to address its historical social issues."
+            },
+            {
+              "key": "B",
+              "text": "It is delaying advancements toward racial equality."
+            },
+            {
+              "key": "C",
+              "text": "It has kept itself from polarization."
+            },
+            {
+              "key": "D",
+              "text": "It has become increasingly split."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第 7 段原文依据：A recent survey found that 77 percent of Americans believe the nation is “more divided than ever before”. 对应选项：It has become increasingly split.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2025-12-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author suggest Americans do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ensure the wellbeing of their children and grandchildren."
+            },
+            {
+              "key": "B",
+              "text": "Make joint efforts to tackle the nation's equity issues."
+            },
+            {
+              "key": "C",
+              "text": "Restrain their intolerance and discrimination."
+            },
+            {
+              "key": "D",
+              "text": "Restore social order for a harmonious nation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第 9 段原文依据：Let's continue to build a better, more inclusive nation; and in the words of Martin Luther King Jr., “A society at peace with itself, a society that can live with its conscience.” 对应选项：Make joint efforts to tackle the nation's equity issues.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2025-12-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "尊老是中华民族的传统美德，深深植根于中国人的思想和行为中，是人们普遍遵守的行为规范和社会准则。在当今的中国，这种美德得到广泛传承。社会各界积极营造敬老助老的社会氛围。为老年人提供便利服务已成为社会共识，例如社区专门开设长者食堂，公共场所配置优先座位。政府还出台了一系列政策，为老年人的权益提供有力保障。尊老是社会和谐与发展的重要基石，有助于培育良好的社会氛围，推动整个社会文明进步。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2025-12-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

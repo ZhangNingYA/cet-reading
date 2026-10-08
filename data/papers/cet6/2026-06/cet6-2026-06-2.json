@@ -1,0 +1,1753 @@
+{
+  "id": "cet6-2026-06-2",
+  "exam_level": "CET6",
+  "year": 2026,
+  "month": 6,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2026年6月大学英语六级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，并非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2026-06-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"In an era of rapid social development, it is vitally important to enhance young people's sense of responsibility. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2026-06-2-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"In an era of rapid social development, it is vitally important to enhance young people's sense of responsibility. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Most financial crises have plenty in common: they tend to start in the banking sector and involve excessive borrowing, together with an asset bubble. The [26] ______ crisis of 2008 was no different, with the asset bubble focused on US real estate. But my research suggests this crisis had another [27] ______ cause-that some people in the banking sector were playing or \"gaming\" the system for their own financial gain.",
+        "The game being played had several important features. The first was the deliberate complexity of the financial products at its core. Then there are the [28] ______ biases that permeate decision-making at all levels of the banking industry. Banking often attracts people with certain personality [29] ______ including those who are overconfident and take excessive risks.",
+        "Such people tend to like complexity for its own sake, but they often do not fully understand the [30] ______ of that complexity for the stability of the financial system as a whole. Often they do not care-they are primarily interested in gaming the system to [31] ______ their bonuses.",
+        "The next element is risk. There are parts of the banking sector that will always be [32] ______ to risk, but many bankers have come to feel immune to its potential impact, because they [33] ______ that, however recklessly banks behave, governments will always be there to bail them out.",
+        "Gaming in the banking sector seems virtually impossible to [34] ______ The only effective measure to end it would be to make bankers [35] ______ liable for losses, but no government has ever passed such a law, and no single government could do so on its own, since this would immediately cause their entire national banking sector to move wholesale to another jurisdiction."
+      ],
+      "study_paragraphs": [
+        "Most financial crises have plenty in common: they tend to start in the banking sector and involve excessive borrowing, together with an asset bubble. The global crisis of 2008 was no different, with the asset bubble focused on US real estate. But my research suggests this crisis had another underlying cause-that some people in the banking sector were playing or \"gaming\" the system for their own financial gain.",
+        "The game being played had several important features. The first was the deliberate complexity of the financial products at its core. Then there are the behavioural biases that permeate decision-making at all levels of the banking industry. Banking often attracts people with certain personality traits including those who are overconfident and take excessive risks.",
+        "Such people tend to like complexity for its own sake, but they often do not fully understand the implications of that complexity for the stability of the financial system as a whole. Often they do not care-they are primarily interested in gaming the system to maximise their bonuses.",
+        "The next element is risk. There are parts of the banking sector that will always be prone to risk, but many bankers have come to feel immune to its potential impact, because they presume that, however recklessly banks behave, governments will always be there to bail them out.",
+        "Gaming in the banking sector seems virtually impossible to eliminate The only effective measure to end it would be to make bankers personally liable for losses, but no government has ever passed such a law, and no single government could do so on its own, since this would immediately cause their entire national banking sector to move wholesale to another jurisdiction."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2026-06-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。此处填入 global。上下文补全为： involve excessive borrowing, together with an asset bubble. The global crisis of 2008 was no different, with the asset bubble focused on US real",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。此处填入 underlying。上下文补全为：US real estate. But my research suggests this crisis had another underlying cause-that some people in the banking sector were playing or \"gaming\" the",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。此处填入 behavioural。上下文补全为：lexity of the financial products at its core. Then there are the behavioural biases that permeate decision-making at all levels of the banking industr",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。此处填入 traits。上下文补全为：industry. Banking often attracts people with certain personality traits including those who are overconfident and take excessive risks.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。此处填入 implications。上下文补全为：ity for its own sake, but they often do not fully understand the implications of that complexity for the stability of the financial system as a whole. ",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。此处填入 maximise。上下文补全为：o not care-they are primarily interested in gaming the system to maximise their bonuses.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。此处填入 prone。上下文补全为： risk. There are parts of the banking sector that will always be prone to risk, but many bankers have come to feel immune to its potential impac",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。此处填入 presume。上下文补全为：s have come to feel immune to its potential impact, because they presume that, however recklessly banks behave, governments will always be there t",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。此处填入 eliminate。上下文补全为：Gaming in the banking sector seems virtually impossible to eliminate The only effective measure to end it would be to make bankers personally",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "behavioural"
+            },
+            {
+              "key": "B",
+              "text": "eliminate"
+            },
+            {
+              "key": "C",
+              "text": "fragile"
+            },
+            {
+              "key": "D",
+              "text": "global"
+            },
+            {
+              "key": "E",
+              "text": "implications"
+            },
+            {
+              "key": "F",
+              "text": "maximise"
+            },
+            {
+              "key": "G",
+              "text": "overlapping"
+            },
+            {
+              "key": "H",
+              "text": "personally"
+            },
+            {
+              "key": "I",
+              "text": "presume"
+            },
+            {
+              "key": "J",
+              "text": "prone"
+            },
+            {
+              "key": "K",
+              "text": "prototypes"
+            },
+            {
+              "key": "L",
+              "text": "reassure"
+            },
+            {
+              "key": "M",
+              "text": "skeptically"
+            },
+            {
+              "key": "N",
+              "text": "traits"
+            },
+            {
+              "key": "O",
+              "text": "underlying"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。此处填入 personally。上下文补全为：__ The only effective measure to end it would be to make bankers personally liable for losses, but no government has ever passed such a law, and no s",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· How do you bring a forest back to life?",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Five hundred years ago, forests covered much of the Iberian peninsula. But that soon changed. Centuries of wars and invasions, agricultural expansion and woodcutting for firewood and shipping wiped out most of the woods and transformed places like Matamorisca, a small village in northern Spain, into degraded landscapes.",
+        "[B] The region's dry climate and depleted soils would be a recipe for disaster in your average program to replant trees, but for the Amsterdam-based Land Life Company it' an ideal place. \"We typically operate where nature does not come back by itself, \" says Jurrian Ruys, its CEO. \"We go where there are rougher conditions in terms of weather, with rough or very hot summers. \" In Matamorisca, they intervened in 17 barren hectares owned by the regional government and peppered them with their signature device: a biodegradable (可生物降解的) cardboard container they call the cocoon which can hold 25 litres of water underground to aid a seedling's first year. Around 16,000 trees, including oaks, ashes, walnuts, rowans, and whitebeams, were planted in May 2018, and the company reports that 96% of them survived that year's burning hot summer without extra irrigation, a critical milestone for a young tree.",
+        "[C] \"Does nature return by itself? \" asks Arnout Asjes, Land Life Company's chief technology officer, who oversees a mix of drone (无人机) and satellite imagery, big data analysis, soil enhancement, QR (二维码) tagging and site-specific tree configuration designs. \"Probably, but it can take decades or hundreds of years, so we are speeding things up. \"",
+        "[D] His company belongs to a global movement of organisations trying to save degraded or deforested areas, ranging from fertile tropical lowlands to dry hills in temperate (温带的) regions. Spurred by global biodiversity loss and climate change, these groups are pushing the boundary of how to revive forest cover. \"It's not a theoretical proposition, \" says Walter Vergara, a forest and climate specialist at the World Resources Institute (WRI). \"It requires the right incentives, the right stakeholders, the right analysis and sufficient capital, but it can happen. \"",
+        "[E] How these factors come together for a particular project-and whether saving destroyed woods is even possible-depends on what kind of ecosystem you have in mind. Secondary forests in the Amazon are different from Texas pines recovering after wildfires or the Arctic timber woods that cover much of Sweden. Each provides different reasons for reforestation programs and each has particular needs. In the dry conditions around Matamorisca and similar areas in Spain, Land Life Company worries about rapid desertification (沙漠化). As its focus is on restoring an ecosystem, it works with organisations that don’t expect their money back.",
+        "[F] With around 600 hectares replanted around the world since 2015 and another 1,100 planned for this year, the company's drive fits into the Bonn Challenge, a global effort to restore 150 million hectares of the world's deforested and degraded land by 2020. That's an area roughly the size of Iran or Mongolia. By 2030, the goal is to reach 350 million hectares-20% more land than India. These targets include both the rehabilitation of forested areas that have lost density or look a bit weak (a process known as 'restoration' in forestry jargon) and the recovery of forest cover in areas where it was completely cleared (what's known as 'reforestation').",
+        "[G] That global target is broken into smaller pieces and takes shape in Latin America as the 20x20 Initiative, an effort to contribute 20 million hectares to the overall goal by initiating small to medium projects with the political backing of governments. Unlike Land Life Company, this region-wide project makes the economic and business case for reforestation, even though they are after biodiversity conservation. \"You need to bring in private sector money, \" says WRl's Vergara, who leads the initiative, \"and that capital needs to see a return on their investment. \" A study he led predicts Latin America would see an estimated net present value of about $23bn over a 50-year period if it reaches its goal.",
+        "[H] Money can come from timber sales in sustainably managed forests or from harvesting 'non-wood products' like nuts, oils and fruits from the trees. You can take note of how much carbon dioxide your forest is capturing and sell carbon credits to companies keen to offset their emissions. Or you can even grow the forest hoping that biodiversity will attract ecotourists who'd pay for lodging, birdwatching tours and meals.",
+        "[I] Still, these backers are not your high-street bank. Money for the 20x20 Initiative comes mostly from financial organisations with triple goal-a modest return on their investment, environmental benefits and social gains-known as impact investors. Take the German fund 12Tree for instance, one of the 20x20 partners. It put $9.5 million into Cuango, a 1,455-hectare property on the Caribbean coast of Panama that combines a commercial cocoa tree plantation with timber extraction from a sustainably managed secondary forest. With their money, they reforested a former cattle ranch, provided high-quality jobs for the surrounding communities and made a return on their investment.",
+        "[J] Even on land cleared decades ago and currently used by farmers, some crops can coexist with the forest, if you find the right balance. Although not technically reforestation, agroforestry ( a system of land use in which harvestable trees or shrubs are grown among or around crops or on pasture land, as a means of preserving or enhancing the productivity of the land) provides an opportunity for small-holder farmers to sustain their livelihoods while adding some forest cover to their farms.",
+        "[K] A global project called Breedcafs is studying how trees behave in coffee farms, hoping to find crop varieties that manage to grow under the shade of trees. Coffee grows naturally in such forests, so copying that in farms is taking the crop back to its roots. \"By reintroducing trees in the landscape, we impact positively humidity, rain capture, soil conservation and biodiversity preservation, \" says coffee expert Benoit Bertrand, who leads the project from the French Agricultural Research Centre for International Development. Bertrand is analysing which of dozens of coffee varieties fits better for this system. A similar approach can be applied to land with cocoa, vanilla and fruit trees.",
+        "[L] Not every piece of land is fit for reforestation. Vergara's partners look for safe investments, and even Land Life Company only runs major projects in what they consider \"low-risk\" countries. \"We tend to avoid large-scale operations in countries in some parts of the Middle East or Africa where the permanence is not secured, \" says Ruys.",
+        "[M] But in the right location, perhaps all you need is time. In the Central Pacific of Costa Rica, the 330-hectare National Wildlife Refuge Baru looks nothing like the cattle ranch it was before 1987, when Jack Ewing decided to turn this large estate into an ecotourism destination. Instead of intervening, a friend told him to let nature have its way. Baru's former grazing lands are now thriving woods and the property boasts over 150 hectares of secondary forests with no intervention from humans. In the past 10 years, animals such as howling monkeys, scarlet macaws and even migratory cougars have returned to the refuge's land, boosting tourism and revitalising the ecosystem. Ewing, now 75, explains this success using the words his friend chose three decades ago: \"In Costa Rica, when you stop managing the shrubs, the jungle comes back for its revenge. \""
+      ],
+      "study_paragraphs": [
+        "Five hundred years ago, forests covered much of the Iberian peninsula. But that soon changed. Centuries of wars and invasions, agricultural expansion and woodcutting for firewood and shipping wiped out most of the woods and transformed places like Matamorisca, a small village in northern Spain, into degraded landscapes.",
+        "The region's dry climate and depleted soils would be a recipe for disaster in your average program to replant trees, but for the Amsterdam-based Land Life Company it' an ideal place. \"We typically operate where nature does not come back by itself, \" says Jurrian Ruys, its CEO. \"We go where there are rougher conditions in terms of weather, with rough or very hot summers. \" In Matamorisca, they intervened in 17 barren hectares owned by the regional government and peppered them with their signature device: a biodegradable (可生物降解的) cardboard container they call the cocoon which can hold 25 litres of water underground to aid a seedling's first year. Around 16,000 trees, including oaks, ashes, walnuts, rowans, and whitebeams, were planted in May 2018, and the company reports that 96% of them survived that year's burning hot summer without extra irrigation, a critical milestone for a young tree.",
+        "\"Does nature return by itself? \" asks Arnout Asjes, Land Life Company's chief technology officer, who oversees a mix of drone (无人机) and satellite imagery, big data analysis, soil enhancement, QR (二维码) tagging and site-specific tree configuration designs. \"Probably, but it can take decades or hundreds of years, so we are speeding things up. \"",
+        "His company belongs to a global movement of organisations trying to save degraded or deforested areas, ranging from fertile tropical lowlands to dry hills in temperate (温带的) regions. Spurred by global biodiversity loss and climate change, these groups are pushing the boundary of how to revive forest cover. \"It's not a theoretical proposition, \" says Walter Vergara, a forest and climate specialist at the World Resources Institute (WRI). \"It requires the right incentives, the right stakeholders, the right analysis and sufficient capital, but it can happen. \"",
+        "How these factors come together for a particular project-and whether saving destroyed woods is even possible-depends on what kind of ecosystem you have in mind. Secondary forests in the Amazon are different from Texas pines recovering after wildfires or the Arctic timber woods that cover much of Sweden. Each provides different reasons for reforestation programs and each has particular needs. In the dry conditions around Matamorisca and similar areas in Spain, Land Life Company worries about rapid desertification (沙漠化). As its focus is on restoring an ecosystem, it works with organisations that don’t expect their money back.",
+        "With around 600 hectares replanted around the world since 2015 and another 1,100 planned for this year, the company's drive fits into the Bonn Challenge, a global effort to restore 150 million hectares of the world's deforested and degraded land by 2020. That's an area roughly the size of Iran or Mongolia. By 2030, the goal is to reach 350 million hectares-20% more land than India. These targets include both the rehabilitation of forested areas that have lost density or look a bit weak (a process known as 'restoration' in forestry jargon) and the recovery of forest cover in areas where it was completely cleared (what's known as 'reforestation').",
+        "That global target is broken into smaller pieces and takes shape in Latin America as the 20x20 Initiative, an effort to contribute 20 million hectares to the overall goal by initiating small to medium projects with the political backing of governments. Unlike Land Life Company, this region-wide project makes the economic and business case for reforestation, even though they are after biodiversity conservation. \"You need to bring in private sector money, \" says WRl's Vergara, who leads the initiative, \"and that capital needs to see a return on their investment. \" A study he led predicts Latin America would see an estimated net present value of about $23bn over a 50-year period if it reaches its goal.",
+        "Money can come from timber sales in sustainably managed forests or from harvesting 'non-wood products' like nuts, oils and fruits from the trees. You can take note of how much carbon dioxide your forest is capturing and sell carbon credits to companies keen to offset their emissions. Or you can even grow the forest hoping that biodiversity will attract ecotourists who'd pay for lodging, birdwatching tours and meals.",
+        "Still, these backers are not your high-street bank. Money for the 20x20 Initiative comes mostly from financial organisations with triple goal-a modest return on their investment, environmental benefits and social gains-known as impact investors. Take the German fund 12Tree for instance, one of the 20x20 partners. It put $9.5 million into Cuango, a 1,455-hectare property on the Caribbean coast of Panama that combines a commercial cocoa tree plantation with timber extraction from a sustainably managed secondary forest. With their money, they reforested a former cattle ranch, provided high-quality jobs for the surrounding communities and made a return on their investment.",
+        "Even on land cleared decades ago and currently used by farmers, some crops can coexist with the forest, if you find the right balance. Although not technically reforestation, agroforestry ( a system of land use in which harvestable trees or shrubs are grown among or around crops or on pasture land, as a means of preserving or enhancing the productivity of the land) provides an opportunity for small-holder farmers to sustain their livelihoods while adding some forest cover to their farms.",
+        "A global project called Breedcafs is studying how trees behave in coffee farms, hoping to find crop varieties that manage to grow under the shade of trees. Coffee grows naturally in such forests, so copying that in farms is taking the crop back to its roots. \"By reintroducing trees in the landscape, we impact positively humidity, rain capture, soil conservation and biodiversity preservation, \" says coffee expert Benoit Bertrand, who leads the project from the French Agricultural Research Centre for International Development. Bertrand is analysing which of dozens of coffee varieties fits better for this system. A similar approach can be applied to land with cocoa, vanilla and fruit trees.",
+        "Not every piece of land is fit for reforestation. Vergara's partners look for safe investments, and even Land Life Company only runs major projects in what they consider \"low-risk\" countries. \"We tend to avoid large-scale operations in countries in some parts of the Middle East or Africa where the permanence is not secured, \" says Ruys.",
+        "But in the right location, perhaps all you need is time. In the Central Pacific of Costa Rica, the 330-hectare National Wildlife Refuge Baru looks nothing like the cattle ranch it was before 1987, when Jack Ewing decided to turn this large estate into an ecotourism destination. Instead of intervening, a friend told him to let nature have its way. Baru's former grazing lands are now thriving woods and the property boasts over 150 hectares of secondary forests with no intervention from humans. In the past 10 years, animals such as howling monkeys, scarlet macaws and even migratory cougars have returned to the refuge's land, boosting tourism and revitalising the ecosystem. Ewing, now 75, explains this success using the words his friend chose three decades ago: \"In Costa Rica, when you stop managing the shrubs, the jungle comes back for its revenge. \""
+      ],
+      "questions": [
+        {
+          "id": "cet6-2026-06-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Land Life Company's efforts fit into the global goal to restore millions of hectares of the world's deforested and degraded land.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：With around 600 hectares replanted around the world since 2015 and another 1,100 planned for this year, the company's drive fits into the Bonn Challenge, a global effort to restore 150 million hectares of the world's deforested and degraded land by 2020.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Planting trees or shrubs together with crops can help improve the yield of the land, while offering small-scale farmers a chance to make a living.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：Although not technically reforestation, agroforestry ( a system of land use in which harvestable trees or shrubs are grown among or around crops or on pasture land, as a means of preserving or enhancing the productivity of the land) provides an opportunity for small-holder farmers to sustain their livelihoods while adding some forest cover to their farms.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. One reforestation project bases its argument on economic benefits and investment returns.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：Unlike Land Life Company, this region-wide project makes the economic and business case for reforestation, even though they are after biodiversity conservation.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. With time, nature may return to its original state without human intervention if the location is appropriate.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。对应 M 段。原文依据：But in the right location, perhaps all you need is time.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. According to a forest and climate expert, the revival of forest cover can take place under the necessary conditions.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：Spurred by global biodiversity loss and climate change, these groups are pushing the boundary of how to revive forest cover.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. One company runs its major operations exclusively in countries where risks are not high.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：Vergara's partners look for safe investments, and even Land Life Company only runs major projects in what they consider \"low-risk\" countries.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Left alone, nature may take scores of years or even centuries to repair itself.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：\"Does nature return by itself?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Economic returns can be derived from selling timber and non-wood products as well as carbon credits.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Money can come from timber sales in sustainably managed forests or from harvesting 'non-wood products' like nuts, oils and fruits from the trees.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. A study is under way across the world to look for crops that can grow among trees.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：A global project called Breedcafs is studying how trees behave in coffee farms, hoping to find crop varieties that manage to grow under the shade of trees.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Land Life Company's operations are usually located where reforestation is impossible without human intervention.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：The region's dry climate and depleted soils would be a recipe for disaster in your average program to replant trees, but for the Amsterdam-based Land Life Company it' an ideal place.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "What does self-discipline look like at work? Sometimes, it's the ability to resist temptation, such as distractions to avoid a particular task. Other times it's the ability to persist with a task when your energy and motivation seem low.",
+        "What do you believe about the nature of your own self-discipline? Is it something that runs on internal energy that is spent with use? Or is it something that is bolstered as you apply it and persist?",
+        "Your answer matters, as it determines how much self-discipline you experience. For years, research in psychology pointed to self-control as a resource that is depleted with use and needs to be restored through breaks, rest, or sleep. More recently, however, research points to the importance of mindset. If you view self-discipline as an expendable resource, your willpower tends to fade with use. If you believe that exercising your self-control strengthens and fuels it, that is more likely to be your experience as you resist temptation or push yourself to get something done that is not appealing.",
+        "If you don't already view self-discipline as a force that feeds itself, what might you do? Reflect on times that you had initial difficulty resisting temptation, getting started on something, or sticking with it, but pushed ahead and accomplished the task or met the goal. That's the kind of experience we're talking about with this particular belief about self-discipline, and you've already had such an experience, so you've shown that it's possible. When you feel your willpower and motivation fading, remind yourself of those previous experiences and imagine the same happening now.",
+        "What if your experiences have always seemed to indicate that your self-control diminishes with use, and you need breaks to recharge? There's nothing wrong with that as long as you can afford to take those breaks. If not, remind yourself that not everyone experiences self-discipline as a depletable resource and that your experience might be different if you focus on gathering more energy at this point rather than focusing on how difficult it is to continue or the need for a break.",
+        "Also, if you know someone who is a role model of self-discipline, picture that person in your situation, persisting in the task. Regardless of how you do it, as you push forward to continue to accomplish progress, be sure to mentally reinforce yourself by taking pride in your ability to exert more willpower as you persist.",
+        "The benefits of exerting willpower are cumulative. Your self-discipline is akin to a muscle, and each time you resist temptation or persist in a task despite a lack of motivation, you strengthen that muscle, leading to less effort and resistance in similar instances in the future."
+      ],
+      "study_paragraphs": [
+        "What does self-discipline look like at work? Sometimes, it's the ability to resist temptation, such as distractions to avoid a particular task. Other times it's the ability to persist with a task when your energy and motivation seem low.",
+        "What do you believe about the nature of your own self-discipline? Is it something that runs on internal energy that is spent with use? Or is it something that is bolstered as you apply it and persist?",
+        "Your answer matters, as it determines how much self-discipline you experience. For years, research in psychology pointed to self-control as a resource that is depleted with use and needs to be restored through breaks, rest, or sleep. More recently, however, research points to the importance of mindset. If you view self-discipline as an expendable resource, your willpower tends to fade with use. If you believe that exercising your self-control strengthens and fuels it, that is more likely to be your experience as you resist temptation or push yourself to get something done that is not appealing.",
+        "If you don't already view self-discipline as a force that feeds itself, what might you do? Reflect on times that you had initial difficulty resisting temptation, getting started on something, or sticking with it, but pushed ahead and accomplished the task or met the goal. That's the kind of experience we're talking about with this particular belief about self-discipline, and you've already had such an experience, so you've shown that it's possible. When you feel your willpower and motivation fading, remind yourself of those previous experiences and imagine the same happening now.",
+        "What if your experiences have always seemed to indicate that your self-control diminishes with use, and you need breaks to recharge? There's nothing wrong with that as long as you can afford to take those breaks. If not, remind yourself that not everyone experiences self-discipline as a depletable resource and that your experience might be different if you focus on gathering more energy at this point rather than focusing on how difficult it is to continue or the need for a break.",
+        "Also, if you know someone who is a role model of self-discipline, picture that person in your situation, persisting in the task. Regardless of how you do it, as you push forward to continue to accomplish progress, be sure to mentally reinforce yourself by taking pride in your ability to exert more willpower as you persist.",
+        "The benefits of exerting willpower are cumulative. Your self-discipline is akin to a muscle, and each time you resist temptation or persist in a task despite a lack of motivation, you strengthen that muscle, leading to less effort and resistance in similar instances in the future."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2026-06-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What plays an important role in determining how much self-discipline people experience?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their belief about the nature of motivation."
+            },
+            {
+              "key": "B",
+              "text": "Their use of internal energy for persisting."
+            },
+            {
+              "key": "C",
+              "text": "Their conception of self-discipline."
+            },
+            {
+              "key": "D",
+              "text": "Their ability to resist temptation."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第 3 段原文依据：Your answer matters, as it determines how much self-discipline you experience. 对应选项：Their conception of self-discipline.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What did years of research suggest about self-discipline?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a depletable resource."
+            },
+            {
+              "key": "B",
+              "text": "It is bolstered through use."
+            },
+            {
+              "key": "C",
+              "text": "Its strength is dependent on willpower."
+            },
+            {
+              "key": "D",
+              "text": "Its exercise is an exhausting experience."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第 3 段原文依据：For years, research in psychology pointed to self-control as a resource that is depleted with use and needs to be restored through breaks, rest, or sleep. 对应选项：It is a depletable resource.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. Why does the author ask us to reflect on our experience of meeting the goal despite initial difficulty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To show the urgency of abandoning outdated beliefs about self-control."
+            },
+            {
+              "key": "B",
+              "text": "To show the feasibility of viewing self-discipline as a force fueling itself."
+            },
+            {
+              "key": "C",
+              "text": "To support the argument for persistence in workplace accomplishments."
+            },
+            {
+              "key": "D",
+              "text": "To add evidence to consistent findings in previous psychological research."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第 4 段原文依据：If you don't already view self-discipline as a force that feeds itself, what might you do? 对应选项：To show the feasibility of viewing self-discipline as a force fueling itself.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What are we advised to do if we cannot afford to take breaks to recharge?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Figure out what has gone wrong."
+            },
+            {
+              "key": "B",
+              "text": "Focus on the hardest part of our task."
+            },
+            {
+              "key": "C",
+              "text": "Exert ourselves to go on with the work."
+            },
+            {
+              "key": "D",
+              "text": "Gather new energy from people around."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第 5 段原文依据：There's nothing wrong with that as long as you can afford to take those breaks. 对应选项：Exert ourselves to go on with the work.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. Why does the author compare our self-discipline to a muscle?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The more it is applied, the more resistance it encounters."
+            },
+            {
+              "key": "B",
+              "text": "The more it is exerted, the more proud we become."
+            },
+            {
+              "key": "C",
+              "text": "The more it is enforced, the stronger our willpower proves."
+            },
+            {
+              "key": "D",
+              "text": "The more it is exercised, the more strengthened it gets."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第 7 段原文依据：Your self-discipline is akin to a muscle, and each time you resist temptation or persist in a task despite a lack of motivation, you strengthen that muscle, leading to less effort and resistance in similar instances in the future. 对应选项：The more it is exercised, the more strengthened it gets.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Smartphones have always posed challenges for parents of teens. From social media apps to excessive screen time, the digital world is as threatening as the physical.",
+        "A new study shows that about half of parents of teens are worried about their teens being exposed to explicit content online. This is a valid concern, of course. But there are ways to alleviate the spread of explicit content, from changing the settings in their kids' phone to monitoring such content with apps like Bark.",
+        "Just as alarming, if not more so, is that the amount of time teens spend on social media can lead to anxiety and depression.",
+        "Excessive screen time has detrimental effects, for a lot of obvious reasons. Constant media consumption inhibits healthy activities associated with childhood, like spending time outside, exercising, talking to friends and family. If it interferes with sleep, that's even worse.",
+        "Ample research shows too much smartphone use produces significant anxiety, depression, and feelings of isolation in teens. Teens log on to social media or spend time online trying to make connections, but end up feeling more alone and sad than ever. Faceless communication not only produces feelings of isolation and loneliness but increases instances of online bullying and susceptibility to criminal conducts.",
+        "Though I've banned most social media, I've still battled smartphone time with my own kids. A lot of the time I wish I could throw my kids' smartphones into the nearest lake. The convenience of communication-when they need a ride home from school after practice, for instance—often feels like it isn't worth the battle to keep their screen time low and productive, and continue to encourage \"real-life\" activities outside and with friends and family. I understand the addiction and often tell them I'm not sure how I would have handled having a smartphone as a teen. As an adult, I too, struggle with overuse.",
+        "In a recent TV interview to promote a new film about a mother and daughter navigating social media use, actress Kate Winslet expressed her view on teens and social media—and her concern mirrors the trends. \"I do definitely feel that the world of social media is frightening to parents because we don't really know what's there, \" she said. \"We don't know how our children are using it. We don't know the effects that it's really having on them. \"",
+        "I don't think the U.S. government should regulate social media and teen smartphone use, but it is a vital topic for parents to understand and take seriously. Unfortunately, now, parents don't just have to worry about real-world dangers, but all the ones sneaking online and the effects they have on teenagers and their mental health."
+      ],
+      "study_paragraphs": [
+        "Smartphones have always posed challenges for parents of teens. From social media apps to excessive screen time, the digital world is as threatening as the physical.",
+        "A new study shows that about half of parents of teens are worried about their teens being exposed to explicit content online. This is a valid concern, of course. But there are ways to alleviate the spread of explicit content, from changing the settings in their kids' phone to monitoring such content with apps like Bark.",
+        "Just as alarming, if not more so, is that the amount of time teens spend on social media can lead to anxiety and depression.",
+        "Excessive screen time has detrimental effects, for a lot of obvious reasons. Constant media consumption inhibits healthy activities associated with childhood, like spending time outside, exercising, talking to friends and family. If it interferes with sleep, that's even worse.",
+        "Ample research shows too much smartphone use produces significant anxiety, depression, and feelings of isolation in teens. Teens log on to social media or spend time online trying to make connections, but end up feeling more alone and sad than ever. Faceless communication not only produces feelings of isolation and loneliness but increases instances of online bullying and susceptibility to criminal conducts.",
+        "Though I've banned most social media, I've still battled smartphone time with my own kids. A lot of the time I wish I could throw my kids' smartphones into the nearest lake. The convenience of communication-when they need a ride home from school after practice, for instance—often feels like it isn't worth the battle to keep their screen time low and productive, and continue to encourage \"real-life\" activities outside and with friends and family. I understand the addiction and often tell them I'm not sure how I would have handled having a smartphone as a teen. As an adult, I too, struggle with overuse.",
+        "In a recent TV interview to promote a new film about a mother and daughter navigating social media use, actress Kate Winslet expressed her view on teens and social media—and her concern mirrors the trends. \"I do definitely feel that the world of social media is frightening to parents because we don't really know what's there, \" she said. \"We don't know how our children are using it. We don't know the effects that it's really having on them. \"",
+        "I don't think the U.S. government should regulate social media and teen smartphone use, but it is a vital topic for parents to understand and take seriously. Unfortunately, now, parents don't just have to worry about real-world dangers, but all the ones sneaking online and the effects they have on teenagers and their mental health."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2026-06-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do around half of parents of teens do according to a new study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They set their kids' phones to filter out obscene information."
+            },
+            {
+              "key": "B",
+              "text": "They try to alleviate the spread of explicit scenes on the internet."
+            },
+            {
+              "key": "C",
+              "text": "They feel concerned about their kids' viewing indecent content online."
+            },
+            {
+              "key": "D",
+              "text": "They strive to prevent their kids from spending excessive screen time."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第 2 段原文依据：A new study shows that about half of parents of teens are worried about their teens being exposed to explicit content online. 对应选项：They feel concerned about their kids' viewing indecent content online.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does a large amount of research show about teens' excessive smartphone use?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It allows them less time for meaningful activities."
+            },
+            {
+              "key": "B",
+              "text": "It renders them more lonely and low-spirited."
+            },
+            {
+              "key": "C",
+              "text": "It gives them less time for social interactions."
+            },
+            {
+              "key": "D",
+              "text": "It makes them more alert to online bullying."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第 5 段原文依据：Ample research shows too much smartphone use produces significant anxiety, depression, and feelings of isolation in teens. 对应选项：It renders them more lonely and low-spirited.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What do we learn about the author's feelings regarding smartphones and screen time?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are deep-seated."
+            },
+            {
+              "key": "B",
+              "text": "They are instinctive."
+            },
+            {
+              "key": "C",
+              "text": "They are unique."
+            },
+            {
+              "key": "D",
+              "text": "They are mixed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第 6 段原文依据：Though I've banned most social media, I've still battled smartphone time with my own kids. 对应选项：They are mixed.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does actress Kate Winslet think about the world of social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It poses increasing challenges to parents trying to ensure internet safety."
+            },
+            {
+              "key": "B",
+              "text": "It scares parents because they don't really know what is on the screen."
+            },
+            {
+              "key": "C",
+              "text": "It is a sphere difficult for parents and their teens to navigate."
+            },
+            {
+              "key": "D",
+              "text": "It is full of uncertainties frightful to parents and their teens."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第 7 段原文依据：\"I do definitely feel that the world of social media is frightening to parents because we don't really know what's there, \" she said. 对应选项：It scares parents because they don't really know what is on the screen.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2026-06-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What message does the author try to convey in the last paragraph?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Parents have to be concerned about dangers to their teens in both real and virtual worlds."
+            },
+            {
+              "key": "B",
+              "text": "Governments have responsibilities in regulating social media and teens' smartphone use."
+            },
+            {
+              "key": "C",
+              "text": "Parents should provide guidance to their teens in the use of social media."
+            },
+            {
+              "key": "D",
+              "text": "Online dangers are as serious as problems with teenagers' mental health."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第 8 段原文依据：Unfortunately, now, parents don't just have to worry about real-world dangers, but all the ones sneaking online and the effects they have on teenagers and their mental health. 对应选项：Parents have to be concerned about dangers to their teens in both real and virtual worlds.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2026-06-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "电子商务的蓬勃发展正在深刻改变中国农村的面貌。随着互联网和物流网络快速向农村延伸，越来越多的农村居民通过电子商务平台将农产品直接销售给城市消费者。近年来，直播带货（live-streaming commerce）使城市消费者能够与卖家实时互动，已成为促进农村发展的一种新方式。电子商务打破了城乡之间的信息壁垒，拓宽了农产品销售渠道，帮助农村居民增收致富。数字经济与乡村振兴的深度融合，正在为中国农村发展注入前所未有的活力。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2026-06-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
