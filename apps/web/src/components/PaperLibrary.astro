@@ -9,7 +9,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 
 <section class="library-section container" id="library" data-api-base={apiBase} data-exam-levels={JSON.stringify(examLevels)} aria-labelledby="library-title">
   <div class="library-heading">
-    <div class="section-heading"><p class="library-eyebrow">{examLevels.join(' · ')}</p><div class="library-title-line"><h1 id="library-title">{label}</h1><span class="paper-count" id="paper-count"></span></div></div>
+    <div class="section-heading"><div class="library-title-line"><h1 id="library-title">{label}</h1><span class="paper-count" id="paper-count"></span></div></div>
     <div class="library-toolbar">
       <label class="paper-search">
         <span class="sr-only">搜索试卷标题或年份</span><input id="paper-search" type="search" placeholder="搜索试卷或年份" autocomplete="off" />
