@@ -1,0 +1,1681 @@
+{
+  "id": "cet6-2023-12-1",
+  "exam_level": "CET6",
+  "year": 2023,
+  "month": 12,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2023年12月大学英语六级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2023-12-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"As is known to all, gaining a sound knowledge of the basics is of vital importance for students to master an academic subject. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words (not including the sentence given)."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-1-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"As is known to all, gaining a sound knowledge of the basics is of vital importance for students to master an academic subject. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words (not including the sentence given).",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "The desert is deceiving. At first glance it looks lifeless, barren, and bone-dry. For most passersby humming through the Mojave on their way to try their luck in Las Vegas or heading towards the Grand Canyon, it's just a [26] ______ stretch of land with some mountains in the distance and more [27] ______ to be a setting for a movie that takes place on Mars. The desert, however, is [28] ______ with life, mystery, and magic.",
+        "The Mojave desert sees less than two inches of rain a year, and like most deserts, is a land of [29] ______ . Temperature fluctuations vary from freezing to [30] ______ hot, not only between seasons, but even within the same day.",
+        "At the heart of this vast, 25,000-square-mile desert is Mojave National Preserve. The folks managing and working there wear the wide-brimmed (宽边的) hats that have become [31] ______ with places like Yosemite. The preserve is rich with history, culture, biodiversity, and endless opportunities to [32] ______ your interest, especially for anyone who loves the outdoors. For a photographer, it requires patience and [33] ______ a few spare tires to maneuver the network of unpaved “roads”, but the rewards are plenty.",
+        "Photographing here requires a good, [34] ______ pair of shoes and a lot of preparation. Plenty of water, spare tires, and a full tank of gas are needed to explore this unit of the national park system, which is the third largest in the country.",
+        "Like all deserts, though, if you are patient, you will be rewarded, as they often reveal their secrets slowly. During my last outing, I was surprised to see how much of the area was shaped by ancient volcanoes and geological forces, much of which remains today, giving the area a [35] ______ feel and painting a colorful background for great photographs."
+      ],
+      "study_paragraphs": [
+        "The desert is deceiving. At first glance it looks lifeless, barren, and bone-dry. For most passersby humming through the Mojave on their way to try their luck in Las Vegas or heading towards the Grand Canyon, it's just a flat stretch of land with some mountains in the distance and more apt to be a setting for a movie that takes place on Mars. The desert, however, is overflowing with life, mystery, and magic.",
+        "The Mojave desert sees less than two inches of rain a year, and like most deserts, is a land of extremes. Temperature fluctuations vary from freezing to burning hot, not only between seasons, but even within the same day.",
+        "At the heart of this vast, 25,000-square-mile desert is Mojave National Preserve. The folks managing and working there wear the wide-brimmed (宽边的) hats that have become synonymous with places like Yosemite. The preserve is rich with history, culture, biodiversity, and endless opportunities to stimulate your interest, especially for anyone who loves the outdoors. For a photographer, it requires patience and probably a few spare tires to maneuver the network of unpaved “roads”, but the rewards are plenty.",
+        "Photographing here requires a good, sturdy pair of shoes and a lot of preparation. Plenty of water, spare tires, and a full tank of gas are needed to explore this unit of the national park system, which is the third largest in the country.",
+        "Like all deserts, though, if you are patient, you will be rewarded, as they often reveal their secrets slowly. During my last outing, I was surprised to see how much of the area was shaped by ancient volcanoes and geological forces, much of which remains today, giving the area a unique feel and painting a colorful background for great photographs."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。flat stretch of land 指平坦的一大片土地。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。apt to be 指适合作为火星电影场景。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。overflowing with life 指充满生命。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。a land of extremes 指气候极端的土地。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。burning hot 表示炙热。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。synonymous with 指宽边帽已成为国家公园的标志。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。stimulate your interest 表示激发兴趣。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。probably 指摄影探索可能还需要备胎。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。sturdy shoes 指结实耐用的鞋。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "apt"
+            },
+            {
+              "key": "B",
+              "text": "burning"
+            },
+            {
+              "key": "C",
+              "text": "extremes"
+            },
+            {
+              "key": "D",
+              "text": "flat"
+            },
+            {
+              "key": "E",
+              "text": "fractions"
+            },
+            {
+              "key": "F",
+              "text": "overflowing"
+            },
+            {
+              "key": "G",
+              "text": "parasites"
+            },
+            {
+              "key": "H",
+              "text": "probably"
+            },
+            {
+              "key": "I",
+              "text": "sparingly"
+            },
+            {
+              "key": "J",
+              "text": "sprinkle"
+            },
+            {
+              "key": "K",
+              "text": "steer"
+            },
+            {
+              "key": "L",
+              "text": "stimulate"
+            },
+            {
+              "key": "M",
+              "text": "sturdy"
+            },
+            {
+              "key": "N",
+              "text": "synonymous"
+            },
+            {
+              "key": "O",
+              "text": "unique"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。unique feel 指古火山地貌带来的独特感。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· African countries must get smarter with their agriculture",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] On the hills of central Kenya, almost lime-green with the sparkle of tea bushes in the sunlight, farmers know all about climate change. \"The rainy season is no longer predictable,” says one. \"When it is supposed to rain it doesn't, then it all comes at once. \" Climate change is an issue that will affect everyone on the planet. For Africans its consequences will be particularly bitter: whereas other regions were able to grow rich by burning coal and oil, Africa will pay much of the human price without having enjoyed the benefits. \"Africa only represents 2% of global greenhouse-gas emissions but it is the continent that is expected to suffer the most from climate impacts, \" says Mafalda Duarte, who runs the World Bank's $8bn Climate Investment Funds.",
+        "[B] Although there are huge uncertainties as to the precise impacts of climate change, enough is known to say that global warming represents one of the main threats to Africa's prosperity. Parts of the continent are already warming much more quickly than the average: temperatures in southern Africa have increased by about twice the global rate over the past 50 years. Even if the world were to cut emissions enough to keep global warming below 1.5°C, heat-waves would intensify in Africa and diseases would spread to areas not currently affected. Farming would also be hit hard. About 40% of the land now used to grow maize ( 玉米) would no longer be suitable for it. Overall, it is estimated that maize yields would fall by 18-22%.",
+        "[C] Africa is particularly vulnerable, in part because it is already struggling to feed itself and it will have to vastly increase yields and productivity if it is to put food on the plates of a fast-growing population, even without climate change. The UN's Food and Agriculture Organisation reckons that by 2050 global food production would have to rise by about 70% over its level of 2009 to meet demand from a population that is growing in numbers and appetite. Much of this new demand will be in Africa. Yet the continent already imports about $50bn-worth of food a year and that figure is expected to more than double over the next five years. Self-sufficiency is not Africa's goal, but the fact that it spends more money importing food than it does buying capital goods suggests it has room for improvement.",
+        "[D] Finding out why is not hard. Most farms are tiny, ploughed by hand and reliant on rain. More than half of Africa's people make their living from farming. Although its total harvest has climbed over the past few decades, this is mainly because there are more people farming more land. But in many places there is no spare land to farm. Plots in Rwanda are so small that you could fit 250 of them onto the average American farm. And although output per worker has improved by more than half over the past 30 years in Africa, that is still far behind the 2.5 times improvement in Asia. Yields of maize are generally less than two tonnes per hectare, a fifth the level in America.",
+        "[E] The low productivity of African farmers is reflected in national economic statistics—despite absorbing so much labour, farming generates just 15% of GDP. \"They can't even feed their families, \" says Jennifer Blanke, a vice-president of the African Development Bank in charge of agriculture. \"Farm productivity hasn't improved in many parts of Africa for 100 years. \"",
+        "[F] One reason is that in the first few decades of independence, many African governments neglected farming as they focused on industrialising their economies. Others damaged it by pushing down the prices that state monopolies paid for their crops in order to subsidise workers in cities with cheap food. Ghana taxed cocoa ( 可可粉) exports so heavily that production collapsed by half between the 1960s and 1980s, despite a jump in the global price of cocoa. Yet over the past two decades or so governments and donors have begun to look again at farming as a way of providing jobs for the 13 million young people entering the workforce each year. Much of the focus has been on getting small farmers to use fertiliser and, more important, better seeds. The results can be impressive. Improved varieties of sorghum (高粱), for instance, can produce a crop that is 40%larger than the usual variety. Infrastructure is important. A World Bank irrigation project in Ethiopia helped farmers increase their potato harvest from about 8 tonnes per hectare to 35 tonnes.",
+        "[G] Better techniques help, too. Small coffee farmers in Kenya are able to increase their incomes by 40% by following a few simple guidelines on caring for their bushes, such as trimming all but three of their stems. Many of their neighbours do not follow the advice, because it seems counter-intuitive. More stems ought to lead to more coffee beans, they say. Yet after seeing those following the advice get bigger harvests for a season or two, many others start doing the same.",
+        "[H] One way of spreading knowledge is to link farms to big buyers of their harvests. When Diageo, a British drinks giant, built a brewery in western Kenya, it wanted to use local crops to make a beer cheap enough to compete with illicit home brew. It organised farmers into groups, improved supply chains for them to get seeds and fertiliser and then agreed to buy their grain. It now provides a market to about 17,000 farmers. Across the region it has doubled its use of local raw material to about 80% over five years, says John O'Keeffe, who runs its Africa business.",
+        "[I] An even more important change is the move from traditional farming to building businesses that can profitably bring technology and investment to small farmers. Taita Ngetich, a young Kenyan, was studying engineering when he wanted to earn a little money on the side. He scraped together 20,000 Kenyan shillings (about $200) to plant tomatoes. Everything went wrong. The crop was attacked by pests. \"Then there was a massive flood that swallowed all our capital,” he says. Mr Ngetich persevered by looking into buying a greenhouse to protect his plants from bugs and rain. The cheapest ones cost more than $2,500 each, so he designed his own for half the price. Soon neighbouring farmers started placing orders with him, and now his firm, Illuminum Greenhouses, has sold more than 1,400 greenhouses that provide livelihoods to about 6,000people. The business does not stop there; he also supplies fertiliser, high-quality seedlings and smart sensors that increase yields.",
+        "[J] Illuminum's success shows how technology can help even small farms become more productive. Because such a large share of Africa's population earns a living from agriculture, even small improvements in productivity can lift the incomes of millions of people. But over the longer run small-scale farming can go only so far, especially in the face of climate change and population pressure.",
+        "[K] \"If we really want to lift people out of poverty we have to finance projects that will get them an income of at least $100 a month so that they can pay for health care and education,” says Mr Ngetich. \"Projects that give them an extra $2 a month from growing beans or maize aren't going to get them there. \" Getting those big jumps will need better jobs in factories and cities."
+      ],
+      "study_paragraphs": [
+        "On the hills of central Kenya, almost lime-green with the sparkle of tea bushes in the sunlight, farmers know all about climate change. \"The rainy season is no longer predictable,” says one. \"When it is supposed to rain it doesn't, then it all comes at once. \" Climate change is an issue that will affect everyone on the planet. For Africans its consequences will be particularly bitter: whereas other regions were able to grow rich by burning coal and oil, Africa will pay much of the human price without having enjoyed the benefits. \"Africa only represents 2% of global greenhouse-gas emissions but it is the continent that is expected to suffer the most from climate impacts, \" says Mafalda Duarte, who runs the World Bank's $8bn Climate Investment Funds.",
+        "Although there are huge uncertainties as to the precise impacts of climate change, enough is known to say that global warming represents one of the main threats to Africa's prosperity. Parts of the continent are already warming much more quickly than the average: temperatures in southern Africa have increased by about twice the global rate over the past 50 years. Even if the world were to cut emissions enough to keep global warming below 1.5°C, heat-waves would intensify in Africa and diseases would spread to areas not currently affected. Farming would also be hit hard. About 40% of the land now used to grow maize ( 玉米) would no longer be suitable for it. Overall, it is estimated that maize yields would fall by 18-22%.",
+        "Africa is particularly vulnerable, in part because it is already struggling to feed itself and it will have to vastly increase yields and productivity if it is to put food on the plates of a fast-growing population, even without climate change. The UN's Food and Agriculture Organisation reckons that by 2050 global food production would have to rise by about 70% over its level of 2009 to meet demand from a population that is growing in numbers and appetite. Much of this new demand will be in Africa. Yet the continent already imports about $50bn-worth of food a year and that figure is expected to more than double over the next five years. Self-sufficiency is not Africa's goal, but the fact that it spends more money importing food than it does buying capital goods suggests it has room for improvement.",
+        "Finding out why is not hard. Most farms are tiny, ploughed by hand and reliant on rain. More than half of Africa's people make their living from farming. Although its total harvest has climbed over the past few decades, this is mainly because there are more people farming more land. But in many places there is no spare land to farm. Plots in Rwanda are so small that you could fit 250 of them onto the average American farm. And although output per worker has improved by more than half over the past 30 years in Africa, that is still far behind the 2.5 times improvement in Asia. Yields of maize are generally less than two tonnes per hectare, a fifth the level in America.",
+        "The low productivity of African farmers is reflected in national economic statistics—despite absorbing so much labour, farming generates just 15% of GDP. \"They can't even feed their families, \" says Jennifer Blanke, a vice-president of the African Development Bank in charge of agriculture. \"Farm productivity hasn't improved in many parts of Africa for 100 years. \"",
+        "One reason is that in the first few decades of independence, many African governments neglected farming as they focused on industrialising their economies. Others damaged it by pushing down the prices that state monopolies paid for their crops in order to subsidise workers in cities with cheap food. Ghana taxed cocoa ( 可可粉) exports so heavily that production collapsed by half between the 1960s and 1980s, despite a jump in the global price of cocoa. Yet over the past two decades or so governments and donors have begun to look again at farming as a way of providing jobs for the 13 million young people entering the workforce each year. Much of the focus has been on getting small farmers to use fertiliser and, more important, better seeds. The results can be impressive. Improved varieties of sorghum (高粱), for instance, can produce a crop that is 40%larger than the usual variety. Infrastructure is important. A World Bank irrigation project in Ethiopia helped farmers increase their potato harvest from about 8 tonnes per hectare to 35 tonnes.",
+        "Better techniques help, too. Small coffee farmers in Kenya are able to increase their incomes by 40% by following a few simple guidelines on caring for their bushes, such as trimming all but three of their stems. Many of their neighbours do not follow the advice, because it seems counter-intuitive. More stems ought to lead to more coffee beans, they say. Yet after seeing those following the advice get bigger harvests for a season or two, many others start doing the same.",
+        "One way of spreading knowledge is to link farms to big buyers of their harvests. When Diageo, a British drinks giant, built a brewery in western Kenya, it wanted to use local crops to make a beer cheap enough to compete with illicit home brew. It organised farmers into groups, improved supply chains for them to get seeds and fertiliser and then agreed to buy their grain. It now provides a market to about 17,000 farmers. Across the region it has doubled its use of local raw material to about 80% over five years, says John O'Keeffe, who runs its Africa business.",
+        "An even more important change is the move from traditional farming to building businesses that can profitably bring technology and investment to small farmers. Taita Ngetich, a young Kenyan, was studying engineering when he wanted to earn a little money on the side. He scraped together 20,000 Kenyan shillings (about $200) to plant tomatoes. Everything went wrong. The crop was attacked by pests. \"Then there was a massive flood that swallowed all our capital,” he says. Mr Ngetich persevered by looking into buying a greenhouse to protect his plants from bugs and rain. The cheapest ones cost more than $2,500 each, so he designed his own for half the price. Soon neighbouring farmers started placing orders with him, and now his firm, Illuminum Greenhouses, has sold more than 1,400 greenhouses that provide livelihoods to about 6,000people. The business does not stop there; he also supplies fertiliser, high-quality seedlings and smart sensors that increase yields.",
+        "Illuminum's success shows how technology can help even small farms become more productive. Because such a large share of Africa's population earns a living from agriculture, even small improvements in productivity can lift the incomes of millions of people. But over the longer run small-scale farming can go only so far, especially in the face of climate change and population pressure.",
+        "\"If we really want to lift people out of poverty we have to finance projects that will get them an income of at least $100 a month so that they can pay for health care and education,” says Mr Ngetich. \"Projects that give them an extra $2 a month from growing beans or maize aren't going to get them there. \" Getting those big jumps will need better jobs in factories and cities."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. It is said that agricultural productivity in many African countries has remained low for a century.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：The low productivity of African farmers is reflected in national economic statistics—despite absorbing so much labour, farming generates just 15% of GDP. \"They can't even feed their families, \" says Jennifer Blanke, a vice-president of the African Development Bank in charge of agriculture. \"Farm productivity hasn't improved in many parts of Africa for 100 years. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Building connections between farms and major purchasers of their produce can promote African farmers' use of advanced farming techniques.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：One way of spreading knowledge is to link farms to big buyers of their harvests. When Diageo, a British drinks giant, built a brewery in western Kenya, it wanted to use local crops to make a beer cheap enough to compete with illicit home brew. It organised farmers into groups, improved supply chains for them to get seeds and fertiliser and then agreed to buy their grain. It now provides a market to about 17,000 farmers. Across the region it has doubled its use of local raw material to about 80% over five years, says John O'Keeffe, who runs its Africa business.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Parts of Africa are getting warmer much faster than the average, with southern Africa witnessing roughly twice the global warming rate over the last half century.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Although there are huge uncertainties as to the precise impacts of climate change, enough is known to say that global warming represents one of the main threats to Africa's prosperity. Parts of the continent are already warming much more quickly than the average: temperatures in southern Africa have increased by about twice the global rate over the past 50 years. Even if the world were to cut emissions enough to keep global warming below 1.5°C, heat-waves would intensify in Africa and diseases would spread to areas not currently affected. Farming would also be hit hard. About 40% of the land now used to grow maize ( 玉米) would no longer be suitable for it. Overall, it is estimated that maize yields would fall by 18-22%.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Improved farming practices have enabled Kenyan farmers to increase farm produce remarkably.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：Better techniques help, too. Small coffee farmers in Kenya are able to increase their incomes by 40% by following a few simple guidelines on caring for their bushes, such as trimming all but three of their stems. Many of their neighbours do not follow the advice, because it seems counter-intuitive. More stems ought to lead to more coffee beans, they say. Yet after seeing those following the advice get bigger harvests for a season or two, many others start doing the same.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Africa is especially susceptible to the effects of global warming partly because it has difficulty feeding its increasing population even without climate change.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Africa is particularly vulnerable, in part because it is already struggling to feed itself and it will have to vastly increase yields and productivity if it is to put food on the plates of a fast-growing population, even without climate change. The UN's Food and Agriculture Organisation reckons that by 2050 global food production would have to rise by about 70% over its level of 2009 to meet demand from a population that is growing in numbers and appetite. Much of this new demand will be in Africa. Yet the continent already imports about $50bn-worth of food a year and that figure is expected to more than double over the next five years. Self-sufficiency is not Africa's goal, but the fact that it spends more money importing food than it does buying capital goods suggests it has room for improvement.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. The use of fertiliser and improved seeds can help Africa's small farmers impressively increase crop yields.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：One reason is that in the first few decades of independence, many African governments neglected farming as they focused on industrialising their economies. Others damaged it by pushing down the prices that state monopolies paid for their crops in order to subsidise workers in cities with cheap food. Ghana taxed cocoa ( 可可粉) exports so heavily that production collapsed by half between the 1960s and 1980s, despite a jump in the global price of cocoa. Yet over the past two decades or so governments and donors have begun to look again at farming as a way of providing jobs for the 13 million young people entering the workforce each year. Much of the focus has been on getting small farmers to use fertiliser and, more important, better seeds. The results can be impressive. Improved varieties of sorghum (高粱), for instance, can produce a crop that is 40%larger than the usual variety. Infrastructure is important. A World Bank irrigation project in Ethiopia helped farmers increase their potato harvest from about 8 tonnes per hectare to 35 tonnes.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. It has proved even more important to shift from traditional farming to setting up businesses that can bring technology and investment to small farmers in Africa.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：An even more important change is the move from traditional farming to building businesses that can profitably bring technology and investment to small farmers. Taita Ngetich, a young Kenyan, was studying engineering when he wanted to earn a little money on the side. He scraped together 20,000 Kenyan shillings (about $200) to plant tomatoes. Everything went wrong. The crop was attacked by pests. \"Then there was a massive flood that swallowed all our capital,” he says. Mr Ngetich persevered by looking into buying a greenhouse to protect his plants from bugs and rain. The cheapest ones cost more than $2,500 each, so he designed his own for half the price. Soon neighbouring farmers started placing orders with him, and now his firm, Illuminum Greenhouses, has sold more than 1,400 greenhouses that provide livelihoods to about 6,000people. The business does not stop there; he also supplies fertiliser, high-quality seedlings and smart sensors that increase yields.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Everyone in the world will have to bear the consequences of climate change, especially Africans.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：On the hills of central Kenya, almost lime-green with the sparkle of tea bushes in the sunlight, farmers know all about climate change. \"The rainy season is no longer predictable,” says one. \"When it is supposed to rain it doesn't, then it all comes at once. \" Climate change is an issue that will affect everyone on the planet. For Africans its consequences will be particularly bitter: whereas other regions were able to grow rich by burning coal and oil, Africa will pay much of the human price without having enjoyed the benefits. \"Africa only represents 2% of global greenhouse-gas emissions but it is the continent that is expected to suffer the most from climate impacts, \" says Mafalda Duarte, who runs the World Bank's $8bn Climate Investment Funds.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Improvement in farm output per worker in Africa falls far short of that in Asia.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：Finding out why is not hard. Most farms are tiny, ploughed by hand and reliant on rain. More than half of Africa's people make their living from farming. Although its total harvest has climbed over the past few decades, this is mainly because there are more people farming more land. But in many places there is no spare land to farm. Plots in Rwanda are so small that you could fit 250 of them onto the average American farm. And although output per worker has improved by more than half over the past 30 years in Africa, that is still far behind the 2.5 times improvement in Asia. Yields of maize are generally less than two tonnes per hectare, a fifth the level in America.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. In the long term, the potential for small farms in Africa to increase productivity is quite limited, especially owing to the warming climate and a growing population.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：Illuminum's success shows how technology can help even small farms become more productive. Because such a large share of Africa's population earns a living from agriculture, even small improvements in productivity can lift the incomes of millions of people. But over the longer run small-scale farming can go only so far, especially in the face of climate change and population pressure.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "One of the great successes of the Republican Party in recent decades is the relentless propagation of a simple formula for economic growth: tax cuts.",
+        "The formula doesn't work, but that has not affected its popularity. And while the cult of tax cuts has attracted many critics, it lacks for obvious rivals.",
+        "Democratic politicians have tended to campaign on helping people left behind by economic growth. When Democrats do talk about encouraging economic growth, they often sound like Republicans.",
+        "This is not just a political problem for Democrats; it is an economic problem for the United States. The nation needs a better story about the drivers of economic growth. The painful lessons of recent decades point to a promising candidate: higher wages.",
+        "Raising the wages of American workers ought to be the priority of economic policymakers. We'd all be better off paying less attention to quarterly updates on the growth of the nation's gross domestic product (GDP)and focusing instead on the growth of workers’ paychecks.",
+        "Set aside, for the moment, the familiar argument for higher wages: fairness. The argument here is that higher wages can fuel the engine of economic growth.",
+        "Perhaps the most famous illustration of the benefits is the story of Henry Ford's decision in 1914 to pay $5a day to workers on his Model T assembly lines. He did it to increase production—-he was paying a premium to maintain a reliable workforce. The unexpected benefit was that Ford's factory workers became Ford customers, too.",
+        "The same logic still holds: Consumption drives the American economy, and workers who are paid more can spend more.",
+        "Mainstream economists insist that it is impossible to order up a sustainable increase in wages because compensation levels reflect the unerring judgment of market forces.",
+        "The conventional wisdom held that productivity growth was the only route to higher wages. Through that lens, efforts to negotiate higher wages were counterproductive. Minimum-wage laws would raise unemployment because there was only so much money in the wage pool, and if some people got more, others would get none.",
+        "It was in the context of this worldview that it became popular to argue that tax cuts would drive prosperity. Rich people would invest, productivity would increase, wages would rise.",
+        "In the real world, things are more complicated. Wages are influenced by a tug of war between employers and workers, and employers have been winning. One clear piece of evidence is the widening gap between productivity growth and wage growth since roughly 1970. Productivity has more than doubled; wages have lagged far behind.",
+        "A focus on wage growth would provide an antidote (矫正方法) to the attractive simplicity of the belief in the magical power of tax cuts."
+      ],
+      "study_paragraphs": [
+        "One of the great successes of the Republican Party in recent decades is the relentless propagation of a simple formula for economic growth: tax cuts.",
+        "The formula doesn't work, but that has not affected its popularity. And while the cult of tax cuts has attracted many critics, it lacks for obvious rivals.",
+        "Democratic politicians have tended to campaign on helping people left behind by economic growth. When Democrats do talk about encouraging economic growth, they often sound like Republicans.",
+        "This is not just a political problem for Democrats; it is an economic problem for the United States. The nation needs a better story about the drivers of economic growth. The painful lessons of recent decades point to a promising candidate: higher wages.",
+        "Raising the wages of American workers ought to be the priority of economic policymakers. We'd all be better off paying less attention to quarterly updates on the growth of the nation's gross domestic product (GDP)and focusing instead on the growth of workers’ paychecks.",
+        "Set aside, for the moment, the familiar argument for higher wages: fairness. The argument here is that higher wages can fuel the engine of economic growth.",
+        "Perhaps the most famous illustration of the benefits is the story of Henry Ford's decision in 1914 to pay $5a day to workers on his Model T assembly lines. He did it to increase production—-he was paying a premium to maintain a reliable workforce. The unexpected benefit was that Ford's factory workers became Ford customers, too.",
+        "The same logic still holds: Consumption drives the American economy, and workers who are paid more can spend more.",
+        "Mainstream economists insist that it is impossible to order up a sustainable increase in wages because compensation levels reflect the unerring judgment of market forces.",
+        "The conventional wisdom held that productivity growth was the only route to higher wages. Through that lens, efforts to negotiate higher wages were counterproductive. Minimum-wage laws would raise unemployment because there was only so much money in the wage pool, and if some people got more, others would get none.",
+        "It was in the context of this worldview that it became popular to argue that tax cuts would drive prosperity. Rich people would invest, productivity would increase, wages would rise.",
+        "In the real world, things are more complicated. Wages are influenced by a tug of war between employers and workers, and employers have been winning. One clear piece of evidence is the widening gap between productivity growth and wage growth since roughly 1970. Productivity has more than doubled; wages have lagged far behind.",
+        "A focus on wage growth would provide an antidote (矫正方法) to the attractive simplicity of the belief in the magical power of tax cuts."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. Why does the formula of tax cuts remain popular though ineffective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Its critics' voice has not been heard throughout the country."
+            },
+            {
+              "key": "B",
+              "text": "There seem to be no other options available to replace it."
+            },
+            {
+              "key": "C",
+              "text": "The cult of tax cuts has been relentlessly propagated by all policymakers."
+            },
+            {
+              "key": "D",
+              "text": "There appears to be a misunderstanding of the formula among the public."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。减税虽无效仍流行，原因之一是缺少明显替代方案。第 2 段原文依据：The formula doesn't work, but that has not affected its popularity. And while the cult of tax cuts has attracted many critics, it lacks for obvious rivals.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does the author think is a more effective measure for driving economic growth in the U.S.?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Aiding people left behind by economic growth."
+            },
+            {
+              "key": "B",
+              "text": "Prioritizing the growth of the nation's GDP."
+            },
+            {
+              "key": "C",
+              "text": "Increasing the compensation for labor."
+            },
+            {
+              "key": "D",
+              "text": "Introducing even more extensive tax cuts."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。作者建议经济政策优先提高工人工资。第 5 段原文依据：Raising the wages of American workers ought to be the priority of economic policymakers. We'd all be better off paying less attention to quarterly updates on the growth of the nation's gross domestic product (GDP)and focusing instead on the growth of workers’ paychecks.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What is the logic underlying the author's viewpoint?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The growth of workers' paychecks ultimately boosts the nation's economy."
+            },
+            {
+              "key": "B",
+              "text": "Paying a premium to maintain a reliable workforce attracts more customers."
+            },
+            {
+              "key": "C",
+              "text": "Consumption stimulates the desire for higher wages."
+            },
+            {
+              "key": "D",
+              "text": "Familiar arguments for higher wages are outdated."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。工资增加使消费增加，进而推动经济。第 8 段原文依据：The same logic still holds: Consumption drives the American economy, and workers who are paid more can spend more.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is the basis for higher wages according to the conventional wisdom?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fairness in distribution."
+            },
+            {
+              "key": "B",
+              "text": "Increase in productivity."
+            },
+            {
+              "key": "C",
+              "text": "The priority of economic policymakers."
+            },
+            {
+              "key": "D",
+              "text": "The unerring judgment of market forces."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。传统观念认为生产率提高是加薪的唯一途径。第 10 段原文依据：The conventional wisdom held that productivity growth was the only route to higher wages. Through that lens, efforts to negotiate higher wages were counterproductive. Minimum-wage laws would raise unemployment because there was only so much money in the wage pool, and if some people got more, others would get none.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What do we learn about things in the real world in America for the past 50 years or so?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People have failed to see a corresponding increase in wages and in productivity."
+            },
+            {
+              "key": "B",
+              "text": "People have been disheartened by the widening gap between the haves and have-nots."
+            },
+            {
+              "key": "C",
+              "text": "People have witnessed a tug of war between Republicans and Democrats over tax cuts."
+            },
+            {
+              "key": "D",
+              "text": "People have seen the link disappearing between productivity and workers' well-being."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。自约 1970 年以来生产率翻倍，但工资远远落后。第 12 段原文依据：In the real world, things are more complicated. Wages are influenced by a tug of war between employers and workers, and employers have been winning. One clear piece of evidence is the widening gap between productivity growth and wage growth since roughly 1970. Productivity has more than doubled; wages have lagged far behind.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Journal editors decide what gets published and what doesn't, affecting the careers of other academics and influencing the direction that a field takes. You'd hope, then, that journals would do everything they can to establish a diverse editorial board, reflecting a variety of voices, experiences, and identities.",
+        "Unfortunately a new study in Nature Neuroscience makes for disheartening reading. The team finds that the majority of editors in top psychology and neuroscience journals are male and based in the United States: a situation that may be amplifying existing gender inequalities in the field and influencing the kind of research that gets published.",
+        "Men were found to account for 60% of the editors of psychology journals. There were significantly more male than female editors at each level of seniority, and men made up the majority of editors in over three quarters of the journals. Crucially, the proportion of female editors was significantly lower than the overall proportion of women psychology researchers.",
+        "The differences were even starker in the neuroscience journals: 70% of editors were male, and men held the majority of editorial positions in 88% of journals. In this case, the proportion of female editors was not significantly lower than the proportion of female researchers working in neuroscience—a finding that reveals enduring gender disparities in the field more broadly.",
+        "Based on their results, the team concludes that \"the ideas, values and decision-making biases of men are overrepresented in the editorial positions of the most recognized academic journals in psychology and neuroscience. \"",
+        "Gender inequality in science is often attributed to the fact that senior academics are more likely to be male, because historically science was male-dominated: it's argued that as time goes on and more women rise to senior roles, the field will become more equal. Yet this study showed that even the junior roles in psychology journals tended to be held disproportionately by men, despite the fact that there are actually more female than male junior psychology faculty.",
+        "This implies that a lack of female academics is not the problem. Instead, there are structural reasons that women are disadvantaged in science. Women receive lower salaries and face greater childcare demands, for instance, which can result in fewer publications and grants—the kinds of things that journals look for when deciding who to appoint. Rather than simply blaming the inequality of editorial boards on tradition, we should be actively breaking down these existing barriers.",
+        "A lack of diversity among journal editors also likely contributes to psychology's WEIRD problem. If journal editors are largely men from the United States, then they will probably place higher value on papers that are relevant to Western, male populations, whether consciously or not."
+      ],
+      "study_paragraphs": [
+        "Journal editors decide what gets published and what doesn't, affecting the careers of other academics and influencing the direction that a field takes. You'd hope, then, that journals would do everything they can to establish a diverse editorial board, reflecting a variety of voices, experiences, and identities.",
+        "Unfortunately a new study in Nature Neuroscience makes for disheartening reading. The team finds that the majority of editors in top psychology and neuroscience journals are male and based in the United States: a situation that may be amplifying existing gender inequalities in the field and influencing the kind of research that gets published.",
+        "Men were found to account for 60% of the editors of psychology journals. There were significantly more male than female editors at each level of seniority, and men made up the majority of editors in over three quarters of the journals. Crucially, the proportion of female editors was significantly lower than the overall proportion of women psychology researchers.",
+        "The differences were even starker in the neuroscience journals: 70% of editors were male, and men held the majority of editorial positions in 88% of journals. In this case, the proportion of female editors was not significantly lower than the proportion of female researchers working in neuroscience—a finding that reveals enduring gender disparities in the field more broadly.",
+        "Based on their results, the team concludes that \"the ideas, values and decision-making biases of men are overrepresented in the editorial positions of the most recognized academic journals in psychology and neuroscience. \"",
+        "Gender inequality in science is often attributed to the fact that senior academics are more likely to be male, because historically science was male-dominated: it's argued that as time goes on and more women rise to senior roles, the field will become more equal. Yet this study showed that even the junior roles in psychology journals tended to be held disproportionately by men, despite the fact that there are actually more female than male junior psychology faculty.",
+        "This implies that a lack of female academics is not the problem. Instead, there are structural reasons that women are disadvantaged in science. Women receive lower salaries and face greater childcare demands, for instance, which can result in fewer publications and grants—the kinds of things that journals look for when deciding who to appoint. Rather than simply blaming the inequality of editorial boards on tradition, we should be actively breaking down these existing barriers.",
+        "A lack of diversity among journal editors also likely contributes to psychology's WEIRD problem. If journal editors are largely men from the United States, then they will probably place higher value on papers that are relevant to Western, male populations, whether consciously or not."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-12-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What would we expect an editorial board of an academic journal to exhibit in view of its important responsibilities?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Insight."
+            },
+            {
+              "key": "B",
+              "text": "Expertise."
+            },
+            {
+              "key": "C",
+              "text": "Integrity."
+            },
+            {
+              "key": "D",
+              "text": "Diversity."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。编辑会影响学者职业和学术方向，应具有多样性。第 1 段原文依据：Journal editors decide what gets published and what doesn't, affecting the careers of other academics and influencing the direction that a field takes. You'd hope, then, that journals would do everything they can to establish a diverse editorial board, reflecting a variety of voices, experiences, and identities.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What do we learn from the findings of a new study in Nature Neuroscience?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The majority of top psychology and neuroscience journals reflect a variety of voices, experiences and identities."
+            },
+            {
+              "key": "B",
+              "text": "The editorial boards of most psychology and neuroscience journals do influence the direction their field takes."
+            },
+            {
+              "key": "C",
+              "text": "The editorial boards of the most important journals in psychology and neuroscience are male-dominated."
+            },
+            {
+              "key": "D",
+              "text": "The majority of editors in top psychology and neuroscience journals have relevant backgrounds."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。重要心理学及神经科学期刊的编辑由男性主导。第 2 段原文依据：Unfortunately a new study in Nature Neuroscience makes for disheartening reading. The team finds that the majority of editors in top psychology and neuroscience journals are male and based in the United States: a situation that may be amplifying existing gender inequalities in the field and influencing the kind of research that gets published.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What fact does the author highlight concerning the gender differences in editors of psychology journals?",
+          "options": [
+            {
+              "key": "A",
+              "text": "There were quite a few female editors who also distinguished themselves as influential psychology researchers."
+            },
+            {
+              "key": "B",
+              "text": "The number of female editors was simply disproportionate to that of women engaged in psychology research."
+            },
+            {
+              "key": "C",
+              "text": "The proportion of female editors was increasingly lower at senior levels."
+            },
+            {
+              "key": "D",
+              "text": "There were few female editors who could move up to senior positions."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。女性编辑比例低于女性心理学研究者比例。第 3 段原文依据：Men were found to account for 60% of the editors of psychology journals. There were significantly more male than female editors at each level of seniority, and men made up the majority of editors in over three quarters of the journals. Crucially, the proportion of female editors was significantly lower than the overall proportion of women psychology researchers.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What can we infer from the conclusion drawn by the team of the new study on the basis of their findings?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Women's views are underrepresented in the editorial boards of top psychology and neuroscience journals."
+            },
+            {
+              "key": "B",
+              "text": "Male editors of top psychology and neuroscience journals tend to be biased against their female colleagues."
+            },
+            {
+              "key": "C",
+              "text": "Male researchers have enough representation in the editorial boards to ensure their publications."
+            },
+            {
+              "key": "D",
+              "text": "Female editors have to struggle to get women’s research articles published in academic journals."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。男性观点和偏见被过度代表，意味着女性观点代表不足。第 5 段原文依据：Based on their results, the team concludes that \"the ideas, values and decision-making biases of men are overrepresented in the editorial positions of the most recognized academic journals in psychology and neuroscience. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-12-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author suggest we do instead of simply blaming the inequality of editorial boards on tradition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Strike a balance between male and female editors."
+            },
+            {
+              "key": "B",
+              "text": "Increase women’s employment in senior positions."
+            },
+            {
+              "key": "C",
+              "text": "Enlarge the body of female academics."
+            },
+            {
+              "key": "D",
+              "text": "Implement overall structural reforms."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。应拆除薪资和照料负担等结构性障碍。第 7 段原文依据：This implies that a lack of female academics is not the problem. Instead, there are structural reasons that women are disadvantaged in science. Women receive lower salaries and face greater childcare demands, for instance, which can result in fewer publications and grants—the kinds of things that journals look for when deciding who to appoint. Rather than simply blaming the inequality of editorial boards on tradition, we should be actively breaking down these existing barriers.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-12-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "在中国，随着老龄化社会的到来，养老受到普遍关注。人们谈论最多的是应当采取什么样的养老模式。多数人认为，养老模式需要多元化。可以通过政府引导和社会参与，建立更多更好的养老服务机构，改进社区服务中心，鼓励居家自助养老，还可以推行家庭养老与社会养老相结合的模式。随着政府和社会对养老服务事业投入的持续增加，养老设施将不断升级，服务质量逐步改进，老年人的生活将会更加方便舒适、健康快乐。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2023-12-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
