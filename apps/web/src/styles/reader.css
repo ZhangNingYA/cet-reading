@@ -85,6 +85,7 @@
 .word-bank span { overflow-wrap: anywhere; }
 .practice-questions { position: sticky; top: 24px; display: grid; gap: 25px; min-width: 0; max-height: calc(100dvh - 128px); overflow-y: auto; scrollbar-width: thin; padding: 8px 4px 12px; }
 .practice-questions.compact-questions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+.practice-section[data-section-kind='matching'] .practice-questions { grid-template-columns: minmax(0, 1fr); }
 .practice-question { min-width: 0; margin: 0; padding: 0; border: 0; }
 .practice-question legend { width: 100%; padding: 0; margin-bottom: 12px; color: var(--ink); font-size: var(--text-body); font-weight: 500; line-height: 1.8; overflow-wrap: anywhere; }
 .practice-question label { display: flex; align-items: flex-start; gap: 9px; padding: 9px 10px; color: #536159; border: 1px solid transparent; border-radius: 8px; font-size: var(--text-body); line-height: 1.75; cursor: pointer; }
