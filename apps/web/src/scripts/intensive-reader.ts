@@ -157,7 +157,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const path = `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive`;
     let response = await jsonRequest(regenerate ? `${path}&regenerate=true` : path, 'POST', signal);
     // Several sentences can be queued by the same reader; queue time is separate
-    // from the worker's 90-second generation deadline.
+    // from the worker's three-minute generation and repair deadline.
     const deadline = Date.now() + 600_000;
     while (response.status !== 'ready') {
       if (!response.jobId) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));

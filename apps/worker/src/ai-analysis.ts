@@ -54,6 +54,7 @@ function parseModelJson(content: string): unknown {
 export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Promise<SentenceAnalysis> {
   if (!config.apiUrl || !config.apiKey) throw new Error('AI_API_URL and AI_API_KEY are required in AI mode');
   const controller = new AbortController();
+  let requestAttempt = 0;
   // Both the initial answer and one validation repair share the original deadline/lease.
   const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
   const messages = [
@@ -62,6 +63,7 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
   ];
   try {
     for (let attempt = 0; attempt < 2; attempt += 1) {
+      requestAttempt = attempt + 1;
       const response = await fetch(`${config.apiUrl.replace(/\/$/, '')}/chat/completions`, {
         method: 'POST', signal: controller.signal,
         headers: { 'content-type': 'application/json', authorization: `Bearer ${config.apiKey}` },
@@ -83,6 +85,11 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
       }
     }
     throw new Error('AI analysis did not pass validation');
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw new Error(`AI analysis timed out during model request ${requestAttempt}`, { cause: error });
+    }
+    throw error;
   } finally {
     clearTimeout(timeout);
   }

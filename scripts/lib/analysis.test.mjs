@@ -87,11 +87,12 @@ test('versions grammar prompts while allowing validated results from both earlie
   assert.deepEqual(config.cachePromptVersions, [config.promptVersion, 'custom-v2-vocabulary-v1', 'custom-v2']);
 });
 
-test('allows a 90-second generation and repair budget while keeping a longer worker lease', () => {
+test('allows both generation and repair to finish inside a bounded three-minute budget', () => {
   const config = readConfig({ AI_DRY_RUN: 'true' });
-  assert.equal(config.requestTimeoutMs, 90000);
-  assert.equal(config.leaseSeconds, 120);
-  assert.throws(() => readConfig({ AI_DRY_RUN: 'true', JOB_LEASE_SECONDS: '104' }), /lease.*timeout/);
-  assert.throws(() => readConfig({ AI_DRY_RUN: 'true', AI_REQUEST_TIMEOUT_MS: '90001' }), /90000/);
+  assert.equal(config.requestTimeoutMs, 180000);
+  assert.equal(config.leaseSeconds, 210);
+  assert.throws(() => readConfig({ AI_DRY_RUN: 'true', JOB_LEASE_SECONDS: '194' }), /lease.*timeout/);
+  assert.throws(() => readConfig({ AI_DRY_RUN: 'true', AI_REQUEST_TIMEOUT_MS: '180001' }), /180000/);
+  assert.equal(readConfig({ AI_DRY_RUN: 'true', AI_REQUEST_TIMEOUT_MS: '90000', JOB_LEASE_SECONDS: '120' }).leaseSeconds, 120);
   assert.equal(readConfig({ AI_DRY_RUN: 'true', AI_REQUEST_TIMEOUT_MS: '45000' }).requestTimeoutMs, 45000);
 });

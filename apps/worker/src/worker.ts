@@ -87,6 +87,7 @@ function demoRaw(source: string): AIAnalysis {
 }
 
 async function processJob(job: Job) {
+  const startedAt = Date.now();
   const client: PoolClient = await pool.connect();
   try {
     const analysis = config.mode === 'demo'
@@ -118,6 +119,8 @@ async function processJob(job: Job) {
     console.error(JSON.stringify({
       event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
       attempt: job.attempts, errorCode: analysisErrorCode(message),
+      durationMs: Date.now() - startedAt,
+      modelRequest: message.match(/model request (\d+)/)?.[1] ?? null,
     }));
     await client.query('ROLLBACK').catch(() => undefined);
     await client.query(

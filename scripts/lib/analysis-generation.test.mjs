@@ -61,6 +61,19 @@ test('the repair stops at the shared deadline instead of extending the worker le
       else options.signal.addEventListener('abort', () => reject(options.signal.reason), { once: true });
     });
   });
-  await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 20 }), /aborted/i);
+  await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 20 }), /timed out during model request 2/i);
   assert.equal(calls, 2);
+});
+
+test('identifies a timeout in the initial model request without making a repair call', async t => {
+  let calls = 0;
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls++;
+    return new Promise((_resolve, reject) => {
+      if (options.signal.aborted) reject(options.signal.reason);
+      else options.signal.addEventListener('abort', () => reject(options.signal.reason), { once: true });
+    });
+  });
+  await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 20 }), /timed out during model request 1/i);
+  assert.equal(calls, 1);
 });
