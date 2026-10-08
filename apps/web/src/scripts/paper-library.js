@@ -80,7 +80,8 @@ async function openPaper(summary, mode, writeHistory = true) {
     modeButtons.forEach((button) => { button.classList.toggle('active', button.dataset.readerMode === mode); button.setAttribute('aria-pressed', String(button.dataset.readerMode === mode)); });
     readerMeta.textContent = `${levelName(paper.exam_level)} · ${paper.year} · ${paper.variant || `第 ${paper.set_no} 套`}`;
     readerTitle.textContent = paper.title;
-    readerStatus.textContent = '';
+    const referencePaper = allPapers.find((item) => item.id === paper.reference_paper_id);
+    readerStatus.textContent = referencePaper ? `阅读取自${referencePaper.variant}；原件未列题序，沿用${referencePaper.variant}顺序。` : '';
     readerContent.replaceChildren();
     if (mode === 'intensive') disposeIntensive = mountIntensive(paper, apiBase, readerContent);
     else await renderPractice(paper, request);

@@ -1,0 +1,1745 @@
+{
+  "id": "cet4-2023-06-1",
+  "exam_level": "CET4",
+  "year": 2023,
+  "month": 6,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2023年6月大学英语四级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理；原卷措辞及标点按原件保留，仅整理断行和空格。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2023-06-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose your university is conducting a survey to collect students' opinions of online classes. You are to write a response to the survey about their advantages and disadvantages, and what improvements can be made. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-1-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose your university is conducting a survey to collect students' opinions of online classes. You are to write a response to the survey about their advantages and disadvantages, and what improvements can be made. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "You probably haven't taken the time to think of all the work that went into creating the shirt on your back. I mean, how hard it could be to create fabric and [26] ______ it into a shirt shape. Don't machines do all that? Well, creating fabric from cotton, which is the most [27] ______ clothing material, is actually a process that involves a lot of water, 2,700 liters per shirt to be [28] ______.Take a look at the video below from National Geographic for some more mind-blowing [29] ______ about cotton clothing production.",
+        "Clean water is [30] ______ becoming one of the most sought-after resources in the world. Given how large the [31] ______ and cotton industries are, they take up a lot of our fresh water demands across the world, according to The Huffington Post. The video from National Geographic was created to spread [32] ______ of how environmentally harmful cotton is. But the situation can be made better. Through better water management and farming practices, water usage in cotton production can be cut down by [33] ______ 40 percent.",
+        "Called \"Better Cotton\", this environmentally conscious product will save millions of liters of water a year simply from [34] ______ the demands of cotton production. Cotton doesn't have to go, since it is, after all, one of the most useful cash crops across the globe. However, as water supplies [35] ______, farmers and consumers need to be more conscious of the effect that these products have on the environment as a whole."
+      ],
+      "study_paragraphs": [
+        "You probably haven't taken the time to think of all the work that went into creating the shirt on your back. I mean, how hard it could be to create fabric and sew it into a shirt shape. Don't machines do all that? Well, creating fabric from cotton, which is the most abundant clothing material, is actually a process that involves a lot of water, 2,700 liters per shirt to be exact.Take a look at the video below from National Geographic for some more mind-blowing statistics about cotton clothing production.",
+        "Clean water is increasingly becoming one of the most sought-after resources in the world. Given how large the textile and cotton industries are, they take up a lot of our fresh water demands across the world, according to The Huffington Post. The video from National Geographic was created to spread awareness of how environmentally harmful cotton is. But the situation can be made better. Through better water management and farming practices, water usage in cotton production can be cut down by nearly 40 percent.",
+        "Called \"Better Cotton\", this environmentally conscious product will save millions of liters of water a year simply from reducing the demands of cotton production. Cotton doesn't have to go, since it is, after all, one of the most useful cash crops across the globe. However, as water supplies shrink, farmers and consumers need to be more conscious of the effect that these products have on the environment as a whole."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。sew it into a shirt shape 表示将布料缝成衬衫的形状。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。the most abundant clothing material 中 abundant 表示丰富、充足。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。to be exact 表示确切地说，补充每件衬衫用水 2,700 升这一数据。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。mind-blowing statistics 表示令人震惊的统计数据。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。is increasingly becoming 表示正在越来越多地成为紧缺资源。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。the textile and cotton industries 指纺织业和棉花产业。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。spread awareness of... 表示提高人们对棉花生产环境危害的认识。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。nearly 40 percent 表示接近百分之四十。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。from reducing the demands of cotton production 中 reducing 作 from 的宾语。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "abstracts"
+            },
+            {
+              "key": "B",
+              "text": "abundant"
+            },
+            {
+              "key": "C",
+              "text": "awareness"
+            },
+            {
+              "key": "D",
+              "text": "conscience"
+            },
+            {
+              "key": "E",
+              "text": "exact"
+            },
+            {
+              "key": "F",
+              "text": "increasingly"
+            },
+            {
+              "key": "G",
+              "text": "intense"
+            },
+            {
+              "key": "H",
+              "text": "mend"
+            },
+            {
+              "key": "I",
+              "text": "nearly"
+            },
+            {
+              "key": "J",
+              "text": "reckoning"
+            },
+            {
+              "key": "K",
+              "text": "reducing"
+            },
+            {
+              "key": "L",
+              "text": "sew"
+            },
+            {
+              "key": "M",
+              "text": "shrink"
+            },
+            {
+              "key": "N",
+              "text": "statistics"
+            },
+            {
+              "key": "O",
+              "text": "textile"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。as water supplies shrink 表示随着水供应减少，shrink 与复数主语 supplies 搭配。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· The spoken web",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] We're growing more used to chatting to our computers, phones and smart speakers through voice assistants like Amazon's Alexa, Apple's Siri and Microsoft's Cortana. Blind and partially sighted people have been using text-to-speech converters for decades.",
+        "[B] Out of these assistants, Siri is the most well-known. The assistant uses voice inquiries and a natural-language user interface ( 界面) to answer questions. The software adapts to users' individual language usages, searches, and preferences, with continuing use.",
+        "[C] Some think voice could soon take over from typing and clicking as the main way to interact online. But what are the challenges of moving to \"the spoken web\"?",
+        "[D] What use is written online content if you can't read? That is the situation facing illiterate (不识字的) African farmers. They are often denied crucial information the web offers many others. With a literacy rate in some parts of Africa at only 22.6%, farmers are often \"underpaid for their produce because they might be unaware of the prevailing prices,\" says Francis Dittoh, a researcher behind Mr Meteo, a speech-based weather information service.",
+        "[E] \"The most frequently heard complaint is about rainfall predictions,\" says Mr Dittoh, who lives in Tamale, northern Ghana. \"They tell us the methods their forefathers used to predict the weather don't seem to work as well these days.\" This is down to climate change, he believes. Yet knowing when it's going to rain is vital for farmers wanting to sow seeds, irrigate crops or take their animals out to the fields to feed on grass.",
+        "[F] Mr Dittoh says the idea of converting online weather reports into speech came from the farmers themselves, after a workshop in the village of Guabuligah. \"They came up with this,\" he says. Mr Meteo takes the online weather forecast, converts it to a short recording in the appropriate language and makes it available on a basic phone. Farmers ring up to receive the information. The local language Dagbani is spoken by 1.2 million people but is not served by any online translation applications. The service was designed to be cheap and easy to run, says Mr Dittoh. He plans to begin field tests this month, working with Tamale's Savanna Agricultural Research Institute.",
+        "[G] The spoken web could also help the one-in-five adults in Europe and the U.S. with poor reading skills. But building the spoken web—web-to-voice and voice-to-web—isn't straightforward. For software to understand pizza is served at Italian restaurants is easy. To cover multiple domains and to be able to have a conversation with users on every single topic is still a long way off.",
+        "[H] So although many computer assistants can answer simple questions about the weather and play music for us, anything resembling a wide-ranging human conversation is decades away. Artificial intelligence just isn't smart enough yet. Even turning your voice into text—automatic speech recognition—is one of the hardest problems to solve, as there are as many ways to pronounce things as there are people on the planet.",
+        "[I] Siri has often been praised for its ability to interpret our casual language and deliver very specific and accurate results, sometimes even providing additional information. But it is still somewhat restricted, particularly when the language moves away from stiffer commands into more human interactions. In one example, the phrase \"Send a text to Jason, Clint, Sam, and Lee saying we're having dinner at Silver Cloud restaurant\" was interpreted as sending a message to Jason only, containing the text \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant\". It has also been noted that Siri lacks a proper editing function, as saying \"Edit message to say: we're at Silver Cloud restaurant and you should come find us\" generates \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant to say we're at Silver Cloud restaurant and you should come find us\".",
+        "[J] Using voice interaction feels far more intimate than surfing the net the old-fashioned way. This is intentional as the informal tone of the assistant helps create an emotional attachment. But if something speaks, it must also listen. Our phones are always near us and they are collecting data about us all the time. This has already raised privacy concerns. The American Civil Liberties Union has stated that digital assistants create a threat to privacy from hackers. Some people have other concerns. They worry assistants will one day be used to deliver advertising directly to us.",
+        "[K] But digital voices need more personality to make them popular. Robots are not yet witty, Siri is boring. The benefits of using voice instead of tapping fingers obviously depend on the context. Doctors completing online forms about their patients by speech, for example, can dictate 150 words a minute, three times faster than typing on a keyboard. This enables them to spend less time on administration and more time with patients.",
+        "[L] Last year, speech recognition company Nuance helped a doctors' surgery in Dukinfield, near Manchester, set up a speech system for the practice's six doctors. Now they can dictate notes on a patient's health condition and treatment and a smart assistant automatically enters the information into the right fields on a web form. Previously, the doctors made voice recordings that were then transcribed by secretaries—a process that was costly and likely to cause delays. The new system means letters to patients now have more detail.",
+        "[M] Using voice also makes sense when you're doing other things with your hands. Think about when you're cooking, and you just want to know what the next step in the recipe is. Your hands are covered with oil; you're not going to get on the iPad, so it's a lot more natural to talk. And speech obviously makes sense when you're driving. In the U.S., 29% of drivers admit they surf behind the wheel, according to insurance firm State Farm. This is up from 13% in 2009. No wonder using mobile phones while driving causes more crashes a year than drink driving, says the U.S. National Safety Council."
+      ],
+      "study_paragraphs": [
+        "We're growing more used to chatting to our computers, phones and smart speakers through voice assistants like Amazon's Alexa, Apple's Siri and Microsoft's Cortana. Blind and partially sighted people have been using text-to-speech converters for decades.",
+        "Out of these assistants, Siri is the most well-known. The assistant uses voice inquiries and a natural-language user interface ( 界面) to answer questions. The software adapts to users' individual language usages, searches, and preferences, with continuing use.",
+        "Some think voice could soon take over from typing and clicking as the main way to interact online. But what are the challenges of moving to \"the spoken web\"?",
+        "What use is written online content if you can't read? That is the situation facing illiterate (不识字的) African farmers. They are often denied crucial information the web offers many others. With a literacy rate in some parts of Africa at only 22.6%, farmers are often \"underpaid for their produce because they might be unaware of the prevailing prices,\" says Francis Dittoh, a researcher behind Mr Meteo, a speech-based weather information service.",
+        "\"The most frequently heard complaint is about rainfall predictions,\" says Mr Dittoh, who lives in Tamale, northern Ghana. \"They tell us the methods their forefathers used to predict the weather don't seem to work as well these days.\" This is down to climate change, he believes. Yet knowing when it's going to rain is vital for farmers wanting to sow seeds, irrigate crops or take their animals out to the fields to feed on grass.",
+        "Mr Dittoh says the idea of converting online weather reports into speech came from the farmers themselves, after a workshop in the village of Guabuligah. \"They came up with this,\" he says. Mr Meteo takes the online weather forecast, converts it to a short recording in the appropriate language and makes it available on a basic phone. Farmers ring up to receive the information. The local language Dagbani is spoken by 1.2 million people but is not served by any online translation applications. The service was designed to be cheap and easy to run, says Mr Dittoh. He plans to begin field tests this month, working with Tamale's Savanna Agricultural Research Institute.",
+        "The spoken web could also help the one-in-five adults in Europe and the U.S. with poor reading skills. But building the spoken web—web-to-voice and voice-to-web—isn't straightforward. For software to understand pizza is served at Italian restaurants is easy. To cover multiple domains and to be able to have a conversation with users on every single topic is still a long way off.",
+        "So although many computer assistants can answer simple questions about the weather and play music for us, anything resembling a wide-ranging human conversation is decades away. Artificial intelligence just isn't smart enough yet. Even turning your voice into text—automatic speech recognition—is one of the hardest problems to solve, as there are as many ways to pronounce things as there are people on the planet.",
+        "Siri has often been praised for its ability to interpret our casual language and deliver very specific and accurate results, sometimes even providing additional information. But it is still somewhat restricted, particularly when the language moves away from stiffer commands into more human interactions. In one example, the phrase \"Send a text to Jason, Clint, Sam, and Lee saying we're having dinner at Silver Cloud restaurant\" was interpreted as sending a message to Jason only, containing the text \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant\". It has also been noted that Siri lacks a proper editing function, as saying \"Edit message to say: we're at Silver Cloud restaurant and you should come find us\" generates \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant to say we're at Silver Cloud restaurant and you should come find us\".",
+        "Using voice interaction feels far more intimate than surfing the net the old-fashioned way. This is intentional as the informal tone of the assistant helps create an emotional attachment. But if something speaks, it must also listen. Our phones are always near us and they are collecting data about us all the time. This has already raised privacy concerns. The American Civil Liberties Union has stated that digital assistants create a threat to privacy from hackers. Some people have other concerns. They worry assistants will one day be used to deliver advertising directly to us.",
+        "But digital voices need more personality to make them popular. Robots are not yet witty, Siri is boring. The benefits of using voice instead of tapping fingers obviously depend on the context. Doctors completing online forms about their patients by speech, for example, can dictate 150 words a minute, three times faster than typing on a keyboard. This enables them to spend less time on administration and more time with patients.",
+        "Last year, speech recognition company Nuance helped a doctors' surgery in Dukinfield, near Manchester, set up a speech system for the practice's six doctors. Now they can dictate notes on a patient's health condition and treatment and a smart assistant automatically enters the information into the right fields on a web form. Previously, the doctors made voice recordings that were then transcribed by secretaries—a process that was costly and likely to cause delays. The new system means letters to patients now have more detail.",
+        "Using voice also makes sense when you're doing other things with your hands. Think about when you're cooking, and you just want to know what the next step in the recipe is. Your hands are covered with oil; you're not going to get on the iPad, so it's a lot more natural to talk. And speech obviously makes sense when you're driving. In the U.S., 29% of drivers admit they surf behind the wheel, according to insurance firm State Farm. This is up from 13% in 2009. No wonder using mobile phones while driving causes more crashes a year than drink driving, says the U.S. National Safety Council."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. According to Francis Dittoh, their speech-based weather information service was meant to be inexpensive and easy to use.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段说明 Mr Meteo 服务的设计目标是成本低、易于运行。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Using voice instead of typing enables doctors to spend more time taking care of patients.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。K 段说医生使用语音填写表格可以减少行政工作时间，增加与患者相处的时间。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. It is extremely difficult to convert voice into text because of different pronunciations.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段指出不同人的发音方式不同，使自动语音识别极难解决。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. African farmers unable to read often don't have access to important information conveyed online.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段说明不识字的非洲农民无法获得网上的重要信息。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Some phone users worry advertisers will take advantage of voice assistants to send ads directly to them.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段提到有人担心语音助手今后会直接向用户投放广告。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. The spoken web is helpful when one's hands are occupied.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。M 段以做饭和驾车为例，说明双手忙碌时使用语音很自然。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Some people believe online interaction would soon depend mainly on voice.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说有人认为语音很快会取代打字和点击，成为网上互动的主要方式。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Setting up a spoken web is by no means an easy task.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段明确指出从网页到语音、从语音到网页的系统建设并不简单。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Weather information is extremely important to farmers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段说明降雨时间对播种、灌溉和放牧至关重要。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Some people are concerned about privacy because their phones are constantly collecting their personal information.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段指出手机不断收集个人数据，已经引起隐私担忧。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "The United States is facing a housing crisis: Affordable housing is inadequate, while luxury homes abound （充裕), and homelessness remains a persistent problem. Despite this, popular culture and the housing industry market happiness as living with both more space and more amenities (便利设施). Big houses are advertized as a reward for hard work and diligence, turning housing from a basic necessity into a luxury.",
+        "This is reflected in our homes. The average single-family home built in the United States before 1970 was less than 1,500 square feet in size. By 2016, the average size of a new, single-family home was 2,422 square feet. What's more, homes built in the 2000s were more likely than earlier models to have more of all types of spaces; bedrooms, bathrooms, living rooms, dining rooms, recreation rooms and garages.",
+        "There are consequences of living big. As middle-class houses have grown larger, two things have happened. First, large houses take time to maintain, so cleaners and other low-wage service workers are required to keep these houses in order. Second, once-public spaces, where people from diverse backgrounds used to come together, have increasingly become privatized, leading to a reduction in the number of public facilities available to all, and a reduced quality of life for many. Take swimming pools. While in 1950, only 2,500 U.S. families owned pools, by 1999 this number was 4 million. At the same time, public municipal pools were often closed, leaving low-income people nowhere to swim.",
+        "The trend for bigger housing thus poses ethical questions. Should Americans accept a system in which the middle and upper classes enjoy a luxurious lifestyle, using the low-wage labor of others? Are we willing to accept a system in which an increase in amenities purchased by the affluent means a reduction in amenities for the poor?",
+        "I believe neither is acceptable. We must change the way we think: living well does not need to mean having more private spaces; instead, it could mean having more public spaces. A better goal than building bigger houses for some is to create more publicly accessible spaces and amenities for all."
+      ],
+      "study_paragraphs": [
+        "The United States is facing a housing crisis: Affordable housing is inadequate, while luxury homes abound （充裕), and homelessness remains a persistent problem. Despite this, popular culture and the housing industry market happiness as living with both more space and more amenities (便利设施). Big houses are advertized as a reward for hard work and diligence, turning housing from a basic necessity into a luxury.",
+        "This is reflected in our homes. The average single-family home built in the United States before 1970 was less than 1,500 square feet in size. By 2016, the average size of a new, single-family home was 2,422 square feet. What's more, homes built in the 2000s were more likely than earlier models to have more of all types of spaces; bedrooms, bathrooms, living rooms, dining rooms, recreation rooms and garages.",
+        "There are consequences of living big. As middle-class houses have grown larger, two things have happened. First, large houses take time to maintain, so cleaners and other low-wage service workers are required to keep these houses in order. Second, once-public spaces, where people from diverse backgrounds used to come together, have increasingly become privatized, leading to a reduction in the number of public facilities available to all, and a reduced quality of life for many. Take swimming pools. While in 1950, only 2,500 U.S. families owned pools, by 1999 this number was 4 million. At the same time, public municipal pools were often closed, leaving low-income people nowhere to swim.",
+        "The trend for bigger housing thus poses ethical questions. Should Americans accept a system in which the middle and upper classes enjoy a luxurious lifestyle, using the low-wage labor of others? Are we willing to accept a system in which an increase in amenities purchased by the affluent means a reduction in amenities for the poor?",
+        "I believe neither is acceptable. We must change the way we think: living well does not need to mean having more private spaces; instead, it could mean having more public spaces. A better goal than building bigger houses for some is to create more publicly accessible spaces and amenities for all."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What are big houses promoted to be in the United States?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A luxury for the homeless."
+            },
+            {
+              "key": "B",
+              "text": "A reward for industriousness."
+            },
+            {
+              "key": "C",
+              "text": "An abundant source of comforts."
+            },
+            {
+              "key": "D",
+              "text": "An absolute necessity for happiness."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。首段说大房子被宣传为辛勤工作和勤奋的回报。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What is one of the consequences of living big?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Many Americans' quality of life has become lower."
+            },
+            {
+              "key": "B",
+              "text": "People from diverse backgrounds no longer socialize."
+            },
+            {
+              "key": "C",
+              "text": "People no longer have access to public swimming pools."
+            },
+            {
+              "key": "D",
+              "text": "Many Americans' private life has been negatively affected."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段指出公共设施减少，使许多人的生活质量下降。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What questions arise from living big?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Questions related to moral principles."
+            },
+            {
+              "key": "B",
+              "text": "Questions having to do with labor cost."
+            },
+            {
+              "key": "C",
+              "text": "Questions about what lifestyle to promote."
+            },
+            {
+              "key": "D",
+              "text": "Questions concerning housing development."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第四段明确提出 ethical questions，即涉及道德原则的问题。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What kind of social system does the author think is unacceptable?",
+          "options": [
+            {
+              "key": "A",
+              "text": "One in which the wealthy exploit the low-wage laborers building their houses."
+            },
+            {
+              "key": "B",
+              "text": "One in which the rich purchase amenities at an increasingly unjustifiable price."
+            },
+            {
+              "key": "C",
+              "text": "One in which the upper classes deprive the lower classes of affordable housing."
+            },
+            {
+              "key": "D",
+              "text": "One in which the affluent enjoy a more comfortable life at the expense of the poor."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第四、五段反对富裕阶层享有更多便利，而贫困者的公共便利减少的制度。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author advocate for people to live well?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Finding ways to turn private spaces into public ones."
+            },
+            {
+              "key": "B",
+              "text": "Building more houses affordable to those less affluent."
+            },
+            {
+              "key": "C",
+              "text": "More public spaces created for everyone to enjoy."
+            },
+            {
+              "key": "D",
+              "text": "All amenities made accessible to the rich and the poor alike."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。末段主张创造更多人人都能使用的公共空间和设施。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Most of us in the entrepreneurial community are blessed—or cursed—with higher-than-average ambition. Ambitious people strongly desire accomplishments and are willing to take more risks and spend more effort to get them.",
+        "Overall, this is a positive quality, especially for people trying to build their own businesses. Apparently, if you're more naturally driven to set goals, you are more likely to succeed.",
+        "Actually, this isn't always the case. In fact, in some cases, extreme ambition may end up doing more harm than good.",
+        "One major side effect of excessive ambition is the tendency to focus too determinedly on one particular vision or end goal. This is problematic because it hinders your ability to adapt to new circumstances, which is vital if you want to be a successful entrepreneur. If a new competitor emerges to threaten your business, you may need to change direction, even if that means straying from your original vision. If you have too much ambition, you'll find this hard, if not impossible.",
+        "Few people are successful when they try to build their first brand. Unfortunately, for the most ambitious entrepreneurs, a failure is seen as disastrous, and impossible to recover from.",
+        "It's a clear departure from the intended plan toward the intended goal. For people with limited ambition, however, failure is viewed as something closer to reality. Remember, failure is inevitable, and every failure you survive is a learning experience.",
+        "Ambitious people tend to be more materialistically successful than their non-ambitious counterparts. However, they're only slightly happier than their less-ambitious counterparts, and tend to live significantly shorter lives. This implies that even though ambitious people are more likely to achieve conventional \"success,\" such success means nothing for their health and happiness-and if you don't have health and happiness, what else could possibly matter?",
+        "Clearly, some amount of ambition is good for your motivation. Without any ambition, you wouldn't start your own business, set or achieve goals and get far in life. But an excess of ambition can also be dangerous, putting you at risk of burnout, stubbornness and even a shorter life."
+      ],
+      "study_paragraphs": [
+        "Most of us in the entrepreneurial community are blessed—or cursed—with higher-than-average ambition. Ambitious people strongly desire accomplishments and are willing to take more risks and spend more effort to get them.",
+        "Overall, this is a positive quality, especially for people trying to build their own businesses. Apparently, if you're more naturally driven to set goals, you are more likely to succeed.",
+        "Actually, this isn't always the case. In fact, in some cases, extreme ambition may end up doing more harm than good.",
+        "One major side effect of excessive ambition is the tendency to focus too determinedly on one particular vision or end goal. This is problematic because it hinders your ability to adapt to new circumstances, which is vital if you want to be a successful entrepreneur. If a new competitor emerges to threaten your business, you may need to change direction, even if that means straying from your original vision. If you have too much ambition, you'll find this hard, if not impossible.",
+        "Few people are successful when they try to build their first brand. Unfortunately, for the most ambitious entrepreneurs, a failure is seen as disastrous, and impossible to recover from.",
+        "It's a clear departure from the intended plan toward the intended goal. For people with limited ambition, however, failure is viewed as something closer to reality. Remember, failure is inevitable, and every failure you survive is a learning experience.",
+        "Ambitious people tend to be more materialistically successful than their non-ambitious counterparts. However, they're only slightly happier than their less-ambitious counterparts, and tend to live significantly shorter lives. This implies that even though ambitious people are more likely to achieve conventional \"success,\" such success means nothing for their health and happiness-and if you don't have health and happiness, what else could possibly matter?",
+        "Clearly, some amount of ambition is good for your motivation. Without any ambition, you wouldn't start your own business, set or achieve goals and get far in life. But an excess of ambition can also be dangerous, putting you at risk of burnout, stubbornness and even a shorter life."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author think of most entrepreneurs?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are more willing to risk their own lives."
+            },
+            {
+              "key": "B",
+              "text": "They are more ambitious than ordinary people."
+            },
+            {
+              "key": "C",
+              "text": "They achieve greater nonconventional success."
+            },
+            {
+              "key": "D",
+              "text": "They have more positive qualities than most of us."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。首段说创业者群体通常比一般人更有雄心。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does the author imply by saying \"this isn't always the case\" (Line 1, Para. 3)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ambitious people may not have a greater chance of success."
+            },
+            {
+              "key": "B",
+              "text": "Ambitious people may not have more positive qualities."
+            },
+            {
+              "key": "C",
+              "text": "Entrepreneurs' ambition does as much good as harm."
+            },
+            {
+              "key": "D",
+              "text": "Entrepreneurs are more naturally driven to success."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段否定雄心越大就越容易成功，指出极端雄心有时弊大于利。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What does the author say is of extreme importance for one to become a successful entrepreneur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Holding on to one's original vision."
+            },
+            {
+              "key": "B",
+              "text": "Being able to adapt to new situations."
+            },
+            {
+              "key": "C",
+              "text": "Focusing determinedly on one particular goal."
+            },
+            {
+              "key": "D",
+              "text": "Avoiding radical change in one's career direction."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第四段明确说适应新情况的能力对创业成功至关重要。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. How do the most ambitious entrepreneurs regard failure in their endeavor?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will awaken them to reality."
+            },
+            {
+              "key": "B",
+              "text": "It is a lesson they have to learn."
+            },
+            {
+              "key": "C",
+              "text": "It means the end of their career."
+            },
+            {
+              "key": "D",
+              "text": "It will result in a slow recovery."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第五段说最有雄心的创业者将失败视为灾难，认为无法恢复，对应事业终结。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author advise us to do concerning ambition?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Distinguish between conventional success and our life goal."
+            },
+            {
+              "key": "B",
+              "text": "Follow the example of the most ambitious entrepreneurs."
+            },
+            {
+              "key": "C",
+              "text": "Avoid taking unnecessary risks when starting a business."
+            },
+            {
+              "key": "D",
+              "text": "Prioritize health and happiness over material success."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第七段强调物质成功若不能带来健康和幸福便没有意义，应重视健康与幸福。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "中国越来越重视终身教育,发展继续教育是构建终身教育体系的有效途径。高校作为人才培养的基地,拥有先进的教学理念和优越的教学资源,理应成为继续教育的办学主体。因此,近年来许多高校适应社会需求,加强与用人单位沟通，努力探索一条符合中国国情的继续教育发展新路,以使继续教育在国家发展战略中发挥更大的作用。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2023-06-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

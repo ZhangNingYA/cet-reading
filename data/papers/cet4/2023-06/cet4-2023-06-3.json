@@ -1,0 +1,1703 @@
+{
+  "id": "cet4-2023-06-3",
+  "exam_level": "CET4",
+  "year": 2023,
+  "month": 6,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2023年6月大学英语四级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理；原卷措辞及标点按原件保留，仅整理断行和空格。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2023-06-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the student union of your university is organizing an online discussion on college students doing community service. You are to write an essay on its benefits and the service you can provide to the community. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-3-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the student union of your university is organizing an online discussion on college students doing community service. You are to write an essay on its benefits and the service you can provide to the community. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Whether you're just having a down day or a down period, taking a walk can instantly lift your mood, especially when you go outdoors. Not only can walking make you less depressed, but according to a new study, depression sufferers who took a [26] ______ walk showed just as much improvement in their [27] ______ as people taking medicine. In fact, 60-70 percent of the participants in the study could no longer even be [28] ______ as depressed.",
+        "Bone density may not be one of the most exciting health benefits of walking, but it's an important one. People with stronger bones avoid osteoporosis (骨质疏松症) and all the problems that [29] ______ with it, like breaks and other disabilities. And the best way to get strong, healthy bones is by doing weight-bearing exercises like running, dancing and walking, according to a large study. But as regards bones, it's [30] ______ use it or lose it: To keep your bones strong you have to keep exercising. The researchers found that adults who walked regularly had better bone density throughout their lives than their [31] ______ friends.",
+        "Taking a walk can be great for [32] ______ your head or blowing off some steam. It also provides a great opportunity to [33] ______ with friends and family, far away from electronics and other [34] ______ at home. Even better, you set a powerful example because when they see you [35] ______ the benefits of walking, they'll be encouraged to walk more, too."
+      ],
+      "study_paragraphs": [
+        "Whether you're just having a down day or a down period, taking a walk can instantly lift your mood, especially when you go outdoors. Not only can walking make you less depressed, but according to a new study, depression sufferers who took a daily walk showed just as much improvement in their symptoms as people taking medicine. In fact, 60-70 percent of the participants in the study could no longer even be classified as depressed.",
+        "Bone density may not be one of the most exciting health benefits of walking, but it's an important one. People with stronger bones avoid osteoporosis (骨质疏松症) and all the problems that come with it, like breaks and other disabilities. And the best way to get strong, healthy bones is by doing weight-bearing exercises like running, dancing and walking, according to a large study. But as regards bones, it's definitely use it or lose it: To keep your bones strong you have to keep exercising. The researchers found that adults who walked regularly had better bone density throughout their lives than their inactive friends.",
+        "Taking a walk can be great for clearing your head or blowing off some steam. It also provides a great opportunity to bond with friends and family, far away from electronics and other distractions at home. Even better, you set a powerful example because when they see you reaping the benefits of walking, they'll be encouraged to walk more, too."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。a daily walk 指每日散步，与文中持续锻炼的建议一致。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。improvement in their symptoms 表示抑郁症状得到改善。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。be classified as depressed 表示被归类为抑郁患者，classified 与 be 构成被动语态。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。problems that come with it 表示伴随骨质疏松而来的问题，come with 为固定搭配。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。it's definitely use it or lose it 中 definitely 强调骨骼必须持续使用、锻炼。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。their inactive friends 指不积极运动的朋友，与规律散步者对比。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。great for clearing your head 表示有助于理清思绪，for 后接动名词。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。bond with friends and family 表示加强与亲友的联系。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。electronics and other distractions at home 指电子设备及家中其他分心事物。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "accompany"
+            },
+            {
+              "key": "B",
+              "text": "approved"
+            },
+            {
+              "key": "C",
+              "text": "bond"
+            },
+            {
+              "key": "D",
+              "text": "classified"
+            },
+            {
+              "key": "E",
+              "text": "clearing"
+            },
+            {
+              "key": "F",
+              "text": "come"
+            },
+            {
+              "key": "G",
+              "text": "daily"
+            },
+            {
+              "key": "H",
+              "text": "definitely"
+            },
+            {
+              "key": "I",
+              "text": "distractions"
+            },
+            {
+              "key": "J",
+              "text": "exclusively"
+            },
+            {
+              "key": "K",
+              "text": "inactive"
+            },
+            {
+              "key": "L",
+              "text": "occurrences"
+            },
+            {
+              "key": "M",
+              "text": "reaping"
+            },
+            {
+              "key": "N",
+              "text": "symptoms"
+            },
+            {
+              "key": "O",
+              "text": "typical"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。see you reaping the benefits of walking 表示看到你从散步中获益，reap the benefits 为常见搭配。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· A Club Where Lions Dance and Traditions Take Root",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] The first thing you notice in the staircase to the fourth-floor studio on Canal Street in Manhattan, New York, is the measured thumping (嘭嘭声) coming from behind a metal door. Just beyond the entrance, large lion masks were twisting and turning to the drum-beat. On a recent Friday evening, the teenagers made their way across the studio floor as they practiced Chinese lion dancing.",
+        "[B] \"You want to play in a circle,\" Victor Fong, aged 24, told his students at the New York Chinese Freemasons Athletic Club. \"Take it slow and do it again.\" The dance group, made up of 60 members, performs throughout the year but was now preparing for its biggest events, Chinese Lunar New Year celebrations, which will begin on Saturday and conclude on February 15. Teenagers comprise about half of the group, many of whom began lion dancing at the age of 14. About 100 current and past members of the dance group—which has been performing since 1956—will be among the 220 groups marching through Chinatown in Manhattan for the 18 th Lunar New Year Parade on February 5.",
+        "[C] Mr. Fong has been involved in the organization since he was 15 and began teaching lion dancing three years ago. But the club also acts as a recreation center and safe haven (庇护所) for teenagers, with video games readily available. As many as 20 students show up after school. \"The basic requirement for hanging out here is you have to learn how to lion dance,\" Mr. Fong said. While that is not a formal requirement for being a member, everyone finds a way to participate in the Lunar New Year Parade, whether it's by dancing, carrying a flag or beating a drum.",
+        "[D] Alvin Chau, aged 26, is an environmental consultant by day and a lion dancer on weekends. He has been a club member for 10 years and joined because of an interest in lion dance. \"We're a big family,\" he said, shaking hands with other members as they walked through the door. \"You know everyone.\"",
+        "[E] It is believed that the lion dance began in the third century. Stories vary about how lion dancing came to be, but most of them include a monster named Nian who would terrorize a village. The villagers finally banded together and scared the beast away with firecrackers (爆竹) and drums. While lions are not native to China, some versions of the story include the villagers creating a monster of their own in the shape of a lion to fight off the beast.",
+        "[F] Today, the dancers travel across Chinatown going from business to business to bring good luck for the coming year. The new year-according to the Chinese lunar calendar-will begin on Saturday and marks the Year of the Rooster (鸡年), which is thought to be a symbol of positivity. \"It's almost like the dark night is ending and the sun is coming up,\" said Ya Yung Teng, the digital collections coordinator for the Museum of Chinese in America. \"It's hopeful that we're going to have a new day.\" Roosters and chickens are not particularly strong creatures, Ms. Teng said, but they are numerous. \"In a way,” she said, the rooster \"stands for \"We the People.””",
+        "[G] The lion head and tail are operated by two people. As one person controls the head, a second follows under a train of fabric representing the body. The dancers move in harmony as they imitate the animal's natural movements in the wild, including the aggressiveness of an attack. A lion head figure weighs under 10 pounds and sits squarely on the dancer's shoulders. Inside, the dancer manipulates strings that open and close the lion's eyes, shake its ears and open its mouth to reveal a fire-orange tongue.",
+        "[H] \"A good lion dancer will imitate a living creature,\" said Karlin Chan, aged 59, who heads the athletic club's community public relations. \"I started lion dancing when I was a kid,\" he said. \"Chinatown was much smaller then and it was a celebration with fireworks and firecrackers, which added a lot of flavor and meaning to it.\"",
+        "[I] Mr. Chan buys a new lion head each year when he travels to China. A head costs about $ 1,500. \"If you want the good stuff, the quality, you have to see it for yourself,\" he said. \"I'll inspect the product before we put it in the container and ship it over.\" Mr. Chan, who has been involved with the club for nearly 50 years, said that passing the dance from one generation to the next was vital. \"You need to pass on the traditions and the culture, and this is a part of our culture,\" he said. \"It's a great way to promote cultural understanding and exchange; we welcome that.”",
+        "[J] For Sara Pore, aged 17, another club member, lion dance is more than just tradition, it provides a creative outlet. \"Lion dancing started 2,000 years ago—that's incredible,\" she said. \"But what makes you a competent lion dancer is that there's a sense of imagination involved. Lion dancing teaches competence in leadership because of this. You're constantly forced to push yourself past your limit.\"",
+        "[K] Back at rehearsal (排练), Justin Le, aged 18, tied a red ribbon around his waist to practice jumping. The dancers use the ribbons to pull themselves up over their partners' heads. The room's ceilings are too low to wear the lion heads for jumping practice, so once up on his partner's head, Mr. Le held out his arms as if in offering.",
+        "[L] Mr. Le comes by the dance as a legacy (传承). \"I was born into it, \" Mr. Le said, noting that his uncle and father were club members. \"Growing up, I would always watch my family and see the lion dance, and I slowly grew interested in it.\" By the age of 14, he was fully enrolled in the athletic club's lion dance group. \"I value my culture and tradition, being Chinese or Asian-American. I have a lot of pride in that,\" he said. \"I want to contribute and give back to the community.\""
+      ],
+      "study_paragraphs": [
+        "The first thing you notice in the staircase to the fourth-floor studio on Canal Street in Manhattan, New York, is the measured thumping (嘭嘭声) coming from behind a metal door. Just beyond the entrance, large lion masks were twisting and turning to the drum-beat. On a recent Friday evening, the teenagers made their way across the studio floor as they practiced Chinese lion dancing.",
+        "\"You want to play in a circle,\" Victor Fong, aged 24, told his students at the New York Chinese Freemasons Athletic Club. \"Take it slow and do it again.\" The dance group, made up of 60 members, performs throughout the year but was now preparing for its biggest events, Chinese Lunar New Year celebrations, which will begin on Saturday and conclude on February 15. Teenagers comprise about half of the group, many of whom began lion dancing at the age of 14. About 100 current and past members of the dance group—which has been performing since 1956—will be among the 220 groups marching through Chinatown in Manhattan for the 18 th Lunar New Year Parade on February 5.",
+        "Mr. Fong has been involved in the organization since he was 15 and began teaching lion dancing three years ago. But the club also acts as a recreation center and safe haven (庇护所) for teenagers, with video games readily available. As many as 20 students show up after school. \"The basic requirement for hanging out here is you have to learn how to lion dance,\" Mr. Fong said. While that is not a formal requirement for being a member, everyone finds a way to participate in the Lunar New Year Parade, whether it's by dancing, carrying a flag or beating a drum.",
+        "Alvin Chau, aged 26, is an environmental consultant by day and a lion dancer on weekends. He has been a club member for 10 years and joined because of an interest in lion dance. \"We're a big family,\" he said, shaking hands with other members as they walked through the door. \"You know everyone.\"",
+        "It is believed that the lion dance began in the third century. Stories vary about how lion dancing came to be, but most of them include a monster named Nian who would terrorize a village. The villagers finally banded together and scared the beast away with firecrackers (爆竹) and drums. While lions are not native to China, some versions of the story include the villagers creating a monster of their own in the shape of a lion to fight off the beast.",
+        "Today, the dancers travel across Chinatown going from business to business to bring good luck for the coming year. The new year-according to the Chinese lunar calendar-will begin on Saturday and marks the Year of the Rooster (鸡年), which is thought to be a symbol of positivity. \"It's almost like the dark night is ending and the sun is coming up,\" said Ya Yung Teng, the digital collections coordinator for the Museum of Chinese in America. \"It's hopeful that we're going to have a new day.\" Roosters and chickens are not particularly strong creatures, Ms. Teng said, but they are numerous. \"In a way,” she said, the rooster \"stands for \"We the People.””",
+        "The lion head and tail are operated by two people. As one person controls the head, a second follows under a train of fabric representing the body. The dancers move in harmony as they imitate the animal's natural movements in the wild, including the aggressiveness of an attack. A lion head figure weighs under 10 pounds and sits squarely on the dancer's shoulders. Inside, the dancer manipulates strings that open and close the lion's eyes, shake its ears and open its mouth to reveal a fire-orange tongue.",
+        "\"A good lion dancer will imitate a living creature,\" said Karlin Chan, aged 59, who heads the athletic club's community public relations. \"I started lion dancing when I was a kid,\" he said. \"Chinatown was much smaller then and it was a celebration with fireworks and firecrackers, which added a lot of flavor and meaning to it.\"",
+        "Mr. Chan buys a new lion head each year when he travels to China. A head costs about $ 1,500. \"If you want the good stuff, the quality, you have to see it for yourself,\" he said. \"I'll inspect the product before we put it in the container and ship it over.\" Mr. Chan, who has been involved with the club for nearly 50 years, said that passing the dance from one generation to the next was vital. \"You need to pass on the traditions and the culture, and this is a part of our culture,\" he said. \"It's a great way to promote cultural understanding and exchange; we welcome that.”",
+        "For Sara Pore, aged 17, another club member, lion dance is more than just tradition, it provides a creative outlet. \"Lion dancing started 2,000 years ago—that's incredible,\" she said. \"But what makes you a competent lion dancer is that there's a sense of imagination involved. Lion dancing teaches competence in leadership because of this. You're constantly forced to push yourself past your limit.\"",
+        "Back at rehearsal (排练), Justin Le, aged 18, tied a red ribbon around his waist to practice jumping. The dancers use the ribbons to pull themselves up over their partners' heads. The room's ceilings are too low to wear the lion heads for jumping practice, so once up on his partner's head, Mr. Le held out his arms as if in offering.",
+        "Mr. Le comes by the dance as a legacy (传承). \"I was born into it, \" Mr. Le said, noting that his uncle and father were club members. \"Growing up, I would always watch my family and see the lion dance, and I slowly grew interested in it.\" By the age of 14, he was fully enrolled in the athletic club's lion dance group. \"I value my culture and tradition, being Chinese or Asian-American. I have a lot of pride in that,\" he said. \"I want to contribute and give back to the community.\""
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. The lion dancers perform from door to door to bring New Year wishes to business people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段说舞狮者逐家走访唐人街商铺，为新的一年送去好运。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. The New York dance club also serves as a place for entertainment where youngsters can enjoy themselves safely.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说明俱乐部也是青少年的娱乐中心和安全庇护所。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Lion dancers need to have a little imagination to perform well.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段说胜任舞狮需要想象力，并为参与者提供创意出口。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. There are a number of different versions about the origin of the lion dance.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段说舞狮起源有多种故事版本。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Some 50% of the members of a New York lion dance club are teenagers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段指出六十位成员中大约一半是青少年。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. One club member says he feels proud of his cultural tradition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段中 Justin Le 说自己为文化与传统感到自豪。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Two dancers coordinate their movements, one manipulating the lion's head and the other its body.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段介绍两人配合舞狮，一人操纵狮头，另一人控制身体。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. One lion dancer compares their New York dance club to a family.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段中 Alvin Chau 将俱乐部比作一个大家庭。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Lion dance should be handed down to future generations as part of Chinese culture.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段强调把舞蹈、传统和文化传递给下一代非常重要。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. One lion dancer learned how to perform from his elders.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段说 Justin Le 从小观看父亲和叔叔等家人舞狮，并逐渐产生兴趣。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Team-building exercises have become popular for managers trying to increase organisational and team harmony and productivity. Unfortunately many employees resent compulsory bonding and often regard these exercises as a nuisance.",
+        "A paper published this week by University of Sydney researchers in Social Networks has reported participants' feelings about team-building interventions (干预), revealing ethical implications in forcing employees to take part.",
+        "\"Many people see team-building activities as a waste of time, so we decided to look in more depth at what's behind this,\" said the paper's lead researcher, Dr Peter Matous.",
+        "\"Teams are formed, combined and restructured. Staff are relocated and office spaces redesigned. All this is done with the aim of improving workplace efficiency, collaboration and cohesion. But does any of this work?\" said Dr Matous.",
+        "The study found that team-building exercises which focused on the sharing of and intervening into personal attitudes and relationships between team members were considered too heavy-handed and intrusive, although the researchers say some degree of openness and vulnerability is often necessary to make deep, effective connections with colleagues.",
+        "\"Some participants were against team-building exercises because they were implicitly compulsory. They didn't welcome management's interest in their lives beyond their direct work performance,\" said Matous. \"Many people don't want to be forced into having fun or making friends, especially not on top of their busy jobs. They feel management is being too nosy or trying to control their lives too much. \"",
+        "In this study the researchers recommended a self-disclosure （表露) approach where participants were guided through a series of questions that allowed them to increasingly disclose personal information and values. The method is well-tested and has been shown to increase interpersonal closeness. However, to be successful it must be voluntary.",
+        "The researchers said there are numerous schools of thought that propose differing psychological methods for strengthening relationships. \"With caution, many relational methods to improve teams and organisations can be borrowed from other fields. The question is how to apply them effectively to strengthen an entire collective, which is more than just the sum of individual relationships,\" said Dr Matous."
+      ],
+      "study_paragraphs": [
+        "Team-building exercises have become popular for managers trying to increase organisational and team harmony and productivity. Unfortunately many employees resent compulsory bonding and often regard these exercises as a nuisance.",
+        "A paper published this week by University of Sydney researchers in Social Networks has reported participants' feelings about team-building interventions (干预), revealing ethical implications in forcing employees to take part.",
+        "\"Many people see team-building activities as a waste of time, so we decided to look in more depth at what's behind this,\" said the paper's lead researcher, Dr Peter Matous.",
+        "\"Teams are formed, combined and restructured. Staff are relocated and office spaces redesigned. All this is done with the aim of improving workplace efficiency, collaboration and cohesion. But does any of this work?\" said Dr Matous.",
+        "The study found that team-building exercises which focused on the sharing of and intervening into personal attitudes and relationships between team members were considered too heavy-handed and intrusive, although the researchers say some degree of openness and vulnerability is often necessary to make deep, effective connections with colleagues.",
+        "\"Some participants were against team-building exercises because they were implicitly compulsory. They didn't welcome management's interest in their lives beyond their direct work performance,\" said Matous. \"Many people don't want to be forced into having fun or making friends, especially not on top of their busy jobs. They feel management is being too nosy or trying to control their lives too much. \"",
+        "In this study the researchers recommended a self-disclosure （表露) approach where participants were guided through a series of questions that allowed them to increasingly disclose personal information and values. The method is well-tested and has been shown to increase interpersonal closeness. However, to be successful it must be voluntary.",
+        "The researchers said there are numerous schools of thought that propose differing psychological methods for strengthening relationships. \"With caution, many relational methods to improve teams and organisations can be borrowed from other fields. The question is how to apply them effectively to strengthen an entire collective, which is more than just the sum of individual relationships,\" said Dr Matous."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. Why are many employees opposed to team-building exercises?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They consider such exercises annoying."
+            },
+            {
+              "key": "B",
+              "text": "They deem these exercises counter-productive."
+            },
+            {
+              "key": "C",
+              "text": "They see such exercises as harmful to harmony."
+            },
+            {
+              "key": "D",
+              "text": "They find these exercises too demanding."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说不少员工反感强制联谊，将团建视为 nuisance，即令人厌烦的事情。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What did Dr Matous and his team do to find out whether team-building activities would improve productivity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They relocated team leaders and their offices."
+            },
+            {
+              "key": "B",
+              "text": "They rearranged the staff and office spaces."
+            },
+            {
+              "key": "C",
+              "text": "They redesigned the staff's work schedules."
+            },
+            {
+              "key": "D",
+              "text": "They reintroduced some cohesive activities."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第四段提到人员调动和办公空间重新设计，目的是提高工作效率、协作与凝聚力，对应重新安排员工和办公空间。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What did the study by Matous' team find about some team-building exercises?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They were intended to share personal attitudes and relationships."
+            },
+            {
+              "key": "B",
+              "text": "They implicitly added to the vulnerability of team members."
+            },
+            {
+              "key": "C",
+              "text": "They invariably strengthened connections among colleagues."
+            },
+            {
+              "key": "D",
+              "text": "They were regarded as an intrusion into employees' private lives."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第五、六段说涉及个人态度和关系的团建过于强硬、侵入性强，员工不欢迎管理层干涉工作之外的生活。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. How can the self-disclosure approach succeed in increasing interpersonal closeness?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By allowing participants freedom to express themselves."
+            },
+            {
+              "key": "B",
+              "text": "By applying it to employees who volunteer to participate."
+            },
+            {
+              "key": "C",
+              "text": "By arranging in proper order the questions participants face."
+            },
+            {
+              "key": "D",
+              "text": "By guiding employees through a series of steps in team building."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第七段明确指出自我表露法必须基于自愿，才能成功增进人际亲密度。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does Matous think of the various psychological methods borrowed from other fields for strengthening relationships?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They must be used in combination for an entire collective."
+            },
+            {
+              "key": "B",
+              "text": "They prioritise some psychological aspects over others."
+            },
+            {
+              "key": "C",
+              "text": "They place too much stress on individual relationships."
+            },
+            {
+              "key": "D",
+              "text": "They have to be applied cautiously to be effective."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段说借用其他领域的方法需要谨慎，并关注怎样有效加强整个集体。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "There are close to 58,000 homeless people in Los Angeles county. That's a shocking and tragic number for a region that's home to some of the richest people in the world. At last, the problem became so acute-and so visible-that Los Angeles took extraordinary action. The citizens of this county voted in November 2016 and again in March 2017 to raise their own taxes. The purpose of such action is to fund an enormous multibillion-dollar, 10-year program of housing and social services for the homeless.",
+        "As a result, Los Angeles now has its best chance in decades to combat homelessness. This is an opportunity that surely all can agree must not be wasted. It is neither desirable nor morally acceptable nor practical for this county to tolerate the signs of deprivation more commonly associated with the slums (贫民窟) of Rio de Janiero.",
+        "How did we get here? For as long as there are homeless people, there is a tendency to blame the victims themselves for their condition—to see their failure to thrive as an issue of character, of moral weakness, of laziness. But contrary to popular belief, the homeless in Los Angeles are not mostly mentally ill or drug addicted or frightening, although a sizable minority meet some of those descriptions. Today, a greater and greater proportion of people living on the streets are there because of bad luck or a series of mistakes, or because the economy forgot them—they lost a job or were evicted (逐出) or fled an abusive marriage just as the housing market was growing increasingly unforgiving.",
+        "The challenges are enormous, even if everyone is pulling in the same direction. That reality was driven home this month by a new Los Angeles Homeless Services Authority report showing that the county's homeless population is growing faster than the supply of new housing.",
+        "In the world's richest nation, homelessness on this scale should be shameful and shocking. But most Los Angeles residents are no longer either shocked or shamed. Increasingly, we are uncomfortable, annoyed, disgusted, scared or unaware. Compassion (同情心) is being replaced by resignation."
+      ],
+      "study_paragraphs": [
+        "There are close to 58,000 homeless people in Los Angeles county. That's a shocking and tragic number for a region that's home to some of the richest people in the world. At last, the problem became so acute-and so visible-that Los Angeles took extraordinary action. The citizens of this county voted in November 2016 and again in March 2017 to raise their own taxes. The purpose of such action is to fund an enormous multibillion-dollar, 10-year program of housing and social services for the homeless.",
+        "As a result, Los Angeles now has its best chance in decades to combat homelessness. This is an opportunity that surely all can agree must not be wasted. It is neither desirable nor morally acceptable nor practical for this county to tolerate the signs of deprivation more commonly associated with the slums (贫民窟) of Rio de Janiero.",
+        "How did we get here? For as long as there are homeless people, there is a tendency to blame the victims themselves for their condition—to see their failure to thrive as an issue of character, of moral weakness, of laziness. But contrary to popular belief, the homeless in Los Angeles are not mostly mentally ill or drug addicted or frightening, although a sizable minority meet some of those descriptions. Today, a greater and greater proportion of people living on the streets are there because of bad luck or a series of mistakes, or because the economy forgot them—they lost a job or were evicted (逐出) or fled an abusive marriage just as the housing market was growing increasingly unforgiving.",
+        "The challenges are enormous, even if everyone is pulling in the same direction. That reality was driven home this month by a new Los Angeles Homeless Services Authority report showing that the county's homeless population is growing faster than the supply of new housing.",
+        "In the world's richest nation, homelessness on this scale should be shameful and shocking. But most Los Angeles residents are no longer either shocked or shamed. Increasingly, we are uncomfortable, annoyed, disgusted, scared or unaware. Compassion (同情心) is being replaced by resignation."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-06-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. Why did the citizens of Los Angeles vote to raise their own taxes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To combat the county's homelessness."
+            },
+            {
+              "key": "B",
+              "text": "To reform the county's service system."
+            },
+            {
+              "key": "C",
+              "text": "To fund the development of local infrastructure."
+            },
+            {
+              "key": "D",
+              "text": "To narrow the gap between the rich and the poor."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说明居民同意提高税收，以资助面向无家可归者的住房和社会服务计划。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What do people tend to believe about the homeless?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They seldom meet the descriptions of homelessness."
+            },
+            {
+              "key": "B",
+              "text": "They are the victims of fast economic development."
+            },
+            {
+              "key": "C",
+              "text": "They are responsible for their own condition."
+            },
+            {
+              "key": "D",
+              "text": "They account for the majority of drug addicts."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第三段说人们倾向于责怪无家可归者本人，将其处境归因于品格、道德或懒惰。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What is one of the causes for more and more people in Los Angeles to become homeless?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They find it increasingly difficult to afford a place to live."
+            },
+            {
+              "key": "B",
+              "text": "The divorce rate in the county has been on a steady rise."
+            },
+            {
+              "key": "C",
+              "text": "They have been compelled to take low-paying jobs."
+            },
+            {
+              "key": "D",
+              "text": "The society fails to forgive them for their mistakes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段提到住房市场越来越严苛，使失业、被逐出住所等人更容易流落街头。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do we learn from the new Los Angeles Homeless Services Authority report?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Supplying enough job opportunities for the homeless remains a challenge."
+            },
+            {
+              "key": "B",
+              "text": "Everyone is pulling in the same direction to solve the homelessness problem."
+            },
+            {
+              "key": "C",
+              "text": "The increase in new housing falls short of the demand of the growing homeless population."
+            },
+            {
+              "key": "D",
+              "text": "Los Angeles' homeless condition is deteriorating faster than many people predict."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第四段的新报告指出，无家可归人口的增长速度超过新住房的供应速度。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-06-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. How do most Los Angeles residents now feel about homelessness?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are increasingly ashamed about its scale."
+            },
+            {
+              "key": "B",
+              "text": "They find it no more scaring than it appears."
+            },
+            {
+              "key": "C",
+              "text": "They are less and less indifferent to it."
+            },
+            {
+              "key": "D",
+              "text": "They no longer find it shocking."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段明确说大多数洛杉矶居民不再为无家可归现象感到震惊或羞愧。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-06-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "中国政府一直大力推行义务教育(compulsory education)，以使每个儿童都享有受教育的机会。自1986 年《义务教育法》生效以来,经过不懈努力,实现了在全国推行义务教育的目标。如今,在中国,儿童年满六周岁开始上小学,从小学到初中一共接受九年义务教育。从2008 年秋季学期开始,义务教育阶段学生无须缴纳学费。随着一系列教育改革举措的实施,中国义务教育的质量也有显著提高。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2023-06-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

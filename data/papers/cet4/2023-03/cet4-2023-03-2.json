@@ -1,0 +1,1713 @@
+{
+  "id": "cet4-2023-03-2",
+  "exam_level": "CET4",
+  "year": 2023,
+  "month": 3,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2023年3月大学英语四级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。卷面说明阅读与同月第1套相同，本套未列具体阅读题序，展示题序沿用第1套。写作和翻译使用本套原题。PDF 未附答案，客观题参考答案依据原文整理。",
+  "reference_paper_id": "cet4-2023-03-1",
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2023-03-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose you have attended a lecture delivered by a famous scholar. Write a report to the campus newspaper, summarizing its most important points. You will have 30 minutes for this task and should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-03-2-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose you have attended a lecture delivered by a famous scholar. Write a report to the campus newspaper, summarizing its most important points. You will have 30 minutes for this task and should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "It's a fantasy that goes back centuries: a message in a bottle, carried ashore from far-off lands. Authors, artists and children [26] ______ have dreamed of such a gift from the sea.",
+        "This time, though, it's not a bottle that washes ashore. It's eggs—thousands of little toy eggs.",
+        "That's what happened on the German island of Langeoog this week.",
+        "Lying just off the North Sea coast, it found itself [27] ______ by an invasion of colored plastic eggs-much to the [28] ______ of local children, because the eggs contained toys.",
+        "Police [29] ______ the eggs came from a freighter that lost part of its cargo during an unusually [30] ______ storm, the worst to hit Germany's northeastern coast since 2006.",
+        "At any rate, what was lost has now been found by many of the community's littlest residents.",
+        "\"The surprise eggs have found their way to freedom,\" said Mayor Uwe Garrels. However, the joy of the moment [31] ______ off soon.",
+        "\"At first I thought this was a wonder, because everything was so [32] ______ , but then we realized that this is a huge [33] ______ in the end,\" said the mayor. He also noted the plastic bags and other materials that have washed ashore on the island can cause serious problems for [34] ______ .",
+        "Still, all these little eggs contained an extra treat with their toys. They [35] ______ notes from afar.",
+        "There was just one problem for the German children who received them: They were written in Russian."
+      ],
+      "study_paragraphs": [
+        "It's a fantasy that goes back centuries: a message in a bottle, carried ashore from far-off lands. Authors, artists and children alike have dreamed of such a gift from the sea.",
+        "This time, though, it's not a bottle that washes ashore. It's eggs—thousands of little toy eggs.",
+        "That's what happened on the German island of Langeoog this week.",
+        "Lying just off the North Sea coast, it found itself struck by an invasion of colored plastic eggs-much to the delight of local children, because the eggs contained toys.",
+        "Police suspect the eggs came from a freighter that lost part of its cargo during an unusually intense storm, the worst to hit Germany's northeastern coast since 2006.",
+        "At any rate, what was lost has now been found by many of the community's littlest residents.",
+        "\"The surprise eggs have found their way to freedom,\" said Mayor Uwe Garrels. However, the joy of the moment wore off soon.",
+        "\"At first I thought this was a wonder, because everything was so colorful , but then we realized that this is a huge mess in the end,\" said the mayor. He also noted the plastic bags and other materials that have washed ashore on the island can cause serious problems for wildlife .",
+        "Still, all these little eggs contained an extra treat with their toys. They bore notes from afar.",
+        "There was just one problem for the German children who received them: They were written in Russian."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-03-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。Authors, artists and children alike 表示作家、艺术家和孩子都一样梦想收到海上来信。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。found itself struck by an invasion... 表示小岛受到大量塑料玩具蛋涌入的冲击。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。much to the delight of local children 表示让当地孩子非常高兴。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。Police suspect the eggs came from... 表示警方怀疑这些蛋来自货船，suspect 作谓语。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。an unusually intense storm 表示异常猛烈的风暴，intense 修饰 storm。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。the joy of the moment wore off soon 表示短暂的喜悦很快消退，wore off 为过去时搭配。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。everything was so colorful 表示玩具蛋五彩缤纷，colorful 作表语。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。a huge mess 表示最终形成了一片混乱、难以处理的局面。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。cause serious problems for wildlife 表示冲上岸的塑料等材料会危害野生动物。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "wore"
+            },
+            {
+              "key": "B",
+              "text": "wildlife"
+            },
+            {
+              "key": "C",
+              "text": "suspect"
+            },
+            {
+              "key": "D",
+              "text": "struck"
+            },
+            {
+              "key": "E",
+              "text": "similar"
+            },
+            {
+              "key": "F",
+              "text": "quantity"
+            },
+            {
+              "key": "G",
+              "text": "overthrown"
+            },
+            {
+              "key": "H",
+              "text": "mess"
+            },
+            {
+              "key": "I",
+              "text": "intense"
+            },
+            {
+              "key": "J",
+              "text": "human"
+            },
+            {
+              "key": "K",
+              "text": "effective"
+            },
+            {
+              "key": "L",
+              "text": "delight"
+            },
+            {
+              "key": "M",
+              "text": "colorful"
+            },
+            {
+              "key": "N",
+              "text": "bore"
+            },
+            {
+              "key": "O",
+              "text": "alike"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。They bore notes from afar 表示玩具蛋带着远方的字条，bore 是 bear 的过去式。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Hyphenating your last name after marriage?",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Congratulations on deciding to get married! While being married is great and wonderful, the act of getting married can be quite stressful. There is the planning of the ceremony itself, the merging (合并) of two households and all of the details involved in that. You also have to take the time to apply for your marriage license and then decide whether or not you are going to keep your last name or change it.",
+        "[B] This is where a lot of people have trouble. Once upon a time, it was just customary for a bride to take her groom's last name as her own and abandon her maiden name completely. The act of keeping her own last name was considered taboo (禁忌) and people's eyebrows would raise right off their faces when they found out that the bride was even considering something so radical. Over time, though, more and more women are deciding to keep their last names.",
+        "[C] There are a lot of reasons to want to keep your own last name. Hopefully you have a supportive groom who understands why this idea is the most appealing to you. A lot of times, though, the act of keeping your name is still something that causes concern. Even if your groom is fine with it, his family (or your own) might not be so understanding.",
+        "[D] There are a couple of ways to compromise on the issue. You could choose an entirely new last name for the two of you to share. This way neither of you gets \"your\" way and you both have to deal with the legalities of going through a name change. Most of the time, though, the most popular compromise is to hyphenate your last name and the last name of your groom. For example, if your groom's name is John Smith and your name is Kate Jones, you would name yourself Kate Jones-Smith or Kate Smith-Jones. This allows you to keep going by your own last name while legally adopting your husband's last name at the same time.",
+        "[E] The compromise is the biggest reason that so many women choose to hyphenate their last names. It is a way of you keeping your own identity while also making your future husband happy. It allows you to stay connected to accomplishments that you achieved before you got married. For example, many women who choose to hyphenate do so partially because they have earned higher educational degrees and certifications under their maiden names. They might have also had things published or publicized and want to stay connected to that identity. Hyphenating your last name can help you bridge the gap between your personal and professional lives. Many women who opt to simply keep their own names do so because they don't want to give up all that they have accomplished professionally. Adopting their husband's last name makes it hard for them to claim ownership of these accomplishments personally because they happened under their \"other\" name.",
+        "[F] While tradition is one thing, there isn't any logical reason to completely change your name. Keeping your name and joining it to your husband's through hyphenation is as legal as simply adopting his name or as simply keeping your own and leaving his out of the picture entirely.",
+        "[G] Probably the most important reason to consider hyphenation is your identity. You've spent your whole life building your identity under a certain name. Obviously you will still be you even if you've taken on your husband's last name and omitted yours entirely. At the same time, your name is associated with the identity you've built up and hyphenation allows you to respect that while also respecting tradition and your husband's family's identity.",
+        "[H] If you care about outside opinions on your name, you should know that a large portion of today's society is annoyed by the hyphenated name. Some people find it \"snobby\" (势利的) and others simply find it irritating because they have a hard time remembering which last name they are supposed to say first. Some people even believe that not simply adopting your husband's last name is a huge sign of disrespect and a lack of commitment.",
+        "[I] It is possible that your future husband will find this choice offensive. Some men, regardless of how you might feel about such things, are traditionalists and feel that it is simply \"right\" for the woman to take the man's last name as her own. Whether your future husband insisting on your adopting his last name is a red flag to you or not, it is still something that you should take into consideration.",
+        "[J] There are all sorts of reasons to hyphenate your name or not to hyphenate your name. The basis for each of these things, however, is whether or not you are willing to make a compromise when it comes to changing your name. The hyphenation is the epitome ( 体现) of a compromise. One spouse wants a complete name change. The other spouse wants no name change. Hyphenating the two names is a way for each person to, at least a little bit, \"win\" the argument.",
+        "[K] And don't forget the legal stuff! Making the decision is just part of the process. From there you are going to have to legally change your name all over the place. You'll need to change your name at the bank, with social security, with your credit cards, on your driver's license, at the gym...everywhere. It's easy to get overwhelmed just thinking about it.",
+        "[L] What matters, of course, is that the two of you are going to be happily married-hopefully for the rest of your lives. At the end of the day, whether you each keep your names, whether you come up with an entirely new name for the two of you to share or whether you hyphenate your current last names, what matters is that you love each other and are going to be joining your lives together. Try to remember that as you are staring at the application for your marriage license and filling out the portion that reads \"name after you get married\" (or whatever the legalese for that might be)."
+      ],
+      "study_paragraphs": [
+        "Congratulations on deciding to get married! While being married is great and wonderful, the act of getting married can be quite stressful. There is the planning of the ceremony itself, the merging (合并) of two households and all of the details involved in that. You also have to take the time to apply for your marriage license and then decide whether or not you are going to keep your last name or change it.",
+        "This is where a lot of people have trouble. Once upon a time, it was just customary for a bride to take her groom's last name as her own and abandon her maiden name completely. The act of keeping her own last name was considered taboo (禁忌) and people's eyebrows would raise right off their faces when they found out that the bride was even considering something so radical. Over time, though, more and more women are deciding to keep their last names.",
+        "There are a lot of reasons to want to keep your own last name. Hopefully you have a supportive groom who understands why this idea is the most appealing to you. A lot of times, though, the act of keeping your name is still something that causes concern. Even if your groom is fine with it, his family (or your own) might not be so understanding.",
+        "There are a couple of ways to compromise on the issue. You could choose an entirely new last name for the two of you to share. This way neither of you gets \"your\" way and you both have to deal with the legalities of going through a name change. Most of the time, though, the most popular compromise is to hyphenate your last name and the last name of your groom. For example, if your groom's name is John Smith and your name is Kate Jones, you would name yourself Kate Jones-Smith or Kate Smith-Jones. This allows you to keep going by your own last name while legally adopting your husband's last name at the same time.",
+        "The compromise is the biggest reason that so many women choose to hyphenate their last names. It is a way of you keeping your own identity while also making your future husband happy. It allows you to stay connected to accomplishments that you achieved before you got married. For example, many women who choose to hyphenate do so partially because they have earned higher educational degrees and certifications under their maiden names. They might have also had things published or publicized and want to stay connected to that identity. Hyphenating your last name can help you bridge the gap between your personal and professional lives. Many women who opt to simply keep their own names do so because they don't want to give up all that they have accomplished professionally. Adopting their husband's last name makes it hard for them to claim ownership of these accomplishments personally because they happened under their \"other\" name.",
+        "While tradition is one thing, there isn't any logical reason to completely change your name. Keeping your name and joining it to your husband's through hyphenation is as legal as simply adopting his name or as simply keeping your own and leaving his out of the picture entirely.",
+        "Probably the most important reason to consider hyphenation is your identity. You've spent your whole life building your identity under a certain name. Obviously you will still be you even if you've taken on your husband's last name and omitted yours entirely. At the same time, your name is associated with the identity you've built up and hyphenation allows you to respect that while also respecting tradition and your husband's family's identity.",
+        "If you care about outside opinions on your name, you should know that a large portion of today's society is annoyed by the hyphenated name. Some people find it \"snobby\" (势利的) and others simply find it irritating because they have a hard time remembering which last name they are supposed to say first. Some people even believe that not simply adopting your husband's last name is a huge sign of disrespect and a lack of commitment.",
+        "It is possible that your future husband will find this choice offensive. Some men, regardless of how you might feel about such things, are traditionalists and feel that it is simply \"right\" for the woman to take the man's last name as her own. Whether your future husband insisting on your adopting his last name is a red flag to you or not, it is still something that you should take into consideration.",
+        "There are all sorts of reasons to hyphenate your name or not to hyphenate your name. The basis for each of these things, however, is whether or not you are willing to make a compromise when it comes to changing your name. The hyphenation is the epitome ( 体现) of a compromise. One spouse wants a complete name change. The other spouse wants no name change. Hyphenating the two names is a way for each person to, at least a little bit, \"win\" the argument.",
+        "And don't forget the legal stuff! Making the decision is just part of the process. From there you are going to have to legally change your name all over the place. You'll need to change your name at the bank, with social security, with your credit cards, on your driver's license, at the gym...everywhere. It's easy to get overwhelmed just thinking about it.",
+        "What matters, of course, is that the two of you are going to be happily married-hopefully for the rest of your lives. At the end of the day, whether you each keep your names, whether you come up with an entirely new name for the two of you to share or whether you hyphenate your current last names, what matters is that you love each other and are going to be joining your lives together. Try to remember that as you are staring at the application for your marriage license and filling out the portion that reads \"name after you get married\" (or whatever the legalese for that might be)."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-03-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Many people today still find name hyphenation upon marriage unacceptable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段指出不少人厌烦连字符姓氏，甚至认为它不尊重丈夫、缺少承诺。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. As a compromise, a bride will in most cases adopt a name that combines the couple's last names.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段说明最常见的妥协是将新娘和新郎的姓氏用连字符连接。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. The bride should consider adopting her groom's last name whether he feels strongly about it or not.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段提醒新娘考虑未来丈夫对改姓的态度，无论这是否构成警讯。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Making preparations for marriage causes a lot of stress.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段说婚礼筹划、家庭合并、申请结婚许可等准备会带来压力。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Hyphenating the last names could be a win-win solution should arguments arise about what name to adopt upon marriage.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段说连字符连接两个姓氏能让双方都在争论中得到部分满足。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. It used to be considered socially unacceptable for a bride to retain her maiden name.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段说明过去新娘保留娘家姓被视为禁忌。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. The bride who adopts a hyphenated last name after marriage can maintain connections with their past achievements.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段说连字符姓氏能帮助女性维持与婚前学历、出版物和职业成就的联系。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Hyphenating names allows the bride to preserve her own identity while respecting tradition.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段强调连字符姓氏既尊重自身建立的身份，也尊重传统和丈夫家庭的身份。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. No matter what name the bride adopts, it is most important that the newly weds truly love each other.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段说最重要的是彼此相爱、共同生活，无论最后采用哪种姓氏。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Legally speaking, the bride is free to choose whatever name she prefers.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段说明保留原姓、采用夫姓或连字符姓氏在法律上同样有效。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "It's good to be smart. After all, intelligent people earn more money, accumulate more wealth, and even live longer. But there's another side to the story. The brightest people and strongest leaders sometimes make errors others don't, especially in situations that require common sense.",
+        "Travis Bradberry, president at TalentSmart, explained in his post Why Smart People Act So Stupid that \"Rational thinking and intelligence don't tend to go hand in hand. Intelligent people are more prone to silly mistakes because of blind spots in how they use logic. These blind spots exist because smart people tend to be overconfident in their reasoning abilities.\" They are so used to being right and having quick answers that they don't even realise when they're making a mess by answering without thinking things through.",
+        "A lifetime of praise leads smart people to develop too much faith in their intelligence and abilities. They often fail to recognise when they need help, and when they do recognise it, they tend to believe that no one else is capable of providing it.",
+        "\"It's hard for anyone to graciously accept the fact that they're wrong. It's even harder for smart people because they grow so used to being right all the time that it becomes a part of their identity,\" Bradberry wrote. \"For smart people, being wrong can feel like a personal attack, and being right, a necessity.",
+        "Smart people also have a hard time accepting feedback. They tend to undervalue the opinions of others, which means they have trouble believing that anyone is qualified to give them useful feedback. Not only does this tendency hinder their growth and performance, it can lead to harmful relationships, both personally and professionally.",
+        "Smart people develop overachieving personalities because things come so easily to them. They simply don't understand how hard some people have to work to accomplish the same things, and because of that, they push people too hard. They set the bar too high, and when people take too long or don't get things quite right, they assume it's due to a lack of effort. So they push even harder."
+      ],
+      "study_paragraphs": [
+        "It's good to be smart. After all, intelligent people earn more money, accumulate more wealth, and even live longer. But there's another side to the story. The brightest people and strongest leaders sometimes make errors others don't, especially in situations that require common sense.",
+        "Travis Bradberry, president at TalentSmart, explained in his post Why Smart People Act So Stupid that \"Rational thinking and intelligence don't tend to go hand in hand. Intelligent people are more prone to silly mistakes because of blind spots in how they use logic. These blind spots exist because smart people tend to be overconfident in their reasoning abilities.\" They are so used to being right and having quick answers that they don't even realise when they're making a mess by answering without thinking things through.",
+        "A lifetime of praise leads smart people to develop too much faith in their intelligence and abilities. They often fail to recognise when they need help, and when they do recognise it, they tend to believe that no one else is capable of providing it.",
+        "\"It's hard for anyone to graciously accept the fact that they're wrong. It's even harder for smart people because they grow so used to being right all the time that it becomes a part of their identity,\" Bradberry wrote. \"For smart people, being wrong can feel like a personal attack, and being right, a necessity.",
+        "Smart people also have a hard time accepting feedback. They tend to undervalue the opinions of others, which means they have trouble believing that anyone is qualified to give them useful feedback. Not only does this tendency hinder their growth and performance, it can lead to harmful relationships, both personally and professionally.",
+        "Smart people develop overachieving personalities because things come so easily to them. They simply don't understand how hard some people have to work to accomplish the same things, and because of that, they push people too hard. They set the bar too high, and when people take too long or don't get things quite right, they assume it's due to a lack of effort. So they push even harder."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-03-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn from the passage about the brightest people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They can make silly mistakes in straightforward situations."
+            },
+            {
+              "key": "B",
+              "text": "They usually turn a blind eye to their own weaknesses."
+            },
+            {
+              "key": "C",
+              "text": "They are admired by people around them."
+            },
+            {
+              "key": "D",
+              "text": "They can differ in their personalities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段指出最聪明的人有时会在只需常识的情形中犯愚蠢错误。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What accounts for the existence of intelligent people's logical blind spots?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Their irrational way of thinking."
+            },
+            {
+              "key": "B",
+              "text": "Too much faith in their ability to think."
+            },
+            {
+              "key": "C",
+              "text": "Their ignorance of behavioural science."
+            },
+            {
+              "key": "D",
+              "text": "Too much concern about their work."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第二段解释逻辑盲点源于对推理能力过度自信。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. How do smart people react when they are found to be wrong?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They shift the blame to others."
+            },
+            {
+              "key": "B",
+              "text": "They graciously accept the facts."
+            },
+            {
+              "key": "C",
+              "text": "They may feel shocked."
+            },
+            {
+              "key": "D",
+              "text": "They may get offended."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第四段说聪明人觉得犯错像受到人身攻击，因此可能感到被冒犯。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What may happen to smart people who find it difficult to accept suggestions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may suffer in their professional and private life."
+            },
+            {
+              "key": "B",
+              "text": "They may lose faith in their administrative abilities."
+            },
+            {
+              "key": "C",
+              "text": "They may commit more errors than ever before."
+            },
+            {
+              "key": "D",
+              "text": "They may experience a lot of emotional stress."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第五段说难以接受反馈会妨碍成长、表现以及私人和职业关系。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What is said about those working with or under overachieving people?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They put a lot of effort into their work."
+            },
+            {
+              "key": "B",
+              "text": "They set higher goals for themselves."
+            },
+            {
+              "key": "C",
+              "text": "They are under increasing pressure."
+            },
+            {
+              "key": "D",
+              "text": "They take less time to get things done."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。末段说过度追求成就者要求太高，遇到别人做得慢或不够好时会继续施压。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Of the endless troubles that come with being driven from one's home country, losing educational certificates may seem small. But it isn't. Refugees who settle in other countries often find themselves unable to continue on their previous career path due to a new set of employer standards or skills requirements. To solve this problem, the U.S. State Department is posing a solution: online learning.",
+        "The State Department will announce a partnership with an online education platform called Coursera. The platform will allow refugees worldwide to take thousands of online courses for free. \"Coursera for Refugees\" will be available for any non-profit group that supports refugees in any country, as well as individual refugees. They can apply for fully funded access to Coursera's course catalog, which means they can take all of the platform's classes and obtain professional certificates for free. The platform currently offers professor-led lectures on a broad range of topics, from data science to fashion design.",
+        "As the world migrant crisis intensifies, employment is becoming a global concern. The new program aims to aid refugees by offering \"important skills that will help them in the global economy,\" Evan Ryan, U.S. assistant secretary of state for educational and cultural affairs, said on a press call last week. \"What we don't want to do is not act,\" added Coursera chief operations officer Lila Ibrahim.",
+        "The idea isn't without problems. For one, starting a new career path isn't as simple as watching a few videos and obtaining an online certificate; even those looking to continue previous careers can't simply rely on an online lecture to get them up-to-date on standards, policies, and practices. For another, most of the classes on Coursera are in English, and though there are plans to add translations, language barriers can be a big obstacle. Then there are the questions over the value of massive open online courses (MOOCs) themselves—both for refugees and for average learners.",
+        "But it's still early days and there are signs of hope. In 2015, a joint study found 72% of people taking the MOOCs saw career benefits afterwards."
+      ],
+      "study_paragraphs": [
+        "Of the endless troubles that come with being driven from one's home country, losing educational certificates may seem small. But it isn't. Refugees who settle in other countries often find themselves unable to continue on their previous career path due to a new set of employer standards or skills requirements. To solve this problem, the U.S. State Department is posing a solution: online learning.",
+        "The State Department will announce a partnership with an online education platform called Coursera. The platform will allow refugees worldwide to take thousands of online courses for free. \"Coursera for Refugees\" will be available for any non-profit group that supports refugees in any country, as well as individual refugees. They can apply for fully funded access to Coursera's course catalog, which means they can take all of the platform's classes and obtain professional certificates for free. The platform currently offers professor-led lectures on a broad range of topics, from data science to fashion design.",
+        "As the world migrant crisis intensifies, employment is becoming a global concern. The new program aims to aid refugees by offering \"important skills that will help them in the global economy,\" Evan Ryan, U.S. assistant secretary of state for educational and cultural affairs, said on a press call last week. \"What we don't want to do is not act,\" added Coursera chief operations officer Lila Ibrahim.",
+        "The idea isn't without problems. For one, starting a new career path isn't as simple as watching a few videos and obtaining an online certificate; even those looking to continue previous careers can't simply rely on an online lecture to get them up-to-date on standards, policies, and practices. For another, most of the classes on Coursera are in English, and though there are plans to add translations, language barriers can be a big obstacle. Then there are the questions over the value of massive open online courses (MOOCs) themselves—both for refugees and for average learners.",
+        "But it's still early days and there are signs of hope. In 2015, a joint study found 72% of people taking the MOOCs saw career benefits afterwards."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-03-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. Why is the U.S. State Department launching an online learning program for refugees?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To enable them to settle down in host countries."
+            },
+            {
+              "key": "B",
+              "text": "To allow them to learn as many job skills as possible."
+            },
+            {
+              "key": "C",
+              "text": "To offer them a platform to pursue advanced degrees."
+            },
+            {
+              "key": "D",
+              "text": "To help them to meet new employment standards."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。首段说明难民面临新雇主标准或技能要求，在线学习旨在帮助他们满足这些就业要求。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What do we know about \"Coursera for Refugees\"?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It provides refugees with a wide range of courses free of charge."
+            },
+            {
+              "key": "B",
+              "text": "It offers free online data services for refugees around the world."
+            },
+            {
+              "key": "C",
+              "text": "It allows refugees to obtain degrees in various academic fields."
+            },
+            {
+              "key": "D",
+              "text": "It supplies refugees with a great variety of job opportunities."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第二段说难民可免费选修平台上各种主题的课程并获得专业证书。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What does the passage say is a consequence of the global migrant crisis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Instability increases in host countries."
+            },
+            {
+              "key": "B",
+              "text": "The global economic crisis intensifies."
+            },
+            {
+              "key": "C",
+              "text": "A lot more refugees die during migration."
+            },
+            {
+              "key": "D",
+              "text": "Refugees find it more difficult to get a job."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第三段指出随着移民危机加剧，就业已成为全球关注的问题。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does the author say causes refugees' difficulty in taking online courses?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cultural environment."
+            },
+            {
+              "key": "B",
+              "text": "Changed academic requirements."
+            },
+            {
+              "key": "C",
+              "text": "Lack of language skills."
+            },
+            {
+              "key": "D",
+              "text": "Difference in teaching platforms."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第四段说多数课程使用英语，语言障碍是难民学习的重要困难。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-03-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What did the joint study find about the MOOCs several years ago?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They helped solve learners' financial problems."
+            },
+            {
+              "key": "B",
+              "text": "They benefited most of the learners."
+            },
+            {
+              "key": "C",
+              "text": "They changed some learners' career path."
+            },
+            {
+              "key": "D",
+              "text": "They provided the most needed vocational skills."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。末段的联合研究发现 72% 的 MOOC 学习者此后获得职业收益，即大多数人受益。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-03-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "随着生活水平的提高，更多人开始加入到自驾游的行列之中。自驾游者既可驾驶自家车也可借车或租车出游。司机可能是车主或结伴出游者。自驾游与传统的组团旅游不同,它能够更好地满足旅游者的个性化需求，使他们更好地享受旅游的过程。自驾游尤其受到年轻出游者的欢迎。年轻人追求独立自由的生活,而自驾游恰好满足了他们的这一需求。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2023-03-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
