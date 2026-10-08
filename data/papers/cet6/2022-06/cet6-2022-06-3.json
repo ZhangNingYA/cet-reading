@@ -1,0 +1,1660 @@
+{
+  "id": "cet6-2022-06-3",
+  "exam_level": "CET6",
+  "year": 2022,
+  "month": 6,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2022年6月大学英语六级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。原件明确说明全部阅读与cet6-2022-06-2共用，重复章节显示提示与跳转入口。",
+  "reference_paper_id": "cet6-2022-06-2",
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2022-06-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence “Nowadays more and more people take delight in offering help to the needy.” You can make comments, cite examples, or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-06-3-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence “Nowadays more and more people take delight in offering help to the needy.” You can make comments, cite examples, or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directionsr：In this section, there is a passage with ten blanks. You are required to select one word for each blankfrom a list of choices given in a 'word bankfollowing thepassage. Read the passage through carefully before making your choices, Each choice in the bank is identified by a letter. Please mark the corresponding letterfor each item on Answer Sheet 2 with a single line through the centre. You may not use any ofthe words in the bank more than once.",
+      "paragraphs": [
+        "Thinking kind thoughts about yourself and your loved ones can prove beneficial for Your overall wellbeing, empirical evidence has shown. Researchers carried out an investigation to explore the [26] ______ between having kind thoughts and a person's psychological state.",
+        "For the study, five groups of participants were presented with a different set of audio instructions, some of which encouraged the participants to think [27] ______ about themselves and others which persuaded them to think in a self^critical manner. After listening to the audio instructions, the participants were asked to answer a series of questions. These included whether they felt agitated, how likely they were to show kindness to themselves and how [28] ______ they felt to other individuals.",
+        "The participants who were instructed to think kindly about themselves were more likely to exhibit a bodily response associated with being relaxed and feeling safe. Their heart rates also dropped, which is a healthy sign of a heart that can respond flexibly to situations. Yet, [29] ______ , those who listened to the critical audio clips were noted as having a higher heart rate and sweat response afterwards, both of which [30] ______ feelings of threat and distress.",
+        "Having the ability to switch offthe body's natural threat response can [31] ______ a person's immune system. This, in turn, gives them a greater likelihood of recovering quickly from illness. These findings help us to further understand some of our clinical trials research findings, where we show that individuals with [32] ______ depression benefit particularly from self-awareness-based [33] ______ therapy. They essentially learn to become more sympathetic to themselves.",
+        "The sense is that for people [34] ______ to depression, meeting their negative thoughts and feelings with [35] ______ is a radically different way; that these thoughts are not facts. It introduces a different way of being and knowing that is quite transformative for many people."
+      ],
+      "study_paragraphs": [
+        "Thinking kind thoughts about yourself and your loved ones can prove beneficial for Your overall wellbeing, empirical evidence has shown. Researchers carried out an investigation to explore the correlation between having kind thoughts and a person's psychological state.",
+        "For the study, five groups of participants were presented with a different set of audio instructions, some of which encouraged the participants to think amiably about themselves and others which persuaded them to think in a self^critical manner. After listening to the audio instructions, the participants were asked to answer a series of questions. These included whether they felt agitated, how likely they were to show kindness to themselves and how connected they felt to other individuals.",
+        "The participants who were instructed to think kindly about themselves were more likely to exhibit a bodily response associated with being relaxed and feeling safe. Their heart rates also dropped, which is a healthy sign of a heart that can respond flexibly to situations. Yet, adversely, those who listened to the critical audio clips were noted as having a higher heart rate and sweat response afterwards, both of which signify feelings of threat and distress.",
+        "Having the ability to switch offthe body's natural threat response can boost a person's immune system. This, in turn, gives them a greater likelihood of recovering quickly from illness. These findings help us to further understand some of our clinical trials research findings, where we show that individuals with recurrent depression benefit particularly from self-awareness-based cognitive therapy. They essentially learn to become more sympathetic to themselves.",
+        "The sense is that for people prone to depression, meeting their negative thoughts and feelings with compassion is a radically different way; that these thoughts are not facts. It introduces a different way of being and knowing that is quite transformative for many people."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-06-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。correlation between 指善意想法与心理状态的关联。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。amiably 表示友好和善地看待自己。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。connected to 表示与他人有联结。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。adversely 引出自我批评带来的负面反应。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。signify 表示这些反应意味着威胁和痛苦。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。boost 表示增强免疫系统。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。recurrent depression 指反复发作的抑郁。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。cognitive therapy 指认知疗法。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。prone to 表示容易受到某种问题影响。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adversely"
+            },
+            {
+              "key": "B",
+              "text": "amiably"
+            },
+            {
+              "key": "C",
+              "text": "boost"
+            },
+            {
+              "key": "D",
+              "text": "cognitive"
+            },
+            {
+              "key": "E",
+              "text": "compassion"
+            },
+            {
+              "key": "F",
+              "text": "connected"
+            },
+            {
+              "key": "G",
+              "text": "correlation"
+            },
+            {
+              "key": "H",
+              "text": "fascinated"
+            },
+            {
+              "key": "I",
+              "text": "indignantly"
+            },
+            {
+              "key": "J",
+              "text": "insulation"
+            },
+            {
+              "key": "K",
+              "text": "lavish"
+            },
+            {
+              "key": "L",
+              "text": "prone"
+            },
+            {
+              "key": "M",
+              "text": "recurrent"
+            },
+            {
+              "key": "N",
+              "text": "signify"
+            },
+            {
+              "key": "O",
+              "text": "surpass"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。compassion 表示以同情和关爱面对消极情绪。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Saving Our Planet",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one o f the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] In the long view, the human relationship with forests has been one of brutal destruction, but even it carries elements of slow hope. In the Middle Ages, there was no shortage of timber in most parts of the world, and few saw cutting down forests as a problem. Yet in 1548 the people of Venice estimated that an important timber supply would last only 30 years at their current rate of usage- but different forest management would make it possible to meet the demand for many centuries to come. The idea of preserving resources came out of a concern for the future: a fear of using up resources faster than they could be replenished (补充).",
+        "[B] Economic interests were at the core of this understanding of trees and forests. It would take more than three centuries before scientists began to understand that timber production is not the only, and possibly not the most important, function of forests. The late 19th and early 20th century saw an increasing recognition that forests serve as habitats for countless animal and plant species that all rely on each other. They take over protective functions against soil erosion and landslides (塌方)；they make a significant contribution to the water balance as they prevent surface runoff; they filter dirt particles, greenhouse gases and radioactive substances from the air; they produce oxygen; they provide spaces for recreation and they preserve historic and prehistoric remains. As a result, forests around the world have been set aside as parks or wilderness areas.",
+        "[C] Recent years have seen a big change in our view of forests. Peter Wohlleben's book The Hidden Life o f Trees (2015), an international bestseller, suggests that trees can warn each other of danger through a “wood wide web“ of roots and fungi (真菌). They support each other through sharing of nutrients and information, and they even keep ancient stumps alive by feeding them solutions of sugars. Such insights have made us aware of deep ecological relationships between humans and the more-than-human world.",
+        "[D] Awareness of ecologies is a recent phenomenon. It was not until the 1940s that the concept of the “environment“ embracing all living and nonliving things developed. In the 1970s, the term “environment\" gained currency, becoming widely adopted in the English and Romance languages, and as “UmwelC (\"'surrounding world^^) in German. The emergence of the idea led to the rise of environmental agencies, regulations and environmental studies, and to environmental science as new, integrated academic disciplines. It was in 1956 that the very first bachelor of science in environmental studies was awarded, at the State University of New York College of Forestry at Syracuse. Since the 1970s- with the rise of “environmentalism\"- environmental studies programmes have sprung up at hundreds of universities. There is (slow) hope in the fact that scholars from many different disciplines have adopted the term “environment\" over the past decades. They are exploring intricate connections within and between complex ecologies, as well as the impact that human environment-making (through techno-industrial, economic and other manipulative developments) has had on the biosphere.",
+        "[E] The rise of the idea of the environment and a scholarly understanding of ecological processes has influenced new technologies and also politics. We have come to ask questions about vulnerability and risk, world ecologies, and the relationship between nature and power. The search for an adequate response to climate change occupies centre stage in international diplomacy.",
+        "[F] Social and environmental activists, scientists and indigenous groups have called the Paris Agreement of the United Nations Climate Change Conference in December 2015 insufficient, weak, or compromised. To some extent, they are right: climate change has already destroyed tens of thousands of livelihoods, and the situation will worsen in the near future for millions of mostly poorer people, who will join the ranks of those who have already been displaced by climate change and extreme weather events. But the Paris Conference nevertheless marked a historic step toward the recognition of the need for action on climate change, the cutting of carbon emissions, and world cooperation. There were 195 nations that came to the table in Paris and agreed to limits on emissions. Historically, nothing comparable had happened prior to this. Before the 20th century, a handful of scientists had been interested in the theoretical relationship between greenhouse gases and climate change, but only the empirical evidence accumulated since the late 20th century established a clear connection between the burning of fossil fuels and a vastly accelerated rise in global temperatures.",
+        "[G] The current crisis is not the first that humans have encountered, and a look at the struggles with pollution in recent history reveals transformations that once seemed unimaginable. The \"London fog”that came to define the capital through British novels and thrillers is in reality smog or smoke, a legacy of industrialisation. After a century of ignorance, London was hit by the Great Smog of December 1952- the worst air-pollution event in the history of the United Kingdom which caused the deaths of approximately 12,000 people. Shortly thereafter, public initiatives and political campaigns led to strict regulations and new laws, including the Clean Air Act (1956). Today, London has effectively reduced traffic emissions through the introduction of a Congestion Charge Zone in 2003, and an Ultra Low Emission Zone in 2019.",
+        "[H] Scientific evidence that we are living in an era of climate change, resource exhaustion and potential ecological disaster is overwhelming. How do we motivate a public exhausted by never-ending scenarios of doom and disaster, when the challenges seem so huge and so impossible to solve? Statistics about extinction and the gloom of decline will not in themselves get us out of our often self^created ecological traps: instead, they are more likely to result in paralysis and inaction.",
+        "[I] We need stories and histories of change and transformation: ecological stories that make us confront the fact that human power is potentially destructive, and that the survival of our species on this planet depends on the preservation of soil and water, and the habitats and ecological systems.",
+        "[J] It is time that we showed successes and accelerations in ecological awareness, action and restoration: stories that include past successes and future visions about the rise of urban gardening and of renaturalised riverscapes, of successful protests against polluted air and water, of the rise of regional markets and slow food, and the planting of trees around the globe, of initiatives and enterprises that work towards ecological restoration. The reality of ecological curses seems far greater than the power of the hopes left at the bottom of Pandora's box. But if we believe that nothing can be changed, then we are giving up our opportunity to act.",
+        "[K] Today’s saving powers will not come from a deus ex machina (解围之神). In an ever-more complex and synthetic world, our saving powers won't come from a single source, and certainly not from a too-big-to-fail approach or from those who have been drawn into the whirlpool of our age of speed. Hope can work as a wakeup call. It acknowledges setbacks. The concept of slow hope suggests that we can't expect things to change overnight. If the ever-faster exhaustion of natural resources (in ecological terms) and the \"'shrinking of the present^^ (in social terms) are urgent problems of humans, then cutting down on exhaustive practices and working towards a \"stretching of the present\" will be ways to move forward."
+      ],
+      "study_paragraphs": [
+        "In the long view, the human relationship with forests has been one of brutal destruction, but even it carries elements of slow hope. In the Middle Ages, there was no shortage of timber in most parts of the world, and few saw cutting down forests as a problem. Yet in 1548 the people of Venice estimated that an important timber supply would last only 30 years at their current rate of usage- but different forest management would make it possible to meet the demand for many centuries to come. The idea of preserving resources came out of a concern for the future: a fear of using up resources faster than they could be replenished (补充).",
+        "Economic interests were at the core of this understanding of trees and forests. It would take more than three centuries before scientists began to understand that timber production is not the only, and possibly not the most important, function of forests. The late 19th and early 20th century saw an increasing recognition that forests serve as habitats for countless animal and plant species that all rely on each other. They take over protective functions against soil erosion and landslides (塌方)；they make a significant contribution to the water balance as they prevent surface runoff; they filter dirt particles, greenhouse gases and radioactive substances from the air; they produce oxygen; they provide spaces for recreation and they preserve historic and prehistoric remains. As a result, forests around the world have been set aside as parks or wilderness areas.",
+        "Recent years have seen a big change in our view of forests. Peter Wohlleben's book The Hidden Life o f Trees (2015), an international bestseller, suggests that trees can warn each other of danger through a “wood wide web“ of roots and fungi (真菌). They support each other through sharing of nutrients and information, and they even keep ancient stumps alive by feeding them solutions of sugars. Such insights have made us aware of deep ecological relationships between humans and the more-than-human world.",
+        "Awareness of ecologies is a recent phenomenon. It was not until the 1940s that the concept of the “environment“ embracing all living and nonliving things developed. In the 1970s, the term “environment\" gained currency, becoming widely adopted in the English and Romance languages, and as “UmwelC (\"'surrounding world^^) in German. The emergence of the idea led to the rise of environmental agencies, regulations and environmental studies, and to environmental science as new, integrated academic disciplines. It was in 1956 that the very first bachelor of science in environmental studies was awarded, at the State University of New York College of Forestry at Syracuse. Since the 1970s- with the rise of “environmentalism\"- environmental studies programmes have sprung up at hundreds of universities. There is (slow) hope in the fact that scholars from many different disciplines have adopted the term “environment\" over the past decades. They are exploring intricate connections within and between complex ecologies, as well as the impact that human environment-making (through techno-industrial, economic and other manipulative developments) has had on the biosphere.",
+        "The rise of the idea of the environment and a scholarly understanding of ecological processes has influenced new technologies and also politics. We have come to ask questions about vulnerability and risk, world ecologies, and the relationship between nature and power. The search for an adequate response to climate change occupies centre stage in international diplomacy.",
+        "Social and environmental activists, scientists and indigenous groups have called the Paris Agreement of the United Nations Climate Change Conference in December 2015 insufficient, weak, or compromised. To some extent, they are right: climate change has already destroyed tens of thousands of livelihoods, and the situation will worsen in the near future for millions of mostly poorer people, who will join the ranks of those who have already been displaced by climate change and extreme weather events. But the Paris Conference nevertheless marked a historic step toward the recognition of the need for action on climate change, the cutting of carbon emissions, and world cooperation. There were 195 nations that came to the table in Paris and agreed to limits on emissions. Historically, nothing comparable had happened prior to this. Before the 20th century, a handful of scientists had been interested in the theoretical relationship between greenhouse gases and climate change, but only the empirical evidence accumulated since the late 20th century established a clear connection between the burning of fossil fuels and a vastly accelerated rise in global temperatures.",
+        "The current crisis is not the first that humans have encountered, and a look at the struggles with pollution in recent history reveals transformations that once seemed unimaginable. The \"London fog”that came to define the capital through British novels and thrillers is in reality smog or smoke, a legacy of industrialisation. After a century of ignorance, London was hit by the Great Smog of December 1952- the worst air-pollution event in the history of the United Kingdom which caused the deaths of approximately 12,000 people. Shortly thereafter, public initiatives and political campaigns led to strict regulations and new laws, including the Clean Air Act (1956). Today, London has effectively reduced traffic emissions through the introduction of a Congestion Charge Zone in 2003, and an Ultra Low Emission Zone in 2019.",
+        "Scientific evidence that we are living in an era of climate change, resource exhaustion and potential ecological disaster is overwhelming. How do we motivate a public exhausted by never-ending scenarios of doom and disaster, when the challenges seem so huge and so impossible to solve? Statistics about extinction and the gloom of decline will not in themselves get us out of our often self^created ecological traps: instead, they are more likely to result in paralysis and inaction.",
+        "We need stories and histories of change and transformation: ecological stories that make us confront the fact that human power is potentially destructive, and that the survival of our species on this planet depends on the preservation of soil and water, and the habitats and ecological systems.",
+        "It is time that we showed successes and accelerations in ecological awareness, action and restoration: stories that include past successes and future visions about the rise of urban gardening and of renaturalised riverscapes, of successful protests against polluted air and water, of the rise of regional markets and slow food, and the planting of trees around the globe, of initiatives and enterprises that work towards ecological restoration. The reality of ecological curses seems far greater than the power of the hopes left at the bottom of Pandora's box. But if we believe that nothing can be changed, then we are giving up our opportunity to act.",
+        "Today’s saving powers will not come from a deus ex machina (解围之神). In an ever-more complex and synthetic world, our saving powers won't come from a single source, and certainly not from a too-big-to-fail approach or from those who have been drawn into the whirlpool of our age of speed. Hope can work as a wakeup call. It acknowledges setbacks. The concept of slow hope suggests that we can't expect things to change overnight. If the ever-faster exhaustion of natural resources (in ecological terms) and the \"'shrinking of the present^^ (in social terms) are urgent problems of humans, then cutting down on exhaustive practices and working towards a \"stretching of the present\" will be ways to move forward."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-06-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Climate change has wrought havoc on the lives of tens of thousands of people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Social and environmental activists, scientists and indigenous groups have called the Paris Agreement of the United Nations Climate Change Conference in December 2015 insufficient, weak, or compromised. To some extent, they are right: climate change has already destroyed tens of thousands of livelihoods, and the situation will worsen in the near future for millions of mostly poorer people, who will join the ranks of those who have already been displaced by climate change and extreme weather events. But the Paris Conference nevertheless marked a historic step toward the recognition of the need for action on climate change, the cutting of carbon emissions, and world cooperation. There were 195 nations that came to the table in Paris and agreed to limits on emissions. Historically, nothing comparable had happened prior to this. Before the 20th century, a handful of scientists had been interested in the theoretical relationship between greenhouse gases and climate change, but only the empirical evidence accumulated since the late 20th century established a clear connection between the burning of fossil fuels and a vastly accelerated rise in global temperatures.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. It took scientists a long time to realise that the function of forests goes far beyond providing humans with timber.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Economic interests were at the core of this understanding of trees and forests. It would take more than three centuries before scientists began to understand that timber production is not the only, and possibly not the most important, function of forests. The late 19th and early 20th century saw an increasing recognition that forests serve as habitats for countless animal and plant species that all rely on each other. They take over protective functions against soil erosion and landslides (塌方)；they make a significant contribution to the water balance as they prevent surface runoff; they filter dirt particles, greenhouse gases and radioactive substances from the air; they produce oxygen; they provide spaces for recreation and they preserve historic and prehistoric remains. As a result, forests around the world have been set aside as parks or wilderness areas.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. There is abundant evidence that we are now facing a possible ecological disaster.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Scientific evidence that we are living in an era of climate change, resource exhaustion and potential ecological disaster is overwhelming. How do we motivate a public exhausted by never-ending scenarios of doom and disaster, when the challenges seem so huge and so impossible to solve? Statistics about extinction and the gloom of decline will not in themselves get us out of our often self^created ecological traps: instead, they are more likely to result in paralysis and inaction.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Environmental science became academic disciplines only some sixty years ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：Awareness of ecologies is a recent phenomenon. It was not until the 1940s that the concept of the “environment“ embracing all living and nonliving things developed. In the 1970s, the term “environment\" gained currency, becoming widely adopted in the English and Romance languages, and as “UmwelC (\"'surrounding world^^) in German. The emergence of the idea led to the rise of environmental agencies, regulations and environmental studies, and to environmental science as new, integrated academic disciplines. It was in 1956 that the very first bachelor of science in environmental studies was awarded, at the State University of New York College of Forestry at Syracuse. Since the 1970s- with the rise of “environmentalism\"- environmental studies programmes have sprung up at hundreds of universities. There is (slow) hope in the fact that scholars from many different disciplines have adopted the term “environment\" over the past decades. They are exploring intricate connections within and between complex ecologies, as well as the impact that human environment-making (through techno-industrial, economic and other manipulative developments) has had on the biosphere.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Things cannot change overnight, but reducing the consumption of natural resources will help solve the ecological crisis.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：Today’s saving powers will not come from a deus ex machina (解围之神). In an ever-more complex and synthetic world, our saving powers won't come from a single source, and certainly not from a too-big-to-fail approach or from those who have been drawn into the whirlpool of our age of speed. Hope can work as a wakeup call. It acknowledges setbacks. The concept of slow hope suggests that we can't expect things to change overnight. If the ever-faster exhaustion of natural resources (in ecological terms) and the \"'shrinking of the present^^ (in social terms) are urgent problems of humans, then cutting down on exhaustive practices and working towards a \"stretching of the present\" will be ways to move forward.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Human perception of forests has undergone a tremendous change in the past years.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Recent years have seen a big change in our view of forests. Peter Wohlleben's book The Hidden Life o f Trees (2015), an international bestseller, suggests that trees can warn each other of danger through a “wood wide web“ of roots and fungi (真菌). They support each other through sharing of nutrients and information, and they even keep ancient stumps alive by feeding them solutions of sugars. Such insights have made us aware of deep ecological relationships between humans and the more-than-human world.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Recent history shows reduction of pollution, once seemingly impossible, can actually be accomplished.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：The current crisis is not the first that humans have encountered, and a look at the struggles with pollution in recent history reveals transformations that once seemed unimaginable. The \"London fog”that came to define the capital through British novels and thrillers is in reality smog or smoke, a legacy of industrialisation. After a century of ignorance, London was hit by the Great Smog of December 1952- the worst air-pollution event in the history of the United Kingdom which caused the deaths of approximately 12,000 people. Shortly thereafter, public initiatives and political campaigns led to strict regulations and new laws, including the Clean Air Act (1956). Today, London has effectively reduced traffic emissions through the introduction of a Congestion Charge Zone in 2003, and an Ultra Low Emission Zone in 2019.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. People began to consider preserving natural resources when they feared they would have nothing to use in the future.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：In the long view, the human relationship with forests has been one of brutal destruction, but even it carries elements of slow hope. In the Middle Ages, there was no shortage of timber in most parts of the world, and few saw cutting down forests as a problem. Yet in 1548 the people of Venice estimated that an important timber supply would last only 30 years at their current rate of usage- but different forest management would make it possible to meet the demand for many centuries to come. The idea of preserving resources came out of a concern for the future: a fear of using up resources faster than they could be replenished (补充).",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. If we doubt our ability to reverse ecological deterioration, we are throwing away the chance to take action.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：It is time that we showed successes and accelerations in ecological awareness, action and restoration: stories that include past successes and future visions about the rise of urban gardening and of renaturalised riverscapes, of successful protests against polluted air and water, of the rise of regional markets and slow food, and the planting of trees around the globe, of initiatives and enterprises that work towards ecological restoration. The reality of ecological curses seems far greater than the power of the hopes left at the bottom of Pandora's box. But if we believe that nothing can be changed, then we are giving up our opportunity to act.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. How to respond effectively to climate change has become the focus of international diplomacy.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：The rise of the idea of the environment and a scholarly understanding of ecological processes has influenced new technologies and also politics. We have come to ask questions about vulnerability and risk, world ecologies, and the relationship between nature and power. The search for an adequate response to climate change occupies centre stage in international diplomacy.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage isfollowed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Since American idol star Taryn Southern started composing music with AI in 2017, musicians all over the world have begun wondering about the implications of AI and modem technology where music production is concerned. Using AI in the creation of music is perceived by some as a helpful tool and by others as almost”the beginning of the end”.",
+        "In Taryn's case, AI software enabled her to communicate melodies and chords that she didn't know how to put together herself. The end product was therefore a collaborative effort, rather than a piece entirely produced by technology. Taryn's story has a distinctly positive feel that highlights the advantages of using AI in music production. It can serve as a source of inspiration, and as an ideal jumping-off point should a musician be hit with writer's b/oc 左(文思枯竭).",
+        "Contrary to seeing AI as a tool, some musicians consider it to be hugely detrimental to the music scene. At the moment, because such technology is still so young, the music it's producing is not necessarily what we want to hear. In short, it's not of great quality. Those who have produced their own music, or even fans of authentic, artistic music, will also argue that a computer could never emulate the work (and human touch) of a true musician. Music has been an integral part of the story of humans for ages; in fact, the first known piece of music is believed to be around 3,400 years old. Songs have long been used as a means of communicating messages and folk stories, covering everything from societal ethics to world history. Since many people see music as such an inherently human expression, it is often considered as too precious to impart to technology. The thought of a computer generating a “random“ piece of music that hasn't been painstakingly created by an artist is almost seen as sacrilegious (亵渎神圣的).",
+        "Regardless of which side of the argument you fall on, it seems likely that the use ofAI in music production will only become more frequent. Our modem world is preoccupied with technological advancements. Instead of shying away from the idea of this bleak future, the best approach to take is one of optimism and curiosity. While there are always bound to be stubborn old-school musicians who refuse to use tech, music producers should consider AI as something to be embraced. AI music software is still very much in its infancy, but with more investors interested in the development and outcomes of such technology, and considering the rapid growth rate of other tech advances in recent years, it's only a matter of time before Ai-produced music is seen as the new norm."
+      ],
+      "study_paragraphs": [
+        "Since American idol star Taryn Southern started composing music with AI in 2017, musicians all over the world have begun wondering about the implications of AI and modem technology where music production is concerned. Using AI in the creation of music is perceived by some as a helpful tool and by others as almost”the beginning of the end”.",
+        "In Taryn's case, AI software enabled her to communicate melodies and chords that she didn't know how to put together herself. The end product was therefore a collaborative effort, rather than a piece entirely produced by technology. Taryn's story has a distinctly positive feel that highlights the advantages of using AI in music production. It can serve as a source of inspiration, and as an ideal jumping-off point should a musician be hit with writer's b/oc 左(文思枯竭).",
+        "Contrary to seeing AI as a tool, some musicians consider it to be hugely detrimental to the music scene. At the moment, because such technology is still so young, the music it's producing is not necessarily what we want to hear. In short, it's not of great quality. Those who have produced their own music, or even fans of authentic, artistic music, will also argue that a computer could never emulate the work (and human touch) of a true musician. Music has been an integral part of the story of humans for ages; in fact, the first known piece of music is believed to be around 3,400 years old. Songs have long been used as a means of communicating messages and folk stories, covering everything from societal ethics to world history. Since many people see music as such an inherently human expression, it is often considered as too precious to impart to technology. The thought of a computer generating a “random“ piece of music that hasn't been painstakingly created by an artist is almost seen as sacrilegious (亵渎神圣的).",
+        "Regardless of which side of the argument you fall on, it seems likely that the use ofAI in music production will only become more frequent. Our modem world is preoccupied with technological advancements. Instead of shying away from the idea of this bleak future, the best approach to take is one of optimism and curiosity. While there are always bound to be stubborn old-school musicians who refuse to use tech, music producers should consider AI as something to be embraced. AI music software is still very much in its infancy, but with more investors interested in the development and outcomes of such technology, and considering the rapid growth rate of other tech advances in recent years, it's only a matter of time before Ai-produced music is seen as the new norm."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-06-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. How do some musicians perceive using AI in creating music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It would help to produce more music idols."
+            },
+            {
+              "key": "B",
+              "text": "It would be detrimental to music production."
+            },
+            {
+              "key": "C",
+              "text": "It would hinder the understanding of authentic music."
+            },
+            {
+              "key": "D",
+              "text": "It would be the beginning of a new era in music creation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。部分音乐人认为 AI 会损害音乐创作。第 1 段原文依据：Since American idol star Taryn Southern started composing music with AI in 2017, musicians all over the world have begun wondering about the implications of AI and modem technology where music production is concerned. Using AI in the creation of music is perceived by some as a helpful tool and by others as almost”the beginning of the end”.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does Taryn Southern's story illustrate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "AI technology is conducive to music composition."
+            },
+            {
+              "key": "B",
+              "text": "Musicians will be unable to create music without high tech."
+            },
+            {
+              "key": "C",
+              "text": "Musicians are often at their wits, end in their creative effort."
+            },
+            {
+              "key": "D",
+              "text": "AI technology is indispensable to creating melodies and chords."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。Taryn 借助软件表达本来无法自行组合的旋律和和弦。第 2 段原文依据：In Taryn's case, AI software enabled her to communicate melodies and chords that she didn't know how to put together herself. The end product was therefore a collaborative effort, rather than a piece entirely produced by technology. Taryn's story has a distinctly positive feel that highlights the advantages of using AI in music production. It can serve as a source of inspiration, and as an ideal jumping-off point should a musician be hit with writer's b/oc 左(文思枯竭).",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. Why are some musicians opposed to the use ofAI in creating music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Music produced with AI technology lacks humanness."
+            },
+            {
+              "key": "B",
+              "text": "Music created with AI technology is easily emulated."
+            },
+            {
+              "key": "C",
+              "text": "It will depreciate humans’role in music composition."
+            },
+            {
+              "key": "D",
+              "text": "It will deplete young musicians, creative inspiration."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。反对者认为计算机无法模拟真正音乐人的人性触感。第 3 段原文依据：Contrary to seeing AI as a tool, some musicians consider it to be hugely detrimental to the music scene. At the moment, because such technology is still so young, the music it's producing is not necessarily what we want to hear. In short, it's not of great quality. Those who have produced their own music, or even fans of authentic, artistic music, will also argue that a computer could never emulate the work (and human touch) of a true musician. Music has been an integral part of the story of humans for ages; in fact, the first known piece of music is believed to be around 3,400 years old. Songs have long been used as a means of communicating messages and folk stories, covering everything from societal ethics to world history. Since many people see music as such an inherently human expression, it is often considered as too precious to impart to technology. The thought of a computer generating a “random“ piece of music that hasn't been painstakingly created by an artist is almost seen as sacrilegious (亵渎神圣的).",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. Why do many people think music is too precious to impart to AI technology?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It cannot be created without pains."
+            },
+            {
+              "key": "B",
+              "text": "It cannot be produced at random."
+            },
+            {
+              "key": "C",
+              "text": "It is part of human life."
+            },
+            {
+              "key": "D",
+              "text": "It is human specific."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。音乐被认为是人类特有的表达方式，因此难以交给技术。第 3 段原文依据：Contrary to seeing AI as a tool, some musicians consider it to be hugely detrimental to the music scene. At the moment, because such technology is still so young, the music it's producing is not necessarily what we want to hear. In short, it's not of great quality. Those who have produced their own music, or even fans of authentic, artistic music, will also argue that a computer could never emulate the work (and human touch) of a true musician. Music has been an integral part of the story of humans for ages; in fact, the first known piece of music is believed to be around 3,400 years old. Songs have long been used as a means of communicating messages and folk stories, covering everything from societal ethics to world history. Since many people see music as such an inherently human expression, it is often considered as too precious to impart to technology. The thought of a computer generating a “random“ piece of music that hasn't been painstakingly created by an artist is almost seen as sacrilegious (亵渎神圣的).",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What does the author think of the future ofAI music?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will continue to arouse the interest of music investors."
+            },
+            {
+              "key": "B",
+              "text": "It has the prospect of becoming the norm in the future."
+            },
+            {
+              "key": "C",
+              "text": "It will be gradually accepted by old-school musicians."
+            },
+            {
+              "key": "D",
+              "text": "It may eventually lose its freshness and appeal."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。随着技术和投资发展，AI 音乐有望成为常态。第 4 段原文依据：Regardless of which side of the argument you fall on, it seems likely that the use ofAI in music production will only become more frequent. Our modem world is preoccupied with technological advancements. Instead of shying away from the idea of this bleak future, the best approach to take is one of optimism and curiosity. While there are always bound to be stubborn old-school musicians who refuse to use tech, music producers should consider AI as something to be embraced. AI music software is still very much in its infancy, but with more investors interested in the development and outcomes of such technology, and considering the rapid growth rate of other tech advances in recent years, it's only a matter of time before Ai-produced music is seen as the new norm.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage isfollowed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "A few weeks ago, a well-meaning professor tried to explain the physiological process behind viruses and the human body in a tweet and was immediately criticized for a mistake in his information. He then issued an apology and deleted his erroneous tweet.",
+        "Communicating science beyond the academic bubble is necessary to augmenting public understanding of health and environmental issues and helping individuals make well-informed personal decisions.",
+        "However, scientists who engage in science communication must acknowledge that even in their area, their expertise is deep but narrow. They need to recognize the constraints in their own knowledge. That is not to suggest that they only write or present on their own research, but rather, that they consult with an expert if the topic is outside of their discipline. Fact-checking with a scientist who works in the specialty will prevent the unintentional spread of misinformation, and the process of doing so may yield tiny pieces of interesting new information that can be incorporated.",
+        "Some have argued that the public is not educated enough to understand scientific information, especially for any complex phenomena, but this is absurd. Science instruction can be found at all levels of public education with most secondary schools offering classes on biology, physics, and chemistry. If anything, social media has shown that the public craves knowledge based on a solid scientific foundation. Even the public discourse that follows most scientific articles shows that online readers can understand even the most baffling of scientific principles.",
+        "It is equally imperative to emphasize that being an expert on a topic does not automatically make a scholar qualified to communicate it to a nonscientific audience. A number of scientists recently have been offering public-aimed explanations of scientific phenomena. Even though they have appropriate credentials, they often do very little in the way of explaining. One biologist shared an intricate analogy involving a library, books, paper, a recipe, ingredients, and a cake to explain the process behind vaccines. Any explanation that requires a written key to keep track of what each item represents is not a clear example for public consumption.",
+        "Science communication is a science in and of itself. It requires rigorous training and instruction. A scientist should take communication courses that can teach a person how to identify and eliminate jargon and how to develop effective analogies to explain complex concepts. One cannot assume communication expertise-imagine if someone just decided that they were a physicist and started trying to contribute to the field without the necessary background. Doing a poor job communicating science to the public will only create confusion and widen the gap between science and society, a gap that scientists are trying to close."
+      ],
+      "study_paragraphs": [
+        "A few weeks ago, a well-meaning professor tried to explain the physiological process behind viruses and the human body in a tweet and was immediately criticized for a mistake in his information. He then issued an apology and deleted his erroneous tweet.",
+        "Communicating science beyond the academic bubble is necessary to augmenting public understanding of health and environmental issues and helping individuals make well-informed personal decisions.",
+        "However, scientists who engage in science communication must acknowledge that even in their area, their expertise is deep but narrow. They need to recognize the constraints in their own knowledge. That is not to suggest that they only write or present on their own research, but rather, that they consult with an expert if the topic is outside of their discipline. Fact-checking with a scientist who works in the specialty will prevent the unintentional spread of misinformation, and the process of doing so may yield tiny pieces of interesting new information that can be incorporated.",
+        "Some have argued that the public is not educated enough to understand scientific information, especially for any complex phenomena, but this is absurd. Science instruction can be found at all levels of public education with most secondary schools offering classes on biology, physics, and chemistry. If anything, social media has shown that the public craves knowledge based on a solid scientific foundation. Even the public discourse that follows most scientific articles shows that online readers can understand even the most baffling of scientific principles.",
+        "It is equally imperative to emphasize that being an expert on a topic does not automatically make a scholar qualified to communicate it to a nonscientific audience. A number of scientists recently have been offering public-aimed explanations of scientific phenomena. Even though they have appropriate credentials, they often do very little in the way of explaining. One biologist shared an intricate analogy involving a library, books, paper, a recipe, ingredients, and a cake to explain the process behind vaccines. Any explanation that requires a written key to keep track of what each item represents is not a clear example for public consumption.",
+        "Science communication is a science in and of itself. It requires rigorous training and instruction. A scientist should take communication courses that can teach a person how to identify and eliminate jargon and how to develop effective analogies to explain complex concepts. One cannot assume communication expertise-imagine if someone just decided that they were a physicist and started trying to contribute to the field without the necessary background. Doing a poor job communicating science to the public will only create confusion and widen the gap between science and society, a gap that scientists are trying to close."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2022-06-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author say about communicating science to the general public?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will help them to keep abreast of the latest scientific developments."
+            },
+            {
+              "key": "B",
+              "text": "It is a necessary means to improve their understanding of scientific issues."
+            },
+            {
+              "key": "C",
+              "text": "It will get them more involved in academic debates on environmental problems."
+            },
+            {
+              "key": "D",
+              "text": "It is an effective way to augment scientists’influence beyond the academic circle."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。科普有助于公众理解健康与环境问题并作出知情决定。第 2 段原文依据：Communicating science beyond the academic bubble is necessary to augmenting public understanding of health and environmental issues and helping individuals make well-informed personal decisions.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does the author advise scientists do to deal with topics outside of their specialty?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Write or present on them from new angles."
+            },
+            {
+              "key": "B",
+              "text": "Utilize information from diverse sources."
+            },
+            {
+              "key": "C",
+              "text": "Turn to a specialist for professional help."
+            },
+            {
+              "key": "D",
+              "text": "Fact-check with colleagues in their field."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。超出专业范围时应咨询相关领域专家。第 3 段原文依据：However, scientists who engage in science communication must acknowledge that even in their area, their expertise is deep but narrow. They need to recognize the constraints in their own knowledge. That is not to suggest that they only write or present on their own research, but rather, that they consult with an expert if the topic is outside of their discipline. Fact-checking with a scientist who works in the specialty will prevent the unintentional spread of misinformation, and the process of doing so may yield tiny pieces of interesting new information that can be incorporated.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What does the author say we can learn from social media?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A solid academic foundation is essential to understanding baffling scientific principles."
+            },
+            {
+              "key": "B",
+              "text": "Modem technology has facilitated communication between scientists and the public."
+            },
+            {
+              "key": "C",
+              "text": "Scientific articles have gained increasing popularity among the general public."
+            },
+            {
+              "key": "D",
+              "text": "The public's understanding of science is much better than some have claimed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。社交媒体显示公众渴望有科学基础的知识且能理解复杂原则。第 4 段原文依据：Some have argued that the public is not educated enough to understand scientific information, especially for any complex phenomena, but this is absurd. Science instruction can be found at all levels of public education with most secondary schools offering classes on biology, physics, and chemistry. If anything, social media has shown that the public craves knowledge based on a solid scientific foundation. Even the public discourse that follows most scientific articles shows that online readers can understand even the most baffling of scientific principles.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does the example of the biologist who shared an intricate analogy show?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is helpful to use illustrations in explaining scientific phenomena."
+            },
+            {
+              "key": "B",
+              "text": "It is imperative to have appropriate titles to explain scientific issues."
+            },
+            {
+              "key": "C",
+              "text": "A learned scholar is not necessarily a qualified science communicator."
+            },
+            {
+              "key": "D",
+              "text": "A nonscientific audience cannot duly understand principles of science."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。具备学术资格并不自动意味着能向大众清晰表达。第 5 段原文依据：It is equally imperative to emphasize that being an expert on a topic does not automatically make a scholar qualified to communicate it to a nonscientific audience. A number of scientists recently have been offering public-aimed explanations of scientific phenomena. Even though they have appropriate credentials, they often do very little in the way of explaining. One biologist shared an intricate analogy involving a library, books, paper, a recipe, ingredients, and a cake to explain the process behind vaccines. Any explanation that requires a written key to keep track of what each item represents is not a clear example for public consumption.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2022-06-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author suggest scientists do to close the gap between science and society?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Explain complex concepts scientifically."
+            },
+            {
+              "key": "B",
+              "text": "Make appropriate use of scientific terms."
+            },
+            {
+              "key": "C",
+              "text": "Take courses in public speaking."
+            },
+            {
+              "key": "D",
+              "text": "Develop communication skills."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。科学家应学习传播课程，减少术语并设计有效类比。第 6 段原文依据：Science communication is a science in and of itself. It requires rigorous training and instruction. A scientist should take communication courses that can teach a person how to identify and eliminate jargon and how to develop effective analogies to explain complex concepts. One cannot assume communication expertise-imagine if someone just decided that they were a physicist and started trying to contribute to the field without the necessary background. Doing a poor job communicating science to the public will only create confusion and widen the gap between science and society, a gap that scientists are trying to close.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2022-06-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "赵州桥建于隋朝，公元605 年左右，长50.82 米，宽9 .6 米，跨度37.37 米。天才建筑师李春设计并监督了桥的建设。赵州桥结构新颖、造型优美。桥有一个大拱，在大拱的两端有两个小拱，帮助排泄洪水、减轻桥梁重量并节省石材。建成以来，该桥经受了多次洪水和地震，但其主体结构仍然完好无损，至今仍在使用。",
+        "赵州桥是世界桥梁建筑史上的一次创举，是中国古代文明史上的一项杰出成就。类似设计的桥梁直到14 世纪才在欧洲出现，比赵州桥晚了7 0 0 多年。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2022-06-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
