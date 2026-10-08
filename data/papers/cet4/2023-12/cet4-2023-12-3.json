@@ -1,0 +1,1749 @@
+{
+  "id": "cet4-2023-12-3",
+  "exam_level": "CET4",
+  "year": 2023,
+  "month": 12,
+  "set_no": 3,
+  "variant": "第3套",
+  "title": "2023年12月大学英语四级（第3套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理；引号及原卷措辞按原件保留。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2023-12-3-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the university newspaper is inviting submissions from the students for its coming edition on what in their university impresses them most. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-3-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the university newspaper is inviting submissions from the students for its coming edition on what in their university impresses them most. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "When people set out to improve their health, they usually take a familiar path: starting a healthy diet, getting better sleep, and doing regular exercise. Each of these behaviors is important, of course, but they all [26] ______ on physical health—and a growing body of research suggests that social health is just as, if not more, important to [27] ______ well-being.",
+        "One recent study published in the journal PLOS ONE, for example, found that the strength of a person's social circle was a better [28] ______ of self-reported stress, happiness and well-being levels than fitness tracker data on physical activity, heart rate and sleep. That finding suggests that the \" [29] ______ self \" represented by endless amounts of health data doesn't tell the whole [30] ______.",
+        "There's also a qualified self, which is who I am, what are my activities, my social network, and all of these aspects are not [31] ______ in any of these measurements.",
+        "This idea is supported by plenty of [32] ______ research. Studies have shown that social support—whether it comes from friends, family members or a spouse—is [33] ______ associated with better mental and physical health. A rich social life, these studies suggest, can lower stress levels, improve mood, encourage positive health behaviors and discourage damaging ones, boost heart health and improve illness [34] ______ rates.",
+        "Social isolation, meanwhile, is linked to higher rates of physical diseases and mental health conditions. It's a significant problem, [35] ______ since loneliness is emerging as a widespread public health problem in many countries."
+      ],
+      "study_paragraphs": [
+        "When people set out to improve their health, they usually take a familiar path: starting a healthy diet, getting better sleep, and doing regular exercise. Each of these behaviors is important, of course, but they all focus on physical health—and a growing body of research suggests that social health is just as, if not more, important to overall well-being.",
+        "One recent study published in the journal PLOS ONE, for example, found that the strength of a person's social circle was a better indicator of self-reported stress, happiness and well-being levels than fitness tracker data on physical activity, heart rate and sleep. That finding suggests that the \" quantified self \" represented by endless amounts of health data doesn't tell the whole story.",
+        "There's also a qualified self, which is who I am, what are my activities, my social network, and all of these aspects are not reflected in any of these measurements.",
+        "This idea is supported by plenty of prior research. Studies have shown that social support—whether it comes from friends, family members or a spouse—is strongly associated with better mental and physical health. A rich social life, these studies suggest, can lower stress levels, improve mood, encourage positive health behaviors and discourage damaging ones, boost heart health and improve illness recovery rates.",
+        "Social isolation, meanwhile, is linked to higher rates of physical diseases and mental health conditions. It's a significant problem, especially since loneliness is emerging as a widespread public health problem in many countries."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-3-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。饮食、睡眠和运动都侧重身体健康，focus on physical health 中 focus 与复数主语 they 搭配。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。overall well-being 表示整体健康与幸福状态，overall 用作形容词修饰 well-being。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。a better indicator of... 表示更好的指标；此处比较社交圈强度与运动追踪数据对压力、幸福和健康状态的指示作用。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理。quantified self 指用大量健康数据衡量的量化自我，与下一段的 qualified self 形成对照。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。doesn't tell the whole story 指不能说明全貌，强调仅凭健康数据无法完整了解一个人。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。are not reflected in any of these measurements 表示个人活动、社交网络等方面没有体现在这些测量中，reflected 与 are 构成被动语态。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。plenty of prior research 表示大量既有研究，随后列举的研究支持社交健康的重要性。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。is strongly associated with... 表示与更好的身心健康密切相关，strongly 是修饰 associated 的副词。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。illness recovery rates 指患病后的康复率，丰富的社交生活有助于提高这一指标。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "base"
+            },
+            {
+              "key": "B",
+              "text": "eagerly"
+            },
+            {
+              "key": "C",
+              "text": "especially"
+            },
+            {
+              "key": "D",
+              "text": "focus"
+            },
+            {
+              "key": "E",
+              "text": "indicator"
+            },
+            {
+              "key": "F",
+              "text": "overall"
+            },
+            {
+              "key": "G",
+              "text": "preached"
+            },
+            {
+              "key": "H",
+              "text": "prior"
+            },
+            {
+              "key": "I",
+              "text": "prompt"
+            },
+            {
+              "key": "J",
+              "text": "puzzle"
+            },
+            {
+              "key": "K",
+              "text": "quantified"
+            },
+            {
+              "key": "L",
+              "text": "recovery"
+            },
+            {
+              "key": "M",
+              "text": "reflected"
+            },
+            {
+              "key": "N",
+              "text": "story"
+            },
+            {
+              "key": "O",
+              "text": "strongly"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。especially since... 表示尤其因为……，用来强调孤独正成为许多国家广泛存在的公共健康问题。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Teenagers and social networking",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] As a parent of two boys at primary school, I worry about the issues associated with teenagers and social media. Newspapers are constantly filled with frightening accounts of drug addiction and aggressive behaviour supposedly caused by violent videogames. But even when these accounts touch on real concerns, they do not really reflect the great mass of everyday teenage social behaviour: the online chat, the texting, the surfing, and the emergence of a new teenage sphere that is conducted digitally.",
+        "[B] New technologies always provoke generational panic, which usually has more to do with adult fears than with the lives of teenagers. In the 1930s, parents worried that radio was gaining \"an irresistible hold of their children\". In the 80s, the great danger was the Sony Walkman (随身听). When you look at today's digital activity, the facts are much more positive than you might expect.",
+        "[C] Indeed, social scientists who study young people have found that their digital use can be inventive and even beneficial. This is true not just in terms of their social lives, but their education too. So if you use a ton of social media, do you become unable, or unwilling, to engage in face-to-face contact? The evidence suggests not. Research by Amanda Lenhart of the Pew Research Centre, a US think tank, found that the most passionate texters are also the kids most likely to spend time with friends in person. One form of socialising doesn't replace the other. It expands it.",
+        "[D] \"Kids still spend time face to face,\" Lenhart says. Indeed, as they get older and are given more freedom, they often ease up on social networking. Early on, the web is their “third space”, but by the late teens, it's replaced in reaction to greater independence. They have to be on Facebook, to know what's going on among friends and family, but they are ambivalent (有矛盾心理的) about it, says Rebecca Eynon, a research fellow at the Oxford Internet Institute, who has interviewed about 200 British teenagers over three years. As they gain experience with living online, they begin to adjust their behaviour, struggling with new communication skills, as they do in the real world.",
+        "[E] Parents are wrong to worry that kids don't care about privacy. In fact, they spend hours changing Facebook settings or using quick-delete sharing tools, such as Snapchat, to minimise their traces. Or they post a photograph on Instagram, have a pleasant conversation with friends and then delete it so that no traces remain.",
+        "[F] This is not to say that kids always use good judgment. Like everyone else, they make mistakes—sometimes serious ones. But working out how to behave online is a new social skill. While there's plenty of drama and messiness online, it is not, for most teens, a cycle of non-stop abuse: a Pew study found only 15% of teens said someone had bullied them online in the last 12 months.",
+        "[G] But surely all this short-form writing is affecting literacy? Certainly, teachers worry. They say that kids use overly casual language and text-speak in writing, and don't have as much patience for long reading and complex arguments. Yet studies of first-year college papers suggest these anxieties may be partly based on misguided nostalgia (怀旧). When Stanford University scholar Andrea Lunsford gathered data on the rates of errors in “freshman composition” papers going back to 1917, she found that they were virtually identical to today.",
+        "[H] But even as error rates stayed stable, student essays have blossomed in size and complexity. They are now six times longer and, unlike older \"what I did this summer” essays, they offer arguments supported by evidence. Why? Computers have vastly increased the ability of students to gather information, sample different points of view and write more fluidly.",
+        "[I] When linguist Naomi Baron studied students' instant messaging even there she found surprisingly rare usage of short forms such as \"u” for \"you\", and as students got older, they began to write in more grammatical sentences. That is because they want to appear more adult, and they know how adults are expected to write. Clearly, teaching teens formal writing is still crucial, but texting probably isn't destroying their ability to learn it.",
+        "[J] It is probably true that fewer kids are heavy readers compared with two generations ago, when cheap paperbacks boosted rates of reading. But even back then, a minority of people—perhaps 20%—were lifelong heavy readers, and it was cable TV, not the internet, that struck a blow at that culture in the 1980s. Still, 15% or more of kids are found to be deeply bookish. In fact, the online world offers kids remarkable opportunities to become literate and creative because young people can now publish ideas not just to their friends, but to the world. And it turns out that when they write for strangers, their sense of \"authentic audience\" makes them work harder, push themselves further, and create powerful new communicative forms.",
+        "[K] Few would deny that too much time online can be harmful. Some of the dangers are emotional: hurting someone from a distance is not the same as hurting them face to face. If we're lucky, the legal environment will change to make teenagers' online lives less likely to haunt them later on. Just last week, California passed a law allowing minors to demand that internet firms erase their digital past and the EU has considered similar legislation.",
+        "[L] Distraction is also a serious issue. When kids switch from chat to music to homework, they are indeed likely to have trouble doing each task well. And studies show that pupils don't fact-check information online-\"smart searching” is a skill schools need to teach urgently. It's also true that too much social networking and game playing can cut into schoolwork and sleep. This is precisely why parents still need to set firm boundaries around it, as with any other distraction.",
+        "[M] So what's the best way to cope? The same boring old advice that applies to everything in parenting: moderation. Rebecca Eynon argues that it's key to model good behaviour. Parents who stare non-stop at their phones and don't read books are likely to breed kids who will do the same. As ever, we ought to be careful about our own behaviour."
+      ],
+      "study_paragraphs": [
+        "As a parent of two boys at primary school, I worry about the issues associated with teenagers and social media. Newspapers are constantly filled with frightening accounts of drug addiction and aggressive behaviour supposedly caused by violent videogames. But even when these accounts touch on real concerns, they do not really reflect the great mass of everyday teenage social behaviour: the online chat, the texting, the surfing, and the emergence of a new teenage sphere that is conducted digitally.",
+        "New technologies always provoke generational panic, which usually has more to do with adult fears than with the lives of teenagers. In the 1930s, parents worried that radio was gaining \"an irresistible hold of their children\". In the 80s, the great danger was the Sony Walkman (随身听). When you look at today's digital activity, the facts are much more positive than you might expect.",
+        "Indeed, social scientists who study young people have found that their digital use can be inventive and even beneficial. This is true not just in terms of their social lives, but their education too. So if you use a ton of social media, do you become unable, or unwilling, to engage in face-to-face contact? The evidence suggests not. Research by Amanda Lenhart of the Pew Research Centre, a US think tank, found that the most passionate texters are also the kids most likely to spend time with friends in person. One form of socialising doesn't replace the other. It expands it.",
+        "\"Kids still spend time face to face,\" Lenhart says. Indeed, as they get older and are given more freedom, they often ease up on social networking. Early on, the web is their “third space”, but by the late teens, it's replaced in reaction to greater independence. They have to be on Facebook, to know what's going on among friends and family, but they are ambivalent (有矛盾心理的) about it, says Rebecca Eynon, a research fellow at the Oxford Internet Institute, who has interviewed about 200 British teenagers over three years. As they gain experience with living online, they begin to adjust their behaviour, struggling with new communication skills, as they do in the real world.",
+        "Parents are wrong to worry that kids don't care about privacy. In fact, they spend hours changing Facebook settings or using quick-delete sharing tools, such as Snapchat, to minimise their traces. Or they post a photograph on Instagram, have a pleasant conversation with friends and then delete it so that no traces remain.",
+        "This is not to say that kids always use good judgment. Like everyone else, they make mistakes—sometimes serious ones. But working out how to behave online is a new social skill. While there's plenty of drama and messiness online, it is not, for most teens, a cycle of non-stop abuse: a Pew study found only 15% of teens said someone had bullied them online in the last 12 months.",
+        "But surely all this short-form writing is affecting literacy? Certainly, teachers worry. They say that kids use overly casual language and text-speak in writing, and don't have as much patience for long reading and complex arguments. Yet studies of first-year college papers suggest these anxieties may be partly based on misguided nostalgia (怀旧). When Stanford University scholar Andrea Lunsford gathered data on the rates of errors in “freshman composition” papers going back to 1917, she found that they were virtually identical to today.",
+        "But even as error rates stayed stable, student essays have blossomed in size and complexity. They are now six times longer and, unlike older \"what I did this summer” essays, they offer arguments supported by evidence. Why? Computers have vastly increased the ability of students to gather information, sample different points of view and write more fluidly.",
+        "When linguist Naomi Baron studied students' instant messaging even there she found surprisingly rare usage of short forms such as \"u” for \"you\", and as students got older, they began to write in more grammatical sentences. That is because they want to appear more adult, and they know how adults are expected to write. Clearly, teaching teens formal writing is still crucial, but texting probably isn't destroying their ability to learn it.",
+        "It is probably true that fewer kids are heavy readers compared with two generations ago, when cheap paperbacks boosted rates of reading. But even back then, a minority of people—perhaps 20%—were lifelong heavy readers, and it was cable TV, not the internet, that struck a blow at that culture in the 1980s. Still, 15% or more of kids are found to be deeply bookish. In fact, the online world offers kids remarkable opportunities to become literate and creative because young people can now publish ideas not just to their friends, but to the world. And it turns out that when they write for strangers, their sense of \"authentic audience\" makes them work harder, push themselves further, and create powerful new communicative forms.",
+        "Few would deny that too much time online can be harmful. Some of the dangers are emotional: hurting someone from a distance is not the same as hurting them face to face. If we're lucky, the legal environment will change to make teenagers' online lives less likely to haunt them later on. Just last week, California passed a law allowing minors to demand that internet firms erase their digital past and the EU has considered similar legislation.",
+        "Distraction is also a serious issue. When kids switch from chat to music to homework, they are indeed likely to have trouble doing each task well. And studies show that pupils don't fact-check information online-\"smart searching” is a skill schools need to teach urgently. It's also true that too much social networking and game playing can cut into schoolwork and sleep. This is precisely why parents still need to set firm boundaries around it, as with any other distraction.",
+        "So what's the best way to cope? The same boring old advice that applies to everything in parenting: moderation. Rebecca Eynon argues that it's key to model good behaviour. Parents who stare non-stop at their phones and don't read books are likely to breed kids who will do the same. As ever, we ought to be careful about our own behaviour."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-3-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. Research has found the use of digital technology benefits not only teenagers' social lives but also their studies.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说明年轻人的数字技术使用不但有利于社交生活，也有利于教育。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. It is urgent that schools teach kids how to verify online information.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段指出学生不会核实网上信息，学校迫切需要教授 smart searching 这一技能。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Students now write longer and more complex essays than their counterparts in previous decades while the error rates remain unchanged.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段说论文平均长度增长六倍、内容更加复杂，但错误率保持稳定，对应题干的两方面变化。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Newspaper reports of teenagers give a false picture of their behaviour.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。A 段说报纸中令人恐惧的报道不能真实反映青少年日常社交行为的整体情况。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Parents are advised to mind their own digital behaviour and set a good example for their kids.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理。M 段建议父母示范良好行为，并提醒不停看手机、不读书的父母容易培养出相同行为的孩子。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Contrary to parents’ belief, kids try hard to leave as few traces as possible on the web.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段说孩子会花时间调整隐私设置、使用快速删除工具，或在聊天后删除照片以尽量不留痕迹。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Students' ability to learn formal writing is unlikely to be affected by texting.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段指出经常发短信的学生不太可能在学习正式写作时遇到更多困难。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Historically, new technologies have always caused great fears among parents.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段以 20 世纪 30 年代的收音机和 80 年代的随身听为例，说明新技术历来会引发家长的恐慌。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. The reading culture was seriously affected by cable television some four decades ago.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段指出阅读文化在 20 世纪 80 年代已经受到有线电视的严重冲击，并非最近才被网络破坏。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Teachers say that kids' writing is too casual, using language characteristic of text messages.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理。G 段提到教师担忧孩子在写作中使用过于随意的语言和短信用语。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "In the history of horse racing, few horses have captured the affection of the British public like Red Rum. Today, three decades after his retirement, he is still one of the best-known and most beloved racehorses of all time.",
+        "Red Rum was passed around to several owners before being purchased for Noel Le Mar. The agent who made the purchase was the now-legendary horse trainer Donald \"Ginger\" McCain.",
+        "It wasn't apparent at the time, but Red Rum had a serious bone disease in his foot. For many horses (and many trainers) this would mean the end of a racing career before it even began. For Ginger and Red Rum, though, it was just an obstacle to greatness that had to be overcome.",
+        "Red Rum's true talent came out in steeplechases (障碍赛马). His power, speed and jumping ability carried him to his first Grand National title in 1973. The very next year, Red Rum returned to take his second title. He was the first horse to take successive firsts since Reynoldstown in 1935-1936. Red Rum's spirit and grace had already begun to charm the leagues of Grand National fans.",
+        "In the following two years, Red Rum lost out on the title, coming in second both times. When he returned in 1977 to try again, he was largely regarded as past his prime. He was 12 years old and not expected to place highly. He surprised sporting fans around the world when he came in a remarkable 25 lengths ahead of the nearest horse, taking his third Grand National win. To this day, Red Rum's third win is known as one of the greatest moments in horse racing history.",
+        "Red Rum was headed for the Grand National once again in 1978 but suffered an injury in one of his heels shortly before the race. He was retired soon after, but his public life and fame by no means decreased with the end of his career. Red Rum traveled all over the country for various engagements. He often led pre-race parades at Aintree Racecourse and was a popular guest at charity benefits and public events."
+      ],
+      "study_paragraphs": [
+        "In the history of horse racing, few horses have captured the affection of the British public like Red Rum. Today, three decades after his retirement, he is still one of the best-known and most beloved racehorses of all time.",
+        "Red Rum was passed around to several owners before being purchased for Noel Le Mar. The agent who made the purchase was the now-legendary horse trainer Donald \"Ginger\" McCain.",
+        "It wasn't apparent at the time, but Red Rum had a serious bone disease in his foot. For many horses (and many trainers) this would mean the end of a racing career before it even began. For Ginger and Red Rum, though, it was just an obstacle to greatness that had to be overcome.",
+        "Red Rum's true talent came out in steeplechases (障碍赛马). His power, speed and jumping ability carried him to his first Grand National title in 1973. The very next year, Red Rum returned to take his second title. He was the first horse to take successive firsts since Reynoldstown in 1935-1936. Red Rum's spirit and grace had already begun to charm the leagues of Grand National fans.",
+        "In the following two years, Red Rum lost out on the title, coming in second both times. When he returned in 1977 to try again, he was largely regarded as past his prime. He was 12 years old and not expected to place highly. He surprised sporting fans around the world when he came in a remarkable 25 lengths ahead of the nearest horse, taking his third Grand National win. To this day, Red Rum's third win is known as one of the greatest moments in horse racing history.",
+        "Red Rum was headed for the Grand National once again in 1978 but suffered an injury in one of his heels shortly before the race. He was retired soon after, but his public life and fame by no means decreased with the end of his career. Red Rum traveled all over the country for various engagements. He often led pre-race parades at Aintree Racecourse and was a popular guest at charity benefits and public events."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-3-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn from the passage about Red Rum the racehorse?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He captured public affection long before he won national titles."
+            },
+            {
+              "key": "B",
+              "text": "He won enormous fame and love from British people."
+            },
+            {
+              "key": "C",
+              "text": "He became a myth three decades after his retirement."
+            },
+            {
+              "key": "D",
+              "text": "He owed his great success to several well-known horse trainers."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。首段说 Red Rum 赢得了英国公众的喜爱，退休三十年后仍是最知名、最受喜爱的赛马之一。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What did the serious bone disease in Red Rum's foot mean to himself and his trainer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It was simply a hindrance they had to get over to excel."
+            },
+            {
+              "key": "B",
+              "text": "It was surely a disadvantage though not considered fatal."
+            },
+            {
+              "key": "C",
+              "text": "It was actually the end of a racing career that had just begun."
+            },
+            {
+              "key": "D",
+              "text": "It was really a major obstacle hard to overcome on their own."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段说对 Red Rum 和教练 Ginger 而言，脚部骨病只是通往卓越时必须克服的障碍。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the author say Red Rum did with his power, speed and jumping ability?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He won his first Grand National title at 12."
+            },
+            {
+              "key": "B",
+              "text": "He took two firsts successively in 1935-1936."
+            },
+            {
+              "key": "C",
+              "text": "He surprised sporting fans worldwide in 1973."
+            },
+            {
+              "key": "D",
+              "text": "He took three Grand National wins in the 1970s."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第四、五段分别记述其 1973 年、1974 年和 1977 年的三次 Grand National 冠军，均发生在 20 世纪 70 年代。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What did people generally think of Red Rum when he returned to the racecourse in 1977?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He had already passed the peak of his racing life."
+            },
+            {
+              "key": "B",
+              "text": "He would have no rival in Grand National steeplechases."
+            },
+            {
+              "key": "C",
+              "text": "He had lost his charm with the leagues of Grand National fans."
+            },
+            {
+              "key": "D",
+              "text": "He could be expected to repeat his glory in the prime of his career."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第五段说他 1977 年再次参赛时，普遍被认为已经过了巅峰期，且不被看好能获得高名次。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What became of Red Rum after his career ended?",
+          "options": [
+            {
+              "key": "A",
+              "text": "He suffered from severe pain in a heel."
+            },
+            {
+              "key": "B",
+              "text": "He spent almost all his time traveling."
+            },
+            {
+              "key": "C",
+              "text": "He lived on various charity benefits."
+            },
+            {
+              "key": "D",
+              "text": "He remained famous and popular."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段说退休没有降低其知名度；他继续参加赛前游行、慈善活动和公众活动，仍然受欢迎。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "People in business often make decisions based on their own personal feelings or instincts. It is quite horrifying to see people being guided by some unknown force. But how wise is it, really, to let your instincts drive your decisions?",
+        "In the decision-making process, relying on instincts only makes sense when you have a vast experience to support you. Simply \"feeling\" that something is right or should be done is highly subjective and can drown you.",
+        "On the other hand, there is a more rational approach to making decisions. Data and analysis have long been associated with informed decisions. These reduce the likelihood of errors and increase the chances of success. Big, systematic data is mostly the foundation of most of our decisions, personal and business alike. But with its extreme usability comes a complication: what do you do if you strongly feel something should not be done, even if the data insists that it should?",
+        "This seemingly easy question is what drives the need to understand the relationship between instincts and data in the decision-making process. Without making things complicated, the solution to this dilemma is using data and instincts in conjunction to arrive at the best possible decisions.",
+        "Instinctive decisions are always backed by previous experiences or information, which acknowledges that instinctive decisions have worked in the past. Decisions are not about making the choice and braving the consequences because you want to blindly trust your instincts. They are about combining your inner wisdom with the knowledge of systematic data to make the best decisions.",
+        "Sometimes, rational analysis and data are impractical to be employed in certain situations. Absence of definitive criteria, and time and resource constraints, and novel situations are instances which limit the practicality of data. The only feasible option is to rely on what your instincts tell you. In these situations, instincts can help you make effective and quick decisions.",
+        "Combining instinctive and rational analysis produces well-rounded decisions. It reduces the chances of making mistakes, and has increasingly become a favorite approach to decision-making among leaders of today."
+      ],
+      "study_paragraphs": [
+        "People in business often make decisions based on their own personal feelings or instincts. It is quite horrifying to see people being guided by some unknown force. But how wise is it, really, to let your instincts drive your decisions?",
+        "In the decision-making process, relying on instincts only makes sense when you have a vast experience to support you. Simply \"feeling\" that something is right or should be done is highly subjective and can drown you.",
+        "On the other hand, there is a more rational approach to making decisions. Data and analysis have long been associated with informed decisions. These reduce the likelihood of errors and increase the chances of success. Big, systematic data is mostly the foundation of most of our decisions, personal and business alike. But with its extreme usability comes a complication: what do you do if you strongly feel something should not be done, even if the data insists that it should?",
+        "This seemingly easy question is what drives the need to understand the relationship between instincts and data in the decision-making process. Without making things complicated, the solution to this dilemma is using data and instincts in conjunction to arrive at the best possible decisions.",
+        "Instinctive decisions are always backed by previous experiences or information, which acknowledges that instinctive decisions have worked in the past. Decisions are not about making the choice and braving the consequences because you want to blindly trust your instincts. They are about combining your inner wisdom with the knowledge of systematic data to make the best decisions.",
+        "Sometimes, rational analysis and data are impractical to be employed in certain situations. Absence of definitive criteria, and time and resource constraints, and novel situations are instances which limit the practicality of data. The only feasible option is to rely on what your instincts tell you. In these situations, instincts can help you make effective and quick decisions.",
+        "Combining instinctive and rational analysis produces well-rounded decisions. It reduces the chances of making mistakes, and has increasingly become a favorite approach to decision-making among leaders of today."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-3-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does the author say businesspeople often do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Strive to make sense of some unknown forces."
+            },
+            {
+              "key": "B",
+              "text": "Avoid being driven by their own feelings."
+            },
+            {
+              "key": "C",
+              "text": "Draw on a vast wealth of past experience."
+            },
+            {
+              "key": "D",
+              "text": "Rely on instincts in decision-making."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。首段明确说商业人士常依据个人感觉或直觉做决策。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What should we take into account in order to make informed decisions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The likelihood of errors."
+            },
+            {
+              "key": "B",
+              "text": "Systematic data and analysis."
+            },
+            {
+              "key": "C",
+              "text": "The complexity of circumstances."
+            },
+            {
+              "key": "D",
+              "text": "Personal feelings and business strategies."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第三段指出数据和分析与有根据的决策相关，系统化数据是个人及商业决策的重要基础。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What should people do in a decision-making process if instincts disagree with data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Resolve the dilemma with previous experience."
+            },
+            {
+              "key": "B",
+              "text": "Figure out which of the two is more reliable."
+            },
+            {
+              "key": "C",
+              "text": "Combine the two together."
+            },
+            {
+              "key": "D",
+              "text": "Prioritize instincts over data."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第四段给出的解决方法是将数据与直觉结合，以得出尽可能好的决策。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What should we do when facing various factors that limit the practicality of data?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Make a rational and systematic analysis."
+            },
+            {
+              "key": "B",
+              "text": "Explore the most feasible options."
+            },
+            {
+              "key": "C",
+              "text": "Resort to our inner wisdom."
+            },
+            {
+              "key": "D",
+              "text": "Apply definitive criteria."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第六段指出在标准不明确、时间资源受限或新情境使数据不适用时，可行选择是依靠直觉。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-3-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does it take for decisions to become the best according to the author?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Applying instincts and data in conjunction."
+            },
+            {
+              "key": "B",
+              "text": "Assessing all factors when making a choice."
+            },
+            {
+              "key": "C",
+              "text": "Recalling what has actually worked in the past."
+            },
+            {
+              "key": "D",
+              "text": "Refraining from trusting instincts arbitrarily."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。最后一段指出结合直觉和理性分析能够形成更全面的决策、降低错误概率，与全文倡导的数据和直觉协同一致。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-3-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "改革开放以来，中国人民生活水平不断提高，这在人们的饮食(diet)变化上得到充分体现。如今，人们不再满足于吃得饱，而是追求吃得更加安全、更加营养、更加健康，食物也愈来愈丰富多样，不再限于本地的农产品。物流业(logistics industry)的发展使人们很容易品尝到全国各地的特产。毫无疑问，食品质量与饮食结构的改善为增进人们健康提供了有力的保障。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2023-12-3-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
