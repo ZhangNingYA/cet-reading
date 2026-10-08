@@ -1,0 +1,1848 @@
+{
+  "id": "cet6-2020-09-2",
+  "exam_level": "CET6",
+  "year": 2020,
+  "month": 9,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2020年9月大学英语六级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，并非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2020-09-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay on the saying “What is worth doing is worth doing well” You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-2-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay on the saying “What is worth doing is worth doing well” You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once. Questions 26 to 35 are based on the following passage.",
+      "paragraphs": [
+        "It was perhaps when my parents—who also happen to be my housemates—left to go travelling for a couple of months recently that it [26] ______ on me why I had not yet left the family home.",
+        "It wasn't that I relied on them for [27] ______ reasons, or to keep my life in order, or to ease the chaos of the home. These days, I rely on them for their company.",
+        "I missed coming home and talking about my day at work, and I missed being able to read their faces and sense how their day was. I missed having unique [28] ______ into tiny details that make a life.",
+        "While the conversation about young adults staying longer at home is [29] ______ by talk of laziness, of dependence, of an inability for young people to pull themselves together, [30] ______ do we talk of the way, in my case at least, my relationship with my parents has [31] ______ strengthened the longer we have lived together.",
+        "Over the years the power dynamic has changed and is no longer defined by one being the giver and another, the taker. So, what does this say for our relationships within the family home?",
+        "According to psychologist Sabina Read, there are “some very positive possible [32] ______ when adult children share the family home”, noting the “parent-child relationship may indeed strengthen and mature” in the process.",
+        "But, she notes, a strong [33] ______ doesn't simply come with time. “The many changing factors of the relationship need to be acknowledged, rather than hoping that the mere passage of time will [34] ______ connect parents to their adult children. It's important to acknowledge that the relationship parameters have changed to avoid falling back into [35] ______ from the teen years."
+      ],
+      "study_paragraphs": [
+        "It was perhaps when my parents—who also happen to be my housemates—left to go travelling for a couple of months recently that it dawned on me why I had not yet left the family home.",
+        "It wasn't that I relied on them for logistical reasons, or to keep my life in order, or to ease the chaos of the home. These days, I rely on them for their company.",
+        "I missed coming home and talking about my day at work, and I missed being able to read their faces and sense how their day was. I missed having unique insight into tiny details that make a life.",
+        "While the conversation about young adults staying longer at home is saturated by talk of laziness, of dependence, of an inability for young people to pull themselves together, rarely do we talk of the way, in my case at least, my relationship with my parents has undoubtedly strengthened the longer we have lived together.",
+        "Over the years the power dynamic has changed and is no longer defined by one being the giver and another, the taker. So, what does this say for our relationships within the family home?",
+        "According to psychologist Sabina Read, there are “some very positive possible outcomes when adult children share the family home”, noting the “parent-child relationship may indeed strengthen and mature” in the process.",
+        "But, she notes, a strong bond doesn't simply come with time. “The many changing factors of the relationship need to be acknowledged, rather than hoping that the mere passage of time will magically connect parents to their adult children. It's important to acknowledge that the relationship parameters have changed to avoid falling back into patterns from the teen years."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。it dawned on me 表示我突然明白。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。logistical reasons 表示生活安排等实际原因。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。insight into tiny details 表示深入了解细微之处。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。be saturated by talk 表示相关讨论被这类说法充斥。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。rarely do we talk 使用否定副词前置后的倒装，表示很少谈起。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。undoubtedly strengthened 表示关系无疑得到加强。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。positive possible outcomes 表示可能的积极结果。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。a strong bond 表示牢固的亲情联系。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。magically connect 表示不能指望时间自动使双方亲近。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "bond"
+            },
+            {
+              "key": "B",
+              "text": "contemplated"
+            },
+            {
+              "key": "C",
+              "text": "dawned"
+            },
+            {
+              "key": "D",
+              "text": "hierarchy"
+            },
+            {
+              "key": "E",
+              "text": "insight"
+            },
+            {
+              "key": "F",
+              "text": "legislative"
+            },
+            {
+              "key": "G",
+              "text": "leverage"
+            },
+            {
+              "key": "H",
+              "text": "logistical"
+            },
+            {
+              "key": "I",
+              "text": "magically"
+            },
+            {
+              "key": "J",
+              "text": "outcomes"
+            },
+            {
+              "key": "K",
+              "text": "patterns"
+            },
+            {
+              "key": "L",
+              "text": "rarely"
+            },
+            {
+              "key": "M",
+              "text": "saturated"
+            },
+            {
+              "key": "N",
+              "text": "stereotypes"
+            },
+            {
+              "key": "O",
+              "text": "undoubtedly"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。falling back into patterns from the teen years 表示退回青少年时期的相处模式。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· How Telemedicine Is Transforming Healthcare",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] After years of big promises, telemedicine is finally living up to its potential. Driven by faster internet connections, ubiquitous(无处不在的) smartphones and changing insurance standards, more health providers are turning to electronic communications to do their jobs—and it's dramatically changing the delivery of healthcare.",
+        "[B] Doctors are linking up with patients by phone, email and webcam(网络摄像头) . They’re also consulting with each other electronically—sometimes to make split second decisions on heart attacks and strokes. Patients, meanwhile, are using new devices to relay their blood pressure, heart rate and other vital signs to their doctors so they can manage chronic conditions at home. Telemedicine also allows for better care in places where medical expertise is hard to come by. Five to 10 times a day, Doctors Without Borders relays questions about tough cases from its physicians in Niger, South Sudan and elsewhere to its network of 280 experts around the world, and back again via internet.",
+        "[C] As a measure of how rapidly telemedicine is spreading, consider: More than 15 million Americans received some kind of medical care remotely last year, according to the American Telemedicine Association, a trade group, which expects those numbers to grow by 30% this year.",
+        "[D] None of this is to say that telemedicine has found its way into all comers of medicine. A recent survey of 500 tech-savvy(精通技术的) consumers found that 39% hadn’t heard of telemedicine, and of those who haven’t used it, 42% said they preferred in-person doctor visits. In a poll of 1500 family physicians, only 15% had used it in their practices—but 90% said they would if it were appropriately reimbursed(补偿) .",
+        "[E] What's more, for all the rapid growth, significant questions and challenges remain. Rules defining and regulating telemedicine differ widely from state to state. Physicians groups are issuing different guidelines about what care they consider appropriate to deliver and in what form.",
+        "[F] Some critics also question whether the quality of care is keeping up with the rapid expansion of telemedicine. And there's the question of what services physicians should be paid for: Insurance coverage varies from health plan to health plan, and a big federal plan covers only a narrow range of services. Telemedicine's future will depend on how—and whether—regulators, providers, payers and patients can address these challenges. Here's a closer look at some of these issues:",
+        "[G] Do patients trade quality for convenience? The fastest-growing services in telemedicine connect consumers with clinicians they've never met for a phone, video or email visit—on-demand, 24/7. Typically, these are for nonemergency issues such as colds, flu, ear-aches and skin rashes, and they cost around $45, compared with approximately $100 at a doctor's office, $160 at an urgent-care clinic or $750 and up at an emergency room.",
+        "[H] Many health plans and employers have rushed to offer the services and promote them as a convenient way for plan members to get medical care without leaving home or work. Nearly three-quarters of large employers will offer virtual doctor visits as a benefit to employees this year, up from 48% last year. Web companies such as Tel a doc and American Well are expected to host some 1.2 million such virtual doctor visits this year, up 20% from last year, according to the American Telemedicine Association.",
+        "[I] But critics worry that such services maybe sacrificing quality for convenience. Consulting a random doctor patients will never meet, they say, further fragments the health-care system, and even minor issues such as upper respiratory(上呼吸道的) infections can’t be thoroughly evaluated by a doctor who can’t listen to your heart or feel your swollen glands. In a recent study, researchers posing as patients with skin problems sought help from 16 telemedicine sites—with unsettling results. In 62 encounters, fewer than one-third disclosed clinicians' credential or let patients choose; only 32% discussed potential side effects of prescribed medications. Several sites misdiagnosed serious conditions, largely because they failed to ask basic follow-up questions, the researchers said. “Telemedicine holds enormous promise, but these sites are just not ready for prime time,” says Jack Res neck, the study's lead author.",
+        "[J] The American Telemedicine Association and other organizations have started accreditation(鉴定) programs to identify top-quality telemedicine sites. The American Medical Association this month approved new ethical guidelines for telemedicine, calling for participating doctors to recognize the limitations of such services and ensure that they have sufficient information to make clinical recommendations.",
+        "[K] Who pays for the services? While employers and health plans have been eager to cover virtual urgent-care visits, insurers have been far less willing to pay for telemedicine when doctors use phone, email or video to consult with existing patients about continuing issues. “It's very hard to get paid unless you physically see the patient,” says Peter Rasmussen, medical director of distance health at the Cleveland Clinic. Some 32 states have passed “parity”(等同的) laws requiring private insurers to reimburse doctors for services delivered remotely if the same service would be covered in person, though not necessarily at the same rate or frequency. Medicare lags further behind. The federal health plan for the elderly covers a small number of telemedicine services—only for beneficiaries in rural areas and only when the services are received in a hospital, doctor's office or clinic.",
+        "[L] Bills to expand Medicare coverage of telemedicine have bipartisan(两党的) support in Congress. Opponents worry that such expansion would be costly for taxpayers, but advocates say it would save money in the long run.",
+        "[M] Experts say more hospitals are likely to invest in telemedicine systems as they move away from fee-for-service payments and into managed-care-type contracts that give them a set fee to provide care for patients and allow them to keep any savings they achieve.",
+        "[N] Is the state-by-state regulatory system outdated? Historically, regulation of medicine has been left to individual states. But some industry members contend that having 50 different sets of rules, licensing fees and even definitions of “medical practice\" makes less sense in the era of telemedicine and is hampering its growth. Currently, doctors must have a valid license in the state where the patient is located to provide medical care, which means virtual-visit companies can match users only with locally licensed clinicians. It also causes administrative hassles(麻烦) for world-class medical centers that attract patients from across the country. At the Mayo Clinic, doctors who treat out-of-state patients can follow up with them via phone, email or web chats when they return home, but they can only discuss the conditions they treated in person. “If the patient wants to talk about a new problem, the doctor has to be licensed in that state to discuss it. If not, the patient should talk to his primary-care physician about it,” says Steve Ommen, who runs Mayo's Connected Care program.",
+        "[O] To date, 17 states have joined a compact that will allow a doctor licensed in one member state to quickly obtain a license in another. While welcoming the move, some telemedicine advocates would prefer states to automatically honor one another's licenses, as they do with drivers' licenses. But states aren’t likely to surrender control of medical practice, and most are considering new regulations. This year, more than 200 telemedicine-related bills have been introduced in 42 states, many regarding what services Medicaid will cover and whether payers should reimburse for remote patient monitoring. “A lot of states are still trying to define telemedicine,” says Lisa Robbin, chief advocacy officer for the Federation of State Medical Boards."
+      ],
+      "study_paragraphs": [
+        "After years of big promises, telemedicine is finally living up to its potential. Driven by faster internet connections, ubiquitous(无处不在的) smartphones and changing insurance standards, more health providers are turning to electronic communications to do their jobs—and it's dramatically changing the delivery of healthcare.",
+        "Doctors are linking up with patients by phone, email and webcam(网络摄像头) . They’re also consulting with each other electronically—sometimes to make split second decisions on heart attacks and strokes. Patients, meanwhile, are using new devices to relay their blood pressure, heart rate and other vital signs to their doctors so they can manage chronic conditions at home. Telemedicine also allows for better care in places where medical expertise is hard to come by. Five to 10 times a day, Doctors Without Borders relays questions about tough cases from its physicians in Niger, South Sudan and elsewhere to its network of 280 experts around the world, and back again via internet.",
+        "As a measure of how rapidly telemedicine is spreading, consider: More than 15 million Americans received some kind of medical care remotely last year, according to the American Telemedicine Association, a trade group, which expects those numbers to grow by 30% this year.",
+        "None of this is to say that telemedicine has found its way into all comers of medicine. A recent survey of 500 tech-savvy(精通技术的) consumers found that 39% hadn’t heard of telemedicine, and of those who haven’t used it, 42% said they preferred in-person doctor visits. In a poll of 1500 family physicians, only 15% had used it in their practices—but 90% said they would if it were appropriately reimbursed(补偿) .",
+        "What's more, for all the rapid growth, significant questions and challenges remain. Rules defining and regulating telemedicine differ widely from state to state. Physicians groups are issuing different guidelines about what care they consider appropriate to deliver and in what form.",
+        "Some critics also question whether the quality of care is keeping up with the rapid expansion of telemedicine. And there's the question of what services physicians should be paid for: Insurance coverage varies from health plan to health plan, and a big federal plan covers only a narrow range of services. Telemedicine's future will depend on how—and whether—regulators, providers, payers and patients can address these challenges. Here's a closer look at some of these issues:",
+        "Do patients trade quality for convenience? The fastest-growing services in telemedicine connect consumers with clinicians they've never met for a phone, video or email visit—on-demand, 24/7. Typically, these are for nonemergency issues such as colds, flu, ear-aches and skin rashes, and they cost around $45, compared with approximately $100 at a doctor's office, $160 at an urgent-care clinic or $750 and up at an emergency room.",
+        "Many health plans and employers have rushed to offer the services and promote them as a convenient way for plan members to get medical care without leaving home or work. Nearly three-quarters of large employers will offer virtual doctor visits as a benefit to employees this year, up from 48% last year. Web companies such as Tel a doc and American Well are expected to host some 1.2 million such virtual doctor visits this year, up 20% from last year, according to the American Telemedicine Association.",
+        "But critics worry that such services maybe sacrificing quality for convenience. Consulting a random doctor patients will never meet, they say, further fragments the health-care system, and even minor issues such as upper respiratory(上呼吸道的) infections can’t be thoroughly evaluated by a doctor who can’t listen to your heart or feel your swollen glands. In a recent study, researchers posing as patients with skin problems sought help from 16 telemedicine sites—with unsettling results. In 62 encounters, fewer than one-third disclosed clinicians' credential or let patients choose; only 32% discussed potential side effects of prescribed medications. Several sites misdiagnosed serious conditions, largely because they failed to ask basic follow-up questions, the researchers said. “Telemedicine holds enormous promise, but these sites are just not ready for prime time,” says Jack Res neck, the study's lead author.",
+        "The American Telemedicine Association and other organizations have started accreditation(鉴定) programs to identify top-quality telemedicine sites. The American Medical Association this month approved new ethical guidelines for telemedicine, calling for participating doctors to recognize the limitations of such services and ensure that they have sufficient information to make clinical recommendations.",
+        "Who pays for the services? While employers and health plans have been eager to cover virtual urgent-care visits, insurers have been far less willing to pay for telemedicine when doctors use phone, email or video to consult with existing patients about continuing issues. “It's very hard to get paid unless you physically see the patient,” says Peter Rasmussen, medical director of distance health at the Cleveland Clinic. Some 32 states have passed “parity”(等同的) laws requiring private insurers to reimburse doctors for services delivered remotely if the same service would be covered in person, though not necessarily at the same rate or frequency. Medicare lags further behind. The federal health plan for the elderly covers a small number of telemedicine services—only for beneficiaries in rural areas and only when the services are received in a hospital, doctor's office or clinic.",
+        "Bills to expand Medicare coverage of telemedicine have bipartisan(两党的) support in Congress. Opponents worry that such expansion would be costly for taxpayers, but advocates say it would save money in the long run.",
+        "Experts say more hospitals are likely to invest in telemedicine systems as they move away from fee-for-service payments and into managed-care-type contracts that give them a set fee to provide care for patients and allow them to keep any savings they achieve.",
+        "Is the state-by-state regulatory system outdated? Historically, regulation of medicine has been left to individual states. But some industry members contend that having 50 different sets of rules, licensing fees and even definitions of “medical practice\" makes less sense in the era of telemedicine and is hampering its growth. Currently, doctors must have a valid license in the state where the patient is located to provide medical care, which means virtual-visit companies can match users only with locally licensed clinicians. It also causes administrative hassles(麻烦) for world-class medical centers that attract patients from across the country. At the Mayo Clinic, doctors who treat out-of-state patients can follow up with them via phone, email or web chats when they return home, but they can only discuss the conditions they treated in person. “If the patient wants to talk about a new problem, the doctor has to be licensed in that state to discuss it. If not, the patient should talk to his primary-care physician about it,” says Steve Ommen, who runs Mayo's Connected Care program.",
+        "To date, 17 states have joined a compact that will allow a doctor licensed in one member state to quickly obtain a license in another. While welcoming the move, some telemedicine advocates would prefer states to automatically honor one another's licenses, as they do with drivers' licenses. But states aren’t likely to surrender control of medical practice, and most are considering new regulations. This year, more than 200 telemedicine-related bills have been introduced in 42 states, many regarding what services Medicaid will cover and whether payers should reimburse for remote patient monitoring. “A lot of states are still trying to define telemedicine,” says Lisa Robbin, chief advocacy officer for the Federation of State Medical Boards."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. An overwhelming majority of family physicians are willing to use telemedicine if they are duly paid.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：None of this is to say that telemedicine has found its way into all comers of medicine. A recent survey of 500 tech-savvy(精通技术的) consumers found that 39% hadn’t heard of telemedicine, and of those who haven’t used it, 42% said they preferred in-person doctor visits. In a poll of 1500 family physicians, only 15% had used it in their practices—but 90% said they would if it were appropriately reimbursed(补偿) .",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Many employers are eager to provide telemedicine service as a benefit to their employees because of its convenience.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Many health plans and employers have rushed to offer the services and promote them as a convenient way for plan members to get medical care without leaving home or work. Nearly three-quarters of large employers will offer virtual doctor visits as a benefit to employees this year, up from 48% last year. Web companies such as Tel a doc and American Well are expected to host some 1.2 million such virtual doctor visits this year, up 20% from last year, according to the American Telemedicine Association.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Different states have markedly different regulations for telemedicine.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：What's more, for all the rapid growth, significant questions and challenges remain. Rules defining and regulating telemedicine differ widely from state to state. Physicians groups are issuing different guidelines about what care they consider appropriate to deliver and in what form.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. With telemedicine, patients in regions short of professional medical service are able to receive better medical care.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Doctors are linking up with patients by phone, email and webcam(网络摄像头) . They’re also consulting with each other electronically—sometimes to make split second decisions on heart attacks and strokes. Patients, meanwhile, are using new devices to relay their blood pressure, heart rate and other vital signs to their doctors so they can manage chronic conditions at home. Telemedicine also allows for better care in places where medical expertise is hard to come by. Five to 10 times a day, Doctors Without Borders relays questions about tough cases from its physicians in Niger, South Sudan and elsewhere to its network of 280 experts around the world, and back again via internet.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Unlike employers and health plans, insurers have been rather reluctant to pay for some telemedicine services.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：Who pays for the services? While employers and health plans have been eager to cover virtual urgent-care visits, insurers have been far less willing to pay for telemedicine when doctors use phone, email or video to consult with existing patients about continuing issues. “It's very hard to get paid unless you physically see the patient,” says Peter Rasmussen, medical director of distance health at the Cleveland Clinic. Some 32 states have passed “parity”(等同的) laws requiring private insurers to reimburse doctors for services delivered remotely if the same service would be covered in person, though not necessarily at the same rate or frequency. Medicare lags further behind. The federal health plan for the elderly covers a small number of telemedicine services—only for beneficiaries in rural areas and only when the services are received in a hospital, doctor's office or clinic.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Some supporters of telemedicine hope states will accept each other's medical practice licenses as valid.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。对应 O 段。原文依据：To date, 17 states have joined a compact that will allow a doctor licensed in one member state to quickly obtain a license in another. While welcoming the move, some telemedicine advocates would prefer states to automatically honor one another's licenses, as they do with drivers' licenses. But states aren’t likely to surrender control of medical practice, and most are considering new regulations. This year, more than 200 telemedicine-related bills have been introduced in 42 states, many regarding what services Medicaid will cover and whether payers should reimburse for remote patient monitoring. “A lot of states are still trying to define telemedicine,” says Lisa Robbin, chief advocacy officer for the Federation of State Medical Boards.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. The fastest growing area for telemedicine services is for lesser health problems.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：Do patients trade quality for convenience? The fastest-growing services in telemedicine connect consumers with clinicians they've never met for a phone, video or email visit—on-demand, 24/7. Typically, these are for nonemergency issues such as colds, flu, ear-aches and skin rashes, and they cost around $45, compared with approximately $100 at a doctor's office, $160 at an urgent-care clinic or $750 and up at an emergency room.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. As telemedicine spreads quickly, some of its opponents doubt whether its service quality can be guaranteed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Some critics also question whether the quality of care is keeping up with the rapid expansion of telemedicine. And there's the question of what services physicians should be paid for: Insurance coverage varies from health plan to health plan, and a big federal plan covers only a narrow range of services. Telemedicine's future will depend on how—and whether—regulators, providers, payers and patients can address these challenges. Here's a closer look at some of these issues:",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. The results obtained by researchers who pretended to be patients seeking help from telemedicine providers are disturbing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：But critics worry that such services maybe sacrificing quality for convenience. Consulting a random doctor patients will never meet, they say, further fragments the health-care system, and even minor issues such as upper respiratory(上呼吸道的) infections can’t be thoroughly evaluated by a doctor who can’t listen to your heart or feel your swollen glands. In a recent study, researchers posing as patients with skin problems sought help from 16 telemedicine sites—with unsettling results. In 62 encounters, fewer than one-third disclosed clinicians' credential or let patients choose; only 32% discussed potential side effects of prescribed medications. Several sites misdiagnosed serious conditions, largely because they failed to ask basic follow-up questions, the researchers said. “Telemedicine holds enormous promise, but these sites are just not ready for prime time,” says Jack Res neck, the study's lead author.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Some people argue that the fact that different states have different regulations concerning medical services hinders the development of telemedicine.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。对应 N 段。原文依据：Is the state-by-state regulatory system outdated? Historically, regulation of medicine has been left to individual states. But some industry members contend that having 50 different sets of rules, licensing fees and even definitions of “medical practice\" makes less sense in the era of telemedicine and is hampering its growth. Currently, doctors must have a valid license in the state where the patient is located to provide medical care, which means virtual-visit companies can match users only with locally licensed clinicians. It also causes administrative hassles(麻烦) for world-class medical centers that attract patients from across the country. At the Mayo Clinic, doctors who treat out-of-state patients can follow up with them via phone, email or web chats when they return home, but they can only discuss the conditions they treated in person. “If the patient wants to talk about a new problem, the doctor has to be licensed in that state to discuss it. If not, the patient should talk to his primary-care physician about it,” says Steve Ommen, who runs Mayo's Connected Care program.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Danielle Steel, the 71-year-old romance novelist is notoriously productive, having published 179 books at a rate of up to seven a year. But a passing reference in a recent profile by Glamour magazine to her 20-hour workdays prompted an outpouring of admiration.",
+        "Steel has given that 20-hour figure when describing her “exhausting” process in the past: “I start the book and don't leave my desk until the first draft is finished.” She goes from bed, to desk, to bath, to bed, avoiding all contact aside from phone calls with her nine children. “I don't comb my hair for weeks,” she says. Meals are brought to her desk, where she types until her fingers swell and her nails bleed.",
+        "The business news website Quartz held Steel up as an inspiration, writing that if only we all followed her “actually extremely liberating” example of industrious sleeplessness, we would be quick to see results.",
+        "Well, indeed. With research results showing the cumulative effects of sleep loss and its impact on productivity, doubt has been voiced about the accuracy of Steel’s self-assessment. Her output maybe undeniable, but sceptics have suggested that she is guilty of erasing the role of ghost writers( 代笔人) at worst, gross exaggeration at best.",
+        "Steel says working 20 hours a day is “pretty brutal physically.” But is it even possible? “No,” says Maryanne Taylor of the Sleep Works. While you could work that long, the impact on productivity would make it hardly worthwhile. If Steel was routinely sleeping for four hours a night, she would be drastically underestimating the negative impact, says Alison Gardiner, founder of the sleep improvement programme Sleep station. “It’s akin to being drunk.”",
+        "It’s possible that Steel is exaggerating the demands of her schedule. Self-imposed sleeplessness has “become a bit of a status symbol”, says Taylor, a misguided measure to prove how powerful and productive you are. Margaret Thatcher was also said to get by on four hours a night, while the 130-hour workweeks endured by tech heads has been held up as key to their success.",
+        "That is starting to change with increased awareness of the importance of sleep for mental health. “People are starting to realise that sleep should not be something that you fit in between everything else,” says Taylor.",
+        "But it is possible—if statistically extremely unlikely—that Steel could be born a “short sleeper” with an unusual body clock, says sleep expert Dr. Sophie Bostock. “It’s probably present in fewer than 1% of the population.”",
+        "Even if Steel does happen to be among that tiny minority, says Bostock, it's “pretty irresponsible” to suggest that 20-hour days are simply a question of discipline for the rest of us."
+      ],
+      "study_paragraphs": [
+        "Danielle Steel, the 71-year-old romance novelist is notoriously productive, having published 179 books at a rate of up to seven a year. But a passing reference in a recent profile by Glamour magazine to her 20-hour workdays prompted an outpouring of admiration.",
+        "Steel has given that 20-hour figure when describing her “exhausting” process in the past: “I start the book and don't leave my desk until the first draft is finished.” She goes from bed, to desk, to bath, to bed, avoiding all contact aside from phone calls with her nine children. “I don't comb my hair for weeks,” she says. Meals are brought to her desk, where she types until her fingers swell and her nails bleed.",
+        "The business news website Quartz held Steel up as an inspiration, writing that if only we all followed her “actually extremely liberating” example of industrious sleeplessness, we would be quick to see results.",
+        "Well, indeed. With research results showing the cumulative effects of sleep loss and its impact on productivity, doubt has been voiced about the accuracy of Steel’s self-assessment. Her output maybe undeniable, but sceptics have suggested that she is guilty of erasing the role of ghost writers( 代笔人) at worst, gross exaggeration at best.",
+        "Steel says working 20 hours a day is “pretty brutal physically.” But is it even possible? “No,” says Maryanne Taylor of the Sleep Works. While you could work that long, the impact on productivity would make it hardly worthwhile. If Steel was routinely sleeping for four hours a night, she would be drastically underestimating the negative impact, says Alison Gardiner, founder of the sleep improvement programme Sleep station. “It’s akin to being drunk.”",
+        "It’s possible that Steel is exaggerating the demands of her schedule. Self-imposed sleeplessness has “become a bit of a status symbol”, says Taylor, a misguided measure to prove how powerful and productive you are. Margaret Thatcher was also said to get by on four hours a night, while the 130-hour workweeks endured by tech heads has been held up as key to their success.",
+        "That is starting to change with increased awareness of the importance of sleep for mental health. “People are starting to realise that sleep should not be something that you fit in between everything else,” says Taylor.",
+        "But it is possible—if statistically extremely unlikely—that Steel could be born a “short sleeper” with an unusual body clock, says sleep expert Dr. Sophie Bostock. “It’s probably present in fewer than 1% of the population.”",
+        "Even if Steel does happen to be among that tiny minority, says Bostock, it's “pretty irresponsible” to suggest that 20-hour days are simply a question of discipline for the rest of us."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn from the passage about Glamour magazine readers?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are intrigued by the exotic romance in Danielle Steel's novels."
+            },
+            {
+              "key": "B",
+              "text": "They are amazed by the number of books written by Danielle Steel."
+            },
+            {
+              "key": "C",
+              "text": "They are deeply impressed by Danielle Steel's daily work schedule."
+            },
+            {
+              "key": "D",
+              "text": "They are highly motivated by Danielle Steel’s unusual productivity."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。首段描述读者对她每天工作二十小时的日程感到惊叹。第 1 段原文依据：Danielle Steel, the 71-year-old romance novelist is notoriously productive, having published 179 books at a rate of up to seven a year. But a passing reference in a recent profile by Glamour magazine to her 20-hour workdays prompted an outpouring of admiration.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What did the business news website Quartz say about Danielle Steel?",
+          "options": [
+            {
+              "key": "A",
+              "text": "She could serve as an example of industriousness."
+            },
+            {
+              "key": "B",
+              "text": "She proved we could liberate ourselves from sleep."
+            },
+            {
+              "key": "C",
+              "text": "She could be an inspiration to novelists all over the world."
+            },
+            {
+              "key": "D",
+              "text": "She showed we could get all our work done without sleep."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第三段指出 Quartz 将她勤奋少眠的做法当作激励他人的榜样。第 3 段原文依据：The business news website Quartz held Steel up as an inspiration, writing that if only we all followed her “actually extremely liberating” example of industrious sleeplessness, we would be quick to see results.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What do sceptics think of Danielle Steel's work schedule claims?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are questionable."
+            },
+            {
+              "key": "B",
+              "text": "They are alterable."
+            },
+            {
+              "key": "C",
+              "text": "They are irresistible."
+            },
+            {
+              "key": "D",
+              "text": "They are verifiable."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第四段直接说明有人怀疑她对自身工作和生产力的评估。第 4 段原文依据：Well, indeed. With research results showing the cumulative effects of sleep loss and its impact on productivity, doubt has been voiced about the accuracy of Steel’s self-assessment. Her output maybe undeniable, but sceptics have suggested that she is guilty of erasing the role of ghost writers( 代笔人) at worst, gross exaggeration at best.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What does Maryanne Taylor think of self-imposed sleeplessness?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It may turn out to be key to a successful career."
+            },
+            {
+              "key": "B",
+              "text": "It may be practiced only by certain tech heads."
+            },
+            {
+              "key": "C",
+              "text": "It may symbolise one's importance and success."
+            },
+            {
+              "key": "D",
+              "text": "It may well serve as a measure of self-discipline."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第六段说刻意少眠已成为展示权势和生产力的身份象征。第 6 段原文依据：It’s possible that Steel is exaggerating the demands of her schedule. Self-imposed sleeplessness has “become a bit of a status symbol”, says Taylor, a misguided measure to prove how powerful and productive you are. Margaret Thatcher was also said to get by on four hours a night, while the 130-hour workweeks endured by tech heads has been held up as key to their success.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. How does Dr. Sophie Bostock look at the 20-hour daily work schedule?",
+          "options": [
+            {
+              "key": "A",
+              "text": "One should not adopt it without consulting a sleep expert."
+            },
+            {
+              "key": "B",
+              "text": "The general public should not be encouraged to follow it."
+            },
+            {
+              "key": "C",
+              "text": "One must be duly self-disciplined to adhere to it."
+            },
+            {
+              "key": "D",
+              "text": "The majority must adjust their body clock for it."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。末段指出把二十小时工作日宣传为普通人的自律问题是不负责任的。第 9 段原文依据：Even if Steel does happen to be among that tiny minority, says Bostock, it's “pretty irresponsible” to suggest that 20-hour days are simply a question of discipline for the rest of us.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Organic agriculture is a relatively untapped resource for feeding the Earth's population, especially in the face of climate change and other global challenges. That's the conclusion I reached in reviewing 40 years of science comparing the long-term prospects of organic and conventional farming.",
+        "The review study, “Organic Agriculture in the 21st Century,” is featured as the cover story for the February issue of the journal Nature Plants. It is the first to compare organic and conventional agriculture across the main goals of sustainability identified by the National Academy of Sciences: productivity, economics, and environment.",
+        "Critics have long argued that organic agriculture is inefficient, requiring more land to yield the same amount of food. It's true that organic farming produces lower yields, averaging 10 to 20 percent less than conventional. Advocates contend that the environmental advantages of organic agriculture far outweigh the lower yields, and that increasing research and breeding resources for organic systems would reduce the yield gap. Sometimes excluded from these arguments is the fact that we already produce enough food to more than feed the world's 7.4 billion people but do not provide adequate access to all individuals.",
+        "In some cases, organic yields can be higher than conventional. For example, in severe drought conditions, which are expected to increase with climate change in many areas, organic farms can produce as good, if not better, yields because of the higher water-holding capacity of organically farmed soils.",
+        "What science does tell us is that mainstream conventional farming systems have provided growing supplies of food and other products but often at the expense of other sustainability goals.",
+        "Conventional agriculture may produce more food, but it often comes at a cost to the environment. Biodiversity loss, environmental degradation, and severe impacts on ecosystem services have not only accompanied conventional farming systems but have often extended well beyond their field boundaries. With organic agriculture, environmental costs tend to be lower and the benefits greater.",
+        "Overall, organic farms tend to store more soil carbon, have better soil quality, and reduce soil erosion compared to their conventional counterparts. Organic agriculture also creates less soil and water pollution and lower greenhouse gas emissions. And it’s more energy-efficient because it doesn't rely on synthetic fertilizers or pesticides.",
+        "Organic agriculture is also associated with greater biodiversity of plants, animals, insects and microorganisms as well as genetic diversity. Biodiversity increases the services that nature provides and improves the ability of farming systems to adapt to changing conditions.",
+        "Despite lower yields, organic agriculture is more profitable for farmers because consumers are willing to pay more. Higher prices, called price premiums, can be justified as a way to compensate farmers for providing ecosystem services and avoiding environmental damage or external costs."
+      ],
+      "study_paragraphs": [
+        "Organic agriculture is a relatively untapped resource for feeding the Earth's population, especially in the face of climate change and other global challenges. That's the conclusion I reached in reviewing 40 years of science comparing the long-term prospects of organic and conventional farming.",
+        "The review study, “Organic Agriculture in the 21st Century,” is featured as the cover story for the February issue of the journal Nature Plants. It is the first to compare organic and conventional agriculture across the main goals of sustainability identified by the National Academy of Sciences: productivity, economics, and environment.",
+        "Critics have long argued that organic agriculture is inefficient, requiring more land to yield the same amount of food. It's true that organic farming produces lower yields, averaging 10 to 20 percent less than conventional. Advocates contend that the environmental advantages of organic agriculture far outweigh the lower yields, and that increasing research and breeding resources for organic systems would reduce the yield gap. Sometimes excluded from these arguments is the fact that we already produce enough food to more than feed the world's 7.4 billion people but do not provide adequate access to all individuals.",
+        "In some cases, organic yields can be higher than conventional. For example, in severe drought conditions, which are expected to increase with climate change in many areas, organic farms can produce as good, if not better, yields because of the higher water-holding capacity of organically farmed soils.",
+        "What science does tell us is that mainstream conventional farming systems have provided growing supplies of food and other products but often at the expense of other sustainability goals.",
+        "Conventional agriculture may produce more food, but it often comes at a cost to the environment. Biodiversity loss, environmental degradation, and severe impacts on ecosystem services have not only accompanied conventional farming systems but have often extended well beyond their field boundaries. With organic agriculture, environmental costs tend to be lower and the benefits greater.",
+        "Overall, organic farms tend to store more soil carbon, have better soil quality, and reduce soil erosion compared to their conventional counterparts. Organic agriculture also creates less soil and water pollution and lower greenhouse gas emissions. And it’s more energy-efficient because it doesn't rely on synthetic fertilizers or pesticides.",
+        "Organic agriculture is also associated with greater biodiversity of plants, animals, insects and microorganisms as well as genetic diversity. Biodiversity increases the services that nature provides and improves the ability of farming systems to adapt to changing conditions.",
+        "Despite lower yields, organic agriculture is more profitable for farmers because consumers are willing to pay more. Higher prices, called price premiums, can be justified as a way to compensate farmers for providing ecosystem services and avoiding environmental damage or external costs."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn from the conclusion of the author's review study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "More resources should be tapped for feeding the world's population."
+            },
+            {
+              "key": "B",
+              "text": "Organic farming may be exploited to solve the global food problem."
+            },
+            {
+              "key": "C",
+              "text": "The long-term prospects of organic farming are yet to be explored."
+            },
+            {
+              "key": "D",
+              "text": "Organic farming is at least as promising as conventional farming."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。首段总结有机农业仍是应对全球粮食和气候挑战的未充分利用资源。第 1 段原文依据：Organic agriculture is a relatively untapped resource for feeding the Earth's population, especially in the face of climate change and other global challenges. That's the conclusion I reached in reviewing 40 years of science comparing the long-term prospects of organic and conventional farming.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What is the critics' argument against organic farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It cannot meet the need for food."
+            },
+            {
+              "key": "B",
+              "text": "It cannot increase farm yields."
+            },
+            {
+              "key": "C",
+              "text": "It is not really practical."
+            },
+            {
+              "key": "D",
+              "text": "It is not that productive."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第三段说明批评者认为有机农业低产，需要更多土地。第 3 段原文依据：Critics have long argued that organic agriculture is inefficient, requiring more land to yield the same amount of food. It's true that organic farming produces lower yields, averaging 10 to 20 percent less than conventional. Advocates contend that the environmental advantages of organic agriculture far outweigh the lower yields, and that increasing research and breeding resources for organic systems would reduce the yield gap. Sometimes excluded from these arguments is the fact that we already produce enough food to more than feed the world's 7.4 billion people but do not provide adequate access to all individuals.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What does the author think should be taken into account in arguing about organic farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Growth in world population."
+            },
+            {
+              "key": "B",
+              "text": "Deterioration in soil fertility."
+            },
+            {
+              "key": "C",
+              "text": "Inequality in food distribution."
+            },
+            {
+              "key": "D",
+              "text": "Advance in farming technology."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。第三段强调现有粮食本足够供给所有人，问题包括分配和获取不足。第 3 段原文依据：Critics have long argued that organic agriculture is inefficient, requiring more land to yield the same amount of food. It's true that organic farming produces lower yields, averaging 10 to 20 percent less than conventional. Advocates contend that the environmental advantages of organic agriculture far outweigh the lower yields, and that increasing research and breeding resources for organic systems would reduce the yield gap. Sometimes excluded from these arguments is the fact that we already produce enough food to more than feed the world's 7.4 billion people but do not provide adequate access to all individuals.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does science tell us about conventional farming?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will not be able to meet global food demand."
+            },
+            {
+              "key": "B",
+              "text": "It is not conducive to sustainable development."
+            },
+            {
+              "key": "C",
+              "text": "It will eventually give away to organic farming."
+            },
+            {
+              "key": "D",
+              "text": "It is going mainstream throughout the world."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第五段指出传统农业增加供应往往以其他可持续性目标为代价。第 5 段原文依据：What science does tell us is that mainstream conventional farming systems have provided growing supplies of food and other products but often at the expense of other sustainability goals.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. Why does the author think higher prices of organic farm produce are justifiable?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They give farmers going organic a big competitive edge."
+            },
+            {
+              "key": "B",
+              "text": "They motivate farmers to upgrade farming technology."
+            },
+            {
+              "key": "C",
+              "text": "Organic farming costs more than conventional farming."
+            },
+            {
+              "key": "D",
+              "text": "Organic farming does long-term good to the ecosystem."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。末段指出溢价可补偿农民提供生态服务及避免环境损害。第 9 段原文依据：Despite lower yields, organic agriculture is more profitable for farmers because consumers are willing to pay more. Higher prices, called price premiums, can be justified as a way to compensate farmers for providing ecosystem services and avoiding environmental damage or external costs.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "《红楼梦》(Dream of the Red Chamber )是18 世纪曹雪芹创作的一部小说。曹雪芹基于自己痛苦的个人经历,讲述了贾宝玉和林黛玉之间的悲剧性爱情故事。书中有大约30 个主要人物和400 多个次要人物,每个人物都刻画得栩栩如生,具有鲜明的个性。小说详尽地描述了四个贵族世家兴衰的历程,反映了封建社会隐藏的种种危机和错综复杂的社会冲突。",
+        "《红楼梦》融合了现实主义和浪漫主义,具有很强的艺术感染力。它被普遍认为是中国最伟大的小说,也是世界上最伟大的文学创作之一。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2020-09-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

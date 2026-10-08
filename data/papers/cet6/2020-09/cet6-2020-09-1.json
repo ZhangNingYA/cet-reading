@@ -1,0 +1,1873 @@
+{
+  "id": "cet6-2020-09-1",
+  "exam_level": "CET6",
+  "year": 2020,
+  "month": 9,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2020年9月大学英语六级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，并非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2020-09-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay on the saying “Beauty of the soul is the essential beauty.”. You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-1-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay on the saying “Beauty of the soul is the essential beauty.”. You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once. Questions 26 to 35 are based on the following passage.",
+      "paragraphs": [
+        "Overall, men are more likely than women to make excuses. Several studies suggest that men feel the need to appear competent in all [26] ______ , while women worry only about the skills in which they've invested [27] ______ . Ask a man and a woman to go diving for the first time, and the woman is likely to jump in, while the man is likely to say he's not feeling too well.",
+        "Ironically, it is often success that leads people to flirt with failure. Praise won for [28] ______ a skill suddenly puts one in the position of having everything to lose. Rather than putting their reputation on the line again, many successful people develop a handicap—drinking, [29] ______ , depression—that allows them to keep their status no matter what the future brings. An advertising executive [30] ______ for depression shortly after winning an award put it this way: “Without my depression, I’d be a failure now; with it, I’m a success ‘on hold.’”",
+        "In fact, the people most likely to become chronic excuse makers are those [31] ______ with success. Such people are so afraid of being [32] ______ a failure at anything that they constantly develop one handicap or another in order to explain away failure.",
+        "Though self-handicapping can be an effective way of coping with performance anxiety now and then, in the end, researchers say, it will lead to [33] ______ . In the long run, excuse makers fail to live up to their true [34] ______ and lose the status they care so much about. And despite their protests to the [35] ______ ，they have only themselves to blame."
+      ],
+      "study_paragraphs": [
+        "Overall, men are more likely than women to make excuses. Several studies suggest that men feel the need to appear competent in all realms, while women worry only about the skills in which they've invested heavily. Ask a man and a woman to go diving for the first time, and the woman is likely to jump in, while the man is likely to say he's not feeling too well.",
+        "Ironically, it is often success that leads people to flirt with failure. Praise won for mastering a skill suddenly puts one in the position of having everything to lose. Rather than putting their reputation on the line again, many successful people develop a handicap—drinking, fatigue, depression—that allows them to keep their status no matter what the future brings. An advertising executive hospitalized for depression shortly after winning an award put it this way: “Without my depression, I’d be a failure now; with it, I’m a success ‘on hold.’”",
+        "In fact, the people most likely to become chronic excuse makers are those obsessed with success. Such people are so afraid of being labeled a failure at anything that they constantly develop one handicap or another in order to explain away failure.",
+        "Though self-handicapping can be an effective way of coping with performance anxiety now and then, in the end, researchers say, it will lead to ruin. In the long run, excuse makers fail to live up to their true potential and lose the status they care so much about. And despite their protests to the contrary，they have only themselves to blame."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。in all realms 表示在所有领域都显得能干。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。invested heavily 表示在这些技能上投入很多。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。mastering a skill 表示掌握一种技能。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。fatigue 与 drinking、depression 并列，表示作为自我设障借口的疲劳。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。hospitalized for depression 表示因抑郁症住院。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。obsessed with success 表示对成功过分执着。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。labeled a failure 表示被贴上失败者的标签。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。lead to ruin 表示最终走向失败或毁灭。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。live up to their true potential 表示发挥应有的潜力。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "contrary"
+            },
+            {
+              "key": "B",
+              "text": "fatigue"
+            },
+            {
+              "key": "C",
+              "text": "heavily"
+            },
+            {
+              "key": "D",
+              "text": "heaving"
+            },
+            {
+              "key": "E",
+              "text": "hospitalized"
+            },
+            {
+              "key": "F",
+              "text": "labeled"
+            },
+            {
+              "key": "G",
+              "text": "legacies"
+            },
+            {
+              "key": "H",
+              "text": "mastering"
+            },
+            {
+              "key": "I",
+              "text": "momentum"
+            },
+            {
+              "key": "J",
+              "text": "obsessed"
+            },
+            {
+              "key": "K",
+              "text": "potential"
+            },
+            {
+              "key": "L",
+              "text": "realms"
+            },
+            {
+              "key": "M",
+              "text": "reciprocal"
+            },
+            {
+              "key": "N",
+              "text": "ruin"
+            },
+            {
+              "key": "O",
+              "text": "viciously"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。to the contrary 是固定表达，表示相反的说法。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· Six Potential Brain Benefits of Bilingual Education",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Brains, brains, brains. People are fascinated by brain research. And yet it can be hard to point to places where our education system is really making use of the latest neuroscience(神经科学) findings. But there is one happy link where research is meeting practice: bilingual(双语的) education. “In the last 20 years or so, there's been a virtual explosion of research on bilingualism,” says Judith Kroll, a professor at the University of California, Riverside.",
+        "[B] Again and again, researchers have found, “bilingualism is an experience that shapes our brain for life,” in the words of Gigi Luk, an associate professor at Harvard's Graduate School of Education. At the same time, one of the hottest trends in public schooling is what’s often called dual-language or two-way immersion programs.",
+        "[C] Traditional programs for English-language learners, or ELLs, focus on assimilating students into English as quickly as possible. Dual-language classrooms, by contrast, provide instruction across subjects to both English natives and English learners, in both English and a target language. The goal is functional bilingualism and biliteracy for all students by middle school. New York City, North Carolina, Delaware, Utah, Oregon and Washington state are among the places expanding dual-language classrooms.",
+        "[D] The trend flies in the face of some of the culture wars of two decades ago, when advocates insisted on “English first” education. Most famously, California passed Proposition 227 in 1998. It was intended to sharply reduce the amount of tie that English-language learners spent in bilingual settings. Proposition 58, passed by California voters on November 8, largely reversed that decision, paving the way for a huge expansion of bilingual education in the state that has the largest population of English-language learners.",
+        "[E] Some of the insistence on English-first was founded on research produced decades ago, in which bilingual students underperformed monolingual(单语的) English speakers and had lower IQ scores. Today’s scholars, like Ellen Bialystok at York University in Toronto, say that research was “deeply flawed.” “Earlier research looked at socially disadvantaged groups,” agrees Antonella Sorace at the University of Edinburgh in Scotland. “This has been completely contradicted by recent research” that compares groups more similar to each other.",
+        "[F] So what does recent research say about the potential benefits of bilingual education? It turns out that, in many ways, the real trick to speaking two languages consists in managing not to speak one of those languages at a given moment—which is fundamentally a feat of paying attention. Saying “Goodbye” to mom and then “Guten tag” to your teacher, or managing to ask for a crayola roja instead of a red crayon( 蜡笔), requires skills called “inhibition” and “task switching.” These skills are subsets of an ability called executive function.",
+        "[G] People who speak two languages often outperform monolinguals on general measures of executive function. “Bilinguals can pay focused attention without being distracted and also improve in the ability to switch from one task to another,” says Sorace.",
+        "[H] Do these same advantages benefit a child who begins learning a second language in kindergarten instead of as a baby? We don't yet know. Patterns of language learning and language use are complex. But Gigi Luk at Harvard cites at least one brain-imaging study on adolescents that shows similar changes in brain structure when compared with those who are bilingual from birth, even when they didn't begin practicing a second language in earnest before late childhood.",
+        "[I] Young children being raised bilingual have to follow social cues to figure out which language to use with which person and in what setting. As a result, says Sorace, bilingual children as young as age 3 have demonstrated a head start on tests of perspective-taking and theory of mind—both of which are fundamental social and emotional skills.",
+        "[J] About 10 percent of students in the Portland, Oregon public schools are assigned by lottery to dual-language classrooms that offer instruction in Spanish, Japanese or Mandarin, alongside English. Jennifer Steele at American University conducted a four-year, randomized trial and found that the dual-language students outperformed their peers in English-reading skills by a full school-year’s worth of learning by the end of middle school. Because the effects are found in reading, not in math or science where there were few differences, Steele suggests that learning two languages make students more aware of how language works in general.",
+        "[K] The research of Gigi Luk at Harvard offers a slightly different explanation. She has recently done a small study looking at a group of 100 fourth-graders in Massachusetts who had similar reading scores on a standard test, but very different language experiences. Some were foreign-language dominant and others were English natives. Here's what’s interesting. The students who were dominant in a foreign language weren't yet comfortably bilingual; they were just starting to learn English. Therefore, by definition, they had a much weaker English vocabulary than the native speakers. Yet they were just as good at interpreting a text. “This is very surprising,” Luk says. ”You would expect the reading comprehension performance to mirror the vocabulary—it’s a cornerstone of comprehension.”",
+        "[L] How did the foreign-language dominant speakers manage this feat? Well, Luk found, they also scored higher on tests of executive functioning. So, even though they didn't have huge mental dictionaries to draw on, they may have been great puzzle-solvers, taking into account higher-level concepts such as whether a single sentence made sense within an overall storyline. They got to the same results as the monolinguals, by a different path.",
+        "[M] American public school classrooms as a whole are becoming more segregated by race and class. Dual-language programs can be an exception. Because they are composed of native English speakers deliberately placed together with recent immigrants, they tend to be more ethnically and economically balanced. And there is some evidence that this helps kids of all backgrounds gain comfort with diversity and different cultures.",
+        "[N] Several of the researchers also pointed out that, in bilingual education, non-English-dominant students and their families tend to feel that their home language is heard and valued, compared with a classroom where the home language is left at the door in favor of English. This can improve students' sense of belonging and increase parents' involvement in their children's education, including behaviors like reading to children. “Many parents fear their language is an obstacle, a problem, and if they abandon it their child will integrate better,” says Antonella Sorace of the University of Edinburgh. “We tell them they’re not doing their child a favor by giving up their language.”",
+        "[O] One theme that was striking in speaking to all these researchers was just how strongly they advocated for dual-language classrooms. Thomas and Collier have advised many school systems on how to expand their dual language programs, and Sorace runs “bilingualism Matters,” an international network of researchers who promote bilingual education projects. This type of advocacy among scientists is unusual; even more so because the “bilingual advantage hypothesis” is being challenged once again.",
+        "[P] A review of studies published last year found that cognitive advantages failed to appear in 83 percent of published studies, though in a separate analysis, the sum of effects was still significantly positive. One potential explanation offered by the researchers is that advantages that are measurable in the very young and very old tend to fade when testing young adults at the peak of their cognitive powers. And, they countered that no negative effects of bilingual education have been found. So, even if the advantages are small, they are still worth it. Not to mention one obvious, outstanding fact: “Bilingual children can speak two languages!”"
+      ],
+      "study_paragraphs": [
+        "Brains, brains, brains. People are fascinated by brain research. And yet it can be hard to point to places where our education system is really making use of the latest neuroscience(神经科学) findings. But there is one happy link where research is meeting practice: bilingual(双语的) education. “In the last 20 years or so, there's been a virtual explosion of research on bilingualism,” says Judith Kroll, a professor at the University of California, Riverside.",
+        "Again and again, researchers have found, “bilingualism is an experience that shapes our brain for life,” in the words of Gigi Luk, an associate professor at Harvard's Graduate School of Education. At the same time, one of the hottest trends in public schooling is what’s often called dual-language or two-way immersion programs.",
+        "Traditional programs for English-language learners, or ELLs, focus on assimilating students into English as quickly as possible. Dual-language classrooms, by contrast, provide instruction across subjects to both English natives and English learners, in both English and a target language. The goal is functional bilingualism and biliteracy for all students by middle school. New York City, North Carolina, Delaware, Utah, Oregon and Washington state are among the places expanding dual-language classrooms.",
+        "The trend flies in the face of some of the culture wars of two decades ago, when advocates insisted on “English first” education. Most famously, California passed Proposition 227 in 1998. It was intended to sharply reduce the amount of tie that English-language learners spent in bilingual settings. Proposition 58, passed by California voters on November 8, largely reversed that decision, paving the way for a huge expansion of bilingual education in the state that has the largest population of English-language learners.",
+        "Some of the insistence on English-first was founded on research produced decades ago, in which bilingual students underperformed monolingual(单语的) English speakers and had lower IQ scores. Today’s scholars, like Ellen Bialystok at York University in Toronto, say that research was “deeply flawed.” “Earlier research looked at socially disadvantaged groups,” agrees Antonella Sorace at the University of Edinburgh in Scotland. “This has been completely contradicted by recent research” that compares groups more similar to each other.",
+        "So what does recent research say about the potential benefits of bilingual education? It turns out that, in many ways, the real trick to speaking two languages consists in managing not to speak one of those languages at a given moment—which is fundamentally a feat of paying attention. Saying “Goodbye” to mom and then “Guten tag” to your teacher, or managing to ask for a crayola roja instead of a red crayon( 蜡笔), requires skills called “inhibition” and “task switching.” These skills are subsets of an ability called executive function.",
+        "People who speak two languages often outperform monolinguals on general measures of executive function. “Bilinguals can pay focused attention without being distracted and also improve in the ability to switch from one task to another,” says Sorace.",
+        "Do these same advantages benefit a child who begins learning a second language in kindergarten instead of as a baby? We don't yet know. Patterns of language learning and language use are complex. But Gigi Luk at Harvard cites at least one brain-imaging study on adolescents that shows similar changes in brain structure when compared with those who are bilingual from birth, even when they didn't begin practicing a second language in earnest before late childhood.",
+        "Young children being raised bilingual have to follow social cues to figure out which language to use with which person and in what setting. As a result, says Sorace, bilingual children as young as age 3 have demonstrated a head start on tests of perspective-taking and theory of mind—both of which are fundamental social and emotional skills.",
+        "About 10 percent of students in the Portland, Oregon public schools are assigned by lottery to dual-language classrooms that offer instruction in Spanish, Japanese or Mandarin, alongside English. Jennifer Steele at American University conducted a four-year, randomized trial and found that the dual-language students outperformed their peers in English-reading skills by a full school-year’s worth of learning by the end of middle school. Because the effects are found in reading, not in math or science where there were few differences, Steele suggests that learning two languages make students more aware of how language works in general.",
+        "The research of Gigi Luk at Harvard offers a slightly different explanation. She has recently done a small study looking at a group of 100 fourth-graders in Massachusetts who had similar reading scores on a standard test, but very different language experiences. Some were foreign-language dominant and others were English natives. Here's what’s interesting. The students who were dominant in a foreign language weren't yet comfortably bilingual; they were just starting to learn English. Therefore, by definition, they had a much weaker English vocabulary than the native speakers. Yet they were just as good at interpreting a text. “This is very surprising,” Luk says. ”You would expect the reading comprehension performance to mirror the vocabulary—it’s a cornerstone of comprehension.”",
+        "How did the foreign-language dominant speakers manage this feat? Well, Luk found, they also scored higher on tests of executive functioning. So, even though they didn't have huge mental dictionaries to draw on, they may have been great puzzle-solvers, taking into account higher-level concepts such as whether a single sentence made sense within an overall storyline. They got to the same results as the monolinguals, by a different path.",
+        "American public school classrooms as a whole are becoming more segregated by race and class. Dual-language programs can be an exception. Because they are composed of native English speakers deliberately placed together with recent immigrants, they tend to be more ethnically and economically balanced. And there is some evidence that this helps kids of all backgrounds gain comfort with diversity and different cultures.",
+        "Several of the researchers also pointed out that, in bilingual education, non-English-dominant students and their families tend to feel that their home language is heard and valued, compared with a classroom where the home language is left at the door in favor of English. This can improve students' sense of belonging and increase parents' involvement in their children's education, including behaviors like reading to children. “Many parents fear their language is an obstacle, a problem, and if they abandon it their child will integrate better,” says Antonella Sorace of the University of Edinburgh. “We tell them they’re not doing their child a favor by giving up their language.”",
+        "One theme that was striking in speaking to all these researchers was just how strongly they advocated for dual-language classrooms. Thomas and Collier have advised many school systems on how to expand their dual language programs, and Sorace runs “bilingualism Matters,” an international network of researchers who promote bilingual education projects. This type of advocacy among scientists is unusual; even more so because the “bilingual advantage hypothesis” is being challenged once again.",
+        "A review of studies published last year found that cognitive advantages failed to appear in 83 percent of published studies, though in a separate analysis, the sum of effects was still significantly positive. One potential explanation offered by the researchers is that advantages that are measurable in the very young and very old tend to fade when testing young adults at the peak of their cognitive powers. And, they countered that no negative effects of bilingual education have been found. So, even if the advantages are small, they are still worth it. Not to mention one obvious, outstanding fact: “Bilingual children can speak two languages!”"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. A study found that there are similar changes in brain structure between those who are bilingual from birth and those who start learning a second language later.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Do these same advantages benefit a child who begins learning a second language in kindergarten instead of as a baby? We don't yet know. Patterns of language learning and language use are complex. But Gigi Luk at Harvard cites at least one brain-imaging study on adolescents that shows similar changes in brain structure when compared with those who are bilingual from birth, even when they didn't begin practicing a second language in earnest before late childhood.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Unlike traditional monolingual programs, bilingual classrooms aim at developing students' ability to use two languages by middle school.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Traditional programs for English-language learners, or ELLs, focus on assimilating students into English as quickly as possible. Dual-language classrooms, by contrast, provide instruction across subjects to both English natives and English learners, in both English and a target language. The goal is functional bilingualism and biliteracy for all students by middle school. New York City, North Carolina, Delaware, Utah, Oregon and Washington state are among the places expanding dual-language classrooms.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. A study showed that dual-language students did significantly better than their peers in reading English texts.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：About 10 percent of students in the Portland, Oregon public schools are assigned by lottery to dual-language classrooms that offer instruction in Spanish, Japanese or Mandarin, alongside English. Jennifer Steele at American University conducted a four-year, randomized trial and found that the dual-language students outperformed their peers in English-reading skills by a full school-year’s worth of learning by the end of middle school. Because the effects are found in reading, not in math or science where there were few differences, Steele suggests that learning two languages make students more aware of how language works in general.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. About twenty years ago, bilingual practice was strongly discouraged, especially in California.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：The trend flies in the face of some of the culture wars of two decades ago, when advocates insisted on “English first” education. Most famously, California passed Proposition 227 in 1998. It was intended to sharply reduce the amount of tie that English-language learners spent in bilingual settings. Proposition 58, passed by California voters on November 8, largely reversed that decision, paving the way for a huge expansion of bilingual education in the state that has the largest population of English-language learners.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Ethnically and economically balanced bilingual classrooms are found to be helpful for kids to get used to social and cultural diversity.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。对应 M 段。原文依据：American public school classrooms as a whole are becoming more segregated by race and class. Dual-language programs can be an exception. Because they are composed of native English speakers deliberately placed together with recent immigrants, they tend to be more ethnically and economically balanced. And there is some evidence that this helps kids of all backgrounds gain comfort with diversity and different cultures.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. Researchers now claim that earlier research on bilingual education was seriously flawed.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。对应 E 段。原文依据：Some of the insistence on English-first was founded on research produced decades ago, in which bilingual students underperformed monolingual(单语的) English speakers and had lower IQ scores. Today’s scholars, like Ellen Bialystok at York University in Toronto, say that research was “deeply flawed.” “Earlier research looked at socially disadvantaged groups,” agrees Antonella Sorace at the University of Edinburgh in Scotland. “This has been completely contradicted by recent research” that compares groups more similar to each other.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. According to a researcher, dual-language experiences exert a lifelong influence on one's brain.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：Again and again, researchers have found, “bilingualism is an experience that shapes our brain for life,” in the words of Gigi Luk, an associate professor at Harvard's Graduate School of Education. At the same time, one of the hottest trends in public schooling is what’s often called dual-language or two-way immersion programs.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Advocates of bilingual education argued that it produces positive effects though they may be limited.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "参考答案 P，依据原文整理，非官方答案。对应 P 段。原文依据：A review of studies published last year found that cognitive advantages failed to appear in 83 percent of published studies, though in a separate analysis, the sum of effects was still significantly positive. One potential explanation offered by the researchers is that advantages that are measurable in the very young and very old tend to fade when testing young adults at the peak of their cognitive powers. And, they countered that no negative effects of bilingual education have been found. So, even if the advantages are small, they are still worth it. Not to mention one obvious, outstanding fact: “Bilingual children can speak two languages!”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. Bilingual speakers often do better than monolinguals in completing certain tasks because they can concentrate better on what they are doing.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：People who speak two languages often outperform monolinguals on general measures of executive function. “Bilinguals can pay focused attention without being distracted and also improve in the ability to switch from one task to another,” says Sorace.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. When their native language is used, parents can become more involved in their children's education.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。对应 N 段。原文依据：Several of the researchers also pointed out that, in bilingual education, non-English-dominant students and their families tend to feel that their home language is heard and valued, compared with a classroom where the home language is left at the door in favor of English. This can improve students' sense of belonging and increase parents' involvement in their children's education, including behaviors like reading to children. “Many parents fear their language is an obstacle, a problem, and if they abandon it their child will integrate better,” says Antonella Sorace of the University of Edinburgh. “We tell them they’re not doing their child a favor by giving up their language.”",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "It is not controversial to say that an unhealthy diet causes bad health. Nor are the basic elements of healthy eating disputed. Obesity raises susceptibility to cancer, and Britain is the sixth most obese country on Earth. That is a public health emergency. But naming the problem is the easy part. No one disputes the costs in quality of life and depleted health budgets of an obese population, but the quest for solutions gets diverted by ideological arguments around responsibility and choice. And the water is muddied by lobbying from the industries that profit from consumption of obesity-inducing products.",
+        "Historical precedent suggests that science and politics can overcome resistance from businesses that pollute and poison but it takes time, and success often starts small. So it is heartening to note that a programme in Leeds has achieved a reduction in childhood obesity, becoming the first UK city to reverse a fattening trend. The best results were among younger children and in more deprived areas. When 28% of English children aged two to 15 are obese, a national shift on the scale achieved by Leeds would lengthen hundreds of thousands of lives. A significant factor in the Leeds experience appears to be a scheme called HENRY, which helps parents reward behaviours that prevent obesity in children.",
+        "Many members of parliament are uncomfortable even with their own government's anti-obesity strategy, since it involves a “sugar tax” and abandon the sale of energy drinks to under-16s. Bans and taxes can be blunt instruments, but their harshest critics can rarely suggest better methods. These critics just oppose regulation itself.",
+        "The relationship between poor health and inequality is too pronounced for governments to be passive about large-scale intervention. People living in the most deprived areas are four times more prone to die from avoidable causes than counterparts in more affluent places. As the structural nature of public health problems becomes harder to ignore, the complaint about over protective government loses potency.",
+        "In fact, the polarised debate over public health interventions should have been abandoned long ago. Government action works when individuals are motivated to respond. Individuals need governments that expand access to good choices. The HENRY programme was delivered in part through children's centres. Closing such centres and cutting council budgets doesn’t magically increase reserves of individual self-reliance. The function of a well-designed state intervention is not to deprive people of liberty but to build social capacity and infrastructure that helps people take responsibility for their wellbeing. The obesity crisis will not have a solution devised by left or right ideology—but experience indicates that the private sector needs the incentive of regulation before it starts taking public health emergencies seriously."
+      ],
+      "study_paragraphs": [
+        "It is not controversial to say that an unhealthy diet causes bad health. Nor are the basic elements of healthy eating disputed. Obesity raises susceptibility to cancer, and Britain is the sixth most obese country on Earth. That is a public health emergency. But naming the problem is the easy part. No one disputes the costs in quality of life and depleted health budgets of an obese population, but the quest for solutions gets diverted by ideological arguments around responsibility and choice. And the water is muddied by lobbying from the industries that profit from consumption of obesity-inducing products.",
+        "Historical precedent suggests that science and politics can overcome resistance from businesses that pollute and poison but it takes time, and success often starts small. So it is heartening to note that a programme in Leeds has achieved a reduction in childhood obesity, becoming the first UK city to reverse a fattening trend. The best results were among younger children and in more deprived areas. When 28% of English children aged two to 15 are obese, a national shift on the scale achieved by Leeds would lengthen hundreds of thousands of lives. A significant factor in the Leeds experience appears to be a scheme called HENRY, which helps parents reward behaviours that prevent obesity in children.",
+        "Many members of parliament are uncomfortable even with their own government's anti-obesity strategy, since it involves a “sugar tax” and abandon the sale of energy drinks to under-16s. Bans and taxes can be blunt instruments, but their harshest critics can rarely suggest better methods. These critics just oppose regulation itself.",
+        "The relationship between poor health and inequality is too pronounced for governments to be passive about large-scale intervention. People living in the most deprived areas are four times more prone to die from avoidable causes than counterparts in more affluent places. As the structural nature of public health problems becomes harder to ignore, the complaint about over protective government loses potency.",
+        "In fact, the polarised debate over public health interventions should have been abandoned long ago. Government action works when individuals are motivated to respond. Individuals need governments that expand access to good choices. The HENRY programme was delivered in part through children's centres. Closing such centres and cutting council budgets doesn’t magically increase reserves of individual self-reliance. The function of a well-designed state intervention is not to deprive people of liberty but to build social capacity and infrastructure that helps people take responsibility for their wellbeing. The obesity crisis will not have a solution devised by left or right ideology—but experience indicates that the private sector needs the incentive of regulation before it starts taking public health emergencies seriously."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. Why is the obesity problem in Britain so difficult to solve?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Government health budgets are depleted."
+            },
+            {
+              "key": "B",
+              "text": "People disagree as to who should do what."
+            },
+            {
+              "key": "C",
+              "text": "Individuals are not ready to take their responsibilities."
+            },
+            {
+              "key": "D",
+              "text": "Industry lobbying makes it hard to get healthy foods."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。首段指出解决方案被有关责任与选择的意识形态争论带偏。第 1 段原文依据：It is not controversial to say that an unhealthy diet causes bad health. Nor are the basic elements of healthy eating disputed. Obesity raises susceptibility to cancer, and Britain is the sixth most obese country on Earth. That is a public health emergency. But naming the problem is the easy part. No one disputes the costs in quality of life and depleted health budgets of an obese population, but the quest for solutions gets diverted by ideological arguments around responsibility and choice. And the water is muddied by lobbying from the industries that profit from consumption of obesity-inducing products.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What can we learn from the past experience in tackling public health emergencies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Governments have a role to play."
+            },
+            {
+              "key": "B",
+              "text": "Public health is a scientific issue."
+            },
+            {
+              "key": "C",
+              "text": "Priority should be given to deprived regions."
+            },
+            {
+              "key": "D",
+              "text": "Businesses' responsibility should be stressed."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第二段的历史经验说明科学和政治行动能够克服相关企业的阻力。第 2 段原文依据：Historical precedent suggests that science and politics can overcome resistance from businesses that pollute and poison but it takes time, and success often starts small. So it is heartening to note that a programme in Leeds has achieved a reduction in childhood obesity, becoming the first UK city to reverse a fattening trend. The best results were among younger children and in more deprived areas. When 28% of English children aged two to 15 are obese, a national shift on the scale achieved by Leeds would lengthen hundreds of thousands of lives. A significant factor in the Leeds experience appears to be a scheme called HENRY, which helps parents reward behaviours that prevent obesity in children.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the author imply about some critics of bans and taxes concerning unhealthy drinks?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are not aware of the consequences of obesity."
+            },
+            {
+              "key": "B",
+              "text": "They have not come up with anything more constructive."
+            },
+            {
+              "key": "C",
+              "text": "They are uncomfortable with parliament anti-obesity debate."
+            },
+            {
+              "key": "D",
+              "text": "They have their own motives in opposing government regulation."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。第三段说最严厉的批评者也很少提出更好的办法。第 3 段原文依据：Many members of parliament are uncomfortable even with their own government's anti-obesity strategy, since it involves a “sugar tax” and abandon the sale of energy drinks to under-16s. Bans and taxes can be blunt instruments, but their harshest critics can rarely suggest better methods. These critics just oppose regulation itself.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. Why does the author stress the relationship between poor health and inequality?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To demonstrate the dilemma of people living in deprived areas."
+            },
+            {
+              "key": "B",
+              "text": "To bring to light the root cause of widespread obesity in Britain."
+            },
+            {
+              "key": "C",
+              "text": "To highlight the area deserving the most attention from the public."
+            },
+            {
+              "key": "D",
+              "text": "To justify government intervention in solving the obesity problem."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第四段用贫困地区的健康差距说明政府有必要干预。第 4 段原文依据：The relationship between poor health and inequality is too pronounced for governments to be passive about large-scale intervention. People living in the most deprived areas are four times more prone to die from avoidable causes than counterparts in more affluent places. As the structural nature of public health problems becomes harder to ignore, the complaint about over protective government loses potency.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. When will government action be effective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "When the polarised debate is abandoned."
+            },
+            {
+              "key": "B",
+              "text": "When ideological differences are resolved."
+            },
+            {
+              "key": "C",
+              "text": "When individuals have the incentive to act accordingly."
+            },
+            {
+              "key": "D",
+              "text": "When the private sector realises the severity of the crisis."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。末段明确说个人愿意响应时，政府行动才会奏效。第 5 段原文依据：In fact, the polarised debate over public health interventions should have been abandoned long ago. Government action works when individuals are motivated to respond. Individuals need governments that expand access to good choices. The HENRY programme was delivered in part through children's centres. Closing such centres and cutting council budgets doesn’t magically increase reserves of individual self-reliance. The function of a well-designed state intervention is not to deprive people of liberty but to build social capacity and infrastructure that helps people take responsibility for their wellbeing. The obesity crisis will not have a solution devised by left or right ideology—but experience indicates that the private sector needs the incentive of regulation before it starts taking public health emergencies seriously.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Home to virgin reefs, rare sharks and vast numbers of exotic fish, the Coral Sea is a unique haven of biodiversity off the northeastern coast of Australia. If a proposal by the Australian government goes ahead, the region will also become the world's largest marine protected area, with restrictions or bans on fishing, mining and marine farming.",
+        "The Coral Sea reserve would cover almost 990 000 square kilometres and stretch as far as 1 100 kilometres from the coast. Unveiled recently by environment minister Tony Burke, the proposal would be the last in a series of proposed marine reserves around Australia's coast.",
+        "But the scheme is attracting criticism from scientists and conservation groups, who argue that the government hasn't gone far enough in protecting the Coral Sea, or in other marine reserves in the coastal network.",
+        "Hugh Possingham, director of the Centre of Excellence for Environmental Decisions at the University of Queensland, points out that little more than half of the Coral Sea reserve is proposed as “no take” area, in which all fishing would be banned. The world's largest existing marine reserve, established last year by the British government in the Indian Ocean, spans 554 000 km² and is a no-take zone throughout. An alliance of campaigning conversation groups argues that more of the Coral Sea should receive this level of protection.",
+        "“I would like to have seen more protection for coral reefs,” says Terry Hughes, director of the Centre of Excellence for Coral Reef Studies at James Cook University in Queensland. “More than 20 of them would be outside the no-take area and vulnerable to catch-and-release fishing”.",
+        "As Nature went to press, the Australian government had not responded to specific criticisms of the plan. But Robin Beaman, a marine geologist at James Cook University, says that the reserve does “broadly protect the range of habitats” in the sea. “I can testify to the huge effort that government agencies and other organisations have put into trying to understand the ecological values of this vast area,” he says.",
+        "Reserves proposed earlier this year for Australia's southwestern and northwestern coastal regions have also been criticised for failing to give habitats adequate protection. In August, 173 marine scientists signed an open letter to the government saying they were “greatly concerned” that the proposals for the southwestern region had not been based on the “core science principles” of reserves—the protected regions were not, for instance, representative of all the habitats in the region, they said.",
+        "Critics say that the southwestern reserve offers the greatest protection to the offshore areas where commercial opportunities are fewest and where there is little threat to the environment, a contention also levelled at the Coral Sea plan."
+      ],
+      "study_paragraphs": [
+        "Home to virgin reefs, rare sharks and vast numbers of exotic fish, the Coral Sea is a unique haven of biodiversity off the northeastern coast of Australia. If a proposal by the Australian government goes ahead, the region will also become the world's largest marine protected area, with restrictions or bans on fishing, mining and marine farming.",
+        "The Coral Sea reserve would cover almost 990 000 square kilometres and stretch as far as 1 100 kilometres from the coast. Unveiled recently by environment minister Tony Burke, the proposal would be the last in a series of proposed marine reserves around Australia's coast.",
+        "But the scheme is attracting criticism from scientists and conservation groups, who argue that the government hasn't gone far enough in protecting the Coral Sea, or in other marine reserves in the coastal network.",
+        "Hugh Possingham, director of the Centre of Excellence for Environmental Decisions at the University of Queensland, points out that little more than half of the Coral Sea reserve is proposed as “no take” area, in which all fishing would be banned. The world's largest existing marine reserve, established last year by the British government in the Indian Ocean, spans 554 000 km² and is a no-take zone throughout. An alliance of campaigning conversation groups argues that more of the Coral Sea should receive this level of protection.",
+        "“I would like to have seen more protection for coral reefs,” says Terry Hughes, director of the Centre of Excellence for Coral Reef Studies at James Cook University in Queensland. “More than 20 of them would be outside the no-take area and vulnerable to catch-and-release fishing”.",
+        "As Nature went to press, the Australian government had not responded to specific criticisms of the plan. But Robin Beaman, a marine geologist at James Cook University, says that the reserve does “broadly protect the range of habitats” in the sea. “I can testify to the huge effort that government agencies and other organisations have put into trying to understand the ecological values of this vast area,” he says.",
+        "Reserves proposed earlier this year for Australia's southwestern and northwestern coastal regions have also been criticised for failing to give habitats adequate protection. In August, 173 marine scientists signed an open letter to the government saying they were “greatly concerned” that the proposals for the southwestern region had not been based on the “core science principles” of reserves—the protected regions were not, for instance, representative of all the habitats in the region, they said.",
+        "Critics say that the southwestern reserve offers the greatest protection to the offshore areas where commercial opportunities are fewest and where there is little threat to the environment, a contention also levelled at the Coral Sea plan."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2020-09-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn from the passage about the Coral Sea?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is exceptionally rich in marine life."
+            },
+            {
+              "key": "B",
+              "text": "It is the biggest marine protected area."
+            },
+            {
+              "key": "C",
+              "text": "It remains largely undisturbed by humans."
+            },
+            {
+              "key": "D",
+              "text": "It is a unique haven of endangered species."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。首段以原始珊瑚礁、稀有鲨鱼和大量鱼类说明其生物多样性。第 1 段原文依据：Home to virgin reefs, rare sharks and vast numbers of exotic fish, the Coral Sea is a unique haven of biodiversity off the northeastern coast of Australia. If a proposal by the Australian government goes ahead, the region will also become the world's largest marine protected area, with restrictions or bans on fishing, mining and marine farming.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What does the Australian government plan to do according to Tony Burke?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Make a new proposal to protect the Coral Sea."
+            },
+            {
+              "key": "B",
+              "text": "Revise its conservation plan owing to criticisms."
+            },
+            {
+              "key": "C",
+              "text": "Upgrade the established reserves to protect marine life."
+            },
+            {
+              "key": "D",
+              "text": "Complete the series of marine reserves around its coast."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第二段指出珊瑚海方案是沿岸保护区系列中的最后一项。第 2 段原文依据：The Coral Sea reserve would cover almost 990 000 square kilometres and stretch as far as 1 100 kilometres from the coast. Unveiled recently by environment minister Tony Burke, the proposal would be the last in a series of proposed marine reserves around Australia's coast.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What is scientists' argument about the Coral Sea proposal?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The government has not done enough for marine protection."
+            },
+            {
+              "key": "B",
+              "text": "It will not improve the marine reserves along Australia's coast."
+            },
+            {
+              "key": "C",
+              "text": "The government has not consulted them in drawing up the proposal."
+            },
+            {
+              "key": "D",
+              "text": "It is not based on sufficient investigations into the ecological system."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。第三段概括科学家认为政府在海洋保护上做得不够。第 3 段原文依据：But the scheme is attracting criticism from scientists and conservation groups, who argue that the government hasn't gone far enough in protecting the Coral Sea, or in other marine reserves in the coastal network.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does marine geologist Robin Beaman say about the Coral Sea plan?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It can compare with the British government's effort in the Indian Ocean."
+            },
+            {
+              "key": "B",
+              "text": "It will result in the establishment of the world's largest marine reserve."
+            },
+            {
+              "key": "C",
+              "text": "It will ensure the sustainability of the fishing industry around the coast."
+            },
+            {
+              "key": "D",
+              "text": "It is a tremendous joint effort to protect the range of marine habitats."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。第六段说明该计划是政府机构和其他组织共同保护多样栖息地的巨大努力。第 6 段原文依据：As Nature went to press, the Australian government had not responded to specific criticisms of the plan. But Robin Beaman, a marine geologist at James Cook University, says that the reserve does “broadly protect the range of habitats” in the sea. “I can testify to the huge effort that government agencies and other organisations have put into trying to understand the ecological values of this vast area,” he says.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2020-09-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What do critics think of the Coral Sea plan?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It will do more harm than good to the environment."
+            },
+            {
+              "key": "B",
+              "text": "It will adversely affect Australia's fishing industry."
+            },
+            {
+              "key": "C",
+              "text": "It will protect regions that actually require little protection."
+            },
+            {
+              "key": "D",
+              "text": "It will win little support from environmental organisations."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。末段指出保护力度最大的区域商业开发机会少、环境威胁也较小。第 8 段原文依据：Critics say that the southwestern reserve offers the greatest protection to the offshore areas where commercial opportunities are fewest and where there is little threat to the environment, a contention also levelled at the Coral Sea plan.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2020-09-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "《西游记》(Journey to the West)也许是中国文学四大经典小说中最具影响力的一部，当然也是在国外最广为人知的一部小说。这部小说描绘了著名僧侣玄装在三个随从的陪同下穿越中国西部地区前往印度取经(Buddhist scripture)的艰难历程。虽然故事的主题基于佛教，但这部小说采用了大量中国民间故事和神话的素材，创造了各种栩栩如生的人物和动物形象。其中最著名的是孙悟空，他与各种各样妖魔作斗争的故事几乎为每个中国孩子所熟知。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2020-09-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
