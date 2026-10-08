@@ -1,5 +1,5 @@
 import { Pool } from 'pg';
-import { AnswersSchema, contextHash, type Answers, type PracticeResult, type SentenceAnalysis } from '@cet-reading/contracts';
+import { AnswersSchema, contextHash, validateAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
@@ -186,15 +186,19 @@ export async function getSentence(id: string) {
   return { ...sentence, context, context_hash: contextHash(context) };
 }
 
-export async function getCachedAnalysis(sentenceId: string, sourceHash: string, contextHashValue: string) {
+export async function getCachedAnalysis(sentenceId: string, sourceHash: string, contextHashValue: string, source: string) {
   const result = await pool.query(
     `SELECT analysis_json FROM sentence_analyses
      WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
-       AND prompt_version IN ($4, $7) AND model = $5 AND mode = $6 AND status = 'succeeded'
-     ORDER BY (prompt_version = $4) DESC, created_at DESC LIMIT 1`,
-    [sentenceId, sourceHash, contextHashValue, config.promptVersion, config.model, config.mode, config.legacyPromptVersion],
+       AND prompt_version = ANY($4::text[]) AND model = $5 AND mode = $6 AND status = 'succeeded'
+     ORDER BY (prompt_version = $7) DESC, updated_at DESC`,
+    [sentenceId, sourceHash, contextHashValue, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
   );
-  return result.rows[0]?.analysis_json as SentenceAnalysis | undefined;
+  for (const row of result.rows) {
+    try { return validateAnalysis(source, row.analysis_json); }
+    catch { /* Preserve old records, but never serve incomplete or placeholder analyses. */ }
+  }
+  return undefined;
 }
 
 export async function enqueueAnalysis(sentence: {

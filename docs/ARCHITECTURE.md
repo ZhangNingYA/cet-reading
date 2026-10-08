@@ -23,14 +23,16 @@ Astro Web  ---- HTTPS /api ---->  Fastify API
 ## 缓存键
 
 ```text
-sentence_id + source_hash + prompt_version + model
+sentence_id + source_hash + context_hash + prompt_version + model + mode
 ```
 
 原文、提示词或模型改变时生成新版本，旧结果仍然可追溯。外部试卷不进入精读或做题接口，用户通过原站链接查看内容。
 
 重点词汇使用 `vocabulary` 数组，项目包含 `kind`（`word` / `phrase`）、`expression`、语境含义 `meaning`、简短用法 `usage` 和原文 token 范围 `ranges`。多个范围可以表达 `attribute … to …` 这类被其他成分隔开的搭配。Worker 校验范围、单词数量和顺序后才保存结果。
 
-当前提示词版本在环境配置的 `PROMPT_VERSION` 后追加 `-vocabulary-v1`。查询优先读取新版本；缺少新版本时仍可读取原版本缓存，用户可以主动重新生成补充词汇。
+当前提示词版本在环境配置的 `PROMPT_VERSION` 后追加 `-vocabulary-v1-grammar-v2`。查询优先读取新版本，也可复用 `-vocabulary-v1` 及原版本的有效缓存；每条候选结果都必须通过原文 token、语法和词汇校验。包含“句子主要成分”“句子主干”等占位解释、空语法数组或错误范围的缓存会被跳过，旧记录保留用于追溯；没有有效缓存时按需生成。
+
+`grammar.clauses` 和 `grammar.components` 都必须非空，简单句也应解释主句。解释应引用具体英文，说明成分作用、中心词和主从关系。AI 漏填或返回无效结果时，Worker 最多提交一次带校验错误的修正请求；两次请求共用原来的超时期限。修正后仍不合格则标记任务失败，不填充通用说明，也不保存为成功结果。
 
 `POST /api/sentences/:id/analyze?mode=intensive&regenerate=true` 跳过缓存并创建或复用正在进行的任务。普通请求继续读取已有缓存，重新生成失败不删除旧结果；Worker 以领取次数核对任务所有权，过期后被其他 Worker 接管的旧请求不能覆盖新结果。
 

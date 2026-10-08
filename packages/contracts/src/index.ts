@@ -58,8 +58,8 @@ export const AIAnalysisSchema = z.object({
     sentenceType: z.string().min(1),
     tense: z.string().min(1),
     voice: z.string().min(1),
-    clauses: z.array(RangeSchema.extend({ type: z.string().min(1) }).strict()),
-    components: z.array(RangeSchema.extend({ role: z.string().min(1) }).strict()),
+    clauses: z.array(RangeSchema.extend({ type: z.string().min(1) }).strict()).min(1),
+    components: z.array(RangeSchema.extend({ role: z.string().min(1) }).strict()).min(1),
   }).strict(),
   words: z.array(AIWordSchema).min(1),
   vocabulary: z.array(VocabularyItemSchema).max(6),
@@ -115,6 +115,23 @@ function ensureVocabularyRanges(tokens: BaseToken[], vocabulary: z.infer<typeof 
   }
 }
 
+function ensureGrammarRanges(tokens: BaseToken[], grammar: SentenceAnalysis['grammar']) {
+  const placeholders = new Set([
+    '句子主要成分', '句子主干', '主语部分', '谓语及其补充成分',
+    '成分作用', '作用', '主句', '从句类型',
+  ]);
+  for (const range of [...grammar.clauses, ...grammar.components]) {
+    if (range.tokenStart >= range.tokenEnd || range.tokenEnd > tokens.length ||
+        !tokens.slice(range.tokenStart, range.tokenEnd).some(token => token.kind === 'word')) {
+      throw new Error('Grammar range must contain source words and stay inside the source');
+    }
+    const explanation = range.explanation.replace(/[\s，。！？、：；,.!?:;]/gu, '');
+    if (!explanation || placeholders.has(explanation)) {
+      throw new Error('Grammar explanation must describe the actual source words and their role, not a placeholder');
+    }
+  }
+}
+
 export function buildAnalysis(source: string, raw: unknown): SentenceAnalysis {
   const ai = AIAnalysisSchema.parse(raw);
   const baseTokens = tokenize(source);
@@ -138,17 +155,9 @@ export function buildAnalysis(source: string, raw: unknown): SentenceAnalysis {
     if (value.includes('connector') || value.includes('连接')) return 'connector' as const;
     return 'modifier' as const;
   };
-  const clauses = ai.grammar.clauses.length > 0
-    ? ai.grammar.clauses
-    : [{ tokenStart: 0, tokenEnd: baseTokens.length, type: '主句', explanation: '句子主要成分' }];
-  const components = ai.grammar.components.length > 0
-    ? ai.grammar.components.map((component) => ({ ...component, role: normaliseRole(component.role) }))
-    : [{ tokenStart: 0, tokenEnd: baseTokens.length, role: 'predicate' as const, explanation: '句子主干' }];
-  for (const range of [...clauses, ...components]) {
-    if (range.tokenStart >= range.tokenEnd || range.tokenEnd > baseTokens.length) {
-      throw new Error('Grammar range is outside the source');
-    }
-  }
+  const clauses = ai.grammar.clauses;
+  const components = ai.grammar.components.map((component) => ({ ...component, role: normaliseRole(component.role) }));
+  ensureGrammarRanges(baseTokens, { ...ai.grammar, clauses, components });
   ensureChineseTranslation(ai.translation, source);
   ensureVocabularyRanges(baseTokens, ai.vocabulary);
   return SentenceAnalysisSchema.parse({
@@ -172,6 +181,7 @@ export function validateAnalysis(source: string, value: unknown): SentenceAnalys
     }
   }
   ensureChineseTranslation(analysis.translation, source);
+  ensureGrammarRanges(expected, analysis.grammar);
   ensureVocabularyRanges(expected, analysis.vocabulary);
   return analysis;
 }

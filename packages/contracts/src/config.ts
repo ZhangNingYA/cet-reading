@@ -21,13 +21,15 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env) {
   if (parsed.JOB_LEASE_SECONDS * 1000 < parsed.AI_REQUEST_TIMEOUT_MS + 15000) {
     throw new Error('Job lease must exceed the AI timeout by at least 15 seconds');
   }
+  const vocabularyPromptVersion = `${parsed.PROMPT_VERSION}-vocabulary-v1`;
+  const promptVersion = `${vocabularyPromptVersion}-grammar-v2`;
   return {
     port: parsed.PORT,
     databaseUrl: parsed.DATABASE_URL,
     mode,
     model: mode === 'demo' ? 'demo-fixtures-v1' : parsed.AI_MODEL,
-    promptVersion: `${parsed.PROMPT_VERSION}-vocabulary-v1`,
-    legacyPromptVersion: parsed.PROMPT_VERSION,
+    promptVersion,
+    cachePromptVersions: [promptVersion, vocabularyPromptVersion, parsed.PROMPT_VERSION],
     corsOrigins: parsed.CORS_ORIGIN.split(',').map((origin) => origin.trim()).filter(Boolean),
     apiUrl: parsed.AI_API_URL,
     apiKey: parsed.AI_API_KEY,

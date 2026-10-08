@@ -40,7 +40,7 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
   if (!sentence) return reply.code(404).send({ error: 'sentence_not_found' });
 
   if (request.query.regenerate !== 'true') {
-    const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash);
+    const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash, sentence.source_text);
     if (cached) {
       return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
     }

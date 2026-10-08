@@ -1,25 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildAnalysis, tokenize, validateAnalysis } from '@cet-reading/contracts';
+import { buildAnalysis, validateAnalysis } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
-
-const source = 'People attribute success to hard work.';
-const tokens = tokenize(source);
-function raw(vocabulary = []) {
-  return {
-    translation: '人们把成功归因于努力。',
-    pattern: 'attribute A to B',
-    grammar: {
-      sentenceType: '简单句', tense: '一般现在时', voice: '主动语态',
-      clauses: [], components: [],
-    },
-    words: tokens.filter(token => token.kind === 'word').map(token => ({
-      index: token.index, lemma: token.text.toLowerCase(), pos: 'n.', contextMeaning: '语境词义',
-    })),
-    vocabulary,
-    keyPoints: ['把某事归因于某原因。'],
-  };
-}
+import { source, tokens, raw } from './fixtures/analysis.mjs';
 const word = {
   kind: 'word', expression: 'attribute', meaning: '把……归因于', usage: '此处用作及物动词。',
   ranges: [{ tokenStart: 1, tokenEnd: 2 }],
@@ -65,8 +48,41 @@ test('rejects an empty token range used for an implied grammar component', () =>
   assert.throws(() => buildAnalysis(source, analysis), /tokenEnd/);
 });
 
-test('versions new prompts while retaining the configured old version for cache lookup', () => {
+test('requires actual grammar analysis instead of silently inventing a main clause or predicate', () => {
+  for (const field of ['clauses', 'components']) {
+    const incomplete = raw();
+    incomplete.grammar[field] = [];
+    assert.throws(() => buildAnalysis(source, incomplete), new RegExp(field));
+  }
+});
+
+test('rejects generic grammar explanations in both new answers and old cached results', () => {
+  for (const [field, explanation] of [
+    ['clauses', '句子主要成分'], ['clauses', ' 句子主要成分。 '],
+    ['components', '句子主干'], ['components', '主语部分'], ['components', '作用'],
+  ]) {
+    const answer = raw(); answer.grammar[field][0].explanation = explanation;
+    assert.throws(() => buildAnalysis(source, answer), /placeholder/);
+    const cached = buildAnalysis(source, raw()); cached.grammar[field][0].explanation = explanation;
+    assert.throws(() => validateAnalysis(source, cached), /placeholder/);
+  }
+});
+
+test('rejects grammar ranges outside the source or containing only punctuation, including cached results', () => {
+  for (const range of [
+    { tokenStart: 0, tokenEnd: tokens.length + 1 },
+    { tokenStart: tokens.length - 1, tokenEnd: tokens.length },
+    { tokenStart: 3, tokenEnd: 2 },
+  ]) {
+    const answer = raw(); Object.assign(answer.grammar.clauses[0], range);
+    assert.throws(() => buildAnalysis(source, answer), /Grammar range/);
+    const cached = buildAnalysis(source, raw()); Object.assign(cached.grammar.clauses[0], range);
+    assert.throws(() => validateAnalysis(source, cached), /Grammar range/);
+  }
+});
+
+test('versions grammar prompts while allowing validated results from both earlier versions', () => {
   const config = readConfig({ AI_DRY_RUN: 'true', PROMPT_VERSION: 'custom-v2' });
-  assert.equal(config.promptVersion, 'custom-v2-vocabulary-v1');
-  assert.equal(config.legacyPromptVersion, 'custom-v2');
+  assert.equal(config.promptVersion, 'custom-v2-vocabulary-v1-grammar-v2');
+  assert.deepEqual(config.cachePromptVersions, [config.promptVersion, 'custom-v2-vocabulary-v1', 'custom-v2']);
 });
