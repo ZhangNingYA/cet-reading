@@ -1,0 +1,1749 @@
+{
+  "id": "cet6-2023-06-1",
+  "exam_level": "CET6",
+  "year": 2023,
+  "month": 6,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2023年6月大学英语六级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2023-06-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"Today there is a growing awareness that mental well-being needs to be given as much attention as physical health. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-06-1-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence \"Today there is a growing awareness that mental well-being needs to be given as much attention as physical health. \" You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Scientists recently examined studies on dog intelligence and compared them with research into the minds of other intelligent animals. The researchers found that dogs are among the more intelligent carnivores ( 食肉动物), social hunters and domestic animals, but that their intelligence does not [26] ______ other intelligent animals in any of those categories. Though a significant body of research has examined dog cognition [27] ______ , the authors of this new study found little to warrant the [28] ______ of work that has been devoted to the topic.",
+        "Stephen Lea, lead author of the new study, argues that many researchers seem to have designed their studies to [29] ______ how clever dogs are, rather than simply to study dogs' brains. Lea and a colleague examined more than 300 studies of dog cognition, comparing the studies' results with those from research into other animals. The researchers made specific comparisons between the different species in different categories of intelligence. These comparisons [30] ______ that dogs are intelligent, but their intelligence is not as [31] ______ as some researchers might have believed.",
+        "In many areas, though, comparisons were not possible. For example, the researchers noted that both dogs and cats are known to be able to recognize and [32] ______ human voices. But the investigators could not find any data to indicate which species can remember a greater number of [33] ______ human voices, so it was impossible to compare the two on that front. However, not all researchers agree [34] ______ with the findings of this study. Zachary Silver, an American researcher, believes the authors of the new study [35] ______ the idea that an excessive amount of research has been devoted to dogs, as the field of dog cognition is young, and there is much to be learned about how dogs think."
+      ],
+      "study_paragraphs": [
+        "Scientists recently examined studies on dog intelligence and compared them with research into the minds of other intelligent animals. The researchers found that dogs are among the more intelligent carnivores ( 食肉动物), social hunters and domestic animals, but that their intelligence does not surpass other intelligent animals in any of those categories. Though a significant body of research has examined dog cognition previously, the authors of this new study found little to warrant the volume of work that has been devoted to the topic.",
+        "Stephen Lea, lead author of the new study, argues that many researchers seem to have designed their studies to prove how clever dogs are, rather than simply to study dogs' brains. Lea and a colleague examined more than 300 studies of dog cognition, comparing the studies' results with those from research into other animals. The researchers made specific comparisons between the different species in different categories of intelligence. These comparisons affirmed that dogs are intelligent, but their intelligence is not as formidable as some researchers might have believed.",
+        "In many areas, though, comparisons were not possible. For example, the researchers noted that both dogs and cats are known to be able to recognize and differentiate human voices. But the investigators could not find any data to indicate which species can remember a greater number of distinct human voices, so it was impossible to compare the two on that front. However, not all researchers agree completely with the findings of this study. Zachary Silver, an American researcher, believes the authors of the new study overstated the idea that an excessive amount of research has been devoted to dogs, as the field of dog cognition is young, and there is much to be learned about how dogs think."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-06-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。surpass 表示狗的智力并未超过其他聪明动物。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。previously 指此前已有大量研究。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。volume of work 指投入该主题的研究工作数量。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。prove 表示研究被设计成证明狗聪明。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。affirmed 表示跨物种比较确认狗确实聪明。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。formidable 表示狗的智力并未像想象中那么出众。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。differentiate human voices 表示区分人类声音。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。distinct human voices 指不同个体的声音。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。agree completely 指完全同意研究结论。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "affirmed"
+            },
+            {
+              "key": "B",
+              "text": "approximately"
+            },
+            {
+              "key": "C",
+              "text": "completely"
+            },
+            {
+              "key": "D",
+              "text": "differentiate"
+            },
+            {
+              "key": "E",
+              "text": "distinct"
+            },
+            {
+              "key": "F",
+              "text": "domain"
+            },
+            {
+              "key": "G",
+              "text": "formidable"
+            },
+            {
+              "key": "H",
+              "text": "outperformed"
+            },
+            {
+              "key": "I",
+              "text": "overstated"
+            },
+            {
+              "key": "J",
+              "text": "pledge"
+            },
+            {
+              "key": "K",
+              "text": "previously"
+            },
+            {
+              "key": "L",
+              "text": "prospective"
+            },
+            {
+              "key": "M",
+              "text": "prove"
+            },
+            {
+              "key": "N",
+              "text": "surpass"
+            },
+            {
+              "key": "O",
+              "text": "volume"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。overstated 表示新研究过分强调了研究量过多的说法。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· The lifesaving power of gratitude",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Gratitude may be more beneficial than we commonly suppose. One recent study asked participants to write a note of thanks to someone and then estimate how surprised and happy the recipient would feel—an impact that they consistently underestimated. Another study assessed the health benefits of writing thank-you notes. The researchers found that writing as few as three weekly thank-you notes over the course of three weeks improved life satisfaction, increased happy feelings and reduced symptoms of depression.",
+        "[B] While this research into gratitude is relatively new, the principles involved are anything but. Students of mine in a political philosophy course at Indiana University are reading Daniel Defoe's 300-year-old Robinson Crusoe, often regarded as the first novel published in English. Left alone on an unknown island with no apparent prospect of rescue or escape, Crusoe has much to lament (悲). But instead of giving in to despair, he makes a list of things for which he is grateful, including the fact that he is the sole survivor from the shipwreck (海难) and has been able to salvage many useful items from the wreckage.",
+        "[C] Defoe's masterpiece, which is often ranked as one of the world's greatest novels, provides a portrait of gratitude in action that is as timely and relevant today as it has ever been. It is also one with which contemporary psychology and medicine are just beginning to catch up. Simply put, for most of us, it is far more helpful to focus on the things in life for which we can express gratitude than those that incline us toward resentment and lamentation.",
+        "[D] When we focus on the things we regret, such as failed relationships, family disputes, and setbacks in career and finance, we tend to become more regretful. Conversely, when we focus on the things we are grateful for, a greater sense of happiness tends to spread through our lives. And while no one would argue for cultivating a false sense of blessedness, there is mounting evidence that counting our blessings is one of the best habits we can develop to promote mental and physical health.",
+        "[E] Gratitude has long enjoyed a privileged position in many of the world's cultural traditions. For example, some ancient Western philosophers counsel gratitude that is both enduring and complete, and some Eastern thinkers portray it as not merely an attitude but a virtue to be put into practice.",
+        "[F] Recent scientific studies support these ancient teachings. Individuals who regularly engage in gratitude exercises, such as counting their blessings or expressing gratitude to others, exhibit increased satisfaction with relationships and fewer symptoms of physical illness. And the benefits are not only psychological and physical. They may also be moral—those who practice gratitude also view their lives less materialistically and suffer from less envy.",
+        "[G] There are multiple explanations for such benefits of gratefulness. One is the fact that expressing gratitude encourages others to continue being generous, thus promoting a virtuous cycle of goodness in relationships. Similarly, grateful people may be more likely to reciprocate (回报) with acts of kindness of their own. Broadly speaking, a community in which people feel grateful to one another is likely to be a more pleasant place to live than one characterized by mutual suspicion and resentment. The beneficial effects of gratitude may extend even further. For example, when many people feel good about what someone else has done for them, they experience a sense of being lifted up, with a corresponding enhancement of their regard for humanity. Some are inspired to attempt to become better people themselves, doing more to help bring out the best in others and bringing more goodness into the world around them.",
+        "[H] Gratitude also tends to strengthen a sense of connection with others. When people want to do good things that inspire gratitude, the level of dedication in relationships tends to grow and relationships seem to last longer. And when people feel more connected, they are more likely to choose to spend their time with one another and demonstrate their feelings of affection in daily acts.",
+        "[I] Of course, acts of kindness can also foster discomfort. For example, if people feel they are not worthy of kindness or suspect that some ulterior (别有用心的) motive lies behind it, the benefits of gratitude will not be realized. Likewise, receiving a kindness can give rise to a sense of indebtedness, leaving beneficiaries feeling that they must now pay back whatever good they have received. Gratitude can flourish only if people are secure enough in themselves and sufficiently trusting to allow it to do so. Another obstacle to gratitude is often called a sense of entitlement. Instead of experiencing a benefaction (善行) as a good turn, people sometimes regard it as a mere payment of what they are owed, for which no one deserves any moral credit.",
+        "[J] There are a number of practical steps anyone can take to promote a sense of gratitude. One is simply spending time on a regular basis thinking about someone who has made a difference, or perhaps writing a thank-you note or expressing such gratitude in person. Others are found in ancient religious disciplines, such as reflecting on benefactions received from another person or actually praying for the health and happiness of a benefactor. In addition to benefactions received, it is also possible to focus on opportunities to do good oneself, whether those acted on in the past or hoped for in the future. Some people are most grateful not for what others have done for them but for chances they enjoyed to help others. In regularly reflecting on the things in his life he is grateful for, Defoe's Crusoe believes that he becomes a far better person than he would have been had he remained in the society from which he originally set out on his voyage.",
+        "[K] Reflecting on generosity and gratitude, the great basketball coach John Wooden once offered two counsels to his players and students. First, he said, \"It is impossible to have a perfect day unless you have done something for someone who will never be able to repay you. \" In saying this, Wooden sought to promote purely generous acts, as opposed to those performed with an expectation of reward. Second, he said, \"Give thanks for your blessings every day.”",
+        "[L] Some faith traditions incorporate such practices into the rhythm of daily life. For example, adherents of some religions offer prayers of thanksgiving every morning before rising and every night before lying down to sleep. Others offer thanks throughout the day, such as before meals. Other less frequent special events, such as births, deaths and marriages, may also be heralded by such prayers.",
+        "[M] When Defoe depicted Robinson Crusoe making thanksgiving a daily part of his island life, he was anticipating findings in social science and medicine that would not appear for hundreds of years. Yet he was also reflecting the wisdom of religious and philosophical traditions that extend back thousands of years. Gratitude is one of the healthiest and most nourishing of all states of mind, and those who adopt it as a habit are enriching not only their own lives but also the lives of those around them."
+      ],
+      "study_paragraphs": [
+        "Gratitude may be more beneficial than we commonly suppose. One recent study asked participants to write a note of thanks to someone and then estimate how surprised and happy the recipient would feel—an impact that they consistently underestimated. Another study assessed the health benefits of writing thank-you notes. The researchers found that writing as few as three weekly thank-you notes over the course of three weeks improved life satisfaction, increased happy feelings and reduced symptoms of depression.",
+        "While this research into gratitude is relatively new, the principles involved are anything but. Students of mine in a political philosophy course at Indiana University are reading Daniel Defoe's 300-year-old Robinson Crusoe, often regarded as the first novel published in English. Left alone on an unknown island with no apparent prospect of rescue or escape, Crusoe has much to lament (悲). But instead of giving in to despair, he makes a list of things for which he is grateful, including the fact that he is the sole survivor from the shipwreck (海难) and has been able to salvage many useful items from the wreckage.",
+        "Defoe's masterpiece, which is often ranked as one of the world's greatest novels, provides a portrait of gratitude in action that is as timely and relevant today as it has ever been. It is also one with which contemporary psychology and medicine are just beginning to catch up. Simply put, for most of us, it is far more helpful to focus on the things in life for which we can express gratitude than those that incline us toward resentment and lamentation.",
+        "When we focus on the things we regret, such as failed relationships, family disputes, and setbacks in career and finance, we tend to become more regretful. Conversely, when we focus on the things we are grateful for, a greater sense of happiness tends to spread through our lives. And while no one would argue for cultivating a false sense of blessedness, there is mounting evidence that counting our blessings is one of the best habits we can develop to promote mental and physical health.",
+        "Gratitude has long enjoyed a privileged position in many of the world's cultural traditions. For example, some ancient Western philosophers counsel gratitude that is both enduring and complete, and some Eastern thinkers portray it as not merely an attitude but a virtue to be put into practice.",
+        "Recent scientific studies support these ancient teachings. Individuals who regularly engage in gratitude exercises, such as counting their blessings or expressing gratitude to others, exhibit increased satisfaction with relationships and fewer symptoms of physical illness. And the benefits are not only psychological and physical. They may also be moral—those who practice gratitude also view their lives less materialistically and suffer from less envy.",
+        "There are multiple explanations for such benefits of gratefulness. One is the fact that expressing gratitude encourages others to continue being generous, thus promoting a virtuous cycle of goodness in relationships. Similarly, grateful people may be more likely to reciprocate (回报) with acts of kindness of their own. Broadly speaking, a community in which people feel grateful to one another is likely to be a more pleasant place to live than one characterized by mutual suspicion and resentment. The beneficial effects of gratitude may extend even further. For example, when many people feel good about what someone else has done for them, they experience a sense of being lifted up, with a corresponding enhancement of their regard for humanity. Some are inspired to attempt to become better people themselves, doing more to help bring out the best in others and bringing more goodness into the world around them.",
+        "Gratitude also tends to strengthen a sense of connection with others. When people want to do good things that inspire gratitude, the level of dedication in relationships tends to grow and relationships seem to last longer. And when people feel more connected, they are more likely to choose to spend their time with one another and demonstrate their feelings of affection in daily acts.",
+        "Of course, acts of kindness can also foster discomfort. For example, if people feel they are not worthy of kindness or suspect that some ulterior (别有用心的) motive lies behind it, the benefits of gratitude will not be realized. Likewise, receiving a kindness can give rise to a sense of indebtedness, leaving beneficiaries feeling that they must now pay back whatever good they have received. Gratitude can flourish only if people are secure enough in themselves and sufficiently trusting to allow it to do so. Another obstacle to gratitude is often called a sense of entitlement. Instead of experiencing a benefaction (善行) as a good turn, people sometimes regard it as a mere payment of what they are owed, for which no one deserves any moral credit.",
+        "There are a number of practical steps anyone can take to promote a sense of gratitude. One is simply spending time on a regular basis thinking about someone who has made a difference, or perhaps writing a thank-you note or expressing such gratitude in person. Others are found in ancient religious disciplines, such as reflecting on benefactions received from another person or actually praying for the health and happiness of a benefactor. In addition to benefactions received, it is also possible to focus on opportunities to do good oneself, whether those acted on in the past or hoped for in the future. Some people are most grateful not for what others have done for them but for chances they enjoyed to help others. In regularly reflecting on the things in his life he is grateful for, Defoe's Crusoe believes that he becomes a far better person than he would have been had he remained in the society from which he originally set out on his voyage.",
+        "Reflecting on generosity and gratitude, the great basketball coach John Wooden once offered two counsels to his players and students. First, he said, \"It is impossible to have a perfect day unless you have done something for someone who will never be able to repay you. \" In saying this, Wooden sought to promote purely generous acts, as opposed to those performed with an expectation of reward. Second, he said, \"Give thanks for your blessings every day.”",
+        "Some faith traditions incorporate such practices into the rhythm of daily life. For example, adherents of some religions offer prayers of thanksgiving every morning before rising and every night before lying down to sleep. Others offer thanks throughout the day, such as before meals. Other less frequent special events, such as births, deaths and marriages, may also be heralded by such prayers.",
+        "When Defoe depicted Robinson Crusoe making thanksgiving a daily part of his island life, he was anticipating findings in social science and medicine that would not appear for hundreds of years. Yet he was also reflecting the wisdom of religious and philosophical traditions that extend back thousands of years. Gratitude is one of the healthiest and most nourishing of all states of mind, and those who adopt it as a habit are enriching not only their own lives but also the lives of those around them."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-06-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. It does us far more good to focus on things we can be grateful for than what makes us sad and resentful.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。对应 C 段。原文依据：Defoe's masterpiece, which is often ranked as one of the world's greatest novels, provides a portrait of gratitude in action that is as timely and relevant today as it has ever been. It is also one with which contemporary psychology and medicine are just beginning to catch up. Simply put, for most of us, it is far more helpful to focus on the things in life for which we can express gratitude than those that incline us toward resentment and lamentation.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. The beneficial impacts of gratitude can extend from individuals to their community and to the wider society.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：There are multiple explanations for such benefits of gratefulness. One is the fact that expressing gratitude encourages others to continue being generous, thus promoting a virtuous cycle of goodness in relationships. Similarly, grateful people may be more likely to reciprocate (回报) with acts of kindness of their own. Broadly speaking, a community in which people feel grateful to one another is likely to be a more pleasant place to live than one characterized by mutual suspicion and resentment. The beneficial effects of gratitude may extend even further. For example, when many people feel good about what someone else has done for them, they experience a sense of being lifted up, with a corresponding enhancement of their regard for humanity. Some are inspired to attempt to become better people themselves, doing more to help bring out the best in others and bringing more goodness into the world around them.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. The participants in a recent study repeatedly underestimated the positive effect on those who received thank-you notes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：Gratitude may be more beneficial than we commonly suppose. One recent study asked participants to write a note of thanks to someone and then estimate how surprised and happy the recipient would feel—an impact that they consistently underestimated. Another study assessed the health benefits of writing thank-you notes. The researchers found that writing as few as three weekly thank-you notes over the course of three weeks improved life satisfaction, increased happy feelings and reduced symptoms of depression.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. Good deeds can sometimes make people feel uncomfortable.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：Of course, acts of kindness can also foster discomfort. For example, if people feel they are not worthy of kindness or suspect that some ulterior (别有用心的) motive lies behind it, the benefits of gratitude will not be realized. Likewise, receiving a kindness can give rise to a sense of indebtedness, leaving beneficiaries feeling that they must now pay back whatever good they have received. Gratitude can flourish only if people are secure enough in themselves and sufficiently trusting to allow it to do so. Another obstacle to gratitude is often called a sense of entitlement. Instead of experiencing a benefaction (善行) as a good turn, people sometimes regard it as a mere payment of what they are owed, for which no one deserves any moral credit.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. People who regularly express gratitude can benefit in moral terms.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：Recent scientific studies support these ancient teachings. Individuals who regularly engage in gratitude exercises, such as counting their blessings or expressing gratitude to others, exhibit increased satisfaction with relationships and fewer symptoms of physical illness. And the benefits are not only psychological and physical. They may also be moral—those who practice gratitude also view their lives less materialistically and suffer from less envy.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. A basketball coach advocated performing generous acts without expecting anything in return.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：Reflecting on generosity and gratitude, the great basketball coach John Wooden once offered two counsels to his players and students. First, he said, \"It is impossible to have a perfect day unless you have done something for someone who will never be able to repay you. \" In saying this, Wooden sought to promote purely generous acts, as opposed to those performed with an expectation of reward. Second, he said, \"Give thanks for your blessings every day.”",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. More and more evidence shows it makes us mentally and physically healthier to routinely count our blessings.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：When we focus on the things we regret, such as failed relationships, family disputes, and setbacks in career and finance, we tend to become more regretful. Conversely, when we focus on the things we are grateful for, a greater sense of happiness tends to spread through our lives. And while no one would argue for cultivating a false sense of blessedness, there is mounting evidence that counting our blessings is one of the best habits we can develop to promote mental and physical health.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. Of all states of mind, feeling grateful is considered one of the most healthy and beneficial.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案 M，依据原文整理，非官方答案。对应 M 段。原文依据：When Defoe depicted Robinson Crusoe making thanksgiving a daily part of his island life, he was anticipating findings in social science and medicine that would not appear for hundreds of years. Yet he was also reflecting the wisdom of religious and philosophical traditions that extend back thousands of years. Gratitude is one of the healthiest and most nourishing of all states of mind, and those who adopt it as a habit are enriching not only their own lives but also the lives of those around them.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. The principles underlying the research into gratitude are nothing new at all.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。对应 B 段。原文依据：While this research into gratitude is relatively new, the principles involved are anything but. Students of mine in a political philosophy course at Indiana University are reading Daniel Defoe's 300-year-old Robinson Crusoe, often regarded as the first novel published in English. Left alone on an unknown island with no apparent prospect of rescue or escape, Crusoe has much to lament (悲). But instead of giving in to despair, he makes a list of things for which he is grateful, including the fact that he is the sole survivor from the shipwreck (海难) and has been able to salvage many useful items from the wreckage.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Gratitude is likely to enhance one's sense of being connected with other people.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Gratitude also tends to strengthen a sense of connection with others. When people want to do good things that inspire gratitude, the level of dedication in relationships tends to grow and relationships seem to last longer. And when people feel more connected, they are more likely to choose to spend their time with one another and demonstrate their feelings of affection in daily acts.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Technology is never a neutral tool for achieving human ends. Technological innovations reshape people as they use these innovations to control their environment. Artificial intelligence, for example, is altering humanity.",
+        "While the term AI conjures up anxieties about killer robots or catastrophic levels of unemployment, there are other, deeper implications. As AI increasingly shapes the human experience, how does this change what it means to be human? Central to the problem is a person's capacity to make choices, particularly judgments that have moral implications.",
+        "Aristotle argued that the capacity for making practical judgments depends on regularly making them—on habit and practice. We see the emergence of machines as substitute judges in a variety of everyday contexts as a potential threat to people learning how to effectively exercise judgment themselves.",
+        "In the workplace, managers routinely make decisions about who to hire or fire and which loan to approve, to name a few. These are areas where algorithmic (算法的) prescription is replacing human judgment, and so people who might have had the chance to develop practical judgment in these areas no longer will.",
+        "Recommendation engines, which are increasingly prevalent intermediaries in people's consumption of culture, may serve to constrain choice and minimize luck. By presenting consumers with algorithmically selected choices of what to watch, read, stream and visit next, companies are replacing human taste with machine taste. In one sense, this is helpful. After all, machines can survey a wider range of choices than any individual is likely to have the time or energy to do on their own.",
+        "At the same time, though, this selection is optimizing for what people are likely to prefer based on what they've preferred in the past. We think there is some risk that people's options will be constrained by their past in a new and unanticipated way.",
+        "As machine learning algorithms improve and as they train on more extensive data sets, larger parts of everyday life are likely to become utterly predictable. The predictions are going to get better and better, and they will ultimately make common experiences more efficient and pleasant.",
+        "Algorithms could soon-if they don't already—have a better idea about which show you'd like to watch next and which job candidate you should hire than you do. One day, humans may even find a way for machines to make these decisions without some of the biases that humans typically display.",
+        "But to the extent that unpredictability is part of how people understand themselves and part of what people like about themselves, humanity is in the process of losing something significant. As they become more and more predictable, the creatures inhabiting the increasingly AI-mediated world will become less and less like us."
+      ],
+      "study_paragraphs": [
+        "Technology is never a neutral tool for achieving human ends. Technological innovations reshape people as they use these innovations to control their environment. Artificial intelligence, for example, is altering humanity.",
+        "While the term AI conjures up anxieties about killer robots or catastrophic levels of unemployment, there are other, deeper implications. As AI increasingly shapes the human experience, how does this change what it means to be human? Central to the problem is a person's capacity to make choices, particularly judgments that have moral implications.",
+        "Aristotle argued that the capacity for making practical judgments depends on regularly making them—on habit and practice. We see the emergence of machines as substitute judges in a variety of everyday contexts as a potential threat to people learning how to effectively exercise judgment themselves.",
+        "In the workplace, managers routinely make decisions about who to hire or fire and which loan to approve, to name a few. These are areas where algorithmic (算法的) prescription is replacing human judgment, and so people who might have had the chance to develop practical judgment in these areas no longer will.",
+        "Recommendation engines, which are increasingly prevalent intermediaries in people's consumption of culture, may serve to constrain choice and minimize luck. By presenting consumers with algorithmically selected choices of what to watch, read, stream and visit next, companies are replacing human taste with machine taste. In one sense, this is helpful. After all, machines can survey a wider range of choices than any individual is likely to have the time or energy to do on their own.",
+        "At the same time, though, this selection is optimizing for what people are likely to prefer based on what they've preferred in the past. We think there is some risk that people's options will be constrained by their past in a new and unanticipated way.",
+        "As machine learning algorithms improve and as they train on more extensive data sets, larger parts of everyday life are likely to become utterly predictable. The predictions are going to get better and better, and they will ultimately make common experiences more efficient and pleasant.",
+        "Algorithms could soon-if they don't already—have a better idea about which show you'd like to watch next and which job candidate you should hire than you do. One day, humans may even find a way for machines to make these decisions without some of the biases that humans typically display.",
+        "But to the extent that unpredictability is part of how people understand themselves and part of what people like about themselves, humanity is in the process of losing something significant. As they become more and more predictable, the creatures inhabiting the increasingly AI-mediated world will become less and less like us."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-06-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn about the deeper implications of AI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is causing catastrophic levels of unemployment."
+            },
+            {
+              "key": "B",
+              "text": "It is doing physical harm to human operators."
+            },
+            {
+              "key": "C",
+              "text": "It is altering moral judgments."
+            },
+            {
+              "key": "D",
+              "text": "It is reshaping humanity."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。AI 正在改变人的经验和人性本身。第 2 段原文依据：While the term AI conjures up anxieties about killer robots or catastrophic levels of unemployment, there are other, deeper implications. As AI increasingly shapes the human experience, how does this change what it means to be human? Central to the problem is a person's capacity to make choices, particularly judgments that have moral implications.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What is the consequence of algorithmic prescription replacing human judgment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People lose the chance to cultivate the ability to make practical judgments."
+            },
+            {
+              "key": "B",
+              "text": "People are prevented from participating in making major decisions in the workplace."
+            },
+            {
+              "key": "C",
+              "text": "Managers no longer have the chance to decide which loan to approve."
+            },
+            {
+              "key": "D",
+              "text": "Managers do not need to take the trouble to determine who to hire or fire."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。算法代替判断使人失去练习实际判断能力的机会。第 4 段原文依据：In the workplace, managers routinely make decisions about who to hire or fire and which loan to approve, to name a few. These are areas where algorithmic (算法的) prescription is replacing human judgment, and so people who might have had the chance to develop practical judgment in these areas no longer will.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What may result from increasing application of recommendation engines in our consumption of culture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Consumers will have much limited choice."
+            },
+            {
+              "key": "B",
+              "text": "Consumers will actually enjoy better luck."
+            },
+            {
+              "key": "C",
+              "text": "It will be easier to decide on what to enjoy."
+            },
+            {
+              "key": "D",
+              "text": "Humans will develop tastes similar to machines'."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。推荐算法依照过去偏好选内容，可能限制新的选择。第 5 段原文依据：Recommendation engines, which are increasingly prevalent intermediaries in people's consumption of culture, may serve to constrain choice and minimize luck. By presenting consumers with algorithmically selected choices of what to watch, read, stream and visit next, companies are replacing human taste with machine taste. In one sense, this is helpful. After all, machines can survey a wider range of choices than any individual is likely to have the time or energy to do on their own.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What is likely to happen to larger parts of our daily life as machine learning algorithms improve?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will turn out to be more pleasant."
+            },
+            {
+              "key": "B",
+              "text": "They will repeat our past experience."
+            },
+            {
+              "key": "C",
+              "text": "They can be completely anticipated."
+            },
+            {
+              "key": "D",
+              "text": "They may become better and better."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。随着算法和数据改进，生活更多部分可以被完全预测。第 7 段原文依据：As machine learning algorithms improve and as they train on more extensive data sets, larger parts of everyday life are likely to become utterly predictable. The predictions are going to get better and better, and they will ultimately make common experiences more efficient and pleasant.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. Why does the author say the creatures living in the more and more Al-mediated world will become increasingly unlike us?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They will have lost the most significant human element of being intelligent."
+            },
+            {
+              "key": "B",
+              "text": "They will no longer possess the human characteristic of being unpredictable."
+            },
+            {
+              "key": "C",
+              "text": "They will not be able to understand themselves as we can do today."
+            },
+            {
+              "key": "D",
+              "text": "They will be deprived of what their predecessors were proud of about themselves."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。不可预测性是人类自我理解的一部分，过度预测会失去这一特点。第 9 段原文依据：But to the extent that unpredictability is part of how people understand themselves and part of what people like about themselves, humanity is in the process of losing something significant. As they become more and more predictable, the creatures inhabiting the increasingly AI-mediated world will become less and less like us.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Phonics, which involves sounding out words syllable （音节) by syllable, is the best way to teach children to read. But in many classrooms, this can be a dirty word. So much so that some teachers have had to sneak phonics teaching materials into the classroom. Most American children are taught to read in a way that study after study has found to be wrong.",
+        "The consequences of this are striking. Less than half of all American adults were proficient readers in 2017. American fourth graders rank 15th on the Progress in International Literacy Study, an international exam.",
+        "America is stuck in a debate about teaching children to read that has been going on for decades. Some advocate teaching symbol-sound relationships (the sound k can be spelled as c, k, ck, or ch), known as phonics. Others support an immersive approach (using pictures of a cat to learn the word cat), known as \"whole language\". Most teachers today, almost three out of four according to a survey by the Ed Week Research Centre in 2019, use a mix called \"balanced literacy\". This combination of methods is ineffective. \"You can't sprinkle in a little phonics, \" says Tenette Smith, executive director of elementary education and reading at Mississippi's education department. \"It has to be systematic and explicitly taught. \"",
+        "Mississippi, often behind in social policy, has set an example here. In a state once notorious for its low reading scores, the Mississippi state legislature passed new literacy standards in 2013. Since then Mississippi has seen remarkable gains. Its fourth graders have moved from 49th (out of 50 states) to 29th on the National Assessment of Educational Progress, a nationwide exam. In 2019 it was the only state to improve its scores. For the first time since measurement began, Mississippi's pupils are now average readers, a remarkable achievement in such a poor state.",
+        "Mississippi's success is attributed to implementing reading methods supported by a body of research known as the science of reading. In 1997 Congress requested the National Institute of Child Health and Human Development and the Department of Education to convene a National Reading Panel to end the \"reading wars\" and synthesize the evidence. The panel found that phonics, along with explicit instruction in phonemic (音位的)awareness, fluency and comprehension, worked best.",
+        "Yet over two decades on, \"balanced literacy\" is still being taught in classrooms. But advances in statistics and brain imaging have disproved the whole-language method. To the teacher who is a proficient reader, literacy seems like a natural process that requires educated guessing, rather than the deliberate process emphasized by phonics. Teachers can imagine that they learned to read through osmosis (潜移默化) when they were children. Without proper training, they bring this to classrooms."
+      ],
+      "study_paragraphs": [
+        "Phonics, which involves sounding out words syllable （音节) by syllable, is the best way to teach children to read. But in many classrooms, this can be a dirty word. So much so that some teachers have had to sneak phonics teaching materials into the classroom. Most American children are taught to read in a way that study after study has found to be wrong.",
+        "The consequences of this are striking. Less than half of all American adults were proficient readers in 2017. American fourth graders rank 15th on the Progress in International Literacy Study, an international exam.",
+        "America is stuck in a debate about teaching children to read that has been going on for decades. Some advocate teaching symbol-sound relationships (the sound k can be spelled as c, k, ck, or ch), known as phonics. Others support an immersive approach (using pictures of a cat to learn the word cat), known as \"whole language\". Most teachers today, almost three out of four according to a survey by the Ed Week Research Centre in 2019, use a mix called \"balanced literacy\". This combination of methods is ineffective. \"You can't sprinkle in a little phonics, \" says Tenette Smith, executive director of elementary education and reading at Mississippi's education department. \"It has to be systematic and explicitly taught. \"",
+        "Mississippi, often behind in social policy, has set an example here. In a state once notorious for its low reading scores, the Mississippi state legislature passed new literacy standards in 2013. Since then Mississippi has seen remarkable gains. Its fourth graders have moved from 49th (out of 50 states) to 29th on the National Assessment of Educational Progress, a nationwide exam. In 2019 it was the only state to improve its scores. For the first time since measurement began, Mississippi's pupils are now average readers, a remarkable achievement in such a poor state.",
+        "Mississippi's success is attributed to implementing reading methods supported by a body of research known as the science of reading. In 1997 Congress requested the National Institute of Child Health and Human Development and the Department of Education to convene a National Reading Panel to end the \"reading wars\" and synthesize the evidence. The panel found that phonics, along with explicit instruction in phonemic (音位的)awareness, fluency and comprehension, worked best.",
+        "Yet over two decades on, \"balanced literacy\" is still being taught in classrooms. But advances in statistics and brain imaging have disproved the whole-language method. To the teacher who is a proficient reader, literacy seems like a natural process that requires educated guessing, rather than the deliberate process emphasized by phonics. Teachers can imagine that they learned to read through osmosis (潜移默化) when they were children. Without proper training, they bring this to classrooms."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2023-06-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn about phonics in many American classrooms?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is ill reputed."
+            },
+            {
+              "key": "B",
+              "text": "It is mostly misapplied."
+            },
+            {
+              "key": "C",
+              "text": "It is arbitrarily excluded."
+            },
+            {
+              "key": "D",
+              "text": "It is misrepresented."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。不少课堂将自然拼读视为不受欢迎的方法，教师甚至偷偷使用材料。第 1 段原文依据：Phonics, which involves sounding out words syllable （音节) by syllable, is the best way to teach children to read. But in many classrooms, this can be a dirty word. So much so that some teachers have had to sneak phonics teaching materials into the classroom. Most American children are taught to read in a way that study after study has found to be wrong.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What has America been witnessing for decades?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An obsession with innovating teaching methodologies of reading."
+            },
+            {
+              "key": "B",
+              "text": "An enduring debate over the approach to teaching children to read."
+            },
+            {
+              "key": "C",
+              "text": "An increasing concern with many children's inadequacy in literacy."
+            },
+            {
+              "key": "D",
+              "text": "An ever-forceful advocacy of a combined method for teaching reading."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。美国长期争论怎样教儿童阅读。第 3 段原文依据：America is stuck in a debate about teaching children to read that has been going on for decades. Some advocate teaching symbol-sound relationships (the sound k can be spelled as c, k, ck, or ch), known as phonics. Others support an immersive approach (using pictures of a cat to learn the word cat), known as \"whole language\". Most teachers today, almost three out of four according to a survey by the Ed Week Research Centre in 2019, use a mix called \"balanced literacy\". This combination of methods is ineffective. \"You can't sprinkle in a little phonics, \" says Tenette Smith, executive director of elementary education and reading at Mississippi's education department. \"It has to be systematic and explicitly taught. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. Why does Tenette Smith think a combination of teaching methods is ineffective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Elementary school children will be frustrated when taught with several methods combined."
+            },
+            {
+              "key": "B",
+              "text": "Phonics has to be systematically applied and clearly taught to achieve the desired effect."
+            },
+            {
+              "key": "C",
+              "text": "Sprinkling in a little phonics deters the progress of even adequately motivated children."
+            },
+            {
+              "key": "D",
+              "text": "Balanced literacy fails to sustain children's interest in developing a good reading habit."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。自然拼读需要系统且明确的教学，不能仅少量混入。第 3 段原文依据：America is stuck in a debate about teaching children to read that has been going on for decades. Some advocate teaching symbol-sound relationships (the sound k can be spelled as c, k, ck, or ch), known as phonics. Others support an immersive approach (using pictures of a cat to learn the word cat), known as \"whole language\". Most teachers today, almost three out of four according to a survey by the Ed Week Research Centre in 2019, use a mix called \"balanced literacy\". This combination of methods is ineffective. \"You can't sprinkle in a little phonics, \" says Tenette Smith, executive director of elementary education and reading at Mississippi's education department. \"It has to be systematic and explicitly taught. \"",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What does the author say Mississippi's success is attributed to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Convening a National Reading Panel to synthesize research evidence."
+            },
+            {
+              "key": "B",
+              "text": "Placing sufficient emphasis upon both fluency and comprehension."
+            },
+            {
+              "key": "C",
+              "text": "Adopting scientifically grounded approaches to teaching reading."
+            },
+            {
+              "key": "D",
+              "text": "Obtaining support from Congress to upgrade teaching methods."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。密西西比采用有科学证据支持的阅读方法而取得进步。第 5 段原文依据：Mississippi's success is attributed to implementing reading methods supported by a body of research known as the science of reading. In 1997 Congress requested the National Institute of Child Health and Human Development and the Department of Education to convene a National Reading Panel to end the \"reading wars\" and synthesize the evidence. The panel found that phonics, along with explicit instruction in phonemic (音位的)awareness, fluency and comprehension, worked best.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2023-06-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What have advances in statistics and brain imaging proved ineffective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The teaching of symbol-sound relationships."
+            },
+            {
+              "key": "B",
+              "text": "Explicit instruction in phonemic awareness."
+            },
+            {
+              "key": "C",
+              "text": "Efforts to end the reading wars."
+            },
+            {
+              "key": "D",
+              "text": "The immersive approach."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。统计学和脑成像研究否定了全语言沉浸式教学的有效性。第 6 段原文依据：Yet over two decades on, \"balanced literacy\" is still being taught in classrooms. But advances in statistics and brain imaging have disproved the whole-language method. To the teacher who is a proficient reader, literacy seems like a natural process that requires educated guessing, rather than the deliberate process emphasized by phonics. Teachers can imagine that they learned to read through osmosis (潜移默化) when they were children. Without proper training, they bring this to classrooms.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2023-06-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "近年来,越来越多的中国文化产品走向全球市场,日益受到海外消费者的青睐。随着中国对外文化贸易的快速发展,中国文化产品出口额已持续多年位居世界前列,形成了一批具有国际影响力的文化企业、产品和品牌。数据显示,中国的出版物、影视作品、网络文学与动漫作品等在海外的销售量连年攀升。中国政府出台了一系列政策鼓励和支持更多具有中国元素的优秀文化产品走出国门,扩大海外市场份额,进一步提升中国文化的世界影响力。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2023-06-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
