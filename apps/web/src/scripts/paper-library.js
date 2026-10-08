@@ -122,7 +122,7 @@ async function renderPractice(paper, request) {
       if (question.type === 'choice' && (sharedWordBank || section.kind === 'matching')) {
         const select = document.createElement('select'); select.name = question.id; select.setAttribute('aria-label', question.prompt);
         const placeholder = document.createElement('option'); placeholder.value = ''; placeholder.textContent = '选择答案'; select.append(placeholder);
-        for (const option of question.options) { const choice = document.createElement('option'); choice.value = option.key; choice.textContent = `${option.key}. ${option.text}`; select.append(choice); }
+        for (const option of question.options) { const choice = document.createElement('option'); choice.value = option.key; choice.textContent = option.text === option.key ? option.key : `${option.key}. ${option.text}`; select.append(choice); }
         item.append(select);
       }
       else if (question.type === 'choice') for (const option of question.options) { const label = document.createElement('label'); const input = document.createElement('input'); input.type = 'radio'; input.name = question.id; input.value = option.key; label.append(input, document.createTextNode(` ${option.key}. ${option.text}`)); item.append(label); }

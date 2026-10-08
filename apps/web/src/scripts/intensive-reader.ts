@@ -415,7 +415,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         paragraph = element('p', 'passage-paragraph');
         paragraph.lang = 'en';
         if (section.kind === 'matching') {
-          const label = section.paragraphs[paragraphIndex % 100]?.match(/^\[([A-Z])\]/)?.[1];
+          const original = section.paragraphs.find(item => item.replace(/^\[[A-Z]\]\s*/, '').trim() === text) ?? section.paragraphs[paragraphIndex % 100];
+          const label = original?.match(/^\[([A-Z])\]/)?.[1];
           if (label) paragraph.append(element('span', 'paragraph-label', `${label} `));
         }
         block.append(paragraph);
