@@ -1,0 +1,1713 @@
+{
+  "id": "cet6-2024-06-2",
+  "exam_level": "CET6",
+  "year": 2024,
+  "month": 6,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2024年6月大学英语六级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按用户提供的试卷 PDF 导入全部非听力部分，保留写作要求、选词填空、长篇阅读、两篇仔细阅读及汉译英。PDF 未附答案，客观题参考答案依据原文整理，非官方答案；做题保留空格，精读按参考答案补全。排印异常的段落或词库标号按顺序恢复，正文按原件保留。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet6-2024-06-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "For this part, you are allowed 30 minutes to write an essay that begins with the sentence“Nowadays more and more college students have come to realize social practice and academic learning are equally important. ”You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-2-section-1-q-1",
+          "type": "text",
+          "prompt": "For this part, you are allowed 30 minutes to write an essay that begins with the sentence“Nowadays more and more college students have come to realize social practice and academic learning are equally important. ”You can make comments, cite examples or use your personal experiences to develop your essay. You should write at least 150 words but no more than 200 words. You should copy the sentence given in quotes at the beginning of your essay.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "Directions: In this section, there is a passage with ten blanks. You are required to select one wordfor each blank from a list of choices given in a word bank following the passage. Read thepassage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You maynot use any ofthe words in the bank more than once.",
+      "paragraphs": [
+        "The Sun Is Also a Star is a truly lovely story of love, romance, fate, and destiny.",
+        "Natasha is a Jamaican-born immigrant living [26] ______ in America, not by choice exactly. Her parents brought her over and created the situation she [27] ______ to be out of.",
+        "Daniel is an American born of Korean immigrants. He believes in true love, fate, and all that other nonsense thatNatasha [28] ______ through scientific reasoning.",
+        "Daniel and Natasha meet by [29] ______ on the streets of New York on the day that she is to be [30] ______ . She doesn't tll him that but does allow him to keep her company while he tries to get her to fall in love with him over the course of the day.",
+        "Natasha is me. I found her so similar to myself. She's scientifically-minded, practical, somewhat cynical, and always [31] ______ . Her obsession with the universe through a scientific lens is infectious and I [32] ______ Daniel seeing that too",
+        "Daniel is charming and passionate and has a way with words that even [33] ______ Natasha's tough outer shell By the end of the book I fell in love with both of them",
+        "I used to find romance stories to always be cheap or laughable. I think now I can see the value in escaping into a story of pure optimism. I got [34] ______ in The Sun Is Also a Star and finishedit cover to cover in a weekend. I couldn't wait to get to what I hoped would be a happy ending.",
+        "It's nice every once in a while to give in to magic. It doesn't have to be a hard fantasy novel with actual spells, it can be the magic found between two people who just have that special something. That [35] ______ that causes them to react and spark when they're near each other"
+      ],
+      "study_paragraphs": [
+        "The Sun Is Also a Star is a truly lovely story of love, romance, fate, and destiny.",
+        "Natasha is a Jamaican-born immigrant living illegally in America, not by choice exactly. Her parents brought her over and created the situation she strives to be out of.",
+        "Daniel is an American born of Korean immigrants. He believes in true love, fate, and all that other nonsense thatNatasha dismisses through scientific reasoning.",
+        "Daniel and Natasha meet by coincidence on the streets of New York on the day that she is to be deported. She doesn't tll him that but does allow him to keep her company while he tries to get her to fall in love with him over the course of the day.",
+        "Natasha is me. I found her so similar to myself. She's scientifically-minded, practical, somewhat cynical, and always skeptical. Her obsession with the universe through a scientific lens is infectious and I adore Daniel seeing that too",
+        "Daniel is charming and passionate and has a way with words that even cracks Natasha's tough outer shell By the end of the book I fell in love with both of them",
+        "I used to find romance stories to always be cheap or laughable. I think now I can see the value in escaping into a story of pure optimism. I got lost in The Sun Is Also a Star and finishedit cover to cover in a weekend. I couldn't wait to get to what I hoped would be a happy ending.",
+        "It's nice every once in a while to give in to magic. It doesn't have to be a hard fantasy novel with actual spells, it can be the magic found between two people who just have that special something. That chemistry that causes them to react and spark when they're near each other"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。illegally 指女主人公作为无合法身份移民生活在美国。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理，非官方答案。strives to 表示努力摆脱这一处境。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。dismisses 指她用科学推理拒斥命运等想法。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理，非官方答案。by coincidence 指偶然相遇。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。deported 表示她即将被遣返。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理，非官方答案。skeptical 表示她持怀疑态度。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。adore 指评论者喜欢男主人公也看到了这一点。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。cracks her shell 表示突破她坚硬的外壳。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。get lost in a story 指沉浸在故事中。",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "adore"
+            },
+            {
+              "key": "B",
+              "text": "appraise"
+            },
+            {
+              "key": "C",
+              "text": "assaults"
+            },
+            {
+              "key": "D",
+              "text": "chemistry"
+            },
+            {
+              "key": "E",
+              "text": "coincidence"
+            },
+            {
+              "key": "F",
+              "text": "cracks"
+            },
+            {
+              "key": "G",
+              "text": "deported"
+            },
+            {
+              "key": "H",
+              "text": "dismisses"
+            },
+            {
+              "key": "I",
+              "text": "illegally"
+            },
+            {
+              "key": "J",
+              "text": "lost"
+            },
+            {
+              "key": "K",
+              "text": "perpetually"
+            },
+            {
+              "key": "L",
+              "text": "prescribed"
+            },
+            {
+              "key": "M",
+              "text": "shrewd"
+            },
+            {
+              "key": "N",
+              "text": "skeptical"
+            },
+            {
+              "key": "O",
+              "text": "strives"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。chemistry 指两个人之间的特殊吸引力。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· These are the habits to avoid if you want to make a behaviorchange",
+      "instructions": "Directions: In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by marking the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] According to recent research, behavioral change involves physical changes in the brain. In the past decade, researchers have shown that when it comes to the duration of making a new behavior a deep-rooted habit there is not a simple answer. Even for the most productive and disciplined among us, undoing something that has become an automatic part of who we are takes more than an overnight effort. Once we've successfully made that change, we then have to make other adjustments to our lives to ensure that we continue to maintain it, which is often a whole other challenge in itself.",
+        "[B] At its core, success in changing and maintaining a behavior rarely occurs without the introduction of some sort of system. When there isn't the right framework in place, we face a greater likelihood ofderailing our hard-earned progress. To ensure success in changing and maintaining a behavior, we should stay away from some detrimental habits",
+        "[C] The first one to avoid is relying on willpower. Think about the last time you vowed to resist a temptation. Perhaps you didn't want to check your phone every 15 minutes, or you were determined not to reach for a chocolate bar at 3 p. m. Think about how difficult it must have been not to glance at your phone when it was within reach, ornot to walk to the vending machine when your afternoon slump hit.",
+        "[D] The research on whether we have finite or infinite willpower is inconclusive, but experts do generally agree that you can't change and sustain a habit if you rely on your willpower alone. The old military saying“You never rise to the occasion, you only sink to the level of training”also applies to behavior change. The idea is simple—you repeat something so many times that it becomes automatic.",
+        "[E] Think about what else you can change about your surrounding that makes it easier for you to perform this change on a daily basis. This is called your“cue.”Basically, it's a trigger to perform that particular habit. If you don't want to reach for a sugary treat at 3 p. m., have a box of herbal tea ready at your desk. When 3 p. m. comes around, that's your cue to pouryourself a cup of hot water and drink that tea, instead of walking to the vending machine.",
+        "[F] The second one to avoid is focusing on negative goals. Sometimes, it's not your process that lets you down, but the habit that you want to change in the first place. For starters, not eating chocolate to beat your afternoon slump is a harder goal than swapping chocolate for herbal tea when you reach the designated time. Your brain wants to find routines that have succeeded in the past and allow you to repeat those actions again in the future without having to think about them explicitly. However, this habit-learning system isn't so effective when it comes to learning not to do something. That's why rather than giving up something, think about introducing something in its place. Focus on actions you are going to take that will ultimately conflict with the behaviors you want to stop. When your attention is on doing something new, you give your habit system a chance to operate.",
+        "[G] The third one to avoid is using the same strategies in different circumstances. Because we are creatures of habit, it's natural to assume that when we do manage to adopt and sustain a desirable behavior, that same strategy will work when we want to make another behavior change. But that's not always the case. Sometimes, the system that got you to change one behavior might not work for another.",
+        "[H] Sometimes we become accustomed to relying on our guts when it comes to decision-making. This serves us well in certain situations, but can hinder us in others especially when we need to consider metrics and data, rather than letting our instinct override everything. For example, if you want to stop checking your email first thing in the morning, you might decide to substitute another activity in its place. But if you want to stop indulging in video games, simply deciding you will go for a run might not be as effective. You might need to introduce another reinforcement, such as meetinga friend and booking an exercise class together",
+        "[I] The fourth one to avoid is not forgiving ourselves for slipping up. Of course, even the best-laid plans fail sometimes. You might have stuck to your screen-free nighttime routine for five days, and then a big project landed on your desk and you found yourself in bed with your laptop before you went to sleep. Or you prepared meals on Sunday and stuck to eating healthy dinners at home, but by Friday you found yourself so exhausted and opted to order greasy takeout. Life happens and even if your behavior change is small, every single day can prove pretty inflexible, and at some point your luck may run out, even ifjust for a day. The perfectionist in you might be screaming to abandon your goals altogether, but try to see it in the bigger picture. Just because you might have temporarily strayed off course doesn't mean you can't start afresh the next day.",
+        "[J] The final one to avoid is discounting small progress. There's a habit that many perfectionists tend to fall into when they try to establish a behavior change. They focus too much on the big goal and don't take the time to celebrate the small progress they make in the process. Your brain responds to rewards. The basal ganglia, the brain region linked to our performance of habits, is most active at the beginning of a behavior, when the habit is cued, and at the end, when it's rewarded. Say your goal is to run five miles three times a week, and this week you ran one mile on Monday, Wednesday, and Friday. Rather than focusing on how far you've gone toward your goal, think about how you can reward yourself for the progress you've made. It doesn't have to be big or expensive; it can be something as simple as making your favorite fruit juice after your run. Whatever yourreward, it has to be more than just the activity itself to get you going.",
+        "[K] Initiating a new behavior usually seems like the hardest part of the process of change. However, people often fail to adequately prepare for maintaining it. One of the reasons for this is because we mistakenly believe the strategies we used to initiate the change will be equally effective in helping us continue the change. But they won't. Where changing a strongly deep-rooted habit requires changing our belief about that habit that penetrates deeply into our lives, continually manifesting that wisdom requires that we maintain a positive outlook. If our mood is low, the wisdom to behave differently seems to disappear and we go back to eating more and exercising less. The key, then, to maintaining new behaviors is to be happy! Which is why it's so hard to maintain new behaviors.",
+        "[L] Remember, overcoming the behavioral inertia that prevents us from implementing new changes, like eating a healthy diet or exercising, can benefit us in the long run and can improve our physical and mental health. No one was born with habits. They were all learned, and can all, therefore, be unlearned. The question is: how badly do you really want to change?"
+      ],
+      "study_paragraphs": [
+        "According to recent research, behavioral change involves physical changes in the brain. In the past decade, researchers have shown that when it comes to the duration of making a new behavior a deep-rooted habit there is not a simple answer. Even for the most productive and disciplined among us, undoing something that has become an automatic part of who we are takes more than an overnight effort. Once we've successfully made that change, we then have to make other adjustments to our lives to ensure that we continue to maintain it, which is often a whole other challenge in itself.",
+        "At its core, success in changing and maintaining a behavior rarely occurs without the introduction of some sort of system. When there isn't the right framework in place, we face a greater likelihood ofderailing our hard-earned progress. To ensure success in changing and maintaining a behavior, we should stay away from some detrimental habits",
+        "The first one to avoid is relying on willpower. Think about the last time you vowed to resist a temptation. Perhaps you didn't want to check your phone every 15 minutes, or you were determined not to reach for a chocolate bar at 3 p. m. Think about how difficult it must have been not to glance at your phone when it was within reach, ornot to walk to the vending machine when your afternoon slump hit.",
+        "The research on whether we have finite or infinite willpower is inconclusive, but experts do generally agree that you can't change and sustain a habit if you rely on your willpower alone. The old military saying“You never rise to the occasion, you only sink to the level of training”also applies to behavior change. The idea is simple—you repeat something so many times that it becomes automatic.",
+        "Think about what else you can change about your surrounding that makes it easier for you to perform this change on a daily basis. This is called your“cue.”Basically, it's a trigger to perform that particular habit. If you don't want to reach for a sugary treat at 3 p. m., have a box of herbal tea ready at your desk. When 3 p. m. comes around, that's your cue to pouryourself a cup of hot water and drink that tea, instead of walking to the vending machine.",
+        "The second one to avoid is focusing on negative goals. Sometimes, it's not your process that lets you down, but the habit that you want to change in the first place. For starters, not eating chocolate to beat your afternoon slump is a harder goal than swapping chocolate for herbal tea when you reach the designated time. Your brain wants to find routines that have succeeded in the past and allow you to repeat those actions again in the future without having to think about them explicitly. However, this habit-learning system isn't so effective when it comes to learning not to do something. That's why rather than giving up something, think about introducing something in its place. Focus on actions you are going to take that will ultimately conflict with the behaviors you want to stop. When your attention is on doing something new, you give your habit system a chance to operate.",
+        "The third one to avoid is using the same strategies in different circumstances. Because we are creatures of habit, it's natural to assume that when we do manage to adopt and sustain a desirable behavior, that same strategy will work when we want to make another behavior change. But that's not always the case. Sometimes, the system that got you to change one behavior might not work for another.",
+        "Sometimes we become accustomed to relying on our guts when it comes to decision-making. This serves us well in certain situations, but can hinder us in others especially when we need to consider metrics and data, rather than letting our instinct override everything. For example, if you want to stop checking your email first thing in the morning, you might decide to substitute another activity in its place. But if you want to stop indulging in video games, simply deciding you will go for a run might not be as effective. You might need to introduce another reinforcement, such as meetinga friend and booking an exercise class together",
+        "The fourth one to avoid is not forgiving ourselves for slipping up. Of course, even the best-laid plans fail sometimes. You might have stuck to your screen-free nighttime routine for five days, and then a big project landed on your desk and you found yourself in bed with your laptop before you went to sleep. Or you prepared meals on Sunday and stuck to eating healthy dinners at home, but by Friday you found yourself so exhausted and opted to order greasy takeout. Life happens and even if your behavior change is small, every single day can prove pretty inflexible, and at some point your luck may run out, even ifjust for a day. The perfectionist in you might be screaming to abandon your goals altogether, but try to see it in the bigger picture. Just because you might have temporarily strayed off course doesn't mean you can't start afresh the next day.",
+        "The final one to avoid is discounting small progress. There's a habit that many perfectionists tend to fall into when they try to establish a behavior change. They focus too much on the big goal and don't take the time to celebrate the small progress they make in the process. Your brain responds to rewards. The basal ganglia, the brain region linked to our performance of habits, is most active at the beginning of a behavior, when the habit is cued, and at the end, when it's rewarded. Say your goal is to run five miles three times a week, and this week you ran one mile on Monday, Wednesday, and Friday. Rather than focusing on how far you've gone toward your goal, think about how you can reward yourself for the progress you've made. It doesn't have to be big or expensive; it can be something as simple as making your favorite fruit juice after your run. Whatever yourreward, it has to be more than just the activity itself to get you going.",
+        "Initiating a new behavior usually seems like the hardest part of the process of change. However, people often fail to adequately prepare for maintaining it. One of the reasons for this is because we mistakenly believe the strategies we used to initiate the change will be equally effective in helping us continue the change. But they won't. Where changing a strongly deep-rooted habit requires changing our belief about that habit that penetrates deeply into our lives, continually manifesting that wisdom requires that we maintain a positive outlook. If our mood is low, the wisdom to behave differently seems to disappear and we go back to eating more and exercising less. The key, then, to maintaining new behaviors is to be happy! Which is why it's so hard to maintain new behaviors.",
+        "Remember, overcoming the behavioral inertia that prevents us from implementing new changes, like eating a healthy diet or exercising, can benefit us in the long run and can improve our physical and mental health. No one was born with habits. They were all learned, and can all, therefore, be unlearned. The question is: how badly do you really want to change?"
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. There is general consensus among experts that willpower alone cannot guarantee one's success in changing and maintaining a habit.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。对应 D 段。原文依据：The research on whether we have finite or infinite willpower is inconclusive, but experts do generally agree that you can't change and sustain a habit if you rely on your willpower alone. The old military saying“You never rise to the occasion, you only sink to the level of training”also applies to behavior change. The idea is simple—you repeat something so many times that it becomes automatic.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. One need not abandon their goals completely just because they missed their target temporarily; they can start anew.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理，非官方答案。对应 I 段。原文依据：The fourth one to avoid is not forgiving ourselves for slipping up. Of course, even the best-laid plans fail sometimes. You might have stuck to your screen-free nighttime routine for five days, and then a big project landed on your desk and you found yourself in bed with your laptop before you went to sleep. Or you prepared meals on Sunday and stuck to eating healthy dinners at home, but by Friday you found yourself so exhausted and opted to order greasy takeout. Life happens and even if your behavior change is small, every single day can prove pretty inflexible, and at some point your luck may run out, even ifjust for a day. The perfectionist in you might be screaming to abandon your goals altogether, but try to see it in the bigger picture. Just because you might have temporarily strayed off course doesn't mean you can't start afresh the next day.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. Research shows it is quite another challenge to maintain a behavioral change after you have initiated it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。对应 A 段。原文依据：According to recent research, behavioral change involves physical changes in the brain. In the past decade, researchers have shown that when it comes to the duration of making a new behavior a deep-rooted habit there is not a simple answer. Even for the most productive and disciplined among us, undoing something that has become an automatic part of who we are takes more than an overnight effort. Once we've successfully made that change, we then have to make other adjustments to our lives to ensure that we continue to maintain it, which is often a whole other challenge in itself.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. It is wrong to assume the strategies we use to start a change of behavior will work equally well in helping maintain it.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：Initiating a new behavior usually seems like the hardest part of the process of change. However, people often fail to adequately prepare for maintaining it. One of the reasons for this is because we mistakenly believe the strategies we used to initiate the change will be equally effective in helping us continue the change. But they won't. Where changing a strongly deep-rooted habit requires changing our belief about that habit that penetrates deeply into our lives, continually manifesting that wisdom requires that we maintain a positive outlook. If our mood is low, the wisdom to behave differently seems to disappear and we go back to eating more and exercising less. The key, then, to maintaining new behaviors is to be happy! Which is why it's so hard to maintain new behaviors.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Sometimes, it may not be successful to simply substitute one activity with anotherto effect a change of habit; you may need extra reinforcement",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理，非官方答案。对应 H 段。原文依据：Sometimes we become accustomed to relying on our guts when it comes to decision-making. This serves us well in certain situations, but can hinder us in others especially when we need to consider metrics and data, rather than letting our instinct override everything. For example, if you want to stop checking your email first thing in the morning, you might decide to substitute another activity in its place. But if you want to stop indulging in video games, simply deciding you will go for a run might not be as effective. You might need to introduce another reinforcement, such as meetinga friend and booking an exercise class together",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. One should introduce something new to replace an old habit instead of simply kicking it",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理，非官方答案。对应 F 段。原文依据：The second one to avoid is focusing on negative goals. Sometimes, it's not your process that lets you down, but the habit that you want to change in the first place. For starters, not eating chocolate to beat your afternoon slump is a harder goal than swapping chocolate for herbal tea when you reach the designated time. Your brain wants to find routines that have succeeded in the past and allow you to repeat those actions again in the future without having to think about them explicitly. However, this habit-learning system isn't so effective when it comes to learning not to do something. That's why rather than giving up something, think about introducing something in its place. Focus on actions you are going to take that will ultimately conflict with the behaviors you want to stop. When your attention is on doing something new, you give your habit system a chance to operate.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. Perfectionists focus too much on their big target and neglect celebrating the small gains they make in the process.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理，非官方答案。对应 J 段。原文依据：The final one to avoid is discounting small progress. There's a habit that many perfectionists tend to fall into when they try to establish a behavior change. They focus too much on the big goal and don't take the time to celebrate the small progress they make in the process. Your brain responds to rewards. The basal ganglia, the brain region linked to our performance of habits, is most active at the beginning of a behavior, when the habit is cued, and at the end, when it's rewarded. Say your goal is to run five miles three times a week, and this week you ran one mile on Monday, Wednesday, and Friday. Rather than focusing on how far you've gone toward your goal, think about how you can reward yourself for the progress you've made. It doesn't have to be big or expensive; it can be something as simple as making your favorite fruit juice after your run. Whatever yourreward, it has to be more than just the activity itself to get you going.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. It is ofgreat benefit to us in the long term to conquer the inertia that stops usfrom making behavioral changes.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理，非官方答案。对应 L 段。原文依据：Remember, overcoming the behavioral inertia that prevents us from implementing new changes, like eating a healthy diet or exercising, can benefit us in the long run and can improve our physical and mental health. No one was born with habits. They were all learned, and can all, therefore, be unlearned. The question is: how badly do you really want to change?",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. The strategy that successfully changed one of your behaviors may not work for some other behavior of yours.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案 G，依据原文整理，非官方答案。对应 G 段。原文依据：The third one to avoid is using the same strategies in different circumstances. Because we are creatures of habit, it's natural to assume that when we do manage to adopt and sustain a desirable behavior, that same strategy will work when we want to make another behavior change. But that's not always the case. Sometimes, the system that got you to change one behavior might not work for another.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. Without a happy mood, it seems that our wisdom to adopt a different behavior vanishes",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            }
+          ],
+          "answer": "K",
+          "explanation": "参考答案 K，依据原文整理，非官方答案。对应 K 段。原文依据：Initiating a new behavior usually seems like the hardest part of the process of change. However, people often fail to adequately prepare for maintaining it. One of the reasons for this is because we mistakenly believe the strategies we used to initiate the change will be equally effective in helping us continue the change. But they won't. Where changing a strongly deep-rooted habit requires changing our belief about that habit that penetrates deeply into our lives, continually manifesting that wisdom requires that we maintain a positive outlook. If our mood is low, the wisdom to behave differently seems to disappear and we go back to eating more and exercising less. The key, then, to maintaining new behaviors is to be happy! Which is why it's so hard to maintain new behaviors.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and markthe corresponding letter on AnswerSheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "The“American Dream”promises that in the Land of Opportunity, any individual can climb the economic ladder and prosper through hard work and ambition alone. And yet, young Americans today are struggling to earn more thantheir parents did at the same age, and upward mobility in the US actuallycompares unfavourably tothat of other industrialised nations.",
+        "So why does the idea of the American Dream persist? A new study in the American Journal of Political Science identifies one factor that has been overlooked: the influence of reality TV.",
+        "Realityshows have come to dominate US television over the past 20 years, notes Eunji Kimfrom Vanderbilt University. And the overwhelming majority of these have a“rags-to-riches”storyline: they feature ordinary Americans whowork hard to achieve great economic success. And while these programmes are regularly among the most-watched shows, news broadcasts—which paint amore realistic view of the economic hardship faced by millions of Americans—get a much smaller proportion of the viewership",
+        "Rags-to-riches stories are wbiquitous(无处不在的)on TV—but does watching these programmes actually convince people that economic mobility is easily attainable? To find out, Kim's team had participants watch a 5-minute clip from a reality show with a rags-to-riches storyline. Control participants watched a clip from a reality show that didn't have a rags-to-riches story. After watching the shows, participants rated how much they agreed with four statements relating to the American Dream",
+        "The results showed that those who'd watched a rags-to-riches clip did indeed have a significantly greater belief in theAmerican Dream. Interestingly, when participants were separated by party affliation, this effect was significant among Republicans but not Democrats, suggesting that the kind of messages implicit in these TV shows may play into people's existing socioeconomic beliefs.",
+        "Kim also conducted a survey of 3,000 US residents. They also rated the extent to which they believed success in life is related to various internal factors (such as ambition)and external factors (such as family wealth). Finally, they read a list of TV programmes and indicated which they regularly watched.",
+        "Participants whowere heavy viewers of rags-to-riches programmes or frequent viewers had a stronger belief in the American Dream than those who never watched such shows.",
+        "Kim concludes that “rags-to-riches entertainment media are an important cultural force that promotes and perpetuates beliefs in upward mobility”. And here's the problem: if people mistakenly believe that hard work is all that is needed for individuals to make a better life for themselves, they may be less supportive of policies that could actually combat inequality.",
+        "“In this era of choice, entertainment media are what captures hearts and minds,”Kim writes. “Its political consequences are anythingbut trivial”."
+      ],
+      "study_paragraphs": [
+        "The“American Dream”promises that in the Land of Opportunity, any individual can climb the economic ladder and prosper through hard work and ambition alone. And yet, young Americans today are struggling to earn more thantheir parents did at the same age, and upward mobility in the US actuallycompares unfavourably tothat of other industrialised nations.",
+        "So why does the idea of the American Dream persist? A new study in the American Journal of Political Science identifies one factor that has been overlooked: the influence of reality TV.",
+        "Realityshows have come to dominate US television over the past 20 years, notes Eunji Kimfrom Vanderbilt University. And the overwhelming majority of these have a“rags-to-riches”storyline: they feature ordinary Americans whowork hard to achieve great economic success. And while these programmes are regularly among the most-watched shows, news broadcasts—which paint amore realistic view of the economic hardship faced by millions of Americans—get a much smaller proportion of the viewership",
+        "Rags-to-riches stories are wbiquitous(无处不在的)on TV—but does watching these programmes actually convince people that economic mobility is easily attainable? To find out, Kim's team had participants watch a 5-minute clip from a reality show with a rags-to-riches storyline. Control participants watched a clip from a reality show that didn't have a rags-to-riches story. After watching the shows, participants rated how much they agreed with four statements relating to the American Dream",
+        "The results showed that those who'd watched a rags-to-riches clip did indeed have a significantly greater belief in theAmerican Dream. Interestingly, when participants were separated by party affliation, this effect was significant among Republicans but not Democrats, suggesting that the kind of messages implicit in these TV shows may play into people's existing socioeconomic beliefs.",
+        "Kim also conducted a survey of 3,000 US residents. They also rated the extent to which they believed success in life is related to various internal factors (such as ambition)and external factors (such as family wealth). Finally, they read a list of TV programmes and indicated which they regularly watched.",
+        "Participants whowere heavy viewers of rags-to-riches programmes or frequent viewers had a stronger belief in the American Dream than those who never watched such shows.",
+        "Kim concludes that “rags-to-riches entertainment media are an important cultural force that promotes and perpetuates beliefs in upward mobility”. And here's the problem: if people mistakenly believe that hard work is all that is needed for individuals to make a better life for themselves, they may be less supportive of policies that could actually combat inequality.",
+        "“In this era of choice, entertainment media are what captures hearts and minds,”Kim writes. “Its political consequences are anythingbut trivial”."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What do we learn from the passage about young Americans of today?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They have greater ambitions than their parents."
+            },
+            {
+              "key": "B",
+              "text": "They find it difficult to achieve upward mobility."
+            },
+            {
+              "key": "C",
+              "text": "They have overtaken their parents in terms of earnings"
+            },
+            {
+              "key": "D",
+              "text": "They envy the opportunities in other industrialised nations"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。年轻美国人很难比父母在同龄时收入更高，向上流动困难。第 1 段原文依据：The“American Dream”promises that in the Land of Opportunity, any individual can climb the economic ladder and prosper through hard work and ambition alone. And yet, young Americans today are struggling to earn more thantheir parents did at the same age, and upward mobility in the US actuallycompares unfavourably tothat of other industrialised nations.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What does Kim's team find about reality TV shows inAmerica?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They reinterpret the essence of the popular rags-to-riches culture."
+            },
+            {
+              "key": "B",
+              "text": "They urge people to achieve economic success through hard work."
+            },
+            {
+              "key": "C",
+              "text": "They help strengthen people's conviction in the American Dream."
+            },
+            {
+              "key": "D",
+              "text": "They feature ordinary Americans striving for social recognition"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。白手起家的真人秀强化观众对美国梦的信念。第 5 段原文依据：The results showed that those who'd watched a rags-to-riches clip did indeed have a significantly greater belief in theAmerican Dream. Interestingly, when participants were separated by party affliation, this effect was significant among Republicans but not Democrats, suggesting that the kind of messages implicit in these TV shows may play into people's existing socioeconomic beliefs.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What does the author say about news broadcasts in America?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They attract far fewer viewers than reality TV."
+            },
+            {
+              "key": "B",
+              "text": "They are bent on reporting the dark side of life."
+            },
+            {
+              "key": "C",
+              "text": "They stand in striking contrast with reality TV."
+            },
+            {
+              "key": "D",
+              "text": "They focus on Americans'economic hardships."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。新闻报道的观众比例远低于流行真人秀。第 3 段原文依据：Realityshows have come to dominate US television over the past 20 years, notes Eunji Kimfrom Vanderbilt University. And the overwhelming majority of these have a“rags-to-riches”storyline: they feature ordinary Americans whowork hard to achieve great economic success. And while these programmes are regularly among the most-watched shows, news broadcasts—which paint amore realistic view of the economic hardship faced by millions of Americans—get a much smaller proportion of the viewership",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What can we infer from the passage about Republicans in general?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They believe strongly in the American Dream."
+            },
+            {
+              "key": "B",
+              "text": "They strive to climb the socio-economic ladder"
+            },
+            {
+              "key": "C",
+              "text": "They have a very strong affiliation with their party."
+            },
+            {
+              "key": "D",
+              "text": "They tend to watch more rags-to-riches TV shows."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。影响在共和党观众中显著，说明与他们既有的美国梦信念相呼应；据实验推断。第 5 段原文依据：The results showed that those who'd watched a rags-to-riches clip did indeed have a significantly greater belief in theAmerican Dream. Interestingly, when participants were separated by party affliation, this effect was significant among Republicans but not Democrats, suggesting that the kind of messages implicit in these TV shows may play into people's existing socioeconomic beliefs.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. What is stated about people who believe in upward mobility?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are likely to blame the government for their plight."
+            },
+            {
+              "key": "B",
+              "text": "They regard political consequences as anything but trivial."
+            },
+            {
+              "key": "C",
+              "text": "They respect individuals striving to climb the social ladder"
+            },
+            {
+              "key": "D",
+              "text": "They are less likely to approve of policies to fight inequality."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。只相信努力足够的人可能更不支持对抗不平等的政策。第 8 段原文依据：Kim concludes that “rags-to-riches entertainment media are an important cultural force that promotes and perpetuates beliefs in upward mobility”. And here's the problem: if people mistakenly believe that hard work is all that is needed for individuals to make a better life for themselves, they may be less supportive of policies that could actually combat inequality.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "Directions: There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C)and D). You should decide on the best choice and markthe corresponding letter on AnswerSheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "When someone asks us 'what do you do?'we nearly always reply with our occupation. Work, for many of us, is much more than a job. It is the defining aspect of our identity. For many of us it is through our job that we can define ourselves.",
+        "“Without myjob I don't know who I am,”is a sentence that has been uttered on more than a handful of occasions from my office chair. Indeed, it can be one of the most challenging aspects I work on with clients who have lost or been forced into changing their jobs. This loss provokes an identity crisis much greater than the loss of thejob itself.",
+        "One of the things I have come to understand, however, is that our identity is much more complex than we recognise at first glance. If we take the time to reflect we might recognise that as well as our work we can also identify as a friend, a spouse, a sonor daughter, a parent, a member of a sports team or religious community. We may recognise that we feel and act differently in these roles and relationships than we do at work. The passive daughter becomes an assertive leader at work. Furthermore, our identities at work are not static. They change over time. I myself have been a shop assistant, a waitress, a student, a graduate, and a clinical psychologist. At each stage my ability to adapt to and develop my career identity has been crucial to my wellbeing. Whilst we like to eliminate uncertainty in our lives at some level we have to manage uncertainty, especially in today's volatile and ever-shifting job market.",
+        "How we see ourselves is central to the issue ofour identity. When we tell ourselves “I'm good at starting projects but not so great at seeing them through”it can become part ofour belief system. But if you have the unfortunate experience of an enforced job change you will need to examine those beliefs to see how grounded in reality they are. You will be required to ask yourself how helpful these beliefs are and consider personal change We can change our beliefs, behaviours and emotional experience at any time through experimentation, practice and conscious self-discipline. In an age where career progression may lead us into new sectors it is ever more important to challenge our sense of self and explore whether you can create a new experience ofyour identity by changing the beliefs you hold about yourself in orderto expand your career options. Ultimately it is you who define who you are. You are only your job ifyou let it be so."
+      ],
+      "study_paragraphs": [
+        "When someone asks us 'what do you do?'we nearly always reply with our occupation. Work, for many of us, is much more than a job. It is the defining aspect of our identity. For many of us it is through our job that we can define ourselves.",
+        "“Without myjob I don't know who I am,”is a sentence that has been uttered on more than a handful of occasions from my office chair. Indeed, it can be one of the most challenging aspects I work on with clients who have lost or been forced into changing their jobs. This loss provokes an identity crisis much greater than the loss of thejob itself.",
+        "One of the things I have come to understand, however, is that our identity is much more complex than we recognise at first glance. If we take the time to reflect we might recognise that as well as our work we can also identify as a friend, a spouse, a sonor daughter, a parent, a member of a sports team or religious community. We may recognise that we feel and act differently in these roles and relationships than we do at work. The passive daughter becomes an assertive leader at work. Furthermore, our identities at work are not static. They change over time. I myself have been a shop assistant, a waitress, a student, a graduate, and a clinical psychologist. At each stage my ability to adapt to and develop my career identity has been crucial to my wellbeing. Whilst we like to eliminate uncertainty in our lives at some level we have to manage uncertainty, especially in today's volatile and ever-shifting job market.",
+        "How we see ourselves is central to the issue ofour identity. When we tell ourselves “I'm good at starting projects but not so great at seeing them through”it can become part ofour belief system. But if you have the unfortunate experience of an enforced job change you will need to examine those beliefs to see how grounded in reality they are. You will be required to ask yourself how helpful these beliefs are and consider personal change We can change our beliefs, behaviours and emotional experience at any time through experimentation, practice and conscious self-discipline. In an age where career progression may lead us into new sectors it is ever more important to challenge our sense of self and explore whether you can create a new experience ofyour identity by changing the beliefs you hold about yourself in orderto expand your career options. Ultimately it is you who define who you are. You are only your job ifyou let it be so."
+      ],
+      "questions": [
+        {
+          "id": "cet6-2024-06-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What do we learn from the passage about one's loss of a job?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It compels them to visit a clinical psychologist."
+            },
+            {
+              "key": "B",
+              "text": "It offers them a chance to play different roles."
+            },
+            {
+              "key": "C",
+              "text": "It renders them puzzled about who they are."
+            },
+            {
+              "key": "D",
+              "text": "It forces them to redefine their life's goals."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理，非官方答案。失业会引发比工作损失本身更大的身份危机。第 2 段原文依据：“Without myjob I don't know who I am,”is a sentence that has been uttered on more than a handful of occasions from my office chair. Indeed, it can be one of the most challenging aspects I work on with clients who have lost or been forced into changing their jobs. This loss provokes an identity crisis much greater than the loss of thejob itself.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What has the author come to understand about our identity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is crucial to our emotional wellbeing."
+            },
+            {
+              "key": "B",
+              "text": "Itplays a big role in many facets of life"
+            },
+            {
+              "key": "C",
+              "text": "It reflects our changing status in society."
+            },
+            {
+              "key": "D",
+              "text": "It is more complicated than it appears"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。身份比初看更复杂，包括朋友、配偶、父母等角色。第 3 段原文依据：One of the things I have come to understand, however, is that our identity is much more complex than we recognise at first glance. If we take the time to reflect we might recognise that as well as our work we can also identify as a friend, a spouse, a sonor daughter, a parent, a member of a sports team or religious community. We may recognise that we feel and act differently in these roles and relationships than we do at work. The passive daughter becomes an assertive leader at work. Furthermore, our identities at work are not static. They change over time. I myself have been a shop assistant, a waitress, a student, a graduate, and a clinical psychologist. At each stage my ability to adapt to and develop my career identity has been crucial to my wellbeing. Whilst we like to eliminate uncertainty in our lives at some level we have to manage uncertainty, especially in today's volatile and ever-shifting job market.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What does thepassage say about our identities at work?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are essential to our self-esteem"
+            },
+            {
+              "key": "B",
+              "text": "They evolve with the passage of time."
+            },
+            {
+              "key": "C",
+              "text": "They overrule all other self-perceptions."
+            },
+            {
+              "key": "D",
+              "text": "They are key to understanding ourselves."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理，非官方答案。职业身份不是静态的，会随时间变化。第 3 段原文依据：One of the things I have come to understand, however, is that our identity is much more complex than we recognise at first glance. If we take the time to reflect we might recognise that as well as our work we can also identify as a friend, a spouse, a sonor daughter, a parent, a member of a sports team or religious community. We may recognise that we feel and act differently in these roles and relationships than we do at work. The passive daughter becomes an assertive leader at work. Furthermore, our identities at work are not static. They change over time. I myself have been a shop assistant, a waitress, a student, a graduate, and a clinical psychologist. At each stage my ability to adapt to and develop my career identity has been crucial to my wellbeing. Whilst we like to eliminate uncertainty in our lives at some level we have to manage uncertainty, especially in today's volatile and ever-shifting job market.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do we have to do in today's ever-changing job market?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Strive to develop our social identity."
+            },
+            {
+              "key": "B",
+              "text": "Prepare for different career paths."
+            },
+            {
+              "key": "C",
+              "text": "Try to be assertive at all times."
+            },
+            {
+              "key": "D",
+              "text": "Learn to manage uncertainty."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理，非官方答案。变动的就业市场要求学会处理不确定性。第 3 段原文依据：One of the things I have come to understand, however, is that our identity is much more complex than we recognise at first glance. If we take the time to reflect we might recognise that as well as our work we can also identify as a friend, a spouse, a sonor daughter, a parent, a member of a sports team or religious community. We may recognise that we feel and act differently in these roles and relationships than we do at work. The passive daughter becomes an assertive leader at work. Furthermore, our identities at work are not static. They change over time. I myself have been a shop assistant, a waitress, a student, a graduate, and a clinical psychologist. At each stage my ability to adapt to and develop my career identity has been crucial to my wellbeing. Whilst we like to eliminate uncertainty in our lives at some level we have to manage uncertainty, especially in today's volatile and ever-shifting job market.",
+          "points": 2
+        },
+        {
+          "id": "cet6-2024-06-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What should we do to expand our career options?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Alter our perceptions of ourselves."
+            },
+            {
+              "key": "B",
+              "text": "Compare various job opportunities."
+            },
+            {
+              "key": "C",
+              "text": "Look into newly emerging sectors"
+            },
+            {
+              "key": "D",
+              "text": "Exercise self-discipline consciously."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理，非官方答案。改变对自己的信念和认识可以扩大职业选择。第 4 段原文依据：How we see ourselves is central to the issue ofour identity. When we tell ourselves “I'm good at starting projects but not so great at seeing them through”it can become part ofour belief system. But if you have the unfortunate experience of an enforced job change you will need to examine those beliefs to see how grounded in reality they are. You will be required to ask yourself how helpful these beliefs are and consider personal change We can change our beliefs, behaviours and emotional experience at any time through experimentation, practice and conscious self-discipline. In an age where career progression may lead us into new sectors it is ever more important to challenge our sense of self and explore whether you can create a new experience ofyour identity by changing the beliefs you hold about yourself in orderto expand your career options. Ultimately it is you who define who you are. You are only your job ifyou let it be so.",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet6-2024-06-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "Directions: For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "中国盛产竹子，是最早开发利用竹资源的国家。竹子在中国分布广泛，品种丰富。竹子实用性强，用于生产和生活的许多方面，如筷子、桌椅的制作和桥梁、房屋的建造。中国人爱竹，自古以来就有无数文人以竹为主题，创作了绚丽多彩的文学和绘画作品。竹子主干(stem) 笔直，象征正直的品格。竹子具有强大的生命力和适应能力，无论环境多么恶劣，都能够顽强生存，因而寓意坚韧不拔的精神。几千年来，竹子一直被视为中华民族品格的象征。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet6-2024-06-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
