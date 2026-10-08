@@ -34,6 +34,8 @@ sentence_id + source_hash + context_hash + prompt_version + model + mode
 
 `grammar.clauses` 和 `grammar.components` 都必须非空，简单句也应解释主句。解释应引用具体英文，说明成分作用、中心词和主从关系。AI 漏填或返回无效结果时，Worker 最多提交一次带校验错误的修正请求；两次请求共用原来的超时期限。修正后仍不合格则标记任务失败，不填充通用说明，也不保存为成功结果。
 
+AI 生成默认最多等待 90 秒（`AI_REQUEST_TIMEOUT_MS=90000`），任务租约默认 120 秒，始终需要比生成上限多至少 15 秒。前端最多轮询 10 分钟以容纳连续点击多句时的排队时间，并区分排队与生成状态。失败原因在数据库中保留；任务接口只返回 `errorCode`，前端据此显示超时、服务不可用或结果校验失败，Worker 日志记录任务 ID 和错误类别。
+
 `POST /api/sentences/:id/analyze?mode=intensive&regenerate=true` 跳过缓存并创建或复用正在进行的任务。普通请求继续读取已有缓存，重新生成失败不删除旧结果；Worker 以领取次数核对任务所有权，过期后被其他 Worker 接管的旧请求不能覆盖新结果。
 
 ## 部署

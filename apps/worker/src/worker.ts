@@ -8,6 +8,7 @@ import {
 } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
 import { generateAnalysis } from './ai-analysis.js';
+import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
@@ -113,12 +114,17 @@ async function processJob(job: Job) {
     );
     await client.query('COMMIT');
   } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(JSON.stringify({
+      event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
+      attempt: job.attempts, errorCode: analysisErrorCode(message),
+    }));
     await client.query('ROLLBACK').catch(() => undefined);
     await client.query(
       `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
        lease_expires_at = NULL, finished_at = NOW(), updated_at = NOW()
        WHERE id = $1 AND attempts = $3 AND status = 'running'`,
-      [job.id, error instanceof Error ? error.message : String(error), job.attempts],
+      [job.id, message, job.attempts],
     );
   } finally {
     client.release();

@@ -6,6 +6,10 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./analysis-jobs": {
+      "types": "./dist/analysis-jobs.d.ts",
+      "import": "./dist/analysis-jobs.js"
+    },
     "./tokens": {
       "types": "./dist/tokens.d.ts",
       "import": "./dist/tokens.js"

@@ -1,6 +1,7 @@
 import { tokenize } from '@cet-reading/contracts/tokens';
 import type { SentenceAnalysis } from '@cet-reading/contracts';
 import { createSectionNavigation } from './section-navigation';
+import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
 
 type StudySentence = {
   id: string;
@@ -31,11 +32,20 @@ const roleNames: Record<string, string> = {
   subject: '主语', predicate: '谓语', object: '宾语', complement: '补语', modifier: '修饰语', connector: '连接词',
 };
 
+class AnalysisFailure extends Error {}
+
 function element<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text?: string) {
   const node = document.createElement(tag);
   node.className = className;
   if (text !== undefined) node.textContent = text;
   return node;
+}
+
+function waitingDots() {
+  const dots = element('span', 'waiting-dots');
+  dots.setAttribute('aria-hidden', 'true');
+  for (let i = 0; i < 3; i += 1) dots.append(element('span', 'waiting-dot'));
+  return dots;
 }
 
 export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLElement) {
@@ -96,7 +106,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const request = sentence ? requests.get(cacheKey(sentence)) : undefined;
     regenerate.hidden = !sentence || !completed.has(cacheKey(sentence));
     regenerate.disabled = Boolean(request);
-    regenerate.textContent = request?.regenerating ? '重新生成中…' : '重新生成';
+    regenerate.replaceChildren(document.createTextNode(request?.regenerating ? '重新生成中' : '重新生成'));
+    if (request?.regenerating) regenerate.append(waitingDots());
     const message = sentence ? feedback.get(sentence.id) ?? '' : '';
     notice.textContent = message;
     notice.hidden = !message;
@@ -127,7 +138,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const timeout = setTimeout(() => requestController.abort(), 15_000);
     try {
       const response = await fetch(`${apiBase}${path}`, { method, signal: requestController.signal });
-      if (!response.ok) throw new Error('精读请求失败');
+      if (!response.ok) throw new AnalysisFailure('精读服务暂时不可用，请稍后重试。');
       return await response.json();
     } finally {
       clearTimeout(timeout);
@@ -145,15 +156,22 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   async function fetchAnalysis(sentence: StudySentence, regenerate: boolean, signal: AbortSignal): Promise<SentenceAnalysis> {
     const path = `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive`;
     let response = await jsonRequest(regenerate ? `${path}&regenerate=true` : path, 'POST', signal);
-    const deadline = Date.now() + 180_000;
+    // Several sentences can be queued by the same reader; queue time is separate
+    // from the worker's 90-second generation deadline.
+    const deadline = Date.now() + 600_000;
     while (response.status !== 'ready') {
-      if (!response.jobId || Date.now() > deadline) throw new Error('生成暂未完成');
+      if (!response.jobId) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
+      if (Date.now() > deadline) throw new AnalysisFailure('精读仍未完成，请稍后重试。');
       await waitForJob(signal);
       const job = await jsonRequest(`/api/jobs/${encodeURIComponent(response.jobId)}`, 'GET', signal);
-      if (job.status === 'failed') throw new Error('生成失败');
+      if (job.status === 'failed') throw new AnalysisFailure(analysisErrorMessage(job.errorCode));
+      if (selected?.sentence.id === sentence.id && !completed.has(cacheKey(sentence))) {
+        const loading = paneBody.querySelector('.analysis-loading-text');
+        if (loading) loading.textContent = job.status === 'pending' ? '正在排队，稍候开始' : '正在解析这一句';
+      }
       if (job.status === 'succeeded') response = await jsonRequest(path, 'POST', signal);
     }
-    if (!response.result?.tokens || !response.result?.grammar) throw new Error('精读结果不完整');
+    if (!response.result?.tokens || !response.result?.grammar) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
     completed.set(cacheKey(sentence), response.result);
     return response.result;
   }
@@ -192,7 +210,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     if (cached) renderAnalysis(cached);
     else {
-      const loading = element('p', 'analysis-loading', '正在解析这一句…');
+      const loading = element('p', 'analysis-loading');
+      loading.append(element('span', 'analysis-loading-text', '正在解析这一句'), waitingDots());
       loading.setAttribute('role', 'status');
       paneBody.replaceChildren(loading);
     }
@@ -201,11 +220,12 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       const analysis = await request.promise;
       feedback.delete(sentence.id);
       if (!controller.signal.aborted && panelOpen && selected?.sentence.id === sentence.id) renderAnalysis(analysis);
-    } catch {
-      if (!controller.signal.aborted && cached) feedback.set(sentence.id, '重新生成失败，已保留原结果。');
+    } catch (error) {
+      const failure = error instanceof AnalysisFailure ? error.message : '连接失败，请稍后重试。';
+      if (!controller.signal.aborted && cached) feedback.set(sentence.id, `${failure}已保留原结果。`);
       if (controller.signal.aborted || !panelOpen || selected?.sentence.id !== sentence.id) return;
       if (cached) { renderAnalysis(cached); return; }
-      const message = element('p', 'analysis-empty', '暂时无法生成精读，请重试。');
+      const message = element('p', 'analysis-empty', failure);
       const retry = element('button', 'analysis-retry', '重试');
       retry.type = 'button';
       retry.addEventListener('click', () => {

@@ -1,6 +1,7 @@
 import { Pool } from 'pg';
 import { AnswersSchema, contextHash, validateAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
+import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
 
@@ -225,5 +226,8 @@ export async function getJob(id: string) {
      FROM analysis_jobs WHERE id = $1`,
     [id],
   );
-  return result.rows[0] ?? null;
+  const row = result.rows[0];
+  if (!row) return null;
+  const { error_message, ...job } = row;
+  return { ...job, errorCode: job.status === 'failed' ? analysisErrorCode(error_message) : null };
 }
