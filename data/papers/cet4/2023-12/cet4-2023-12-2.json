@@ -1,0 +1,1863 @@
+{
+  "id": "cet4-2023-12-2",
+  "exam_level": "CET4",
+  "year": 2023,
+  "month": 12,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2023年12月大学英语四级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入非听力部分。PDF 未附答案，客观题参考答案依据原文整理；引号及省略号按原件保留。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2023-12-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose the university newspaper is inviting submissions from the students for its coming edition on the recent development in their hometown. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-2-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose the university newspaper is inviting submissions from the students for its coming edition on the recent development in their hometown. You are now to write an essay for submission. You will have 30 minutes to write the essay. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "A number of studies have looked at how family life can affect productivity and satisfaction in the workplace. However, there has been [26] ______ little research on the influence of leisure activities. So Ciara Kelly and colleagues recruited 129 hobbyists to look at how the time spent on their hobbies [27] ______ their work life.",
+        "The researchers found that when participants spent longer than [28] ______ on their leisure activity, their belief in their ability to perform their job was strengthened. But this was only the [29] ______ when they had a serious hobby that was dissimilar to their job, or when their hobby was similar to their work but they only did it [30] ______. When their hobby was both serious and similar to their job, then spending more time on it actually decreased their work [31] ______.",
+        "Why might that be? To maintain a serious hobby, people need to invest significant psychological resources, say the authors—so if the activity has the same kinds of demands as their work, they may be left [32] ______ and unable to perform well at their job. But if their hobby is quite different from their career, it may not [33] ______ in the same way but instead help them develop other knowledge and skills that can [34] ______ their confidence at work. \"Consider a scientist who is a keen rock climber,” says Kelly. \"Since climbing is so far [35] ______ from their day-to-day work activities, they can still recover from the demands of their job with plenty of resources.\""
+      ],
+      "study_paragraphs": [
+        "A number of studies have looked at how family life can affect productivity and satisfaction in the workplace. However, there has been surprisingly little research on the influence of leisure activities. So Ciara Kelly and colleagues recruited 129 hobbyists to look at how the time spent on their hobbies shaped their work life.",
+        "The researchers found that when participants spent longer than normal on their leisure activity, their belief in their ability to perform their job was strengthened. But this was only the case when they had a serious hobby that was dissimilar to their job, or when their hobby was similar to their work but they only did it casually. When their hobby was both serious and similar to their job, then spending more time on it actually decreased their work efficiency.",
+        "Why might that be? To maintain a serious hobby, people need to invest significant psychological resources, say the authors—so if the activity has the same kinds of demands as their work, they may be left exhausted and unable to perform well at their job. But if their hobby is quite different from their career, it may not interfere in the same way but instead help them develop other knowledge and skills that can boost their confidence at work. \"Consider a scientist who is a keen rock climber,” says Kelly. \"Since climbing is so far removed from their day-to-day work activities, they can still recover from the demands of their job with plenty of resources.\""
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-2-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案 O，依据原文整理。surprisingly little research 表示相关研究少得令人意外，surprisingly 是修饰 little 的副词。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "N",
+          "explanation": "参考答案 N，依据原文整理。how the time spent on their hobbies shaped their work life 表示花在爱好上的时间如何影响、塑造他们的工作生活，过去式 shaped 作谓语。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。spent longer than normal 指花在休闲活动上的时间比平常更长。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。this was only the case when... 表示只有在后面所述条件下，情况才如此。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。they only did it casually 指只是随意地、非投入地从事爱好，与 serious hobby 形成对照。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。decreased their work efficiency 指工作效率下降，下文进一步解释这种爱好会消耗工作所需的心理资源。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。be left exhausted and unable to perform well 表示变得精疲力竭，无法在工作中表现良好。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。not interfere in the same way 指与职业不同的爱好不会以相同方式妨碍工作；后面的 instead 引出其积极作用。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。boost their confidence at work 指提升他们在工作中的信心，boost 在这里用作动词。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "boost"
+            },
+            {
+              "key": "B",
+              "text": "case"
+            },
+            {
+              "key": "C",
+              "text": "casually"
+            },
+            {
+              "key": "D",
+              "text": "efficiency"
+            },
+            {
+              "key": "E",
+              "text": "estate"
+            },
+            {
+              "key": "F",
+              "text": "exhausted"
+            },
+            {
+              "key": "G",
+              "text": "faculty"
+            },
+            {
+              "key": "H",
+              "text": "interfere"
+            },
+            {
+              "key": "I",
+              "text": "normal"
+            },
+            {
+              "key": "J",
+              "text": "prevalent"
+            },
+            {
+              "key": "K",
+              "text": "relative"
+            },
+            {
+              "key": "L",
+              "text": "removed"
+            },
+            {
+              "key": "M",
+              "text": "scratch"
+            },
+            {
+              "key": "N",
+              "text": "shaped"
+            },
+            {
+              "key": "O",
+              "text": "surprisingly"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。far removed from their day-to-day work activities 表示攀岩与日常工作活动相差很远。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）· More fathers are taking paternity leave, but mothers are still doing all the work",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter. Answer the questions by making the corresponding letter on Answer Sheet 2.",
+      "paragraphs": [
+        "[A] Attitudes towards paternity leave (陪产假) have drastically changed in America in the last five years as more fathers feel comfortable taking extended time off, but gender bias persists when it comes to career prospects and the home, according to a new study of working parents.",
+        "[B] Research by the Boston College Center for Work & Family, which surveyed new parents at four large US companies who were qualified for taking at least six weeks paid parental leave, found that 81% of the 1,240 employees surveyed said the notion of fathers taking leave has become more acceptable.",
+        "[C] Of those surveyed, 62% of fathers took the maximum amount of time off compared to 93% of mothers, and around three-quarters of workers said their employer was equally supportive of mothers and fathers taking parental leave and over half said leave policies had made workplace culture better.",
+        "[D] The US is one of only three countries in the world not to offer statutory (法定的) paid leave, but increasingly states and companies are starting to take up the issue. So far, eight states and the District of Columbia have their own paid family leave laws.",
+        "[E] Brad Harrington, executive director of the center and lead author of the study, estimates only 20% to 30% of companies in the US offer paid parental leave. He feels the research findings reflect an obvious change in corporate attitudes to new fathers taking time off.",
+        "[F] \"We did a study on paternity leave five years ago. Compared with those findings, these numbers were shocking to me. I did not expect 80% of people to say the organisation finds dads taking this leave acceptable and three-quarters to say it's equally supportive of women and men taking leave,\" Harrington said.",
+        "[G] The previous study found that nearly three-quarters of fathers saw two to four weeks as an appropriate duration for paternity leave and 76% said they would prefer not to take all their time off at once.",
+        "[H] Since then, there have been a number of legal cases against companies involving paternity leave—including cases against JPMorgan Chase and Estée Lauder—which have helped put pressure on companies to make their parental leave policies gender neutral.",
+        "[I] However, the study also shows how traditional gender roles endure both at work, where more women than men reported changes in their perceived career potential, and at home—even among workers who claim to have a strong desire for equality.",
+        "[J] The vast majority of men, 97%, said one of the top reasons to take leave was to share caregiving with their partner. But when they were asked about how caregiving and household tasks were divided, their answers painted a different picture. While about 75% of employees said both genders should give the same amount of care, the majority of men and nearly half of women admitted that in reality the female actually did most of it. A tiny fraction, 2%, of men said they did more of the childcare.",
+        "[K] Men and women's experiences of the return to work following parental leave were also considerably different. Of the women surveyed, 32% reported a downturn in their job satisfaction, while 14% said it increased. In comparison, 17% of men said their job satisfaction went down and 20% said it went up. Meanwhile, more women reported an increase in their responsibilities and manager expectations after childbirth. Half of the women said they used flexible work arrangements after becoming a parent, while just 27% of men did. Similar percentages of men and women said they enjoyed their careers and that it gave them a sense of achievement, while around half of women and 44% of men said it was a key part of their identity.",
+        "[L] On the subject of career advancement, 59% of women and 49% of men said leave could be limiting and both genders said they feared it would have an impact on their progress long-term. But on opportunity for promotion, more than double the number of women, 30% compared with 15% of men, believed their chances to be lower after becoming a parent. Despite progress, the struggle for women to reach the highest positions of power is demonstrated in this year's Fortune 500 list, which featured a record 33 female CEOs, but this still represents a tiny fraction of the total.",
+        "[M] Harrington said culture change depends on companies putting more focus on men and their responsibilities. \"By that I mean companies need to give men paternity leave and encourage men to take time off to be with their kids early on in the kids' life. They also need to recognise that men have to make significant adjustments when they become parents. Companies cannot do all these things to enhance women's advancement and then turn around and say, ‘Oh, but we don't expect the men to take over for the women at home.\"",
+        "[N] In May, the American Civil Liberties Union (ACLU) and Outten & Golden LLP announced a historic class-action $5m settlement with JPMorgan Chase on behalf of male employees who claim they were illegally denied access to paid parental leave. Derek Rotondo, 35, filed the discrimination charge against his company after he was allegedly told by his HR department that mothers were considered primary caregivers. Thus, they were allowed to take 16 weeks of paid parental leave. Fathers, however, could take just two weeks.",
+        "[O] The father of two from Columbus, Ohio, who still works at the company as an associate and investigator, said he has witnessed a “domino effect (多米诺效应)” across companies since the settlement, but that there is still substantial progress to be made towards changing attitudes towards paternity leave.",
+        "[P] \"I do think there's still some way to go...there's still going to be sort of the unstated expectation for new dads to essentially come right back to work, but I think the research is showing that's starting to change.\" He said equal parental leave is an essential component to creating gender equality in the workplace. \"The old standard of women staying home, having babies and cooking doesn't apply and hasn't applied for a long time.\""
+      ],
+      "study_paragraphs": [
+        "Attitudes towards paternity leave (陪产假) have drastically changed in America in the last five years as more fathers feel comfortable taking extended time off, but gender bias persists when it comes to career prospects and the home, according to a new study of working parents.",
+        "Research by the Boston College Center for Work & Family, which surveyed new parents at four large US companies who were qualified for taking at least six weeks paid parental leave, found that 81% of the 1,240 employees surveyed said the notion of fathers taking leave has become more acceptable.",
+        "Of those surveyed, 62% of fathers took the maximum amount of time off compared to 93% of mothers, and around three-quarters of workers said their employer was equally supportive of mothers and fathers taking parental leave and over half said leave policies had made workplace culture better.",
+        "The US is one of only three countries in the world not to offer statutory (法定的) paid leave, but increasingly states and companies are starting to take up the issue. So far, eight states and the District of Columbia have their own paid family leave laws.",
+        "Brad Harrington, executive director of the center and lead author of the study, estimates only 20% to 30% of companies in the US offer paid parental leave. He feels the research findings reflect an obvious change in corporate attitudes to new fathers taking time off.",
+        "\"We did a study on paternity leave five years ago. Compared with those findings, these numbers were shocking to me. I did not expect 80% of people to say the organisation finds dads taking this leave acceptable and three-quarters to say it's equally supportive of women and men taking leave,\" Harrington said.",
+        "The previous study found that nearly three-quarters of fathers saw two to four weeks as an appropriate duration for paternity leave and 76% said they would prefer not to take all their time off at once.",
+        "Since then, there have been a number of legal cases against companies involving paternity leave—including cases against JPMorgan Chase and Estée Lauder—which have helped put pressure on companies to make their parental leave policies gender neutral.",
+        "However, the study also shows how traditional gender roles endure both at work, where more women than men reported changes in their perceived career potential, and at home—even among workers who claim to have a strong desire for equality.",
+        "The vast majority of men, 97%, said one of the top reasons to take leave was to share caregiving with their partner. But when they were asked about how caregiving and household tasks were divided, their answers painted a different picture. While about 75% of employees said both genders should give the same amount of care, the majority of men and nearly half of women admitted that in reality the female actually did most of it. A tiny fraction, 2%, of men said they did more of the childcare.",
+        "Men and women's experiences of the return to work following parental leave were also considerably different. Of the women surveyed, 32% reported a downturn in their job satisfaction, while 14% said it increased. In comparison, 17% of men said their job satisfaction went down and 20% said it went up. Meanwhile, more women reported an increase in their responsibilities and manager expectations after childbirth. Half of the women said they used flexible work arrangements after becoming a parent, while just 27% of men did. Similar percentages of men and women said they enjoyed their careers and that it gave them a sense of achievement, while around half of women and 44% of men said it was a key part of their identity.",
+        "On the subject of career advancement, 59% of women and 49% of men said leave could be limiting and both genders said they feared it would have an impact on their progress long-term. But on opportunity for promotion, more than double the number of women, 30% compared with 15% of men, believed their chances to be lower after becoming a parent. Despite progress, the struggle for women to reach the highest positions of power is demonstrated in this year's Fortune 500 list, which featured a record 33 female CEOs, but this still represents a tiny fraction of the total.",
+        "Harrington said culture change depends on companies putting more focus on men and their responsibilities. \"By that I mean companies need to give men paternity leave and encourage men to take time off to be with their kids early on in the kids' life. They also need to recognise that men have to make significant adjustments when they become parents. Companies cannot do all these things to enhance women's advancement and then turn around and say, ‘Oh, but we don't expect the men to take over for the women at home.\"",
+        "In May, the American Civil Liberties Union (ACLU) and Outten & Golden LLP announced a historic class-action $5m settlement with JPMorgan Chase on behalf of male employees who claim they were illegally denied access to paid parental leave. Derek Rotondo, 35, filed the discrimination charge against his company after he was allegedly told by his HR department that mothers were considered primary caregivers. Thus, they were allowed to take 16 weeks of paid parental leave. Fathers, however, could take just two weeks.",
+        "The father of two from Columbus, Ohio, who still works at the company as an associate and investigator, said he has witnessed a “domino effect (多米诺效应)” across companies since the settlement, but that there is still substantial progress to be made towards changing attitudes towards paternity leave.",
+        "\"I do think there's still some way to go...there's still going to be sort of the unstated expectation for new dads to essentially come right back to work, but I think the research is showing that's starting to change.\" He said equal parental leave is an essential component to creating gender equality in the workplace. \"The old standard of women staying home, having babies and cooking doesn't apply and hasn't applied for a long time.\""
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-2-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. In the absence of Federal legislation, some states in the US have passed laws concerning paid family leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。D 段说美国不提供法定带薪假，但已有八个州及哥伦比亚特区制定了各自的带薪家庭假法律。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. Most fathers admitted that even during their paternity leave they actually did much less childcare than the mother.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案 J，依据原文整理。J 段指出虽然大多数男性说休假的目的是分担照护，实际上大多数男性承认女性承担了主要照护任务。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. According to one father, equal parental leave is indispensable to achieving gender equality in the workplace.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "P",
+          "explanation": "参考答案 P，依据原文整理。P 段明确说平等的育儿假是实现职场性别平等的必要组成部分。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. One survey indicated there is now less objection to paternity leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。B 段的调查中，81% 的受访员工认为父亲休假变得更容易被接受，说明反对有所减少。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. Compared to five years ago, according to one researcher, many more people said their organisation gave the same support to men and women taking parental leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案 F，依据原文整理。F 段中研究者对比五年前的调查，说如今有四分之三的人认为单位同样支持男女休育儿假。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. One study finds that even workers who claim to desire gender equality stick to traditional gender roles both at work and at home.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案 I，依据原文整理。I 段说明传统性别角色在工作和家庭中持续存在，甚至声称强烈希望平等的员工也如此。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. The majority of workers surveyed said parental leave policies had improved workplace culture.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。C 段说超过一半的员工认为育儿假政策改善了职场文化。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. In spite of progress, the number of women in top positions of big companies remains extremely small.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案 L，依据原文整理。L 段以《财富》500 强名单为例，33 位女性 CEO 虽创纪录，但仍只占总人数极小一部分。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. According to one estimate, less than one third of companies in the US provide paid parental leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案 E，依据原文整理。E 段估计美国只有 20% 至 30% 的公司提供带薪育儿假，少于三分之一。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. A number of lawsuits have pressured companies to formulate gender neutral policies on parental leave.",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            },
+            {
+              "key": "N",
+              "text": "段落 N"
+            },
+            {
+              "key": "O",
+              "text": "段落 O"
+            },
+            {
+              "key": "P",
+              "text": "段落 P"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案 H，依据原文整理。H 段提到涉及摩根大通、雅诗兰黛等公司的陪产假诉讼，促使公司制定性别中立的育儿假政策。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-section-4",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage One（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Having a rival can keep you committed to achieving your goals and enhance your overall performance. But before you go out and find an entrepreneur to outcompete, it's important to understand and avoid the traps that often come with rivalry. After all, competitive rivalry can also hinder effective decision-making and increase your willingness to take risks, behaviors that can ultimately hurt your venture's success.",
+        "Finding someone you're committed to outcompeting can be a great way to stay focused on your goals and push your venture to the next level. But when you're intently focused on outperforming your rivals, you may begin to develop a \"win-at-all-costs\" mentality that causes you to ignore how you achieve success. One group of researchers, for example, examined the link between rivalry and unethical behavior. They found that when people compete against their rivals, they are more willing to behave unethically to win. But such behavior may stain your reputation and strain relationships important to your success. One way to avoid this trap is to stop and reflect on what's important. While outperforming your rivals may provide short-term benefits, the loss of your integrity will have long-term consequences.",
+        "One reason having a rival can enhance your venture's performance is that it creates a level of excitement that drives you to work harder. But this eagerness to win may also hurt your venture's success, particularly when it causes you to make impulsive, insensible decisions. But it's possible to avoid such costly mistakes by making a habit of engaging in critical thinking, such as considering opposing viewpoints and conducting cost-benefit analyses, especially for those decisions that are complex and can determine the future of your venture.",
+        "The sense of eagerness that comes with having a rival can not only cause you to make poorer decisions, but it can also lead you to take greater risks that put your venture in peril. One way you can overcome the risk-inducing effects of rivalry that stand to endanger your venture's success is to remain attentive to your emotional state and actively monitor how such feelings are affecting your decision-making."
+      ],
+      "study_paragraphs": [
+        "Having a rival can keep you committed to achieving your goals and enhance your overall performance. But before you go out and find an entrepreneur to outcompete, it's important to understand and avoid the traps that often come with rivalry. After all, competitive rivalry can also hinder effective decision-making and increase your willingness to take risks, behaviors that can ultimately hurt your venture's success.",
+        "Finding someone you're committed to outcompeting can be a great way to stay focused on your goals and push your venture to the next level. But when you're intently focused on outperforming your rivals, you may begin to develop a \"win-at-all-costs\" mentality that causes you to ignore how you achieve success. One group of researchers, for example, examined the link between rivalry and unethical behavior. They found that when people compete against their rivals, they are more willing to behave unethically to win. But such behavior may stain your reputation and strain relationships important to your success. One way to avoid this trap is to stop and reflect on what's important. While outperforming your rivals may provide short-term benefits, the loss of your integrity will have long-term consequences.",
+        "One reason having a rival can enhance your venture's performance is that it creates a level of excitement that drives you to work harder. But this eagerness to win may also hurt your venture's success, particularly when it causes you to make impulsive, insensible decisions. But it's possible to avoid such costly mistakes by making a habit of engaging in critical thinking, such as considering opposing viewpoints and conducting cost-benefit analyses, especially for those decisions that are complex and can determine the future of your venture.",
+        "The sense of eagerness that comes with having a rival can not only cause you to make poorer decisions, but it can also lead you to take greater risks that put your venture in peril. One way you can overcome the risk-inducing effects of rivalry that stand to endanger your venture's success is to remain attentive to your emotional state and actively monitor how such feelings are affecting your decision-making."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-2-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. How can competitive rivalry benefit entrepreneurs according to the passage?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By enabling them to outcompete other entrepreneurs."
+            },
+            {
+              "key": "B",
+              "text": "By enabling them to make their venture a success."
+            },
+            {
+              "key": "C",
+              "text": "By helping them to reach long-term goals."
+            },
+            {
+              "key": "D",
+              "text": "By helping them to stay goal-oriented."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。前两段说竞争对手可以让创业者持续投入目标并保持专注，对应 stay goal-oriented。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What is one of the traps entrepreneurs may often fall into when competing with rivals?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They may adopt strategies that are bound to ruin their venture."
+            },
+            {
+              "key": "B",
+              "text": "They may resort to unethical means to outperform their rivals."
+            },
+            {
+              "key": "C",
+              "text": "They may be too eager to succeed while ignoring the huge labor cost."
+            },
+            {
+              "key": "D",
+              "text": "They may be intently focused on winning at the current market level."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第二段指出为了胜过竞争对手，人们更愿意采用不道德的行为，并可能因此损害声誉和重要关系。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What are entrepreneurs advised to do to avoid traps that often accompany rivalry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Deliberate on what really matters."
+            },
+            {
+              "key": "B",
+              "text": "Prioritize reaping immediate benefits."
+            },
+            {
+              "key": "C",
+              "text": "Estimate the long-term consequences."
+            },
+            {
+              "key": "D",
+              "text": "Reflect on what successes are achievable."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第二段建议 stop and reflect on what's important，即停下来认真思考真正重要的事情。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. How can entrepreneurs avoid making impulsive and insensible decisions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By engaging themselves in critical reasoning."
+            },
+            {
+              "key": "B",
+              "text": "By developing a habit of keeping their integrity."
+            },
+            {
+              "key": "C",
+              "text": "By criticizing themselves for previous poor performances."
+            },
+            {
+              "key": "D",
+              "text": "By refraining from being too excited about their successes."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。第三段建议养成批判性思考的习惯，例如考虑相反观点和进行成本收益分析，以免做出冲动、不明智的决定。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. How can entrepreneurs overcome the risk-inducing effects of rivalry?",
+          "options": [
+            {
+              "key": "A",
+              "text": "By paying close attention to their current performance."
+            },
+            {
+              "key": "B",
+              "text": "By taking steps that stand to endanger their rivals' success."
+            },
+            {
+              "key": "C",
+              "text": "By monitoring how their decision-making impacts their mentality."
+            },
+            {
+              "key": "D",
+              "text": "By keeping their emotions in check to avoid making poor decisions."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。末段建议关注自己的情绪状态，主动监测情绪如何影响决策，以克服竞争诱发的冒险倾向。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-section-5",
+      "kind": "reading",
+      "title": "仔细阅读 · Passage Two（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best choice and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "A multitasker is one who can perform two or more tasks effectively at the same time, which—apart from the obvious differences—is similar to what a computer does. The concept does indeed come from the realms of technology, where it is used to refer to an operating system that can execute multiple tasks at the same time. However, the question is: can a person really be a multitasker?",
+        "For most scientists, the answer is no. So much so that, according to experts in neuroscience (神经系统科学), our brains do not handle multitasking situations well. As soon as two tasks require our attention, productivity suffers. What we call multitasking, therefore, is in reality the ability to move more or less quickly from one task to another. This requires two essential conditions: that one of the tasks needs to be automatic, like walking or eating, and that they both need different mental processes. Answering the phone and writing at the same time, for example.",
+        "However, on the other side of the coin there are people who maintain that it is possible to be, or at least seem to be, multitasking. A recent study concluded that regardless of whether people are actually handling several tasks or not, the mere fact that they perceive this activity as multitasking has a positive effect on their performance.",
+        "The business perspective offers a different view: multitasking is understood as the ability to adapt to all types of environment within a company and effectively undertake different activities within a set time frame. Indeed, many companies look for people who are skilled in multitasking to improve their productivity. From this different perspective, you can not only be multitasking but this ability can also be taught: something that is easier in fluid organisations, which favour flexibility in their working practices.",
+        "The benefits of multitasking are clear. Being quicker and more efficient increases our performance and the number of tasks completed. But having to pay attention to several things at once means that the powers of concentration are reduced and that can lead to more mistakes."
+      ],
+      "study_paragraphs": [
+        "A multitasker is one who can perform two or more tasks effectively at the same time, which—apart from the obvious differences—is similar to what a computer does. The concept does indeed come from the realms of technology, where it is used to refer to an operating system that can execute multiple tasks at the same time. However, the question is: can a person really be a multitasker?",
+        "For most scientists, the answer is no. So much so that, according to experts in neuroscience (神经系统科学), our brains do not handle multitasking situations well. As soon as two tasks require our attention, productivity suffers. What we call multitasking, therefore, is in reality the ability to move more or less quickly from one task to another. This requires two essential conditions: that one of the tasks needs to be automatic, like walking or eating, and that they both need different mental processes. Answering the phone and writing at the same time, for example.",
+        "However, on the other side of the coin there are people who maintain that it is possible to be, or at least seem to be, multitasking. A recent study concluded that regardless of whether people are actually handling several tasks or not, the mere fact that they perceive this activity as multitasking has a positive effect on their performance.",
+        "The business perspective offers a different view: multitasking is understood as the ability to adapt to all types of environment within a company and effectively undertake different activities within a set time frame. Indeed, many companies look for people who are skilled in multitasking to improve their productivity. From this different perspective, you can not only be multitasking but this ability can also be taught: something that is easier in fluid organisations, which favour flexibility in their working practices.",
+        "The benefits of multitasking are clear. Being quicker and more efficient increases our performance and the number of tasks completed. But having to pay attention to several things at once means that the powers of concentration are reduced and that can lead to more mistakes."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2023-12-2-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What does a “multitasker” originally refer to?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An operating system capable of doing several tasks at once."
+            },
+            {
+              "key": "B",
+              "text": "A skilled worker executing more than one task at the same time."
+            },
+            {
+              "key": "C",
+              "text": "A sophisticated technology doing several tasks effectively at once."
+            },
+            {
+              "key": "D",
+              "text": "An efficient person able to perform multiple tasks at the same time."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案 A，依据原文整理。首段说明该概念来自技术领域，最初指能同时执行多项任务的操作系统。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. Why can't people really be multitaskers according to neuroscientists?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They are not sufficiently exposed to multitasking situations."
+            },
+            {
+              "key": "B",
+              "text": "They are not comparable to mechanical operating systems."
+            },
+            {
+              "key": "C",
+              "text": "Their brains do not allow them to multitask."
+            },
+            {
+              "key": "D",
+              "text": "Their attention span cannot be expanded."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。第二段说大脑不能很好地处理多任务情境，一旦两项任务都需要注意力，生产效率就会下降。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What do we learn from the conclusion of a recent study on multitasking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People make greater achievements by maintaining whatever they are doing is multitasking."
+            },
+            {
+              "key": "B",
+              "text": "People's performance benefits from the perception of what they are doing as multitasking."
+            },
+            {
+              "key": "C",
+              "text": "People's active mental processes exert a positive effect on their multitasking."
+            },
+            {
+              "key": "D",
+              "text": "People can improve their capabilities by handling multitasking situations."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案 B，依据原文整理。第三段的研究发现，无论是否实际同时处理多项任务，只要认为自己在进行多任务处理，表现就会得到积极影响。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. How does the business world view multitasking?",
+          "options": [
+            {
+              "key": "A",
+              "text": "It is a rare skill often found in fluid organisations."
+            },
+            {
+              "key": "B",
+              "text": "It is an adaptable capability required of all workers."
+            },
+            {
+              "key": "C",
+              "text": "It is an essential quality many employees lack."
+            },
+            {
+              "key": "D",
+              "text": "It is a desirable ability that can be developed."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案 D，依据原文整理。第四段说企业希望招聘善于多任务处理的人，而且这种能力可以通过教学培养。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2023-12-2-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author imply we should do if we have to focus on some task and do it well?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Work in a flexible way."
+            },
+            {
+              "key": "B",
+              "text": "Learn from mistakes."
+            },
+            {
+              "key": "C",
+              "text": "Avoid multitasking."
+            },
+            {
+              "key": "D",
+              "text": "Increase efficiency."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案 C，依据原文整理。末段指出同时注意多件事情会降低专注力并增加错误，因而要专注把一项任务做好时应避免多任务处理。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2023-12-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "改革开放以来,中国人的饮食(diet)发生了显著变化。过去由于经济落后，食品种类有限、数量不足，人们仅仅满足于吃得饱。如今中国经济快速发展，食品不仅更加丰富多样，质量也大幅提高。随着生活水平不断提升,人们对饮食的要求越来越高，更加注重吃得营养健康。因此,目前市场上推出的低脂、低糖、有机食品受到人们的普遍欢迎。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2023-12-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
