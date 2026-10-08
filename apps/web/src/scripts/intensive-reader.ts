@@ -2,6 +2,8 @@ import { tokenize } from '@cet-reading/contracts/tokens';
 import type { SentenceAnalysis } from '@cet-reading/contracts';
 import { createSectionNavigation } from './section-navigation';
 import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
+import type { SectionReference } from '@cet-reading/contracts/exam';
+import { createSharedSectionNotice } from './section-reference';
 
 type StudySentence = {
   id: string;
@@ -16,6 +18,7 @@ type StudySection = {
   kind: string;
   paragraphs: string[];
   questions: { prompt: string }[];
+  reference?: SectionReference;
 };
 type StudyPaper = {
   id: string;
@@ -377,6 +380,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const block = element('section', 'passage-section');
     block.dataset.sectionKind = section.kind;
     block.append(element('h3', 'passage-title', section.title));
+    layout.classList.toggle('has-shared-section', Boolean(section.reference));
+    if (section.reference) {
+      block.append(createSharedSectionNotice(section.reference, 'intensive'));
+      documentColumn.replaceChildren(block);
+      pane.hidden = true;
+      return;
+    }
     const sentences = paper.sentences.filter(sentence => sentence.sectionId === section.id);
     if (section.kind === 'cloze' && paper.content_kind === 'imported') block.append(element('p', 'passage-note', '空格按参考答案补全'));
     if (section.kind === 'writing' && paper.content_kind !== 'imported') block.append(element('p', 'passage-paragraph', section.questions[0]?.prompt ?? ''));
@@ -402,7 +412,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     documentColumn.replaceChildren(block);
     pane.hidden = !sentences.length;
   }
-  const initialSection = paper.sections.find(section => section.kind === 'reading') ?? paper.sections[0];
+  const initialSection = paper.sections.find(section => section.kind === 'reading' && !section.reference) ?? paper.sections.find(section => !section.reference) ?? paper.sections[0];
   if (initialSection) selectSection(initialSection.id);
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
   document.addEventListener('keydown', escape);

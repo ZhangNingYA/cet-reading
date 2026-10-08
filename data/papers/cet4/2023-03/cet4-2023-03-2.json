@@ -9,7 +9,7 @@
   "is_demo": false,
   "content_state": "local",
   "content_kind": "imported",
-  "description": "按所提供的试卷 PDF 导入非听力部分。卷面说明阅读与同月第1套相同，本套未列具体阅读题序，展示题序沿用第1套。写作和翻译使用本套原题。PDF 未附答案，客观题参考答案依据原文整理。",
+  "description": "按所提供的试卷 PDF 导入非听力部分。卷面说明阅读与同月第1套相同，重复阅读章节只显示提示，完整内容请查看第1套。本套写作和翻译使用原题。PDF 未附答案，客观题参考答案依据原文整理。",
   "reference_paper_id": "cet4-2023-03-1",
   "source_url": null,
   "sections": [

@@ -68,7 +68,11 @@ export type QuestionView = Omit<ExamQuestion, 'answer' | 'explanation'>;
 export type Answers = z.infer<typeof AnswersSchema>;
 export type PaperSummary = Omit<ImportedPaper, 'sections'>;
 export type SentenceView = { id: string; paragraphIndex: number; sentenceIndex: number; source: string; sectionId: string | null };
-export type SectionView = Omit<z.infer<typeof PaperSectionSchema>, 'questions' | 'study_paragraphs'> & { questions: QuestionView[] };
+export type SectionReference = { paperId: string; title: string; variant: string };
+export type SectionView = Omit<z.infer<typeof PaperSectionSchema>, 'questions' | 'study_paragraphs'> & {
+  questions: QuestionView[];
+  reference?: SectionReference;
+};
 export type PaperView = PaperSummary & { mode: StudyMode; sections: SectionView[]; sentences: SentenceView[] };
 export type QuestionResult = {
   id: string; answer: string; correctAnswer: string | null; explanation: string;

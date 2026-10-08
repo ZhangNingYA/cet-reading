@@ -1,5 +1,6 @@
 import { mountIntensive } from './intensive-reader';
 import { createSectionNavigation } from './section-navigation';
+import { createSharedSectionNotice } from './section-reference';
 
 const library = document.querySelector('#library');
 const apiBase = library.dataset.apiBase;
@@ -80,8 +81,7 @@ async function openPaper(summary, mode, writeHistory = true) {
     modeButtons.forEach((button) => { button.classList.toggle('active', button.dataset.readerMode === mode); button.setAttribute('aria-pressed', String(button.dataset.readerMode === mode)); });
     readerMeta.textContent = `${levelName(paper.exam_level)} · ${paper.year} · ${paper.variant || `第 ${paper.set_no} 套`}`;
     readerTitle.textContent = paper.title;
-    const referencePaper = allPapers.find((item) => item.id === paper.reference_paper_id);
-    readerStatus.textContent = referencePaper ? `阅读取自${referencePaper.variant}；原件未列题序，沿用${referencePaper.variant}顺序。` : '';
+    readerStatus.textContent = '';
     readerContent.replaceChildren();
     if (mode === 'intensive') disposeIntensive = mountIntensive(paper, apiBase, readerContent);
     else await renderPractice(paper, request);
@@ -100,6 +100,12 @@ async function renderPractice(paper, request) {
     const material = document.createElement('div'); material.className = 'practice-material';
     const heading = document.createElement('h2'); heading.textContent = section.title; material.append(heading); block.append(material);
     block.dataset.sectionKind = section.kind; blocks.set(section.id, block);
+    if (section.reference) {
+      block.classList.add('is-shared-section');
+      material.append(createSharedSectionNotice(section.reference, 'practice'));
+      form.append(block);
+      continue;
+    }
     if (section.instructions) { const note = document.createElement('p'); note.className = 'section-instructions'; note.textContent = section.instructions; material.append(note); }
     if (section.kind === 'cloze') {
       const bank = document.createElement('div'); bank.className = 'word-bank'; bank.setAttribute('aria-label', '选词填空词库');
@@ -142,8 +148,8 @@ async function renderPractice(paper, request) {
 }
 function renderPracticeResult(summary, target) {
   target.replaceChildren();
-  const heading = document.createElement('strong'); heading.textContent = `客观题 ${summary.objectiveScore} / ${summary.objectiveTotal} · ${summary.manualCount} 道主观题已保存`; target.append(heading);
-  if (activePaper.content_kind === 'imported') { const note = document.createElement('p'); note.textContent = '客观题按依据原文整理的参考答案核对。'; target.append(note); }
+  const heading = document.createElement('strong'); heading.textContent = summary.objectiveCount ? `客观题 ${summary.objectiveScore} / ${summary.objectiveTotal} · ${summary.manualCount} 道主观题已保存` : `${summary.manualCount} 道主观题已保存`; target.append(heading);
+  if (activePaper.content_kind === 'imported' && summary.objectiveCount) { const note = document.createElement('p'); note.textContent = '客观题按依据原文整理的参考答案核对。'; target.append(note); }
   const prompts = new Map(activePaper.sections.flatMap(section => section.questions.map(question => [question.id, question.prompt])));
   for (const question of summary.questions) {
     const line = document.createElement('p'); const title = prompts.get(question.id) ?? question.id;

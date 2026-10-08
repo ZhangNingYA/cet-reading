@@ -2,6 +2,7 @@ import { Pool } from 'pg';
 import { AnswersSchema, contextHash, validateAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
 import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
+import { presentPaper } from '@cet-reading/contracts/shared-reading';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
 
@@ -28,7 +29,7 @@ export async function listPapers() {
   return result.rows;
 }
 
-export async function getPaper(id: string) {
+async function getStoredPaper(id: string) {
   const result = await pool.query(
     `SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.variant, p.title, p.is_demo,
             p.content_state, p.content_kind, p.description, p.reference_paper_id, p.source_url,
@@ -51,6 +52,13 @@ export async function getPaper(id: string) {
     [id],
   );
   return result.rows[0] ?? null;
+}
+
+export async function getPaper(id: string) {
+  const paper = await getStoredPaper(id);
+  if (!paper || !paper.reference_paper_id) return paper;
+  const reference = await getStoredPaper(paper.reference_paper_id);
+  return presentPaper(paper, reference);
 }
 
 type PracticeQuestion = {
@@ -81,7 +89,8 @@ function publicQuestion(question: PracticeQuestion) {
 export async function createPracticeAttempt(paperId: string) {
   const paper = await getPaper(paperId);
   if (!paper || paper.content_state !== 'local') return null;
-  const questions = await getPracticeQuestions(paperId);
+  const visibleIds = new Set(paper.sections.flatMap((section: { questions: { id: string }[] }) => section.questions.map(question => question.id)));
+  const questions = (await getPracticeQuestions(paperId)).filter(question => visibleIds.has(question.id));
   if (!questions.length) return null;
   const result = await pool.query(
     `INSERT INTO practice_attempts (paper_id, questions_snapshot)

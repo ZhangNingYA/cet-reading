@@ -6,6 +6,10 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./shared-reading": {
+      "types": "./dist/shared-reading.d.ts",
+      "import": "./dist/shared-reading.js"
+    },
     "./analysis-jobs": {
       "types": "./dist/analysis-jobs.d.ts",
       "import": "./dist/analysis-jobs.js"

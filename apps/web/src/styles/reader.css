@@ -16,6 +16,7 @@
 .study-section-link[aria-current='page'] { color: var(--accent-deep); border-bottom-color: var(--accent); font-weight: 550; }
 .study-section-link:focus-visible { outline-offset: -2px; }
 .intensive-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
+.intensive-layout.has-shared-section { grid-template-columns: minmax(0, 1fr); }
 .reading-document { min-width: 0; }
 .passage-section, .practice-material { min-width: 0; padding: 30px 34px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
 .passage-title, .practice-material h2 { margin: 0 0 26px; padding-bottom: 20px; color: var(--muted); border-bottom: 1px solid var(--line); font-size: var(--text-ui); font-weight: 500; line-height: 1.8; text-wrap: pretty; }
@@ -24,6 +25,8 @@
 .passage-paragraph[lang='en'], .practice-paragraph[lang='en'] { font-family: var(--reading-font); font-size: 1.1875rem; line-height: 1.9; overflow-wrap: normal; }
 .paragraph-label { display: inline-block; min-width: 1.6em; color: var(--accent); font-family: var(--sans); font-size: 12px; font-weight: 600; }
 .passage-note { margin: -10px 0 22px; color: var(--quiet); font-size: var(--text-caption); }
+.shared-reading-notice { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }
+.shared-reading-notice a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
 .source-sentence { border-radius: 3px; cursor: pointer; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .15s; }
 .source-sentence:hover { background: #f1f5f2; }
 .source-sentence.is-selected { background: #e7f1e9; }
@@ -87,6 +90,7 @@
 /* Material and answers sit together on a wide screen. */
 .practice-form { min-width: 0; }
 .practice-section { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; align-items: start; padding-bottom: 8px; }
+.practice-section.is-shared-section { grid-template-columns: minmax(0, 1fr); }
 .practice-section[data-section-kind='writing'] { grid-template-columns: minmax(0, 1fr); gap: 0; max-width: 780px; margin-inline: auto; border: 1px solid var(--line); border-radius: 14px; padding: 30px 34px; }
 .practice-section[data-section-kind='writing'] .practice-material { border: 0; padding: 0; }
 .practice-section[data-section-kind='writing'] .practice-material h2 { margin-bottom: 14px; padding-bottom: 0; border: 0; }
