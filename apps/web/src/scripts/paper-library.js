@@ -28,9 +28,15 @@ function analysisProgress(paper) {
   const total = Number(paper.analysis_total ?? 0);
   const cached = Math.min(total, Number(paper.analysis_cached ?? 0));
   if (!total) return '';
-  if (cached >= total) return '精读已完成';
-  const pending = Number(paper.analysis_pending ?? 0) + Number(paper.analysis_running ?? 0);
-  return `精读 ${cached}/${total}${pending ? ` · ${pending} 条处理中` : ''}`;
+  const percentage = ((cached / total) * 100).toFixed(1);
+  const states = [];
+  const pending = Number(paper.analysis_pending ?? 0);
+  const running = Number(paper.analysis_running ?? 0);
+  const failed = Number(paper.analysis_failed ?? 0);
+  if (pending) states.push(`${pending} 条排队`);
+  if (running) states.push(`${running} 条生成中`);
+  if (failed) states.push(`${failed} 条失败`);
+  return `精读缓存 ${cached}/${total}（${percentage}%）${states.length ? ` · ${states.join(' · ')}` : ''}`;
 }
 function createModeButton(text, mode, paper) {
   const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-small paper-mode-button'; button.textContent = text;
@@ -194,14 +200,18 @@ async function loadPapers() {
   finally { libraryResults.setAttribute('aria-busy', 'false'); }
 }
 async function refreshPaperProgress() {
-  if (library.hidden || document.visibilityState === 'hidden') return;
+  if (document.visibilityState === 'hidden') return;
   try {
     const response = await fetch(`${apiBase}/api/papers`);
     if (!response.ok) return;
     const fresh = (await response.json()).papers ?? [];
     const updates = new Map(fresh.map((paper) => [paper.id, paper]));
     allPapers = allPapers.map((paper) => updates.get(paper.id) ?? paper);
-    showPapers();
+    if (!library.hidden) showPapers();
+    if (activePaper) {
+      const summary = updates.get(activePaper.id);
+      if (summary) readerStatus.textContent = analysisProgress(summary);
+    }
   } catch {
     // Progress is supplementary; keep the current list when a poll fails.
   }

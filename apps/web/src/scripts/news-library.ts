@@ -5,13 +5,25 @@ const library = node<HTMLElement>('news-library'); const reader = node<HTMLEleme
 const list = node<HTMLElement>('news-list'); const status = node<HTMLElement>('news-status');
 const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButtonElement>('news-more'); const retry = node<HTMLButtonElement>('news-retry');
 const apiBase = library.dataset.apiBase || '';
-type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number; analysis_total?:number; analysis_cached?:number; analysis_pending?:number };
+type Progress = { analysis_total?:number; analysis_cached?:number; analysis_pending?:number; analysis_running?:number; analysis_failed?:number };
+type Summary = Progress & { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
 type Batch = { scheduled_at:string; status:string; reason:string; article_count:number };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
-let dispose: (()=>void) | undefined; let viewRequest=0;
+let dispose: (()=>void) | undefined; let viewRequest=0; let activeArticleId:string|null=null;
 const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
 const difficulty = (value:string) => ({ CET6:'六级',NEEP:'考研',advanced:'进阶' }[value] || value);
 function element<K extends keyof HTMLElementTagNameMap>(tag:K,className:string,text?:string) { const el=document.createElement(tag); el.className=className; if(text!==undefined) el.textContent=text; return el; }
+function progressText(value: Progress, empty = '') {
+  const total=Number(value.analysis_total??0); const cached=Math.min(total,Number(value.analysis_cached??0));
+  if (!total) return empty;
+  const states:string[]=[];
+  const pending=Number(value.analysis_pending??0); const running=Number(value.analysis_running??0); const failed=Number(value.analysis_failed??0);
+  if (pending) states.push(`${pending} 条排队`);
+  if (running) states.push(`${running} 条生成中`);
+  if (failed) states.push(`${failed} 条失败`);
+  const percentage=((cached/total)*100).toFixed(1);
+  return `精读缓存 ${cached}/${total}（${percentage}%）${states.length?` · ${states.join(' · ')}`:''}`;
+}
 async function json(path:string) {
   const response=await fetch(`${apiBase}${path}`,{signal:AbortSignal.timeout(15000)});
   if(!response.ok) throw new Error('request failed'); return response.json();
@@ -36,8 +48,7 @@ function render() {
       for(const article of entries) {
       const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
       const title=element('h3','news-row-title',article.title); title.lang='en';
-      const total=Number(article.analysis_total??0); const cached=Math.min(total,Number(article.analysis_cached??0));
-      const progress=total?(cached>=total?'精读已完成':`精读 ${cached}/${total}${article.analysis_pending?` · ${article.analysis_pending} 条处理中`:''}`):'';
+      const progress=progressText(article);
       const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词${progress?` · ${progress}`:''}`);
       link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
       }
@@ -67,9 +78,11 @@ async function openArticle(id:string,writeHistory=false) {
   status.textContent='正在加载文章…'; status.classList.remove('sr-only');
   try {
     const article=await json(`/api/news/${encodeURIComponent(id)}`); if(request!==viewRequest)return;
+    activeArticleId=id;
     library.hidden=true;reader.hidden=false;document.body.classList.add('reader-page');
     node('news-title').textContent=article.title;
     node('news-meta').textContent=`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词 · ${date(article.published_at)}`;
+    node<HTMLElement>('news-analysis-status').textContent=progressText(article,'精读缓存暂未开始');
     const attribution=node('news-attribution'); attribution.replaceChildren(document.createTextNode(`${article.author} · `));
     const source=element('a','',article.source_name);source.href=article.source_url;source.target='_blank';source.rel='noopener noreferrer';
     const license=element('a','',article.license_name);license.href=article.license_url;license.target='_blank';license.rel='noopener noreferrer';
@@ -80,9 +93,32 @@ async function openArticle(id:string,writeHistory=false) {
   } catch { if(request!==viewRequest)return;showList(false);status.textContent='文章暂时无法加载，请返回列表重试。';status.classList.remove('sr-only'); }
 }
 function showList(writeHistory=true) {
-  ++viewRequest;dispose?.();dispose=undefined;reader.hidden=true;library.hidden=false;document.body.classList.remove('reader-page');
+  ++viewRequest;activeArticleId=null;dispose?.();dispose=undefined;reader.hidden=true;library.hidden=false;document.body.classList.remove('reader-page');
   if(writeHistory)history.pushState({},'',location.pathname);status.classList.add('sr-only');
+}
+async function refreshProgress() {
+  if (document.visibilityState==='hidden') return;
+  try {
+    const data=await json('/api/news');
+    const freshArticles:Summary[]=data.articles??[]; const freshBatches:Batch[]=data.batches??[];
+    const freshArticleIds=new Set(freshArticles.map(article=>article.id));
+    const freshBatchIds=new Set(freshBatches.map(batch=>batch.scheduled_at));
+    articles=[...freshArticles,...articles.filter(article=>!freshArticleIds.has(article.id))];
+    batches=[...freshBatches,...batches.filter(batch=>!freshBatchIds.has(batch.scheduled_at))];
+    if (!cursor) cursor=data.nextCursor??null;
+    if (activeArticleId) {
+      const current=articles.find(article=>article.id===activeArticleId);
+      if (current) node<HTMLElement>('news-analysis-status').textContent=progressText(current,'精读缓存暂未开始');
+      else {
+        const detail=await json(`/api/news/${encodeURIComponent(activeArticleId)}`);
+        if (activeArticleId) node<HTMLElement>('news-analysis-status').textContent=progressText(detail,'精读缓存暂未开始');
+      }
+    }
+    render();
+  } catch {
+    // Progress is supplementary; keep the current list when a poll fails.
+  }
 }
 function restore() {const id=new URL(location.href).searchParams.get('article');if(id)void openArticle(id);else showList(false);}
 node('news-back').addEventListener('click',()=>showList());search.addEventListener('input',render);more.addEventListener('click',()=>void load(true));retry.addEventListener('click',()=>void load());
-window.addEventListener('popstate',restore);void load();restore();
+window.addEventListener('popstate',restore);void load();restore();setInterval(()=>{void refreshProgress();},15_000);

@@ -20,6 +20,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     <div class="reader-panel">
       <header class="reader-heading">
         <p class="news-meta" id="news-meta"></p><h1 id="news-title" lang="en" tabindex="-1"></h1>
+        <p class="news-analysis-status" id="news-analysis-status" role="status" aria-live="polite"></p>
         <p class="news-attribution" id="news-attribution"></p>
       </header>
       <div id="news-content"></div>

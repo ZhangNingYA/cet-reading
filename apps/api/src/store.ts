@@ -36,38 +36,55 @@ type SentenceRow = {
 
 export async function listPapers() {
   const result = await pool.query(
-    `WITH totals AS (
+    `WITH ordered AS (
+       SELECT s.id, s.paper_id, s.source_hash,
+              jsonb_build_object(
+                'title', p.title,
+                'previousSentence', lag(s.source_text) OVER w,
+                'nextSentence', lead(s.source_text) OVER w
+              ) AS context_json
+       FROM sentences s JOIN papers p ON p.id = s.paper_id
+       WHERE p.status = 'published'
+       WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index, s.sentence_index)
+     ), totals AS (
        SELECT paper_id, COUNT(*)::integer AS total
-       FROM sentences WHERE paper_id IS NOT NULL GROUP BY paper_id
+       FROM ordered GROUP BY paper_id
      ), cached AS (
-       SELECT s.paper_id, COUNT(DISTINCT s.id)::integer AS cached
-       FROM sentences s JOIN sentence_analyses a
-         ON a.sentence_id = s.id AND a.source_hash = s.source_hash
+       SELECT o.paper_id, COUNT(DISTINCT o.id)::integer AS cached
+       FROM ordered o JOIN sentence_analyses a
+         ON a.sentence_id = o.id AND a.source_hash = o.source_hash
+        AND a.context_json = o.context_json
         AND a.prompt_version = $1 AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
-       WHERE s.paper_id IS NOT NULL GROUP BY s.paper_id
+       GROUP BY o.paper_id
      ), queued AS (
-       SELECT j.sentence_id,
-              COUNT(*) FILTER (WHERE j.status = 'pending')::integer AS pending,
-              COUNT(*) FILTER (WHERE j.status = 'running')::integer AS running
-       FROM analysis_jobs j
+       SELECT o.paper_id,
+              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'pending')::integer AS pending,
+              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'running')::integer AS running,
+              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'failed')::integer AS failed
+       FROM ordered o JOIN analysis_jobs j
+         ON j.sentence_id = o.id AND j.source_hash = o.source_hash
+        AND j.context_json = o.context_json
+       LEFT JOIN sentence_analyses a
+         ON a.sentence_id = o.id AND a.source_hash = o.source_hash
+        AND a.context_json = o.context_json
+        AND a.prompt_version = $1 AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
        WHERE j.prompt_version = $1 AND j.model = $2 AND j.mode = $3
-         AND j.status IN ('pending', 'running')
-       GROUP BY j.sentence_id
+         AND j.status IN ('pending', 'running', 'failed')
+       GROUP BY o.paper_id
      )
      SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.variant, p.title, p.is_demo,
             content_state, content_kind, description, reference_paper_id, source_url,
             EXISTS (SELECT 1 FROM paper_sections ps WHERE ps.paper_id = p.id) AS has_content,
             COALESCE(t.total, 0) AS analysis_total,
             COALESCE(c.cached, 0) AS analysis_cached,
-            COALESCE(SUM(q.pending), 0)::integer AS analysis_pending,
-            COALESCE(SUM(q.running), 0)::integer AS analysis_running
+            COALESCE(q.pending, 0) AS analysis_pending,
+            COALESCE(q.running, 0) AS analysis_running,
+            COALESCE(q.failed, 0) AS analysis_failed
      FROM papers p
      LEFT JOIN totals t ON t.paper_id = p.id
      LEFT JOIN cached c ON c.paper_id = p.id
-     LEFT JOIN sentences s ON s.paper_id = p.id
-     LEFT JOIN queued q ON q.sentence_id = s.id
+     LEFT JOIN queued q ON q.paper_id = p.id
      WHERE p.status = 'published'
-     GROUP BY p.id, t.total, c.cached
      ORDER BY p.year DESC, p.month DESC, p.exam_level, p.set_no`,
     [config.promptVersion, config.model, config.mode],
   );

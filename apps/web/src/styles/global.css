@@ -162,6 +162,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .news-row-meta { margin: 7px 0 0; font-size: var(--text-caption); color: var(--muted); line-height: 1.65; }
 .news-batch-note { margin: 12px 0; color: var(--quiet); font-size: var(--text-caption); }
 .news-meta, .news-attribution { color: var(--muted); font-size: var(--text-caption); line-height: 1.8; }
+.news-analysis-status { margin: 8px 0 0; color: var(--muted); font-size: var(--text-ui); font-variant-numeric: tabular-nums; }
 .news-attribution a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .news-attribution a:hover { color: var(--accent); }
 .news-reader .reader-heading h1 { max-width: 780px; font-family: var(--reading-font); font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.4; letter-spacing: -.02em; }
