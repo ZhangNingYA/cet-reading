@@ -3,7 +3,7 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { tsImport } from 'tsx/esm/api';
 import { newsDay, newsSlot, nextNewsSlot, splitNewsParagraph, timely } from '@cet-reading/contracts/news';
-const { sources, parseCandidates, plainParagraphs, fetchText, readArticle } = await tsImport('../../apps/worker/src/news-sources.ts',import.meta.url);
+const { sources, parseCandidates, plainParagraphs, fetchText, readArticle, searchNews } = await tsImport('../../apps/worker/src/news-sources.ts',import.meta.url);
 const { validateNewsPicks, selectNews } = await tsImport('../../apps/worker/src/news-selector.ts',import.meta.url);
 const cutoff = new Date('2026-10-09T00:00:00Z');
 const candidate = { id:'c1', title:'A genuine article', url:'https://360info.org/example/',author:'An author',publishedAt:'2026-10-08T10:00:00Z',source:sources[0],feedHtml:'',excerpt:'' };
@@ -68,6 +68,11 @@ test('AI selects using actual tool results and cannot silently substitute its ow
 test('news sentence segmentation retains every original character except surrounding whitespace',()=>{
   const text='Dr. Smith said, “This is a new study.” However, the result remains uncertain.';
   assert.equal(splitNewsParagraph(text).join(' ').replace(/\s/g,''),text.replace(/\s/g,''));
+});
+test('live news search applies one time window without requiring literal calendar words in headlines',async t=>{
+  let captured;t.mock.method(globalThis,'fetch',async(url)=>{captured=new URL(url);return new Response('<rss><channel></channel></rss>');});
+  assert.deepEqual(await searchNews('October 8 2026 Alibaba Pentagon lawsuit before:2001-01-01',cutoff),[]);
+  const query=captured.searchParams.get('q');assert.match(query,/Alibaba Pentagon lawsuit/);assert.doesNotMatch(query,/October|2001/);assert.match(query,/after:2026-10-06 before:2026-10-10/);
 });
 test('fresh database initialization and existing database migration share the news schema',()=>{
   assert.equal(readFileSync('db/init/014_news.sql','utf8'),readFileSync('db/migrations/014_news.sql','utf8'));

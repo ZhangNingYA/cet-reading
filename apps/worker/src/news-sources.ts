@@ -106,7 +106,12 @@ export async function readArticle(candidate: Candidate): Promise<Article> {
 
 export async function searchNews(query: string, cutoff: Date): Promise<Evidence[]> {
   const day = (date: Date) => date.toISOString().slice(0,10);
-  const q = `${query.slice(0,240)} after:${day(new Date(cutoff.getTime()-3*86400000))} before:${day(new Date(cutoff.getTime()+86400000))}`;
+  // Calendar words become required search terms and can hide reports filed one day earlier.
+  const months = '(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)';
+  const keywords = query.slice(0,240).replace(new RegExp(`\\b${months}\\s+\\d{1,2}(?:st|nd|rd|th)?(?:,?\\s+20\\d{2})?\\b`,'gi'),' ')
+    .replace(/\b20\d{2}-\d{2}-\d{2}\b/g,' ').replace(/\b(?:after|before|when):\S+/gi,' ').replace(/\s+/g,' ').trim();
+  if (keywords.length < 3) throw new Error('Use event keywords instead of a date');
+  const q = `${keywords} after:${day(new Date(cutoff.getTime()-3*86400000))} before:${day(new Date(cutoff.getTime()+86400000))}`;
   const url = new URL('https://news.google.com/rss/search'); url.search = new URLSearchParams({ q, hl: 'en-US', gl: 'US', ceid: 'US:en' }).toString();
   const items = xml.parse(await fetchText(url.href, ['news.google.com']))?.rss?.channel?.item ?? [];
   return (Array.isArray(items) ? items : [items]).flatMap((item: any) => {

@@ -9,7 +9,7 @@ const config = readConfig(); const news = readNewsConfig();
 const pool = new Pool({ connectionString: config.databaseUrl, max: 2 });
 let stopping = false;
 
-async function runBatch(slot: Date) {
+async function runBatch(slot: Date, supplement = false) {
   if (slot > new Date()) throw new Error('Cannot ingest a future news batch');
   if (!config.apiKey || !config.apiUrl || !news.model || config.mode !== 'ai') throw new Error('News ingestion requires configured real AI credentials');
   const client = await pool.connect();
@@ -18,21 +18,24 @@ async function runBatch(slot: Date) {
     if (!lock.rows[0].locked) return console.log('Another news collector is running');
     const claimed = await client.query(`INSERT INTO news_batches (scheduled_at,status) VALUES ($1,'running')
       ON CONFLICT (scheduled_at) DO UPDATE SET status='running', attempts=news_batches.attempts+1, started_at=NOW(), finished_at=NULL
-      WHERE news_batches.status IN ('failed','running') AND news_batches.attempts < 3 RETURNING *`, [slot]);
+      WHERE (news_batches.status IN ('failed','running') OR ($2::boolean AND news_batches.status='partial')) AND news_batches.attempts < 3 RETURNING *`, [slot,supplement]);
     if (!claimed.rowCount) return console.log(`Batch ${slot.toISOString()} already finished or exhausted retries`);
     console.log(`Collecting news batch ${slot.toISOString()} (Shanghai)`);
     try {
       const { candidates, failures } = await loadCandidates(slot);
       const recent = await client.query(`SELECT title,source_url,event_key,content_hash FROM news_articles WHERE status='published' ORDER BY batch_at DESC LIMIT 180`);
+      const existing = await client.query('SELECT selection_kind FROM news_articles WHERE batch_at=$1',[slot]);
+      const remaining = { curated:1-existing.rows.filter(item=>item.selection_kind==='curated').length,hot:2-existing.rows.filter(item=>item.selection_kind==='hot').length };
       const allUrls = await client.query('SELECT source_url,content_hash FROM news_articles');
       const urls = new Set(allUrls.rows.map(item => item.source_url)); const hashes = new Set(allUrls.rows.map(item => item.content_hash));
       const fresh = candidates.filter(item => !urls.has(item.url));
       if (!fresh.length) throw new Error('No fresh licensed candidates: ' + failures.join('; '));
-      const result = await selectNews(config, news.model, news.maxRounds, fresh, slot, recent.rows);
+      const result = await selectNews(config, news.model, news.maxRounds, fresh, slot, recent.rows, remaining);
       const checked = validateNewsPicks(result.selection, result.articles, result.evidence, slot, new Set(recent.rows.map(item => item.event_key.toLowerCase().trim())));
-      const chosen = checked.chosen.filter(item => !hashes.has(item.article.contentHash));
+      const chosen = checked.chosen.filter(item => { if (hashes.has(item.article.contentHash) || remaining[item.pick.kind]<=0) return false; remaining[item.pick.kind]--; return true; });
+      const total = chosen.length+existing.rows.length;
       const reasons = [result.selection.shortfall, ...checked.rejected, ...(chosen.length < 3 ? failures : [])].filter(Boolean);
-      if (chosen.length < 3 && !reasons.length) reasons.push('符合时效、热点证据、全文授权和阅读难度的未收录文章不足三篇。');
+      if (total < 3 && !reasons.length) reasons.push('符合时效、热点证据、全文授权和阅读难度的未收录文章不足三篇。');
       await client.query('BEGIN');
       for (const { article, pick, evidence } of chosen) {
         const id = `news-${digest(article.url).slice(0,20)}`;
@@ -46,9 +49,11 @@ async function runBatch(slot: Date) {
           }
         }
       }
-      await client.query(`UPDATE news_batches SET status=$2,finished_at=NOW(),reason=$3,audit_json=$4 WHERE scheduled_at=$1`, [slot,chosen.length===3?'complete':'partial',reasons.join('\n'),JSON.stringify({ model:news.model, cutoff:slot.toISOString(), candidateCount:fresh.length, failures, selection:result.selection, rejected:checked.rejected, tools:result.audit })]);
+      const previous = claimed.rows[0].audit_json;
+      const audit = { model:news.model, cutoff:slot.toISOString(), candidateCount:fresh.length, failures, selection:result.selection, rejected:checked.rejected, tools:result.audit };
+      await client.query(`UPDATE news_batches SET status=$2,finished_at=NOW(),reason=$3,audit_json=$4 WHERE scheduled_at=$1`, [slot,total===3?'complete':'partial',total===3?'':reasons.join('\n'),JSON.stringify({ ...audit, ...(supplement?{ priorRuns:[...(previous.priorRuns||[]),Object.fromEntries(Object.entries(previous).filter(([key])=>key!=='priorRuns'))] }: {}) })]);
       await client.query('COMMIT');
-      console.log(JSON.stringify({ batch:slot.toISOString(), count:chosen.length, titles:chosen.map(item=>item.article.title), reason:reasons.join('\n') }));
+      console.log(JSON.stringify({ batch:slot.toISOString(), count:total, added:chosen.length, titles:chosen.map(item=>item.article.title), reason:total===3?'':reasons.join('\n') }));
     } catch (error) {
       await client.query('ROLLBACK');
       const reason = error instanceof Error ? error.message : 'News ingestion failed';
@@ -60,7 +65,7 @@ async function runBatch(slot: Date) {
 
 const args = process.argv.slice(2);
 if (args[0] === '--slot') {
-  try { const [day,hour] = (args[1] || '').split('/'); await runBatch(newsSlot(day!,Number(hour))); }
+  try { const [day,hour] = (args[1] || '').split('/'); await runBatch(newsSlot(day!,Number(hour)),args.includes('--supplement')); }
   finally { await pool.end(); }
 } else if (!news.enabled) {
   console.log('News schedule is disabled. Set NEWS_ENABLED=true after the initial backfill.');

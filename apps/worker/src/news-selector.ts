@@ -4,7 +4,7 @@ import { readArticle, searchNews, type Article, type Candidate, type Evidence } 
 
 const tools = [
   { type: 'function', function: { name: 'read_article', description: 'Read complete original English article and verified license/date. Use a candidate ID from the supplied live feed.', parameters: { type: 'object', properties: { candidateId: { type: 'string' } }, required: ['candidateId'], additionalProperties: false } } },
-  { type: 'function', function: { name: 'search_news', description: 'Live English news search. Return genuine current publisher headlines, timestamps and evidence IDs for an event; unavailable or unrelated results do not prove hotness.', parameters: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'], additionalProperties: false } } },
+  { type: 'function', function: { name: 'search_news', description: 'Live English news search for an event. Use short event keywords without calendar dates; the server applies the time window. If results are insufficient, retry broader synonyms. Return genuine publisher headlines, timestamps and evidence IDs; unrelated results do not prove hotness.', parameters: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'], additionalProperties: false } } },
 ];
 export function validateNewsPicks(selection: NewsSelection, articles: Map<string, Article>, evidence: Map<string, Evidence>, cutoff: Date, recentEvents: Set<string>) {
   const chosen: { article: Article; pick: NewsSelection['selections'][number]; evidence: Evidence[] }[] = [];
@@ -26,10 +26,10 @@ export function validateNewsPicks(selection: NewsSelection, articles: Map<string
   return { chosen, rejected };
 }
 
-export async function selectNews(config: RuntimeConfig, model: string, maxRounds: number, candidates: Candidate[], cutoff: Date, recentArticles: object[]) {
+export async function selectNews(config: RuntimeConfig, model: string, maxRounds: number, candidates: Candidate[], cutoff: Date, recentArticles: object[], remainingSlots = { curated:1,hot:2 }) {
   const articles = new Map<string, Article>(); const evidence = new Map<string, Evidence>();
   const audit: object[] = [];
-  const messages: any[] = [{ role: 'system', content: NEWS_SELECTOR_PROMPT }, { role: 'user', content: JSON.stringify({ cutoff: cutoff.toISOString(), timezone: 'Asia/Shanghai', recentArticles, candidates: candidates.map(({ feedHtml, ...item }) => item) }) }];
+  const messages: any[] = [{ role: 'system', content: NEWS_SELECTOR_PROMPT }, { role: 'user', content: JSON.stringify({ cutoff: cutoff.toISOString(), timezone: 'Asia/Shanghai', remainingSlots, recentArticles, candidates: candidates.map(({ feedHtml, ...item }) => item) }) }];
   const deadline = Date.now() + 12*60000;
   let selection: NewsSelection | undefined;
   for (let round = 0; round < maxRounds; round++) {

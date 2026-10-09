@@ -19,21 +19,34 @@ async function json(path:string) {
 function render() {
   const query=search.value.trim().toLowerCase(); const visible=articles.filter(item=>`${item.title} ${item.topic} ${item.source_name}`.toLowerCase().includes(query));
   list.replaceChildren(); list.setAttribute('aria-busy','false'); node('news-count').textContent=visible.length?`${visible.length} 篇`:'';
-  for(const batch of batches) {
-    const entries=visible.filter(item=>item.batch_at===batch.scheduled_at); if(query&&!entries.length) continue;
-    const group=element('section','news-batch');
-    const heading=element('h2','news-batch-heading',date(batch.scheduled_at,{hour:'2-digit',minute:'2-digit',hour12:false})); group.append(heading);
-    for(const article of entries) {
+  const dayKey=(time:string)=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(time));
+  const days=[...new Set(batches.map(batch=>dayKey(batch.scheduled_at)))].sort().reverse();
+  for(const day of days) {
+    if(query&&!visible.some(article=>dayKey(article.batch_at)===day))continue;
+    const [year,month,dayNumber]=day.split('-');
+    const dayGroup=element('section','news-day');
+    dayGroup.append(element('h2','news-day-heading',`${year!.slice(-2)}/${Number(month)}/${Number(dayNumber)}`));
+    for(const hour of [8,11,14,17]) {
+      const slot=new Date(`${day}T${String(hour).padStart(2,'0')}:00:00+08:00`).toISOString();
+      const batch=batches.find(item=>item.scheduled_at===slot);
+      const entries=visible.filter(item=>item.batch_at===slot); if(query&&!entries.length)continue;
+      const group=element('section','news-batch');
+      group.append(element('h3','news-batch-heading',`${String(hour).padStart(2,'0')}:00`));
+      const body=element('div','news-batch-body');
+      for(const article of entries) {
       const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
       const title=element('h3','news-row-title',article.title); title.lang='en';
       const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词`);
-      link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); group.append(link);
+      link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
+      }
+      if(batch?.status==='partial'||batch?.status==='failed') {
+        const note=element('p','news-batch-note',`${batch.article_count} / 3 篇 · ${batch.status==='failed'?'采集暂未完成':'符合条件的文章不足'}`);
+        note.title=batch.reason;body.append(note);
+      } else if(batch?.status==='running') body.append(element('p','news-batch-note','正在选取文章…'));
+      else if(!entries.length)body.append(element('p','news-batch-note',new Date(slot)>new Date()?'待更新':'暂无文章'));
+      group.append(body);dayGroup.append(group);
     }
-    if(batch.status==='partial'||batch.status==='failed') {
-      const note=element('p','news-batch-note',`${batch.article_count} / 3 篇 · ${batch.status==='failed'?'采集暂未完成':'本轮符合条件的文章不足三篇'}`);
-      note.title=batch.reason; group.append(note);
-    } else if(batch.status==='running') group.append(element('p','news-batch-note','正在选取文章…'));
-    list.append(group);
+    list.append(dayGroup);
   }
   if(!list.childElementCount) list.append(element('p','empty-state',query?'没有找到相关文章':'首批文章正在准备中'));
   more.hidden=!cursor; retry.hidden=true; status.classList.add('sr-only'); status.textContent=`已加载 ${visible.length} 篇文章`;
