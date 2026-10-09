@@ -44,7 +44,7 @@ test('fails after one unsuccessful repair and never accepts the placeholder', as
   assert.equal(calls, 2);
 });
 
-test('retries a transient upstream HTTP error as transport, never as a grammar repair', async t => {
+test('stops on an upstream HTTP error without retrying', async t => {
   let calls = 0;
   const bodies = [];
   t.mock.method(globalThis, 'fetch', async (_url, options) => {
@@ -52,9 +52,8 @@ test('retries a transient upstream HTTP error as transport, never as a grammar r
     return new Response('', { status: 503, headers: { 'retry-after': '0' } });
   });
   await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 10000 }), /503/);
-  assert.equal(calls, 3);
-  assert.deepEqual(bodies[0].messages, bodies[1].messages);
-  assert.deepEqual(bodies[1].messages, bodies[2].messages);
+  assert.equal(calls, 1);
+  assert.equal(bodies.length, 1);
 });
 
 test('accepts a fragmented SSE response and keeps the complete JSON for validation', async t => {

@@ -126,32 +126,20 @@ async function processJob(job: Job) {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const errorCode = analysisErrorCode(message);
-    const retryable = errorCode === 'service_unavailable' && job.attempts < 2;
-    const retryDelaySeconds = 15 * (2 ** Math.max(0, job.attempts - 1));
     console.error(JSON.stringify({
       event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
       attempt: job.attempts, errorCode,
       durationMs: Date.now() - startedAt,
       modelRequest: message.match(/model request (\d+)/)?.[1] ?? null,
-      retrying: retryable,
+      retrying: false,
     }));
     await client.query('ROLLBACK').catch(() => undefined);
-    if (retryable) {
-      await client.query(
-        `UPDATE analysis_jobs SET status = 'pending', error_message = NULL,
-         lease_expires_at = NULL, finished_at = NULL,
-         next_attempt_at = NOW() + ($2 * INTERVAL '1 second'), updated_at = NOW()
-         WHERE id = $1 AND attempts = $3 AND status = 'running'`,
-        [job.id, retryDelaySeconds, job.attempts],
-      );
-    } else {
-      await client.query(
-        `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
-         lease_expires_at = NULL, finished_at = NOW(), next_attempt_at = NOW(), updated_at = NOW()
-         WHERE id = $1 AND attempts = $3 AND status = 'running'`,
-        [job.id, message, job.attempts],
-      );
-    }
+    await client.query(
+      `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
+       lease_expires_at = NULL, finished_at = NOW(), next_attempt_at = NOW(), updated_at = NOW()
+       WHERE id = $1 AND attempts = $3 AND status = 'running'`,
+      [job.id, message, job.attempts],
+    );
   } finally {
     client.release();
   }

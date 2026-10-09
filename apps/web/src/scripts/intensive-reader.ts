@@ -201,9 +201,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (job.status === 'failed') throw new AnalysisFailure(analysisErrorMessage(job.errorCode));
       if (selected?.sentence.id === sentence.id && !completed.has(cacheKey(sentence))) {
         const loading = paneBody.querySelector('.analysis-loading-text');
-        const message = job.status === 'pending'
-          ? (job.attempts > 0 ? '服务繁忙，正在自动重试' : '正在排队，稍候开始')
-          : '正在解析这一句';
+        const message = job.status === 'pending' ? '正在排队，稍候开始' : '正在解析这一句';
         if (loading && loading.textContent !== message) loading.textContent = message;
       }
       if (job.status === 'pending' && job.next_attempt_at) {
