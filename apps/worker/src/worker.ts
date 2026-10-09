@@ -8,7 +8,7 @@ import {
 } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
 import { generateAnalysis } from './ai-analysis.js';
-import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
+import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { runJobQueue } from './job-queue.js';
 
 const config = readConfig();
@@ -29,6 +29,14 @@ async function claimJob(): Promise<Job | null> {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
+    const gate = await client.query<{ allowed: boolean }>(
+      'SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed',
+      [ANALYSIS_BATCH_LOCK_ID],
+    );
+    if (!gate.rows[0]?.allowed) {
+      await client.query('ROLLBACK');
+      return null;
+    }
     const result = await client.query<Job>(
       `WITH candidate AS (
          SELECT id FROM analysis_jobs

@@ -12,6 +12,7 @@ import {
   getSentence,
   getSectionCachedAnalyses,
   AnalysisQueueFullError,
+  AnalysisPausedError,
   listPapers,
   pool,
   savePracticeAnswers,
@@ -80,6 +81,9 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
     const job = await enqueueAnalysis(sentence, request.query.interactive === 'true' ? 100 : 10);
     return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
   } catch (error) {
+    if (error instanceof AnalysisPausedError) {
+      return reply.code(503).header('Retry-After', '30').send({ error: 'analysis_temporarily_paused', retryAfterSeconds: 30 });
+    }
     if (error instanceof AnalysisQueueFullError) {
       return reply.code(429).header('Retry-After', '30').send({ error: 'analysis_queue_full', retryAfterSeconds: 30 });
     }

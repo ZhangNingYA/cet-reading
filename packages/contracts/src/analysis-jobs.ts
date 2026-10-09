@@ -1,5 +1,9 @@
 export type AnalysisErrorCode = 'timeout' | 'service_unavailable' | 'invalid_result' | 'generation_failed';
 
+// Shared transaction/session advisory lock used to pause public AI generation
+// while an operator runs a sequential paper analysis batch.
+export const ANALYSIS_BATCH_LOCK_ID = 814172025;
+
 // The database retains technical errors; the public API only exposes safe categories.
 export function analysisErrorCode(message: string | null): AnalysisErrorCode {
   if (/aborted|aborterror|timed? ?out|timeout/i.test(message ?? '')) return 'timeout';

@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 import { AnswersSchema, contextHash, validateAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
-import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
+import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
@@ -11,6 +11,13 @@ export class AnalysisQueueFullError extends Error {
   constructor() {
     super('Analysis queue is full');
     this.name = 'AnalysisQueueFullError';
+  }
+}
+
+export class AnalysisPausedError extends Error {
+  constructor() {
+    super('Public analysis requests are temporarily paused for a batch run');
+    this.name = 'AnalysisPausedError';
   }
 }
 
@@ -269,6 +276,14 @@ export async function enqueueAnalysis(sentence: {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
+    const gate = await client.query<{ allowed: boolean }>(
+      'SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed',
+      [ANALYSIS_BATCH_LOCK_ID],
+    );
+    if (!gate.rows[0]?.allowed) {
+      await client.query('ROLLBACK');
+      throw new AnalysisPausedError();
+    }
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
       `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
     ]);

@@ -4,7 +4,7 @@ import { tsImport } from 'tsx/esm/api';
 import { buildAnalysis } from '@cet-reading/contracts';
 import { source, raw } from './fixtures/analysis.mjs';
 
-const { getCachedAnalysis, getJob, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
+const { AnalysisPausedError, enqueueAnalysis, getCachedAnalysis, getJob, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
 function badCache() {
   const cached = buildAnalysis(source, raw());
   cached.grammar.clauses[0].explanation = '句子主要成分';
@@ -26,6 +26,28 @@ test('treats only invalid cached results as a miss without deleting their histor
   });
   assert.equal(await getCachedAnalysis('sentence-1', 'source-hash', 'context-hash', source), undefined);
   assert.equal(queries, 1);
+});
+
+test('rejects public generation while the paper batch holds the shared AI gate', async t => {
+  const calls = [];
+  let released = false;
+  const client = {
+    async query(sql, params) {
+      calls.push({ sql: String(sql), params });
+      return String(sql).includes('pg_try_advisory_xact_lock_shared')
+        ? { rows: [{ allowed: false }] }
+        : { rows: [] };
+    },
+    release() { released = true; },
+  };
+  t.mock.method(pool, 'connect', async () => client);
+  await assert.rejects(enqueueAnalysis({
+    id: 'sentence-1', source_text: source, source_hash: 'source-hash',
+    context_hash: 'context-hash', context: { title: 'Test', previousSentence: null, nextSentence: null },
+  }), AnalysisPausedError);
+  assert.equal(calls.some(call => call.sql.includes('pg_try_advisory_xact_lock_shared')), true);
+  assert.equal(calls.some(call => call.sql === 'ROLLBACK'), true);
+  assert.equal(released, true);
 });
 
 test('exposes safe job failure categories without returning the internal error', async t => {

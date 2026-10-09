@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/worker.ts",
+    "analyze-paper": "tsx src/analyze-paper.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/worker.js",
     "typecheck": "tsc -p tsconfig.json --noEmit"

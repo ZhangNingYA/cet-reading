@@ -48,6 +48,15 @@ npm run dev:worker
 
 默认开启 `AI_DRY_RUN=true`，Worker 会生成可验证的演示结果。接入真实模型时，填写 `.env` 中的 `AI_API_URL`、`AI_API_KEY` 和 `AI_MODEL`，并关闭 `AI_DRY_RUN`。
 
+需要为指定试卷按顺序补齐 AI 精读时，可重复运行批处理工具：
+
+```bash
+npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --dry-run
+npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3
+```
+
+先用 `--dry-run` 查看句子总数和有效缓存数；正式运行需设置 `AI_DRY_RUN=false` 及 AI 接口配置。工具逐句输出 JSONL 进度，跳过有效缓存，成功结果使用与用户点击相同的模型、提示词、校验和缓存键保存。执行期间会暂停公开精读的新 AI 请求和 Worker 领取新任务，已开始的公开请求先完成；中断后重新运行即可从缓存续跑。默认遇到错误立即停止并释放暂停锁，不覆盖其他试卷或清理旧缓存。
+
 ## 服务
 
 - Web：Astro 静态前端，Docker 入口默认 `http://localhost:8081`；开发服务器默认 `http://localhost:4321`

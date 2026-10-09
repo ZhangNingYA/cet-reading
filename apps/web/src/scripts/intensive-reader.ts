@@ -170,6 +170,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         if (response.status === 429 && body?.error === 'analysis_queue_full') {
           throw new AnalysisFailure('当前精读任务较多，请稍后再试。');
         }
+        if (response.status === 503 && body?.error === 'analysis_temporarily_paused') {
+          throw new AnalysisFailure('精读生成正在维护中，请稍后重试。');
+        }
         throw new AnalysisFailure('精读服务暂时不可用，请稍后重试。');
       }
       return body;
