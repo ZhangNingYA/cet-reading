@@ -13,7 +13,7 @@
     "dev:web": "npm run dev --workspace apps/web",
     "dev:api": "npm run dev --workspace apps/api",
     "dev:worker": "npm run dev --workspace apps/worker",
-    "ai-reading": "npm run analyze-paper --workspace apps/worker",
+    "ai-reading": "node scripts/run-ai-reading.mjs",
     "build": "npm run build:contracts && npm run build:web && npm run build:api && npm run build:worker",
     "build:contracts": "npm run build --workspace packages/contracts",
     "build:web": "npm run build --workspace apps/web",
