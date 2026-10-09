@@ -121,4 +121,4 @@ async function refreshProgress() {
 }
 function restore() {const id=new URL(location.href).searchParams.get('article');if(id)void openArticle(id);else showList(false);}
 node('news-back').addEventListener('click',()=>showList());search.addEventListener('input',render);more.addEventListener('click',()=>void load(true));retry.addEventListener('click',()=>void load());
-window.addEventListener('popstate',restore);void load();restore();setInterval(()=>{void refreshProgress();},15_000);
+window.addEventListener('popstate',restore);void load();restore();setInterval(()=>{void refreshProgress();},10_000);

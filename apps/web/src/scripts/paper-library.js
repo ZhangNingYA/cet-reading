@@ -233,4 +233,4 @@ window.addEventListener('popstate', () => {
   else closeReader(false);
 });
 search.addEventListener('input', showPapers); loadPapers();
-setInterval(() => { void refreshPaperProgress(); }, 15_000);
+setInterval(() => { void refreshPaperProgress(); }, 10_000);
