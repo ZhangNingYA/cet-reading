@@ -52,9 +52,11 @@ test('retries a transient upstream HTTP error as transport, never as a grammar r
     return new Response('', { status: 503, headers: { 'retry-after': '0' } });
   });
   await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 10000 }), /503/);
-  assert.equal(calls, 3);
+  assert.equal(calls, 5);
   assert.deepEqual(bodies[0].messages, bodies[1].messages);
   assert.deepEqual(bodies[1].messages, bodies[2].messages);
+  assert.deepEqual(bodies[2].messages, bodies[3].messages);
+  assert.deepEqual(bodies[3].messages, bodies[4].messages);
 });
 
 test('accepts a fragmented SSE response and keeps the complete JSON for validation', async t => {
