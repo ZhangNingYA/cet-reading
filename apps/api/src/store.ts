@@ -184,6 +184,7 @@ export async function getSentence(id: string) {
               lead(s.source_text) OVER w AS next_sentence
        FROM sentences s JOIN papers p ON p.id = s.paper_id
        WHERE p.status = 'published'
+         AND s.paper_id = (SELECT paper_id FROM sentences WHERE id = $1)
        WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index, s.sentence_index)
      )
      SELECT * FROM ordered WHERE id = $1`,
@@ -214,6 +215,44 @@ export async function getCachedAnalysis(sentenceId: string, sourceHash: string, 
   return undefined;
 }
 
+export async function getSectionCachedAnalyses(paperId: string, sectionId: string) {
+  // Compute neighbours across the entire paper before selecting the section,
+  // keeping the same context and cache keys as an individual sentence request.
+  const sentences = await pool.query<SentenceRow>(
+    `WITH ordered AS (
+       SELECT s.id, s.source_text, s.source_hash, s.section_id, p.title,
+              lag(s.source_text) OVER w AS previous_sentence,
+              lead(s.source_text) OVER w AS next_sentence
+       FROM sentences s JOIN papers p ON p.id = s.paper_id
+       WHERE s.paper_id = $1 AND p.status = 'published'
+       WINDOW w AS (ORDER BY s.paragraph_index, s.sentence_index)
+     ) SELECT * FROM ordered WHERE section_id = $2`,
+    [paperId, sectionId],
+  );
+  if (!sentences.rows.length) return [];
+  const candidates = await pool.query(
+    `SELECT sentence_id, source_hash, context_hash, analysis_json
+     FROM sentence_analyses
+     WHERE sentence_id = ANY($1::text[]) AND prompt_version = ANY($2::text[])
+       AND model = $3 AND mode = $4 AND status = 'succeeded'
+     ORDER BY (prompt_version = $5) DESC, updated_at DESC`,
+    [sentences.rows.map(row => row.id), config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+  );
+  const byId = new Map(sentences.rows.map(row => [row.id, {
+    ...row,
+    contextHash: contextHash({ title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence }),
+  }]));
+  const cached = new Map<string, { sentenceId: string; source: string; result: ReturnType<typeof validateAnalysis> }>();
+  for (const row of candidates.rows) {
+    const sentence = byId.get(row.sentence_id);
+    if (!sentence || cached.has(sentence.id) || sentence.source_hash !== row.source_hash || sentence.contextHash !== row.context_hash) continue;
+    try {
+      cached.set(sentence.id, { sentenceId: sentence.id, source: sentence.source_text, result: validateAnalysis(sentence.source_text, row.analysis_json) });
+    } catch { /* A prefetch has the same quality checks and fallback rules as a click. */ }
+  }
+  return [...cached.values()];
+}
+
 export async function enqueueAnalysis(sentence: {
   id: string; source_text: string; source_hash: string; context_hash: string; context: object;
 }) {
@@ -234,12 +273,23 @@ export async function enqueueAnalysis(sentence: {
 
 export async function getJob(id: string) {
   const result = await pool.query(
-    `SELECT id, sentence_id, mode, status, error_message, updated_at
-     FROM analysis_jobs WHERE id = $1`,
+    `SELECT j.id, j.sentence_id, j.mode, j.status, j.error_message, j.updated_at,
+            j.source_text, a.analysis_json
+     FROM analysis_jobs j
+     LEFT JOIN sentence_analyses a ON j.status = 'succeeded' AND a.status = 'succeeded'
+       AND a.sentence_id = j.sentence_id AND a.source_hash = j.source_hash
+       AND a.context_hash = j.context_hash AND a.prompt_version = j.prompt_version
+       AND a.model = j.model AND a.mode = j.mode
+     WHERE j.id = $1`,
     [id],
   );
   const row = result.rows[0];
   if (!row) return null;
-  const { error_message, ...job } = row;
-  return { ...job, errorCode: job.status === 'failed' ? analysisErrorCode(error_message) : null };
+  const { error_message, source_text, analysis_json, ...job } = row;
+  let analysis;
+  if (job.status === 'succeeded' && analysis_json) {
+    try { analysis = validateAnalysis(source_text, analysis_json); }
+    catch { /* The normal analysis endpoint will recover a missing/invalid cache. */ }
+  }
+  return { ...job, errorCode: job.status === 'failed' ? analysisErrorCode(error_message) : null, ...(analysis ? { result: analysis } : {}) };
 }

@@ -9,6 +9,7 @@ import {
 import { readConfig } from '@cet-reading/contracts/config';
 import { generateAnalysis } from './ai-analysis.js';
 import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
+import { runJobQueue } from './job-queue.js';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
@@ -21,6 +22,7 @@ type Job = {
   source_hash: string;
   context_hash: string;
   context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
+  created_at: Date;
 };
 
 async function claimJob(): Promise<Job | null> {
@@ -43,7 +45,7 @@ async function claimJob(): Promise<Job | null> {
        FROM candidate c
        WHERE j.id = c.id
        RETURNING j.id, j.attempts, j.sentence_id, j.source_text, j.source_hash,
-                 j.context_hash, j.context_json`,
+                 j.context_hash, j.context_json, j.created_at`,
       [config.mode, config.model, config.promptVersion, config.leaseSeconds],
     );
     const job = result.rows[0] ?? null;
@@ -114,6 +116,11 @@ async function processJob(job: Job) {
         config.promptVersion, config.model, config.mode, JSON.stringify(analysis)],
     );
     await client.query('COMMIT');
+    console.log(JSON.stringify({
+      event: 'analysis_succeeded', jobId: job.id, sentenceId: job.sentence_id,
+      attempt: job.attempts, queueMs: startedAt - job.created_at.getTime(),
+      durationMs: Date.now() - startedAt,
+    }));
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error(JSON.stringify({
@@ -135,16 +142,21 @@ async function processJob(job: Job) {
 }
 
 async function main() {
-  process.stdout.write(`Worker started (${config.mode}, ${config.model})\n`);
-  while (true) {
-    const job = await claimJob();
-    if (job) await processJob(job);
-    else await new Promise((resolve) => setTimeout(resolve, 1500));
+  const shutdown = new AbortController();
+  const stop = () => shutdown.abort();
+  process.once('SIGTERM', stop);
+  process.once('SIGINT', stop);
+  process.stdout.write(`Worker started (${config.mode}, ${config.model}, concurrency=${config.workerConcurrency})\n`);
+  try {
+    await runJobQueue({ claim: claimJob, process: processJob, concurrency: config.workerConcurrency, signal: shutdown.signal });
+  } finally {
+    process.removeListener('SIGTERM', stop);
+    process.removeListener('SIGINT', stop);
+    await pool.end();
   }
 }
 
-main().catch(async (error) => {
+main().catch((error) => {
   console.error(error);
-  await pool.end();
   process.exitCode = 1;
 });

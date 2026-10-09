@@ -9,6 +9,7 @@ import {
   getPaper,
   getPracticeAttempt,
   getSentence,
+  getSectionCachedAnalyses,
   listPapers,
   pool,
   savePracticeAnswers,
@@ -29,6 +30,13 @@ app.get<{ Params: { id: string } }>('/api/papers/:id', async (request, reply) =>
   const paper = await getPaper(request.params.id);
   if (!paper) return reply.code(404).send({ error: 'paper_not_found' });
   return paper;
+});
+
+app.get<{ Params: { id: string }; Querystring: { mode?: string; section?: string } }>('/api/papers/:id/analyses', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (request.query.mode !== 'intensive') return reply.code(400).send({ error: 'analysis_requires_intensive_mode' });
+  if (!request.query.section) return reply.code(400).send({ error: 'section_required' });
+  return { analyses: await getSectionCachedAnalyses(request.params.id, request.query.section) };
 });
 
 app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: string } }>('/api/sentences/:id/analyze', async (request, reply) => {
@@ -83,6 +91,7 @@ app.post<{ Params: { id: string } }>('/api/attempts/:id/submit', async (request,
 });
 
 app.get<{ Params: { id: string } }>('/api/jobs/:id', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
   const job = await getJob(request.params.id);
   if (!job) return reply.code(404).send({ error: 'job_not_found' });
   return job;

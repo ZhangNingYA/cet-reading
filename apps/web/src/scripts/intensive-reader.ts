@@ -58,6 +58,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const controller = new AbortController();
   const ownedRequests = new Set<AnalysisRequest>();
   const feedback = new Map<string, string>();
+  const prefetchedSections = new Set<string>();
   let selected: Selection | null = null;
   let activeTab: AnalysisTab = 'translation';
   let panelOpen = false;
@@ -136,6 +137,25 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   }
   function cacheKey(sentence: StudySentence) { return `${paper.id}:${sentence.id}:${sentence.source}`; }
 
+  async function prefetchCachedAnalyses(section: StudySection) {
+    if (prefetchedSections.has(section.id)) return;
+    prefetchedSections.add(section.id);
+    try {
+      const response = await jsonRequest(`/api/papers/${encodeURIComponent(paper.id)}/analyses?mode=intensive&section=${encodeURIComponent(section.id)}`, 'GET', controller.signal);
+      if (controller.signal.aborted || !Array.isArray(response.analyses)) return;
+      for (const entry of response.analyses) {
+        const sentence = paper.sentences.find(item => item.id === entry.sentenceId && item.sectionId === section.id && item.source === entry.source);
+        if (!sentence || !entry.result?.tokens || !entry.result?.grammar) continue;
+        const key = cacheKey(sentence);
+        // A delayed prefetch must not replace a newly generated result.
+        if (!completed.has(key) && !requests.has(key)) completed.set(key, entry.result);
+      }
+    } catch {
+      // Prefetch only reads saved results. A click still works when it fails.
+      prefetchedSections.delete(section.id);
+    }
+  }
+
   async function jsonRequest(path: string, method: string, signal: AbortSignal) {
     const requestController = new AbortController();
     const cancel = () => requestController.abort(signal.reason);
@@ -154,7 +174,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   function waitForJob(signal: AbortSignal) {
     return new Promise<void>((resolve, reject) => {
       const aborted = () => { clearTimeout(timer); reject(signal.reason); };
-      const timer = setTimeout(() => { signal.removeEventListener('abort', aborted); resolve(); }, 1500);
+      const timer = setTimeout(() => { signal.removeEventListener('abort', aborted); resolve(); }, 500);
       signal.addEventListener('abort', aborted, { once: true });
       if (signal.aborted) aborted();
     });
@@ -176,7 +196,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         const message = job.status === 'pending' ? '正在排队，稍候开始' : '正在解析这一句';
         if (loading && loading.textContent !== message) loading.textContent = message;
       }
-      if (job.status === 'succeeded') response = await jsonRequest(path, 'POST', signal);
+      if (job.status === 'succeeded') {
+        response = job.result ? { status: 'ready', result: job.result } : await jsonRequest(path, 'POST', signal);
+      }
     }
     if (!response.result?.tokens || !response.result?.grammar) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
     completed.set(cacheKey(sentence), response.result);
@@ -427,6 +449,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     appendSectionImages(block, section);
     documentColumn.replaceChildren(block);
     pane.hidden = !sentences.length;
+    if (sentences.length) void prefetchCachedAnalyses(section);
   }
   const initialSection = paper.sections.find(section => section.kind === 'reading' && !section.reference) ?? paper.sections.find(section => !section.reference) ?? paper.sections[0];
   if (initialSection) selectSection(initialSection.id);
