@@ -2,12 +2,12 @@
   "scope": "当前 2020–2024 年六级 PDF 下载批次；保留全部原始下载及副本。",
   "download_count": 60,
   "paper_count": 37,
-  "imported_count": 35,
-  "held_count": 2,
+  "imported_count": 36,
+  "held_count": 1,
   "papers": [
     {
       "id": "cet6-2020-07-1",
-      "status": "held",
+      "status": "imported",
       "archive": "data/sources/cet6/2020-07/2020-07-CET6-1.pdf",
       "archive_sha256": "56a2810e7c0f4a9f49dcb4aa83a5d6da9163a47ee61d4aface252610b6012aaf",
       "pages": 12,
@@ -21,7 +21,9 @@
           "sha256": "56a2810e7c0f4a9f49dcb4aa83a5d6da9163a47ee61d4aface252610b6012aaf"
         }
       ],
-      "reason": "原件说明阅读由往年试题拼凑，不能核实为完整当期真题。"
+      "original_issue": "原件说明阅读由往年试题拼凑，不能核实为完整当期真题。",
+      "resolution": "使用须知不足以单独判断题文归属；用户指定网页、新东方当期阅读评述与后续整理卷的材料对应原 PDF，全部非听力题文以原 PDF 导入。",
+      "verification_record": "data/sources/cet6/2020-07/cet6-2020-07-1-verification.json"
     },
     {
       "id": "cet6-2020-09-1",
@@ -94,7 +96,8 @@
           "sha256": "18bddea5f02c39b8c931e406e8a5534d71f107e964b6edc74a112709408cc256"
         }
       ],
-      "reason": "两份原件都缺少第 51 题题干及 A–D 选项，待补齐完整来源。"
+      "reason": "原 PDF 缺第 51 题题干及 A–D 选项。用户指定网页已找到该题，待用户提供可完整导入的题目文字或 PDF。",
+      "supplement_url": "https://english-exam.lazynote.cn/cet6/paper/2020-12-1/part3-section-c-2/"
     },
     {
       "id": "cet6-2020-12-2",

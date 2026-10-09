@@ -1,0 +1,56 @@
+{
+  "id": "cet6-2020-07-1",
+  "verified_on": "2026-10-09",
+  "text_source": "data/sources/cet6/2020-07/2020-07-CET6-1.pdf",
+  "source_sha256": "56a2810e7c0f4a9f49dcb4aa83a5d6da9163a47ee61d4aface252610b6012aaf",
+  "original_issue": "原件说明阅读由往年试题拼凑，不能核实为完整当期真题。",
+  "resolution": "使用须知不足以单独判断题文归属；用户指定网页、新东方当期阅读评述与后续整理卷的材料对应原 PDF，全部非听力题文以原 PDF 导入。",
+  "verification_sources": [
+    {
+      "url": "https://english-exam.lazynote.cn/cet6/paper/2020-07-1/part1/",
+      "role": "用户指定的写作与全卷导航"
+    },
+    {
+      "url": "https://english-exam.lazynote.cn/cet6/paper/2020-07-1/part3-section-a/",
+      "role": "选词填空身份核对"
+    },
+    {
+      "url": "https://english-exam.lazynote.cn/cet6/paper/2020-07-1/part3-section-b/",
+      "role": "长篇阅读身份核对"
+    },
+    {
+      "url": "https://english-exam.lazynote.cn/cet6/sections/2020-07-1/part3-section-c-1/",
+      "role": "仔细阅读一及答案核对"
+    },
+    {
+      "url": "https://english-exam.lazynote.cn/cet6/sections/2020-07-1/part3-section-c-2/",
+      "role": "仔细阅读二及答案核对"
+    },
+    {
+      "url": "https://file.xdf.cn/uploads/200714/1498_200714153512eaMn2KtAslAy4ffQ.pdf",
+      "role": "2020 年 7 月当期阅读评述，证实发展心理学、压力和狩猎材料"
+    },
+    {
+      "url": "https://file.xdf.cn/uploads/210928/1113_210928231710VJ0xlTUFbWLID8ey.pdf",
+      "role": "后续整理卷，核对非听力题文与三国演义翻译主题；其答案附录存在错位，不采用"
+    }
+  ],
+  "answer_source": "用户原 PDF 无答案页；按原文整理参考答案，并与用户指定网页核对，不标为官方答案。后续整理卷答案附录与词库/段号及正文不符，未采用。",
+  "answer_keys": {
+    "26-35": "GBMKCFEDOA",
+    "36-45": "CJFAGEMHBL",
+    "46-55": "BDADCBCAAC"
+  },
+  "content_summary": {
+    "non_listening_sections": 6,
+    "questions": 32,
+    "cloze_paragraphs": 3,
+    "matching_labels": "A–M",
+    "reading_paragraph_counts": [
+      6,
+      6
+    ],
+    "translation_topic": "三国演义"
+  },
+  "preservation": "原 PDF 与下载副本均保留，不改动页面或已有试卷；没有预生成 AI 精读。"
+}

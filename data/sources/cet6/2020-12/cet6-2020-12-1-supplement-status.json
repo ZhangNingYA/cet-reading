@@ -1,0 +1,11 @@
+{
+  "id": "cet6-2020-12-1",
+  "checked_on": "2026-10-09",
+  "status": "awaiting_user_source",
+  "source": "data/sources/cet6/2020-12/2020-12-CET6-1.pdf",
+  "missing_question": 51,
+  "supplement_url": "https://english-exam.lazynote.cn/cet6/paper/2020-12-1/part3-section-c-2/",
+  "finding": "网页包含缺失题目，网页第 52–55 题与用户原 PDF 对应；第 51 题参考答案 D 与随卷答案页一致。",
+  "required_material": "用户提供第 51 题题干及全部 A–D 选项，或含该题的完整 PDF。整道题尚未从网页转载到项目。",
+  "preservation": "两份用户原 PDF 与归档文件均保留，未发布缺题占位卷。"
+}
