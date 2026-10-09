@@ -13,6 +13,7 @@ type Options = {
   paperId?: string;
   dryRun: boolean;
   waitTimeoutSeconds: number;
+  concurrency: number;
 };
 
 type BatchSentence = {
@@ -34,16 +35,18 @@ type CacheRow = {
 };
 
 const DEFAULT_WAIT_TIMEOUT_SECONDS = 300;
-const MAX_SENTENCE_ATTEMPTS = 3;
+const DEFAULT_BATCH_CONCURRENCY = 2;
+const RETRY_DELAY_CAP_MS = 30_000;
 
 function isRetryableSentenceError(error: unknown) {
   const message = error instanceof Error ? error.message : String(error);
   return /AI request failed:\s*(?:stream|408|425|429|500|502|503|504|524)\b|fetch failed|AI response stream|timed? ?out/i.test(message);
 }
 
-async function waitBeforeSentenceRetry(attempt: number) {
-  const delayMs = Math.min(10_000, 2_000 * 2 ** (attempt - 1));
+async function waitBeforeSentenceRetry(attempt: number, signal: AbortSignal) {
+  const delayMs = Math.min(RETRY_DELAY_CAP_MS, 2_000 * 2 ** Math.min(attempt - 1, 4));
   await new Promise(resolve => setTimeout(resolve, delayMs));
+  return !signal.aborted;
 }
 
 export function parseOptions(args: string[]): Options | null {
@@ -52,6 +55,7 @@ export function parseOptions(args: string[]): Options | null {
   let paperId: string | undefined;
   let dryRun = false;
   let waitTimeoutSeconds = DEFAULT_WAIT_TIMEOUT_SECONDS;
+  let concurrency = DEFAULT_BATCH_CONCURRENCY;
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index]!;
     if (arg === '--dry-run') {
@@ -67,6 +71,12 @@ export function parseOptions(args: string[]): Options | null {
         throw new Error('--wait-timeout-seconds must be an integer from 30 to 3600');
       }
       waitTimeoutSeconds = value;
+    } else if (arg === '--concurrency') {
+      const value = Number(args[++index]);
+      if (!Number.isInteger(value) || value < 1 || value > 2) {
+        throw new Error('--concurrency must be an integer from 1 to 2');
+      }
+      concurrency = value;
     } else if (arg.startsWith('-')) {
       throw new Error(`Unknown option: ${arg}`);
     } else {
@@ -76,9 +86,9 @@ export function parseOptions(args: string[]): Options | null {
   }
   if (!paperId) {
     if (args.length) throw new Error('A paper ID is required');
-    return { paperId: undefined, dryRun, waitTimeoutSeconds };
+    return { paperId: undefined, dryRun, waitTimeoutSeconds, concurrency };
   }
-  return { paperId, dryRun, waitTimeoutSeconds };
+  return { paperId, dryRun, waitTimeoutSeconds, concurrency };
 }
 
 function printUsage() {
@@ -89,10 +99,12 @@ function printUsage() {
     'Options:',
     '  --dry-run                       Report sentence/cache counts without calling AI or pausing public requests',
     '  --wait-timeout-seconds <30-3600> Maximum time to let already-running public jobs finish (default: 300)',
+    '  --concurrency <1-2>             Number of batch AI requests in flight (default: 2)',
     '  -h, --help                      Show this help',
     '',
     'Valid AI runs require AI_DRY_RUN=false, AI_API_URL, AI_API_KEY, and AI_MODEL.',
     'Valid cached sentences are skipped; rerunning safely resumes from the remaining sentences.',
+    'Transient AI transport failures retry with backoff until they succeed; stop the process manually when needed.',
   ].join('\n') + '\n');
 }
 
@@ -229,6 +241,86 @@ async function getPublishedPaper(pool: Pool, paperId: string) {
   return result.rows[0] ?? null;
 }
 
+type BatchProgress = {
+  generated: number;
+  cached: number;
+};
+
+async function generateBatchSentence(
+  pool: Pool,
+  sentence: BatchSentence,
+  index: number,
+  total: number,
+  config: ReturnType<typeof readConfig>,
+  signal: AbortSignal,
+) {
+  let attempt = 0;
+  while (true) {
+    attempt += 1;
+    try {
+      const analysis = await generateAnalysis({
+        source_text: sentence.source_text,
+        context_json: sentence.context_json,
+      }, config);
+      await saveAnalysis(pool, sentence, analysis, config);
+      emitSentence(index + 1, total, sentence, 'generated');
+      return true;
+    } catch (error) {
+      if (signal.aborted) return false;
+      const message = error instanceof Error ? error.message : String(error);
+      if (!isRetryableSentenceError(error)) {
+        emitSentence(index + 1, total, sentence, 'failed', message);
+        throw new Error(`Stopped after sentence ${index + 1}/${total} (${sentence.id}) on non-retryable error: ${message}`);
+      }
+      const delayMs = Math.min(RETRY_DELAY_CAP_MS, 2_000 * 2 ** Math.min(attempt - 1, 4));
+      process.stderr.write(`Sentence ${index + 1}/${total} temporary AI failure (attempt ${attempt}): ${message}; retrying in ${Math.round(delayMs / 1000)}s...\n`);
+      if (!await waitBeforeSentenceRetry(attempt, signal)) return false;
+    }
+  }
+}
+
+async function generateBatchInParallel(
+  pool: Pool,
+  sentences: BatchSentence[],
+  cache: Map<string, SentenceAnalysis>,
+  config: ReturnType<typeof readConfig>,
+  concurrency: number,
+): Promise<BatchProgress> {
+  const progress: BatchProgress = { generated: 0, cached: 0 };
+  let nextIndex = 0;
+  let failed = false;
+  let failure: unknown;
+  const stop = new AbortController();
+
+  async function runSlot() {
+    while (!stop.signal.aborted) {
+      const index = nextIndex;
+      nextIndex += 1;
+      if (index >= sentences.length) return;
+      const sentence = sentences[index]!;
+      if (cache.has(sentence.id)) {
+        progress.cached += 1;
+        emitSentence(index + 1, sentences.length, sentence, 'cached');
+        continue;
+      }
+      try {
+        const generated = await generateBatchSentence(pool, sentence, index, sentences.length, config, stop.signal);
+        if (generated) progress.generated += 1;
+      } catch (error) {
+        if (stop.signal.aborted) return;
+        failed = true;
+        failure = error;
+        stop.abort();
+      }
+    }
+  }
+
+  const slots = Math.min(concurrency, Math.max(1, sentences.length));
+  await Promise.all(Array.from({ length: slots }, () => runSlot()));
+  if (failed) throw failure;
+  return progress;
+}
+
 async function choosePaper(pool: Pool): Promise<{ paperId: string; dryRun: boolean } | null> {
   if (!input.isTTY || !output.isTTY) {
     throw new Error('No paper ID supplied and this terminal is not interactive; use --paper <paper-id>');
@@ -301,43 +393,10 @@ async function run(options: Options) {
     await waitForRunningPublicJobs(pool, config, options.waitTimeoutSeconds);
     // Refresh after draining public jobs, so a just-finished click is reused.
     const refreshedCache = await loadValidCaches(pool, sentences, config);
-    let generated = 0;
-    let cached = 0;
-    for (let index = 0; index < sentences.length; index += 1) {
-      const sentence = sentences[index]!;
-      if (refreshedCache.has(sentence.id)) {
-        cached += 1;
-        emitSentence(index + 1, sentences.length, sentence, 'cached');
-        continue;
-      }
-      let completed = false;
-      let lastError: unknown;
-      for (let attempt = 1; attempt <= MAX_SENTENCE_ATTEMPTS; attempt += 1) {
-        try {
-          const analysis = await generateAnalysis({
-            source_text: sentence.source_text,
-            context_json: sentence.context_json,
-          }, config);
-          await saveAnalysis(pool, sentence, analysis, config);
-          generated += 1;
-          emitSentence(index + 1, sentences.length, sentence, 'generated');
-          completed = true;
-          break;
-        } catch (error) {
-          lastError = error;
-          const message = error instanceof Error ? error.message : String(error);
-          if (!isRetryableSentenceError(error) || attempt === MAX_SENTENCE_ATTEMPTS) break;
-          process.stderr.write(`Sentence ${index + 1}/${sentences.length} temporary AI failure (attempt ${attempt}/${MAX_SENTENCE_ATTEMPTS}): ${message}; retrying...\n`);
-          await waitBeforeSentenceRetry(attempt);
-        }
-      }
-      if (!completed) {
-        const message = lastError instanceof Error ? lastError.message : String(lastError);
-        emitSentence(index + 1, sentences.length, sentence, 'failed', message);
-        throw new Error(`Stopped after sentence ${index + 1}/${sentences.length} (${sentence.id}) after ${MAX_SENTENCE_ATTEMPTS} attempts: ${message}`);
-      }
-    }
-    process.stderr.write(`Completed ${paper.id}: ${generated} generated, ${cached} skipped from cache, ${sentences.length} total.\n`);
+    const progress = await generateBatchInParallel(
+      pool, sentences, refreshedCache, config, options.concurrency,
+    );
+    process.stderr.write(`Completed ${paper.id}: ${progress.generated} generated, ${progress.cached} skipped from cache, ${sentences.length} total, concurrency=${options.concurrency}.\n`);
   } finally {
     if (locked && lockClient) {
       await lockClient.query('SELECT pg_advisory_unlock($1::integer)', [ANALYSIS_BATCH_LOCK_ID]).catch(() => undefined);
