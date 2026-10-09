@@ -12,10 +12,10 @@ test('parses a resumable batch target and safe options', () => {
     paperId: 'cet6-2024-06-1', dryRun: false, waitTimeoutSeconds: 300,
   });
   assert.equal(parseOptions(['--help']), null);
+  assert.deepEqual(parseOptions([]), { paperId: undefined, dryRun: false, waitTimeoutSeconds: 300 });
 });
 
 test('rejects ambiguous targets, unknown options and unsafe wait bounds', () => {
-  assert.throws(() => parseOptions([]), /paper ID is required/);
   assert.throws(() => parseOptions(['paper-a', 'paper-b']), /exactly one paper/);
   assert.throws(() => parseOptions(['--paper']), /needs a published paper ID/);
   assert.throws(() => parseOptions(['paper-a', '--unknown']), /Unknown option/);

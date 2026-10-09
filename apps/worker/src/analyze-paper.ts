@@ -1,6 +1,8 @@
 import 'dotenv/config';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createInterface } from 'node:readline/promises';
+import { stdin as input, stdout as output } from 'node:process';
 import { Pool, type PoolClient } from 'pg';
 import { contextHash, validateAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
@@ -8,7 +10,7 @@ import { ANALYSIS_BATCH_LOCK_ID } from '@cet-reading/contracts/analysis-jobs';
 import { generateAnalysis } from './ai-analysis.js';
 
 type Options = {
-  paperId: string;
+  paperId?: string;
   dryRun: boolean;
   waitTimeoutSeconds: number;
 };
@@ -61,13 +63,17 @@ export function parseOptions(args: string[]): Options | null {
       paperId = arg;
     }
   }
-  if (!paperId) throw new Error('A paper ID is required');
+  if (!paperId) {
+    if (args.length) throw new Error('A paper ID is required');
+    return { paperId: undefined, dryRun, waitTimeoutSeconds };
+  }
   return { paperId, dryRun, waitTimeoutSeconds };
 }
 
 function printUsage() {
   process.stdout.write([
     'Usage: npm run analyze-paper --workspace apps/worker -- --paper <paper-id> [options]',
+    '       npm run analyze-paper --workspace apps/worker                 (interactive menu)',
     '',
     'Options:',
     '  --dry-run                       Report sentence/cache counts without calling AI or pausing public requests',
@@ -212,7 +218,43 @@ async function getPublishedPaper(pool: Pool, paperId: string) {
   return result.rows[0] ?? null;
 }
 
+async function choosePaper(pool: Pool): Promise<{ paperId: string; dryRun: boolean } | null> {
+  if (!input.isTTY || !output.isTTY) {
+    throw new Error('No paper ID supplied and this terminal is not interactive; use --paper <paper-id>');
+  }
+  const result = await pool.query<{ id: string; title: string; exam_level: string; year: number; month: number; set_no: number }>(
+    `SELECT id, title, exam_level, year, month, set_no
+     FROM papers WHERE status = 'published'
+     ORDER BY year DESC, month DESC, exam_level, set_no`,
+  );
+  if (!result.rows.length) throw new Error('No published papers are available');
+  const reader = createInterface({ input, output });
+  try {
+    output.write('\n选择要自动精读的试卷（输入编号，q 退出）：\n');
+    result.rows.forEach((paper, index) => {
+      output.write(`  ${index + 1}. [${paper.exam_level}] ${paper.year}年${paper.month}月第${paper.set_no}套 — ${paper.title} (${paper.id})\n`);
+    });
+    while (true) {
+      const answer = (await reader.question('试卷编号: ')).trim().toLowerCase();
+      if (answer === 'q' || answer === 'quit' || answer === 'exit') return null;
+      const selected = Number(answer);
+      if (!Number.isInteger(selected) || selected < 1 || selected > result.rows.length) {
+        output.write(`请输入 1-${result.rows.length} 的编号，或输入 q 退出。\n`);
+        continue;
+      }
+      const paper = result.rows[selected - 1]!;
+      const confirm = (await reader.question(`将处理“${paper.title}”，跳过已有缓存并调用真实 AI。继续？[y/N] `)).trim().toLowerCase();
+      if (confirm !== 'y' && confirm !== 'yes') return null;
+      const dryRun = (await reader.question('先只查看计划、不调用 AI？[y/N] ')).trim().toLowerCase();
+      return { paperId: paper.id, dryRun: dryRun === 'y' || dryRun === 'yes' };
+    }
+  } finally {
+    reader.close();
+  }
+}
+
 async function run(options: Options) {
+  if (!options.paperId) throw new Error('A paper ID is required');
   const config = readConfig();
   const pool = new Pool({ connectionString: config.databaseUrl });
   let lockClient: PoolClient | undefined;
@@ -282,14 +324,26 @@ async function run(options: Options) {
 }
 
 async function main() {
+  let poolForMenu: Pool | undefined;
   try {
     const options = parseOptions(process.argv.slice(2));
     if (!options) {
       printUsage();
       return;
     }
-    await run(options);
+    if (!options.paperId) {
+      const config = readConfig();
+      poolForMenu = new Pool({ connectionString: config.databaseUrl });
+      const selected = await choosePaper(poolForMenu);
+      await poolForMenu.end();
+      poolForMenu = undefined;
+      if (!selected) return;
+      await run({ ...options, ...selected });
+    } else {
+      await run(options);
+    }
   } catch (error) {
+    await poolForMenu?.end().catch(() => undefined);
     process.stderr.write(`analyze-paper: ${error instanceof Error ? error.message : String(error)}\n`);
     process.exitCode = 1;
   }

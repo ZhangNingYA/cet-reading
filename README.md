@@ -51,6 +51,13 @@ npm run dev:worker
 需要为指定试卷按顺序补齐 AI 精读时，可重复运行批处理工具：
 
 ```bash
+npm run analyze-paper --workspace apps/worker
+npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3
+```
+
+不带参数会打开交互菜单：选择已发布试卷编号，确认后开始处理；再选择是否只查看计划。也可以直接指定试卷 ID：
+
+```bash
 npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --dry-run
 npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3
 ```
