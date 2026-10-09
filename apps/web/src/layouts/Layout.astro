@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/reader.css';
-import { readingSections } from '../data/sections';
+import { homeSections } from '../data/sections';
 
 const {
   title = 'CET Reading · 英语阅读',
@@ -29,7 +29,7 @@ const isHome = Astro.url.pathname === '/';
         {!isHome && (
           <nav class="site-nav" aria-label="网站导航">
             <a href="/">首页</a>
-            {readingSections.map((section) => (
+            {homeSections.map((section) => (
               <a href={`/${section.slug}/`} aria-current={Astro.url.pathname === `/${section.slug}/` ? 'page' : undefined}>{section.label}</a>
             ))}
           </nav>

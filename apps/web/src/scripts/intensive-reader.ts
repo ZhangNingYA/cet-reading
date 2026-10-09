@@ -54,7 +54,7 @@ function waitingDots() {
   return dots;
 }
 
-export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLElement) {
+export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLElement, options: { analysisPath?: string; hideNavigation?: boolean } = {}) {
   const controller = new AbortController();
   const ownedRequests = new Set<AnalysisRequest>();
   const feedback = new Map<string, string>();
@@ -101,7 +101,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   paneBody.setAttribute('aria-live', 'polite');
   pane.append(paneHeader, notice, paneBody);
   layout.append(documentColumn, pane);
-  target.append(navigation, layout);
+  if (!options.hideNavigation) target.append(navigation);
+  target.append(layout);
 
   function showEmpty(message = '点击原文中的单词或句子') {
     paneTitle.textContent = '精读';
@@ -141,7 +142,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     if (prefetchedSections.has(section.id)) return;
     prefetchedSections.add(section.id);
     try {
-      const response = await jsonRequest(`/api/papers/${encodeURIComponent(paper.id)}/analyses?mode=intensive&section=${encodeURIComponent(section.id)}`, 'GET', controller.signal);
+      const response = await jsonRequest(`${options.analysisPath || `/api/papers/${encodeURIComponent(paper.id)}/analyses`}?mode=intensive&section=${encodeURIComponent(section.id)}`, 'GET', controller.signal);
       if (controller.signal.aborted || !Array.isArray(response.analyses)) return;
       for (const entry of response.analyses) {
         const sentence = paper.sentences.find(item => item.id === entry.sentenceId && item.sectionId === section.id && item.source === entry.source);
@@ -405,7 +406,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     dismiss(false);
     const block = element('section', 'passage-section');
     block.dataset.sectionKind = section.kind;
-    block.append(element('h3', 'passage-title', section.title));
+    if (!options.hideNavigation) block.append(element('h3', 'passage-title', section.title));
     layout.classList.toggle('has-shared-section', Boolean(section.reference));
     if (section.reference) {
       block.append(createSharedSectionNotice(section.reference, 'intensive'));

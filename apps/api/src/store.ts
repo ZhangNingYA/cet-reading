@@ -179,13 +179,14 @@ export async function getSentence(id: string) {
   const result = await pool.query<SentenceRow>(
     `WITH ordered AS (
        SELECT s.id, s.paper_id, s.source_text, s.source_hash,
-              p.title, p.exam_level, p.year,
+              COALESCE(p.title,n.title) AS title, COALESCE(p.exam_level,'NEWS') AS exam_level, p.year,
               lag(s.source_text) OVER w AS previous_sentence,
               lead(s.source_text) OVER w AS next_sentence
-       FROM sentences s JOIN papers p ON p.id = s.paper_id
-       WHERE p.status = 'published'
-         AND s.paper_id = (SELECT paper_id FROM sentences WHERE id = $1)
-       WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index, s.sentence_index)
+       FROM sentences s LEFT JOIN papers p ON p.id = s.paper_id LEFT JOIN news_articles n ON n.id = s.article_id
+       WHERE (p.status = 'published' OR n.status = 'published')
+         AND (s.paper_id = (SELECT paper_id FROM sentences WHERE id = $1)
+              OR s.article_id = (SELECT article_id FROM sentences WHERE id = $1))
+       WINDOW w AS (PARTITION BY s.paper_id,s.article_id ORDER BY s.paragraph_index, s.sentence_index)
      )
      SELECT * FROM ordered WHERE id = $1`,
     [id],
@@ -215,19 +216,20 @@ export async function getCachedAnalysis(sentenceId: string, sourceHash: string, 
   return undefined;
 }
 
-export async function getSectionCachedAnalyses(paperId: string, sectionId: string) {
+export async function getSectionCachedAnalyses(paperId: string, sectionId: string, news = false) {
   // Compute neighbours across the entire paper before selecting the section,
   // keeping the same context and cache keys as an individual sentence request.
   const sentences = await pool.query<SentenceRow>(
     `WITH ordered AS (
-       SELECT s.id, s.source_text, s.source_hash, s.section_id, p.title,
+       SELECT s.id, s.source_text, s.source_hash, COALESCE(s.section_id,s.article_id || '-body') AS section_id, COALESCE(p.title,n.title) AS title,
               lag(s.source_text) OVER w AS previous_sentence,
               lead(s.source_text) OVER w AS next_sentence
-       FROM sentences s JOIN papers p ON p.id = s.paper_id
-       WHERE s.paper_id = $1 AND p.status = 'published'
+       FROM sentences s LEFT JOIN papers p ON p.id = s.paper_id LEFT JOIN news_articles n ON n.id = s.article_id
+       WHERE (($3::boolean = FALSE AND s.paper_id = $1 AND p.status = 'published')
+           OR ($3::boolean = TRUE AND s.article_id = $1 AND n.status = 'published'))
        WINDOW w AS (ORDER BY s.paragraph_index, s.sentence_index)
      ) SELECT * FROM ordered WHERE section_id = $2`,
-    [paperId, sectionId],
+    [paperId, sectionId, news],
   );
   if (!sentences.rows.length) return [];
   const candidates = await pool.query(

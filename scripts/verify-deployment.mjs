@@ -40,10 +40,17 @@ if (!sectionPaths.length) throw new Error('The home page has no section links');
 await Promise.all(sectionPaths.map(async (path) => {
   const response = await fetchWithRetry(path);
   const html = await response.text();
+  if (path === '/news/') {
+    if (!html.includes('id="news-list"') || !html.includes('id="news-reader"')) throw new Error('News must serve its own article list and reader');
+    return;
+  }
   if (!html.includes('id="library-title"') || !html.includes('id="papers"') || html.includes('class="home-section container"')) {
     throw new Error(`${path} must serve its paper list instead of falling back to the home page`);
   }
 }));
+const newsResponse = await fetchWithRetry('/api/news');
+const news = await newsResponse.json();
+if (!Array.isArray(news.articles) || !Array.isArray(news.batches) || news.schedule?.timezone !== 'Asia/Shanghai') throw new Error('Unexpected News API payload');
 const papersResponse = await fetchWithRetry('/api/papers');
 const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {

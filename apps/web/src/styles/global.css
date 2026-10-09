@@ -60,7 +60,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .text-link { display: inline-flex; align-items: center; gap: 9px; min-height: 36px; padding: 0; color: var(--muted); border: 0; background: transparent; font-size: var(--text-ui); }
 .text-link:hover { color: var(--accent-deep); }
 
-/* Three quiet entrances. More categories can extend the same vertical rhythm. */
+/* Quiet entrances share the same vertical rhythm. */
 .home-page .site-header { border-bottom: 0; }
 .home-section { width: min(720px, calc(100% - 80px)); padding-block: 64px 100px; }
 .entry-grid { display: grid; }
@@ -144,6 +144,27 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 }
 @media (max-width: 359px) {
   .library-toolbar { flex-basis: 52%; }
+}
+
+.news-schedule { margin: -8px 0 28px; color: var(--muted); font-size: var(--text-caption); font-variant-numeric: tabular-nums; }
+.news-schedule span { margin-left: 8px; color: var(--quiet); }
+.news-batch + .news-batch { margin-top: 28px; }
+.news-batch-heading { margin: 0 0 5px; color: var(--muted); font-size: var(--text-caption); font-weight: 500; font-variant-numeric: tabular-nums; }
+.news-row { display: block; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.news-row-title { margin: 0; font-family: var(--reading-font); font-weight: 500; font-size: 1.1875rem; line-height: 1.5; overflow-wrap: anywhere; }
+.news-row:hover .news-row-title { color: var(--accent); }
+.news-row-meta { margin: 7px 0 0; font-size: var(--text-caption); color: var(--muted); line-height: 1.65; }
+.news-batch-note { margin: 12px 0; color: var(--quiet); font-size: var(--text-caption); }
+.news-meta, .news-attribution { color: var(--muted); font-size: var(--text-caption); line-height: 1.8; }
+.news-attribution a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.news-attribution a:hover { color: var(--accent); }
+.news-reader .reader-heading h1 { max-width: 780px; font-family: var(--reading-font); font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.4; letter-spacing: -.02em; }
+#news-more { margin-top: 24px; }
+@media (max-width: 700px) {
+  .site-nav a { padding-inline: 6px; font-size: 12px; }
+  .news-schedule { margin-bottom: 22px; font-size: .75rem; }
+  .news-schedule span { margin-left: 3px; }
+  .news-row-title { font-size: 1.125rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

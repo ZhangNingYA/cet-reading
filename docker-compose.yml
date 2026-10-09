@@ -63,6 +63,23 @@ services:
       postgres:
         condition: service_healthy
 
+  news:
+    build:
+      context: .
+      dockerfile: apps/worker/Dockerfile
+    command: ["node", "apps/worker/dist/news-service.js"]
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://cet_reading:cet_reading@postgres:5432/cet_reading
+      NODE_OPTIONS: --max-old-space-size=96
+    mem_limit: 160m
+    restart: unless-stopped
+    stop_grace_period: 30s
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   web:
     build:
       context: .

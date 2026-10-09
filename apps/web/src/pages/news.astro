@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
+---
+<Layout title="News · CET Reading">
+  <section class="library-section container news-library" id="news-library" data-api-base={apiBase} aria-labelledby="library-title">
+    <div class="library-heading">
+      <div class="section-heading"><div class="library-title-line"><h1 id="library-title">News</h1><span class="paper-count" id="news-count"></span></div></div>
+      <div class="library-toolbar"><label class="paper-search"><span class="sr-only">搜索文章或话题</span><input id="news-search" type="search" placeholder="搜索文章或话题" autocomplete="off" /></label></div>
+    </div>
+    <p class="news-schedule">每日 08:00 · 11:00 · 14:00 · 17:00 <span>北京时间</span></p>
+    <p id="news-status" role="status" class="sr-only"></p>
+    <div id="news-list" aria-busy="true"><div class="paper-skeleton" aria-hidden="true"><span></span><span></span><span></span></div></div>
+    <button id="news-more" class="text-link" type="button" hidden>更早的文章</button>
+    <button id="news-retry" class="text-link" type="button" hidden>重试</button>
+    <noscript><p>请启用 JavaScript，以加载文章。</p></noscript>
+  </section>
+  <section class="reader-section container news-reader" id="news-reader" hidden aria-labelledby="news-title">
+    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← 返回 News</button></div>
+    <div class="reader-panel">
+      <header class="reader-heading">
+        <p class="news-meta" id="news-meta"></p><h1 id="news-title" lang="en" tabindex="-1"></h1>
+        <p class="news-attribution" id="news-attribution"></p>
+      </header>
+      <div id="news-content"></div>
+    </div>
+  </section>
+</Layout>
+<script>import '../scripts/news-library';</script>

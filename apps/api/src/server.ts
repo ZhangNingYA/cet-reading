@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { config } from './config.js';
+import { listNews, getNews } from './news-store.js';
 import {
   createPracticeAttempt,
   enqueueAnalysis,
@@ -23,6 +24,23 @@ await app.register(cors, {
 });
 
 app.get('/healthz', async () => ({ status: 'ok' }));
+
+app.get<{ Querystring: { before?: string } }>('/api/news', async (request, reply) => {
+  reply.header('Cache-Control','no-store');
+  if (request.query.before && !/^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/.test(request.query.before)) return reply.code(400).send({ error:'invalid_cursor' });
+  if (request.query.before && Number.isNaN(Date.parse(request.query.before))) return reply.code(400).send({ error:'invalid_cursor' });
+  return listNews(request.query.before);
+});
+app.get<{ Params: { id: string } }>('/api/news/:id', async (request, reply) => {
+  const article = await getNews(request.params.id);
+  if (!article) return reply.code(404).send({ error:'article_not_found' });
+  return article;
+});
+app.get<{ Params: { id:string }; Querystring: { mode?:string } }>('/api/news/:id/analyses', async(request,reply)=>{
+  reply.header('Cache-Control','no-store');
+  if (request.query.mode!=='intensive') return reply.code(400).send({ error:'analysis_requires_intensive_mode' });
+  return { analyses:await getSectionCachedAnalyses(request.params.id,`${request.params.id}-body`,true) };
+});
 
 app.get('/api/papers', async () => ({ papers: await listPapers() }));
 

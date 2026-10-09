@@ -6,6 +6,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./news": { "types": "./dist/news.d.ts", "import": "./dist/news.js" },
     "./shared-reading": {
       "types": "./dist/shared-reading.d.ts",
       "import": "./dist/shared-reading.js"

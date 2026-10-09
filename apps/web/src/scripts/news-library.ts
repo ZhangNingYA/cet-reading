@@ -1,0 +1,73 @@
+import { mountIntensive } from './intensive-reader';
+
+const node = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+const library = node<HTMLElement>('news-library'); const reader = node<HTMLElement>('news-reader');
+const list = node<HTMLElement>('news-list'); const status = node<HTMLElement>('news-status');
+const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButtonElement>('news-more'); const retry = node<HTMLButtonElement>('news-retry');
+const apiBase = library.dataset.apiBase || '';
+type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
+type Batch = { scheduled_at:string; status:string; reason:string; article_count:number };
+let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
+let dispose: (()=>void) | undefined; let viewRequest=0;
+const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
+const difficulty = (value:string) => ({ CET6:'六级',NEEP:'考研',advanced:'进阶' }[value] || value);
+function element<K extends keyof HTMLElementTagNameMap>(tag:K,className:string,text?:string) { const el=document.createElement(tag); el.className=className; if(text!==undefined) el.textContent=text; return el; }
+async function json(path:string) {
+  const response=await fetch(`${apiBase}${path}`,{signal:AbortSignal.timeout(15000)});
+  if(!response.ok) throw new Error('request failed'); return response.json();
+}
+function render() {
+  const query=search.value.trim().toLowerCase(); const visible=articles.filter(item=>`${item.title} ${item.topic} ${item.source_name}`.toLowerCase().includes(query));
+  list.replaceChildren(); list.setAttribute('aria-busy','false'); node('news-count').textContent=visible.length?`${visible.length} 篇`:'';
+  for(const batch of batches) {
+    const entries=visible.filter(item=>item.batch_at===batch.scheduled_at); if(query&&!entries.length) continue;
+    const group=element('section','news-batch');
+    const heading=element('h2','news-batch-heading',date(batch.scheduled_at,{hour:'2-digit',minute:'2-digit',hour12:false})); group.append(heading);
+    for(const article of entries) {
+      const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
+      const title=element('h3','news-row-title',article.title); title.lang='en';
+      const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词`);
+      link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); group.append(link);
+    }
+    if(batch.status==='partial'||batch.status==='failed') {
+      const note=element('p','news-batch-note',`${batch.article_count} / 3 篇 · ${batch.status==='failed'?'采集暂未完成':'本轮符合条件的文章不足三篇'}`);
+      note.title=batch.reason; group.append(note);
+    } else if(batch.status==='running') group.append(element('p','news-batch-note','正在选取文章…'));
+    list.append(group);
+  }
+  if(!list.childElementCount) list.append(element('p','empty-state',query?'没有找到相关文章':'首批文章正在准备中'));
+  more.hidden=!cursor; retry.hidden=true; status.classList.add('sr-only'); status.textContent=`已加载 ${visible.length} 篇文章`;
+}
+async function load(older=false) {
+  more.disabled=true;
+  try {
+    const data=await json(`/api/news${older&&cursor?`?before=${encodeURIComponent(cursor)}`:''}`);
+    articles=older?[...articles,...data.articles]:data.articles; batches=older?[...batches,...data.batches]:data.batches;cursor=data.nextCursor;render();
+  } catch { status.textContent='文章加载失败，请重试。';status.classList.remove('sr-only');retry.hidden=false;list.setAttribute('aria-busy','false'); }
+  finally { more.disabled=false; }
+}
+async function openArticle(id:string,writeHistory=false) {
+  const request=++viewRequest;dispose?.();dispose=undefined;
+  if(writeHistory) history.pushState({},'',`?article=${encodeURIComponent(id)}`);
+  status.textContent='正在加载文章…'; status.classList.remove('sr-only');
+  try {
+    const article=await json(`/api/news/${encodeURIComponent(id)}`); if(request!==viewRequest)return;
+    library.hidden=true;reader.hidden=false;document.body.classList.add('reader-page');
+    node('news-title').textContent=article.title;
+    node('news-meta').textContent=`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词 · ${date(article.published_at)}`;
+    const attribution=node('news-attribution'); attribution.replaceChildren(document.createTextNode(`${article.author} · `));
+    const source=element('a','',article.source_name);source.href=article.source_url;source.target='_blank';source.rel='noopener noreferrer';
+    const license=element('a','',article.license_name);license.href=article.license_url;license.target='_blank';license.rel='noopener noreferrer';
+    attribution.append(source,document.createTextNode(' · '),license,document.createTextNode(' · 原文，链接转为文字'));
+    const content=node('news-content');content.replaceChildren();
+    dispose=mountIntensive(article,apiBase,content,{analysisPath:`/api/news/${encodeURIComponent(id)}/analyses`,hideNavigation:true});
+    node('news-title').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});
+  } catch { if(request!==viewRequest)return;showList(false);status.textContent='文章暂时无法加载，请返回列表重试。';status.classList.remove('sr-only'); }
+}
+function showList(writeHistory=true) {
+  ++viewRequest;dispose?.();dispose=undefined;reader.hidden=true;library.hidden=false;document.body.classList.remove('reader-page');
+  if(writeHistory)history.pushState({},'',location.pathname);status.classList.add('sr-only');
+}
+function restore() {const id=new URL(location.href).searchParams.get('article');if(id)void openArticle(id);else showList(false);}
+node('news-back').addEventListener('click',()=>showList());search.addEventListener('input',render);more.addEventListener('click',()=>void load(true));retry.addEventListener('click',()=>void load());
+window.addEventListener('popstate',restore);void load();restore();

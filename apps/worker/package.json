@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@cet-reading/contracts": "0.1.0",
+    "cheerio": "^1.2.0",
     "dotenv": "^16.5.0",
+    "fast-xml-parser": "^5.11.2",
     "pg": "^8.13.3"
   },
   "devDependencies": {
@@ -21,4 +23,3 @@
     "typescript": "^5.8.3"
   }
 }
-
