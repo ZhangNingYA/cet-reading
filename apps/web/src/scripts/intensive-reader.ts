@@ -165,8 +165,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const timeout = setTimeout(() => requestController.abort(), 15_000);
     try {
       const response = await fetch(`${apiBase}${path}`, { method, signal: requestController.signal });
-      if (!response.ok) throw new AnalysisFailure('精读服务暂时不可用，请稍后重试。');
-      return await response.json();
+      const body = await response.json().catch(() => null);
+      if (!response.ok) {
+        if (response.status === 429 && body?.error === 'analysis_queue_full') {
+          throw new AnalysisFailure('当前精读任务较多，请稍后再试。');
+        }
+        throw new AnalysisFailure('精读服务暂时不可用，请稍后重试。');
+      }
+      return body;
     } finally {
       clearTimeout(timeout);
       signal.removeEventListener('abort', cancel);
@@ -181,7 +187,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     });
   }
   async function fetchAnalysis(sentence: StudySentence, regenerate: boolean, signal: AbortSignal): Promise<SentenceAnalysis> {
-    const path = `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive`;
+    const path = `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive&interactive=true`;
     let response = await jsonRequest(regenerate ? `${path}&regenerate=true` : path, 'POST', signal);
     // Several sentences can be queued by the same reader; queue time is separate
     // from the worker's three-minute generation and repair deadline.

@@ -11,6 +11,7 @@ import {
   getPracticeAttempt,
   getSentence,
   getSectionCachedAnalyses,
+  AnalysisQueueFullError,
   listPapers,
   pool,
   savePracticeAnswers,
@@ -57,10 +58,13 @@ app.get<{ Params: { id: string }; Querystring: { mode?: string; section?: string
   return { analyses: await getSectionCachedAnalyses(request.params.id, request.query.section) };
 });
 
-app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: string } }>('/api/sentences/:id/analyze', async (request, reply) => {
+app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: string; interactive?: string } }>('/api/sentences/:id/analyze', async (request, reply) => {
   if (request.query.mode !== 'intensive') return reply.code(400).send({ error: 'analysis_requires_intensive_mode' });
   if (request.query.regenerate !== undefined && !['true', 'false'].includes(request.query.regenerate)) {
     return reply.code(400).send({ error: 'invalid_regeneration_option' });
+  }
+  if (request.query.interactive !== undefined && request.query.interactive !== 'true') {
+    return reply.code(400).send({ error: 'invalid_priority_option' });
   }
   const sentence = await getSentence(request.params.id);
   if (!sentence) return reply.code(404).send({ error: 'sentence_not_found' });
@@ -72,8 +76,15 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
     }
   }
 
-  const job = await enqueueAnalysis(sentence);
-  return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
+  try {
+    const job = await enqueueAnalysis(sentence, request.query.interactive === 'true' ? 100 : 10);
+    return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
+  } catch (error) {
+    if (error instanceof AnalysisQueueFullError) {
+      return reply.code(429).header('Retry-After', '30').send({ error: 'analysis_queue_full', retryAfterSeconds: 30 });
+    }
+    throw error;
+  }
 });
 
 app.post<{ Params: { id: string } }>('/api/papers/:id/attempts', async (request, reply) => {

@@ -5,6 +5,14 @@ import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
+const MAX_ACTIVE_ANALYSIS_JOBS = 6;
+
+export class AnalysisQueueFullError extends Error {
+  constructor() {
+    super('Analysis queue is full');
+    this.name = 'AnalysisQueueFullError';
+  }
+}
 
 type SentenceRow = {
   id: string;
@@ -257,20 +265,55 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
 
 export async function enqueueAnalysis(sentence: {
   id: string; source_text: string; source_hash: string; context_hash: string; context: object;
-}) {
-  const result = await pool.query(
-    `INSERT INTO analysis_jobs
-       (sentence_id, source_text, source_hash, context_hash, context_json,
-        prompt_version, model, mode, status, priority)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending', 10)
-     ON CONFLICT (sentence_id, source_hash, context_hash, prompt_version, model, mode)
-       WHERE status IN ('pending', 'running')
-     DO UPDATE SET priority = GREATEST(analysis_jobs.priority, 10), updated_at = NOW()
-     RETURNING id, status`,
-    [sentence.id, sentence.source_text, sentence.source_hash, sentence.context_hash,
-      JSON.stringify(sentence.context), config.promptVersion, config.model, config.mode],
-  );
-  return result.rows[0] as { id: string; status: string };
+}, priority = 10) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
+      `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
+    ]);
+    const key = [sentence.id, sentence.source_hash, sentence.context_hash, config.promptVersion, config.model, config.mode];
+    const existing = await client.query(
+      `SELECT id, status FROM analysis_jobs
+       WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
+         AND prompt_version = $4 AND model = $5 AND mode = $6
+         AND status IN ('pending', 'running')`, key,
+    );
+    if (existing.rows[0]) {
+      const updated = await client.query(
+        `UPDATE analysis_jobs SET priority = GREATEST(priority, $2), updated_at = NOW()
+         WHERE id = $1 RETURNING id, status`, [existing.rows[0].id, priority],
+      );
+      await client.query('COMMIT');
+      return updated.rows[0] as { id: string; status: string };
+    }
+    const count = await client.query(
+      `SELECT COUNT(*)::integer AS count FROM analysis_jobs
+       WHERE mode = $1 AND model = $2 AND prompt_version = $3
+         AND status IN ('pending', 'running')`,
+      [config.mode, config.model, config.promptVersion],
+    );
+    if (count.rows[0].count >= MAX_ACTIVE_ANALYSIS_JOBS) {
+      await client.query('ROLLBACK');
+      throw new AnalysisQueueFullError();
+    }
+    const result = await client.query(
+      `INSERT INTO analysis_jobs
+         (sentence_id, source_text, source_hash, context_hash, context_json,
+          prompt_version, model, mode, status, priority)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending', $9)
+       RETURNING id, status`,
+      [sentence.id, sentence.source_text, sentence.source_hash, sentence.context_hash,
+        JSON.stringify(sentence.context), config.promptVersion, config.model, config.mode, priority],
+    );
+    await client.query('COMMIT');
+    return result.rows[0] as { id: string; status: string };
+  } catch (error) {
+    await client.query('ROLLBACK').catch(() => undefined);
+    throw error;
+  } finally {
+    client.release();
+  }
 }
 
 export async function getJob(id: string) {
