@@ -18,7 +18,8 @@ async function runBatch(slot: Date, supplement = false) {
     if (!lock.rows[0].locked) return console.log('Another news collector is running');
     const claimed = await client.query(`INSERT INTO news_batches (scheduled_at,status) VALUES ($1,'running')
       ON CONFLICT (scheduled_at) DO UPDATE SET status='running', attempts=news_batches.attempts+1, started_at=NOW(), finished_at=NULL
-      WHERE (news_batches.status IN ('failed','running') OR ($2::boolean AND news_batches.status='partial')) AND news_batches.attempts < 3 RETURNING *`, [slot,supplement]);
+      WHERE ($2::boolean AND news_batches.status IN ('partial','failed','running'))
+        OR (NOT $2::boolean AND news_batches.status IN ('failed','running') AND news_batches.attempts < 3) RETURNING *`, [slot,supplement]);
     if (!claimed.rowCount) return console.log(`Batch ${slot.toISOString()} already finished or exhausted retries`);
     console.log(`Collecting news batch ${slot.toISOString()} (Shanghai)`);
     try {

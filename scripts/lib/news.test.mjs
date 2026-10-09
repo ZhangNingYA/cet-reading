@@ -38,6 +38,14 @@ test('hot selections require verified body reads, real independent proof IDs and
   assert.equal(validate([pick],undefined,same).chosen.length,0);
   assert.equal(validate([{...pick,eventAt:null}]).chosen.length,0);
 });
+test('related NASA sites and Future science publications cannot supply two independent proofs',()=>{
+  for (const urls of [['https://www.nasa.gov','https://science.nasa.gov'],['https://www.space.com','https://www.livescience.com']]) {
+    const proofs=new Map([...evidence].map(([id,item],i)=>[id,{...item,publisherUrl:urls[i]}]));
+    assert.equal(validate([pick],undefined,proofs).chosen.length,0);
+    proofs.set('e2',{...proofs.get('e2'),publisherUrl:'https://www.theguardian.com'});
+    assert.equal(validate([pick],undefined,proofs).chosen.length,1);
+  }
+});
 test('identical bodies, URLs and recent events cannot fill a batch twice',()=>{
   const a2={...article,id:'c2',url:'https://360info.org/other/'};const map=new Map([['c1',article],['c2',a2]]);
   assert.equal(validate([pick,{...pick,candidateId:'c2',eventKey:'different-event'}],map).chosen.length,1);
@@ -52,6 +60,37 @@ test('source reads refuse local URLs and redirects outside the source allowlist'
 test('article validation rejects a partial feed rather than publishing it as a full original',async t=>{
   t.mock.method(globalThis,'fetch',async()=>new Response('<article><p>Full original exists here.</p></article>'));
   await assert.rejects(readArticle({...candidate,feedHtml:'<p>Short teaser.</p>'}),/Incomplete/);
+});
+const fullParagraphs=Array.from({length:6},(_,i)=>`Paragraph ${i+1}: `+Array.from({length:65},(_,j)=>`word${i}_${j}`).join(' ')+" Scientists don't treat this result as established fact.");
+const fullBody=fullParagraphs.map(p=>`<p>${p}</p>`).join('');
+test('NASA reads preserve full origin text, tolerate typographic feed differences and omit navigation widgets',async t=>{
+  const source=sources.find(s=>s.name==='NASA');
+  const page=`<div class="entry-content">${fullBody}<h2>Downloads &amp; Related Information</h2><p>Download instructions.</p></div>`;
+  t.mock.method(globalThis,'fetch',async()=>new Response(page));
+  const a=await readArticle({...candidate,url:'https://science.nasa.gov/example/',source,feedHtml:fullBody.replaceAll("don't","don’t")+'<h2>Downloads &amp; Related Information</h2><p>Download instructions.</p><div class="hds-topic-cards"><p>An unrelated mission description.</p></div>'});
+  assert.deepEqual(a.paragraphs,fullParagraphs);assert.equal(a.source.license,'NASA educational use');
+  await assert.rejects(readArticle({...candidate,url:'https://science.nasa.gov/example/',source,feedHtml:fullParagraphs.slice(0,3).map(p=>`<p>${p}</p>`).join('')}),/omits a substantial/);
+});
+test('Futurity requires the article-specific Attribution 4.0 declaration',async t=>{
+  const source=sources.find(s=>s.name==='Futurity');
+  let permission=false;
+  t.mock.method(globalThis,'fetch',async()=>new Response(`${permission?'<aside>'+source.articleLicenseText+'</aside>':''}<div class="article-content"><div class="stickem-container">${fullBody}</div></div>`));
+  const c={...candidate,url:'https://www.futurity.org/example/',source,feedHtml:fullBody};
+  await assert.rejects(readArticle(c),/permission is missing/);permission=true;
+  assert.deepEqual((await readArticle(c)).paragraphs,fullParagraphs);
+});
+test('SciDev headline feeds resolve to the entire original and exclude image rights and embedded copies',async t=>{
+  const source=sources.find(s=>s.name==='SciDev.Net');
+  let exception=false;
+  t.mock.method(globalThis,'fetch',async()=>new Response(`<div class="fl-module-fl-post-content"><div class="fl-module-content">${fullBody}<div class="wp-caption"><p>Image CC BY-NC-ND</p></div><textarea>${fullBody}</textarea>${exception?'<p>All rights reserved. Permission required.</p>':''}</div></div>`));
+  const c={...candidate,url:'https://www.scidev.net/global/news/example/',source,feedHtml:'<p>A short teaser.</p>'};
+  assert.deepEqual((await readArticle(c)).paragraphs,fullParagraphs);exception=true;
+  await assert.rejects(readArticle(c),/conflicting license/);
+});
+test('NASA feed permits its explicit science host and rejects arbitrary hosts and malformed links',()=>{
+  const source=sources.find(s=>s.name==='NASA');
+  const items=['https://science.nasa.gov/new/','https://fake.nasa.gov/new/','https://attacker.example/new/','not a URL'].map(link=>`<item><title>News</title><link>${link}</link><pubDate>Thu, 08 Oct 2026 10:00:00 GMT</pubDate></item>`).join('');
+  assert.deepEqual(parseCandidates(`<rss><channel>${items}</channel></rss>`,source,cutoff).map(c=>c.url),['https://science.nasa.gov/new/']);
 });
 test('AI selects using actual tool results and cannot silently substitute its own article body',async t=>{
   let calls=0;const requests=[];
