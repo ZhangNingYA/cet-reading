@@ -33,15 +33,17 @@ async function claimJob(): Promise<Job | null> {
       `WITH candidate AS (
          SELECT id FROM analysis_jobs
          WHERE mode = $1 AND model = $2 AND prompt_version = $3
-           AND (status = 'pending' OR (status = 'running' AND lease_expires_at < NOW()))
-         ORDER BY created_at
+           AND ((status = 'pending' AND next_attempt_at <= NOW())
+             OR (status = 'running' AND lease_expires_at < NOW()))
+         ORDER BY priority DESC, created_at
          FOR UPDATE SKIP LOCKED
          LIMIT 1
        )
        UPDATE analysis_jobs j
        SET status = 'running', attempts = j.attempts + 1,
            started_at = COALESCE(j.started_at, NOW()),
-           lease_expires_at = NOW() + ($4 * INTERVAL '1 second'), updated_at = NOW()
+           lease_expires_at = NOW() + ($4 * INTERVAL '1 second'),
+           next_attempt_at = NOW(), updated_at = NOW()
        FROM candidate c
        WHERE j.id = c.id
        RETURNING j.id, j.attempts, j.sentence_id, j.source_text, j.source_hash,
@@ -123,19 +125,33 @@ async function processJob(job: Job) {
     }));
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
+    const errorCode = analysisErrorCode(message);
+    const retryable = errorCode === 'service_unavailable' && job.attempts < 4;
+    const retryDelaySeconds = 15 * (2 ** Math.max(0, job.attempts - 1));
     console.error(JSON.stringify({
       event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
-      attempt: job.attempts, errorCode: analysisErrorCode(message),
+      attempt: job.attempts, errorCode,
       durationMs: Date.now() - startedAt,
       modelRequest: message.match(/model request (\d+)/)?.[1] ?? null,
+      retrying: retryable,
     }));
     await client.query('ROLLBACK').catch(() => undefined);
-    await client.query(
-      `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
-       lease_expires_at = NULL, finished_at = NOW(), updated_at = NOW()
-       WHERE id = $1 AND attempts = $3 AND status = 'running'`,
-      [job.id, message, job.attempts],
-    );
+    if (retryable) {
+      await client.query(
+        `UPDATE analysis_jobs SET status = 'pending', error_message = NULL,
+         lease_expires_at = NULL, finished_at = NULL,
+         next_attempt_at = NOW() + ($2 * INTERVAL '1 second'), updated_at = NOW()
+         WHERE id = $1 AND attempts = $3 AND status = 'running'`,
+        [job.id, retryDelaySeconds, job.attempts],
+      );
+    } else {
+      await client.query(
+        `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
+         lease_expires_at = NULL, finished_at = NOW(), next_attempt_at = NOW(), updated_at = NOW()
+         WHERE id = $1 AND attempts = $3 AND status = 'running'`,
+        [job.id, message, job.attempts],
+      );
+    }
   } finally {
     client.release();
   }

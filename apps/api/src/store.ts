@@ -261,11 +261,11 @@ export async function enqueueAnalysis(sentence: {
   const result = await pool.query(
     `INSERT INTO analysis_jobs
        (sentence_id, source_text, source_hash, context_hash, context_json,
-        prompt_version, model, mode, status)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending')
+        prompt_version, model, mode, status, priority)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending', 10)
      ON CONFLICT (sentence_id, source_hash, context_hash, prompt_version, model, mode)
        WHERE status IN ('pending', 'running')
-     DO UPDATE SET updated_at = analysis_jobs.updated_at
+     DO UPDATE SET priority = GREATEST(analysis_jobs.priority, 10), updated_at = NOW()
      RETURNING id, status`,
     [sentence.id, sentence.source_text, sentence.source_hash, sentence.context_hash,
       JSON.stringify(sentence.context), config.promptVersion, config.model, config.mode],
@@ -276,7 +276,7 @@ export async function enqueueAnalysis(sentence: {
 export async function getJob(id: string) {
   const result = await pool.query(
     `SELECT j.id, j.sentence_id, j.mode, j.status, j.error_message, j.updated_at,
-            j.source_text, a.analysis_json
+            j.source_text, j.attempts, j.next_attempt_at, a.analysis_json
      FROM analysis_jobs j
      LEFT JOIN sentence_analyses a ON j.status = 'succeeded' AND a.status = 'succeeded'
        AND a.sentence_id = j.sentence_id AND a.source_hash = j.source_hash

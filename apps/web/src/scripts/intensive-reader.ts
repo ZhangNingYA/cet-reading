@@ -172,10 +172,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       signal.removeEventListener('abort', cancel);
     }
   }
-  function waitForJob(signal: AbortSignal) {
+  function waitForJob(signal: AbortSignal, delayMs = 500) {
     return new Promise<void>((resolve, reject) => {
       const aborted = () => { clearTimeout(timer); reject(signal.reason); };
-      const timer = setTimeout(() => { signal.removeEventListener('abort', aborted); resolve(); }, 500);
+      const timer = setTimeout(() => { signal.removeEventListener('abort', aborted); resolve(); }, delayMs);
       signal.addEventListener('abort', aborted, { once: true });
       if (signal.aborted) aborted();
     });
@@ -186,16 +186,24 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     // Several sentences can be queued by the same reader; queue time is separate
     // from the worker's three-minute generation and repair deadline.
     const deadline = Date.now() + 600_000;
+    let pollDelay = 500;
     while (response.status !== 'ready') {
       if (!response.jobId) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
       if (Date.now() > deadline) throw new AnalysisFailure('精读仍未完成，请稍后重试。');
-      await waitForJob(signal);
+      await waitForJob(signal, pollDelay);
       const job = await jsonRequest(`/api/jobs/${encodeURIComponent(response.jobId)}`, 'GET', signal);
       if (job.status === 'failed') throw new AnalysisFailure(analysisErrorMessage(job.errorCode));
       if (selected?.sentence.id === sentence.id && !completed.has(cacheKey(sentence))) {
         const loading = paneBody.querySelector('.analysis-loading-text');
-        const message = job.status === 'pending' ? '正在排队，稍候开始' : '正在解析这一句';
+        const message = job.status === 'pending'
+          ? (job.attempts > 0 ? '服务繁忙，正在自动重试' : '正在排队，稍候开始')
+          : '正在解析这一句';
         if (loading && loading.textContent !== message) loading.textContent = message;
+      }
+      if (job.status === 'pending' && job.next_attempt_at) {
+        pollDelay = Math.min(5_000, Math.max(500, Date.parse(job.next_attempt_at) - Date.now()));
+      } else {
+        pollDelay = 500;
       }
       if (job.status === 'succeeded') {
         response = job.result ? { status: 'ready', result: job.result } : await jsonRequest(path, 'POST', signal);
