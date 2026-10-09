@@ -12,6 +12,11 @@ function publisherGroup(url: string) {
   if (host === 'nasa.gov' || host.endsWith('.nasa.gov')) return 'nasa';
   return host;
 }
+function reportingPublisher(item: Evidence) {
+  const host = new URL(item.publisherUrl).hostname;
+  // Agency announcements and university press releases verify facts, but are not independent reporting.
+  return !/(?:^|\.)(?:gov|edu)(?:\.[a-z]{2})?$|\.ac\.[a-z]{2}$/.test(host) && !['eurekalert.org','www.eurekalert.org'].includes(host);
+}
 export function validateNewsPicks(selection: NewsSelection, articles: Map<string, Article>, evidence: Map<string, Evidence>, cutoff: Date, recentEvents: Set<string>) {
   const chosen: { article: Article; pick: NewsSelection['selections'][number]; evidence: Evidence[] }[] = [];
   const rejected: string[] = []; const used = new Set<string>(); const hashes = new Set<string>(); const events = new Set(recentEvents);
@@ -24,7 +29,7 @@ export function validateNewsPicks(selection: NewsSelection, articles: Map<string
     const proofs = [...new Set(pick.evidenceIds)].map(id => evidence.get(id)).filter((item): item is Evidence => Boolean(item));
     if (pick.kind === 'hot') {
       if (!timely(article.publishedAt, cutoff, 48) || !pick.eventAt || !timely(pick.eventAt, cutoff, 48)) { fail('发表或事件时间不满足 48 小时时效要求'); continue; }
-      if (proofs.length !== new Set(pick.evidenceIds).size || new Set(proofs.map(item => publisherGroup(item.publisherUrl))).size < 2) { fail('缺少两家真实独立媒体的近期证据'); continue; }
+      if (proofs.length !== new Set(pick.evidenceIds).size || new Set(proofs.filter(reportingPublisher).map(item => publisherGroup(item.publisherUrl))).size < 2) { fail('缺少两家真实独立媒体的近期证据'); continue; }
       if (proofs.some(item => !timely(item.publishedAt, cutoff, 48))) { fail('热度证据超出时间范围'); continue; }
     } else if (!timely(article.publishedAt, cutoff, 7*24)) { fail('阅读材料超过七天'); continue; }
     used.add(article.url); hashes.add(article.contentHash); events.add(pick.eventKey.toLowerCase().trim()); chosen.push({ article, pick, evidence: pick.kind === 'hot' ? proofs : [] });

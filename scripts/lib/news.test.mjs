@@ -43,7 +43,15 @@ test('related NASA sites and Future science publications cannot supply two indep
     const proofs=new Map([...evidence].map(([id,item],i)=>[id,{...item,publisherUrl:urls[i]}]));
     assert.equal(validate([pick],undefined,proofs).chosen.length,0);
     proofs.set('e2',{...proofs.get('e2'),publisherUrl:'https://www.theguardian.com'});
-    assert.equal(validate([pick],undefined,proofs).chosen.length,1);
+    assert.equal(validate([pick],undefined,proofs).chosen.length,urls[0].includes('nasa.gov')?0:1);
+  }
+});
+test('primary agency or university announcements do not substitute for two independent news reports',()=>{
+  for(const url of ['https://science.nasa.gov','https://www.noaa.gov','https://news.ucsc.edu','https://www.manchester.ac.uk','https://www.eurekalert.org']) {
+    const proofs=new Map(evidence);proofs.set('e1',{...proofs.get('e1'),publisherUrl:url});
+    assert.equal(validate([pick],undefined,proofs).chosen.length,0);
+    proofs.set('e3',{...proofs.get('e2'),id:'e3',publisherUrl:'https://www.theguardian.com'});
+    assert.equal(validate([{...pick,evidenceIds:['e1','e2','e3']}],undefined,proofs).chosen.length,1);
   }
 });
 test('identical bodies, URLs and recent events cannot fill a batch twice',()=>{
