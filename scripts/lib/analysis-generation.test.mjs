@@ -44,7 +44,7 @@ test('fails after one unsuccessful repair and never accepts the placeholder', as
   assert.equal(calls, 2);
 });
 
-test('stops on an upstream HTTP error without retrying', async t => {
+test('retries transient upstream HTTP errors before failing', async t => {
   let calls = 0;
   const bodies = [];
   t.mock.method(globalThis, 'fetch', async (_url, options) => {
@@ -52,8 +52,8 @@ test('stops on an upstream HTTP error without retrying', async t => {
     return new Response('', { status: 503, headers: { 'retry-after': '0' } });
   });
   await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 10000 }), /503/);
-  assert.equal(calls, 1);
-  assert.equal(bodies.length, 1);
+  assert.equal(calls, 3);
+  assert.equal(bodies.length, 3);
 });
 
 test('accepts a fragmented SSE response and keeps the complete JSON for validation', async t => {

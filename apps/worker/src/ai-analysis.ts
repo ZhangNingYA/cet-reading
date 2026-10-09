@@ -8,7 +8,9 @@ type AnalysisInput = {
 type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'>;
 
 const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504, 524]);
-const MAX_TRANSPORT_ATTEMPTS = 1;
+// Providers can reset an HTTP/2 stream after accepting a request. Retry
+// transient transport failures before surfacing the sentence as failed.
+const MAX_TRANSPORT_ATTEMPTS = 3;
 // The upstream provider may keep an overloaded account in a short cooldown.
 // A small backoff prevents the next attempt from immediately colliding with it.
 const RETRY_BASE_DELAY_MS = 2000;

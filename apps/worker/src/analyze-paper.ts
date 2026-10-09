@@ -34,6 +34,17 @@ type CacheRow = {
 };
 
 const DEFAULT_WAIT_TIMEOUT_SECONDS = 300;
+const MAX_SENTENCE_ATTEMPTS = 3;
+
+function isRetryableSentenceError(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error);
+  return /AI request failed:\s*(?:stream|408|425|429|500|502|503|504|524)\b|fetch failed|AI response stream|timed? ?out/i.test(message);
+}
+
+async function waitBeforeSentenceRetry(attempt: number) {
+  const delayMs = Math.min(10_000, 2_000 * 2 ** (attempt - 1));
+  await new Promise(resolve => setTimeout(resolve, delayMs));
+}
 
 export function parseOptions(args: string[]): Options | null {
   if (args.includes('--help') || args.includes('-h')) return null;
@@ -299,18 +310,31 @@ async function run(options: Options) {
         emitSentence(index + 1, sentences.length, sentence, 'cached');
         continue;
       }
-      try {
-        const analysis = await generateAnalysis({
-          source_text: sentence.source_text,
-          context_json: sentence.context_json,
-        }, config);
-        await saveAnalysis(pool, sentence, analysis, config);
-        generated += 1;
-        emitSentence(index + 1, sentences.length, sentence, 'generated');
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
+      let completed = false;
+      let lastError: unknown;
+      for (let attempt = 1; attempt <= MAX_SENTENCE_ATTEMPTS; attempt += 1) {
+        try {
+          const analysis = await generateAnalysis({
+            source_text: sentence.source_text,
+            context_json: sentence.context_json,
+          }, config);
+          await saveAnalysis(pool, sentence, analysis, config);
+          generated += 1;
+          emitSentence(index + 1, sentences.length, sentence, 'generated');
+          completed = true;
+          break;
+        } catch (error) {
+          lastError = error;
+          const message = error instanceof Error ? error.message : String(error);
+          if (!isRetryableSentenceError(error) || attempt === MAX_SENTENCE_ATTEMPTS) break;
+          process.stderr.write(`Sentence ${index + 1}/${sentences.length} temporary AI failure (attempt ${attempt}/${MAX_SENTENCE_ATTEMPTS}): ${message}; retrying...\n`);
+          await waitBeforeSentenceRetry(attempt);
+        }
+      }
+      if (!completed) {
+        const message = lastError instanceof Error ? lastError.message : String(lastError);
         emitSentence(index + 1, sentences.length, sentence, 'failed', message);
-        throw new Error(`Stopped after sentence ${index + 1}/${sentences.length} (${sentence.id}): ${message}`);
+        throw new Error(`Stopped after sentence ${index + 1}/${sentences.length} (${sentence.id}) after ${MAX_SENTENCE_ATTEMPTS} attempts: ${message}`);
       }
     }
     process.stderr.write(`Completed ${paper.id}: ${generated} generated, ${cached} skipped from cache, ${sentences.length} total.\n`);
