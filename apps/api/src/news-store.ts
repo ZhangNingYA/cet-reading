@@ -1,4 +1,5 @@
 import { pool } from './store.js';
+import { config } from './config.js';
 
 export async function listNews(before?: string) {
   const batches = await pool.query(`SELECT b.scheduled_at,b.status,b.reason,count(n.id)::int AS article_count
@@ -6,9 +7,17 @@ export async function listNews(before?: string) {
     WHERE ($1::timestamptz IS NULL OR b.scheduled_at < $1)
     GROUP BY b.scheduled_at ORDER BY b.scheduled_at DESC LIMIT 31`,[before || null]);
   const visible = batches.rows.slice(0,30);
-  const result = await pool.query(`SELECT id,batch_at,selection_kind,title,source_name,published_at,word_count,difficulty,topic
-    FROM news_articles WHERE status='published' AND batch_at=ANY($1::timestamptz[])
-    ORDER BY batch_at DESC,selection_kind, published_at DESC`,[visible.map(row=>row.scheduled_at)]);
+  const result = await pool.query(`SELECT n.id,n.batch_at,n.selection_kind,n.title,n.source_name,n.published_at,n.word_count,n.difficulty,n.topic,
+    (SELECT COUNT(*)::int FROM sentences s WHERE s.article_id=n.id) AS analysis_total,
+    (SELECT COUNT(DISTINCT s.id)::int FROM sentences s JOIN sentence_analyses a
+      ON a.sentence_id=s.id AND a.source_hash=s.source_hash
+      AND a.prompt_version=$2 AND a.model=$3 AND a.mode=$4 AND a.status='succeeded') AS analysis_cached,
+    (SELECT COUNT(*)::int FROM analysis_jobs j JOIN sentences s ON s.id=j.sentence_id
+      WHERE s.article_id=n.id AND j.prompt_version=$2 AND j.model=$3 AND j.mode=$4
+      AND j.status IN ('pending','running')) AS analysis_pending
+    FROM news_articles n WHERE n.status='published' AND n.batch_at=ANY($1::timestamptz[])
+    ORDER BY n.batch_at DESC,n.selection_kind,n.published_at DESC`,
+    [visible.map(row=>row.scheduled_at),config.promptVersion,config.model,config.mode]);
   return { articles:result.rows, batches:visible.map(row=>({ ...row, reason:row.status==='failed'?'采集暂时失败，任务会按规则重试。':row.reason })), nextCursor:batches.rows.length>30?visible.at(-1).scheduled_at:null, schedule:{ timezone:'Asia/Shanghai', hours:[8,11,14,17] } };
 }
 export async function getNews(id: string) {

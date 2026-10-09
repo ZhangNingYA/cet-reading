@@ -5,7 +5,8 @@ import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contract
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
-const MAX_ACTIVE_ANALYSIS_JOBS = 6;
+const MAX_ACTIVE_ANALYSIS_JOBS = 8;
+const MAX_BACKGROUND_ANALYSIS_JOBS = 4;
 
 export class AnalysisQueueFullError extends Error {
   constructor() {
@@ -35,11 +36,40 @@ type SentenceRow = {
 
 export async function listPapers() {
   const result = await pool.query(
-    `SELECT id, exam_level, year, month, set_no, variant, title, is_demo,
+    `WITH totals AS (
+       SELECT paper_id, COUNT(*)::integer AS total
+       FROM sentences WHERE paper_id IS NOT NULL GROUP BY paper_id
+     ), cached AS (
+       SELECT s.paper_id, COUNT(DISTINCT s.id)::integer AS cached
+       FROM sentences s JOIN sentence_analyses a
+         ON a.sentence_id = s.id AND a.source_hash = s.source_hash
+        AND a.prompt_version = $1 AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
+       WHERE s.paper_id IS NOT NULL GROUP BY s.paper_id
+     ), queued AS (
+       SELECT j.sentence_id,
+              COUNT(*) FILTER (WHERE j.status = 'pending')::integer AS pending,
+              COUNT(*) FILTER (WHERE j.status = 'running')::integer AS running
+       FROM analysis_jobs j
+       WHERE j.prompt_version = $1 AND j.model = $2 AND j.mode = $3
+         AND j.status IN ('pending', 'running')
+       GROUP BY j.sentence_id
+     )
+     SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.variant, p.title, p.is_demo,
             content_state, content_kind, description, reference_paper_id, source_url,
-            EXISTS (SELECT 1 FROM paper_sections ps WHERE ps.paper_id = p.id) AS has_content
-     FROM papers p WHERE status = 'published'
-     ORDER BY year DESC, month DESC, exam_level, set_no`,
+            EXISTS (SELECT 1 FROM paper_sections ps WHERE ps.paper_id = p.id) AS has_content,
+            COALESCE(t.total, 0) AS analysis_total,
+            COALESCE(c.cached, 0) AS analysis_cached,
+            COALESCE(SUM(q.pending), 0)::integer AS analysis_pending,
+            COALESCE(SUM(q.running), 0)::integer AS analysis_running
+     FROM papers p
+     LEFT JOIN totals t ON t.paper_id = p.id
+     LEFT JOIN cached c ON c.paper_id = p.id
+     LEFT JOIN sentences s ON s.paper_id = p.id
+     LEFT JOIN queued q ON q.sentence_id = s.id
+     WHERE p.status = 'published'
+     GROUP BY p.id, t.total, c.cached
+     ORDER BY p.year DESC, p.month DESC, p.exam_level, p.set_no`,
+    [config.promptVersion, config.model, config.mode],
   );
   return result.rows;
 }
@@ -302,13 +332,17 @@ export async function enqueueAnalysis(sentence: {
       await client.query('COMMIT');
       return updated.rows[0] as { id: string; status: string };
     }
-    const count = await client.query(
-      `SELECT COUNT(*)::integer AS count FROM analysis_jobs
+    const count = await client.query<{ count: number; background: number }>(
+      `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS count,
+              COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= 1)::integer AS background
+       FROM analysis_jobs
        WHERE mode = $1 AND model = $2 AND prompt_version = $3
          AND status IN ('pending', 'running')`,
       [config.mode, config.model, config.promptVersion],
     );
-    if (count.rows[0].count >= MAX_ACTIVE_ANALYSIS_JOBS) {
+    const active = count.rows[0]?.count ?? 0;
+    const background = count.rows[0]?.background ?? 0;
+    if (active >= MAX_ACTIVE_ANALYSIS_JOBS || (priority <= 1 && background >= MAX_BACKGROUND_ANALYSIS_JOBS)) {
       await client.query('ROLLBACK');
       throw new AnalysisQueueFullError();
     }

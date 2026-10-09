@@ -70,6 +70,8 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 上游网络、HTTP/2 流或临时服务错误会先自动重试：单次模型请求的重试间隔逐步增加，批处理当前句会持续重试直到成功或手动停止。认证错误、结果校验错误等非临时错误不会盲目重复调用。
 
+常驻 Worker 会自动把已发布试卷和 News 中没有有效精读缓存的句子放入低优先级队列。用户点击产生的任务优先级更高，会优先于后台补齐任务领取；后台补齐默认保持 4 条排队任务，Worker 默认使用 2 路并发。可通过服务器 `.env` 调整 `BACKFILL_ENABLED`、`BACKFILL_INTERVAL_MS`、`BACKFILL_TARGET` 和 `WORKER_CONCURRENCY`。部署后通常只需要让 Compose 的 `worker` 常驻运行；`npm run ai-reading` 仍保留给需要指定试卷的手动批处理，不要与常驻 Worker 同时运行。
+
 ## 服务
 
 - Web：Astro 静态前端，Docker 入口默认 `http://localhost:8081`；开发服务器默认 `http://localhost:4321`

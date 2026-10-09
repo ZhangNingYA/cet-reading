@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 const positiveInteger = z.coerce.number().int().positive();
+const nonNegativeInteger = z.coerce.number().int().nonnegative();
 const EnvironmentSchema = z.object({
   DATABASE_URL: z.string().default('postgres://cet_reading:cet_reading@localhost:15432/cet_reading'),
   PORT: positiveInteger.default(3000),
@@ -12,7 +13,10 @@ const EnvironmentSchema = z.object({
   JOB_LEASE_SECONDS: positiveInteger.default(210),
   // The model gateway commonly permits one long-running completion per account.
   // An explicit environment value can raise this when the provider supports it.
-  WORKER_CONCURRENCY: positiveInteger.max(4).default(1),
+  WORKER_CONCURRENCY: positiveInteger.max(4).default(2),
+  BACKFILL_ENABLED: z.enum(['true', 'false']).default('true'),
+  BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(15000),
+  BACKFILL_TARGET: nonNegativeInteger.max(8).default(4),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });
@@ -39,6 +43,9 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env) {
     requestTimeoutMs: parsed.AI_REQUEST_TIMEOUT_MS,
     leaseSeconds: parsed.JOB_LEASE_SECONDS,
     workerConcurrency: parsed.WORKER_CONCURRENCY,
+    backfillEnabled: parsed.BACKFILL_ENABLED === 'true',
+    backfillIntervalMs: parsed.BACKFILL_INTERVAL_MS,
+    backfillTarget: parsed.BACKFILL_TARGET,
   };
 }
 

@@ -10,9 +10,18 @@ import { readConfig } from '@cet-reading/contracts/config';
 import { generateAnalysis } from './ai-analysis.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { runJobQueue } from './job-queue.js';
+import { runBackfillScheduler } from './backfill.js';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
+
+function isRetryableAnalysisError(message: string) {
+  return /AI request failed:\s*(?:stream|408|425|429|500|502|503|504|524)\b|fetch failed|AI response stream|timed? ?out/i.test(message);
+}
+
+function retryDelaySeconds(attempt: number) {
+  return Math.min(30, 2 ** Math.min(Math.max(1, attempt) - 1, 4));
+}
 
 type Job = {
   id: string;
@@ -134,20 +143,32 @@ async function processJob(job: Job) {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const errorCode = analysisErrorCode(message);
+    const retrying = isRetryableAnalysisError(message);
+    const delaySeconds = retryDelaySeconds(job.attempts);
     console.error(JSON.stringify({
       event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
       attempt: job.attempts, errorCode,
       durationMs: Date.now() - startedAt,
       modelRequest: message.match(/model request (\d+)/)?.[1] ?? null,
-      retrying: false,
+      retrying,
     }));
     await client.query('ROLLBACK').catch(() => undefined);
-    await client.query(
-      `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
-       lease_expires_at = NULL, finished_at = NOW(), next_attempt_at = NOW(), updated_at = NOW()
-       WHERE id = $1 AND attempts = $3 AND status = 'running'`,
-      [job.id, message, job.attempts],
-    );
+    if (retrying) {
+      await client.query(
+        `UPDATE analysis_jobs SET status = 'pending', error_message = $2,
+         lease_expires_at = NULL, finished_at = NULL,
+         next_attempt_at = NOW() + ($4 * INTERVAL '1 second'), updated_at = NOW()
+         WHERE id = $1 AND attempts = $3 AND status = 'running'`,
+        [job.id, message, job.attempts, delaySeconds],
+      );
+    } else {
+      await client.query(
+        `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
+         lease_expires_at = NULL, finished_at = NOW(), next_attempt_at = NOW(), updated_at = NOW()
+         WHERE id = $1 AND attempts = $3 AND status = 'running'`,
+        [job.id, message, job.attempts],
+      );
+    }
   } finally {
     client.release();
   }
@@ -159,9 +180,13 @@ async function main() {
   process.once('SIGTERM', stop);
   process.once('SIGINT', stop);
   process.stdout.write(`Worker started (${config.mode}, ${config.model}, concurrency=${config.workerConcurrency})\n`);
+  const backfillStop = new AbortController();
+  const backfill = runBackfillScheduler(pool, config, backfillStop.signal);
   try {
     await runJobQueue({ claim: claimJob, process: processJob, concurrency: config.workerConcurrency, signal: shutdown.signal });
   } finally {
+    backfillStop.abort();
+    await backfill.catch(error => process.stderr.write(`Background analysis scheduler stopped: ${error instanceof Error ? error.message : String(error)}\n`));
     process.removeListener('SIGTERM', stop);
     process.removeListener('SIGINT', stop);
     await pool.end();

@@ -5,7 +5,7 @@ const library = node<HTMLElement>('news-library'); const reader = node<HTMLEleme
 const list = node<HTMLElement>('news-list'); const status = node<HTMLElement>('news-status');
 const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButtonElement>('news-more'); const retry = node<HTMLButtonElement>('news-retry');
 const apiBase = library.dataset.apiBase || '';
-type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
+type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number; analysis_total?:number; analysis_cached?:number; analysis_pending?:number };
 type Batch = { scheduled_at:string; status:string; reason:string; article_count:number };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
 let dispose: (()=>void) | undefined; let viewRequest=0;
@@ -36,7 +36,9 @@ function render() {
       for(const article of entries) {
       const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
       const title=element('h3','news-row-title',article.title); title.lang='en';
-      const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词`);
+      const total=Number(article.analysis_total??0); const cached=Math.min(total,Number(article.analysis_cached??0));
+      const progress=total?(cached>=total?'精读已完成':`精读 ${cached}/${total}${article.analysis_pending?` · ${article.analysis_pending} 条处理中`:''}`):'';
+      const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词${progress?` · ${progress}`:''}`);
       link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
       }
       if(batch?.status==='partial'||batch?.status==='failed') {
