@@ -126,7 +126,7 @@ async function processJob(job: Job) {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const errorCode = analysisErrorCode(message);
-    const retryable = errorCode === 'service_unavailable' && job.attempts < 4;
+    const retryable = errorCode === 'service_unavailable' && job.attempts < 2;
     const retryDelaySeconds = 15 * (2 ** Math.max(0, job.attempts - 1));
     console.error(JSON.stringify({
       event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
