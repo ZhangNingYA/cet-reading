@@ -88,8 +88,8 @@ test('completed jobs return only fully validated results without exposing intern
 test('worker concurrency is bounded independently of the model, prompt and generation deadline', () => {
   const baseline = readConfig({});
   const sequential = readConfig({ WORKER_CONCURRENCY: '1' });
-  assert.equal(baseline.workerConcurrency, 2);
-  assert.deepEqual({ ...sequential, workerConcurrency: 2 }, baseline);
+  assert.equal(baseline.workerConcurrency, 1);
+  assert.deepEqual({ ...sequential, workerConcurrency: 1 }, baseline);
   assert.throws(() => readConfig({ WORKER_CONCURRENCY: '5' }));
   assert.throws(() => readConfig({ WORKER_CONCURRENCY: '0' }));
 });

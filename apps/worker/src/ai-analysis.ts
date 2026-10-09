@@ -9,7 +9,9 @@ type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTime
 
 const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504, 524]);
 const MAX_TRANSPORT_ATTEMPTS = 3;
-const RETRY_BASE_DELAY_MS = 350;
+// The upstream provider may keep an overloaded account in a short cooldown.
+// A small backoff prevents the next attempt from immediately colliding with it.
+const RETRY_BASE_DELAY_MS = 2000;
 
 class AIRequestError extends Error {
   constructor(message: string, readonly retryable = false, readonly retryAfterMs?: number | null) {

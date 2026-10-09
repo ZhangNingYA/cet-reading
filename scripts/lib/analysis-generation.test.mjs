@@ -51,7 +51,7 @@ test('retries a transient upstream HTTP error as transport, never as a grammar r
     calls++; bodies.push(JSON.parse(options.body));
     return new Response('', { status: 503, headers: { 'retry-after': '0' } });
   });
-  await assert.rejects(generateAnalysis(input, config), /503/);
+  await assert.rejects(generateAnalysis(input, { ...config, requestTimeoutMs: 10000 }), /503/);
   assert.equal(calls, 3);
   assert.deepEqual(bodies[0].messages, bodies[1].messages);
   assert.deepEqual(bodies[1].messages, bodies[2].messages);

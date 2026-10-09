@@ -10,7 +10,9 @@ const EnvironmentSchema = z.object({
   AI_API_KEY: z.string().default(''),
   AI_REQUEST_TIMEOUT_MS: positiveInteger.max(180000).default(180000),
   JOB_LEASE_SECONDS: positiveInteger.default(210),
-  WORKER_CONCURRENCY: positiveInteger.max(4).default(2),
+  // The model gateway commonly permits one long-running completion per account.
+  // An explicit environment value can raise this when the provider supports it.
+  WORKER_CONCURRENCY: positiveInteger.max(4).default(1),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });
