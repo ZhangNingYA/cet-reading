@@ -44,10 +44,39 @@ test('fails after one unsuccessful repair and never accepts the placeholder', as
   assert.equal(calls, 2);
 });
 
-test('does not retry an upstream HTTP error as a grammar repair', async t => {
+test('retries a transient upstream HTTP error as transport, never as a grammar repair', async t => {
   let calls = 0;
-  t.mock.method(globalThis, 'fetch', async () => { calls++; return new Response('', { status: 503 }); });
+  const bodies = [];
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls++; bodies.push(JSON.parse(options.body));
+    return new Response('', { status: 503, headers: { 'retry-after': '0' } });
+  });
   await assert.rejects(generateAnalysis(input, config), /503/);
+  assert.equal(calls, 3);
+  assert.deepEqual(bodies[0].messages, bodies[1].messages);
+  assert.deepEqual(bodies[1].messages, bodies[2].messages);
+});
+
+test('accepts a fragmented SSE response and keeps the complete JSON for validation', async t => {
+  const content = JSON.stringify(raw());
+  const encoder = new TextEncoder();
+  const event = (piece, finish = false) => JSON.stringify({ choices: [{ delta: { content: piece }, ...(finish ? { finish_reason: 'stop' } : {}) }] });
+  const bytes = encoder.encode(`data: ${event(content.slice(0, 80))}\n\ndata: ${event(content.slice(80), true)}\n\ndata: [DONE]\n\n`);
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    assert.equal(JSON.parse(options.body).stream, true);
+    const chunks = [bytes.slice(0, 17), bytes.slice(17, 91), bytes.slice(91)];
+    return new Response(new ReadableStream({
+      start(controller) { for (const chunk of chunks) controller.enqueue(chunk); controller.close(); },
+    }), { headers: { 'content-type': 'text/event-stream' } });
+  });
+  const analysis = await generateAnalysis(input, config);
+  assert.equal(analysis.grammar.clauses[0].type, '主句');
+});
+
+test('does not retry authentication errors', async t => {
+  let calls = 0;
+  t.mock.method(globalThis, 'fetch', async () => { calls++; return new Response('', { status: 401 }); });
+  await assert.rejects(generateAnalysis(input, config), /401/);
   assert.equal(calls, 1);
 });
 

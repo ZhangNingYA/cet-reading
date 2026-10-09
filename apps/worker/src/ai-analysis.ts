@@ -7,6 +7,17 @@ type AnalysisInput = {
 };
 type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'>;
 
+const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504, 524]);
+const MAX_TRANSPORT_ATTEMPTS = 3;
+const RETRY_BASE_DELAY_MS = 350;
+
+class AIRequestError extends Error {
+  constructor(message: string, readonly retryable = false, readonly retryAfterMs?: number | null) {
+    super(message);
+    this.name = 'AIRequestError';
+  }
+}
+
 function buildPrompt(job: AnalysisInput) {
   return JSON.stringify({
     task: '做英语四六级逐句精读。翻译必须自然准确；根据原文解释句型、时态、语态、主干和从句，并提取重点单词和词组。',
@@ -51,10 +62,168 @@ function parseModelJson(content: string): unknown {
   return JSON.parse(content.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim());
 }
 
+function getRetryAfterMs(response: Response): number | null {
+  const value = response.headers.get('retry-after');
+  if (!value) return null;
+  const seconds = Number(value);
+  if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1000;
+  const date = Date.parse(value);
+  return Number.isFinite(date) ? Math.max(0, date - Date.now()) : null;
+}
+
+function waitForRetry(delayMs: number, signal: AbortSignal): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (signal.aborted) {
+      reject(signal.reason);
+      return;
+    }
+    const timer = setTimeout(() => {
+      signal.removeEventListener('abort', onAbort);
+      resolve();
+    }, delayMs);
+    const onAbort = () => {
+      clearTimeout(timer);
+      signal.removeEventListener('abort', onAbort);
+      reject(signal.reason);
+    };
+    signal.addEventListener('abort', onAbort, { once: true });
+  });
+}
+
+async function readStreamingContent(response: Response): Promise<string> {
+  if (!response.body) throw new AIRequestError('AI response stream had no body', true);
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let eventData: string[] = [];
+  let content = '';
+  let sawDone = false;
+  let sawFinish = false;
+
+  const dispatch = (payload: string) => {
+    if (!payload) return;
+    if (payload === '[DONE]') {
+      sawDone = true;
+      return;
+    }
+    let event: { error?: { code?: string; message?: string }; choices?: Array<{ delta?: { content?: string }; message?: { content?: string }; text?: string; finish_reason?: string | null }> };
+    try {
+      event = JSON.parse(payload) as typeof event;
+    } catch {
+      throw new AIRequestError('AI response stream contained an invalid event', false);
+    }
+    if (event.error) {
+      const code = event.error.code ? ` (${event.error.code})` : '';
+      throw new AIRequestError(`AI request failed: stream${code}`, true);
+    }
+    const choice = event.choices?.[0];
+    const piece = choice?.delta?.content ?? choice?.message?.content ?? choice?.text;
+    if (piece) content += piece;
+    if (choice?.finish_reason) {
+      sawFinish = true;
+      if (choice.finish_reason !== 'stop') {
+        throw new AIRequestError('AI response stream ended before completion', true);
+      }
+    }
+  };
+
+  const consumeLines = (flush = false) => {
+    const lines = buffer.split(/\r?\n/);
+    buffer = flush ? '' : (lines.pop() ?? '');
+    for (const line of lines) {
+      if (line === '') {
+        dispatch(eventData.join('\n'));
+        eventData = [];
+      } else if (line.startsWith('data:')) {
+        eventData.push(line.slice(5).trimStart());
+      }
+    }
+  };
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      consumeLines();
+    }
+    buffer += decoder.decode();
+    if (buffer) buffer += '\n';
+    consumeLines(true);
+    dispatch(eventData.join('\n'));
+  } finally {
+    await reader.cancel().catch(() => undefined);
+  }
+  if (!sawDone && !sawFinish) throw new AIRequestError('AI response stream ended before completion', true);
+  if (!content) throw new AIRequestError('AI response did not contain JSON content');
+  return content;
+}
+
+async function readCompletionContent(response: Response): Promise<string> {
+  const contentType = response.headers.get('content-type')?.toLowerCase() ?? '';
+  if (contentType.includes('text/event-stream')) return readStreamingContent(response);
+  try {
+    const body = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
+    const content = body.choices?.[0]?.message?.content;
+    if (!content) throw new AIRequestError('AI response did not contain JSON content');
+    return content;
+  } catch (error) {
+    if (error instanceof AIRequestError) throw error;
+    throw new AIRequestError('AI response was not valid JSON', true);
+  }
+}
+
+async function requestCompletion(
+  url: string,
+  apiKey: string,
+  model: string,
+  messages: Array<{ role: string; content: string }>,
+  controller: AbortController,
+  deadline: number,
+): Promise<string> {
+  let lastError: unknown;
+  for (let transportAttempt = 1; transportAttempt <= MAX_TRANSPORT_ATTEMPTS; transportAttempt += 1) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST', signal: controller.signal,
+        headers: { 'content-type': 'application/json', authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model, temperature: 0.1, response_format: { type: 'json_object' }, stream: true, messages,
+        }),
+      });
+      if (!response.ok) {
+        // Consume the body before retrying so the connection can be reused and the
+        // provider's transient error does not become a misleading parse/repair error.
+        await response.text().catch(() => undefined);
+        throw new AIRequestError(
+          `AI request failed: ${response.status}`,
+          TRANSIENT_HTTP_STATUSES.has(response.status),
+          getRetryAfterMs(response),
+        );
+      }
+      return await readCompletionContent(response);
+    } catch (error) {
+      if (controller.signal.aborted) throw error;
+      const retryable = error instanceof AIRequestError ? error.retryable : true;
+      lastError = error;
+      if (!retryable || transportAttempt === MAX_TRANSPORT_ATTEMPTS) throw error;
+      const remaining = deadline - Date.now();
+      const requestedDelay = error instanceof AIRequestError && error.retryAfterMs != null
+        ? error.retryAfterMs
+        : RETRY_BASE_DELAY_MS * (2 ** (transportAttempt - 1));
+      const delay = Math.min(requestedDelay, 3000, Math.max(0, remaining - 50));
+      if (remaining <= delay + 50) throw error;
+      await waitForRetry(delay, controller.signal);
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error('AI request failed');
+}
+
 export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Promise<SentenceAnalysis> {
   if (!config.apiUrl || !config.apiKey) throw new Error('AI_API_URL and AI_API_KEY are required in AI mode');
   const controller = new AbortController();
   let requestAttempt = 0;
+  const deadline = Date.now() + config.requestTimeoutMs;
   // Both the initial answer and one validation repair share the original deadline/lease.
   const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
   const messages = [
@@ -64,15 +233,10 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
   try {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       requestAttempt = attempt + 1;
-      const response = await fetch(`${config.apiUrl.replace(/\/$/, '')}/chat/completions`, {
-        method: 'POST', signal: controller.signal,
-        headers: { 'content-type': 'application/json', authorization: `Bearer ${config.apiKey}` },
-        body: JSON.stringify({ model: config.model, temperature: 0.1, response_format: { type: 'json_object' }, messages }),
-      });
-      if (!response.ok) throw new Error(`AI request failed: ${response.status}`);
-      const body = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
-      const content = body.choices?.[0]?.message?.content;
-      if (!content) throw new Error('AI response did not contain JSON content');
+      const content = await requestCompletion(
+        `${config.apiUrl.replace(/\/$/, '')}/chat/completions`, config.apiKey, config.model,
+        messages, controller, deadline,
+      );
       try {
         return buildAnalysis(job.source_text, parseModelJson(content));
       } catch (error) {
