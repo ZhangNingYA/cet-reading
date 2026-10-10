@@ -15,7 +15,7 @@ const EnvironmentSchema = z.object({
   // An explicit environment value can raise this when the provider supports it.
   WORKER_CONCURRENCY: positiveInteger.max(4).default(2),
   BACKFILL_ENABLED: z.enum(['true', 'false']).default('true'),
-  BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(15000),
+  BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(20000),
   BACKFILL_TARGET: nonNegativeInteger.max(8).default(4),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
