@@ -4,7 +4,7 @@ import { tsImport } from 'tsx/esm/api';
 import { buildAnalysis } from '@cet-reading/contracts';
 import { source, raw } from './fixtures/analysis.mjs';
 
-const { AnalysisPausedError, enqueueAnalysis, getCachedAnalysis, getJob, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
+const { AnalysisPausedError, AnalysisQueueFullError, enqueueAnalysis, getCachedAnalysis, getJob, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
 function badCache() {
   const cached = buildAnalysis(source, raw());
   cached.grammar.clauses[0].explanation = '句子主要成分';
@@ -72,8 +72,30 @@ test('a user request evicts one pending background job when the eight-slot queue
     context_hash: 'context-hash', context: { title: 'Test', previousSentence: null, nextSentence: null },
   }, 100);
   assert.deepEqual(result, { id: 'user-job', status: 'pending' });
-  assert.equal(calls.some(statement => statement.includes("status = 'pending' AND priority <= 1")), true);
+  assert.equal(calls.some(statement => statement.includes("status = 'pending' AND priority <= 1 AND attempts = 0")), true);
   assert.equal(released, true);
+});
+
+test('a full queue with no unstarted background jobs rejects admission without deleting history', async t => {
+  const calls = [];
+  const client = {
+    async query(sql) {
+      const statement = String(sql);
+      calls.push(statement);
+      if (statement.includes('pg_try_advisory_xact_lock_shared')) return { rows: [{ allowed: true }] };
+      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ count: 8, background: 4 }] };
+      return { rows: [], rowCount: 0 };
+    },
+    release() {},
+  };
+  t.mock.method(pool, 'connect', async () => client);
+  await assert.rejects(enqueueAnalysis({
+    id: 'sentence-1', source_text: source, source_hash: 'source-hash',
+    context_hash: 'context-hash', context: {},
+  }, 100), AnalysisQueueFullError);
+  assert.equal(calls.includes('ROLLBACK'), true);
+  assert.equal(calls.includes('COMMIT'), false);
+  assert.equal(calls.some(statement => statement.includes('INSERT INTO analysis_jobs')), false);
 });
 
 test('exposes safe job failure categories without returning the internal error', async t => {

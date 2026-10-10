@@ -359,7 +359,7 @@ export async function enqueueAnalysis(sentence: {
          AND status IN ('pending', 'running')`,
       [config.mode, config.model, config.promptVersion],
     );
-    const active = count.rows[0]?.count ?? 0;
+    let active = count.rows[0]?.count ?? 0;
     const background = count.rows[0]?.background ?? 0;
     if (active >= MAX_ACTIVE_ANALYSIS_JOBS && priority > 1) {
       // A user request must be able to enter a full queue. Evict only a
@@ -369,7 +369,7 @@ export async function enqueueAnalysis(sentence: {
          WHERE id = (
            SELECT id FROM analysis_jobs
            WHERE mode = $1 AND model = $2 AND prompt_version = $3
-             AND status = 'pending' AND priority <= 1
+             AND status = 'pending' AND priority <= 1 AND attempts = 0
            ORDER BY created_at DESC
            FOR UPDATE SKIP LOCKED LIMIT 1
          ) RETURNING id`,
@@ -378,11 +378,10 @@ export async function enqueueAnalysis(sentence: {
       if (evicted.rowCount) {
         // The deleted row was part of the active count, so the new request
         // can take its place without exceeding the hard queue limit.
-        count.rows[0].count = active - 1;
+        active -= 1;
       }
     }
-    const available = count.rows[0]?.count ?? active;
-    if (available >= MAX_ACTIVE_ANALYSIS_JOBS || (priority <= 1 && background >= config.backfillTarget)) {
+    if (active >= MAX_ACTIVE_ANALYSIS_JOBS || (priority <= 1 && background >= config.backfillTarget)) {
       await client.query('ROLLBACK');
       throw new AnalysisQueueFullError();
     }
