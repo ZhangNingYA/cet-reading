@@ -184,7 +184,9 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
 }
 
 export async function fillBackgroundQueue(pool: Pool, config: RuntimeConfig, cursor: Cursor | null = null) {
-  if (!config.backfillEnabled || config.mode !== 'ai' || config.backfillTarget === 0) return { queued: 0, nextCursor: cursor };
+  if (!config.backfillEnabled || config.mode !== 'ai' || config.backfillTarget === 0) {
+    return { queued: 0, nextCursor: cursor, scanHasMore: false };
+  }
   const counts = await pool.query<{ total: number; background: number }>(
     `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS total,
             COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= $4)::integer AS background
@@ -195,10 +197,11 @@ export async function fillBackgroundQueue(pool: Pool, config: RuntimeConfig, cur
   const total = counts.rows[0]?.total ?? 0;
   const background = counts.rows[0]?.background ?? 0;
   const capacity = Math.min(config.backfillTarget - background, MAX_ACTIVE_JOBS - total);
-  if (capacity <= 0) return { queued: 0, nextCursor: cursor };
+  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false };
 
-  const candidates = await loadCandidates(pool, Math.max(50, capacity * 10), cursor);
-  if (!candidates.length) return { queued: 0, nextCursor: null };
+  const candidateLimit = Math.max(50, capacity * 10);
+  const candidates = await loadCandidates(pool, candidateLimit, cursor);
+  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false };
   const { caches, jobs } = await loadExisting(pool, candidates, config);
   let queued = 0;
   let lastExamined: Cursor = candidates[0]!;
@@ -210,24 +213,32 @@ export async function fillBackgroundQueue(pool: Pool, config: RuntimeConfig, cur
     if (job?.status === 'pending' || job?.status === 'running' || job?.status === 'failed') continue;
     if (await enqueueBackgroundSentence(pool, candidate, config)) queued += 1;
   }
-  return { queued, nextCursor: {
-    owner_id: lastExamined.owner_id,
-    paragraph_index: lastExamined.paragraph_index,
-    sentence_index: lastExamined.sentence_index,
-  } };
+  return {
+    queued,
+    nextCursor: {
+      owner_id: lastExamined.owner_id,
+      paragraph_index: lastExamined.paragraph_index,
+      sentence_index: lastExamined.sentence_index,
+    },
+    // Cached pages are common after a restart. Scan the next page immediately
+    // instead of leaving worker slots idle for a full scheduler interval.
+    scanHasMore: queued < capacity && candidates.length === candidateLimit,
+  };
 }
 
 export async function runBackfillScheduler(pool: Pool, config: RuntimeConfig, signal: AbortSignal) {
   if (!config.backfillEnabled || config.mode !== 'ai') return;
   let cursor: Cursor | null = null;
   while (!signal.aborted) {
+    let scanHasMore = false;
     try {
       const result = await fillBackgroundQueue(pool, config, cursor);
       cursor = result.nextCursor;
+      scanHasMore = result.scanHasMore;
       if (result.queued) process.stdout.write(`Background analysis queued ${result.queued} sentence(s).\n`);
     } catch (error) {
       process.stderr.write(`Background analysis scheduler: ${error instanceof Error ? error.message : String(error)}\n`);
     }
-    await sleep(config.backfillIntervalMs, signal);
+    if (!scanHasMore) await sleep(config.backfillIntervalMs, signal);
   }
 }
