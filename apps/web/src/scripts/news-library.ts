@@ -7,7 +7,7 @@ const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButt
 const apiBase = library.dataset.apiBase || '';
 type Progress = { analysis_total?:number; analysis_cached?:number; analysis_pending?:number; analysis_running?:number; analysis_failed?:number };
 type Summary = Progress & { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
-type Batch = { scheduled_at:string; status:string; reason:string; article_count:number };
+type Batch = { scheduled_at:string; status:string };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
 let dispose: (()=>void) | undefined; let viewRequest=0; let activeArticleId:string|null=null;
 const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
@@ -51,10 +51,7 @@ function render() {
       const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词${progress?` · ${progress}`:''}`);
       link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
       }
-      if(batch?.status==='partial'||batch?.status==='failed') {
-        const note=element('p','news-batch-note',`${batch.article_count} / 3 篇 · ${batch.status==='failed'?'采集暂未完成':'符合条件的文章不足'}`);
-        note.title=batch.reason;body.append(note);
-      } else if(batch?.status==='running') body.append(element('p','news-batch-note','正在选取文章…'));
+      if(batch?.status==='running') body.append(element('p','news-batch-note','正在选取文章…'));
       else if(!entries.length)body.append(element('p','news-batch-note',new Date(slot)>new Date()?'待更新':'暂无文章'));
       group.append(body);dayGroup.append(group);
     }

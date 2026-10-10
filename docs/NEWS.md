@@ -2,9 +2,9 @@
 
 News 使用独立文章表和独立采集进程。试卷、做题记录及已有精读缓存保留原有 ID、数据和调用方式。
 
-前端按采集日期归档（例如 `26/10/9`），日期下面固定显示 08:00、11:00、14:00、17:00 四组，每组目标三篇；尚未到点显示「待更新」。文章的真实发布日期单独保留。
+前端按采集日期归档（例如 `26/10/9`），日期下面固定显示 08:00、11:00、14:00、17:00 四组，每组目标一篇；尚未到点显示「待更新」。文章的真实发布日期单独保留。
 
-北京时间（Asia/Shanghai）每日 08:00、11:00、14:00、17:00，每轮目标 3 篇：1 篇编辑规则优先选择的阅读材料（首选 360info），2 篇 AI 选取的时效热点。候选来源为 360info、Global Voices、EFF、Futurity、SciDev.Net、NASA 的官方 RSS。AI 通过服务器提供的 `read_article` 和 `search_news` 工具读取真实正文、搜索 Google News RSS 的媒体报道，再按难度和事件证据选取。来源不足时保存实际数量和原因，不用旧闻或模型创作凑数。**12 篇是目标，不是来源供给保证。**
+北京时间（Asia/Shanghai）每日 08:00、11:00、14:00、17:00，每个时间段目标 1 篇。优先选择证据充分的时效热点；没有满足热点标准的文章时，选择适合精读的阅读材料（首选 360info）。候选来源为 360info、Global Voices、EFF、Futurity、SciDev.Net、NASA 的官方 RSS。AI 通过服务器提供的 `read_article` 和 `search_news` 工具读取真实正文、搜索 Google News RSS 的媒体报道，再按难度和事件证据选取。没有合格来源时保留审计原因，不用旧闻或模型创作凑数；列表不向读者展示内部缺额提示。
 
 每次读取来源政策并核验原站正文，跳过特殊限制及授权不明的转载稿。360info、Global Voices、EFF 使用政策中的 CC BY 链接；Futurity 同时核验 [转载政策](https://www.futurity.org/about/#republishing)及每篇原站的 Attribution 4.0 International 声明；SciDev.Net 使用 [CC BY 2.0 转载政策](https://www.scidev.net/global/content/media.html)，其 RSS 仅含摘要时，读取原站完整正文。NASA 单独使用 [教育/信息用途许可](https://www.nasa.gov/nasa-brand-center/images-and-media/)，明确标为 `NASA educational use`，不伪标 CC BY；仅从 www.nasa.gov、science.nasa.gov 官方正文提取文字，跳过第三方限制，不复制图片、标志或暗示 NASA 背书。
 

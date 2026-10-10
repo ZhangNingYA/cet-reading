@@ -1,4 +1,4 @@
-import { NEWS_SELECTOR_PROMPT, NewsSelectionSchema, timely, type NewsSelection } from '@cet-reading/contracts/news';
+import { NEWS_ARTICLES_PER_SLOT, NEWS_SELECTOR_PROMPT, NewsSelectionSchema, timely, type NewsSelection } from '@cet-reading/contracts/news';
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
 import { readArticle, searchNews, type Article, type Candidate, type Evidence } from './news-sources.js';
 
@@ -37,7 +37,7 @@ export function validateNewsPicks(selection: NewsSelection, articles: Map<string
   return { chosen, rejected };
 }
 
-export async function selectNews(config: RuntimeConfig, model: string, maxRounds: number, candidates: Candidate[], cutoff: Date, recentArticles: object[], remainingSlots = { curated:1,hot:2 }) {
+export async function selectNews(config: RuntimeConfig, model: string, maxRounds: number, candidates: Candidate[], cutoff: Date, recentArticles: object[], remainingSlots = { total: NEWS_ARTICLES_PER_SLOT }) {
   const articles = new Map<string, Article>(); const evidence = new Map<string, Evidence>();
   const audit: object[] = [];
   const messages: any[] = [{ role: 'system', content: NEWS_SELECTOR_PROMPT }, { role: 'user', content: JSON.stringify({ cutoff: cutoff.toISOString(), timezone: 'Asia/Shanghai', remainingSlots, recentArticles, candidates: candidates.map(({ feedHtml, ...item }) => item) }) }];

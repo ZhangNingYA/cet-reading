@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { tsImport } from 'tsx/esm/api';
-import { newsDay, newsSlot, nextNewsSlot, splitNewsParagraph, timely } from '@cet-reading/contracts/news';
+import { NEWS_ARTICLES_PER_SLOT, NewsSelectionSchema, newsDay, newsSlot, nextNewsSlot, splitNewsParagraph, timely } from '@cet-reading/contracts/news';
 const { sources, parseCandidates, plainParagraphs, fetchText, readArticle, searchNews } = await tsImport('../../apps/worker/src/news-sources.ts',import.meta.url);
 const { validateNewsPicks, selectNews } = await tsImport('../../apps/worker/src/news-selector.ts',import.meta.url);
 const cutoff = new Date('2026-10-09T00:00:00Z');
@@ -11,6 +11,12 @@ const article = { ...candidate, paragraphs:['An authentic paragraph.'],contentHa
 const pick = { candidateId:'c1', kind:'hot', difficulty:'NEEP', difficultyReason:'具体指出复杂句式与词汇的阅读难度。', topic:'科技',eventKey:'a-genuine-new-event',eventAt:'2026-10-08T12:00:00Z',evidenceIds:['e1','e2'],reason:'两家不同媒体核实了最近出现的事件。' };
 const evidence = new Map(['e1','e2'].map((id,i)=>[id,{ id,publishedAt:'2026-10-08T15:00:00Z',publisherUrl:`https://${i?'second':'first'}.example`,title:'A genuine event' }]));
 const validate = (selection, articles=new Map([['c1',article]]),proofs=evidence,events=new Set())=>validateNewsPicks({selections:selection,shortfall:''},articles,proofs,cutoff,events);
+
+test('each news slot accepts at most one selected article',()=>{
+  assert.equal(NEWS_ARTICLES_PER_SLOT,1);
+  assert.equal(NewsSelectionSchema.safeParse({selections:[pick],shortfall:''}).success,true);
+  assert.equal(NewsSelectionSchema.safeParse({selections:[pick,{...pick,candidateId:'c2'}],shortfall:''}).success,false);
+});
 
 test('news slots use Shanghai time, survive UTC date boundaries and roll over after 17:00',()=>{
   assert.equal(newsDay(new Date('2026-10-08T16:01:00Z')),'2026-10-09');
