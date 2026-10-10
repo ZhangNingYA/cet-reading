@@ -27,6 +27,14 @@ docker compose build
 docker compose up -d postgres --wait --wait-timeout 120
 # Apply schema changes before starting the API and workers.
 docker compose stop api worker news
+# A forced worker stop must not leave jobs looking active until their leases expire.
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading <<'SQL'
+UPDATE analysis_jobs
+SET status = 'pending', lease_expires_at = NULL,
+    next_attempt_at = NOW(), updated_at = NOW()
+WHERE status = 'running';
+SQL
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/003_paper_modes.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \

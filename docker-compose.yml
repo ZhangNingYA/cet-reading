@@ -59,6 +59,7 @@ services:
       NODE_OPTIONS: --max-old-space-size=96
     mem_limit: 160m
     restart: unless-stopped
+    stop_grace_period: 4m
     depends_on:
       postgres:
         condition: service_healthy

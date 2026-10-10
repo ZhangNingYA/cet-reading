@@ -58,8 +58,11 @@ export async function listPapers() {
        GROUP BY o.paper_id
      ), queued AS (
        SELECT o.paper_id,
-              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'pending')::integer AS pending,
-              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'running')::integer AS running,
+              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
+                (j.status = 'pending' OR (j.status = 'running' AND
+                  (j.lease_expires_at IS NULL OR j.lease_expires_at <= NOW()))))::integer AS pending,
+              COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
+                j.status = 'running' AND j.lease_expires_at > NOW())::integer AS running,
               COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'failed')::integer AS failed
        FROM ordered o JOIN analysis_jobs j
          ON j.sentence_id = o.id AND j.source_hash = o.source_hash

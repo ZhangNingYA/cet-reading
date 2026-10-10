@@ -21,8 +21,10 @@ export async function listNews(before?: string) {
   SELECT n.id,n.batch_at,n.selection_kind,n.title,n.source_name,n.published_at,n.word_count,n.difficulty,n.topic,
     COUNT(DISTINCT o.id)::int AS analysis_total,
     COUNT(DISTINCT a.sentence_id)::int AS analysis_cached,
-    COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='pending')::int AS analysis_pending,
-    COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='running')::int AS analysis_running,
+    COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
+      (j.status='pending' OR (j.status='running' AND (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW()))))::int AS analysis_pending,
+    COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
+      j.status='running' AND j.lease_expires_at>NOW())::int AS analysis_running,
     COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='failed')::int AS analysis_failed
     FROM news_articles n
     LEFT JOIN ordered o ON o.article_id=n.id
@@ -54,8 +56,10 @@ export async function getNews(id: string) {
     )
     SELECT COUNT(DISTINCT o.id)::int AS analysis_total,
       COUNT(DISTINCT a.sentence_id)::int AS analysis_cached,
-      COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='pending')::int AS analysis_pending,
-      COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='running')::int AS analysis_running,
+      COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
+        (j.status='pending' OR (j.status='running' AND (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW()))))::int AS analysis_pending,
+      COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
+        j.status='running' AND j.lease_expires_at>NOW())::int AS analysis_running,
       COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='failed')::int AS analysis_failed
     FROM ordered o
     LEFT JOIN sentence_analyses a ON a.sentence_id=o.id AND a.source_hash=o.source_hash

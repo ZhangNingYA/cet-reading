@@ -6,7 +6,7 @@ import { readConfig } from '@cet-reading/contracts/config';
 import { source, raw } from './fixtures/analysis.mjs';
 
 const { runJobQueue } = await tsImport('../../apps/worker/src/job-queue.ts', import.meta.url);
-const { getSectionCachedAnalyses, getJob, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
+const { getSectionCachedAnalyses, getJob, listPapers, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
 
 test('a slow sentence does not block the second slot, and queued work starts when either slot frees', async t => {
   const stop = new AbortController();
@@ -83,6 +83,17 @@ test('completed jobs return only fully validated results without exposing intern
   row.analysis_json = structuredClone(valid);
   row.analysis_json.grammar.components = [];
   assert.deepEqual(await getJob('job'), { id: 'job', status: 'succeeded', errorCode: null });
+});
+
+test('progress counts only jobs with a live lease as running', async t => {
+  let statement = '';
+  t.mock.method(pool, 'query', async sql => {
+    statement = String(sql);
+    return { rows: [] };
+  });
+  await listPapers();
+  assert.match(statement, /j\.status = 'running' AND j\.lease_expires_at > NOW\(\)/);
+  assert.match(statement, /j\.lease_expires_at IS NULL OR j\.lease_expires_at <= NOW\(\)/);
 });
 
 test('worker concurrency is bounded independently of the model, prompt and generation deadline', () => {
