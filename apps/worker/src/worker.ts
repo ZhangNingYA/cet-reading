@@ -11,17 +11,10 @@ import { generateAnalysis } from './ai-analysis.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { runJobQueue } from './job-queue.js';
 import { runBackfillScheduler } from './backfill.js';
+import { isRetryableAnalysisError, retryDelaySeconds, shouldRetryAnalysis } from './retry-policy.js';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
-
-function isRetryableAnalysisError(message: string) {
-  return /AI request failed:\s*(?:stream|408|425|429|500|502|503|504|524)\b|fetch failed|AI response stream|timed? ?out/i.test(message);
-}
-
-function retryDelaySeconds(attempt: number) {
-  return Math.min(30, 2 ** Math.min(Math.max(1, attempt) - 1, 4));
-}
 
 type Job = {
   id: string;
@@ -46,13 +39,27 @@ async function claimJob(): Promise<Job | null> {
       await client.query('ROLLBACK');
       return null;
     }
+    // Old workers could leave a transient job pending after many attempts.
+    // Quarantine it before claiming new work so an upgrade never spends one
+    // more full model timeout on a poisoned row.
+    await client.query(
+      `UPDATE analysis_jobs
+       SET status = 'failed', error_message = COALESCE(error_message, $5),
+           lease_expires_at = NULL, finished_at = NOW(), updated_at = NOW()
+       WHERE mode = $1 AND model = $2 AND prompt_version = $3
+         AND attempts >= $4
+         AND (status = 'pending' OR (status = 'running' AND lease_expires_at < NOW()))`,
+      [config.mode, config.model, config.promptVersion, config.maxAnalysisAttempts,
+        `Transient retry limit reached after ${config.maxAnalysisAttempts} attempts`],
+    );
     const result = await client.query<Job>(
       `WITH candidate AS (
          SELECT id FROM analysis_jobs
          WHERE mode = $1 AND model = $2 AND prompt_version = $3
            AND ((status = 'pending' AND next_attempt_at <= NOW())
              OR (status = 'running' AND lease_expires_at < NOW()))
-         ORDER BY priority DESC, created_at
+           AND attempts < $5
+         ORDER BY priority DESC, (attempts = 0) DESC, created_at
          FOR UPDATE SKIP LOCKED
          LIMIT 1
        )
@@ -65,7 +72,7 @@ async function claimJob(): Promise<Job | null> {
        WHERE j.id = c.id
        RETURNING j.id, j.attempts, j.sentence_id, j.source_text, j.source_hash,
                  j.context_hash, j.context_json, j.created_at`,
-      [config.mode, config.model, config.promptVersion, config.leaseSeconds],
+      [config.mode, config.model, config.promptVersion, config.leaseSeconds, config.maxAnalysisAttempts],
     );
     const job = result.rows[0] ?? null;
     await client.query(job ? 'COMMIT' : 'ROLLBACK');
@@ -143,14 +150,19 @@ async function processJob(job: Job) {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const errorCode = analysisErrorCode(message);
-    const retrying = isRetryableAnalysisError(message);
+    const retryable = isRetryableAnalysisError(message);
+    const retrying = shouldRetryAnalysis(job.attempts, retryable, config.maxAnalysisAttempts);
     const delaySeconds = retryDelaySeconds(job.attempts);
+    const finalMessage = retryable && !retrying
+      ? `Transient retry limit reached after ${config.maxAnalysisAttempts} attempts: ${message}`
+      : message;
     console.error(JSON.stringify({
       event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
       attempt: job.attempts, errorCode,
       durationMs: Date.now() - startedAt,
       modelRequest: message.match(/model request (\d+)/)?.[1] ?? null,
       retrying,
+      quarantined: retryable && !retrying,
     }));
     await client.query('ROLLBACK').catch(() => undefined);
     if (retrying) {
@@ -166,7 +178,7 @@ async function processJob(job: Job) {
         `UPDATE analysis_jobs SET status = 'failed', error_message = $2,
          lease_expires_at = NULL, finished_at = NOW(), next_attempt_at = NOW(), updated_at = NOW()
          WHERE id = $1 AND attempts = $3 AND status = 'running'`,
-        [job.id, message, job.attempts],
+        [job.id, finalMessage, job.attempts],
       );
     }
   } finally {

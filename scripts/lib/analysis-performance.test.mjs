@@ -6,6 +6,7 @@ import { readConfig } from '@cet-reading/contracts/config';
 import { source, raw } from './fixtures/analysis.mjs';
 
 const { runJobQueue } = await tsImport('../../apps/worker/src/job-queue.ts', import.meta.url);
+const { shouldRetryAnalysis } = await tsImport('../../apps/worker/src/retry-policy.ts', import.meta.url);
 const { getSectionCachedAnalyses, getJob, listPapers, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
 
 test('a slow sentence does not block the second slot, and queued work starts when either slot frees', async t => {
@@ -99,8 +100,16 @@ test('progress counts only jobs with a live lease as running', async t => {
 test('worker concurrency is bounded independently of the model, prompt and generation deadline', () => {
   const baseline = readConfig({});
   const sequential = readConfig({ WORKER_CONCURRENCY: '1' });
-  assert.equal(baseline.workerConcurrency, 2);
+  assert.equal(baseline.workerConcurrency, 4);
+  assert.equal(baseline.maxAnalysisAttempts, 3);
   assert.deepEqual({ ...sequential, workerConcurrency: 1 }, { ...baseline, workerConcurrency: 1 });
   assert.throws(() => readConfig({ WORKER_CONCURRENCY: '5' }));
   assert.throws(() => readConfig({ WORKER_CONCURRENCY: '0' }));
+});
+
+test('transient failures are retried a few times then quarantined', () => {
+  assert.equal(shouldRetryAnalysis(1, true, 3), true);
+  assert.equal(shouldRetryAnalysis(2, true, 3), true);
+  assert.equal(shouldRetryAnalysis(3, true, 3), false);
+  assert.equal(shouldRetryAnalysis(1, false, 3), false);
 });

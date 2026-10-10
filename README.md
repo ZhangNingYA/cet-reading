@@ -68,9 +68,9 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 先用 `--dry-run` 查看句子总数和有效缓存数；正式运行需设置 `AI_DRY_RUN=false` 及 AI 接口配置。工具逐句输出 JSONL 进度，跳过有效缓存，成功结果使用与用户点击相同的模型、提示词、校验和缓存键保存。执行期间会暂停公开精读的新 AI 请求和 Worker 领取新任务，已开始的公开请求先完成；中断后重新运行即可从缓存续跑。临时网络或上游限流失败会退避后持续重试，非重试类错误会停止并释放暂停锁，不覆盖其他试卷或清理旧缓存。
 
-上游网络、HTTP/2 流或临时服务错误会先自动重试：单次模型请求的重试间隔逐步增加，批处理当前句会持续重试直到成功或手动停止。认证错误、结果校验错误等非临时错误不会盲目重复调用。
+上游网络、HTTP/2 流或临时服务错误会先自动重试：单次模型请求的重试间隔逐步增加，常驻 Worker 对同一任务最多尝试 3 次；仍失败的任务会进入失败隔离并释放 Worker 槽位，不会无限循环。用户再次点击时可以创建新一轮高优先级任务。认证错误、结果校验错误等非临时错误不会盲目重复调用。
 
-常驻 Worker 会自动把已发布试卷和 News 中没有有效精读缓存的句子放入低优先级队列。用户点击产生的任务优先级更高，会优先于后台补齐任务领取；后台补齐默认保持 4 条排队任务，Worker 默认使用 2 路并发。可通过服务器 `.env` 调整 `BACKFILL_ENABLED`、`BACKFILL_INTERVAL_MS`、`BACKFILL_TARGET` 和 `WORKER_CONCURRENCY`。部署后通常只需要让 Compose 的 `worker` 常驻运行；`npm run ai-reading` 仍保留给需要指定试卷的手动批处理，不要与常驻 Worker 同时运行。
+常驻 Worker 会自动把已发布试卷和 News 中没有有效精读缓存的句子放入低优先级队列。用户点击产生的任务优先级更高，会优先于后台补齐任务领取；活动队列最多 8 条，后台补齐默认保持 4 条排队任务，Worker 默认使用 4 路并发。同优先级下，新任务会排在已经重试过的任务前面。可通过服务器 `.env` 调整 `BACKFILL_ENABLED`、`BACKFILL_INTERVAL_MS`、`BACKFILL_TARGET`、`WORKER_CONCURRENCY` 和 `ANALYSIS_MAX_ATTEMPTS`。部署后通常只需要让 Compose 的 `worker` 常驻运行；`npm run ai-reading` 仍保留给需要指定试卷的手动批处理，不要与常驻 Worker 同时运行。
 
 ## 服务
 

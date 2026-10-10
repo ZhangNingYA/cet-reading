@@ -11,9 +11,9 @@ const EnvironmentSchema = z.object({
   AI_API_KEY: z.string().default(''),
   AI_REQUEST_TIMEOUT_MS: positiveInteger.max(180000).default(180000),
   JOB_LEASE_SECONDS: positiveInteger.default(210),
-  // The model gateway commonly permits one long-running completion per account.
-  // An explicit environment value can raise this when the provider supports it.
-  WORKER_CONCURRENCY: positiveInteger.max(4).default(2),
+  // Four lanes are safe for the current gateway; lower this when the provider is saturated.
+  WORKER_CONCURRENCY: positiveInteger.max(4).default(4),
+  ANALYSIS_MAX_ATTEMPTS: positiveInteger.max(6).default(3),
   BACKFILL_ENABLED: z.enum(['true', 'false']).default('true'),
   BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(20000),
   BACKFILL_TARGET: nonNegativeInteger.max(8).default(4),
@@ -43,6 +43,7 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env) {
     requestTimeoutMs: parsed.AI_REQUEST_TIMEOUT_MS,
     leaseSeconds: parsed.JOB_LEASE_SECONDS,
     workerConcurrency: parsed.WORKER_CONCURRENCY,
+    maxAnalysisAttempts: parsed.ANALYSIS_MAX_ATTEMPTS,
     backfillEnabled: parsed.BACKFILL_ENABLED === 'true',
     backfillIntervalMs: parsed.BACKFILL_INTERVAL_MS,
     backfillTarget: parsed.BACKFILL_TARGET,

@@ -11,6 +11,20 @@ if [[ ! -f .env ]]; then
   exit 1
 fi
 
+# Keep the queue tuning explicit on the server while leaving API credentials
+# and all other operator-owned settings untouched.
+set_env_value() {
+  local key="$1"
+  local value="$2"
+  if grep -q "^${key}=" .env; then
+    sed -i "s/^${key}=.*/${key}=${value}/" .env
+  else
+    printf '%s=%s\n' "$key" "$value" >> .env
+  fi
+}
+set_env_value WORKER_CONCURRENCY 4
+set_env_value ANALYSIS_MAX_ATTEMPTS 3
+
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git init -b main
 fi
