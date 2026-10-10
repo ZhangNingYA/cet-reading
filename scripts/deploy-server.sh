@@ -24,6 +24,7 @@ set_env_value() {
 }
 set_env_value WORKER_CONCURRENCY 4
 set_env_value ANALYSIS_MAX_ATTEMPTS 3
+set_env_value BACKFILL_TARGET 8
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git init -b main

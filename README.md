@@ -70,7 +70,7 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 上游网络、HTTP/2 流或临时服务错误会先自动重试：单次模型请求的重试间隔逐步增加，常驻 Worker 对同一任务最多尝试 3 次；仍失败的任务会进入失败隔离并释放 Worker 槽位，不会无限循环。用户再次点击时可以创建新一轮高优先级任务。认证错误、结果校验错误等非临时错误不会盲目重复调用。
 
-常驻 Worker 会自动把已发布试卷和 News 中没有有效精读缓存的句子放入低优先级队列。用户点击产生的任务优先级更高，会优先于后台补齐任务领取；活动队列最多 8 条，后台补齐默认保持 4 条排队任务，Worker 默认使用 4 路并发。同优先级下，新任务会排在已经重试过的任务前面。可通过服务器 `.env` 调整 `BACKFILL_ENABLED`、`BACKFILL_INTERVAL_MS`、`BACKFILL_TARGET`、`WORKER_CONCURRENCY` 和 `ANALYSIS_MAX_ATTEMPTS`。部署后通常只需要让 Compose 的 `worker` 常驻运行；`npm run ai-reading` 仍保留给需要指定试卷的手动批处理，不要与常驻 Worker 同时运行。
+常驻 Worker 会自动把已发布试卷和 News 中没有有效精读缓存的句子放入低优先级队列。用户点击产生的任务优先级更高，会优先于后台补齐任务领取；活动队列最多 8 条，后台补齐目标默认也是 8 条（包含运行中任务），Worker 默认使用 4 路并发。因此后台有足够未完成句子时，会补到约 4 条运行、4 条排队，完成后最迟在下一次后台扫描补回。队列已满时，用户任务可以替换一条尚未开始的后台任务；正在运行的任务不会被强制中断。同优先级下，新任务会排在已经重试过的任务前面。可通过服务器 `.env` 调整 `BACKFILL_ENABLED`、`BACKFILL_INTERVAL_MS`、`BACKFILL_TARGET`、`WORKER_CONCURRENCY` 和 `ANALYSIS_MAX_ATTEMPTS`。部署后通常只需要让 Compose 的 `worker` 常驻运行；`npm run ai-reading` 仍保留给需要指定试卷的手动批处理，不要与常驻 Worker 同时运行。
 
 ## 服务
 

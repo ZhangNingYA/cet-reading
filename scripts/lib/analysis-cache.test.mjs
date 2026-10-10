@@ -50,6 +50,32 @@ test('rejects public generation while the paper batch holds the shared AI gate',
   assert.equal(released, true);
 });
 
+test('a user request evicts one pending background job when the eight-slot queue is full', async t => {
+  const calls = [];
+  let released = false;
+  const client = {
+    async query(sql) {
+      const statement = String(sql);
+      calls.push(statement);
+      if (statement.includes('pg_try_advisory_xact_lock_shared')) return { rows: [{ allowed: true }] };
+      if (statement.includes('SELECT id, status')) return { rows: [] };
+      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ count: 8, background: 8 }] };
+      if (statement.includes('DELETE FROM analysis_jobs')) return { rowCount: 1, rows: [{ id: 'background-job' }] };
+      if (statement.includes('INSERT INTO analysis_jobs')) return { rows: [{ id: 'user-job', status: 'pending' }] };
+      return { rows: [] };
+    },
+    release() { released = true; },
+  };
+  t.mock.method(pool, 'connect', async () => client);
+  const result = await enqueueAnalysis({
+    id: 'sentence-1', source_text: source, source_hash: 'source-hash',
+    context_hash: 'context-hash', context: { title: 'Test', previousSentence: null, nextSentence: null },
+  }, 100);
+  assert.deepEqual(result, { id: 'user-job', status: 'pending' });
+  assert.equal(calls.some(statement => statement.includes("status = 'pending' AND priority <= 1")), true);
+  assert.equal(released, true);
+});
+
 test('exposes safe job failure categories without returning the internal error', async t => {
   for (const [message, code] of [
     ['This operation was aborted', 'timeout'],

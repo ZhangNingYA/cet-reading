@@ -8,82 +8,14 @@ import {
 } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
 import { generateAnalysis } from './ai-analysis.js';
-import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
+import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { runJobQueue } from './job-queue.js';
 import { runBackfillScheduler } from './backfill.js';
 import { isRetryableAnalysisError, retryDelaySeconds, shouldRetryAnalysis } from './retry-policy.js';
+import { claimAnalysisJob, type AnalysisJob } from './claim-job.js';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
-
-type Job = {
-  id: string;
-  attempts: number;
-  sentence_id: string;
-  source_text: string;
-  source_hash: string;
-  context_hash: string;
-  context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
-  created_at: Date;
-};
-
-async function claimJob(): Promise<Job | null> {
-  const client = await pool.connect();
-  try {
-    await client.query('BEGIN');
-    const gate = await client.query<{ allowed: boolean }>(
-      'SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed',
-      [ANALYSIS_BATCH_LOCK_ID],
-    );
-    if (!gate.rows[0]?.allowed) {
-      await client.query('ROLLBACK');
-      return null;
-    }
-    // Old workers could leave a transient job pending after many attempts.
-    // Quarantine it before claiming new work so an upgrade never spends one
-    // more full model timeout on a poisoned row.
-    await client.query(
-      `UPDATE analysis_jobs
-       SET status = 'failed', error_message = COALESCE(error_message, $5),
-           lease_expires_at = NULL, finished_at = NOW(), updated_at = NOW()
-       WHERE mode = $1 AND model = $2 AND prompt_version = $3
-         AND attempts >= $4
-         AND (status = 'pending' OR (status = 'running' AND lease_expires_at < NOW()))`,
-      [config.mode, config.model, config.promptVersion, config.maxAnalysisAttempts,
-        `Transient retry limit reached after ${config.maxAnalysisAttempts} attempts`],
-    );
-    const result = await client.query<Job>(
-      `WITH candidate AS (
-         SELECT id FROM analysis_jobs
-         WHERE mode = $1 AND model = $2 AND prompt_version = $3
-           AND ((status = 'pending' AND next_attempt_at <= NOW())
-             OR (status = 'running' AND lease_expires_at < NOW()))
-           AND attempts < $5
-         ORDER BY priority DESC, (attempts = 0) DESC, created_at
-         FOR UPDATE SKIP LOCKED
-         LIMIT 1
-       )
-       UPDATE analysis_jobs j
-       SET status = 'running', attempts = j.attempts + 1,
-           started_at = COALESCE(j.started_at, NOW()),
-           lease_expires_at = NOW() + ($4 * INTERVAL '1 second'),
-           next_attempt_at = NOW(), updated_at = NOW()
-       FROM candidate c
-       WHERE j.id = c.id
-       RETURNING j.id, j.attempts, j.sentence_id, j.source_text, j.source_hash,
-                 j.context_hash, j.context_json, j.created_at`,
-      [config.mode, config.model, config.promptVersion, config.leaseSeconds, config.maxAnalysisAttempts],
-    );
-    const job = result.rows[0] ?? null;
-    await client.query(job ? 'COMMIT' : 'ROLLBACK');
-    return job;
-  } catch (error) {
-    await client.query('ROLLBACK');
-    throw error;
-  } finally {
-    client.release();
-  }
-}
 
 function demoRaw(source: string): AIAnalysis {
   const tokens = tokenize(source);
@@ -114,7 +46,7 @@ function demoRaw(source: string): AIAnalysis {
   });
 }
 
-async function processJob(job: Job) {
+async function processJob(job: AnalysisJob) {
   const startedAt = Date.now();
   const client: PoolClient = await pool.connect();
   try {
@@ -195,7 +127,7 @@ async function main() {
   const backfillStop = new AbortController();
   const backfill = runBackfillScheduler(pool, config, backfillStop.signal);
   try {
-    await runJobQueue({ claim: claimJob, process: processJob, concurrency: config.workerConcurrency, signal: shutdown.signal });
+    await runJobQueue({ claim: () => claimAnalysisJob(pool, config), process: processJob, concurrency: config.workerConcurrency, signal: shutdown.signal });
   } finally {
     backfillStop.abort();
     await backfill.catch(error => process.stderr.write(`Background analysis scheduler stopped: ${error instanceof Error ? error.message : String(error)}\n`));

@@ -6,7 +6,6 @@ import { presentPaper } from '@cet-reading/contracts/shared-reading';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
 const MAX_ACTIVE_ANALYSIS_JOBS = 8;
-const MAX_BACKGROUND_ANALYSIS_JOBS = 4;
 
 export class AnalysisQueueFullError extends Error {
   constructor() {
@@ -362,7 +361,28 @@ export async function enqueueAnalysis(sentence: {
     );
     const active = count.rows[0]?.count ?? 0;
     const background = count.rows[0]?.background ?? 0;
-    if (active >= MAX_ACTIVE_ANALYSIS_JOBS || (priority <= 1 && background >= MAX_BACKGROUND_ANALYSIS_JOBS)) {
+    if (active >= MAX_ACTIVE_ANALYSIS_JOBS && priority > 1) {
+      // A user request must be able to enter a full queue. Evict only a
+      // not-yet-started background row; running work is never interrupted.
+      const evicted = await client.query(
+        `DELETE FROM analysis_jobs
+         WHERE id = (
+           SELECT id FROM analysis_jobs
+           WHERE mode = $1 AND model = $2 AND prompt_version = $3
+             AND status = 'pending' AND priority <= 1
+           ORDER BY created_at DESC
+           FOR UPDATE SKIP LOCKED LIMIT 1
+         ) RETURNING id`,
+        [config.mode, config.model, config.promptVersion],
+      );
+      if (evicted.rowCount) {
+        // The deleted row was part of the active count, so the new request
+        // can take its place without exceeding the hard queue limit.
+        count.rows[0].count = active - 1;
+      }
+    }
+    const available = count.rows[0]?.count ?? active;
+    if (available >= MAX_ACTIVE_ANALYSIS_JOBS || (priority <= 1 && background >= config.backfillTarget)) {
       await client.query('ROLLBACK');
       throw new AnalysisQueueFullError();
     }

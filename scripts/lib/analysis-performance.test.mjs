@@ -101,6 +101,7 @@ test('worker concurrency is bounded independently of the model, prompt and gener
   const baseline = readConfig({});
   const sequential = readConfig({ WORKER_CONCURRENCY: '1' });
   assert.equal(baseline.workerConcurrency, 4);
+  assert.equal(baseline.backfillTarget, 8);
   assert.equal(baseline.maxAnalysisAttempts, 3);
   assert.deepEqual({ ...sequential, workerConcurrency: 1 }, { ...baseline, workerConcurrency: 1 });
   assert.throws(() => readConfig({ WORKER_CONCURRENCY: '5' }));

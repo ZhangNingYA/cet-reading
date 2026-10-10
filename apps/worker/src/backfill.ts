@@ -140,8 +140,10 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
   const key = [sentence.id, sentence.source_hash, sentence.context_hash, config.promptVersion, config.model, config.mode];
   try {
     await client.query('BEGIN');
+    // Share the API's admission lock, including the capacity check below.
+    // A scan is only a plan: user requests can arrive while it is running.
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
-      `analysis:${config.mode}:${config.model}:${config.promptVersion}:${sentence.id}`,
+      `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
     ]);
     const existing = await client.query<{ id: string; status: string }>(
       `SELECT id, status FROM analysis_jobs
@@ -151,6 +153,18 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
     );
     const row = existing.rows[0];
     if (row?.status === 'pending' || row?.status === 'running' || row?.status === 'failed') {
+      await client.query('ROLLBACK');
+      return false;
+    }
+    const counts = await client.query<{ total: number; background: number }>(
+      `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS total,
+              COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= $4)::integer AS background
+       FROM analysis_jobs
+       WHERE mode = $1 AND model = $2 AND prompt_version = $3`,
+      [config.mode, config.model, config.promptVersion, BACKGROUND_PRIORITY],
+    );
+    if ((counts.rows[0]?.total ?? 0) >= MAX_ACTIVE_JOBS ||
+        (counts.rows[0]?.background ?? 0) >= config.backfillTarget) {
       await client.query('ROLLBACK');
       return false;
     }

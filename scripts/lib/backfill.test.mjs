@@ -71,3 +71,62 @@ test('backfill immediately continues past a full page with no queueable candidat
   assert.equal(result.scanHasMore, true);
   assert.deepEqual(result.nextCursor, { owner_id: 'paper-1', paragraph_index: 0, sentence_index: 49 });
 });
+
+test('four running background jobs leave capacity for four waiting jobs', async () => {
+  const counts = { total: 4, background: 4 };
+  let inserts = 0;
+  const client = {
+    async query(sql, params) {
+      const statement = String(sql);
+      if (statement.includes('pg_advisory_xact_lock')) {
+        assert.equal(params[0], 'analysis:ai:gpt-test:prompt-v1', 'Admission shares the API capacity lock');
+      }
+      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ ...counts }] };
+      if (statement.includes('INSERT INTO analysis_jobs')) {
+        inserts++;
+        counts.total++;
+        counts.background++;
+      }
+      return { rows: [] };
+    },
+    release() {},
+  };
+  const pool = {
+    async query(sql) {
+      const statement = String(sql);
+      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ ...counts }] };
+      if (statement.includes('WITH ordered')) return { rows: Array.from({ length: 10 }, (_, i) => candidate(`s${i}`, i)) };
+      return { rows: [] };
+    },
+    async connect() { return client; },
+  };
+  const result = await fillBackgroundQueue(pool, { ...config, backfillTarget: 8 });
+  assert.equal(result.queued, 4);
+  assert.equal(inserts, 4);
+  assert.equal(counts.total, 8);
+  assert.equal(result.nextCursor.sentence_index, 3);
+  assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 8 })).queued, 0);
+  assert.equal(inserts, 4, 'The next scan must not overfill the queue');
+});
+
+test('background admission respects user jobs arriving after the scan counted capacity', async () => {
+  let inserts = 0;
+  const client = {
+    async query(sql) {
+      if (sql.includes('COUNT(*) FILTER')) return { rows: [{ total: 8, background: 4 }] };
+      if (sql.includes('INSERT INTO analysis_jobs')) inserts++;
+      return { rows: [] };
+    },
+    release() {},
+  };
+  const pool = {
+    async query(sql) {
+      if (sql.includes('COUNT(*) FILTER')) return { rows: [{ total: 4, background: 4 }] };
+      if (sql.includes('WITH ordered')) return { rows: [candidate('s1', 0)] };
+      return { rows: [] };
+    },
+    async connect() { return client; },
+  };
+  assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 8 })).queued, 0);
+  assert.equal(inserts, 0, 'A stale scan must not bypass the hard queue limit');
+});

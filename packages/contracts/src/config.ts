@@ -11,12 +11,12 @@ const EnvironmentSchema = z.object({
   AI_API_KEY: z.string().default(''),
   AI_REQUEST_TIMEOUT_MS: positiveInteger.max(180000).default(180000),
   JOB_LEASE_SECONDS: positiveInteger.default(210),
-  // Four lanes are safe for the current gateway; lower this when the provider is saturated.
+  // Keep the number of in-flight model requests bounded independently of the queue.
   WORKER_CONCURRENCY: positiveInteger.max(4).default(4),
   ANALYSIS_MAX_ATTEMPTS: positiveInteger.max(6).default(3),
   BACKFILL_ENABLED: z.enum(['true', 'false']).default('true'),
   BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(20000),
-  BACKFILL_TARGET: nonNegativeInteger.max(8).default(4),
+  BACKFILL_TARGET: nonNegativeInteger.max(8).default(8),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });
