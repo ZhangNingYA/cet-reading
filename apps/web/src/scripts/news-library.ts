@@ -17,10 +17,9 @@ function progressText(value: Progress, empty = '') {
   const total=Number(value.analysis_total??0); const cached=Math.min(total,Number(value.analysis_cached??0));
   if (!total) return empty;
   const states:string[]=[];
-  const pending=Number(value.analysis_pending??0); const running=Number(value.analysis_running??0); const failed=Number(value.analysis_failed??0);
+  const pending=Number(value.analysis_pending??0); const running=Number(value.analysis_running??0);
   if (pending) states.push(`${pending} 条排队`);
   if (running) states.push(`${running} 条生成中`);
-  if (failed) states.push(`${failed} 条失败`);
   const percentage=((cached/total)*100).toFixed(1);
   return `精读缓存 ${cached}/${total}（${percentage}%）${states.length?` · ${states.join(' · ')}`:''}`;
 }

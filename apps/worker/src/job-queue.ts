@@ -7,7 +7,7 @@ type QueueOptions<Job> = {
 };
 
 // Fill available slots immediately; a slow sentence must not block every reader.
-export async function runJobQueue<Job>({ claim, process, concurrency, signal, idleMs = 250 }: QueueOptions<Job>) {
+export async function runJobQueue<Job>({ claim, process, concurrency, signal, idleMs = 1_000 }: QueueOptions<Job>) {
   if (!Number.isInteger(concurrency) || concurrency < 1) throw new Error('Invalid worker concurrency');
   const active = new Set<Promise<void>>();
   let failed = false;

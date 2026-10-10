@@ -32,10 +32,8 @@ function analysisProgress(paper) {
   const states = [];
   const pending = Number(paper.analysis_pending ?? 0);
   const running = Number(paper.analysis_running ?? 0);
-  const failed = Number(paper.analysis_failed ?? 0);
   if (pending) states.push(`${pending} 条排队`);
   if (running) states.push(`${running} 条生成中`);
-  if (failed) states.push(`${failed} 条失败`);
   return `精读缓存 ${cached}/${total}（${percentage}%）${states.length ? ` · ${states.join(' · ')}` : ''}`;
 }
 function createModeButton(text, mode, paper) {
