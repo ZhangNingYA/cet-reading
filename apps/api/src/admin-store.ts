@@ -244,11 +244,60 @@ export async function getAdminOverview() {
 }
 
 export async function listAdminPapers() {
-  const result = await pool.query(
-    `WITH visible AS(SELECT s.id,s.paper_id,s.source_hash,jsonb_build_object('title',p.title,'previousSentence',lag(s.source_text) OVER w,'nextSentence',lead(s.source_text) OVER w) context_json FROM sentences s JOIN papers p ON p.id=s.paper_id WHERE p.status='published' AND NOT EXISTS(SELECT 1 FROM shared_paper_sections x WHERE x.paper_id=s.paper_id AND x.section_id=s.section_id) WINDOW w AS(PARTITION BY s.paper_id ORDER BY s.paragraph_index,s.sentence_index)),totals AS(SELECT paper_id,COUNT(*)::integer total FROM visible GROUP BY paper_id),cached AS(SELECT v.paper_id,COUNT(DISTINCT v.id)::integer cached FROM visible v JOIN sentence_analyses a ON a.sentence_id=v.id AND a.source_hash=v.source_hash AND a.context_json=v.context_json AND a.prompt_version=ANY($1::text[]) AND a.model=$2 AND a.mode=$3 AND a.status='succeeded' GROUP BY v.paper_id) SELECT p.id,p.title,p.exam_level,p.year,p.month,p.set_no,COALESCE(pr.priority,0)::integer priority,COALESCE(pr.sort_order,2147483647)::integer sort_order,COALESCE(t.total,0)::integer total,COALESCE(c.cached,0)::integer cached FROM papers p LEFT JOIN analysis_paper_priorities pr ON pr.paper_id=p.id LEFT JOIN totals t ON t.paper_id=p.id LEFT JOIN cached c ON c.paper_id=p.id WHERE p.status='published' ORDER BY priority DESC,sort_order,p.year DESC,p.month DESC,p.exam_level,p.set_no`,
-    [config.cachePromptVersions, config.model, config.mode],
+  const [paperResult, newsResult] = await Promise.all([
+    pool.query(
+      `WITH visible AS (
+         SELECT s.id, s.paper_id, s.source_hash,
+                jsonb_build_object('title', p.title, 'previousSentence', lag(s.source_text) OVER w,
+                  'nextSentence', lead(s.source_text) OVER w) context_json
+         FROM sentences s JOIN papers p ON p.id=s.paper_id
+         WHERE p.status='published'
+           AND NOT EXISTS (SELECT 1 FROM shared_paper_sections x
+             WHERE x.paper_id=s.paper_id AND x.section_id=s.section_id)
+         WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index,s.sentence_index)
+       ), totals AS (SELECT paper_id, COUNT(*)::integer total FROM visible GROUP BY paper_id),
+       cached AS (SELECT v.paper_id, COUNT(DISTINCT v.id)::integer cached FROM visible v
+         JOIN sentence_analyses a ON a.sentence_id=v.id AND a.source_hash=v.source_hash
+           AND a.context_json=v.context_json AND a.prompt_version=ANY($1::text[])
+           AND a.model=$2 AND a.mode=$3 AND a.status='succeeded' GROUP BY v.paper_id)
+       SELECT p.id, p.title, p.exam_level, p.year, p.month, p.set_no,
+         COALESCE(pr.priority,0)::integer priority, COALESCE(pr.sort_order,2147483647)::integer sort_order,
+         COALESCE(t.total,0)::integer total, COALESCE(c.cached,0)::integer cached,
+         'paper'::text source_type, p.id source_id
+       FROM papers p LEFT JOIN analysis_paper_priorities pr ON pr.paper_id=p.id
+         LEFT JOIN totals t ON t.paper_id=p.id LEFT JOIN cached c ON c.paper_id=p.id
+       WHERE p.status='published' AND COALESCE(t.total,0)>COALESCE(c.cached,0)`,
+      [config.cachePromptVersions, config.model, config.mode],
+    ),
+    pool.query(
+      `WITH ordered AS (
+         SELECT s.id, s.article_id, s.source_hash,
+           jsonb_build_object('title', n.title, 'previousSentence', lag(s.source_text) OVER w,
+             'nextSentence', lead(s.source_text) OVER w) context_json
+         FROM sentences s JOIN news_articles n ON n.id=s.article_id
+         WHERE n.status='published'
+         WINDOW w AS (PARTITION BY s.article_id ORDER BY s.paragraph_index,s.sentence_index)
+       ), totals AS (SELECT article_id, COUNT(*)::integer total FROM ordered GROUP BY article_id),
+       cached AS (SELECT v.article_id, COUNT(DISTINCT v.id)::integer cached FROM ordered v
+         JOIN sentence_analyses a ON a.sentence_id=v.id AND a.source_hash=v.source_hash
+           AND a.context_json=v.context_json AND a.prompt_version=ANY($1::text[])
+           AND a.model=$2 AND a.mode=$3 AND a.status='succeeded' GROUP BY v.article_id)
+       SELECT n.id, n.title, 'NEWS'::text exam_level,
+         EXTRACT(YEAR FROM n.batch_at)::integer year, EXTRACT(MONTH FROM n.batch_at)::integer month,
+         0::integer set_no, COALESCE(pr.priority,0)::integer priority,
+         COALESCE(pr.sort_order,2147483647)::integer sort_order,
+         COALESCE(t.total,0)::integer total, COALESCE(c.cached,0)::integer cached,
+         'news'::text source_type, n.id source_id
+       FROM news_articles n LEFT JOIN analysis_news_priorities pr ON pr.article_id=n.id
+         LEFT JOIN totals t ON t.article_id=n.id LEFT JOIN cached c ON c.article_id=n.id
+       WHERE n.status='published' AND COALESCE(t.total,0)>COALESCE(c.cached,0)`,
+      [config.cachePromptVersions, config.model, config.mode],
+    ),
+  ]);
+  return [...paperResult.rows, ...newsResult.rows].sort((a, b) =>
+    Number(b.priority) - Number(a.priority) || Number(a.sort_order) - Number(b.sort_order) ||
+    Number(b.year) - Number(a.year) || Number(b.month) - Number(a.month) || String(a.id).localeCompare(String(b.id)),
   );
-  return result.rows;
 }
 
 export async function reorderAdminPapers(
@@ -259,12 +308,17 @@ export async function reorderAdminPapers(
     throw new InvalidAdminSettingsError("Invalid paper ordering");
   const normalized = items.map((item, index) => {
     const row = item as {
+      sourceType?: unknown;
+      sourceId?: unknown;
       paperId?: unknown;
       priority?: unknown;
       sortOrder?: unknown;
     };
+    const sourceType = row.sourceType === "news" ? "news" : row.sourceType === "paper" ? "paper" : null;
+    const sourceId = typeof row.sourceId === "string" ? row.sourceId : row.paperId;
     if (
-      typeof row.paperId !== "string" ||
+      !sourceType ||
+      typeof sourceId !== "string" ||
       !Number.isInteger(row.priority) ||
       !Number.isInteger(row.sortOrder) ||
       Math.abs(row.priority as number) > 100 ||
@@ -272,7 +326,8 @@ export async function reorderAdminPapers(
     )
       throw new InvalidAdminSettingsError("Invalid paper ordering");
     return [
-      row.paperId,
+      sourceType,
+      sourceId,
       row.priority as number,
       (row.sortOrder as number) || index,
     ];
@@ -280,15 +335,25 @@ export async function reorderAdminPapers(
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
+    const ids = normalized.map((row) => row[1]);
     const before = await client.query(
-      `SELECT paper_id,priority,sort_order FROM analysis_paper_priorities WHERE paper_id=ANY($1::text[])`,
-      [normalized.map((row) => row[0])],
+      `SELECT 'paper'::text source_type,paper_id source_id,priority,sort_order FROM analysis_paper_priorities WHERE paper_id=ANY($1::text[])
+       UNION ALL SELECT 'news'::text source_type,article_id source_id,priority,sort_order FROM analysis_news_priorities WHERE article_id=ANY($1::text[])`,
+      [ids],
     );
-    for (const row of normalized)
-      await client.query(
-        `INSERT INTO analysis_paper_priorities(paper_id,priority,sort_order) VALUES($1,$2,$3) ON CONFLICT(paper_id) DO UPDATE SET priority=EXCLUDED.priority,sort_order=EXCLUDED.sort_order,updated_at=NOW()`,
-        row,
-      );
+    for (const row of normalized) {
+      if (row[0] === "news") {
+        await client.query(
+          `INSERT INTO analysis_news_priorities(article_id,priority,sort_order) VALUES($1,$2,$3) ON CONFLICT(article_id) DO UPDATE SET priority=EXCLUDED.priority,sort_order=EXCLUDED.sort_order,updated_at=NOW()`,
+          [row[1], row[2], row[3]],
+        );
+      } else {
+        await client.query(
+          `INSERT INTO analysis_paper_priorities(paper_id,priority,sort_order) VALUES($1,$2,$3) ON CONFLICT(paper_id) DO UPDATE SET priority=EXCLUDED.priority,sort_order=EXCLUDED.sort_order,updated_at=NOW()`,
+          [row[1], row[2], row[3]],
+        );
+      }
+    }
     await audit(client, "papers.reordered", before.rows, normalized, actor);
     await client.query("COMMIT");
     return listAdminPapers();

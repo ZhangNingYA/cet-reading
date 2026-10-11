@@ -8,6 +8,8 @@ type RuntimeSettings = {
 };
 type Paper = {
   id: string;
+  source_type: "paper" | "news";
+  source_id: string;
   title: string;
   exam_level: string;
   year: number;
@@ -87,6 +89,10 @@ const pause = el<HTMLButtonElement>("admin-pause");
 const resume = el<HTMLButtonElement>("admin-resume");
 let inFlight = false;
 let papers: Paper[] = [];
+let paperPage = 0;
+const PAPER_PAGE_SIZE = 10;
+const paperSearch = el<HTMLInputElement>("admin-paper-search");
+const paperLevel = el<HTMLSelectElement>("admin-paper-level");
 function seconds(value: number | null) {
   if (value == null || !Number.isFinite(value)) return "—";
   if (value < 60) return `${Math.round(value)} 秒`;
@@ -156,6 +162,8 @@ function renderChart(data: Overview) {
 }
 function renderErrors(data: Overview) {
   const target = el<HTMLElement>("admin-retry-list");
+  el("admin-retry-summary").textContent = `当前共有 ${data.queue.failed.toLocaleString()} 条任务处于失败隔离；下方按最近 24 小时的错误类型统计。重试会清零尝试次数并重新进入队列。`;
+  el<HTMLButtonElement>("admin-retry-all").disabled = data.queue.failed === 0;
   const labels: Record<string, string> = {
     timeout: "超时",
     service_unavailable: "服务不可用",
@@ -256,16 +264,38 @@ async function loadPapers() {
       `<p class="admin-note admin-error">${esc(error instanceof Error ? error.message : "试卷加载失败")}</p>`;
   }
 }
+function filteredPapers() {
+  const query = paperSearch.value.trim().toLowerCase();
+  return papers
+    .map((paper, index) => ({ paper, index }))
+    .filter(({ paper }) => {
+      const matchesQuery = !query || `${paper.id} ${paper.title} ${paper.year}-${paper.month} ${paper.exam_level}`.toLowerCase().includes(query);
+      const matchesLevel = !paperLevel.value || (paperLevel.value === "POSTGRAD"
+        ? paper.source_type === "paper" && !["CET4", "CET6"].includes(paper.exam_level)
+        : paper.exam_level === paperLevel.value);
+      return matchesQuery && matchesLevel;
+    });
+}
 function renderPapers() {
   const target = el<HTMLElement>("admin-paper-list");
-  target.innerHTML = papers.length
-    ? papers
-        .map(
-          (paper, index) =>
-            `<div class="admin-paper-row" draggable="true" data-index="${index}"><span class="admin-drag-handle" aria-label="拖动排序">⋮⋮</span><span class="admin-paper-name"><strong>${esc(paper.title)}</strong><small>${esc(paper.exam_level)} · ${paper.year}-${String(paper.month).padStart(2, "0")} · ${paper.cached}/${paper.total} 句</small></span><label>优先级<input class="admin-paper-priority" data-id="${esc(paper.id)}" type="number" min="-100" max="100" value="${paper.priority}" /></label></div>`,
-        )
-        .join("")
-    : '<p class="admin-note">暂时没有已发布试卷。</p>';
+  const matches = filteredPapers();
+  const pages = Math.max(1, Math.ceil(matches.length / PAPER_PAGE_SIZE));
+  paperPage = Math.min(paperPage, pages - 1);
+  const visible = matches.slice(paperPage * PAPER_PAGE_SIZE, (paperPage + 1) * PAPER_PAGE_SIZE);
+  el("admin-paper-count").textContent = matches.length ? `共 ${matches.length} 套 · 第 ${paperPage + 1}/${pages} 页` : "没有匹配的试卷";
+  el<HTMLButtonElement>("admin-paper-prev").disabled = paperPage === 0;
+  el<HTMLButtonElement>("admin-paper-next").disabled = paperPage >= pages - 1;
+  el("admin-paper-page").textContent = `${paperPage + 1} / ${pages}`;
+  target.innerHTML = visible.length
+    ? visible.map(({ paper, index }) =>
+      `<div class="admin-paper-row" draggable="true" data-index="${index}"><span class="admin-drag-handle" aria-label="拖动排序">⋮⋮</span><span class="admin-paper-name"><strong><em class="admin-source-tag ${paper.source_type === "news" ? "is-news" : ""}">${paper.source_type === "news" ? "News" : "试卷"}</em>${esc(paper.title)}</strong><small>${esc(paper.exam_level)} · ${paper.year}-${String(paper.month).padStart(2, "0")} · ${paper.cached}/${paper.total} 句</small></span><label>优先级<input class="admin-paper-priority" data-key="${esc(`${paper.source_type}:${paper.source_id}`)}" type="number" min="-100" max="100" value="${paper.priority}" /></label></div>`).join("")
+    : '<p class="admin-note">暂时没有匹配的试卷。</p>';
+  target.querySelectorAll<HTMLInputElement>(".admin-paper-priority").forEach((input) => {
+    input.addEventListener("change", () => {
+      const paper = papers.find((item) => `${item.source_type}:${item.source_id}` === input.dataset.key);
+      if (paper) paper.priority = Math.max(-100, Math.min(100, Number(input.value) || 0));
+    });
+  });
   target.querySelectorAll<HTMLElement>("[draggable=true]").forEach((row) => {
     row.addEventListener("dragstart", (e) =>
       e.dataTransfer?.setData("text/plain", row.dataset.index || ""),
@@ -292,14 +322,9 @@ function renderPapers() {
 }
 async function saveOrder() {
   const items = papers.map((paper, index) => ({
-    paperId: paper.id,
-    priority: Number(
-      (
-        document.querySelector(
-          `.admin-paper-priority[data-id="${CSS.escape(paper.id)}"]`,
-        ) as HTMLInputElement
-      )?.value ?? paper.priority,
-    ),
+    sourceType: paper.source_type,
+    sourceId: paper.source_id,
+    priority: paper.priority,
     sortOrder: index,
   }));
   try {
@@ -363,17 +388,15 @@ async function setPaused(value: boolean) {
     setStatus(error instanceof Error ? error.message : "操作失败。", true);
   }
 }
-async function retry(code: string) {
-  const button = document.querySelector<HTMLButtonElement>(
-    `.admin-retry[data-code="${CSS.escape(code)}"]`,
-  );
+async function retry(code?: string) {
+  const button = code ? document.querySelector<HTMLButtonElement>(`.admin-retry[data-code="${CSS.escape(code)}"]`) : el<HTMLButtonElement>("admin-retry-all");
   if (button) button.disabled = true;
   try {
     const data = (await request("/api/admin/analysis/retry", {
       method: "POST",
-      body: JSON.stringify({ errorCode: code, limit: 500 }),
+      body: JSON.stringify({ ...(code ? { errorCode: code } : {}), limit: 500 }),
     })) as { retried: number };
-    setStatus(`已将 ${data.retried} 条${code}失败任务重新排队。`);
+    setStatus(`已将 ${data.retried} 条${code ? `${code} 类型的` : ""}失败任务重新排队。`);
     await load(true);
   } catch (error) {
     setStatus(error instanceof Error ? error.message : "重试失败。", true);
@@ -409,12 +432,17 @@ save.addEventListener("click", () => void saveSettings());
 pause.addEventListener("click", () => void setPaused(true));
 resume.addEventListener("click", () => void setPaused(false));
 el("admin-save-order").addEventListener("click", () => void saveOrder());
+paperSearch.addEventListener("input", () => { paperPage = 0; renderPapers(); });
+paperLevel.addEventListener("change", () => { paperPage = 0; renderPapers(); });
+el("admin-paper-prev").addEventListener("click", () => { paperPage -= 1; renderPapers(); });
+el("admin-paper-next").addEventListener("click", () => { paperPage += 1; renderPapers(); });
 el("admin-retry-list").addEventListener("click", (event) => {
   const button = (event.target as HTMLElement).closest<HTMLButtonElement>(
     ".admin-retry",
   );
   if (button) void retry(button.dataset.code || "");
 });
+el("admin-retry-all").addEventListener("click", () => void retry());
 void Promise.all([load(), loadPapers(), loadAudit()]);
 setInterval(() => {
   if (document.visibilityState !== "hidden") {
