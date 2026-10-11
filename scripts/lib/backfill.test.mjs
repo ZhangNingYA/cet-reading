@@ -14,6 +14,7 @@ const candidate = (id, sentenceIndex) => ({
   id, owner_id: 'paper-1', source_text: `Sentence ${sentenceIndex}.`, source_hash: `source-${id}`,
   paper_id: 'paper-1', article_id: null, title: 'Paper', previous_sentence: null,
   next_sentence: null, paragraph_index: 0, sentence_index: sentenceIndex,
+  news_batch_at: null, news_published_at: null,
   section_id: 'paper-1-section-1',
 });
 
@@ -40,7 +41,10 @@ test('backfill queues one missing sentence and advances its cursor without skipp
   };
   const result = await fillBackgroundQueue(pool, config);
   assert.equal(result.queued, 1);
-  assert.deepEqual(result.nextCursor, { owner_id: 'paper-1', paragraph_index: 0, sentence_index: 0 });
+  assert.deepEqual(result.nextCursor, {
+    source: 'paper', owner_id: 'paper-1', paragraph_index: 0, sentence_index: 0,
+    batch_at: null, published_at: null,
+  });
   assert.equal(result.scanHasMore, false);
   assert.equal(calls.some(sql => sql.includes('INSERT INTO analysis_jobs')), true);
   t.mock.reset();
@@ -70,7 +74,10 @@ test('backfill immediately continues past a full page with no queueable candidat
   const result = await fillBackgroundQueue(pool, config);
   assert.equal(result.queued, 0);
   assert.equal(result.scanHasMore, true);
-  assert.deepEqual(result.nextCursor, { owner_id: 'paper-1', paragraph_index: 0, sentence_index: 49 });
+  assert.deepEqual(result.nextCursor, {
+    source: 'paper', owner_id: 'paper-1', paragraph_index: 0, sentence_index: 49,
+    batch_at: null, published_at: null,
+  });
 });
 
 test('four running background jobs leave capacity for four waiting jobs', async () => {
@@ -148,4 +155,24 @@ test('backfill excludes sections hidden as shared readings', async () => {
   await fillBackgroundQueue(pool, config);
   assert.match(orderedQuery, /FROM shared_paper_sections shared/);
   assert.match(orderedQuery, /shared\.section_id = ordered\.section_id/);
+});
+
+test('backfill orders latest news batches before paper candidates', async () => {
+  let orderedQuery = '';
+  const pool = {
+    async query(sql) {
+      const text = String(sql);
+      if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: 0, background: 0 }] };
+      if (text.includes('WITH ordered')) {
+        orderedQuery = text;
+        return { rows: [] };
+      }
+      return { rows: [] };
+    },
+  };
+  await fillBackgroundQueue(pool, config);
+  assert.match(orderedQuery, /n\.batch_at AS news_batch_at/);
+  assert.match(orderedQuery, /ORDER BY \(article_id IS NOT NULL\) DESC/);
+  assert.match(orderedQuery, /news_batch_at DESC NULLS LAST/);
+  assert.match(orderedQuery, /news_published_at DESC NULLS LAST/);
 });

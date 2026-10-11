@@ -18,6 +18,8 @@ type Candidate = {
   next_sentence: string | null;
   paragraph_index: number;
   sentence_index: number;
+  news_batch_at: Date | string | null;
+  news_published_at: Date | string | null;
 };
 
 type CandidateWithContext = Candidate & {
@@ -25,7 +27,14 @@ type CandidateWithContext = Candidate & {
   context_hash: string;
 };
 
-type Cursor = { owner_id: string; paragraph_index: number; sentence_index: number };
+type Cursor = {
+  source: 'news' | 'paper';
+  owner_id: string;
+  paragraph_index: number;
+  sentence_index: number;
+  batch_at: string | null;
+  published_at: string | null;
+};
 
 type ExistingCache = {
   sentence_id: string;
@@ -40,6 +49,24 @@ type ExistingJob = {
   context_hash: string;
   status: string;
 };
+
+function toIso(value: Date | string | null | undefined) {
+  if (value == null) return null;
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+}
+
+function cursorFromCandidate(candidate: Candidate): Cursor {
+  const news = Boolean(candidate.article_id);
+  return {
+    source: news ? 'news' : 'paper',
+    owner_id: candidate.owner_id,
+    paragraph_index: candidate.paragraph_index,
+    sentence_index: candidate.sentence_index,
+    batch_at: news ? toIso(candidate.news_batch_at) : null,
+    published_at: news ? toIso(candidate.news_published_at) : null,
+  };
+}
 
 function sleep(ms: number, signal: AbortSignal) {
   return new Promise<void>(resolve => {
@@ -58,15 +85,44 @@ function sleep(ms: number, signal: AbortSignal) {
 }
 
 async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) {
-  const cursorClause = cursor ? 'AND (owner_id, paragraph_index, sentence_index) > ($1::text, $2::integer, $3::integer)' : '';
-  const params = cursor ? [cursor.owner_id, cursor.paragraph_index, cursor.sentence_index, limit] : [limit];
-  const limitParameter = cursor ? '$4' : '$1';
+  const cursorClause = cursor ? `AND (
+    (
+      $1::text = 'news' AND (
+        s.article_id IS NULL OR (
+          s.article_id IS NOT NULL AND (
+            n.batch_at < $2::timestamptz OR
+            (n.batch_at = $2::timestamptz AND (
+              n.published_at < $3::timestamptz OR
+              (n.published_at = $3::timestamptz AND (
+                s.article_id < $4::text OR
+                (s.article_id = $4::text AND
+                  (s.paragraph_index, s.sentence_index) > ($5::integer, $6::integer))
+                )
+              )
+            ))
+          )
+        )
+      )
+    ) OR (
+      $1::text = 'paper' AND s.article_id IS NULL AND (
+        s.paper_id > $4::text OR
+        (s.paper_id = $4::text AND
+          (s.paragraph_index, s.sentence_index) > ($5::integer, $6::integer))
+      )
+    )
+  )` : '';
+  const params = cursor
+    ? [cursor.source, cursor.batch_at, cursor.published_at, cursor.owner_id,
+      cursor.paragraph_index, cursor.sentence_index, limit]
+    : [limit];
+  const limitParameter = cursor ? '$7' : '$1';
   const result = await pool.query<Candidate>(
     `WITH ordered AS (
        SELECT s.id, COALESCE(s.paper_id, s.article_id) AS owner_id,
               s.source_text, s.source_hash, s.paper_id, s.article_id,
               s.section_id,
               COALESCE(p.title, n.title, '') AS title,
+              n.batch_at AS news_batch_at, n.published_at AS news_published_at,
               lag(s.source_text) OVER w AS previous_sentence,
               lead(s.source_text) OVER w AS next_sentence,
               s.paragraph_index, s.sentence_index
@@ -86,7 +142,12 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
                AND shared.section_id = ordered.section_id
            )
        ${cursorClause}
-     ORDER BY COALESCE(paper_id, article_id), paragraph_index, sentence_index
+     ORDER BY (article_id IS NOT NULL) DESC,
+              news_batch_at DESC NULLS LAST,
+              news_published_at DESC NULLS LAST,
+              CASE WHEN article_id IS NOT NULL THEN article_id END DESC NULLS LAST,
+              CASE WHEN article_id IS NULL THEN paper_id END ASC NULLS LAST,
+              paragraph_index, sentence_index
      LIMIT ${limitParameter}`,
     params,
   );
@@ -225,7 +286,7 @@ export async function fillBackgroundQueue(pool: Pool, config: RuntimeConfig, cur
   if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false };
   const { caches, jobs } = await loadExisting(pool, candidates, config);
   let queued = 0;
-  let lastExamined: Cursor = candidates[0]!;
+  let lastExamined = candidates[0]!;
   for (const candidate of candidates) {
     if (queued >= capacity) break;
     lastExamined = candidate;
@@ -236,11 +297,7 @@ export async function fillBackgroundQueue(pool: Pool, config: RuntimeConfig, cur
   }
   return {
     queued,
-    nextCursor: {
-      owner_id: lastExamined.owner_id,
-      paragraph_index: lastExamined.paragraph_index,
-      sentence_index: lastExamined.sentence_index,
-    },
+    nextCursor: cursorFromCandidate(lastExamined),
     // Cached pages are common after a restart. Scan the next page immediately
     // instead of leaving worker slots idle for a full scheduler interval.
     scanHasMore: queued < capacity && candidates.length === candidateLimit,
