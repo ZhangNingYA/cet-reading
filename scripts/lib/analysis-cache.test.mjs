@@ -50,7 +50,7 @@ test('rejects public generation while the paper batch holds the shared AI gate',
   assert.equal(released, true);
 });
 
-test('a user request evicts one pending background job when the sixteen-slot queue is full', async t => {
+test('a user request evicts one pending background job when the eight-slot queue is full', async t => {
   const calls = [];
   let released = false;
   const client = {
@@ -59,7 +59,7 @@ test('a user request evicts one pending background job when the sixteen-slot que
       calls.push(statement);
       if (statement.includes('pg_try_advisory_xact_lock_shared')) return { rows: [{ allowed: true }] };
       if (statement.includes('SELECT id, status')) return { rows: [] };
-      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ count: 16, background: 16 }] };
+      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ count: 8, background: 8 }] };
       if (statement.includes('DELETE FROM analysis_jobs')) return { rowCount: 1, rows: [{ id: 'background-job' }] };
       if (statement.includes('INSERT INTO analysis_jobs')) return { rows: [{ id: 'user-job', status: 'pending' }] };
       return { rows: [] };
@@ -83,7 +83,7 @@ test('a full queue with no unstarted background jobs rejects admission without d
       const statement = String(sql);
       calls.push(statement);
       if (statement.includes('pg_try_advisory_xact_lock_shared')) return { rows: [{ allowed: true }] };
-      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ count: 16, background: 4 }] };
+      if (statement.includes('COUNT(*) FILTER')) return { rows: [{ count: 8, background: 4 }] };
       return { rows: [], rowCount: 0 };
     },
     release() {},

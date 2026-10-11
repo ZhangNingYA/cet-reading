@@ -125,13 +125,13 @@ test('API sentence and section cache queries exclude shared readings', async t =
 test('worker concurrency is bounded independently of the model, prompt and generation deadline', () => {
   const baseline = readConfig({});
   const sequential = readConfig({ WORKER_CONCURRENCY: '1' });
-  assert.equal(baseline.workerConcurrency, 8);
-  assert.equal(baseline.backfillTarget, 16);
+  assert.equal(baseline.workerConcurrency, 4);
+  assert.equal(baseline.backfillTarget, 8);
   assert.equal(baseline.maxAnalysisAttempts, 3);
   assert.deepEqual({ ...sequential, workerConcurrency: 1 }, { ...baseline, workerConcurrency: 1 });
-  assert.throws(() => readConfig({ WORKER_CONCURRENCY: '9' }));
+  assert.throws(() => readConfig({ WORKER_CONCURRENCY: '5' }));
   assert.throws(() => readConfig({ WORKER_CONCURRENCY: '0' }));
-  assert.throws(() => readConfig({ BACKFILL_TARGET: '17' }));
+  assert.throws(() => readConfig({ BACKFILL_TARGET: '9' }));
 });
 
 test('transient failures are retried a few times then quarantined', () => {

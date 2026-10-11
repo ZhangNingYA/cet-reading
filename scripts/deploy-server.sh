@@ -22,9 +22,9 @@ set_env_value() {
     printf '%s=%s\n' "$key" "$value" >> .env
   fi
 }
-set_env_value WORKER_CONCURRENCY 8
+set_env_value WORKER_CONCURRENCY 4
 set_env_value ANALYSIS_MAX_ATTEMPTS 3
-set_env_value BACKFILL_TARGET 16
+set_env_value BACKFILL_TARGET 8
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   git init -b main
