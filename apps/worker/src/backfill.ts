@@ -88,15 +88,15 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
   const cursorClause = cursor ? `AND (
     (
       $1::text = 'news' AND (
-        s.article_id IS NULL OR (
-          s.article_id IS NOT NULL AND (
-            n.batch_at < $2::timestamptz OR
-            (n.batch_at = $2::timestamptz AND (
-              n.published_at < $3::timestamptz OR
-              (n.published_at = $3::timestamptz AND (
-                s.article_id < $4::text OR
-                (s.article_id = $4::text AND
-                  (s.paragraph_index, s.sentence_index) > ($5::integer, $6::integer))
+        article_id IS NULL OR (
+          article_id IS NOT NULL AND (
+            news_batch_at < $2::timestamptz OR
+            (news_batch_at = $2::timestamptz AND (
+              news_published_at < $3::timestamptz OR
+              (news_published_at = $3::timestamptz AND (
+                article_id < $4::text OR
+                (article_id = $4::text AND
+                  (paragraph_index, sentence_index) > ($5::integer, $6::integer))
                 )
               )
             ))
@@ -104,10 +104,10 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
         )
       )
     ) OR (
-      $1::text = 'paper' AND s.article_id IS NULL AND (
-        s.paper_id > $4::text OR
-        (s.paper_id = $4::text AND
-          (s.paragraph_index, s.sentence_index) > ($5::integer, $6::integer))
+      $1::text = 'paper' AND article_id IS NULL AND (
+        paper_id > $4::text OR
+        (paper_id = $4::text AND
+          (paragraph_index, sentence_index) > ($5::integer, $6::integer))
       )
     )
   )` : '';
