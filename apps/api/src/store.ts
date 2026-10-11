@@ -36,7 +36,7 @@ type SentenceRow = {
 export async function listPapers() {
   const result = await pool.query(
     `WITH ordered AS (
-       SELECT s.id, s.paper_id, s.source_hash,
+       SELECT s.id, s.paper_id, s.section_id, s.source_hash,
               jsonb_build_object(
                 'title', p.title,
                 'previousSentence', lag(s.source_text) OVER w,
@@ -45,12 +45,19 @@ export async function listPapers() {
        FROM sentences s JOIN papers p ON p.id = s.paper_id
        WHERE p.status = 'published'
        WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index, s.sentence_index)
+     ), visible AS (
+       SELECT o.*
+       FROM ordered o
+       WHERE NOT EXISTS (
+         SELECT 1 FROM shared_paper_sections shared
+         WHERE shared.paper_id = o.paper_id AND shared.section_id = o.section_id
+       )
      ), totals AS (
        SELECT paper_id, COUNT(*)::integer AS total
-       FROM ordered GROUP BY paper_id
+       FROM visible GROUP BY paper_id
      ), cached AS (
        SELECT o.paper_id, COUNT(DISTINCT o.id)::integer AS cached
-       FROM ordered o JOIN sentence_analyses a
+       FROM visible o JOIN sentence_analyses a
          ON a.sentence_id = o.id AND a.source_hash = o.source_hash
         AND a.context_json = o.context_json
         AND a.prompt_version = $1 AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
@@ -63,7 +70,7 @@ export async function listPapers() {
               COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
                 j.status = 'running' AND j.lease_expires_at > NOW())::integer AS running,
               COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status = 'failed')::integer AS failed
-       FROM ordered o JOIN analysis_jobs j
+       FROM visible o JOIN analysis_jobs j
          ON j.sentence_id = o.id AND j.source_hash = o.source_hash
         AND j.context_json = o.context_json
        LEFT JOIN sentence_analyses a

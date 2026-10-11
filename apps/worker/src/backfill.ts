@@ -12,6 +12,7 @@ type Candidate = {
   source_hash: string;
   paper_id: string | null;
   article_id: string | null;
+  section_id: string | null;
   title: string;
   previous_sentence: string | null;
   next_sentence: string | null;
@@ -64,6 +65,7 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
     `WITH ordered AS (
        SELECT s.id, COALESCE(s.paper_id, s.article_id) AS owner_id,
               s.source_text, s.source_hash, s.paper_id, s.article_id,
+              s.section_id,
               COALESCE(p.title, n.title, '') AS title,
               lag(s.source_text) OVER w AS previous_sentence,
               lead(s.source_text) OVER w AS next_sentence,
@@ -78,7 +80,12 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
        )
      )
      SELECT * FROM ordered
-     WHERE TRUE ${cursorClause}
+     WHERE NOT EXISTS (
+             SELECT 1 FROM shared_paper_sections shared
+             WHERE shared.paper_id = ordered.paper_id
+               AND shared.section_id = ordered.section_id
+           )
+       ${cursorClause}
      ORDER BY COALESCE(paper_id, article_id), paragraph_index, sentence_index
      LIMIT ${limitParameter}`,
     params,

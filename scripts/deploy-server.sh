@@ -70,6 +70,19 @@ docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/014_news.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/015_analysis_queue_resilience.sql
+# Shared reading chapters are hidden in the UI and must not consume analysis work.
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/016_shared_reading.sql
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading <<'SQL'
+DELETE FROM analysis_jobs job
+USING sentences sentence
+JOIN shared_paper_sections shared
+  ON shared.paper_id = sentence.paper_id
+ AND shared.section_id = sentence.section_id
+WHERE job.sentence_id = sentence.id
+  AND job.status IN ('pending', 'running', 'failed');
+SQL
 docker compose up -d --no-build --remove-orphans --wait --wait-timeout 120
 docker compose ps
 

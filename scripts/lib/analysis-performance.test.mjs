@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import { tsImport } from 'tsx/esm/api';
 import { buildAnalysis, contextHash, sourceHash } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
@@ -95,6 +96,15 @@ test('progress counts only jobs with a live lease as running', async t => {
   await listPapers();
   assert.match(statement, /j\.status = 'running' AND j\.lease_expires_at > NOW\(\)/);
   assert.match(statement, /j\.lease_expires_at IS NULL OR j\.lease_expires_at <= NOW\(\)/);
+  assert.match(statement, /FROM shared_paper_sections shared/);
+  assert.match(statement, /shared\.section_id = o\.section_id/);
+});
+
+test('fresh and existing databases share the shared-reading rule', () => {
+  assert.equal(
+    readFileSync('db/init/016_shared_reading.sql', 'utf8'),
+    readFileSync('db/migrations/016_shared_reading.sql', 'utf8'),
+  );
 });
 
 test('worker concurrency is bounded independently of the model, prompt and generation deadline', () => {

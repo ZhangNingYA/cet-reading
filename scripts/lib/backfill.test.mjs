@@ -14,6 +14,7 @@ const candidate = (id, sentenceIndex) => ({
   id, owner_id: 'paper-1', source_text: `Sentence ${sentenceIndex}.`, source_hash: `source-${id}`,
   paper_id: 'paper-1', article_id: null, title: 'Paper', previous_sentence: null,
   next_sentence: null, paragraph_index: 0, sentence_index: sentenceIndex,
+  section_id: 'paper-1-section-1',
 });
 
 test('backfill queues one missing sentence and advances its cursor without skipping the next one', async t => {
@@ -129,4 +130,22 @@ test('background admission respects user jobs arriving after the scan counted ca
   };
   assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 16 })).queued, 0);
   assert.equal(inserts, 0, 'A stale scan must not bypass the hard queue limit');
+});
+
+test('backfill excludes sections hidden as shared readings', async () => {
+  let orderedQuery = '';
+  const pool = {
+    async query(sql) {
+      const text = String(sql);
+      if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: 0, background: 0 }] };
+      if (text.includes('WITH ordered')) {
+        orderedQuery = text;
+        return { rows: [] };
+      }
+      return { rows: [] };
+    },
+  };
+  await fillBackgroundQueue(pool, config);
+  assert.match(orderedQuery, /FROM shared_paper_sections shared/);
+  assert.match(orderedQuery, /shared\.section_id = ordered\.section_id/);
 });
