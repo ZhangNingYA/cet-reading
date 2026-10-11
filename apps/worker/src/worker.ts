@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import { hostname } from 'node:os';
 import { Pool, type PoolClient } from 'pg';
 import {
   AIAnalysisSchema,
@@ -47,13 +48,13 @@ function demoRaw(source: string): AIAnalysis {
   });
 }
 
-async function processJob(job: AnalysisJob) {
+async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof readRuntimeSettings>>) {
   const startedAt = Date.now();
   const client: PoolClient = await pool.connect();
   try {
     const analysis = config.mode === 'demo'
       ? buildAnalysis(job.source_text, demoRaw(job.source_text))
-      : await generateAnalysis(job, config);
+      : await generateAnalysis(job, { ...config, promptOverride: runtime.promptOverride });
     await client.query('BEGIN');
     const finished = await client.query(
       `UPDATE analysis_jobs SET status = 'succeeded', error_message = NULL,
@@ -126,6 +127,19 @@ async function main() {
   process.once('SIGINT', stop);
   let runtime = await readRuntimeSettings(pool, config);
   let runtimeReadAt = Date.now();
+  let activeJobs = 0;
+  const workerId = `${hostname()}-${process.pid}`;
+  const heartbeat = async () => {
+    await pool.query(
+      `INSERT INTO analysis_worker_heartbeats (worker_id, hostname, pid, active_jobs, concurrency, started_at, last_seen_at)
+       VALUES ($1, $2, $3, $4, $5, NOW(), NOW())
+       ON CONFLICT (worker_id) DO UPDATE SET active_jobs=EXCLUDED.active_jobs,
+         concurrency=EXCLUDED.concurrency, last_seen_at=NOW()`,
+      [workerId, hostname(), process.pid, activeJobs, runtime.workerConcurrency],
+    );
+  };
+  await heartbeat().catch(error => process.stderr.write(`Worker heartbeat unavailable: ${error instanceof Error ? error.message : String(error)}\n`));
+  const heartbeatTimer = setInterval(() => { void heartbeat().catch(error => process.stderr.write(`Worker heartbeat: ${error instanceof Error ? error.message : String(error)}\n`)); }, 5_000);
   const getConcurrency = async () => {
     if (Date.now() - runtimeReadAt < 1_500) return runtime.workerConcurrency;
     runtime = await readRuntimeSettings(pool, config);
@@ -135,9 +149,16 @@ async function main() {
   process.stdout.write(`Worker started (${config.mode}, ${config.model}, concurrency=${runtime.workerConcurrency})\n`);
   const backfillStop = new AbortController();
   const backfill = runBackfillScheduler(pool, config, backfillStop.signal);
+  const processTracked = async (job: AnalysisJob) => {
+    activeJobs += 1;
+    try { await processJob(job, runtime); }
+    finally { activeJobs -= 1; }
+  };
   try {
-    await runJobQueue({ claim: () => claimAnalysisJob(pool, config), process: processJob, getConcurrency, signal: shutdown.signal });
+    await runJobQueue({ claim: () => claimAnalysisJob(pool, config), process: processTracked, getConcurrency, signal: shutdown.signal });
   } finally {
+    clearInterval(heartbeatTimer);
+    await pool.query(`DELETE FROM analysis_worker_heartbeats WHERE worker_id = $1`, [workerId]).catch(() => undefined);
     backfillStop.abort();
     await backfill.catch(error => process.stderr.write(`Background analysis scheduler stopped: ${error instanceof Error ? error.message : String(error)}\n`));
     process.removeListener('SIGTERM', stop);

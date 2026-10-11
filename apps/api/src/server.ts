@@ -5,6 +5,10 @@ import {
   getAdminOverview,
   getAdminSettings,
   InvalidAdminSettingsError,
+  listAdminAudit,
+  listAdminPapers,
+  reorderAdminPapers,
+  retryAdminFailures,
   setBackfillPaused,
   updateAdminSettings,
 } from './admin-store.js';
@@ -56,7 +60,7 @@ app.patch<{ Body: unknown }>('/api/admin/analysis/settings', async (request, rep
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
   try {
-    return { settings: await updateAdminSettings(request.body) };
+    return { settings: await updateAdminSettings(request.body, request.ip || 'admin-console') };
   } catch (error) {
     if (error instanceof InvalidAdminSettingsError) {
       return reply.code(400).send({ error: 'invalid_admin_settings', message: error.message });
@@ -75,6 +79,32 @@ app.post('/api/admin/analysis/backfill/resume', async (_request, reply) => {
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
   return { settings: await setBackfillPaused(false) };
+});
+
+app.get('/api/admin/analysis/papers', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { papers: await listAdminPapers() };
+});
+
+app.post<{ Body: { items?: unknown } }>('/api/admin/analysis/papers/reorder', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  try { return { papers: await reorderAdminPapers(request.body?.items, request.ip || 'admin-console') }; }
+  catch (error) { if (error instanceof InvalidAdminSettingsError) return reply.code(400).send({ error: 'invalid_paper_order', message: error.message }); throw error; }
+});
+
+app.post<{ Body: { errorCode?: string; limit?: number } }>('/api/admin/analysis/retry', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  try { return retryAdminFailures(request.body?.errorCode, request.body?.limit, request.ip || 'admin-console'); }
+  catch (error) { if (error instanceof InvalidAdminSettingsError) return reply.code(400).send({ error: 'invalid_retry_filter', message: error.message }); throw error; }
+});
+
+app.get<{ Querystring: { limit?: string } }>('/api/admin/analysis/audit', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { entries: await listAdminAudit(Number(request.query.limit || 50)) };
 });
 
 app.get<{ Querystring: { before?: string } }>('/api/news', async (request, reply) => {

@@ -60,6 +60,7 @@ export const RuntimeSettingsSchema = z.object({
   queueCapacity: runtimeInteger.max(32),
   backgroundTarget: z.number().int().nonnegative().max(32),
   backfillPaused: z.boolean(),
+  promptOverride: z.string().max(16000),
 });
 
 export const RuntimeSettingsPatchSchema = RuntimeSettingsSchema.partial();

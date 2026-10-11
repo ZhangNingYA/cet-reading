@@ -12,6 +12,7 @@ function defaults(config: RuntimeConfig): RuntimeSettings {
     queueCapacity,
     backgroundTarget: Math.min(configuredTarget, queueCapacity),
     backfillPaused: false,
+    promptOverride: '',
   });
 }
 
@@ -22,8 +23,10 @@ export async function readRuntimeSettings(db: Queryable, config: RuntimeConfig):
       queue_capacity: number;
       background_target: number;
       backfill_paused: boolean;
+      prompt_override: string | null;
     }>(
-      `SELECT worker_concurrency, queue_capacity, background_target, backfill_paused
+      `SELECT worker_concurrency, queue_capacity, background_target, backfill_paused,
+              COALESCE(prompt_override, '') AS prompt_override
        FROM analysis_runtime_settings WHERE id = TRUE`,
     );
     const row = result.rows[0];
@@ -33,9 +36,10 @@ export async function readRuntimeSettings(db: Queryable, config: RuntimeConfig):
       queueCapacity: row.queue_capacity,
       backgroundTarget: row.background_target,
       backfillPaused: row.backfill_paused,
+      promptOverride: row.prompt_override ?? '',
     });
   } catch (error) {
-    if ((error as { code?: string }).code === '42P01') return defaults(config);
+    if (['42P01', '42703'].includes((error as { code?: string }).code ?? '')) return defaults(config);
     throw error;
   }
 }

@@ -5,7 +5,7 @@ type AnalysisInput = {
   source_text: string;
   context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
 };
-type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'>;
+type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'> & { promptOverride?: string };
 
 const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504, 524]);
 // Providers can reset an HTTP/2 stream after accepting a request. Retry
@@ -22,7 +22,7 @@ class AIRequestError extends Error {
   }
 }
 
-function buildPrompt(job: AnalysisInput) {
+function buildPrompt(job: AnalysisInput, promptOverride = '') {
   return JSON.stringify({
     task: '做英语四六级逐句精读。翻译必须自然准确；根据原文解释句型、时态、语态、主干和从句，并提取重点单词和词组。',
     output: {
@@ -59,6 +59,7 @@ function buildPrompt(job: AnalysisInput) {
     sentence: job.source_text,
     context: job.context_json,
     tokenSkeleton: tokenize(job.source_text),
+    operatorInstructions: promptOverride.trim() || undefined,
   });
 }
 
@@ -231,8 +232,8 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
   // Both the initial answer and one validation repair share the original deadline/lease.
   const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
   const messages = [
-    { role: 'system', content: '你是英语四六级精读老师。结合具体原文解释语法，不使用空泛的占位说明。只返回符合要求的 JSON。' },
-    { role: 'user', content: buildPrompt(job) },
+    { role: 'system', content: `你是英语四六级精读老师。结合具体原文解释语法，不使用空泛的占位说明。只返回符合要求的 JSON。${config.promptOverride?.trim() ? `\n管理员补充要求：${config.promptOverride.trim()}` : ''}` },
+    { role: 'user', content: buildPrompt(job, config.promptOverride) },
   ];
   try {
     for (let attempt = 0; attempt < 2; attempt += 1) {

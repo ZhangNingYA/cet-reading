@@ -41,13 +41,17 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
     );
     const result = await client.query<AnalysisJob>(
       `WITH candidate AS (
-         SELECT id FROM analysis_jobs
+         SELECT j.id FROM analysis_jobs j
+         LEFT JOIN sentences s ON s.id = j.sentence_id
+         LEFT JOIN analysis_paper_priorities pp ON pp.paper_id = s.paper_id
          WHERE mode = $1 AND model = $2 AND prompt_version = $3
            AND ((status = 'pending' AND next_attempt_at <= NOW())
              OR (status = 'running' AND (lease_expires_at IS NULL OR lease_expires_at < NOW())))
            AND attempts < $5
-         ORDER BY priority DESC, (attempts = 0) DESC, created_at DESC, id DESC
-         FOR UPDATE SKIP LOCKED
+         ORDER BY j.priority DESC, COALESCE(pp.priority, 0) DESC,
+                  COALESCE(pp.sort_order, 2147483647), (j.attempts = 0) DESC,
+                  j.created_at DESC, j.id DESC
+         FOR UPDATE OF j SKIP LOCKED
          LIMIT 1
        )
        UPDATE analysis_jobs j

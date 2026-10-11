@@ -8,6 +8,9 @@ import { contextHash, validateAnalysis, type SentenceAnalysis } from '@cet-readi
 import { readConfig } from '@cet-reading/contracts/config';
 import { ANALYSIS_BATCH_LOCK_ID } from '@cet-reading/contracts/analysis-jobs';
 import { generateAnalysis } from './ai-analysis.js';
+import { readRuntimeSettings } from './runtime-settings.js';
+
+type AnalysisConfig = ReturnType<typeof readConfig> & { promptOverride?: string };
 
 type Options = {
   paperId?: string;
@@ -142,7 +145,7 @@ function addContextHashes(sentences: Omit<BatchSentence, 'context_hash'>[]) {
   }));
 }
 
-async function loadValidCaches(pool: Pool, sentences: BatchSentence[], config: ReturnType<typeof readConfig>) {
+async function loadValidCaches(pool: Pool, sentences: BatchSentence[], config: AnalysisConfig) {
   if (!sentences.length) return new Map<string, SentenceAnalysis>();
   const result = await pool.query<CacheRow>(
     `SELECT sentence_id, source_hash, context_hash, analysis_json
@@ -174,7 +177,7 @@ function emitSentence(index: number, total: number, sentence: BatchSentence, sta
   })}\n`);
 }
 
-async function waitForRunningPublicJobs(pool: Pool, config: ReturnType<typeof readConfig>, timeoutSeconds: number) {
+async function waitForRunningPublicJobs(pool: Pool, config: AnalysisConfig, timeoutSeconds: number) {
   const deadline = Date.now() + timeoutSeconds * 1000;
   let lastNotice = 0;
   while (true) {
@@ -201,7 +204,7 @@ async function saveAnalysis(
   pool: Pool,
   sentence: BatchSentence,
   analysis: SentenceAnalysis,
-  config: ReturnType<typeof readConfig>,
+  config: AnalysisConfig,
 ) {
   const client = await pool.connect();
   try {
@@ -255,7 +258,7 @@ async function generateBatchSentence(
   sentence: BatchSentence,
   index: number,
   total: number,
-  config: ReturnType<typeof readConfig>,
+  config: AnalysisConfig,
   signal: AbortSignal,
 ) {
   let attempt = 0;
@@ -287,7 +290,7 @@ async function generateBatchInParallel(
   pool: Pool,
   sentences: BatchSentence[],
   cache: Map<string, SentenceAnalysis>,
-  config: ReturnType<typeof readConfig>,
+  config: AnalysisConfig,
   concurrency: number,
 ): Promise<BatchProgress> {
   const progress: BatchProgress = { generated: 0, cached: 0 };
@@ -364,6 +367,8 @@ async function run(options: Options) {
   if (!options.paperId) throw new Error('A paper ID is required');
   const config = readConfig();
   const pool = new Pool({ connectionString: config.databaseUrl });
+  const runtime = await readRuntimeSettings(pool, config);
+  const analysisConfig: AnalysisConfig = { ...config, promptOverride: runtime.promptOverride };
   let lockClient: PoolClient | undefined;
   let locked = false;
   try {
@@ -371,19 +376,19 @@ async function run(options: Options) {
     if (!paper) throw new Error(`Published paper not found: ${options.paperId}`);
     const sentences = addContextHashes(await loadPaperSentences(pool, options.paperId));
     if (!sentences.length) throw new Error(`Published paper has no readable sentences: ${options.paperId}`);
-    const cache = await loadValidCaches(pool, sentences, config);
+    const cache = await loadValidCaches(pool, sentences, analysisConfig);
 
     if (options.dryRun) {
       process.stdout.write(`${JSON.stringify({
         event: 'paper_plan', paper, total: sentences.length,
         cached: cache.size, remaining: sentences.length - cache.size,
-        mode: config.mode, model: config.model,
+        mode: analysisConfig.mode, model: analysisConfig.model,
       })}\n`);
       return;
     }
 
-    if (config.mode !== 'ai') throw new Error('Real AI mode is required; set AI_DRY_RUN=false before running without --dry-run');
-    if (!config.apiUrl || !config.apiKey) throw new Error('AI_API_URL and AI_API_KEY are required');
+    if (analysisConfig.mode !== 'ai') throw new Error('Real AI mode is required; set AI_DRY_RUN=false before running without --dry-run');
+    if (!analysisConfig.apiUrl || !analysisConfig.apiKey) throw new Error('AI_API_URL and AI_API_KEY are required');
 
     lockClient = await pool.connect();
     const lock = await lockClient.query<{ locked: boolean }>(
@@ -394,11 +399,11 @@ async function run(options: Options) {
     locked = true;
     process.stderr.write(`Public AI generation is paused while processing ${paper.id}; cached sentences will be skipped.\n`);
 
-    await waitForRunningPublicJobs(pool, config, options.waitTimeoutSeconds);
+    await waitForRunningPublicJobs(pool, analysisConfig, options.waitTimeoutSeconds);
     // Refresh after draining public jobs, so a just-finished click is reused.
-    const refreshedCache = await loadValidCaches(pool, sentences, config);
+    const refreshedCache = await loadValidCaches(pool, sentences, analysisConfig);
     const progress = await generateBatchInParallel(
-      pool, sentences, refreshedCache, config, options.concurrency,
+      pool, sentences, refreshedCache, analysisConfig, options.concurrency,
     );
     process.stderr.write(`Completed ${paper.id}: ${progress.generated} generated, ${progress.cached} skipped from cache, ${sentences.length} total, concurrency=${options.concurrency}.\n`);
   } finally {
