@@ -8,7 +8,7 @@ import { source, raw } from './fixtures/analysis.mjs';
 
 const { runJobQueue } = await tsImport('../../apps/worker/src/job-queue.ts', import.meta.url);
 const { shouldRetryAnalysis } = await tsImport('../../apps/worker/src/retry-policy.ts', import.meta.url);
-const { getSectionCachedAnalyses, getJob, listPapers, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
+const { getSectionCachedAnalyses, getJob, getSentence, listPapers, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
 
 test('a slow sentence does not block the second slot, and queued work starts when either slot frees', async t => {
   const stop = new AbortController();
@@ -105,6 +105,21 @@ test('fresh and existing databases share the shared-reading rule', () => {
     readFileSync('db/init/016_shared_reading.sql', 'utf8'),
     readFileSync('db/migrations/016_shared_reading.sql', 'utf8'),
   );
+});
+
+test('API sentence and section cache queries exclude shared readings', async t => {
+  const statements = [];
+  t.mock.method(pool, 'query', async sql => {
+    statements.push(String(sql));
+    return { rows: [] };
+  });
+  assert.equal(await getSentence('hidden-sentence'), null);
+  assert.deepEqual(await getSectionCachedAnalyses('paper-1', 'hidden-section'), []);
+  assert.equal(statements.length, 2);
+  for (const statement of statements) {
+    assert.match(statement, /FROM shared_paper_sections shared/);
+    assert.match(statement, /shared\.section_id = s\.section_id/);
+  }
 });
 
 test('worker concurrency is bounded independently of the model, prompt and generation deadline', () => {

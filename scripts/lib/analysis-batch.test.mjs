@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { tsImport } from 'tsx/esm/api';
 
-const { parseOptions } = await tsImport('../../apps/worker/src/analyze-paper.ts', import.meta.url);
+const { loadPaperSentences, parseOptions } = await tsImport('../../apps/worker/src/analyze-paper.ts', import.meta.url);
 
 test('parses a resumable batch target and safe options', () => {
   assert.deepEqual(parseOptions(['--paper', 'cet4-2023-12-3', '--dry-run', '--wait-timeout-seconds', '900', '--concurrency', '1']), {
@@ -21,4 +21,17 @@ test('rejects ambiguous targets, unknown options and unsafe wait bounds', () => 
   assert.throws(() => parseOptions(['paper-a', '--unknown']), /Unknown option/);
   assert.throws(() => parseOptions(['paper-a', '--wait-timeout-seconds', '10']), /30 to 3600/);
   assert.throws(() => parseOptions(['paper-a', '--concurrency', '3']), /1 to 2/);
+});
+
+test('manual batch plans exclude sections hidden as shared readings', async () => {
+  let statement = '';
+  const pool = {
+    async query(sql) {
+      statement = String(sql);
+      return { rows: [] };
+    },
+  };
+  assert.deepEqual(await loadPaperSentences(pool, 'paper-1'), []);
+  assert.match(statement, /FROM shared_paper_sections shared/);
+  assert.match(statement, /shared\.section_id = s\.section_id/);
 });

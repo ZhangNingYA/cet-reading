@@ -108,7 +108,7 @@ function printUsage() {
   ].join('\n') + '\n');
 }
 
-async function loadPaperSentences(pool: Pool, paperId: string) {
+export async function loadPaperSentences(pool: Pool, paperId: string) {
   const result = await pool.query<Omit<BatchSentence, 'context_hash'>>(
     `WITH ordered AS (
        SELECT s.id, s.paper_id, s.source_text, s.source_hash,
@@ -118,6 +118,10 @@ async function loadPaperSentences(pool: Pool, paperId: string) {
               lead(s.source_text) OVER w AS next_sentence
        FROM sentences s JOIN papers p ON p.id = s.paper_id
        WHERE s.paper_id = $1 AND p.status = 'published'
+         AND NOT EXISTS (
+           SELECT 1 FROM shared_paper_sections shared
+           WHERE shared.paper_id = s.paper_id AND shared.section_id = s.section_id
+         )
        WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index, s.sentence_index)
      )
        SELECT id, paper_id, source_text, source_hash, paragraph_index, sentence_index,

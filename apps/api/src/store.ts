@@ -257,6 +257,10 @@ export async function getSentence(id: string) {
        WHERE (p.status = 'published' OR n.status = 'published')
          AND (s.paper_id = (SELECT paper_id FROM sentences WHERE id = $1)
               OR s.article_id = (SELECT article_id FROM sentences WHERE id = $1))
+         AND NOT EXISTS (
+           SELECT 1 FROM shared_paper_sections shared
+           WHERE shared.paper_id = s.paper_id AND shared.section_id = s.section_id
+         )
        WINDOW w AS (PARTITION BY s.paper_id,s.article_id ORDER BY s.paragraph_index, s.sentence_index)
      )
      SELECT * FROM ordered WHERE id = $1`,
@@ -298,6 +302,10 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
        FROM sentences s LEFT JOIN papers p ON p.id = s.paper_id LEFT JOIN news_articles n ON n.id = s.article_id
        WHERE (($3::boolean = FALSE AND s.paper_id = $1 AND p.status = 'published')
            OR ($3::boolean = TRUE AND s.article_id = $1 AND n.status = 'published'))
+         AND NOT EXISTS (
+           SELECT 1 FROM shared_paper_sections shared
+           WHERE shared.paper_id = s.paper_id AND shared.section_id = s.section_id
+         )
        WINDOW w AS (ORDER BY s.paragraph_index, s.sentence_index)
      ) SELECT * FROM ordered WHERE section_id = $2`,
     [paperId, sectionId, news],
