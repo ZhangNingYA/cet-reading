@@ -11,7 +11,6 @@ type Batch = { scheduled_at:string; status:string };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
 let dispose: (()=>void) | undefined; let viewRequest=0; let activeArticleId:string|null=null;
 const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
-const difficulty = (value:string) => ({ CET6:'六级',NEEP:'考研',advanced:'进阶' }[value] || value);
 function element<K extends keyof HTMLElementTagNameMap>(tag:K,className:string,text?:string) { const el=document.createElement(tag); el.className=className; if(text!==undefined) el.textContent=text; return el; }
 function progressText(value: Progress, empty = '') {
   const total=Number(value.analysis_total??0); const cached=Math.min(total,Number(value.analysis_cached??0));
@@ -48,7 +47,9 @@ function render() {
       const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
       const title=element('h3','news-row-title',article.title); title.lang='en';
       const progress=progressText(article);
-      const meta=element('p','news-row-meta',`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${article.source_name} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词${progress?` · ${progress}`:''}`);
+      const meta=element('div','news-row-meta');
+      if(article.topic)meta.append(element('span','news-row-topic',article.topic));
+      if(progress)meta.append(element('span','news-row-progress',progress));
       link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
       }
       if(batch?.status==='running') body.append(element('p','news-batch-note','正在选取文章…'));
@@ -77,7 +78,7 @@ async function openArticle(id:string,writeHistory=false) {
     activeArticleId=id;
     library.hidden=true;reader.hidden=false;document.body.classList.add('reader-page');
     node('news-title').textContent=article.title;
-    node('news-meta').textContent=`${article.selection_kind==='hot'?'热点':'阅读'} · ${article.topic} · ${difficulty(article.difficulty)} · ${article.word_count.toLocaleString()} 词 · ${date(article.published_at)}`;
+    node('news-meta').textContent=[article.topic,`发布于 ${date(article.published_at)}`].filter(Boolean).join(' · ');
     node<HTMLElement>('news-analysis-status').textContent=progressText(article,'精读缓存暂未开始');
     const attribution=node('news-attribution'); attribution.replaceChildren(document.createTextNode(`${article.author} · `));
     const source=element('a','',article.source_name);source.href=article.source_url;source.target='_blank';source.rel='noopener noreferrer';

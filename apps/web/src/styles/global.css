@@ -159,7 +159,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .news-row { display: block; padding: 17px 0; border-bottom: 1px solid var(--line); }
 .news-row-title { margin: 0; font-family: var(--reading-font); font-weight: 500; font-size: 1.1875rem; line-height: 1.5; overflow-wrap: anywhere; }
 .news-row:hover .news-row-title { color: var(--accent); }
-.news-row-meta { margin: 7px 0 0; font-size: var(--text-caption); color: var(--muted); line-height: 1.65; }
+.news-row-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 9px 0 0; font-size: var(--text-caption); color: var(--muted); line-height: 1.6; }
+.news-row-topic { color: var(--muted); }
+.news-row-progress { color: var(--quiet); font-variant-numeric: tabular-nums; }
+.news-row-progress::before { content: '·'; margin-right: 14px; color: var(--line-strong); }
 .news-batch-note { margin: 12px 0; color: var(--quiet); font-size: var(--text-caption); }
 .news-meta, .news-attribution { color: var(--muted); font-size: var(--text-caption); line-height: 1.8; }
 .news-analysis-status { margin: 8px 0 0; color: var(--muted); font-size: var(--text-ui); font-variant-numeric: tabular-nums; }
