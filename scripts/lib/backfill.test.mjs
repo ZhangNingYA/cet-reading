@@ -72,8 +72,8 @@ test('backfill immediately continues past a full page with no queueable candidat
   assert.deepEqual(result.nextCursor, { owner_id: 'paper-1', paragraph_index: 0, sentence_index: 49 });
 });
 
-test('four running background jobs leave capacity for four waiting jobs', async () => {
-  const counts = { total: 4, background: 4 };
+test('eight running background jobs leave capacity for eight waiting jobs', async () => {
+  const counts = { total: 8, background: 8 };
   let inserts = 0;
   const client = {
     async query(sql, params) {
@@ -100,20 +100,20 @@ test('four running background jobs leave capacity for four waiting jobs', async 
     },
     async connect() { return client; },
   };
-  const result = await fillBackgroundQueue(pool, { ...config, backfillTarget: 8 });
-  assert.equal(result.queued, 4);
-  assert.equal(inserts, 4);
-  assert.equal(counts.total, 8);
-  assert.equal(result.nextCursor.sentence_index, 3);
-  assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 8 })).queued, 0);
-  assert.equal(inserts, 4, 'The next scan must not overfill the queue');
+  const result = await fillBackgroundQueue(pool, { ...config, backfillTarget: 16 });
+  assert.equal(result.queued, 8);
+  assert.equal(inserts, 8);
+  assert.equal(counts.total, 16);
+  assert.equal(result.nextCursor.sentence_index, 7);
+  assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 16 })).queued, 0);
+  assert.equal(inserts, 8, 'The next scan must not overfill the queue');
 });
 
 test('background admission respects user jobs arriving after the scan counted capacity', async () => {
   let inserts = 0;
   const client = {
     async query(sql) {
-      if (sql.includes('COUNT(*) FILTER')) return { rows: [{ total: 8, background: 4 }] };
+      if (sql.includes('COUNT(*) FILTER')) return { rows: [{ total: 16, background: 4 }] };
       if (sql.includes('INSERT INTO analysis_jobs')) inserts++;
       return { rows: [] };
     },
@@ -127,6 +127,6 @@ test('background admission respects user jobs arriving after the scan counted ca
     },
     async connect() { return client; },
   };
-  assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 8 })).queued, 0);
+  assert.equal((await fillBackgroundQueue(pool, { ...config, backfillTarget: 16 })).queued, 0);
   assert.equal(inserts, 0, 'A stale scan must not bypass the hard queue limit');
 });

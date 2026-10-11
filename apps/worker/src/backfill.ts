@@ -3,7 +3,7 @@ import type { RuntimeConfig } from '@cet-reading/contracts/config';
 import type { Pool } from 'pg';
 
 const BACKGROUND_PRIORITY = 1;
-const MAX_ACTIVE_JOBS = 8;
+const MAX_ACTIVE_JOBS = 16;
 
 type Candidate = {
   id: string;

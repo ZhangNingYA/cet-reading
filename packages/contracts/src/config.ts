@@ -12,11 +12,11 @@ const EnvironmentSchema = z.object({
   AI_REQUEST_TIMEOUT_MS: positiveInteger.max(180000).default(180000),
   JOB_LEASE_SECONDS: positiveInteger.default(210),
   // Keep the number of in-flight model requests bounded independently of the queue.
-  WORKER_CONCURRENCY: positiveInteger.max(4).default(4),
+  WORKER_CONCURRENCY: positiveInteger.max(8).default(8),
   ANALYSIS_MAX_ATTEMPTS: positiveInteger.max(6).default(3),
   BACKFILL_ENABLED: z.enum(['true', 'false']).default('true'),
   BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(20000),
-  BACKFILL_TARGET: nonNegativeInteger.max(8).default(8),
+  BACKFILL_TARGET: nonNegativeInteger.max(16).default(16),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });

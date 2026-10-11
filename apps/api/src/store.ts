@@ -5,7 +5,7 @@ import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contract
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
-const MAX_ACTIVE_ANALYSIS_JOBS = 8;
+const MAX_ACTIVE_ANALYSIS_JOBS = 16;
 
 export class AnalysisQueueFullError extends Error {
   constructor() {
