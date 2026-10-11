@@ -46,7 +46,7 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
            AND ((status = 'pending' AND next_attempt_at <= NOW())
              OR (status = 'running' AND (lease_expires_at IS NULL OR lease_expires_at < NOW())))
            AND attempts < $5
-         ORDER BY priority DESC, (attempts = 0) DESC, created_at
+         ORDER BY priority DESC, (attempts = 0) DESC, created_at DESC, id DESC
          FOR UPDATE SKIP LOCKED
          LIMIT 1
        )
