@@ -13,6 +13,7 @@ import { runJobQueue } from './job-queue.js';
 import { runBackfillScheduler } from './backfill.js';
 import { isRetryableAnalysisError, retryDelaySeconds, shouldRetryAnalysis } from './retry-policy.js';
 import { claimAnalysisJob, type AnalysisJob } from './claim-job.js';
+import { readRuntimeSettings } from './runtime-settings.js';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
@@ -123,11 +124,19 @@ async function main() {
   const stop = () => shutdown.abort();
   process.once('SIGTERM', stop);
   process.once('SIGINT', stop);
-  process.stdout.write(`Worker started (${config.mode}, ${config.model}, concurrency=${config.workerConcurrency})\n`);
+  let runtime = await readRuntimeSettings(pool, config);
+  let runtimeReadAt = Date.now();
+  const getConcurrency = async () => {
+    if (Date.now() - runtimeReadAt < 1_500) return runtime.workerConcurrency;
+    runtime = await readRuntimeSettings(pool, config);
+    runtimeReadAt = Date.now();
+    return runtime.workerConcurrency;
+  };
+  process.stdout.write(`Worker started (${config.mode}, ${config.model}, concurrency=${runtime.workerConcurrency})\n`);
   const backfillStop = new AbortController();
   const backfill = runBackfillScheduler(pool, config, backfillStop.signal);
   try {
-    await runJobQueue({ claim: () => claimAnalysisJob(pool, config), process: processJob, concurrency: config.workerConcurrency, signal: shutdown.signal });
+    await runJobQueue({ claim: () => claimAnalysisJob(pool, config), process: processJob, getConcurrency, signal: shutdown.signal });
   } finally {
     backfillStop.abort();
     await backfill.catch(error => process.stderr.write(`Background analysis scheduler stopped: ${error instanceof Error ? error.message : String(error)}\n`));

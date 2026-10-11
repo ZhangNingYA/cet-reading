@@ -31,6 +31,7 @@ test('backfill queues one missing sentence and advances its cursor without skipp
   const pool = {
     async query(sql) {
       const text = String(sql);
+      if (text.includes('FROM analysis_runtime_settings')) return { rows: [] };
       if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: 0, background: 0 }] };
       if (text.includes('WITH ordered')) return { rows: [candidate('s1', 0), candidate('s2', 1)] };
       if (text.includes('FROM sentence_analyses')) return { rows: [] };
@@ -56,6 +57,7 @@ test('backfill immediately continues past a full page with no queueable candidat
   const pool = {
     async query(sql) {
       const text = String(sql);
+      if (text.includes('FROM analysis_runtime_settings')) return { rows: [] };
       if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: 0, background: 0 }] };
       if (text.includes('WITH ordered')) return { rows: candidates };
       if (text.includes('FROM sentence_analyses')) return { rows: [] };

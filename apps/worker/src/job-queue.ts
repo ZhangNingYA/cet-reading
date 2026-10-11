@@ -1,21 +1,30 @@
 type QueueOptions<Job> = {
   claim: () => Promise<Job | null>;
   process: (job: Job) => Promise<void>;
-  concurrency: number;
+  concurrency?: number;
+  getConcurrency?: () => number | Promise<number>;
   signal: AbortSignal;
   idleMs?: number;
 };
 
 // Fill available slots immediately; a slow sentence must not block every reader.
-export async function runJobQueue<Job>({ claim, process, concurrency, signal, idleMs = 1_000 }: QueueOptions<Job>) {
-  if (!Number.isInteger(concurrency) || concurrency < 1) throw new Error('Invalid worker concurrency');
+export async function runJobQueue<Job>({ claim, process, concurrency, getConcurrency, signal, idleMs = 1_000 }: QueueOptions<Job>) {
+  const configuredConcurrency = getConcurrency ? null : concurrency;
+  if (configuredConcurrency != null && (!Number.isInteger(configuredConcurrency) || configuredConcurrency < 1)) {
+    throw new Error('Invalid worker concurrency');
+  }
+  const readConcurrency = getConcurrency ?? (() => configuredConcurrency ?? 1);
   const active = new Set<Promise<void>>();
   let failed = false;
   let failure: unknown;
   try {
     while (!signal.aborted) {
       if (failed) throw failure;
-      if (active.size >= concurrency) {
+      const currentConcurrency = await readConcurrency();
+      if (!Number.isInteger(currentConcurrency) || currentConcurrency < 1) {
+        throw new Error('Invalid worker concurrency');
+      }
+      if (active.size >= currentConcurrency) {
         await Promise.race(active);
         continue;
       }

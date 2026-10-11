@@ -117,6 +117,38 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .empty-state span { font-size: var(--text-ui); }
 .error-state { color: #965143; }
 @keyframes shimmer { to { background-position: -200% 0; } }
+
+.admin-section { max-width: 1040px; padding-block: 40px 72px; }
+.admin-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.admin-eyebrow { margin: 0 0 7px; color: var(--accent); font-size: var(--text-caption); letter-spacing: .12em; text-transform: uppercase; }
+.admin-heading h1 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.15rem); font-weight: 600; letter-spacing: -.02em; }
+.admin-subtitle { margin: 9px 0 0; color: var(--muted); font-size: var(--text-ui); }
+.admin-status { min-height: 24px; margin: 0 0 18px; color: var(--muted); font-size: var(--text-ui); }
+.admin-status.admin-error { color: #965143; }
+.admin-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.admin-card { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
+.admin-card-wide { grid-column: 1 / -1; }
+.admin-card-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.admin-card h2 { margin: 0; font-size: var(--text-body); font-weight: 600; }
+.admin-card-heading time { color: var(--quiet); font-size: var(--text-caption); }
+.admin-live-badge { padding: 3px 8px; color: var(--accent-deep); border-radius: 999px; background: var(--accent-pale); font-size: var(--text-caption); }
+.admin-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.admin-stat-grid div { padding: 12px; border-radius: 7px; background: var(--paper-warm); }
+.admin-stat-grid span { display: block; color: var(--muted); font-size: var(--text-caption); }
+.admin-stat-grid strong { display: block; margin-top: 5px; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+.admin-note { margin: 16px 0 0; color: var(--muted); font-size: var(--text-caption); line-height: 1.7; }
+.admin-metrics { display: grid; gap: 10px; margin: 0; }
+.admin-metrics div { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 9px; border-bottom: 1px solid var(--line); }
+.admin-metrics dt { color: var(--muted); font-size: var(--text-caption); }
+.admin-metrics dd { margin: 0; color: var(--ink); font-size: var(--text-ui); font-variant-numeric: tabular-nums; }
+.admin-cache-value { margin: 12px 0 4px; color: var(--accent-deep); font-size: 2.4rem; font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+.admin-form-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.admin-form-grid label { display: grid; gap: 7px; color: var(--muted); font-size: var(--text-caption); }
+.admin-form-grid input { width: 100%; padding: 10px 12px; color: var(--ink); border: 1px solid var(--line); border-radius: 7px; background: #fafbfa; font-size: var(--text-ui); font-variant-numeric: tabular-nums; }
+.admin-form-grid input:focus { border-color: #8daf9b; outline: 0; box-shadow: 0 0 0 3px var(--accent-pale); background: #fff; }
+.admin-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.admin-actions .button-small { border: 1px solid var(--line); }
+.admin-actions .button-small:disabled { cursor: default; opacity: .55; }
 @media (max-width: 700px) {
   .container { width: calc(100% - 36px); }
   .site-header { height: 72px; }
@@ -176,6 +208,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .news-schedule span { margin-left: 3px; }
   .news-row-title { font-size: 1.125rem; }
   .news-batch { grid-template-columns: 38px minmax(0,1fr); gap: 10px; }
+  .admin-section { padding-block: 28px 52px; }
+  .admin-heading { gap: 12px; }
+  .admin-heading .text-link { white-space: nowrap; }
+  .admin-grid { grid-template-columns: 1fr; }
+  .admin-card-wide { grid-column: auto; }
+  .admin-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-form-grid { grid-template-columns: 1fr; gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

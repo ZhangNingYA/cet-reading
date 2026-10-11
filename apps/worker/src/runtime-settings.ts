@@ -1,0 +1,41 @@
+import type { Pool, PoolClient } from 'pg';
+import { RuntimeSettingsSchema, type RuntimeConfig, type RuntimeSettings } from '@cet-reading/contracts/config';
+
+type Queryable = Pick<Pool, 'query'> | Pick<PoolClient, 'query'>;
+
+function defaults(config: RuntimeConfig): RuntimeSettings {
+  const workerConcurrency = config.workerConcurrency ?? 4;
+  const configuredTarget = config.backfillTarget ?? 8;
+  const queueCapacity = Math.max(workerConcurrency, Math.min(configuredTarget || 8, 32));
+  return RuntimeSettingsSchema.parse({
+    workerConcurrency,
+    queueCapacity,
+    backgroundTarget: Math.min(configuredTarget, queueCapacity),
+    backfillPaused: false,
+  });
+}
+
+export async function readRuntimeSettings(db: Queryable, config: RuntimeConfig): Promise<RuntimeSettings> {
+  try {
+    const result = await db.query<{
+      worker_concurrency: number;
+      queue_capacity: number;
+      background_target: number;
+      backfill_paused: boolean;
+    }>(
+      `SELECT worker_concurrency, queue_capacity, background_target, backfill_paused
+       FROM analysis_runtime_settings WHERE id = TRUE`,
+    );
+    const row = result.rows[0];
+    if (!row) return defaults(config);
+    return RuntimeSettingsSchema.parse({
+      workerConcurrency: row.worker_concurrency,
+      queueCapacity: row.queue_capacity,
+      backgroundTarget: row.background_target,
+      backfillPaused: row.backfill_paused,
+    });
+  } catch (error) {
+    if ((error as { code?: string }).code === '42P01') return defaults(config);
+    throw error;
+  }
+}

@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
+---
+<Layout title="Analysis Admin · CET Reading" description="精读分析队列控制台">
+  <section class="admin-section container" id="admin-analysis" data-api-base={apiBase} aria-labelledby="admin-title">
+    <div class="admin-heading">
+      <div>
+        <p class="admin-eyebrow">Operations</p>
+        <h1 id="admin-title">精读分析后台</h1>
+        <p class="admin-subtitle">调整队列容量、暂停后台补齐并观察最近处理效率。</p>
+      </div>
+      <a class="text-link" href="/">← 返回题库</a>
+    </div>
+    <p id="admin-status" class="admin-status" role="status" aria-live="polite">正在读取后台状态…</p>
+
+    <div class="admin-grid" aria-busy="true">
+      <section class="admin-card admin-card-wide" aria-labelledby="admin-queue-title">
+        <div class="admin-card-heading"><h2 id="admin-queue-title">实时队列</h2><time id="admin-observed-at"></time></div>
+        <div class="admin-stat-grid">
+          <div><span>运行中</span><strong id="admin-running">—</strong></div>
+          <div><span>排队中</span><strong id="admin-pending">—</strong></div>
+          <div><span>失败隔离</span><strong id="admin-failed">—</strong></div>
+          <div><span>活动 / 上限</span><strong id="admin-capacity">—</strong></div>
+        </div>
+        <p class="admin-note" id="admin-queue-age"></p>
+      </section>
+
+      <section class="admin-card" aria-labelledby="admin-metrics-title">
+        <div class="admin-card-heading"><h2 id="admin-metrics-title">最近效率</h2></div>
+        <dl class="admin-metrics">
+          <div><dt>成功（1 小时）</dt><dd id="admin-success-1h">—</dd></div>
+          <div><dt>失败（1 小时）</dt><dd id="admin-failed-1h">—</dd></div>
+          <div><dt>成功（6 小时）</dt><dd id="admin-success-6h">—</dd></div>
+          <div><dt>排队 P50 / P90</dt><dd id="admin-queue-latency">—</dd></div>
+          <div><dt>生成 P50 / P90</dt><dd id="admin-generation-latency">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="admin-card" aria-labelledby="admin-cache-title">
+        <div class="admin-card-heading"><h2 id="admin-cache-title">全站精读缓存</h2></div>
+        <p class="admin-cache-value" id="admin-cache-rate">—</p>
+        <p class="admin-note" id="admin-cache-count"></p>
+        <p class="admin-note">统计已排除共享章节，只计算当前 prompt、模型和上下文有效缓存。</p>
+      </section>
+
+      <section class="admin-card admin-card-wide" aria-labelledby="admin-settings-title">
+        <div class="admin-card-heading"><h2 id="admin-settings-title">运行设置</h2><span class="admin-live-badge">动态生效</span></div>
+        <div class="admin-form-grid">
+          <label><span>模型并发数</span><input id="admin-concurrency" type="number" min="1" max="4" step="1" /></label>
+          <label><span>活动队列上限</span><input id="admin-capacity-input" type="number" min="1" max="32" step="1" /></label>
+          <label><span>后台补齐目标</span><input id="admin-background-target" type="number" min="0" max="32" step="1" /></label>
+        </div>
+        <p class="admin-note">降低并发或上限不会中断正在生成的任务；已有任务完成后逐步降到新设置。</p>
+        <div class="admin-actions">
+          <button class="button button-primary" id="admin-save" type="button">保存设置</button>
+          <button class="button button-small" id="admin-pause" type="button">暂停后台补齐</button>
+          <button class="button button-small" id="admin-resume" type="button">恢复后台补齐</button>
+        </div>
+        <p class="admin-note" id="admin-backfill-state"></p>
+      </section>
+    </div>
+    <noscript><p class="empty-state">请启用 JavaScript 以使用后台控制台。</p></noscript>
+  </section>
+</Layout>
+<script>import '../../scripts/admin-analysis';</script>

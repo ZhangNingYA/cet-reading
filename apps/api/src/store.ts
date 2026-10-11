@@ -3,9 +3,9 @@ import { AnswersSchema, contextHash, validateAnalysis, type Answers, type Practi
 import { config } from './config.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
+import { readRuntimeSettings } from './runtime-settings.js';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
-const MAX_ACTIVE_ANALYSIS_JOBS = 8;
 
 export class AnalysisQueueFullError extends Error {
   constructor() {
@@ -351,6 +351,7 @@ export async function enqueueAnalysis(sentence: {
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
       `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
     ]);
+    const runtime = await readRuntimeSettings(client, config);
     const key = [sentence.id, sentence.source_hash, sentence.context_hash, config.promptVersion, config.model, config.mode];
     const existing = await client.query(
       `SELECT id, status FROM analysis_jobs
@@ -376,7 +377,7 @@ export async function enqueueAnalysis(sentence: {
     );
     let active = count.rows[0]?.count ?? 0;
     const background = count.rows[0]?.background ?? 0;
-    if (active >= MAX_ACTIVE_ANALYSIS_JOBS && priority > 1) {
+    if (active >= runtime.queueCapacity && priority > 1) {
       // A user request must be able to enter a full queue. Evict only a
       // not-yet-started background row; running work is never interrupted.
       const evicted = await client.query(
@@ -396,7 +397,7 @@ export async function enqueueAnalysis(sentence: {
         active -= 1;
       }
     }
-    if (active >= MAX_ACTIVE_ANALYSIS_JOBS || (priority <= 1 && background >= config.backfillTarget)) {
+    if (active >= runtime.queueCapacity || (priority <= 1 && background >= runtime.backgroundTarget)) {
       await client.query('ROLLBACK');
       throw new AnalysisQueueFullError();
     }

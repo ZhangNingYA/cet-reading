@@ -1,6 +1,13 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { config } from './config.js';
+import {
+  getAdminOverview,
+  getAdminSettings,
+  InvalidAdminSettingsError,
+  setBackfillPaused,
+  updateAdminSettings,
+} from './admin-store.js';
 import { listNews, getNews } from './news-store.js';
 import {
   createPracticeAttempt,
@@ -26,6 +33,49 @@ await app.register(cors, {
 });
 
 app.get('/healthz', async () => ({ status: 'ok' }));
+
+function adminEnabled(reply: { code: (statusCode: number) => { send: (payload: unknown) => unknown } }) {
+  if (config.adminEnabled) return true;
+  reply.code(404).send({ error: 'admin_disabled' });
+  return false;
+}
+
+app.get('/api/admin/analysis', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return getAdminOverview();
+});
+
+app.get('/api/admin/analysis/settings', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { settings: await getAdminSettings() };
+});
+
+app.patch<{ Body: unknown }>('/api/admin/analysis/settings', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  try {
+    return { settings: await updateAdminSettings(request.body) };
+  } catch (error) {
+    if (error instanceof InvalidAdminSettingsError) {
+      return reply.code(400).send({ error: 'invalid_admin_settings', message: error.message });
+    }
+    throw error;
+  }
+});
+
+app.post('/api/admin/analysis/backfill/pause', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { settings: await setBackfillPaused(true) };
+});
+
+app.post('/api/admin/analysis/backfill/resume', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { settings: await setBackfillPaused(false) };
+});
 
 app.get<{ Querystring: { before?: string } }>('/api/news', async (request, reply) => {
   reply.header('Cache-Control','no-store');

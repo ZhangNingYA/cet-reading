@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 const positiveInteger = z.coerce.number().int().positive();
 const nonNegativeInteger = z.coerce.number().int().nonnegative();
+const runtimeInteger = z.number().int().positive();
 const EnvironmentSchema = z.object({
   DATABASE_URL: z.string().default('postgres://cet_reading:cet_reading@localhost:15432/cet_reading'),
   PORT: positiveInteger.default(3000),
@@ -17,6 +18,7 @@ const EnvironmentSchema = z.object({
   BACKFILL_ENABLED: z.enum(['true', 'false']).default('true'),
   BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(20000),
   BACKFILL_TARGET: nonNegativeInteger.max(8).default(8),
+  ADMIN_ENABLED: z.enum(['true', 'false']).default('false'),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });
@@ -47,7 +49,19 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env) {
     backfillEnabled: parsed.BACKFILL_ENABLED === 'true',
     backfillIntervalMs: parsed.BACKFILL_INTERVAL_MS,
     backfillTarget: parsed.BACKFILL_TARGET,
+    adminEnabled: parsed.ADMIN_ENABLED === 'true',
   };
 }
 
 export type RuntimeConfig = ReturnType<typeof readConfig>;
+
+export const RuntimeSettingsSchema = z.object({
+  workerConcurrency: runtimeInteger.max(4),
+  queueCapacity: runtimeInteger.max(32),
+  backgroundTarget: z.number().int().nonnegative().max(32),
+  backfillPaused: z.boolean(),
+});
+
+export const RuntimeSettingsPatchSchema = RuntimeSettingsSchema.partial();
+export type RuntimeSettings = z.infer<typeof RuntimeSettingsSchema>;
+export type RuntimeSettingsPatch = z.infer<typeof RuntimeSettingsPatchSchema>;
