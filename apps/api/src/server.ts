@@ -16,10 +16,16 @@ import { listNews, getNews } from './news-store.js';
 import {
   createPracticeAttempt,
   enqueueAnalysis,
+  enqueueQuestionAnalysis,
   getCachedAnalysis,
+  getCachedQuestionAnalysis,
   getJob,
   getPaper,
   getPracticeAttempt,
+  getQuestionForAnalysis,
+  getQuestionTextForAnalysis,
+  getCachedQuestionTextAnalysis,
+  enqueueQuestionTextAnalysis,
   getSentence,
   getSectionCachedAnalyses,
   AnalysisQueueFullError,
@@ -167,6 +173,46 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
     if (error instanceof AnalysisQueueFullError) {
       return reply.code(429).header('Retry-After', '30').send({ error: 'analysis_queue_full', retryAfterSeconds: 30 });
     }
+    throw error;
+  }
+});
+
+app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: string } }>('/api/questions/:id/analyze', async (request, reply) => {
+  if (request.query.mode !== 'question') return reply.code(400).send({ error: 'analysis_requires_question_mode' });
+  if (request.query.regenerate !== undefined && !['true', 'false'].includes(request.query.regenerate)) {
+    return reply.code(400).send({ error: 'invalid_regeneration_option' });
+  }
+  const input = await getQuestionForAnalysis(request.params.id);
+  if (!input) return reply.code(404).send({ error: 'question_not_found' });
+  if (request.query.regenerate !== 'true') {
+    const cached = await getCachedQuestionAnalysis(input);
+    if (cached) return { status: 'ready', questionId: input.id, result: cached, mode: config.mode, cached: true };
+  }
+  try {
+    const job = await enqueueQuestionAnalysis(input, 100);
+    return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
+  } catch (error) {
+    if (error instanceof AnalysisPausedError) return reply.code(503).header('Retry-After', '30').send({ error: 'analysis_temporarily_paused', retryAfterSeconds: 30 });
+    if (error instanceof AnalysisQueueFullError) return reply.code(429).header('Retry-After', '30').send({ error: 'analysis_queue_full', retryAfterSeconds: 30 });
+    throw error;
+  }
+});
+
+app.post<{ Params: { id: string }; Querystring: { mode?: string; textKey?: string; regenerate?: string } }>('/api/question-texts/:id/analyze', async (request, reply) => {
+  if (request.query.mode !== 'intensive' || !request.query.textKey) return reply.code(400).send({ error: 'invalid_question_text_request' });
+  if (request.query.regenerate !== undefined && !['true', 'false'].includes(request.query.regenerate)) return reply.code(400).send({ error: 'invalid_regeneration_option' });
+  const input = await getQuestionTextForAnalysis(request.params.id, request.query.textKey);
+  if (!input) return reply.code(404).send({ error: 'question_text_not_found' });
+  if (request.query.regenerate !== 'true') {
+    const cached = await getCachedQuestionTextAnalysis(input);
+    if (cached) return { status: 'ready', questionId: input.questionId, textKey: input.textKey, result: cached, mode: config.mode, cached: true };
+  }
+  try {
+    const job = await enqueueQuestionTextAnalysis(input, 100);
+    return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
+  } catch (error) {
+    if (error instanceof AnalysisPausedError) return reply.code(503).header('Retry-After', '30').send({ error: 'analysis_temporarily_paused', retryAfterSeconds: 30 });
+    if (error instanceof AnalysisQueueFullError) return reply.code(429).header('Retry-After', '30').send({ error: 'analysis_queue_full', retryAfterSeconds: 30 });
     throw error;
   }
 });

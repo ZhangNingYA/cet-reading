@@ -1,9 +1,19 @@
-import { buildAnalysis, tokenize, type SentenceAnalysis } from '@cet-reading/contracts';
+import { buildAnalysis, tokenize, validateQuestionAnalysis, type QuestionAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
 
 type AnalysisInput = {
   source_text: string;
   context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
+};
+export type QuestionAnalysisInput = {
+  question_type: 'reading' | 'matching';
+  title: string;
+  instructions: string;
+  paragraphs: string[];
+  prompt: string;
+  options: Array<{ key: string; text: string }>;
+  answer: string;
+  explanation: string;
 };
 type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'> & { promptOverride?: string };
 
@@ -59,6 +69,52 @@ function buildPrompt(job: AnalysisInput, promptOverride = '') {
     sentence: job.source_text,
     context: job.context_json,
     tokenSkeleton: tokenize(job.source_text),
+    operatorInstructions: promptOverride.trim() || undefined,
+  });
+}
+
+function buildQuestionPrompt(job: QuestionAnalysisInput, promptOverride = '') {
+  const task = job.question_type === 'matching'
+    ? '段落匹配做题精读：必须结合题干、全部段落和选项，分析关键词、同义替换、段落主旨与对应关系，并解释相近段落为何不能选。'
+    : '仔细阅读做题精读：必须结合完整文章、题干和全部选项，定位原文证据，解释题干与原文的同义替换，逐一说明干扰项为什么错误。';
+  const options = job.question_type === 'matching'
+    ? job.options.map(option => ({
+      ...option,
+      text: job.paragraphs.find(paragraph => paragraph.startsWith(`[${option.key}]`))?.replace(/^\[[A-Z]\]\s*/, '') ?? option.text,
+    }))
+    : job.options;
+  return JSON.stringify({
+    task,
+    output: {
+      questionType: job.question_type,
+      questionTranslation: '题干的准确自然中文翻译；如果题干已有编号，只翻译正文',
+      focus: '本题考查的重点和解题方向',
+      options: [{ key: 'A', translation: '该选项中文翻译', analysis: '结合原文说明该选项正确或错误，不能只写标签', correct: false }],
+      correctAnswer: '正确选项字母；段落匹配填写对应段落字母',
+      evidence: [{ location: '原文段落或句子位置', excerpt: '原文中的具体短语或句子', explanation: '说明它如何支持答案，并指出同义替换或逻辑关系' }],
+      reasoning: '从题干到原文定位、比较选项并得出答案的完整推理',
+      traps: ['本题最容易误选的干扰点'],
+      steps: ['可复用的做题步骤'],
+    },
+    rules: [
+      '必须逐一翻译和分析全部选项，options 数量与输入完全一致，key 必须保持一致。',
+      'correct 只能有一个 true，且必须与 correctAnswer 一致；不得凭空改动给定答案。',
+      'evidence 至少引用一处输入文章中的具体英文原文，不能只重复参考解析。',
+      '题干翻译、选项翻译使用中文；分析必须说明文章证据、同义替换、逻辑关系或干扰方式。',
+      job.question_type === 'matching'
+        ? '段落匹配必须说明题干与目标段落的对应依据，并解释至少一个相近段落为何不匹配。'
+        : '仔细阅读必须逐一说明错误选项与原文不符、偷换概念、范围夸大、因果倒置或无中生有等具体原因。',
+      '只返回完整 JSON，不要 Markdown，不要增加字段。',
+    ],
+    material: {
+      title: job.title,
+      instructions: job.instructions,
+      paragraphs: job.paragraphs,
+      question: job.prompt,
+      options,
+      referenceAnswer: job.answer,
+      referenceExplanation: job.explanation,
+    },
     operatorInstructions: promptOverride.trim() || undefined,
   });
 }
@@ -257,6 +313,47 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
   } catch (error) {
     if (controller.signal.aborted) {
       throw new Error(`AI analysis timed out during model request ${requestAttempt}`, { cause: error });
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+export async function generateQuestionAnalysis(job: QuestionAnalysisInput, config: AIConfig): Promise<QuestionAnalysis> {
+  if (!config.apiUrl || !config.apiKey) throw new Error('AI_API_URL and AI_API_KEY are required in AI mode');
+  const controller = new AbortController();
+  let requestAttempt = 0;
+  const deadline = Date.now() + config.requestTimeoutMs;
+  const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
+  const messages = [
+    { role: 'system', content: `你是英语四六级阅读解题老师。${job.question_type === 'matching' ? '专长是段落匹配。' : '专长是仔细阅读。'}必须精读题干和所有选项，并引用文章中的具体证据。只返回符合要求的 JSON。${config.promptOverride?.trim() ? `\n管理员补充要求：${config.promptOverride.trim()}` : ''}` },
+    { role: 'user', content: buildQuestionPrompt(job, config.promptOverride) },
+  ];
+  try {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      requestAttempt = attempt + 1;
+      const content = await requestCompletion(
+        `${config.apiUrl.replace(/\/$/, '')}/chat/completions`, config.apiKey, config.model,
+        messages, controller, deadline,
+      );
+      try {
+        return validateQuestionAnalysis(parseModelJson(content), {
+          questionType: job.question_type, options: job.options, answer: job.answer, paragraphs: job.paragraphs,
+        });
+      } catch (error) {
+        if (attempt === 1) throw error;
+        const reason = error instanceof Error ? error.message.slice(0, 1500) : '结果未通过校验';
+        messages.push({ role: 'assistant', content }, {
+          role: 'user',
+          content: `上次结果未通过校验：${reason}。请修正并返回完整 JSON。必须逐一分析全部选项，correctAnswer 与给定答案一致，evidence 必须引用材料中的具体英文。`,
+        });
+      }
+    }
+    throw new Error('AI question analysis did not pass validation');
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw new Error(`AI question analysis timed out during model request ${requestAttempt}`, { cause: error });
     }
     throw error;
   } finally {

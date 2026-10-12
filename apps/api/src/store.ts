@@ -1,5 +1,6 @@
 import { Pool } from 'pg';
-import { AnswersSchema, contextHash, validateAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
+import { createHash } from 'node:crypto';
+import { AnswersSchema, contextHash, validateAnalysis, validateQuestionAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
@@ -334,6 +335,217 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
   return [...cached.values()];
 }
 
+type QuestionAnalysisInput = {
+  id: string;
+  question_type: 'reading' | 'matching';
+  title: string;
+  instructions: string;
+  paragraphs: string[];
+  prompt: string;
+  options: Array<{ key: string; text: string }>;
+  answer: string;
+  explanation: string;
+  content_hash: string;
+};
+
+type TextAnalysisInput = {
+  questionId: string;
+  textKey: string;
+  source_text: string;
+  context: { title: string; previousSentence: string | null; nextSentence: string | null };
+  content_hash: string;
+};
+
+async function getQuestionAnalysisInput(id: string): Promise<QuestionAnalysisInput | null> {
+  const result = await pool.query(
+    `SELECT q.id, ps.kind AS question_type, ps.title, ps.instructions,
+            ps.paragraphs_json AS paragraphs, q.prompt, q.options_json AS options,
+            q.answer_text AS answer, q.explanation
+     FROM questions q JOIN paper_sections ps ON ps.id = q.section_id
+     JOIN papers p ON p.id = ps.paper_id
+     WHERE q.id = $1 AND p.status = 'published' AND ps.kind IN ('reading', 'matching')`,
+    [id],
+  );
+  const row = result.rows[0];
+  if (!row || !row.answer) return null;
+  const content = JSON.stringify({
+    question_type: row.question_type, title: row.title, instructions: row.instructions,
+    paragraphs: row.paragraphs, prompt: row.prompt, options: row.options,
+    answer: row.answer, explanation: row.explanation,
+  });
+  return { ...row, content_hash: createHash('sha256').update(content).digest('hex') } as QuestionAnalysisInput;
+}
+
+export async function getCachedQuestionAnalysis(input: QuestionAnalysisInput) {
+  const result = await pool.query(
+    `SELECT analysis_json FROM question_analyses
+     WHERE question_id = $1 AND content_hash = $2 AND prompt_version = ANY($3::text[])
+       AND model = $4 AND mode = $5 AND status = 'succeeded'
+     ORDER BY (prompt_version = $6) DESC, updated_at DESC`,
+    [input.id, input.content_hash, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+  );
+  for (const row of result.rows) {
+    try { return validateQuestionAnalysis(row.analysis_json, {
+      questionType: input.question_type, options: input.options, answer: input.answer, paragraphs: input.paragraphs,
+    }); } catch { /* Skip invalid history. */ }
+  }
+  return undefined;
+}
+
+export async function getQuestionForAnalysis(id: string) {
+  return getQuestionAnalysisInput(id);
+}
+
+export async function getQuestionTextForAnalysis(id: string, textKey: string): Promise<TextAnalysisInput | null> {
+  const input = await getQuestionAnalysisInput(id);
+  if (!input || !textKey) return null;
+  let source = '';
+  if (textKey === 'prompt') source = input.prompt;
+  else if (textKey.startsWith('option:')) {
+    const key = textKey.slice('option:'.length);
+    const option = input.options.find(item => item.key === key);
+    if (!option) return null;
+    if (input.question_type === 'matching') {
+      const paragraph = input.paragraphs.find(item => item.startsWith(`[${key}]`));
+      source = paragraph?.replace(/^\[[A-Z]\]\s*/, '') ?? option.text;
+    } else source = option.text;
+  }
+  if (!source) return null;
+  const content = JSON.stringify({ questionId: id, textKey, source });
+  return {
+    questionId: id, textKey, source_text: source,
+    context: { title: input.title, previousSentence: null, nextSentence: null },
+    content_hash: createHash('sha256').update(content).digest('hex'),
+  };
+}
+
+export async function getCachedQuestionTextAnalysis(input: TextAnalysisInput) {
+  const result = await pool.query(
+    `SELECT analysis_json FROM question_analyses
+     WHERE question_id = $1 AND content_hash = $2 AND prompt_version = ANY($3::text[])
+       AND model = $4 AND mode = $5 AND status = 'succeeded'
+     ORDER BY (prompt_version = $6) DESC, updated_at DESC`,
+    [input.questionId, input.content_hash, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+  );
+  for (const row of result.rows) {
+    try { return validateAnalysis(input.source_text, row.analysis_json); } catch { /* Skip invalid history. */ }
+  }
+  return undefined;
+}
+
+export async function enqueueQuestionTextAnalysis(input: TextAnalysisInput, priority = 100) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    const gate = await client.query<{ allowed: boolean }>('SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed', [ANALYSIS_BATCH_LOCK_ID]);
+    if (!gate.rows[0]?.allowed) { await client.query('ROLLBACK'); throw new AnalysisPausedError(); }
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
+    const runtime = await readRuntimeSettings(client, config);
+    const existing = await client.query(
+      `SELECT id, status FROM analysis_jobs WHERE job_type = 'text' AND question_id = $1 AND text_key = $2
+       AND source_hash = $3 AND prompt_version = $4 AND model = $5 AND mode = $6 AND status IN ('pending', 'running')`,
+      [input.questionId, input.textKey, input.content_hash, config.promptVersion, config.model, config.mode],
+    );
+    if (existing.rows[0]) {
+      const updated = await client.query(
+        `UPDATE analysis_jobs SET priority = GREATEST(priority, $2), updated_at = NOW()
+         WHERE id = $1 RETURNING id, status`, [existing.rows[0].id, priority],
+      );
+      await client.query('COMMIT');
+      return updated.rows[0] as { id: string; status: string };
+    }
+    const count = await client.query<{ count: number; background: number }>(
+      `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS count,
+              COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= 1)::integer AS background
+       FROM analysis_jobs WHERE mode = $1 AND model = $2 AND prompt_version = $3`,
+      [config.mode, config.model, config.promptVersion],
+    );
+    let active = count.rows[0]?.count ?? 0;
+    const background = count.rows[0]?.background ?? 0;
+    if (active >= runtime.queueCapacity && priority > 1) {
+      const evicted = await client.query(
+        `DELETE FROM analysis_jobs WHERE id = (SELECT id FROM analysis_jobs
+         WHERE mode = $1 AND model = $2 AND prompt_version = $3 AND status = 'pending' AND priority <= 1 AND attempts = 0
+         ORDER BY created_at DESC FOR UPDATE SKIP LOCKED LIMIT 1) RETURNING id`,
+        [config.mode, config.model, config.promptVersion],
+      );
+      if (evicted.rowCount) active -= 1;
+    }
+    if (active >= runtime.queueCapacity || (priority <= 1 && background >= runtime.backgroundTarget)) {
+      await client.query('ROLLBACK'); throw new AnalysisQueueFullError();
+    }
+    const result = await client.query(
+      `INSERT INTO analysis_jobs
+       (job_type, question_id, text_key, sentence_id, source_text, source_hash, context_hash, context_json, question_json,
+        prompt_version, model, mode, status, priority)
+       VALUES ('text', $1, $2, NULL, $3, $4, $4, $5, $6, $7, $8, $9, 'pending', $10) RETURNING id, status`,
+      [input.questionId, input.textKey, input.source_text, input.content_hash, JSON.stringify(input.context), JSON.stringify({ source_text: input.source_text, context_json: input.context }), config.promptVersion, config.model, config.mode, priority],
+    );
+    await client.query('COMMIT'); return result.rows[0] as { id: string; status: string };
+  } catch (error) { await client.query('ROLLBACK').catch(() => undefined); throw error; }
+  finally { client.release(); }
+}
+
+export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, priority = 100) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    const gate = await client.query<{ allowed: boolean }>(
+      'SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed', [ANALYSIS_BATCH_LOCK_ID],
+    );
+    if (!gate.rows[0]?.allowed) { await client.query('ROLLBACK'); throw new AnalysisPausedError(); }
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
+    const runtime = await readRuntimeSettings(client, config);
+    const existing = await client.query(
+      `SELECT id, status FROM analysis_jobs
+       WHERE job_type = 'question' AND question_id = $1 AND source_hash = $2
+         AND prompt_version = $3 AND model = $4 AND mode = $5 AND status IN ('pending', 'running')`,
+      [input.id, input.content_hash, config.promptVersion, config.model, config.mode],
+    );
+    if (existing.rows[0]) {
+      const updated = await client.query(
+        `UPDATE analysis_jobs SET priority = GREATEST(priority, $2), updated_at = NOW()
+         WHERE id = $1 RETURNING id, status`, [existing.rows[0].id, priority],
+      );
+      await client.query('COMMIT');
+      return updated.rows[0] as { id: string; status: string };
+    }
+    const count = await client.query<{ count: number; background: number }>(
+      `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS count,
+              COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= 1)::integer AS background
+       FROM analysis_jobs WHERE mode = $1 AND model = $2 AND prompt_version = $3`,
+      [config.mode, config.model, config.promptVersion],
+    );
+    let active = count.rows[0]?.count ?? 0;
+    const background = count.rows[0]?.background ?? 0;
+    if (active >= runtime.queueCapacity && priority > 1) {
+      const evicted = await client.query(
+        `DELETE FROM analysis_jobs WHERE id = (SELECT id FROM analysis_jobs
+         WHERE mode = $1 AND model = $2 AND prompt_version = $3 AND status = 'pending' AND priority <= 1 AND attempts = 0
+         ORDER BY created_at DESC FOR UPDATE SKIP LOCKED LIMIT 1) RETURNING id`,
+        [config.mode, config.model, config.promptVersion],
+      );
+      if (evicted.rowCount) active -= 1;
+    }
+    if (active >= runtime.queueCapacity || (priority <= 1 && background >= runtime.backgroundTarget)) {
+      await client.query('ROLLBACK'); throw new AnalysisQueueFullError();
+    }
+    const result = await client.query(
+      `INSERT INTO analysis_jobs
+         (job_type, question_id, sentence_id, source_text, source_hash, context_hash, context_json, question_json,
+          prompt_version, model, mode, status, priority)
+       VALUES ('question', $1, NULL, '', $2, $2, '{}'::jsonb, $3, $4, $5, $6, 'pending', $7)
+       RETURNING id, status`,
+      [input.id, input.content_hash, JSON.stringify(input), config.promptVersion, config.model, config.mode, priority],
+    );
+    await client.query('COMMIT');
+    return result.rows[0] as { id: string; status: string };
+  } catch (error) {
+    await client.query('ROLLBACK').catch(() => undefined);
+    throw error;
+  } finally { client.release(); }
+}
+
 export async function enqueueAnalysis(sentence: {
   id: string; source_text: string; source_hash: string; context_hash: string; context: object;
 }, priority = 10) {
@@ -422,22 +634,33 @@ export async function enqueueAnalysis(sentence: {
 
 export async function getJob(id: string) {
   const result = await pool.query(
-    `SELECT j.id, j.sentence_id, j.mode, j.status, j.error_message, j.updated_at,
-            j.source_text, j.attempts, j.next_attempt_at, a.analysis_json
+    `SELECT j.id, j.job_type, j.sentence_id, j.question_id, j.question_json, j.mode, j.status, j.error_message, j.updated_at,
+            j.source_text, j.attempts, j.next_attempt_at,
+            COALESCE(sa.analysis_json, qa.analysis_json) AS analysis_json
      FROM analysis_jobs j
-     LEFT JOIN sentence_analyses a ON j.status = 'succeeded' AND a.status = 'succeeded'
-       AND a.sentence_id = j.sentence_id AND a.source_hash = j.source_hash
-       AND a.context_hash = j.context_hash AND a.prompt_version = j.prompt_version
-       AND a.model = j.model AND a.mode = j.mode
+     LEFT JOIN sentence_analyses sa ON j.job_type = 'sentence' AND j.status = 'succeeded' AND sa.status = 'succeeded'
+       AND sa.sentence_id = j.sentence_id AND sa.source_hash = j.source_hash
+       AND sa.context_hash = j.context_hash AND sa.prompt_version = j.prompt_version
+       AND sa.model = j.model AND sa.mode = j.mode
+     LEFT JOIN question_analyses qa ON j.job_type IN ('question', 'text') AND j.status = 'succeeded' AND qa.status = 'succeeded'
+       AND qa.question_id = j.question_id AND qa.content_hash = j.source_hash
+       AND qa.prompt_version = j.prompt_version AND qa.model = j.model AND qa.mode = j.mode
      WHERE j.id = $1`,
     [id],
   );
   const row = result.rows[0];
   if (!row) return null;
-  const { error_message, source_text, analysis_json, ...job } = row;
+  const { error_message, source_text, question_json, analysis_json, ...job } = row;
   let analysis;
   if (job.status === 'succeeded' && analysis_json) {
-    try { analysis = validateAnalysis(source_text, analysis_json); }
+    try {
+      analysis = job.job_type === 'question'
+        ? validateQuestionAnalysis(analysis_json, (() => {
+          const input = question_json as QuestionAnalysisInput;
+          return { questionType: input.question_type, options: input.options, answer: input.answer, paragraphs: input.paragraphs };
+        })())
+        : validateAnalysis(source_text, analysis_json);
+    }
     catch { /* The normal analysis endpoint will recover a missing/invalid cache. */ }
   }
   return { ...job, errorCode: job.status === 'failed' ? analysisErrorCode(error_message) : null, ...(analysis ? { result: analysis } : {}) };

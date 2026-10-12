@@ -5,10 +5,12 @@ import {
   AIAnalysisSchema,
   buildAnalysis,
   tokenize,
+  validateQuestionAnalysis,
+  type QuestionAnalysis,
   type AIAnalysis,
 } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
-import { generateAnalysis } from './ai-analysis.js';
+import { generateAnalysis, generateQuestionAnalysis, type QuestionAnalysisInput } from './ai-analysis.js';
 import { analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { runJobQueue } from './job-queue.js';
 import { runBackfillScheduler } from './backfill.js';
@@ -48,13 +50,43 @@ function demoRaw(source: string): AIAnalysis {
   });
 }
 
+function demoQuestionRaw(job: QuestionAnalysisInput): QuestionAnalysis {
+  const answer = job.answer;
+  return validateQuestionAnalysis({
+    questionType: job.question_type,
+    questionTranslation: '当前为演示模式，接入真实 AI 后生成题干翻译。',
+    focus: job.question_type === 'matching' ? '定位题干与段落之间的同义信息。' : '根据原文证据定位并排除干扰项。',
+    options: job.options.map(option => ({
+      key: option.key,
+      translation: '当前为演示模式，接入真实 AI 后生成选项翻译。',
+      analysis: option.key === answer ? '参考答案选项。接入真实 AI 后补充原文证据。' : '非参考答案选项。接入真实 AI 后补充具体干扰分析。',
+      correct: option.key === answer,
+    })),
+    correctAnswer: answer,
+    evidence: [{ location: '原文', excerpt: job.paragraphs[0] ?? '暂无文章材料', explanation: '当前为演示模式，接入真实 AI 后定位具体原文证据。' }],
+    reasoning: job.explanation || '当前为演示模式，接入真实 AI 后生成完整解题推理。',
+    traps: ['当前为演示模式，接入真实 AI 后补充干扰项分析。'],
+    steps: ['先读题干', '回到原文定位证据', '比较全部选项并确认答案'],
+  }, {
+    questionType: job.question_type, options: job.options, answer: job.answer, paragraphs: job.paragraphs,
+  });
+}
+
 async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof readRuntimeSettings>>) {
   const startedAt = Date.now();
   const client: PoolClient = await pool.connect();
   try {
-    const analysis = config.mode === 'demo'
-      ? buildAnalysis(job.source_text, demoRaw(job.source_text))
-      : await generateAnalysis(job, { ...config, promptOverride: runtime.promptOverride });
+    const analysis = job.job_type === 'question'
+      ? (config.mode === 'demo'
+        ? demoQuestionRaw(job.question_json as QuestionAnalysisInput)
+        : await generateQuestionAnalysis(job.question_json as QuestionAnalysisInput, { ...config, promptOverride: runtime.promptOverride }))
+      : job.job_type === 'text'
+        ? (config.mode === 'demo'
+          ? buildAnalysis(job.source_text, demoRaw(job.source_text))
+          : await generateAnalysis({ source_text: job.source_text, context_json: job.context_json }, { ...config, promptOverride: runtime.promptOverride }))
+        : (config.mode === 'demo'
+        ? buildAnalysis(job.source_text, demoRaw(job.source_text))
+        : await generateAnalysis(job, { ...config, promptOverride: runtime.promptOverride }));
     await client.query('BEGIN');
     const finished = await client.query(
       `UPDATE analysis_jobs SET status = 'succeeded', error_message = NULL,
@@ -64,7 +96,16 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
     );
     // A worker whose lease was reclaimed must not overwrite a newer result.
     if (!finished.rowCount) { await client.query('ROLLBACK'); return; }
-    await client.query(
+    if (job.job_type === 'question' || job.job_type === 'text') {
+      await client.query(
+      `INSERT INTO question_analyses
+         (question_id, content_hash, prompt_version, model, mode, analysis_json, status)
+       VALUES ($1, $2, $3, $4, $5, $6, 'succeeded')
+       ON CONFLICT (question_id, content_hash, prompt_version, model, mode)
+       DO UPDATE SET analysis_json = EXCLUDED.analysis_json, status = 'succeeded', updated_at = NOW()`,
+      [job.question_id, job.source_hash, config.promptVersion, config.model, config.mode, JSON.stringify(analysis)],
+      );
+    } else await client.query(
       `INSERT INTO sentence_analyses
          (sentence_id, source_hash, context_hash, context_json, prompt_version,
           model, mode, analysis_json, status)
@@ -77,7 +118,7 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
     );
     await client.query('COMMIT');
     console.log(JSON.stringify({
-      event: 'analysis_succeeded', jobId: job.id, sentenceId: job.sentence_id,
+      event: 'analysis_succeeded', jobId: job.id, sentenceId: job.sentence_id, questionId: job.question_id,
       attempt: job.attempts, queueMs: startedAt - job.created_at.getTime(),
       durationMs: Date.now() - startedAt,
     }));
@@ -91,7 +132,7 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
       ? `Transient retry limit reached after ${config.maxAnalysisAttempts} attempts: ${message}`
       : message;
     console.error(JSON.stringify({
-      event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id,
+      event: 'analysis_failed', jobId: job.id, sentenceId: job.sentence_id, questionId: job.question_id,
       attempt: job.attempts, errorCode,
       durationMs: Date.now() - startedAt,
       modelRequest: message.match(/model request (\d+)/)?.[1] ?? null,

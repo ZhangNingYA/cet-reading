@@ -5,11 +5,17 @@ import { ANALYSIS_BATCH_LOCK_ID } from '@cet-reading/contracts/analysis-jobs';
 export type AnalysisJob = {
   id: string;
   attempts: number;
-  sentence_id: string;
+  job_type: 'sentence' | 'question' | 'text';
+  sentence_id: string | null;
+  question_id: string | null;
   source_text: string;
   source_hash: string;
   context_hash: string;
   context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
+  question_json: {
+    question_type: 'reading' | 'matching'; title: string; instructions: string; paragraphs: string[];
+    prompt: string; options: Array<{ key: string; text: string }>; answer: string; explanation: string;
+  } | { source_text: string; context_json: { title: string; previousSentence: string | null; nextSentence: string | null } } | null;
   created_at: Date;
 };
 
@@ -63,7 +69,7 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
        FROM candidate c
        WHERE j.id = c.id
        RETURNING j.id, j.attempts, j.sentence_id, j.source_text, j.source_hash,
-                 j.context_hash, j.context_json, j.created_at`,
+                 j.job_type, j.question_id, j.context_hash, j.context_json, j.question_json, j.created_at`,
       [config.mode, config.model, config.promptVersion, config.leaseSeconds, config.maxAnalysisAttempts],
     );
     // Even when no job is ready, exhausted rows must leave the active queue.

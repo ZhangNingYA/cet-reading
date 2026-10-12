@@ -1,5 +1,5 @@
 import { tokenize } from '@cet-reading/contracts/tokens';
-import type { SentenceAnalysis } from '@cet-reading/contracts';
+import type { QuestionAnalysis, SentenceAnalysis } from '@cet-reading/contracts';
 import { createSectionNavigation } from './section-navigation';
 import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
 import type { SectionReference } from '@cet-reading/contracts/exam';
@@ -17,8 +17,9 @@ type StudySection = {
   id: string;
   title: string;
   kind: string;
+  instructions?: string;
   paragraphs: string[];
-  questions: { prompt: string }[];
+  questions: { id: string; prompt: string; options: { key: string; text: string }[] }[];
   reference?: SectionReference;
   images?: { src: string; alt: string }[];
 };
@@ -34,6 +35,8 @@ type AnalysisTab = 'translation' | 'structure' | 'pattern' | 'vocabulary';
 type AnalysisRequest = { promise: Promise<SentenceAnalysis>; regenerating: boolean; controller: AbortController };
 const completed = new Map<string, SentenceAnalysis>();
 const requests = new Map<string, AnalysisRequest>();
+const questionAnalyses = new Map<string, QuestionAnalysis>();
+const questionTextAnalyses = new Map<string, SentenceAnalysis>();
 const roleNames: Record<string, string> = {
   subject: '主语', predicate: '谓语', object: '宾语', complement: '补语', modifier: '修饰语', connector: '连接词',
 };
@@ -219,6 +222,155 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     if (!response.result?.tokens || !response.result?.grammar) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
     completed.set(cacheKey(sentence), response.result);
     return response.result;
+  }
+
+  async function fetchQuestionResult(path: string, signal: AbortSignal) {
+    let response = await jsonRequest(path, 'POST', signal);
+    const deadline = Date.now() + 600_000;
+    let pollDelay = 500;
+    while (response.status !== 'ready') {
+      if (!response.jobId) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
+      if (Date.now() > deadline) throw new AnalysisFailure('精读仍未完成，请稍后重试。');
+      await waitForJob(signal, pollDelay);
+      const job = await jsonRequest(`/api/jobs/${encodeURIComponent(response.jobId)}`, 'GET', signal);
+      if (job.status === 'failed') throw new AnalysisFailure(analysisErrorMessage(job.errorCode));
+      if (job.status === 'succeeded') {
+        response = job.result ? { status: 'ready', result: job.result } : await jsonRequest(path, 'POST', signal);
+      } else pollDelay = job.status === 'pending' ? 1_500 : 700;
+    }
+    return response.result;
+  }
+
+  function renderQuestionTextAnalysis(container: HTMLElement, analysis: SentenceAnalysis) {
+    const detail = element('div', 'question-text-analysis');
+    detail.append(element('p', 'sentence-translation', analysis.translation));
+    const summary = element('p', 'grammar-summary', [analysis.grammar.sentenceType, analysis.grammar.tense, analysis.grammar.voice].filter(Boolean).join(' · '));
+    detail.append(summary);
+    for (const range of analysis.grammar.components ?? []) {
+      const label = roleNames[range.role] ?? range.role;
+      const item = element('p', 'question-text-detail');
+      item.append(element('strong', 'component-label', `${label}：`), document.createTextNode(range.explanation));
+      detail.append(item);
+    }
+    for (const term of analysis.vocabulary ?? []) {
+      const item = element('p', 'question-text-detail');
+      item.append(element('strong', 'vocabulary-expression', `${term.expression}：`), document.createTextNode(`${term.meaning} ${term.usage}`));
+      detail.append(item);
+    }
+    container.replaceChildren(detail);
+  }
+
+  function renderQuestionAnalysis(container: HTMLElement, analysis: QuestionAnalysis) {
+    const result = element('div', 'question-solving-analysis');
+    result.append(element('p', 'sentence-translation', `题干翻译：${analysis.questionTranslation}`));
+    result.append(element('p', 'question-analysis-focus', analysis.focus));
+    const options = element('div', 'question-analysis-options');
+    for (const option of analysis.options) {
+      const item = element('div', `question-analysis-option${option.correct ? ' is-correct' : ''}`);
+      item.append(element('strong', 'question-option-title', `${option.key}${option.correct ? ' · 正确项' : ''}｜${option.translation}`));
+      item.append(element('p', 'question-option-analysis', option.analysis));
+      options.append(item);
+    }
+    result.append(options);
+    result.append(element('p', 'question-analysis-answer', `参考答案：${analysis.correctAnswer}`));
+    const evidence = element('div', 'question-analysis-evidence');
+    evidence.append(element('h5', '', '原文依据'));
+    for (const item of analysis.evidence) {
+      const quote = element('blockquote', '');
+      quote.append(element('strong', '', item.location), element('p', '', `“${item.excerpt}”`), element('p', '', item.explanation));
+      evidence.append(quote);
+    }
+    result.append(evidence, element('p', 'question-analysis-reasoning', analysis.reasoning));
+    for (const [title, entries] of [['易错点', analysis.traps], ['解题步骤', analysis.steps]] as const) {
+      const group = element('div', 'question-analysis-list');
+      group.append(element('h5', '', title));
+      const list = element('ul', '');
+      for (const entry of entries) list.append(element('li', '', entry));
+      group.append(list);
+      result.append(group);
+    }
+    container.replaceChildren(result);
+  }
+
+  function renderStudyQuestions(section: StudySection, block: HTMLElement) {
+    if (!['reading', 'matching'].includes(section.kind) || !section.questions.length) return;
+    const list = element('div', 'intensive-questions');
+    const paragraphByKey = new Map(section.paragraphs.map(paragraph => {
+      const match = paragraph.match(/^\[([A-Z])\]\s*/);
+      return [match?.[1] ?? '', paragraph.replace(/^\[[A-Z]\]\s*/, '')] as const;
+    }));
+    const sharedMatchingQuestionId = section.questions[0]?.id;
+    for (const [index, question] of section.questions.entries()) {
+      const card = element('article', 'intensive-question');
+      const questionNumber = question.prompt.match(/^\s*(\d+)\s*[.)]/)?.[1] ?? String(index + 1);
+      card.append(element('h4', 'intensive-question-title', `第 ${questionNumber} 题`));
+      const prompt = element('div', 'intensive-question-prompt');
+      prompt.append(element('p', 'question-source-text', question.prompt));
+      const promptAnalysis = element('div', 'question-inline-result');
+      const promptButton = element('button', 'question-analysis-button', '题干英语翻译精读');
+      promptButton.type = 'button';
+      promptButton.addEventListener('click', () => {
+        const key = `${question.id}:prompt`;
+        const cached = questionTextAnalyses.get(key);
+        if (cached) { renderQuestionTextAnalysis(promptAnalysis, cached); return; }
+        promptButton.disabled = true;
+        promptButton.replaceChildren(document.createTextNode('正在精读'), waitingDots());
+        void fetchQuestionResult(`/api/question-texts/${encodeURIComponent(question.id)}/analyze?mode=intensive&textKey=prompt`, controller.signal)
+          .then((analysis: SentenceAnalysis) => { questionTextAnalyses.set(key, analysis); renderQuestionTextAnalysis(promptAnalysis, analysis); })
+          .catch(error => { promptAnalysis.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '精读失败，请重试。')); })
+          .finally(() => { promptButton.disabled = false; promptButton.textContent = '题干英语翻译精读'; });
+      });
+      prompt.append(promptButton, promptAnalysis);
+      card.append(prompt);
+
+      const options = element('div', 'intensive-question-options');
+      options.append(element('h5', 'question-options-heading', section.kind === 'matching' ? '匹配段落选项' : '选项精读'));
+      for (const option of question.options) {
+        const optionCard = element('div', 'intensive-question-option');
+        const matchingText = section.kind === 'matching' ? paragraphByKey.get(option.key) : undefined;
+        const optionText = matchingText ?? option.text;
+        optionCard.append(element('strong', 'question-option-key', `${option.key}.`));
+        const source = element('p', 'question-source-text', optionText);
+        optionCard.append(source);
+        const translation = element('div', 'question-inline-result');
+        const button = element('button', 'question-analysis-button', '英语翻译精读');
+        button.type = 'button';
+        button.addEventListener('click', () => {
+          const textQuestionId = section.kind === 'matching' ? sharedMatchingQuestionId : question.id;
+          const key = `${section.id}:${section.kind === 'matching' ? 'matching-option' : question.id}:option:${option.key}`;
+          const cached = questionTextAnalyses.get(key);
+          if (cached) { renderQuestionTextAnalysis(translation, cached); return; }
+          button.disabled = true;
+          button.replaceChildren(document.createTextNode('正在精读'), waitingDots());
+          if (!textQuestionId) return;
+          void fetchQuestionResult(`/api/question-texts/${encodeURIComponent(textQuestionId)}/analyze?mode=intensive&textKey=${encodeURIComponent(`option:${option.key}`)}`, controller.signal)
+            .then((analysis: SentenceAnalysis) => { questionTextAnalyses.set(key, analysis); renderQuestionTextAnalysis(translation, analysis); })
+            .catch(error => { translation.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '精读失败，请重试。')); })
+            .finally(() => { button.disabled = false; button.textContent = '英语翻译精读'; });
+        });
+        optionCard.append(button, translation);
+        options.append(optionCard);
+      }
+      card.append(options);
+
+      const solving = element('div', 'question-solving-result');
+      const solveButton = element('button', 'question-analysis-button question-solving-button', '做题精读：解析题干、全部选项与原文依据');
+      solveButton.type = 'button';
+      const cached = questionAnalyses.get(question.id);
+      if (cached) { renderQuestionAnalysis(solving, cached); solveButton.hidden = true; }
+      solveButton.addEventListener('click', () => {
+        if (questionAnalyses.has(question.id)) return;
+        solveButton.disabled = true;
+        solveButton.replaceChildren(document.createTextNode('正在生成做题精读'), waitingDots());
+        void fetchQuestionResult(`/api/questions/${encodeURIComponent(question.id)}/analyze?mode=question`, controller.signal)
+          .then((analysis: QuestionAnalysis) => { questionAnalyses.set(question.id, analysis); renderQuestionAnalysis(solving, analysis); solveButton.hidden = true; })
+          .catch(error => { solving.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '做题精读失败，请重试。')); })
+          .finally(() => { solveButton.disabled = false; if (!solveButton.hidden) solveButton.textContent = '重试做题精读'; });
+      });
+      card.append(solveButton, solving);
+      list.append(card);
+    }
+    block.append(list);
   }
   async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false) {
     selected = { sentence, element: source, wordIndex };
@@ -431,6 +583,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     const sentences = paper.sentences.filter(sentence => sentence.sectionId === section.id);
     if (section.kind === 'cloze' && paper.content_kind === 'imported') block.append(element('p', 'passage-note', '空格按参考答案补全'));
+    if (['reading', 'matching'].includes(section.kind) && section.instructions) block.append(element('p', 'section-instructions', section.instructions));
     if (section.kind === 'writing' && paper.content_kind !== 'imported') block.append(element('p', 'passage-paragraph', section.questions[0]?.prompt ?? ''));
     if (!sentences.length) {
       for (const text of section.paragraphs) block.append(element('p', 'passage-paragraph', text));
@@ -463,6 +616,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       paragraphOffset += sentence.source.length + 1;
     }
     appendSectionImages(block, section);
+    renderStudyQuestions(section, block);
     documentColumn.replaceChildren(block);
     pane.hidden = !sentences.length;
     if (sentences.length) void prefetchCachedAnalyses(section);

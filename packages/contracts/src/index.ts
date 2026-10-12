@@ -75,10 +75,32 @@ export const SentenceAnalysisSchema = z.object({
   keyPoints: z.array(z.string().min(1)).min(1),
 }).strict();
 
+export const QuestionAnalysisSchema = z.object({
+  questionType: z.enum(['reading', 'matching']),
+  questionTranslation: z.string().min(1),
+  focus: z.string().min(1),
+  options: z.array(z.object({
+    key: z.string().min(1),
+    translation: z.string().min(1),
+    analysis: z.string().min(1),
+    correct: z.boolean(),
+  }).strict()).min(2),
+  correctAnswer: z.string().min(1),
+  evidence: z.array(z.object({
+    location: z.string().min(1),
+    excerpt: z.string().min(1),
+    explanation: z.string().min(1),
+  }).strict()).min(1),
+  reasoning: z.string().min(1),
+  traps: z.array(z.string().min(1)).min(1),
+  steps: z.array(z.string().min(1)).min(1),
+}).strict();
+
 export type BaseToken = z.infer<typeof BaseTokenSchema>;
 export type Token = z.infer<typeof TokenSchema>;
 export type AIAnalysis = z.infer<typeof AIAnalysisSchema>;
 export type SentenceAnalysis = z.infer<typeof SentenceAnalysisSchema>;
+export type QuestionAnalysis = z.infer<typeof QuestionAnalysisSchema>;
 export type JobStatus = 'pending' | 'running' | 'succeeded' | 'failed';
 export type AnalysisMode = 'demo' | 'ai';
 
@@ -183,6 +205,29 @@ export function validateAnalysis(source: string, value: unknown): SentenceAnalys
   ensureChineseTranslation(analysis.translation, source);
   ensureGrammarRanges(expected, analysis.grammar);
   ensureVocabularyRanges(expected, analysis.vocabulary);
+  return analysis;
+}
+
+export function validateQuestionAnalysis(value: unknown, expected?: {
+  questionType: 'reading' | 'matching';
+  options: { key: string }[];
+  answer: string;
+  paragraphs: string[];
+}): QuestionAnalysis {
+  const analysis = QuestionAnalysisSchema.parse(value);
+  if (!expected) return analysis;
+  if (analysis.questionType !== expected.questionType) throw new Error('Question analysis type does not match input');
+  const optionKeys = expected.options.map(option => option.key);
+  const resultKeys = analysis.options.map(option => option.key);
+  if (resultKeys.length !== optionKeys.length || new Set(resultKeys).size !== resultKeys.length ||
+    optionKeys.some(key => !resultKeys.includes(key))) throw new Error('Question analysis options do not match input');
+  if (analysis.correctAnswer !== expected.answer || analysis.options.filter(option => option.correct).length !== 1 ||
+    !analysis.options.some(option => option.key === expected.answer && option.correct)) {
+    throw new Error('Question analysis answer does not match reference answer');
+  }
+  if (!analysis.evidence.some(item => expected.paragraphs.some(paragraph => paragraph.includes(item.excerpt)))) {
+    throw new Error('Question analysis evidence is not quoted from the source passage');
+  }
   return analysis;
 }
 
