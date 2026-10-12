@@ -76,6 +76,8 @@ docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/019_analysis_news_priorities.sql
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/020_question_analysis.sql
+docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading <<'SQL'
 DELETE FROM analysis_jobs job
 USING sentences sentence
