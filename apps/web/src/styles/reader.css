@@ -48,7 +48,6 @@
 .question-solving-summary::marker { color: var(--accent); }
 .question-solving-summary:hover { color: var(--accent); }
 .question-solving-result { margin-top: 8px; }
-.question-solving-button { font-weight: 550; }
 .question-solving-analysis { margin-top: 15px; padding: 19px; border-radius: 9px; background: #f2f6f3; color: #425048; font-size: var(--text-caption); line-height: 1.85; overflow-wrap: anywhere; }
 .question-solving-analysis p { margin: 10px 0; }
 .question-analysis-focus { color: var(--accent-deep); font-weight: 550; }

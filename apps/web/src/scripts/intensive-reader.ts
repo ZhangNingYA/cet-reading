@@ -328,24 +328,35 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       }
       card.append(options);
 
-      const solvingDisclosure = element('details', 'question-solving-disclosure');
-      const solvingSummary = element('summary', 'question-solving-summary', '做题精读：解析题干、全部选项与原文依据');
-      const solving = element('div', 'question-solving-result');
-      const solveButton = element('button', 'question-analysis-button question-solving-button', '生成做题精读');
-      solveButton.type = 'button';
-      const cached = questionAnalyses.get(question.id);
-      if (cached) { renderQuestionAnalysis(solving, cached); solveButton.hidden = true; }
-      solveButton.addEventListener('click', () => {
-        if (questionAnalyses.has(question.id)) return;
-        solveButton.disabled = true;
-        solveButton.replaceChildren(document.createTextNode('正在生成做题精读'), waitingDots());
-        void fetchQuestionResult(`/api/questions/${encodeURIComponent(question.id)}/analyze?mode=question`, controller.signal)
-          .then((analysis: QuestionAnalysis) => { questionAnalyses.set(question.id, analysis); renderQuestionAnalysis(solving, analysis); solvingDisclosure.open = true; solveButton.hidden = true; })
-          .catch(error => { solving.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '做题精读失败，请重试。')); })
-          .finally(() => { solveButton.disabled = false; if (!solveButton.hidden) solveButton.textContent = '重试做题精读'; });
-      });
-      solvingDisclosure.append(solvingSummary, solveButton, solving);
-      card.append(solvingDisclosure);
+      if (section.kind === 'reading') {
+        const solvingDisclosure = element('details', 'question-solving-disclosure');
+        const solvingSummary = element('summary', 'question-solving-summary', '做题精读：解析题干、全部选项与原文依据');
+        const solving = element('div', 'question-solving-result');
+        const cached = questionAnalyses.get(question.id);
+        let questionRequest: Promise<QuestionAnalysis> | null = null;
+        if (cached) renderQuestionAnalysis(solving, cached);
+        solvingDisclosure.addEventListener('toggle', () => {
+          if (!solvingDisclosure.open || questionAnalyses.has(question.id) || questionRequest) return;
+          const loading = element('p', 'analysis-loading');
+          loading.append(element('span', 'analysis-loading-text', '正在生成做题精读'), waitingDots());
+          loading.setAttribute('role', 'status');
+          solving.replaceChildren(loading);
+          questionRequest = fetchQuestionResult(`/api/questions/${encodeURIComponent(question.id)}/analyze?mode=question`, controller.signal)
+            .then((analysis: QuestionAnalysis) => {
+              questionAnalyses.set(question.id, analysis);
+              renderQuestionAnalysis(solving, analysis);
+              return analysis;
+            })
+            .catch(error => {
+              solving.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '做题精读失败，请重试。'));
+              throw error;
+            })
+            .finally(() => { questionRequest = null; });
+          void questionRequest.catch(() => undefined);
+        });
+        solvingDisclosure.append(solvingSummary, solving);
+        card.append(solvingDisclosure);
+      }
       list.append(card);
     }
     block.append(list);
