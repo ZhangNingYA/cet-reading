@@ -12,6 +12,7 @@ type StudySentence = {
   source: string;
   paragraphIndex: number;
   sentenceIndex: number;
+  label?: string;
 };
 type StudySection = {
   id: string;
@@ -33,10 +34,11 @@ type StudyPaper = {
 type Selection = { sentence: StudySentence; element: HTMLElement; wordIndex: number | null };
 type AnalysisTab = 'translation' | 'structure' | 'pattern' | 'vocabulary';
 type AnalysisRequest = { promise: Promise<SentenceAnalysis>; regenerating: boolean; controller: AbortController };
+type QuestionTextReference = { questionId: string; textKey: string };
 const completed = new Map<string, SentenceAnalysis>();
 const requests = new Map<string, AnalysisRequest>();
+const questionTextReferences = new Map<string, QuestionTextReference>();
 const questionAnalyses = new Map<string, QuestionAnalysis>();
-const questionTextAnalyses = new Map<string, SentenceAnalysis>();
 const roleNames: Record<string, string> = {
   subject: '主语', predicate: '谓语', object: '宾语', complement: '补语', modifier: '修饰语', connector: '连接词',
 };
@@ -193,7 +195,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     });
   }
   async function fetchAnalysis(sentence: StudySentence, regenerate: boolean, signal: AbortSignal): Promise<SentenceAnalysis> {
-    const path = `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive&interactive=true`;
+    const questionText = questionTextReferences.get(sentence.id);
+    const path = questionText
+      ? `/api/question-texts/${encodeURIComponent(questionText.questionId)}/analyze?mode=intensive&textKey=${encodeURIComponent(questionText.textKey)}`
+      : `/api/sentences/${encodeURIComponent(sentence.id)}/analyze?mode=intensive&interactive=true`;
     let response = await jsonRequest(regenerate ? `${path}&regenerate=true` : path, 'POST', signal);
     // Several sentences can be queued by the same reader; queue time is separate
     // from the worker's three-minute generation and repair deadline.
@@ -207,7 +212,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (job.status === 'failed') throw new AnalysisFailure(analysisErrorMessage(job.errorCode));
       if (selected?.sentence.id === sentence.id && !completed.has(cacheKey(sentence))) {
         const loading = paneBody.querySelector('.analysis-loading-text');
-        const message = job.status === 'pending' ? '正在排队，稍候开始' : '正在解析这一句';
+        const message = job.status === 'pending' ? '正在排队，稍候开始' : questionText ? '正在解析这段文字' : '正在解析这一句';
         if (loading && loading.textContent !== message) loading.textContent = message;
       }
       if (job.status === 'pending' && job.next_attempt_at) {
@@ -241,23 +246,17 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     return response.result;
   }
 
-  function renderQuestionTextAnalysis(container: HTMLElement, analysis: SentenceAnalysis) {
-    const detail = element('div', 'question-text-analysis');
-    detail.append(element('p', 'sentence-translation', analysis.translation));
-    const summary = element('p', 'grammar-summary', [analysis.grammar.sentenceType, analysis.grammar.tense, analysis.grammar.voice].filter(Boolean).join(' · '));
-    detail.append(summary);
-    for (const range of analysis.grammar.components ?? []) {
-      const label = roleNames[range.role] ?? range.role;
-      const item = element('p', 'question-text-detail');
-      item.append(element('strong', 'component-label', `${label}：`), document.createTextNode(range.explanation));
-      detail.append(item);
-    }
-    for (const term of analysis.vocabulary ?? []) {
-      const item = element('p', 'question-text-detail');
-      item.append(element('strong', 'vocabulary-expression', `${term.expression}：`), document.createTextNode(`${term.meaning} ${term.usage}`));
-      detail.append(item);
-    }
-    container.replaceChildren(detail);
+  function createQuestionTextSentence(section: StudySection, questionId: string, textKey: string, source: string, label: string, index: number): StudySentence {
+    const sentence: StudySentence = {
+      id: `question-text:${section.id}:${questionId}:${textKey}`,
+      sectionId: section.id,
+      source,
+      paragraphIndex: -1,
+      sentenceIndex: index,
+      label,
+    };
+    questionTextReferences.set(sentence.id, { questionId, textKey });
+    return sentence;
   }
 
   function renderQuestionAnalysis(container: HTMLElement, analysis: QuestionAnalysis) {
@@ -305,22 +304,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       const questionNumber = question.prompt.match(/^\s*(\d+)\s*[.)]/)?.[1] ?? String(index + 1);
       card.append(element('h4', 'intensive-question-title', `第 ${questionNumber} 题`));
       const prompt = element('div', 'intensive-question-prompt');
-      prompt.append(element('p', 'question-source-text', question.prompt));
-      const promptAnalysis = element('div', 'question-inline-result');
-      const promptButton = element('button', 'question-analysis-button', '题干英语翻译精读');
-      promptButton.type = 'button';
-      promptButton.addEventListener('click', () => {
-        const key = `${question.id}:prompt`;
-        const cached = questionTextAnalyses.get(key);
-        if (cached) { renderQuestionTextAnalysis(promptAnalysis, cached); return; }
-        promptButton.disabled = true;
-        promptButton.replaceChildren(document.createTextNode('正在精读'), waitingDots());
-        void fetchQuestionResult(`/api/question-texts/${encodeURIComponent(question.id)}/analyze?mode=intensive&textKey=prompt`, controller.signal)
-          .then((analysis: SentenceAnalysis) => { questionTextAnalyses.set(key, analysis); renderQuestionTextAnalysis(promptAnalysis, analysis); })
-          .catch(error => { promptAnalysis.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '精读失败，请重试。')); })
-          .finally(() => { promptButton.disabled = false; promptButton.textContent = '题干英语翻译精读'; });
-      });
-      prompt.append(promptButton, promptAnalysis);
+      const promptSentence = createQuestionTextSentence(section, question.id, 'prompt', question.prompt, '题干', index);
+      const promptSource = renderSentence(promptSentence);
+      promptSource.setAttribute('aria-label', '题干，点击查看精读');
+      prompt.append(promptSource);
       card.append(prompt);
 
       const options = element('div', 'intensive-question-options');
@@ -330,31 +317,21 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         const matchingText = section.kind === 'matching' ? paragraphByKey.get(option.key) : undefined;
         const optionText = matchingText ?? option.text;
         optionCard.append(element('strong', 'question-option-key', `${option.key}.`));
-        const source = element('p', 'question-source-text', optionText);
-        optionCard.append(source);
-        const translation = element('div', 'question-inline-result');
-        const button = element('button', 'question-analysis-button', '英语翻译精读');
-        button.type = 'button';
-        button.addEventListener('click', () => {
-          const textQuestionId = section.kind === 'matching' ? sharedMatchingQuestionId : question.id;
-          const key = `${section.id}:${section.kind === 'matching' ? 'matching-option' : question.id}:option:${option.key}`;
-          const cached = questionTextAnalyses.get(key);
-          if (cached) { renderQuestionTextAnalysis(translation, cached); return; }
-          button.disabled = true;
-          button.replaceChildren(document.createTextNode('正在精读'), waitingDots());
-          if (!textQuestionId) return;
-          void fetchQuestionResult(`/api/question-texts/${encodeURIComponent(textQuestionId)}/analyze?mode=intensive&textKey=${encodeURIComponent(`option:${option.key}`)}`, controller.signal)
-            .then((analysis: SentenceAnalysis) => { questionTextAnalyses.set(key, analysis); renderQuestionTextAnalysis(translation, analysis); })
-            .catch(error => { translation.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '精读失败，请重试。')); })
-            .finally(() => { button.disabled = false; button.textContent = '英语翻译精读'; });
-        });
-        optionCard.append(button, translation);
+        const textQuestionId = section.kind === 'matching' ? sharedMatchingQuestionId : question.id;
+        if (textQuestionId) {
+          const optionSentence = createQuestionTextSentence(section, textQuestionId, `option:${option.key}`, optionText, `选项 ${option.key}`, index);
+          const optionSource = renderSentence(optionSentence);
+          optionSource.setAttribute('aria-label', `选项 ${option.key}，点击查看精读`);
+          optionCard.append(optionSource);
+        } else optionCard.append(element('p', 'question-source-text', optionText));
         options.append(optionCard);
       }
       card.append(options);
 
+      const solvingDisclosure = element('details', 'question-solving-disclosure');
+      const solvingSummary = element('summary', 'question-solving-summary', '做题精读：解析题干、全部选项与原文依据');
       const solving = element('div', 'question-solving-result');
-      const solveButton = element('button', 'question-analysis-button question-solving-button', '做题精读：解析题干、全部选项与原文依据');
+      const solveButton = element('button', 'question-analysis-button question-solving-button', '生成做题精读');
       solveButton.type = 'button';
       const cached = questionAnalyses.get(question.id);
       if (cached) { renderQuestionAnalysis(solving, cached); solveButton.hidden = true; }
@@ -363,11 +340,12 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         solveButton.disabled = true;
         solveButton.replaceChildren(document.createTextNode('正在生成做题精读'), waitingDots());
         void fetchQuestionResult(`/api/questions/${encodeURIComponent(question.id)}/analyze?mode=question`, controller.signal)
-          .then((analysis: QuestionAnalysis) => { questionAnalyses.set(question.id, analysis); renderQuestionAnalysis(solving, analysis); solveButton.hidden = true; })
+          .then((analysis: QuestionAnalysis) => { questionAnalyses.set(question.id, analysis); renderQuestionAnalysis(solving, analysis); solvingDisclosure.open = true; solveButton.hidden = true; })
           .catch(error => { solving.replaceChildren(element('p', 'analysis-empty', error instanceof Error ? error.message : '做题精读失败，请重试。')); })
           .finally(() => { solveButton.disabled = false; if (!solveButton.hidden) solveButton.textContent = '重试做题精读'; });
       });
-      card.append(solveButton, solving);
+      solvingDisclosure.append(solvingSummary, solveButton, solving);
+      card.append(solvingDisclosure);
       list.append(card);
     }
     block.append(list);
@@ -378,7 +356,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     pane.classList.add('is-open');
     close.hidden = false;
     highlightSelection();
-    paneTitle.textContent = `第 ${sentence.sentenceIndex + 1} 句`;
+    paneTitle.textContent = sentence.label ?? `第 ${sentence.sentenceIndex + 1} 句`;
     if (window.matchMedia('(max-width: 850px)').matches) {
       requestAnimationFrame(() => {
         if (!panelOpen || selected?.element !== source) return;

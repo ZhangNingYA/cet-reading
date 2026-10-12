@@ -43,7 +43,11 @@
 .question-text-analysis { color: #425048; font-size: var(--text-caption); line-height: 1.8; overflow-wrap: anywhere; }
 .question-text-analysis .sentence-translation { margin-bottom: 10px; color: var(--ink); font-size: var(--text-body); }
 .question-text-detail { margin: 7px 0 0; }
-.question-solving-result { margin-top: 20px; }
+.question-solving-disclosure { margin-top: 22px; border-top: 1px solid #dfe7e1; }
+.question-solving-summary { padding: 15px 2px 10px; color: var(--accent-deep); cursor: pointer; font-size: var(--text-ui); font-weight: 550; line-height: 1.7; }
+.question-solving-summary::marker { color: var(--accent); }
+.question-solving-summary:hover { color: var(--accent); }
+.question-solving-result { margin-top: 8px; }
 .question-solving-button { font-weight: 550; }
 .question-solving-analysis { margin-top: 15px; padding: 19px; border-radius: 9px; background: #f2f6f3; color: #425048; font-size: var(--text-caption); line-height: 1.85; overflow-wrap: anywhere; }
 .question-solving-analysis p { margin: 10px 0; }
