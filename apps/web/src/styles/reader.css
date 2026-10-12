@@ -28,7 +28,8 @@
 .section-instructions { margin: 0 0 26px; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }
 .intensive-questions { display: grid; gap: 28px; margin-top: 48px; padding-top: 30px; border-top: 1px solid var(--line); }
 .intensive-question { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: #fcfdfc; }
-.intensive-question-title { margin: 0 0 18px; color: var(--accent-deep); font-size: var(--text-body); font-weight: 600; }
+.intensive-question-line { margin: 0; color: var(--ink); font-size: var(--text-body); font-weight: 400; line-height: 1.85; }
+.intensive-question-title { margin-right: .45em; color: var(--accent-deep); font-weight: 600; }
 .intensive-question-prompt, .intensive-question-option { min-width: 0; }
 .question-source-text { margin: 0 0 12px; color: var(--ink); font-size: var(--text-body); line-height: 1.85; overflow-wrap: anywhere; }
 .intensive-question-options { display: grid; gap: 15px; margin-top: 22px; }

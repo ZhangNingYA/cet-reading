@@ -400,7 +400,7 @@ export async function getQuestionTextForAnalysis(id: string, textKey: string): P
   const input = await getQuestionAnalysisInput(id);
   if (!input || !textKey) return null;
   let source = '';
-  if (textKey === 'prompt') source = input.prompt;
+  if (textKey === 'prompt') source = input.prompt.replace(/^\s*\d+\s*[.)]\s*/, '');
   else if (textKey.startsWith('option:')) {
     const key = textKey.slice('option:'.length);
     const option = input.options.find(item => item.key === key);

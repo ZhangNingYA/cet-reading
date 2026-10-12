@@ -294,39 +294,32 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   function renderStudyQuestions(section: StudySection, block: HTMLElement) {
     if (!['reading', 'matching'].includes(section.kind) || !section.questions.length) return;
     const list = element('div', 'intensive-questions');
-    const paragraphByKey = new Map(section.paragraphs.map(paragraph => {
-      const match = paragraph.match(/^\[([A-Z])\]\s*/);
-      return [match?.[1] ?? '', paragraph.replace(/^\[[A-Z]\]\s*/, '')] as const;
-    }));
-    const sharedMatchingQuestionId = section.questions[0]?.id;
     for (const [index, question] of section.questions.entries()) {
       const card = element('article', 'intensive-question');
       const questionNumber = question.prompt.match(/^\s*(\d+)\s*[.)]/)?.[1] ?? String(index + 1);
-      card.append(element('h4', 'intensive-question-title', `第 ${questionNumber} 题`));
-      const prompt = element('div', 'intensive-question-prompt');
-      const promptSentence = createQuestionTextSentence(section, question.id, 'prompt', question.prompt, '题干', index);
+      const promptText = question.prompt.replace(/^\s*\d+\s*[.)]\s*/, '');
+      const prompt = element('h4', 'intensive-question-line');
+      prompt.append(element('span', 'intensive-question-title', `第 ${questionNumber} 题`));
+      const promptSentence = createQuestionTextSentence(section, question.id, 'prompt', promptText, '题干', index);
       const promptSource = renderSentence(promptSentence);
       promptSource.setAttribute('aria-label', '题干，点击查看精读');
       prompt.append(promptSource);
       card.append(prompt);
 
-      const options = element('div', 'intensive-question-options');
-      options.append(element('h5', 'question-options-heading', section.kind === 'matching' ? '匹配段落选项' : '选项精读'));
-      for (const option of question.options) {
-        const optionCard = element('div', 'intensive-question-option');
-        const matchingText = section.kind === 'matching' ? paragraphByKey.get(option.key) : undefined;
-        const optionText = matchingText ?? option.text;
-        optionCard.append(element('strong', 'question-option-key', `${option.key}.`));
-        const textQuestionId = section.kind === 'matching' ? sharedMatchingQuestionId : question.id;
-        if (textQuestionId) {
-          const optionSentence = createQuestionTextSentence(section, textQuestionId, `option:${option.key}`, optionText, `选项 ${option.key}`, index);
+      if (section.kind === 'reading') {
+        const options = element('div', 'intensive-question-options');
+        options.append(element('h5', 'question-options-heading', '选项精读'));
+        for (const option of question.options) {
+          const optionCard = element('div', 'intensive-question-option');
+          optionCard.append(element('strong', 'question-option-key', `${option.key}.`));
+          const optionSentence = createQuestionTextSentence(section, question.id, `option:${option.key}`, option.text, `选项 ${option.key}`, index);
           const optionSource = renderSentence(optionSentence);
           optionSource.setAttribute('aria-label', `选项 ${option.key}，点击查看精读`);
           optionCard.append(optionSource);
-        } else optionCard.append(element('p', 'question-source-text', optionText));
-        options.append(optionCard);
+          options.append(optionCard);
+        }
+        card.append(options);
       }
-      card.append(options);
 
       if (section.kind === 'reading') {
         const solvingDisclosure = element('details', 'question-solving-disclosure');
