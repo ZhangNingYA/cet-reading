@@ -3,7 +3,7 @@ type JobType = 'sentence' | 'text' | 'question';
 type JobStatus = 'active' | 'failed' | 'succeeded';
 type Settings = { workerConcurrency: number; queueCapacity: number; backfillPaused: boolean };
 type Progress = { total: number; cached: number; pending: number; running: number; failed: number };
-type Priority = { paperId: string; sectionId: string | null; type: JobType; title: string; sectionTitle: string | null; finishedAt: string | null; progress: Progress };
+type Priority = { id?: string; revision: string; paperId: string; sectionId: string | null; type: JobType; title: string; sectionTitle: string | null; finishedAt: string | null; progress: Progress };
 type PaperSection = { id: string; title: string; progress: Record<JobType, Progress> };
 type Job = {
   id: string; type: JobType; textKey: string | null; status: string;
@@ -15,7 +15,7 @@ type Overview = {
   observedAt: string; settings: Settings;
   queue: { pending: number; running: number; failed: number; active: number };
   jobs: Job[];
-  priority: Priority | null;
+  priority: Priority[];
 };
 type Paper = {
   id: string; source_type: 'paper' | 'news'; title: string; exam_level: string; year: number; month: number;
@@ -47,7 +47,7 @@ let papersLoaded = false;
 let retrying = false;
 let papers: Paper[] = [];
 let paperPage = 0;
-let priority: Priority | null = null;
+let priority: Priority[] = [];
 let prioritySaving = false;
 let priorityRevision = 0;
 let expandedPaper: string | null = null;
@@ -101,7 +101,7 @@ function renderOverview(data: Overview) {
   el('admin-failed').textContent = String(data.queue.failed);
   el('admin-observed-at').textContent = `${time(data.observedAt)} 更新`;
   renderSettings();
-  renderPriority(data.priority);
+  renderPriority(Array.isArray(data.priority) ? data.priority : data.priority ? [data.priority] : []);
   const retryAll = el<HTMLButtonElement>('admin-retry-all');
   retryAll.hidden = jobStatus !== 'failed';
   retryAll.disabled = retrying || data.queue.failed === 0;
@@ -138,12 +138,11 @@ async function loadOverview() {
     if (query !== filters()) void loadOverview();
   }
 }
-function renderPriority(value: Priority | null) {
-  priority = value;
-  el('admin-priority').hidden = !value;
-  if (!value) return;
-  el('admin-priority-title').textContent = `优先：${value.title} · ${value.sectionTitle || '整套试卷'} · ${typeLabels[value.type]}`;
-  el('admin-priority-progress').textContent = `已完成 ${value.progress.cached} / ${value.progress.total}${value.finishedAt ? ' · 已全部完成' : settings?.backfillPaused ? ' · 等待恢复自动生成' : ` · ${value.progress.pending + value.progress.running} 条已排队${value.progress.failed ? ` · ${value.progress.failed} 条失败，可在 AI 请求中重试` : ''}`}`;
+function renderPriority(values: Priority[]) {
+  priority = values;
+  const container = el('admin-priority');
+  container.hidden = !values.length;
+  el('admin-priority-list').innerHTML = values.map((value, index) => `<div class="admin-priority-item"><div><strong>${index + 1}. ${esc(value.title)} · ${esc(value.sectionTitle || '整套试卷')} · ${typeLabels[value.type]}</strong><p>已完成 ${value.progress.cached} / ${value.progress.total}${settings?.backfillPaused ? ' · 等待恢复自动生成' : ` · ${value.progress.pending + value.progress.running} 条已排队${value.progress.failed ? ` · ${value.progress.failed} 条失败` : ''}`}</p></div><button class="text-link admin-remove-priority" type="button" data-priority-revision="${esc(value.revision)}"${prioritySaving ? ' disabled' : ''}>取消</button></div>`).join('');
   el<HTMLButtonElement>('admin-clear-priority').disabled = prioritySaving;
 }
 function progressCell(label: string, total = 0, cached = 0, action?: { paperId: string; sectionId?: string; type: JobType }) {
@@ -151,8 +150,8 @@ function progressCell(label: string, total = 0, cached = 0, action?: { paperId: 
   const value = Math.min(cached, total);
   const percent = Math.round(value / total * 100);
   const clickable = action && value < total;
-  const selected = action && priority && !priority.finishedAt && priority.paperId === action.paperId &&
-    priority.sectionId === (action.sectionId || null) && priority.type === action.type;
+  const selected = action && priority.some(item => !item.finishedAt && item.paperId === action.paperId &&
+    item.sectionId === (action.sectionId || null) && item.type === action.type);
   const attrs = clickable ? `type="button" data-priority-paper="${esc(action.paperId)}" data-priority-section="${esc(action.sectionId || '')}" data-priority-type="${action.type}" title="优先生成${label}"${prioritySaving ? ' disabled' : ''}` : '';
   return `<${clickable ? 'button' : 'div'} class="admin-progress-cell${value === total ? ' is-complete' : ''}${selected ? ' is-priority' : ''}" ${attrs} aria-label="${clickable ? '优先生成' : ''}${label}，已完成 ${value}/${total}，${percent}%"><span class="admin-progress-label">${label}</span><span class="admin-progress-ratio">${value}<span> / ${total}</span></span><span class="admin-progress-track" aria-hidden="true"><i style="width:${percent}%"></i></span></${clickable ? 'button' : 'div'}>`;
 }
@@ -214,7 +213,7 @@ async function selectPriority(target: { paperId: string; sectionId: string | nul
   try {
     const data = await request('/api/admin/analysis/priority', { method: 'POST', body: JSON.stringify(target) });
     priorityRevision += 1;
-    renderPriority(data.priority);
+    renderPriority(Array.isArray(data.priority) ? data.priority : data.priority ? [data.priority] : []);
     announce(target ? settings?.backfillPaused ? '已设为优先，恢复自动生成后开始排队。'
       : data.queued ? `已优先排队 ${data.queued} 条，其余内容会持续分批排队。` : '已设为优先，等待当前任务完成后排队。' : '已取消优先。');
   } catch (error) {
@@ -223,6 +222,24 @@ async function selectPriority(target: { paperId: string; sectionId: string | nul
     prioritySaving = false;
     el<HTMLButtonElement>('admin-clear-priority').disabled = false;
     renderPapers();
+    void loadOverview();
+    if (currentPanel === 'progress') void loadPapers();
+  }
+}
+async function removePriority(revision: string) {
+  if (prioritySaving) return;
+  prioritySaving = true;
+  renderPriority(priority);
+  try {
+    const data = await request(`/api/admin/analysis/priority/${encodeURIComponent(revision)}`, { method: 'DELETE' });
+    priorityRevision += 1;
+    renderPriority(Array.isArray(data.priority) ? data.priority : data.priority ? [data.priority] : []);
+    announce('已取消排队项。');
+  } catch (error) {
+    announce(error instanceof Error ? error.message : '取消排队失败，请重试。', true);
+  } finally {
+    prioritySaving = false;
+    renderPriority(priority);
     void loadOverview();
     if (currentPanel === 'progress') void loadPapers();
   }
@@ -300,6 +317,11 @@ el('admin-job-list').addEventListener('click', event => {
   if (button) void retry(button.dataset.jobId);
 });
 el('admin-clear-priority').addEventListener('click', () => void selectPriority(null));
+el('admin-priority-list').addEventListener('click', event => {
+  const button = (event.target as HTMLElement).closest<HTMLButtonElement>('.admin-remove-priority');
+  if (!button?.dataset.priorityRevision || prioritySaving) return;
+  void removePriority(button.dataset.priorityRevision);
+});
 el('admin-paper-list').addEventListener('click', event => {
   const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button');
   if (button?.dataset.priorityPaper) {

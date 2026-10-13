@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import test from 'node:test';
 import { tsImport } from 'tsx/esm/api';
 
-const { loadPriorityCandidates, inspectPriorityCandidates, fillPriorityQueue, ADMIN_PRIORITY } =
+const { loadPriorityCandidates, inspectPriorityCandidates, fillPriorityQueue, readPriorityTarget, ADMIN_PRIORITY } =
   await tsImport('../../packages/contracts/src/analysis-priority.ts', import.meta.url);
 const { buildAnalysis, contextHash, validateAnalysis } = await tsImport('../../packages/contracts/src/index.ts', import.meta.url);
 const { raw, source } = await import('./fixtures/analysis.mjs');
@@ -63,6 +63,17 @@ test('paper/section targets use reader cache hashes and exclude unsupported solv
   const selection = calls.find(c => c.sql.includes('SELECT q.id,q.section_id'));
   assert.deepEqual(selection.params, ['paper-1','section-1']);
   assert.match(selection.sql, /shared\.section_id=ps\.id/);
+});
+
+test('priority targets are read in FIFO rank order and pending jobs inherit that rank', async () => {
+  const initial = mockDatabase({ selected: { ...target, queuePriority: 187 } });
+  await readPriorityTarget(initial.db);
+  assert.match(initial.calls[0].sql, /WHERE t\.finished_at IS NULL[\s\S]*ORDER BY t\.queue_priority DESC, t\.created_at ASC/);
+
+  const { db, calls } = mockDatabase({ selected: { ...target, queuePriority: 187 }, active: 0 });
+  assert.deepEqual(await fillPriorityQueue(db,config,runtime), { active: true, queued: 1 });
+  const inserted = calls.find(call => call.sql.includes('INSERT INTO analysis_jobs'));
+  assert.equal(inserted.params[12], 187);
 });
 
 test('compatible valid caches are reused while stale or invalid results remain queueable', async () => {

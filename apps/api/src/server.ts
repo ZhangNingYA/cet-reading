@@ -1,7 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { config } from './config.js';
-import { getAdminPriority, listAdminSections, setAdminPriority, InvalidPriorityTargetError } from './admin-priority.js';
+import { getAdminPriority, listAdminSections, removeAdminPriority, setAdminPriority, InvalidPriorityTargetError } from './admin-priority.js';
 import {
   getAdminOverview,
   getAdminSettings,
@@ -115,6 +115,16 @@ app.post<{ Body: unknown }>('/api/admin/analysis/priority', async (request, repl
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
   try { return await setAdminPriority(request.body, request.ip); }
+  catch (error) {
+    if (error instanceof InvalidPriorityTargetError) return reply.code(400).send({ error: 'invalid_priority_target', message: error.message });
+    throw error;
+  }
+});
+
+app.delete<{ Params: { revision: string } }>('/api/admin/analysis/priority/:revision', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  try { return await removeAdminPriority(request.params.revision, request.ip || 'admin-console'); }
   catch (error) {
     if (error instanceof InvalidPriorityTargetError) return reply.code(400).send({ error: 'invalid_priority_target', message: error.message });
     throw error;

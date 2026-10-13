@@ -7,9 +7,9 @@ import type { RuntimeConfig } from './config.js';
 export type PriorityType = 'sentence' | 'text' | 'question';
 export const ADMIN_PRIORITY = 200;
 export type PriorityTarget = {
-  revision: string; paperId: string; sectionId: string | null; type: PriorityType;
+  id?: string; revision: string; paperId: string; sectionId: string | null; type: PriorityType;
   title: string; sectionTitle: string | null; finishedAt: Date | string | null;
-  selectedAt: Date | string;
+  selectedAt: Date | string; queuePriority?: number;
 };
 export type PriorityDatabase = {
   query<T extends Record<string, any> = any>(sql: string, params?: any[]): Promise<{ rows: T[]; rowCount?: number | null }>;
@@ -30,13 +30,29 @@ const candidateIdentity = (c: PriorityCandidate) => identity(c.type, c.sentenceI
 
 export async function readPriorityTarget(db: PriorityDatabase, lock = false): Promise<PriorityTarget | null> {
   const result = await db.query<PriorityTarget>(
-    `SELECT t.revision, t.paper_id AS "paperId", t.section_id AS "sectionId", t.job_type AS type,
-            p.title, ps.title AS "sectionTitle", t.finished_at AS "finishedAt", t.updated_at AS "selectedAt"
+    `SELECT t.id, t.revision, t.paper_id AS "paperId", t.section_id AS "sectionId", t.job_type AS type,
+            p.title, ps.title AS "sectionTitle", t.finished_at AS "finishedAt", t.updated_at AS "selectedAt",
+            t.queue_priority AS "queuePriority"
      FROM analysis_priority_target t JOIN papers p ON p.id=t.paper_id
-     LEFT JOIN paper_sections ps ON ps.id=t.section_id WHERE t.id=TRUE
+     LEFT JOIN paper_sections ps ON ps.id=t.section_id
+     WHERE t.finished_at IS NULL
+     ORDER BY t.queue_priority DESC, t.created_at ASC
      ${lock ? 'FOR UPDATE OF t' : ''}`,
   );
   return result.rows[0] ?? null;
+}
+
+export async function readPriorityTargets(db: PriorityDatabase, lock = false): Promise<PriorityTarget[]> {
+  const result = await db.query<PriorityTarget>(
+    `SELECT t.id, t.revision, t.paper_id AS "paperId", t.section_id AS "sectionId", t.job_type AS type,
+            p.title, ps.title AS "sectionTitle", t.finished_at AS "finishedAt", t.updated_at AS "selectedAt",
+            t.queue_priority AS "queuePriority"
+     FROM analysis_priority_target t JOIN papers p ON p.id=t.paper_id
+     LEFT JOIN paper_sections ps ON ps.id=t.section_id
+     ORDER BY t.finished_at IS NULL DESC, t.queue_priority DESC, t.created_at ASC
+     ${lock ? 'FOR UPDATE OF t' : ''}`,
+  );
+  return result.rows;
 }
 
 export async function loadPriorityCandidates(
@@ -188,19 +204,28 @@ export async function fillPriorityQueue(
     const states = await inspectPriorityCandidates(client, await loadPriorityCandidates(client, target), config);
     if (states.every(s => s.state === 'cached')) {
       await client.query('UPDATE analysis_priority_target SET finished_at=NOW() WHERE revision=$1', [target.revision]);
+      const next = await client.query('SELECT 1 FROM analysis_priority_target WHERE finished_at IS NULL LIMIT 1');
       await client.query('COMMIT');
-      return { active: false, queued: 0 };
+      return { active: next.rows.length > 0, queued: 0 };
     }
     const pending = states.filter(s => s.state === 'pending' && s.jobId).map(s => s.jobId);
+    const targetPriority = target.queuePriority ?? ADMIN_PRIORITY;
     if (pending.length) await client.query(
-      `UPDATE analysis_jobs SET priority=GREATEST(priority,$2),updated_at=NOW() WHERE id=ANY($1::uuid[]) AND status='pending'`, [pending, ADMIN_PRIORITY],
+      `UPDATE analysis_jobs SET priority=GREATEST(priority,$2),updated_at=NOW() WHERE id=ANY($1::uuid[]) AND status='pending'`, [pending, targetPriority],
     );
     // A click permits one retry of older failures, including when the queue is
     // initially full. A failure produced after that click needs another action.
     const missing = states.filter(s => s.state === 'missing' || (s.state === 'failed' && s.jobUpdatedAt &&
       new Date(s.jobUpdatedAt).getTime() < new Date(target.selectedAt).getTime()));
     const active = missing.length > 0 || states.some(s => s.state === 'pending' || s.state === 'running');
-    if (!missing.length) { await client.query('COMMIT'); return { active, queued: 0 }; }
+    if (!missing.length) {
+      if (states.every(s => s.state === 'cached' || s.state === 'failed')) {
+        await client.query('UPDATE analysis_priority_target SET finished_at=NOW() WHERE revision=$1', [target.revision]);
+      }
+      const next = states.every(s => s.state === 'cached' || s.state === 'failed')
+        ? await client.query('SELECT 1 FROM analysis_priority_target WHERE finished_at IS NULL LIMIT 1') : { rows: [] };
+      await client.query('COMMIT'); return { active: active || next.rows.length > 0, queued: 0 };
+    }
     const count = await client.query<{ count: number }>(
       `SELECT COUNT(*)::integer count FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status IN ('pending','running')`,
       [config.mode, config.model, config.promptVersion],
@@ -224,7 +249,7 @@ export async function fillPriorityQueue(
       if (state.state === 'failed' && state.jobId) await client.query(
         `UPDATE analysis_jobs SET status='pending',priority=$2,attempts=0,error_message=NULL,
            lease_expires_at=NULL,started_at=NULL,finished_at=NULL,next_attempt_at=NOW(),updated_at=NOW()
-         WHERE id=$1 AND status='failed'`, [state.jobId,ADMIN_PRIORITY],
+         WHERE id=$1 AND status='failed'`, [state.jobId,targetPriority],
       );
       else await client.query(
         `INSERT INTO analysis_jobs
@@ -232,7 +257,7 @@ export async function fillPriorityQueue(
             prompt_version,model,mode,status,priority,next_attempt_at)
          VALUES ($1,$2,$3,$4,$5,$6,$7,$8::jsonb,$9::jsonb,$10,$11,$12,'pending',$13,NOW())`,
         [c.type,c.sentenceId,c.questionId,c.textKey,c.source,c.sourceHash,c.contextHash,JSON.stringify(c.context),
-          c.question ? JSON.stringify(c.question) : null,config.promptVersion,config.model,config.mode,ADMIN_PRIORITY],
+          c.question ? JSON.stringify(c.question) : null,config.promptVersion,config.model,config.mode,targetPriority],
       );
       queued += 1;
     }
