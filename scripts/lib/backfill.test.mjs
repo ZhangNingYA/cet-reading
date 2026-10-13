@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import test from 'node:test';
 import { tsImport } from 'tsx/esm/api';
 
-const { fillBackgroundQueue } = await tsImport('../../apps/worker/src/backfill.ts', import.meta.url);
+const { fillBackgroundQueue, fillBackgroundQuestionTextQueue } = await tsImport('../../apps/worker/src/backfill.ts', import.meta.url);
 const { contextHash } = await tsImport('../../packages/contracts/src/index.ts', import.meta.url);
 
 const config = {
@@ -178,3 +179,50 @@ test('backfill orders latest news batches before paper candidates', async () => 
   assert.match(orderedQuery, /news_batch_at DESC NULLS LAST/);
   assert.match(orderedQuery, /news_published_at DESC NULLS LAST/);
 });
+
+test('question text backfill queues displayed prompts/options with the API cache key', async () => {
+  const inserts = [];
+  const candidate = {
+    question_id: 'paper-q-46', text_key: 'prompt', source_text: 'What do we learn from the passage?', title: 'Reading passage',
+  };
+  const client = {
+    async query(sql, params) {
+      const text = String(sql);
+      if (text.includes('INSERT INTO analysis_jobs')) inserts.push({ text, params });
+      if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: inserts.length, background: inserts.length }] };
+      return { rows: [] };
+    },
+    release() {},
+  };
+  let candidateQuery = '';
+  const pool = {
+    async query(sql) {
+      const text = String(sql);
+      if (text.includes('FROM analysis_runtime_settings')) return { rows: [] };
+      if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: 0, background: 0 }] };
+      if (text.includes('WITH visible_questions')) { candidateQuery = text; return { rows: [candidate] }; }
+      if (text.includes('FROM question_analyses')) return { rows: [] };
+      if (text.includes('FROM analysis_jobs')) return { rows: [] };
+      throw new Error(`Unexpected query: ${text}`);
+    },
+    async connect() { return client; },
+  };
+
+  const result = await fillBackgroundQuestionTextQueue(pool, config);
+  assert.equal(result.queued, 1);
+  assert.deepEqual(result.nextCursor, { question_id: candidate.question_id, text_key: candidate.text_key });
+  assert.match(candidateQuery, /WHERE kind = 'reading'/, 'matching paragraph options are not candidates');
+  assert.match(candidateQuery, /shared_paper_sections/);
+  assert.equal(inserts.length, 1);
+  assert.match(inserts[0].text, /job_type, question_id, text_key/);
+  assert.equal(inserts[0].params[0], candidate.question_id);
+  assert.equal(inserts[0].params[1], candidate.text_key);
+  assert.equal(inserts[0].params[2], candidate.source_text);
+  assert.equal(inserts[0].params[3], createHashValue(candidate));
+});
+
+function createHashValue(candidate) {
+  return createHash('sha256')
+    .update(JSON.stringify({ questionId: candidate.question_id, textKey: candidate.text_key, source: candidate.source_text }))
+    .digest('hex');
+}
