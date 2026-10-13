@@ -1,11 +1,16 @@
 import { createHash } from 'node:crypto';
-import { contextHash, validateAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
+import { contextHash, validateAnalysis, validateQuestionAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
 import type { Pool } from 'pg';
 import { readRuntimeSettings } from './runtime-settings.js';
 import { fillPriorityQueue } from '@cet-reading/contracts/analysis-priority';
 
 const BACKGROUND_PRIORITY = 1;
+const MAX_BACKGROUND_FAILURE_RETRIES = 1;
+
+function canRetryBackgroundFailure(job: { status: string; error_message: string | null; backfill_retry_count: number } | undefined) {
+  return job?.status === 'failed' && job.backfill_retry_count < MAX_BACKGROUND_FAILURE_RETRIES;
+}
 
 type Candidate = {
   id: string;
@@ -50,6 +55,8 @@ type ExistingJob = {
   source_hash: string;
   context_hash: string;
   status: string;
+  error_message: string | null;
+  backfill_retry_count: number;
 };
 
 type QuestionTextCandidate = {
@@ -68,7 +75,32 @@ type ExistingQuestionTextJob = {
   text_key: string;
   source_hash: string;
   status: string;
+  error_message: string | null;
+  backfill_retry_count: number;
 };
+
+type QuestionCandidate = {
+  question_id: string;
+  question_type: 'reading';
+  title: string;
+  instructions: string;
+  paragraphs: string[];
+  prompt: string;
+  options: Array<{ key: string; text: string }>;
+  answer: string;
+  explanation: string;
+  content_hash: string;
+};
+
+type ExistingQuestionJob = {
+  question_id: string;
+  source_hash: string;
+  status: string;
+  error_message: string | null;
+  backfill_retry_count: number;
+};
+
+type QuestionCursor = { question_id: string };
 
 function toIso(value: Date | string | null | undefined) {
   if (value == null) return null;
@@ -193,10 +225,11 @@ async function loadExisting(pool: Pool, candidates: CandidateWithContext[], conf
       [ids, config.promptVersion, config.model, config.mode],
     ),
     pool.query<ExistingJob>(
-      `SELECT sentence_id, source_hash, context_hash, status
+      `SELECT sentence_id, source_hash, context_hash, status, error_message, backfill_retry_count
        FROM analysis_jobs
        WHERE sentence_id = ANY($1::text[]) AND prompt_version = $2
-         AND model = $3 AND mode = $4`,
+         AND model = $3 AND mode = $4
+       ORDER BY updated_at DESC`,
       [ids, config.promptVersion, config.model, config.mode],
     ),
   ]);
@@ -217,7 +250,7 @@ async function loadExisting(pool: Pool, candidates: CandidateWithContext[], conf
     const candidate = byId.get(row.sentence_id);
     if (candidate && candidate.source_hash === row.source_hash && candidate.context_hash === row.context_hash) {
       const previous = jobs.get(row.sentence_id);
-      if (!previous || previous.status === 'succeeded') jobs.set(row.sentence_id, row);
+      if (!previous) jobs.set(row.sentence_id, row);
     }
   }
   return { caches, jobs };
@@ -267,6 +300,34 @@ async function loadQuestionTextCandidates(pool: Pool, limit: number, cursor: Que
   });
 }
 
+async function loadQuestionCandidates(pool: Pool, limit: number, cursor: QuestionCursor | null) {
+  const result = await pool.query<Omit<QuestionCandidate, 'content_hash'>>(
+    `SELECT q.id AS question_id, ps.kind AS question_type, ps.title, ps.instructions,
+            ps.paragraphs_json AS paragraphs, q.prompt, q.options_json AS options,
+            q.answer_text AS answer, q.explanation
+     FROM questions q
+     JOIN paper_sections ps ON ps.id = q.section_id
+     JOIN papers p ON p.id = ps.paper_id
+     WHERE p.status = 'published' AND ps.kind = 'reading' AND NULLIF(q.answer_text, '') IS NOT NULL
+       AND NOT EXISTS (
+         SELECT 1 FROM shared_paper_sections shared
+         WHERE shared.paper_id = p.id AND shared.section_id = ps.id
+       )
+       AND ($1::text IS NULL OR q.id > $1::text)
+     ORDER BY q.id
+     LIMIT $2`,
+    [cursor?.question_id ?? null, limit],
+  );
+  return result.rows.map(row => ({
+    ...row,
+    content_hash: createHash('sha256').update(JSON.stringify({
+      question_type: row.question_type, title: row.title, instructions: row.instructions,
+      paragraphs: row.paragraphs, prompt: row.prompt, options: row.options,
+      answer: row.answer, explanation: row.explanation,
+    })).digest('hex'),
+  }));
+}
+
 function questionTextKey(candidate: Pick<QuestionTextCandidate, 'question_id' | 'text_key'>) {
   return `${candidate.question_id}\u0000${candidate.text_key}`;
 }
@@ -283,7 +344,7 @@ async function loadExistingQuestionText(pool: Pool, candidates: QuestionTextCand
       [questionIds, config.cachePromptVersions, config.model, config.mode],
     ),
     pool.query<ExistingQuestionTextJob>(
-      `SELECT question_id, text_key, source_hash, status
+      `SELECT question_id, text_key, source_hash, status, error_message, backfill_retry_count
        FROM analysis_jobs
        WHERE job_type = 'text' AND question_id = ANY($1::text[])
          AND prompt_version = $2 AND model = $3 AND mode = $4
@@ -324,14 +385,15 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
       `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
     ]);
     const runtime = await readRuntimeSettings(client, config);
-    const existing = await client.query<{ id: string; status: string }>(
-      `SELECT id, status FROM analysis_jobs
+    const existing = await client.query<{ id: string; status: string; error_message: string | null; backfill_retry_count: number }>(
+      `SELECT id, status, error_message, backfill_retry_count FROM analysis_jobs
        WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
          AND prompt_version = $4 AND model = $5 AND mode = $6
        ORDER BY updated_at DESC LIMIT 1`, key,
     );
     const row = existing.rows[0];
-    if (row?.status === 'pending' || row?.status === 'running' || row?.status === 'failed') {
+    if (row?.status === 'pending' || row?.status === 'running' ||
+        (row?.status === 'failed' && !canRetryBackgroundFailure(row))) {
       await client.query('ROLLBACK');
       return false;
     }
@@ -347,10 +409,11 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
       await client.query('ROLLBACK');
       return false;
     }
-    if (row?.status === 'succeeded') {
+    if (row?.status === 'succeeded' || row?.status === 'failed') {
       await client.query(
         `UPDATE analysis_jobs SET status = 'pending', priority = $2,
-         error_message = NULL, attempts = 0, lease_expires_at = NULL,
+         error_message = NULL, attempts = 0, backfill_retry_count = backfill_retry_count + CASE WHEN status='failed' THEN 1 ELSE 0 END,
+         lease_expires_at = NULL,
          started_at = NULL, finished_at = NULL, next_attempt_at = NOW(), updated_at = NOW()
          WHERE id = $1`, [row.id, BACKGROUND_PRIORITY],
       );
@@ -398,8 +461,8 @@ async function enqueueBackgroundQuestionText(pool: Pool, candidate: QuestionText
       `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
     ]);
     const runtime = await readRuntimeSettings(client, config);
-    const existing = await client.query<{ id: string; status: string }>(
-      `SELECT id, status FROM analysis_jobs
+    const existing = await client.query<{ id: string; status: string; error_message: string | null; backfill_retry_count: number }>(
+      `SELECT id, status, error_message, backfill_retry_count FROM analysis_jobs
        WHERE job_type = 'text' AND question_id = $1 AND text_key = $2 AND source_hash = $3
          AND prompt_version = $4 AND model = $5 AND mode = $6
        ORDER BY updated_at DESC LIMIT 1`,
@@ -407,7 +470,8 @@ async function enqueueBackgroundQuestionText(pool: Pool, candidate: QuestionText
         config.promptVersion, config.model, config.mode],
     );
     const row = existing.rows[0];
-    if (row?.status === 'pending' || row?.status === 'running' || row?.status === 'failed') {
+    if (row?.status === 'pending' || row?.status === 'running' ||
+        (row?.status === 'failed' && !canRetryBackgroundFailure(row))) {
       await client.query('ROLLBACK');
       return false;
     }
@@ -422,10 +486,11 @@ async function enqueueBackgroundQuestionText(pool: Pool, candidate: QuestionText
       await client.query('ROLLBACK');
       return false;
     }
-    if (row?.status === 'succeeded') {
+    if (row?.status === 'succeeded' || row?.status === 'failed') {
       await client.query(
         `UPDATE analysis_jobs SET status = 'pending', priority = $2,
-         error_message = NULL, attempts = 0, lease_expires_at = NULL,
+         error_message = NULL, attempts = 0, backfill_retry_count = backfill_retry_count + CASE WHEN status='failed' THEN 1 ELSE 0 END,
+         lease_expires_at = NULL,
          started_at = NULL, finished_at = NULL, next_attempt_at = NOW(), updated_at = NOW()
          WHERE id = $1`, [row.id, BACKGROUND_PRIORITY],
       );
@@ -453,6 +518,103 @@ async function enqueueBackgroundQuestionText(pool: Pool, candidate: QuestionText
   }
 }
 
+async function loadExistingQuestions(pool: Pool, candidates: QuestionCandidate[], config: RuntimeConfig) {
+  if (!candidates.length) return { caches: new Set<string>(), jobs: new Map<string, ExistingQuestionJob>() };
+  const ids = candidates.map(candidate => candidate.question_id);
+  const [cacheRows, jobRows] = await Promise.all([
+    pool.query<{ question_id: string; content_hash: string; analysis_json: unknown }>(
+      `SELECT question_id, content_hash, analysis_json FROM question_analyses
+       WHERE question_id = ANY($1::text[]) AND content_hash = ANY($2::text[])
+         AND prompt_version = ANY($3::text[]) AND model = $4 AND mode = $5 AND status = 'succeeded'`,
+      [ids, candidates.map(candidate => candidate.content_hash), config.cachePromptVersions, config.model, config.mode],
+    ),
+    pool.query<ExistingQuestionJob>(
+      `SELECT question_id, source_hash, status, error_message, backfill_retry_count
+       FROM analysis_jobs WHERE job_type = 'question' AND question_id = ANY($1::text[])
+         AND prompt_version = $2 AND model = $3 AND mode = $4 ORDER BY updated_at DESC`,
+      [ids, config.promptVersion, config.model, config.mode],
+    ),
+  ]);
+  const byId = new Map(candidates.map(candidate => [candidate.question_id, candidate]));
+  const caches = new Set<string>();
+  for (const row of cacheRows.rows) {
+    const candidate = byId.get(row.question_id);
+    if (!candidate || candidate.content_hash !== row.content_hash) continue;
+    try {
+      validateQuestionAnalysis(row.analysis_json, {
+        questionType: candidate.question_type, options: candidate.options,
+        answer: candidate.answer, paragraphs: candidate.paragraphs,
+      });
+      caches.add(candidate.question_id);
+    } catch { /* Invalid historical results must be regenerated. */ }
+  }
+  const jobs = new Map<string, ExistingQuestionJob>();
+  for (const row of jobRows.rows) if (byId.has(row.question_id) && !jobs.has(row.question_id)) jobs.set(row.question_id, row);
+  return { caches, jobs };
+}
+
+async function enqueueBackgroundQuestion(pool: Pool, candidate: QuestionCandidate, config: RuntimeConfig) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
+      `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
+    ]);
+    const runtime = await readRuntimeSettings(client, config);
+    const existing = await client.query<{ id: string; status: string; error_message: string | null; backfill_retry_count: number }>(
+      `SELECT id, status, error_message, backfill_retry_count FROM analysis_jobs
+       WHERE job_type = 'question' AND question_id = $1 AND source_hash = $2
+         AND prompt_version = $3 AND model = $4 AND mode = $5
+       ORDER BY updated_at DESC LIMIT 1`,
+      [candidate.question_id, candidate.content_hash, config.promptVersion, config.model, config.mode],
+    );
+    const row = existing.rows[0];
+    if (row?.status === 'pending' || row?.status === 'running' ||
+        (row?.status === 'failed' && !canRetryBackgroundFailure(row))) {
+      await client.query('ROLLBACK');
+      return false;
+    }
+    const counts = await client.query<{ total: number; background: number }>(
+      `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS total,
+              COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= $4)::integer AS background
+       FROM analysis_jobs WHERE mode = $1 AND model = $2 AND prompt_version = $3`,
+      [config.mode, config.model, config.promptVersion, BACKGROUND_PRIORITY],
+    );
+    if ((counts.rows[0]?.total ?? 0) >= runtime.queueCapacity ||
+        (counts.rows[0]?.background ?? 0) >= runtime.backgroundTarget) {
+      await client.query('ROLLBACK');
+      return false;
+    }
+    const question = JSON.stringify({
+      question_type: candidate.question_type, title: candidate.title, instructions: candidate.instructions,
+      paragraphs: candidate.paragraphs, prompt: candidate.prompt, options: candidate.options,
+      answer: candidate.answer, explanation: candidate.explanation,
+    });
+    if (row?.status === 'succeeded' || row?.status === 'failed') {
+      await client.query(
+        `UPDATE analysis_jobs SET status='pending',priority=$2,error_message=NULL,attempts=0,
+           backfill_retry_count=backfill_retry_count + CASE WHEN status='failed' THEN 1 ELSE 0 END,
+           lease_expires_at=NULL,started_at=NULL,finished_at=NULL,next_attempt_at=NOW(),updated_at=NOW()
+         WHERE id=$1`, [row.id, BACKGROUND_PRIORITY],
+      );
+    } else {
+      await client.query(
+        `INSERT INTO analysis_jobs
+           (job_type,question_id,sentence_id,source_text,source_hash,context_hash,context_json,question_json,
+            prompt_version,model,mode,status,priority,next_attempt_at)
+         VALUES ('question',$1,NULL,'',$2,$2,'{}'::jsonb,$3,$4,$5,$6,'pending',$7,NOW())`,
+        [candidate.question_id, candidate.content_hash, question, config.promptVersion, config.model, config.mode, BACKGROUND_PRIORITY],
+      );
+    }
+    await client.query('COMMIT');
+    return true;
+  } catch (error) {
+    await client.query('ROLLBACK').catch(() => undefined);
+    if ((error as { code?: string }).code === '23505') return false;
+    throw error;
+  } finally { client.release(); }
+}
+
 export async function fillBackgroundQuestionTextQueue(
   pool: Pool, config: RuntimeConfig, cursor: QuestionTextCursor | null = null, maxQueued = Number.POSITIVE_INFINITY,
 ) {
@@ -470,12 +632,40 @@ export async function fillBackgroundQuestionTextQueue(
     const key = questionTextKey(candidate);
     if (caches.has(key)) continue;
     const job = jobs.get(key);
-    if (job?.status === 'pending' || job?.status === 'running' || job?.status === 'failed') continue;
+    if (job?.status === 'pending' || job?.status === 'running' ||
+        (job?.status === 'failed' && !canRetryBackgroundFailure(job))) continue;
     if (await enqueueBackgroundQuestionText(pool, candidate, config)) queued += 1;
   }
   return {
     queued,
     nextCursor: { question_id: lastExamined.question_id, text_key: lastExamined.text_key },
+    scanHasMore: queued < capacity && candidates.length === candidateLimit,
+  };
+}
+
+export async function fillBackgroundQuestionQueue(
+  pool: Pool, config: RuntimeConfig, cursor: QuestionCursor | null = null, maxQueued = Number.POSITIVE_INFINITY,
+) {
+  const capacity = Math.min(await availableBackgroundCapacity(pool, config), maxQueued);
+  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false };
+  const candidateLimit = Math.max(50, capacity * 10);
+  const candidates = await loadQuestionCandidates(pool, candidateLimit, cursor);
+  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false };
+  const { caches, jobs } = await loadExistingQuestions(pool, candidates, config);
+  let queued = 0;
+  let lastExamined = candidates[0]!;
+  for (const candidate of candidates) {
+    if (queued >= capacity) break;
+    lastExamined = candidate;
+    if (caches.has(candidate.question_id)) continue;
+    const job = jobs.get(candidate.question_id);
+    if (job?.status === 'pending' || job?.status === 'running' ||
+        (job?.status === 'failed' && !canRetryBackgroundFailure(job))) continue;
+    if (await enqueueBackgroundQuestion(pool, candidate, config)) queued += 1;
+  }
+  return {
+    queued,
+    nextCursor: { question_id: lastExamined.question_id },
     scanHasMore: queued < capacity && candidates.length === candidateLimit,
   };
 }
@@ -510,7 +700,8 @@ export async function fillBackgroundQueue(
     lastExamined = candidate;
     if (caches.has(candidate.id)) continue;
     const job = jobs.get(candidate.id);
-    if (job?.status === 'pending' || job?.status === 'running' || job?.status === 'failed') continue;
+    if (job?.status === 'pending' || job?.status === 'running' ||
+        (job?.status === 'failed' && !canRetryBackgroundFailure(job))) continue;
     if (await enqueueBackgroundSentence(pool, candidate, config)) queued += 1;
   }
   return {
@@ -525,7 +716,8 @@ export async function fillBackgroundQueue(
 export async function runBackfillScheduler(pool: Pool, config: RuntimeConfig, signal: AbortSignal) {
   let sentenceCursor: Cursor | null = null;
   let questionTextCursor: QuestionTextCursor | null = null;
-  let questionTextFirst = false;
+  let questionCursor: QuestionCursor | null = null;
+  let scanFirst = 0;
   while (!signal.aborted) {
     let scanHasMore = false;
     try {
@@ -539,30 +731,40 @@ export async function runBackfillScheduler(pool: Pool, config: RuntimeConfig, si
       if (runtime.backfillPaused) {
         sentenceCursor = null;
         questionTextCursor = null;
+        questionCursor = null;
         await sleep(config.backfillIntervalMs, signal);
         continue;
       }
       const available = await availableBackgroundCapacity(pool, config);
       if (available > 0) {
-        const firstLimit = Math.ceil(available / 2);
-        let sentenceResult: Awaited<ReturnType<typeof fillBackgroundQueue>>;
-        let questionTextResult: Awaited<ReturnType<typeof fillBackgroundQuestionTextQueue>>;
-        if (questionTextFirst) {
-          questionTextResult = await fillBackgroundQuestionTextQueue(pool, config, questionTextCursor, firstLimit);
-          questionTextCursor = questionTextResult.nextCursor;
-          sentenceResult = await fillBackgroundQueue(pool, config, sentenceCursor, available - questionTextResult.queued);
-          sentenceCursor = sentenceResult.nextCursor;
-        } else {
-          sentenceResult = await fillBackgroundQueue(pool, config, sentenceCursor, firstLimit);
-          sentenceCursor = sentenceResult.nextCursor;
-          questionTextResult = await fillBackgroundQuestionTextQueue(pool, config, questionTextCursor, available - sentenceResult.queued);
-          questionTextCursor = questionTextResult.nextCursor;
+        const results: Array<{ queued: number; scanHasMore: boolean }> = [];
+        let remaining = available;
+        const runSentence = async (limit: number) => {
+          const result = await fillBackgroundQueue(pool, config, sentenceCursor, limit);
+          sentenceCursor = result.nextCursor;
+          return result;
+        };
+        const runText = async (limit: number) => {
+          const result = await fillBackgroundQuestionTextQueue(pool, config, questionTextCursor, limit);
+          questionTextCursor = result.nextCursor;
+          return result;
+        };
+        const runQuestion = async (limit: number) => {
+          const result = await fillBackgroundQuestionQueue(pool, config, questionCursor, limit);
+          questionCursor = result.nextCursor;
+          return result;
+        };
+        const runners = [runSentence, runText, runQuestion];
+        for (let offset = 0; offset < runners.length && remaining > 0; offset += 1) {
+          const result = await runners[(scanFirst + offset) % runners.length]!(remaining);
+          results.push(result);
+          remaining -= result.queued;
         }
-        questionTextFirst = !questionTextFirst;
-        const queued = sentenceResult.queued + questionTextResult.queued;
-        scanHasMore = sentenceResult.scanHasMore || questionTextResult.scanHasMore;
+        scanFirst = (scanFirst + 1) % runners.length;
+        const queued = available - remaining;
+        scanHasMore = results.some(result => result.scanHasMore);
         if (queued) {
-          process.stdout.write(`Background analysis queued ${queued} item(s) (${sentenceResult.queued} sentence, ${questionTextResult.queued} question text).\n`);
+          process.stdout.write(`Background analysis queued ${queued} item(s).\n`);
         }
       }
     } catch (error) {

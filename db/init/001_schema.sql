@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS analysis_jobs (
   model TEXT NOT NULL,
   mode TEXT NOT NULL CHECK (mode IN ('demo', 'ai')),
   status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'running', 'succeeded', 'failed')),
+  backfill_retry_count INTEGER NOT NULL DEFAULT 0,
   attempts INTEGER NOT NULL DEFAULT 0,
   error_message TEXT,
   lease_expires_at TIMESTAMPTZ,

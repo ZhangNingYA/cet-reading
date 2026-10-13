@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import test from 'node:test';
 import { tsImport } from 'tsx/esm/api';
 
-const { fillBackgroundQueue, fillBackgroundQuestionTextQueue } = await tsImport('../../apps/worker/src/backfill.ts', import.meta.url);
+const { fillBackgroundQueue, fillBackgroundQuestionQueue, fillBackgroundQuestionTextQueue } = await tsImport('../../apps/worker/src/backfill.ts', import.meta.url);
 const { contextHash } = await tsImport('../../packages/contracts/src/index.ts', import.meta.url);
 
 const config = {
@@ -219,6 +219,45 @@ test('question text backfill queues displayed prompts/options with the API cache
   assert.equal(inserts[0].params[1], candidate.text_key);
   assert.equal(inserts[0].params[2], candidate.source_text);
   assert.equal(inserts[0].params[3], createHashValue(candidate));
+});
+
+test('question solving backfill queues uncached reading questions', async () => {
+  const inserts = [];
+  const candidate = {
+    question_id: 'paper-q-46', question_type: 'reading', title: 'Reading passage',
+    instructions: 'Choose the best answer.', paragraphs: ['A paragraph.'],
+    prompt: '1. What do we learn from the passage?',
+    options: [{ key: 'A', text: 'The first answer.' }, { key: 'B', text: 'The second answer.' }],
+    answer: 'A', explanation: 'The passage supports A.',
+  };
+  const client = {
+    async query(sql, params) {
+      const text = String(sql);
+      if (text.includes('INSERT INTO analysis_jobs')) inserts.push({ text, params });
+      if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: inserts.length, background: inserts.length }] };
+      return { rows: [] };
+    },
+    release() {},
+  };
+  const pool = {
+    async query(sql) {
+      const text = String(sql);
+      if (text.includes('FROM analysis_runtime_settings')) return { rows: [] };
+      if (text.includes('COUNT(*) FILTER')) return { rows: [{ total: 0, background: 0 }] };
+      if (text.includes('FROM questions q')) return { rows: [candidate] };
+      if (text.includes('FROM question_analyses')) return { rows: [] };
+      if (text.includes('FROM analysis_jobs')) return { rows: [] };
+      throw new Error(`Unexpected query: ${text}`);
+    },
+    async connect() { return client; },
+  };
+
+  const result = await fillBackgroundQuestionQueue(pool, config);
+  assert.equal(result.queued, 1);
+  assert.deepEqual(result.nextCursor, { question_id: candidate.question_id });
+  assert.equal(inserts.length, 1);
+  assert.match(inserts[0].text, /VALUES \('question'/);
+  assert.equal(inserts[0].params[0], candidate.question_id);
 });
 
 function createHashValue(candidate) {

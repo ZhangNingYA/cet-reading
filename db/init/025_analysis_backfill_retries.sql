@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE analysis_jobs
+  ADD COLUMN IF NOT EXISTS backfill_retry_count INTEGER NOT NULL DEFAULT 0;
+
+COMMIT;
