@@ -103,6 +103,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .paper-row-meta { color: var(--muted); font-size: var(--text-caption); }
 .paper-type { color: var(--accent-deep); }
 .paper-analysis-progress { color: var(--quiet); font-variant-numeric: tabular-nums; }
+.paper-analysis-progress > span { display: block; }
 .paper-type + .paper-analysis-progress::before { margin: 0 7px; color: var(--line); content: '·'; }
 .paper-row-actions { display: flex; flex-shrink: 0; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 4px; max-width: 60%; }
 .paper-row-actions .button-small { padding-inline: 11px; border-radius: 6px; }
@@ -266,6 +267,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .admin-retry-row > span { display: grid; flex: 1; gap: 4px; }
 .admin-retry-row strong { font-size: var(--text-ui); font-weight: 500; }
 .admin-worker-row { flex-wrap: wrap; }
+.admin-queue-types { display: grid; gap: 6px; margin-top: 12px; font-size: var(--text-caption); }
+.admin-queue-types > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; }
+.admin-queue-types span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.admin-job-row { display: flex; align-items: flex-start; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.admin-job-row:last-child { border-bottom: 0; }
+.admin-job-copy { display: grid; flex: 1; min-width: 0; gap: 5px; overflow-wrap: anywhere; }
+.admin-job-copy strong { font-size: var(--text-ui); font-weight: 500; }
+.admin-job-copy p { margin: 0; font-size: var(--text-ui); }
+.admin-job-copy small, .admin-job-state small { color: var(--muted); font-size: var(--text-caption); }
+.admin-job-state { display: grid; gap: 5px; flex-shrink: 0; text-align: right; font-size: var(--text-ui); }
 .admin-worker-dot { width: 8px; height: 8px; border-radius: 50%; background: #c9c9c2; }
 .admin-worker-dot.is-online { background: #75a886; box-shadow: 0 0 0 3px var(--accent-pale); }
 .admin-audit-row { display: grid; grid-template-columns: 180px 1fr; gap: 5px 14px; }

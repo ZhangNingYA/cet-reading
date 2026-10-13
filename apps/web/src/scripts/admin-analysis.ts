@@ -1,4 +1,4 @@
-export {};
+import { paperProgressEntries } from "./analysis-progress";
 type RuntimeSettings = {
   workerConcurrency: number;
   queueCapacity: number;
@@ -19,7 +19,16 @@ type Paper = {
   sort_order: number;
   total: number;
   cached: number;
+  sentence_total?: number;
+  sentence_cached?: number;
+  analysis_text_total?: number;
+  analysis_text_cached?: number;
+  analysis_solving_total?: number;
+  analysis_solving_cached?: number;
 };
+type JobType = "sentence" | "text" | "question";
+const jobLabels: Record<JobType, string> = { sentence: "文章精读", text: "题面精读", question: "做题精读" };
+const jobStatusLabels: Record<string, string> = { pending: "排队中", running: "生成中", succeeded: "已完成", failed: "失败" };
 type Overview = {
   observedAt: string;
   model: string;
@@ -34,7 +43,15 @@ type Overview = {
     capacity: number;
     oldestPendingAt: string | null;
     oldestRunningAt: string | null;
+    byType: Record<JobType, { pending: number; running: number; failed: number }>;
   };
+  jobs: Array<{
+    id: string; type: JobType; textKey: string | null; status: string;
+    title: string; sectionTitle: string | null; source: string;
+    questionId: string | null; sentenceId: string | null; attempts: number;
+    errorCode: string | null; createdAt: string | null; startedAt: string | null;
+    finishedAt: string | null; nextAttemptAt: string | null;
+  }>;
   metrics: {
     successLastHour: number;
     failedLastHour: number;
@@ -71,6 +88,12 @@ type Overview = {
     legacyCached: number;
     paperTotal: number;
     newsTotal: number;
+    sentenceTotal: number;
+    sentenceCached: number;
+    textTotal: number;
+    textCached: number;
+    solvingTotal: number;
+    solvingCached: number;
     rate: number;
   };
 };
@@ -192,6 +215,23 @@ function renderWorkers(data: Overview) {
         .join("")
     : '<p class="admin-note">暂未收到 Worker 心跳。</p>';
 }
+function renderJobs(data: Overview) {
+  el("admin-queue-types").innerHTML = (Object.keys(jobLabels) as JobType[]).map(type => {
+    const counts = data.queue.byType[type];
+    return `<div><strong>${jobLabels[type]}</strong><span>${counts.running} 生成中 · ${counts.pending} 排队 · ${counts.failed} 失败</span></div>`;
+  }).join("");
+  const types = el<HTMLSelectElement>("admin-job-type").value;
+  const status = el<HTMLSelectElement>("admin-job-status").value;
+  const jobs = data.jobs.filter(job => (!types || job.type === types) && (!status || job.status === status));
+  el("admin-job-count").textContent = `${jobs.length} 条 · 每 10 秒刷新`;
+  el("admin-job-list").innerHTML = jobs.length ? jobs.map(job => {
+    const detail = job.type === "text" ? (job.textKey === "prompt" ? "题干" : `选项 ${job.textKey?.replace("option:", "") || ""}`) : "";
+    const updated = job.finishedAt || (job.status === "running" ? job.startedAt : job.createdAt);
+    const retryAt = job.status === "pending" && job.attempts > 0 && job.nextAttemptAt && Date.parse(job.nextAttemptAt) > Date.now()
+      ? ` · 重试时间 ${time(job.nextAttemptAt)}` : "";
+    return `<div class="admin-job-row"><div class="admin-job-copy"><strong>${esc(job.title || "精读任务")}</strong><small>${esc(jobLabels[job.type])}${detail ? ` · ${esc(detail)}` : ""}${job.sectionTitle ? ` · ${esc(job.sectionTitle)}` : ""}</small><p lang="en">${esc(job.source)}</p><small>${esc(job.questionId || job.sentenceId || job.id)} · 请求 ${esc(job.id)} · 尝试 ${job.attempts} 次${esc(retryAt)}</small></div><div class="admin-job-state"><strong class="${job.status === "failed" ? "admin-error" : ""}">${esc(jobStatusLabels[job.status] || job.status)}</strong><small>${esc(time(updated))}</small>${job.errorCode ? `<small>${esc(job.errorCode)}</small>` : ""}</div></div>`;
+  }).join("") : '<p class="admin-note">当前筛选下没有任务。</p>';
+}
 function render(data: Overview) {
   const q = data.queue,
     m = data.metrics,
@@ -213,10 +253,9 @@ function render(data: Overview) {
     `${seconds(m.generationP50Seconds)} / ${seconds(m.generationP90Seconds)}`;
   el("admin-cache-rate").textContent = `${data.cache.rate.toFixed(1)}%`;
   el("admin-cache-count").textContent =
-    `${data.cache.cached.toLocaleString()} / ${data.cache.total.toLocaleString()} 条可见句子已有可复用缓存`;
-  el("admin-cache-detail").textContent = data.cache.legacyCached
-    ? `其中当前 Prompt ${data.cache.currentCached.toLocaleString()} 条，历史兼容 Prompt ${data.cache.legacyCached.toLocaleString()} 条；试卷 ${data.cache.paperTotal.toLocaleString()} 句，资讯 ${data.cache.newsTotal.toLocaleString()} 句。`
-    : `当前 Prompt 已缓存 ${data.cache.currentCached.toLocaleString()} 条；试卷 ${data.cache.paperTotal.toLocaleString()} 句，资讯 ${data.cache.newsTotal.toLocaleString()} 句。`;
+    `${data.cache.cached.toLocaleString()} / ${data.cache.total.toLocaleString()} 条精读已有可复用缓存`;
+  el("admin-cache-detail").textContent =
+    `文章精读 ${data.cache.sentenceCached}/${data.cache.sentenceTotal} · 题面精读 ${data.cache.textCached}/${data.cache.textTotal} · 做题精读 ${data.cache.solvingCached}/${data.cache.solvingTotal}；当前 Prompt ${data.cache.currentCached.toLocaleString()} 条，历史兼容 ${data.cache.legacyCached.toLocaleString()} 条。`;
   concurrency.value = String(s.workerConcurrency);
   capacity.value = String(s.queueCapacity);
   background.value = String(s.backgroundTarget);
@@ -229,13 +268,15 @@ function render(data: Overview) {
   renderChart(data);
   renderErrors(data);
   renderWorkers(data);
+  renderJobs(data);
   panels.setAttribute("aria-busy", "false");
 }
 async function load(silent = false) {
   if (inFlight) return;
   inFlight = true;
+  const filters = jobFilters();
   try {
-    const data = (await request("/api/admin/analysis")) as Overview;
+    const data = (await request(`/api/admin/analysis?${filters}`)) as Overview;
     render(data);
     if (!silent) setStatus("后台状态已加载。");
   } catch (error) {
@@ -250,7 +291,16 @@ async function load(silent = false) {
     );
   } finally {
     inFlight = false;
+    if (filters !== jobFilters()) void load(true);
   }
+}
+function jobFilters() {
+  const params = new URLSearchParams();
+  const type = el<HTMLSelectElement>("admin-job-type").value;
+  const status = el<HTMLSelectElement>("admin-job-status").value;
+  if (type) params.set("jobType", type);
+  if (status) params.set("jobStatus", status);
+  return params.toString();
 }
 async function loadPapers() {
   try {
@@ -288,7 +338,7 @@ function renderPapers() {
   el("admin-paper-page").textContent = `${paperPage + 1} / ${pages}`;
   target.innerHTML = visible.length
     ? visible.map(({ paper, index }) =>
-      `<div class="admin-paper-row" draggable="true" data-index="${index}"><span class="admin-drag-handle" aria-label="拖动排序">⋮⋮</span><span class="admin-paper-name"><strong><em class="admin-source-tag ${paper.source_type === "news" ? "is-news" : ""}">${paper.source_type === "news" ? "News" : "试卷"}</em>${esc(paper.title)}</strong><small>${esc(paper.exam_level)} · ${paper.year}-${String(paper.month).padStart(2, "0")} · ${paper.cached}/${paper.total} 句</small></span><label>优先级<input class="admin-paper-priority" data-key="${esc(`${paper.source_type}:${paper.source_id}`)}" type="number" min="-100" max="100" value="${paper.priority}" /></label></div>`).join("")
+      `<div class="admin-paper-row" draggable="true" data-index="${index}"><span class="admin-drag-handle" aria-label="拖动排序">⋮⋮</span><span class="admin-paper-name"><strong><em class="admin-source-tag ${paper.source_type === "news" ? "is-news" : ""}">${paper.source_type === "news" ? "News" : "试卷"}</em>${esc(paper.title)}</strong><small>${esc(paper.exam_level)} · ${paper.year}-${String(paper.month).padStart(2, "0")} · 总进度 ${paper.cached}/${paper.total}</small>${paperProgressEntries({ ...paper, analysis_total: paper.sentence_total ?? paper.total, analysis_cached: paper.sentence_cached ?? paper.cached }).map(label => `<small>${esc(label)}</small>`).join("")}</span><label>优先级<input class="admin-paper-priority" data-key="${esc(`${paper.source_type}:${paper.source_id}`)}" type="number" min="-100" max="100" value="${paper.priority}" /></label></div>`).join("")
     : '<p class="admin-note">暂时没有匹配的试卷。</p>';
   target.querySelectorAll<HTMLInputElement>(".admin-paper-priority").forEach((input) => {
     input.addEventListener("change", () => {
@@ -443,6 +493,9 @@ el("admin-retry-list").addEventListener("click", (event) => {
   if (button) void retry(button.dataset.code || "");
 });
 el("admin-retry-all").addEventListener("click", () => void retry());
+for (const id of ["admin-job-type", "admin-job-status"]) {
+  el(id).addEventListener("change", () => void load(true));
+}
 void Promise.all([load(), loadPapers(), loadAudit()]);
 setInterval(() => {
   if (document.visibilityState !== "hidden") {

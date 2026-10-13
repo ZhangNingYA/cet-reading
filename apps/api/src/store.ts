@@ -5,6 +5,7 @@ import { config } from './config.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
 import { readRuntimeSettings } from './runtime-settings.js';
+import { emptyQuestionProgress, getPaperQuestionProgress } from './analysis-progress.js';
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
 
@@ -61,7 +62,7 @@ export async function listPapers() {
        FROM visible o JOIN sentence_analyses a
          ON a.sentence_id = o.id AND a.source_hash = o.source_hash
         AND a.context_json = o.context_json
-        AND a.prompt_version = $1 AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
+        AND a.prompt_version = ANY($1::text[]) AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
        GROUP BY o.paper_id
      ), queued AS (
        SELECT o.paper_id,
@@ -77,8 +78,8 @@ export async function listPapers() {
        LEFT JOIN sentence_analyses a
          ON a.sentence_id = o.id AND a.source_hash = o.source_hash
         AND a.context_json = o.context_json
-        AND a.prompt_version = $1 AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
-       WHERE j.prompt_version = $1 AND j.model = $2 AND j.mode = $3
+        AND a.prompt_version = ANY($1::text[]) AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
+       WHERE j.prompt_version = $4 AND j.model = $2 AND j.mode = $3
          AND j.status IN ('pending', 'running', 'failed')
        GROUP BY o.paper_id
      )
@@ -96,9 +97,10 @@ export async function listPapers() {
      LEFT JOIN queued q ON q.paper_id = p.id
      WHERE p.status = 'published'
      ORDER BY p.year DESC, p.month DESC, p.exam_level, p.set_no`,
-    [config.promptVersion, config.model, config.mode],
+    [config.cachePromptVersions, config.model, config.mode, config.promptVersion],
   );
-  return result.rows;
+  const progress = await getPaperQuestionProgress(pool, result.rows.map(paper => paper.id));
+  return result.rows.map(paper => ({ ...paper, ...(progress.get(paper.id) ?? emptyQuestionProgress()) }));
 }
 
 async function getStoredPaper(id: string) {

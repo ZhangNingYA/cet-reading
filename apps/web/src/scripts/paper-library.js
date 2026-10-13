@@ -1,4 +1,5 @@
 import { mountIntensive } from './intensive-reader';
+import { paperProgressEntries } from './analysis-progress';
 import { createSectionNavigation } from './section-navigation';
 import { createSharedSectionNotice } from './section-reference';
 import { appendMaterialText, appendSectionImages } from './section-material';
@@ -24,18 +25,7 @@ let disposeIntensive = null;
 let viewRequest = 0;
 
 function levelName(level) { return level === 'CET6' ? '六级' : level === 'NEEP' ? '考研' : '四级'; }
-function analysisProgress(paper) {
-  const total = Number(paper.analysis_total ?? 0);
-  const cached = Math.min(total, Number(paper.analysis_cached ?? 0));
-  if (!total) return '';
-  const percentage = ((cached / total) * 100).toFixed(1);
-  const states = [];
-  const pending = Number(paper.analysis_pending ?? 0);
-  const running = Number(paper.analysis_running ?? 0);
-  if (pending) states.push(`${pending} 条排队`);
-  if (running) states.push(`${running} 条生成中`);
-  return `精读缓存 ${cached}/${total}（${percentage}%）${states.length ? ` · ${states.join(' · ')}` : ''}`;
-}
+function analysisProgress(paper) { return paperProgressEntries(paper).join(' · '); }
 function createModeButton(text, mode, paper) {
   const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-small paper-mode-button'; button.textContent = text;
   button.dataset.mode = mode; button.setAttribute('aria-label', `${paper.title}，${text}`);
@@ -80,8 +70,10 @@ function showPapers() {
     const progressLabel = analysisProgress(paper);
     if (progressLabel) {
       const progress = document.createElement('span'); progress.className = 'paper-analysis-progress';
-      progress.textContent = progressLabel;
-      progress.title = `${paper.analysis_cached ?? 0} / ${paper.analysis_total ?? 0} 句已完成`;
+      for (const label of paperProgressEntries(paper)) {
+        const line = document.createElement('span'); line.textContent = label; progress.append(line);
+      }
+      progress.title = progressLabel;
       bottom.append(progress);
     }
     if (typeLabel || progressLabel) copy.append(bottom);

@@ -6,6 +6,8 @@ import {
 import { config } from "./config.js";
 import { pool } from "./store.js";
 import { readRuntimeSettings } from "./runtime-settings.js";
+import { emptyQuestionProgress, getPaperQuestionProgress } from "./analysis-progress.js";
+import { analysisErrorCode } from "@cet-reading/contracts/analysis-jobs";
 
 export class InvalidAdminSettingsError extends Error {
   constructor(message = "Invalid analysis runtime settings") {
@@ -89,18 +91,25 @@ export async function setBackfillPaused(
   return updateAdminSettings({ backfillPaused: paused }, actor);
 }
 
-export async function getAdminOverview() {
+export async function getAdminOverview(jobType?: string, jobStatus?: string) {
   const settings = await getAdminSettings();
   const params = [config.mode, config.model, config.promptVersion];
-  const [queue, recent, timeline, errors, cache, workers] = await Promise.all([
+  const [queue, recent, timeline, errors, cache, workers, questionProgress, jobs] = await Promise.all([
     pool.query<{
+      job_type: 'sentence' | 'text' | 'question';
       pending: number;
       running: number;
       failed: number;
       oldest_pending: Date | null;
       oldest_running: Date | null;
     }>(
-      `SELECT COUNT(*) FILTER (WHERE status='pending')::integer pending,COUNT(*) FILTER (WHERE status='running')::integer running,COUNT(*) FILTER (WHERE status='failed')::integer failed,MIN(created_at) FILTER (WHERE status='pending') oldest_pending,MIN(started_at) FILTER (WHERE status='running') oldest_running FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3`,
+      `SELECT job_type,
+         COUNT(*) FILTER (WHERE status='pending' OR (status='running' AND (lease_expires_at IS NULL OR lease_expires_at<=NOW())))::integer pending,
+         COUNT(*) FILTER (WHERE status='running' AND lease_expires_at>NOW())::integer running,
+         COUNT(*) FILTER (WHERE status='failed')::integer failed,
+         MIN(created_at) FILTER (WHERE status='pending' OR (status='running' AND (lease_expires_at IS NULL OR lease_expires_at<=NOW()))) oldest_pending,
+         MIN(started_at) FILTER (WHERE status='running' AND lease_expires_at>NOW()) oldest_running
+       FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 GROUP BY job_type`,
       params,
     ),
     pool.query<{
@@ -158,14 +167,52 @@ export async function getAdminOverview() {
     }>(
       `SELECT worker_id,hostname,pid,active_jobs,concurrency,last_seen_at,started_at FROM analysis_worker_heartbeats ORDER BY last_seen_at DESC`,
     ),
+    getPaperQuestionProgress(pool),
+    pool.query<{
+      id: string; job_type: 'sentence' | 'text' | 'question'; text_key: string | null;
+      status: string; attempts: number; error_message: string | null;
+      title: string; section_title: string | null; source_text: string;
+      question_id: string | null; sentence_id: string | null;
+      created_at: Date; started_at: Date | null; finished_at: Date | null; next_attempt_at: Date;
+    }>(
+      `SELECT j.id, j.job_type, j.text_key, j.question_id, j.sentence_id, j.attempts, j.error_message,
+         CASE WHEN j.status='running' AND (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW())
+              THEN 'pending' ELSE j.status END status,
+         COALESCE(p.title,n.title,j.context_json->>'title','') title, ps.title section_title,
+         LEFT(CASE WHEN j.job_type='question' THEN COALESCE(j.question_json->>'prompt',q.prompt,'')
+                   ELSE j.source_text END,240) source_text,
+         j.created_at, j.started_at, j.finished_at, j.next_attempt_at
+       FROM analysis_jobs j LEFT JOIN sentences s ON s.id=j.sentence_id
+       LEFT JOIN questions q ON q.id=j.question_id LEFT JOIN paper_sections ps ON ps.id=q.section_id
+       LEFT JOIN papers p ON p.id=COALESCE(ps.paper_id,s.paper_id)
+       LEFT JOIN news_articles n ON n.id=s.article_id
+       WHERE j.mode=$1 AND j.model=$2 AND j.prompt_version=$3
+         AND (j.status IN ('pending','running') OR j.finished_at>=NOW()-INTERVAL '24 hours')
+         AND ($4::text IS NULL OR j.job_type=$4)
+         AND ($5::text IS NULL OR CASE WHEN j.status='running' AND
+           (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW()) THEN 'pending' ELSE j.status END=$5)
+       ORDER BY CASE WHEN j.status='running' AND j.lease_expires_at>NOW() THEN 0
+                     WHEN j.status IN ('pending','running') THEN 1 ELSE 2 END,
+                j.updated_at DESC, j.id DESC LIMIT 50`,
+      [...params, jobType ?? null, jobStatus ?? null],
+    ),
   ]);
-  const q = queue.rows[0] ?? {
-    pending: 0,
-    running: 0,
-    failed: 0,
-    oldest_pending: null,
-    oldest_running: null,
+  const q = { pending: 0, running: 0, failed: 0, oldest_pending: null as Date | null, oldest_running: null as Date | null };
+  const byType = {
+    sentence: { pending: 0, running: 0, failed: 0 },
+    text: { pending: 0, running: 0, failed: 0 },
+    question: { pending: 0, running: 0, failed: 0 },
   };
+  for (const row of queue.rows) {
+    byType[row.job_type] = { pending: row.pending, running: row.running, failed: row.failed };
+    q.pending += row.pending; q.running += row.running; q.failed += row.failed;
+    if (row.oldest_pending && (!q.oldest_pending || row.oldest_pending < q.oldest_pending)) q.oldest_pending = row.oldest_pending;
+    if (row.oldest_running && (!q.oldest_running || row.oldest_running < q.oldest_running)) q.oldest_running = row.oldest_running;
+  }
+  const extra = emptyQuestionProgress();
+  for (const progress of questionProgress.values()) {
+    for (const key of Object.keys(extra) as Array<keyof typeof extra>) extra[key] += progress[key];
+  }
   const m = recent.rows[0] ?? {
     success_1h: 0,
     failed_1h: 0,
@@ -197,7 +244,16 @@ export async function getAdminOverview() {
       capacity: settings.queueCapacity,
       oldestPendingAt: asIso(q.oldest_pending),
       oldestRunningAt: asIso(q.oldest_running),
+      byType,
     },
+    jobs: jobs.rows.map(row => ({
+      id: row.id, type: row.job_type, textKey: row.text_key, status: row.status,
+      title: row.title, sectionTitle: row.section_title, source: row.source_text,
+      questionId: row.question_id, sentenceId: row.sentence_id, attempts: row.attempts,
+      errorCode: row.error_message ? analysisErrorCode(row.error_message) : null,
+      createdAt: asIso(row.created_at), startedAt: asIso(row.started_at),
+      finishedAt: asIso(row.finished_at), nextAttemptAt: asIso(row.next_attempt_at),
+    })),
     metrics: {
       successLastHour: m.success_1h,
       failedLastHour: m.failed_1h,
@@ -232,29 +288,40 @@ export async function getAdminOverview() {
       startedAt: asIso(row.started_at),
     })),
     cache: {
-      total: c.total,
-      cached: c.cached,
-      currentCached: c.current_cached,
-      legacyCached: Math.max(0, c.cached - c.current_cached),
+      total: c.total + extra.analysis_text_total + extra.analysis_solving_total,
+      cached: c.cached + extra.analysis_text_cached + extra.analysis_solving_cached,
+      currentCached: c.current_cached + extra.analysis_text_current_cached + extra.analysis_solving_current_cached,
+      legacyCached: Math.max(0, c.cached - c.current_cached)
+        + extra.analysis_text_cached - extra.analysis_text_current_cached
+        + extra.analysis_solving_cached - extra.analysis_solving_current_cached,
+      sentenceTotal: c.total,
+      sentenceCached: c.cached,
+      textTotal: extra.analysis_text_total,
+      textCached: extra.analysis_text_cached,
+      solvingTotal: extra.analysis_solving_total,
+      solvingCached: extra.analysis_solving_cached,
       paperTotal: c.paper_total,
       newsTotal: c.news_total,
-      rate: c.total ? Number(((c.cached * 100) / c.total).toFixed(2)) : 0,
+      rate: c.total + extra.analysis_text_total + extra.analysis_solving_total
+        ? Number(((c.cached + extra.analysis_text_cached + extra.analysis_solving_cached) * 100
+          / (c.total + extra.analysis_text_total + extra.analysis_solving_total)).toFixed(2)) : 0,
     },
   };
 }
 
 export async function listAdminPapers() {
-  const [paperResult, newsResult] = await Promise.all([
+  const [paperResult, newsResult, questionProgress] = await Promise.all([
     pool.query(
-      `WITH visible AS (
-         SELECT s.id, s.paper_id, s.source_hash,
+      `WITH ordered AS (
+         SELECT s.id, s.paper_id, s.section_id, s.source_hash,
                 jsonb_build_object('title', p.title, 'previousSentence', lag(s.source_text) OVER w,
                   'nextSentence', lead(s.source_text) OVER w) context_json
          FROM sentences s JOIN papers p ON p.id=s.paper_id
          WHERE p.status='published'
-           AND NOT EXISTS (SELECT 1 FROM shared_paper_sections x
-             WHERE x.paper_id=s.paper_id AND x.section_id=s.section_id)
          WINDOW w AS (PARTITION BY s.paper_id ORDER BY s.paragraph_index,s.sentence_index)
+       ), visible AS (
+         SELECT o.* FROM ordered o WHERE NOT EXISTS (SELECT 1 FROM shared_paper_sections x
+           WHERE x.paper_id=o.paper_id AND x.section_id=o.section_id)
        ), totals AS (SELECT paper_id, COUNT(*)::integer total FROM visible GROUP BY paper_id),
        cached AS (SELECT v.paper_id, COUNT(DISTINCT v.id)::integer cached FROM visible v
          JOIN sentence_analyses a ON a.sentence_id=v.id AND a.source_hash=v.source_hash
@@ -266,7 +333,7 @@ export async function listAdminPapers() {
          'paper'::text source_type, p.id source_id
        FROM papers p LEFT JOIN analysis_paper_priorities pr ON pr.paper_id=p.id
          LEFT JOIN totals t ON t.paper_id=p.id LEFT JOIN cached c ON c.paper_id=p.id
-       WHERE p.status='published' AND COALESCE(t.total,0)>COALESCE(c.cached,0)`,
+       WHERE p.status='published'`,
       [config.cachePromptVersions, config.model, config.mode],
     ),
     pool.query(
@@ -283,7 +350,7 @@ export async function listAdminPapers() {
            AND a.context_json=v.context_json AND a.prompt_version=ANY($1::text[])
            AND a.model=$2 AND a.mode=$3 AND a.status='succeeded' GROUP BY v.article_id)
        SELECT n.id, n.title, 'NEWS'::text exam_level,
-         EXTRACT(YEAR FROM n.batch_at)::integer year, EXTRACT(MONTH FROM n.batch_at)::integer month,
+         EXTRACT(YEAR FROM n.batch_at)::integer AS year, EXTRACT(MONTH FROM n.batch_at)::integer AS month,
          0::integer set_no, COALESCE(pr.priority,0)::integer priority,
          COALESCE(pr.sort_order,2147483647)::integer sort_order,
          COALESCE(t.total,0)::integer total, COALESCE(c.cached,0)::integer cached,
@@ -293,8 +360,18 @@ export async function listAdminPapers() {
        WHERE n.status='published' AND COALESCE(t.total,0)>COALESCE(c.cached,0)`,
       [config.cachePromptVersions, config.model, config.mode],
     ),
+    getPaperQuestionProgress(pool),
   ]);
-  return [...paperResult.rows, ...newsResult.rows].sort((a, b) =>
+  const papers = paperResult.rows.map(paper => {
+    const progress = questionProgress.get(paper.id) ?? emptyQuestionProgress();
+    return {
+      ...paper, ...progress,
+      sentence_total: paper.total, sentence_cached: paper.cached,
+      total: paper.total + progress.analysis_text_total + progress.analysis_solving_total,
+      cached: paper.cached + progress.analysis_text_cached + progress.analysis_solving_cached,
+    };
+  }).filter(paper => paper.total > paper.cached);
+  return [...papers, ...newsResult.rows].sort((a, b) =>
     Number(b.priority) - Number(a.priority) || Number(a.sort_order) - Number(b.sort_order) ||
     Number(b.year) - Number(a.year) || Number(b.month) - Number(a.month) || String(a.id).localeCompare(String(b.id)),
   );

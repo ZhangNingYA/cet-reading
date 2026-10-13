@@ -50,10 +50,15 @@ function adminEnabled(reply: { code: (statusCode: number) => { send: (payload: u
   return false;
 }
 
-app.get('/api/admin/analysis', async (_request, reply) => {
+app.get<{ Querystring: { jobType?: string; jobStatus?: string } }>('/api/admin/analysis', async (request, reply) => {
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
-  return getAdminOverview();
+  const { jobType, jobStatus } = request.query;
+  if ((jobType && !['sentence', 'text', 'question'].includes(jobType)) ||
+      (jobStatus && !['pending', 'running', 'succeeded', 'failed'].includes(jobStatus))) {
+    return reply.code(400).send({ error: 'invalid_job_filter' });
+  }
+  return getAdminOverview(jobType || undefined, jobStatus || undefined);
 });
 
 app.get('/api/admin/analysis/settings', async (_request, reply) => {

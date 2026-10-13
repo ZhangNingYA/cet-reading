@@ -56,6 +56,34 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
+for (const paper of papers.papers) {
+  for (const prefix of ['analysis_text', 'analysis_solving']) {
+    const counts = ['total', 'cached', 'pending', 'running', 'failed'].map(key => paper[`${prefix}_${key}`]);
+    if (counts.some(count => !Number.isInteger(count) || count < 0) ||
+        counts.slice(1).reduce((sum, count) => sum + count, 0) > counts[0]) {
+      throw new Error(`Invalid ${prefix} progress for ${paper.id}`);
+    }
+  }
+}
+const adminHtml = await (await fetchWithRetry('/admin/analysis/')).text();
+for (const id of ['admin-job-type', 'admin-job-status', 'admin-job-list', 'admin-queue-types']) {
+  if (!adminHtml.includes(`id="${id}"`)) throw new Error(`Missing admin request UI: ${id}`);
+}
+const adminResponse = await fetch(`${baseUrl}/api/admin/analysis?jobType=question`, { signal: AbortSignal.timeout(timeoutMs) });
+const admin = await adminResponse.json();
+if (adminResponse.status === 404 && admin.error === 'admin_disabled') {
+  console.log('Admin API disabled; public progress and admin page verified.');
+} else {
+  if (!adminResponse.ok || !admin.queue?.byType?.text || !admin.queue?.byType?.question ||
+      !Array.isArray(admin.jobs) || admin.jobs.some(job => job.type !== 'question') ||
+      !Number.isInteger(admin.cache?.textTotal) || !Number.isInteger(admin.cache?.solvingTotal)) {
+    throw new Error('Admin analysis does not expose question progress and filtered requests');
+  }
+  const adminPapers = await (await fetchWithRetry('/api/admin/analysis/papers')).json();
+  if (!Array.isArray(adminPapers.papers) || adminPapers.papers.some(paper => paper.total <= paper.cached)) {
+    throw new Error('Admin paper progress returned an invalid payload');
+  }
+}
 const sources = readPaperSources();
 function sectionViews(paper) {
   return paper.sections.map(section => ({
