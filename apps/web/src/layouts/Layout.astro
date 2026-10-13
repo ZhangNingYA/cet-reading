@@ -32,6 +32,7 @@ const isHome = Astro.url.pathname === '/';
             {homeSections.map((section) => (
               <a href={`/${section.slug}/`} aria-current={Astro.url.pathname === `/${section.slug}/` ? 'page' : undefined}>{section.label}</a>
             ))}
+            <a class="site-nav-admin" href="/admin/analysis/" aria-current={Astro.url.pathname.startsWith('/admin/') ? 'page' : undefined} title="打开精读管理">管理</a>
           </nav>
         )}
       </div>

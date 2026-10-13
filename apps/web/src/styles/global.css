@@ -51,6 +51,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .site-nav a { padding: 7px 13px; border-radius: 7px; color: var(--muted); transition: color .15s, background .15s; }
 .site-nav a:hover { background: var(--paper-warm); color: var(--ink); }
 .site-nav a[aria-current='page'] { color: var(--accent-deep); background: var(--accent-pale); font-weight: 550; }
+.site-nav .site-nav-admin { margin-left: 5px; padding-inline: 9px; color: var(--quiet); border-left: 1px solid var(--line); font-size: 12px; opacity: .72; }
+.site-nav .site-nav-admin:hover { color: var(--ink); background: transparent; opacity: 1; }
+.site-nav .site-nav-admin[aria-current='page'] { color: var(--accent-deep); background: transparent; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; font-size: var(--text-ui); font-weight: 500; line-height: 1.5; transition: background .15s, border-color .15s, color .15s; }
 .button-small { min-height: 36px; padding: 7px 16px; color: var(--muted); border: 1px solid transparent; background: transparent; }
 .button-small:hover { color: var(--accent-deep); background: var(--accent-pale); }
