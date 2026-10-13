@@ -54,8 +54,23 @@
 .admin-paper-row { padding: 17px 0; border-bottom: 1px solid var(--line); }
 .admin-paper-name { display: grid; gap: 4px; min-width: 0; }
 .admin-paper-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--text-ui); font-weight: 550; }
+.admin-paper-name > a { display: grid; min-width: 0; }
+.admin-paper-links { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; }
+.admin-show-parts.text-link { min-height: 24px; color: var(--accent); font-size: 12px; }
+.admin-priority { display: flex; align-items: center; gap: 16px; margin: 0 0 18px; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--accent-pale); border-radius: 4px; }
+.admin-priority > div { flex: 1; min-width: 0; }
+.admin-priority strong { display: block; font-size: var(--text-caption); font-weight: 550; overflow-wrap: anywhere; }
+.admin-priority p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+.admin-priority .text-link { flex-shrink: 0; font-size: 12px; }
+.admin-paper-sections { grid-column: 1 / -1; padding: 0 12px; border-radius: 6px; background: var(--paper-warm); }
+.admin-part-row { display: grid; grid-template-columns: minmax(0,1fr) repeat(3,108px); gap: 24px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.admin-part-row:last-child { border-bottom: 0; }
+.admin-part-name { font-size: var(--text-caption); color: var(--muted); overflow-wrap: anywhere; }
 .admin-paper-name small { color: var(--quiet); font-size: 12px; }
 .admin-progress-cell { display: grid; gap: 6px; color: var(--ink); font-size: var(--text-caption); font-variant-numeric: tabular-nums; }
+button.admin-progress-cell { margin: -6px; padding: 6px; border: 1px solid transparent; border-radius: 5px; background: transparent; text-align: left; font-family: inherit; }
+button.admin-progress-cell:hover, button.admin-progress-cell.is-priority { color: var(--accent-deep); background: var(--accent-pale); border-color: #b9d4c5; }
+button.admin-progress-cell:disabled { cursor: wait; opacity: .6; }
 .admin-progress-label { display: none; }
 .admin-progress-ratio > span { color: var(--quiet); }
 .admin-progress-track { height: 3px; overflow: hidden; border-radius: 4px; background: var(--line); }
@@ -80,6 +95,9 @@
   .admin-count { width: 100%; margin-left: 0; }
   .admin-progress-head { display: none; }
   .admin-paper-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .admin-part-row { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+  .admin-part-name { grid-column: 1 / -1; }
+  .admin-priority { align-items: flex-start; padding-inline: 12px; gap: 10px; }
   .admin-paper-name { grid-column: 1 / -1; }
   .admin-progress-label { display: block; color: var(--quiet); font-size: 12px; }
   .admin-progress-cell { gap: 4px; }

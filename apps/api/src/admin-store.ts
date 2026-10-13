@@ -8,6 +8,7 @@ import { pool } from "./store.js";
 import { readRuntimeSettings } from "./runtime-settings.js";
 import { emptyQuestionProgress, getPaperQuestionProgress } from "./analysis-progress.js";
 import { analysisErrorCode } from "@cet-reading/contracts/analysis-jobs";
+import { getAdminPriority } from "./admin-priority.js";
 
 export class InvalidAdminSettingsError extends Error {
   constructor(message = "Invalid analysis runtime settings") {
@@ -94,7 +95,8 @@ export async function setBackfillPaused(
 export async function getAdminOverview(jobType?: string, jobStatus?: string) {
   const settings = await getAdminSettings();
   const params = [config.mode, config.model, config.promptVersion];
-  const [queue, jobs] = await Promise.all([
+  const [priority, queue, jobs] = await Promise.all([
+    getAdminPriority(),
     pool.query<{
       job_type: 'sentence' | 'text' | 'question';
       pending: number;
@@ -159,6 +161,7 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
   }
   return {
     observedAt: new Date().toISOString(),
+    priority,
     model: config.model,
     mode: config.mode,
     promptVersion: config.promptVersion,

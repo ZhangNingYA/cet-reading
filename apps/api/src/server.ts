@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { config } from './config.js';
+import { getAdminPriority, listAdminSections, setAdminPriority, InvalidPriorityTargetError } from './admin-priority.js';
 import {
   getAdminOverview,
   getAdminSettings,
@@ -96,6 +97,28 @@ app.get('/api/admin/analysis/papers', async (_request, reply) => {
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
   return { papers: await listAdminPapers() };
+});
+
+app.get<{ Params: { id: string } }>('/api/admin/analysis/papers/:id/sections', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { sections: await listAdminSections(request.params.id) };
+});
+
+app.get('/api/admin/analysis/priority', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  return { priority: await getAdminPriority() };
+});
+
+app.post<{ Body: unknown }>('/api/admin/analysis/priority', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  try { return await setAdminPriority(request.body, request.ip); }
+  catch (error) {
+    if (error instanceof InvalidPriorityTargetError) return reply.code(400).send({ error: 'invalid_priority_target', message: error.message });
+    throw error;
+  }
 });
 
 app.post<{ Body: { items?: unknown } }>('/api/admin/analysis/papers/reorder', async (request, reply) => {

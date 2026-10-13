@@ -49,7 +49,9 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
       `WITH candidate AS (
          SELECT j.id FROM analysis_jobs j
          LEFT JOIN sentences s ON s.id = j.sentence_id
-         LEFT JOIN analysis_paper_priorities pp ON pp.paper_id = s.paper_id
+         LEFT JOIN questions q ON q.id = j.question_id
+         LEFT JOIN paper_sections ps ON ps.id = q.section_id
+         LEFT JOIN analysis_paper_priorities pp ON pp.paper_id = COALESCE(s.paper_id, ps.paper_id)
          LEFT JOIN analysis_news_priorities np ON np.article_id = s.article_id
          WHERE mode = $1 AND model = $2 AND prompt_version = $3
            AND ((status = 'pending' AND next_attempt_at <= NOW())
@@ -57,7 +59,7 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
            AND attempts < $5
          ORDER BY j.priority DESC, COALESCE(pp.priority, np.priority, 0) DESC,
                   COALESCE(pp.sort_order, np.sort_order, 2147483647), (j.attempts = 0) DESC,
-                  j.created_at DESC, j.id DESC
+                  (j.job_type='question') DESC, j.created_at DESC, j.id DESC
          FOR UPDATE OF j SKIP LOCKED
          LIMIT 1
        )

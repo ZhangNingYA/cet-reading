@@ -6,6 +6,10 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./analysis-priority": {
+      "types": "./dist/analysis-priority.d.ts",
+      "import": "./dist/analysis-priority.js"
+    },
     "./news": { "types": "./dist/news.d.ts", "import": "./dist/news.js" },
     "./shared-reading": {
       "types": "./dist/shared-reading.d.ts",

@@ -66,7 +66,7 @@ for (const paper of papers.papers) {
   }
 }
 const adminHtml = await (await fetchWithRetry('/admin/analysis/')).text();
-for (const id of ['admin-job-type', 'admin-job-list', 'admin-toggle-backfill', 'admin-progress-tab', 'admin-requests-tab']) {
+for (const id of ['admin-job-type', 'admin-job-list', 'admin-toggle-backfill', 'admin-progress-tab', 'admin-requests-tab', 'admin-priority']) {
   if (!adminHtml.includes(`id="${id}"`)) throw new Error(`Missing admin request UI: ${id}`);
 }
 const adminResponse = await fetch(`${baseUrl}/api/admin/analysis?jobType=question`, { signal: AbortSignal.timeout(timeoutMs) });
@@ -79,6 +79,17 @@ if (adminResponse.status === 404 && admin.error === 'admin_disabled') {
     throw new Error('Admin analysis does not expose question progress and filtered requests');
   }
   const adminPapers = await (await fetchWithRetry('/api/admin/analysis/papers')).json();
+  if (!Object.hasOwn(admin, 'priority')) throw new Error('Admin priority selection is missing');
+  const priorityPaper = adminPapers.papers.find(paper => paper.source_type === 'paper' && paper.analysis_solving_total > 0);
+  if (priorityPaper) {
+    const parts = await (await fetchWithRetry(`/api/admin/analysis/papers/${encodeURIComponent(priorityPaper.id)}/sections`)).json();
+    if (!Array.isArray(parts.sections) || !parts.sections.length ||
+        parts.sections.some(section => ['sentence','text','question'].some(type =>
+          !Number.isInteger(section.progress?.[type]?.total) || !Number.isInteger(section.progress?.[type]?.cached))) ||
+        parts.sections.reduce((sum,section) => sum + section.progress.question.total,0) !== priorityPaper.analysis_solving_total) {
+      throw new Error('Admin section priorities do not match paper solving totals');
+    }
+  }
   if (!Array.isArray(adminPapers.papers) || adminPapers.papers.some(paper => paper.total <= paper.cached)) {
     throw new Error('Admin paper progress returned an invalid payload');
   }

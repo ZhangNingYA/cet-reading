@@ -1,7 +1,7 @@
-import type { Pool, PoolClient } from 'pg';
+import type { PriorityDatabase } from '@cet-reading/contracts/analysis-priority';
 import { RuntimeSettingsSchema, type RuntimeConfig, type RuntimeSettings } from '@cet-reading/contracts/config';
 
-type Queryable = Pick<Pool, 'query'> | Pick<PoolClient, 'query'>;
+type Queryable = PriorityDatabase;
 
 function defaults(config: RuntimeConfig): RuntimeSettings {
   const workerConcurrency = config.workerConcurrency ?? 4;

@@ -3,6 +3,7 @@ import { contextHash, validateAnalysis, type SentenceAnalysis } from '@cet-readi
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
 import type { Pool } from 'pg';
 import { readRuntimeSettings } from './runtime-settings.js';
+import { fillPriorityQueue } from '@cet-reading/contracts/analysis-priority';
 
 const BACKGROUND_PRIORITY = 1;
 
@@ -522,13 +523,18 @@ export async function fillBackgroundQueue(
 }
 
 export async function runBackfillScheduler(pool: Pool, config: RuntimeConfig, signal: AbortSignal) {
-  if (!config.backfillEnabled || config.mode !== 'ai') return;
   let sentenceCursor: Cursor | null = null;
   let questionTextCursor: QuestionTextCursor | null = null;
   let questionTextFirst = false;
   while (!signal.aborted) {
     let scanHasMore = false;
     try {
+      const priority = await fillPriorityQueue(pool, config, db => readRuntimeSettings(db, config));
+      if (priority.queued) process.stdout.write(`Priority analysis queued ${priority.queued} item(s).\n`);
+      if (priority.active || !config.backfillEnabled || config.mode !== 'ai') {
+        await sleep(Math.min(config.backfillIntervalMs, 3000), signal);
+        continue;
+      }
       const runtime = await readRuntimeSettings(pool, config);
       if (runtime.backfillPaused) {
         sentenceCursor = null;
