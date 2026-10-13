@@ -55,7 +55,7 @@ app.get<{ Querystring: { jobType?: string; jobStatus?: string } }>('/api/admin/a
   if (!adminEnabled(reply)) return;
   const { jobType, jobStatus } = request.query;
   if ((jobType && !['sentence', 'text', 'question'].includes(jobType)) ||
-      (jobStatus && !['pending', 'running', 'succeeded', 'failed'].includes(jobStatus))) {
+      (jobStatus && !['active', 'pending', 'running', 'succeeded', 'failed'].includes(jobStatus))) {
     return reply.code(400).send({ error: 'invalid_job_filter' });
   }
   return getAdminOverview(jobType || undefined, jobStatus || undefined);
@@ -105,10 +105,10 @@ app.post<{ Body: { items?: unknown } }>('/api/admin/analysis/papers/reorder', as
   catch (error) { if (error instanceof InvalidAdminSettingsError) return reply.code(400).send({ error: 'invalid_paper_order', message: error.message }); throw error; }
 });
 
-app.post<{ Body: { errorCode?: string; limit?: number } }>('/api/admin/analysis/retry', async (request, reply) => {
+app.post<{ Body: { errorCode?: string; limit?: number; jobId?: string; jobType?: string } }>('/api/admin/analysis/retry', async (request, reply) => {
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
-  try { return retryAdminFailures(request.body?.errorCode, request.body?.limit, request.ip || 'admin-console'); }
+  try { return retryAdminFailures(request.body?.errorCode, request.body?.limit, request.ip || 'admin-console', request.body?.jobId, request.body?.jobType); }
   catch (error) { if (error instanceof InvalidAdminSettingsError) return reply.code(400).send({ error: 'invalid_retry_filter', message: error.message }); throw error; }
 });
 

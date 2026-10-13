@@ -121,7 +121,7 @@ test('admin hides a paper only after all three kinds have reusable caches', asyn
   assert.deepEqual(await listAdminPapers(), []);
 });
 
-test('admin overview includes question caches, type totals and safe request details', async t => {
+test('admin overview includes type totals and safe request details without unused reporting queries', async t => {
   const created = new Date('2026-10-13T01:00:00Z');
   mockQuestionProgress(t, {
     questions: [question('q1')],
@@ -149,11 +149,9 @@ test('admin overview includes question caches, type totals and safe request deta
   assert.equal(result.queue.running, 1);
   assert.equal(result.queue.byType.text.pending, 2);
   assert.equal(result.queue.byType.question.pending, 1);
-  assert.equal(result.cache.total, 14);
-  assert.equal(result.cache.cached, 9);
-  assert.equal(result.cache.textCached, 1);
-  assert.equal(result.cache.currentCached, 6);
-  assert.equal(result.cache.legacyCached, 3);
+  assert.equal(result.cache, undefined);
+  assert.equal(result.metrics, undefined);
+  assert.equal(result.workers, undefined);
   assert.equal(result.jobs[0].type, 'text');
   assert.equal(result.jobs[0].errorCode, 'service_unavailable');
   assert.equal(JSON.stringify(result).includes('private upstream'), false);

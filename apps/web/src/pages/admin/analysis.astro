@@ -1,50 +1,61 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import '../../styles/admin.css';
 const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 ---
-<Layout title="Analysis Admin · CET Reading" description="精读分析队列控制台">
+<Layout title="精读管理 · CET Reading" description="查看 AI 请求、精读进度与处理失败任务">
   <section class="admin-section container" id="admin-analysis" data-api-base={apiBase} aria-labelledby="admin-title">
-    <div class="admin-heading">
-      <div><p class="admin-eyebrow">Operations</p><h1 id="admin-title">精读分析后台</h1><p class="admin-subtitle">队列、缓存和模型任务的统一控制台。</p></div>
-      <a class="text-link" href="/">← 返回题库</a>
+    <header class="admin-heading">
+      <div><h1 id="admin-title">精读管理</h1><p id="admin-backfill-state" class="admin-subtitle">正在读取运行状态…</p></div>
+      <div class="admin-controls">
+        <label class="admin-speed"><span>同时生成</span><select id="admin-concurrency" disabled aria-label="同时生成的任务数量"><option value="1">1 条</option><option value="2">2 条</option><option value="3">3 条</option><option value="4">4 条</option></select></label>
+        <button class="button button-small" id="admin-toggle-backfill" type="button" disabled>暂停自动生成</button>
+      </div>
+    </header>
+
+    <div class="admin-summary" aria-label="当前任务数量">
+      <div><span class="admin-summary-dot is-running" aria-hidden="true"></span><span>生成中</span><strong id="admin-running">—</strong></div>
+      <div><span class="admin-summary-dot" aria-hidden="true"></span><span>排队中</span><strong id="admin-pending">—</strong></div>
+      <button id="admin-show-failed" type="button" aria-label="查看失败任务"><span class="admin-summary-dot is-failed" aria-hidden="true"></span><span>失败</span><strong id="admin-failed">—</strong><span class="admin-summary-arrow" aria-hidden="true">↗</span></button>
+      <span id="admin-observed-at" class="admin-updated"></span>
+      <button class="text-link" id="admin-refresh" type="button">刷新</button>
     </div>
-    <p id="admin-status" class="admin-status" role="status" aria-live="polite">正在读取后台状态…</p>
+    <p id="admin-status" class="admin-status" role="status" aria-live="polite"></p>
 
-    <div class="admin-panels" aria-busy="true">
-      <details class="admin-panel" open>
-        <summary><span>运行概览</span><small>队列与缓存</small></summary>
-        <div class="admin-grid">
-          <section class="admin-card admin-card-wide" aria-labelledby="admin-queue-title"><div class="admin-card-heading"><h2 id="admin-queue-title">实时队列</h2><time id="admin-observed-at"></time></div><div class="admin-stat-grid"><div><span>运行中</span><strong id="admin-running">—</strong></div><div><span>排队中</span><strong id="admin-pending">—</strong></div><div><span>失败隔离</span><strong id="admin-failed">—</strong></div><div><span>活动 / 上限</span><strong id="admin-capacity">—</strong></div></div><p class="admin-note" id="admin-queue-age"></p><div class="admin-queue-types" id="admin-queue-types"></div></section>
-          <section class="admin-card" aria-labelledby="admin-metrics-title"><div class="admin-card-heading"><h2 id="admin-metrics-title">最近效率</h2></div><dl class="admin-metrics"><div><dt>成功（1 小时）</dt><dd id="admin-success-1h">—</dd></div><div><dt>失败（1 小时）</dt><dd id="admin-failed-1h">—</dd></div><div><dt>成功（6 小时）</dt><dd id="admin-success-6h">—</dd></div><div><dt>排队 P50 / P90</dt><dd id="admin-queue-latency">—</dd></div><div><dt>生成 P50 / P90</dt><dd id="admin-generation-latency">—</dd></div></dl></section>
-          <section class="admin-card" aria-labelledby="admin-cache-title"><div class="admin-card-heading"><h2 id="admin-cache-title">全站精读缓存</h2></div><p class="admin-cache-value" id="admin-cache-rate">—</p><p class="admin-note" id="admin-cache-count"></p><p class="admin-note" id="admin-cache-detail"></p></section>
-        </div>
-      </details>
-
-      <details class="admin-panel" open>
-        <summary><span>AI 请求明细</span><small>活动任务与最近 24 小时记录 · 最多 50 条</small></summary>
-        <div class="admin-card admin-card-wide">
-          <div class="admin-paper-toolbar">
-            <label><span>精读类型</span><select id="admin-job-type"><option value="">全部类型</option><option value="sentence">文章精读</option><option value="text">题面精读</option><option value="question">做题精读</option></select></label>
-            <label><span>任务状态</span><select id="admin-job-status"><option value="">全部状态</option><option value="running">生成中</option><option value="pending">排队中</option><option value="succeeded">已完成</option><option value="failed">失败</option></select></label>
-            <span id="admin-job-count" class="admin-paper-count"></span>
-          </div>
-          <div id="admin-job-list" class="admin-job-list"><p class="admin-note">正在读取 AI 请求…</p></div>
-        </div>
-      </details>
-
-      <details class="admin-panel" open><summary><span>延迟趋势</span><small>过去 24 小时 · P50 / P90</small></summary><div class="admin-card admin-card-wide"><div class="admin-chart-legend"><span><i class="admin-legend-p50"></i>P50</span><span><i class="admin-legend-p90"></i>P90</span></div><div id="admin-latency-chart" class="admin-chart" aria-label="过去 24 小时延迟图表"></div></div></details>
-
-      <details class="admin-panel" open><summary><span>运行设置与 Prompt</span><small>动态生效 · 记录审计</small></summary><div class="admin-card admin-card-wide"><div class="admin-card-heading"><h2>Worker 与队列</h2><span class="admin-live-badge">动态生效</span></div><div class="admin-form-grid"><label><span>模型并发数</span><input id="admin-concurrency" type="number" min="1" max="4" step="1" /></label><label><span>活动队列上限</span><input id="admin-capacity-input" type="number" min="1" max="32" step="1" /></label><label><span>后台补齐目标</span><input id="admin-background-target" type="number" min="0" max="32" step="1" /></label></div><div class="admin-prompt-field"><label for="admin-prompt">管理员补充 Prompt</label><textarea id="admin-prompt" rows="5" maxlength="16000" placeholder="留空使用内置 Prompt；这里的要求会随每次模型请求发送。"></textarea><p>适合放长期规则，例如翻译风格、词汇筛选重点。保存后只影响新生成任务，已有缓存仍可用。</p></div><div class="admin-actions"><button class="button button-primary" id="admin-save" type="button">保存设置</button><button class="button button-small" id="admin-pause" type="button">暂停后台补齐</button><button class="button button-small" id="admin-resume" type="button">恢复后台补齐</button></div><p class="admin-note" id="admin-backfill-state"></p></div></details>
-
-      <details class="admin-panel" open><summary><span>试卷与 News 优先级</span><small>只显示未完成内容</small></summary><div class="admin-card admin-card-wide"><p class="admin-note admin-inline-note">文章精读、题面精读和做题精读均达到 100% 缓存后，试卷才会自动隐藏；做题精读按需生成。搜索和筛选只影响当前显示，不会丢失其他项目的排序。先定位，再拖动左侧把手调整顺序；优先级越大越先进入 Worker。</p><div class="admin-paper-toolbar"><label><span>查找试卷或资讯</span><input id="admin-paper-search" type="search" placeholder="年份、标题或 ID" autocomplete="off" /></label><label><span>内容类型</span><select id="admin-paper-level"><option value="">全部</option><option value="CET4">四级</option><option value="CET6">六级</option><option value="POSTGRAD">考研</option><option value="NEWS">News</option></select></label><span id="admin-paper-count" class="admin-paper-count"></span></div><div id="admin-paper-list" class="admin-paper-list"><p class="admin-note">正在读取试卷…</p></div><div class="admin-paper-pagination"><button class="button button-small" id="admin-paper-prev" type="button">上一页</button><span id="admin-paper-page"></span><button class="button button-small" id="admin-paper-next" type="button">下一页</button></div><div class="admin-actions"><button class="button button-primary" id="admin-save-order" type="button">保存排序</button></div></div></details>
-
-      <details class="admin-panel" open><summary><span>失败任务与重试</span><small>按错误类型 · 最近 24 小时</small></summary><div class="admin-card admin-card-wide"><p id="admin-retry-summary" class="admin-note admin-inline-note">正在读取失败任务…</p><div id="admin-retry-list" class="admin-retry-list"><p class="admin-note">正在读取失败类型…</p></div><div class="admin-actions"><button class="button button-small" id="admin-retry-all" type="button">重试全部失败任务</button></div></div></details>
-
-      <details class="admin-panel"><summary><span>Worker 心跳</span><small>在线状态与活跃任务</small></summary><div class="admin-card admin-card-wide"><div id="admin-worker-list" class="admin-worker-list"><p class="admin-note">正在读取 Worker…</p></div></div></details>
-
-      <details class="admin-panel"><summary><span>配置审计记录</span><small>最近 50 条变更</small></summary><div class="admin-card admin-card-wide"><div id="admin-audit-list" class="admin-audit-list"><p class="admin-note">正在读取记录…</p></div></div></details>
+    <div class="admin-tabs" role="tablist" aria-label="管理内容">
+      <button id="admin-requests-tab" type="button" role="tab" aria-selected="true" aria-controls="admin-requests-panel" tabindex="0">AI 请求</button>
+      <button id="admin-progress-tab" type="button" role="tab" aria-selected="false" aria-controls="admin-progress-panel" tabindex="-1">精读进度</button>
     </div>
-    <noscript><p class="empty-state">请启用 JavaScript 以使用后台控制台。</p></noscript>
+
+    <section id="admin-requests-panel" class="admin-panel" role="tabpanel" aria-labelledby="admin-requests-tab" aria-busy="true">
+      <div class="admin-toolbar">
+        <div class="admin-job-filters" role="group" aria-label="请求状态">
+          <button type="button" data-job-status="active" aria-pressed="true">进行中</button>
+          <button type="button" data-job-status="failed" aria-pressed="false">失败</button>
+          <button type="button" data-job-status="succeeded" aria-pressed="false">已完成</button>
+        </div>
+        <label class="sr-only" for="admin-job-type">精读类型</label>
+        <select id="admin-job-type"><option value="">全部精读</option><option value="sentence">文章精读</option><option value="text">题面精读</option><option value="question">做题精读</option></select>
+        <button class="button button-small admin-retry-all" id="admin-retry-all" type="button" hidden>重试失败任务</button>
+      </div>
+      <div id="admin-job-list" class="admin-job-list"><p class="admin-empty">正在读取请求…</p></div>
+      <p id="admin-job-count" class="admin-footnote"></p>
+    </section>
+
+    <section id="admin-progress-panel" class="admin-panel" role="tabpanel" aria-labelledby="admin-progress-tab" aria-busy="true" hidden>
+      <div class="admin-toolbar admin-progress-toolbar">
+        <label class="sr-only" for="admin-paper-search">查找试卷或资讯</label>
+        <input id="admin-paper-search" type="search" placeholder="搜索年份、试卷或资讯" autocomplete="off" />
+        <label class="sr-only" for="admin-paper-level">内容类型</label>
+        <select id="admin-paper-level"><option value="">全部内容</option><option value="CET4">四级</option><option value="CET6">六级</option><option value="POSTGRAD">考研</option><option value="NEWS">News</option></select>
+        <span id="admin-paper-count" class="admin-count"></span>
+      </div>
+      <div class="admin-progress-head" aria-hidden="true"><span>未完成的内容</span><span>文章精读</span><span>题面精读</span><span>做题精读</span></div>
+      <div id="admin-paper-list" class="admin-paper-list"><p class="admin-empty">正在读取精读进度…</p></div>
+      <div id="admin-paper-pagination" class="admin-pagination" hidden><button class="button button-small" id="admin-paper-prev" type="button">上一页</button><span id="admin-paper-page"></span><button class="button button-small" id="admin-paper-next" type="button">下一页</button></div>
+      <p class="admin-footnote">全部精读完成后自动移出列表。做题精读按需生成。</p>
+    </section>
+    <noscript><p class="empty-state">请启用 JavaScript 以使用精读管理。</p></noscript>
   </section>
 </Layout>
 <script>import '../../scripts/admin-analysis';</script>

@@ -94,7 +94,7 @@ export async function setBackfillPaused(
 export async function getAdminOverview(jobType?: string, jobStatus?: string) {
   const settings = await getAdminSettings();
   const params = [config.mode, config.model, config.promptVersion];
-  const [queue, recent, timeline, errors, cache, workers, questionProgress, jobs] = await Promise.all([
+  const [queue, jobs] = await Promise.all([
     pool.query<{
       job_type: 'sentence' | 'text' | 'question';
       pending: number;
@@ -113,64 +113,9 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
       params,
     ),
     pool.query<{
-      success_1h: number;
-      failed_1h: number;
-      success_6h: number;
-      failed_6h: number;
-      queue_p50: number | null;
-      queue_p90: number | null;
-      generation_p50: number | null;
-      generation_p90: number | null;
-    }>(
-      `SELECT COUNT(*) FILTER (WHERE status='succeeded' AND finished_at>=NOW()-INTERVAL '1 hour')::integer success_1h,COUNT(*) FILTER (WHERE status='failed' AND finished_at>=NOW()-INTERVAL '1 hour')::integer failed_1h,COUNT(*) FILTER (WHERE status='succeeded' AND finished_at>=NOW()-INTERVAL '6 hours')::integer success_6h,COUNT(*) FILTER (WHERE status='failed' AND finished_at>=NOW()-INTERVAL '6 hours')::integer failed_6h,percentile_cont(.5) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(started_at-created_at))) FILTER (WHERE status='succeeded' AND finished_at>=NOW()-INTERVAL '24 hours') queue_p50,percentile_cont(.9) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(started_at-created_at))) FILTER (WHERE status='succeeded' AND finished_at>=NOW()-INTERVAL '24 hours') queue_p90,percentile_cont(.5) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(finished_at-started_at))) FILTER (WHERE status='succeeded' AND finished_at>=NOW()-INTERVAL '24 hours') generation_p50,percentile_cont(.9) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(finished_at-started_at))) FILTER (WHERE status='succeeded' AND finished_at>=NOW()-INTERVAL '24 hours') generation_p90 FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND finished_at IS NOT NULL`,
-      params,
-    ),
-    pool.query<{
-      bucket: Date;
-      success: number;
-      failed: number;
-      queue_p50: number | null;
-      queue_p90: number | null;
-      generation_p50: number | null;
-      generation_p90: number | null;
-    }>(
-      `SELECT date_trunc('hour',finished_at) bucket,COUNT(*) FILTER (WHERE status='succeeded')::integer success,COUNT(*) FILTER (WHERE status='failed')::integer failed,percentile_cont(.5) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(started_at-created_at))) FILTER (WHERE status='succeeded') queue_p50,percentile_cont(.9) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(started_at-created_at))) FILTER (WHERE status='succeeded') queue_p90,percentile_cont(.5) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(finished_at-started_at))) FILTER (WHERE status='succeeded') generation_p50,percentile_cont(.9) WITHIN GROUP (ORDER BY EXTRACT(EPOCH FROM(finished_at-started_at))) FILTER (WHERE status='succeeded') generation_p90 FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND finished_at>=NOW()-INTERVAL '24 hours' GROUP BY 1 ORDER BY 1`,
-      params,
-    ),
-    pool.query<{ error_code: string; count: number }>(
-      `SELECT CASE WHEN error_message~*'abort|timed? ?out|timeout' THEN 'timeout' WHEN error_message~*'AI request failed|fetch failed|AI response did not contain' THEN 'service_unavailable' WHEN error_message~*'Grammar|Vocabulary|Translation|AI word|word token|validation|JSON|Unexpected token' THEN 'invalid_result' ELSE 'generation_failed' END error_code,COUNT(*)::integer count FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status='failed' AND finished_at>=NOW()-INTERVAL '24 hours' GROUP BY 1 ORDER BY count DESC`,
-      params,
-    ),
-    pool.query<{
-      total: number;
-      cached: number;
-      current_cached: number;
-      paper_total: number;
-      news_total: number;
-    }>(
-      `WITH ordered AS (SELECT s.id,s.paper_id,s.article_id,s.section_id,s.source_hash,jsonb_build_object('title',COALESCE(p.title,n.title,''),'previousSentence',lag(s.source_text) OVER w,'nextSentence',lead(s.source_text) OVER w) context_json FROM sentences s LEFT JOIN papers p ON p.id=s.paper_id LEFT JOIN news_articles n ON n.id=s.article_id WHERE p.status='published' OR n.status='published' WINDOW w AS(PARTITION BY s.paper_id,s.article_id ORDER BY s.paragraph_index,s.sentence_index)),visible AS (SELECT o.* FROM ordered o WHERE NOT EXISTS(SELECT 1 FROM shared_paper_sections x WHERE x.paper_id=o.paper_id AND x.section_id=o.section_id)) SELECT COUNT(*)::integer total,COUNT(*) FILTER(WHERE a.sentence_id IS NOT NULL)::integer cached,COUNT(*) FILTER(WHERE a.prompt_version=$1)::integer current_cached,COUNT(*) FILTER(WHERE v.paper_id IS NOT NULL)::integer paper_total,COUNT(*) FILTER(WHERE v.article_id IS NOT NULL)::integer news_total FROM visible v LEFT JOIN LATERAL (SELECT sentence_id,prompt_version FROM sentence_analyses WHERE sentence_id=v.id AND source_hash=v.source_hash AND context_json=v.context_json AND prompt_version=ANY($2::text[]) AND model=$3 AND mode=$4 AND status='succeeded' ORDER BY(prompt_version=$1) DESC,updated_at DESC LIMIT 1)a ON TRUE`,
-      [
-        config.promptVersion,
-        config.cachePromptVersions,
-        config.model,
-        config.mode,
-      ],
-    ),
-    pool.query<{
-      worker_id: string;
-      hostname: string;
-      pid: number;
-      active_jobs: number;
-      concurrency: number;
-      last_seen_at: Date;
-      started_at: Date;
-    }>(
-      `SELECT worker_id,hostname,pid,active_jobs,concurrency,last_seen_at,started_at FROM analysis_worker_heartbeats ORDER BY last_seen_at DESC`,
-    ),
-    getPaperQuestionProgress(pool),
-    pool.query<{
       id: string; job_type: 'sentence' | 'text' | 'question'; text_key: string | null;
       status: string; attempts: number; error_message: string | null;
+      paper_id: string | null; article_id: string | null; exam_level: string | null;
       title: string; section_title: string | null; source_text: string;
       question_id: string | null; sentence_id: string | null;
       created_at: Date; started_at: Date | null; finished_at: Date | null; next_attempt_at: Date;
@@ -178,6 +123,7 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
       `SELECT j.id, j.job_type, j.text_key, j.question_id, j.sentence_id, j.attempts, j.error_message,
          CASE WHEN j.status='running' AND (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW())
               THEN 'pending' ELSE j.status END status,
+         p.id paper_id, n.id article_id, p.exam_level,
          COALESCE(p.title,n.title,j.context_json->>'title','') title, ps.title section_title,
          LEFT(CASE WHEN j.job_type='question' THEN COALESCE(j.question_json->>'prompt',q.prompt,'')
                    ELSE j.source_text END,240) source_text,
@@ -187,10 +133,12 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
        LEFT JOIN papers p ON p.id=COALESCE(ps.paper_id,s.paper_id)
        LEFT JOIN news_articles n ON n.id=s.article_id
        WHERE j.mode=$1 AND j.model=$2 AND j.prompt_version=$3
-         AND (j.status IN ('pending','running') OR j.finished_at>=NOW()-INTERVAL '24 hours')
+         AND (j.status IN ('pending','running') OR j.finished_at>=NOW()-INTERVAL '24 hours'
+           OR ($5='failed' AND j.status='failed'))
          AND ($4::text IS NULL OR j.job_type=$4)
-         AND ($5::text IS NULL OR CASE WHEN j.status='running' AND
-           (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW()) THEN 'pending' ELSE j.status END=$5)
+         AND ($5::text IS NULL OR ($5='active' AND j.status IN ('pending','running'))
+           OR CASE WHEN j.status='running' AND (j.lease_expires_at IS NULL OR j.lease_expires_at<=NOW())
+              THEN 'pending' ELSE j.status END=$5)
        ORDER BY CASE WHEN j.status='running' AND j.lease_expires_at>NOW() THEN 0
                      WHEN j.status IN ('pending','running') THEN 1 ELSE 2 END,
                 j.updated_at DESC, j.id DESC LIMIT 50`,
@@ -209,33 +157,16 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
     if (row.oldest_pending && (!q.oldest_pending || row.oldest_pending < q.oldest_pending)) q.oldest_pending = row.oldest_pending;
     if (row.oldest_running && (!q.oldest_running || row.oldest_running < q.oldest_running)) q.oldest_running = row.oldest_running;
   }
-  const extra = emptyQuestionProgress();
-  for (const progress of questionProgress.values()) {
-    for (const key of Object.keys(extra) as Array<keyof typeof extra>) extra[key] += progress[key];
-  }
-  const m = recent.rows[0] ?? {
-    success_1h: 0,
-    failed_1h: 0,
-    success_6h: 0,
-    failed_6h: 0,
-    queue_p50: null,
-    queue_p90: null,
-    generation_p50: null,
-    generation_p90: null,
-  };
-  const c = cache.rows[0] ?? {
-    total: 0,
-    cached: 0,
-    current_cached: 0,
-    paper_total: 0,
-    news_total: 0,
-  };
   return {
     observedAt: new Date().toISOString(),
     model: config.model,
     mode: config.mode,
     promptVersion: config.promptVersion,
-    settings,
+    settings: {
+      workerConcurrency: settings.workerConcurrency,
+      queueCapacity: settings.queueCapacity,
+      backfillPaused: settings.backfillPaused,
+    },
     queue: {
       pending: q.pending,
       running: q.running,
@@ -248,64 +179,13 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
     },
     jobs: jobs.rows.map(row => ({
       id: row.id, type: row.job_type, textKey: row.text_key, status: row.status,
+      paperId: row.paper_id, articleId: row.article_id, examLevel: row.exam_level,
       title: row.title, sectionTitle: row.section_title, source: row.source_text,
       questionId: row.question_id, sentenceId: row.sentence_id, attempts: row.attempts,
       errorCode: row.error_message ? analysisErrorCode(row.error_message) : null,
       createdAt: asIso(row.created_at), startedAt: asIso(row.started_at),
       finishedAt: asIso(row.finished_at), nextAttemptAt: asIso(row.next_attempt_at),
     })),
-    metrics: {
-      successLastHour: m.success_1h,
-      failedLastHour: m.failed_1h,
-      successLastSixHours: m.success_6h,
-      failedLastSixHours: m.failed_6h,
-      queueP50Seconds: m.queue_p50 == null ? null : Number(m.queue_p50),
-      queueP90Seconds: m.queue_p90 == null ? null : Number(m.queue_p90),
-      generationP50Seconds:
-        m.generation_p50 == null ? null : Number(m.generation_p50),
-      generationP90Seconds:
-        m.generation_p90 == null ? null : Number(m.generation_p90),
-      timeline: timeline.rows.map((row) => ({
-        at: asIso(row.bucket),
-        success: row.success,
-        failed: row.failed,
-        queueP50Seconds: row.queue_p50 == null ? null : Number(row.queue_p50),
-        queueP90Seconds: row.queue_p90 == null ? null : Number(row.queue_p90),
-        generationP50Seconds:
-          row.generation_p50 == null ? null : Number(row.generation_p50),
-        generationP90Seconds:
-          row.generation_p90 == null ? null : Number(row.generation_p90),
-      })),
-    },
-    errors: errors.rows,
-    workers: workers.rows.map((row) => ({
-      workerId: row.worker_id,
-      hostname: row.hostname,
-      pid: row.pid,
-      activeJobs: row.active_jobs,
-      concurrency: row.concurrency,
-      lastSeenAt: asIso(row.last_seen_at),
-      startedAt: asIso(row.started_at),
-    })),
-    cache: {
-      total: c.total + extra.analysis_text_total + extra.analysis_solving_total,
-      cached: c.cached + extra.analysis_text_cached + extra.analysis_solving_cached,
-      currentCached: c.current_cached + extra.analysis_text_current_cached + extra.analysis_solving_current_cached,
-      legacyCached: Math.max(0, c.cached - c.current_cached)
-        + extra.analysis_text_cached - extra.analysis_text_current_cached
-        + extra.analysis_solving_cached - extra.analysis_solving_current_cached,
-      sentenceTotal: c.total,
-      sentenceCached: c.cached,
-      textTotal: extra.analysis_text_total,
-      textCached: extra.analysis_text_cached,
-      solvingTotal: extra.analysis_solving_total,
-      solvingCached: extra.analysis_solving_cached,
-      paperTotal: c.paper_total,
-      newsTotal: c.news_total,
-      rate: c.total + extra.analysis_text_total + extra.analysis_solving_total
-        ? Number(((c.cached + extra.analysis_text_cached + extra.analysis_solving_cached) * 100
-          / (c.total + extra.analysis_text_total + extra.analysis_solving_total)).toFixed(2)) : 0,
-    },
   };
 }
 
@@ -452,38 +332,79 @@ export async function retryAdminFailures(
   errorCode: string | undefined,
   limit = 100,
   actor = "admin-console",
+  jobId?: string,
+  jobType?: string,
 ) {
-  if (errorCode && !RETRY_CODES.has(errorCode))
-    throw new InvalidAdminSettingsError("Invalid error type");
-  const safeLimit = Math.max(1, Math.min(500, Math.trunc(limit || 100)));
+  if (errorCode && !RETRY_CODES.has(errorCode)) throw new InvalidAdminSettingsError("Invalid error type");
+  if (jobId && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(jobId))
+    throw new InvalidAdminSettingsError("Invalid job ID");
+  if (jobType && !['sentence', 'text', 'question'].includes(jobType)) throw new InvalidAdminSettingsError("Invalid job type");
+  if (!Number.isFinite(limit)) throw new InvalidAdminSettingsError("Invalid retry limit");
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
+    // Retry uses the same admission lock and queue bounds as a reader request.
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
+      `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
+    ]);
+    const runtime = await readRuntimeSettings(client, config);
+    const safeLimit = Math.min(runtime.queueCapacity, Math.max(1, Math.trunc(limit || 100)));
+    const candidates = await client.query<{ id: string }>(
+      `SELECT j.id FROM analysis_jobs j JOIN (
+         SELECT DISTINCT ON (job_type,sentence_id,question_id,text_key,source_hash,context_hash) id
+         FROM analysis_jobs failed
+         WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status='failed'
+           AND ($6::uuid IS NULL OR id=$6::uuid) AND ($7::text IS NULL OR job_type=$7)
+           AND ($4::text IS NULL OR CASE WHEN error_message~*'abort|timed? ?out|timeout' THEN 'timeout'
+             WHEN error_message~*'AI request failed|fetch failed|AI response did not contain' THEN 'service_unavailable'
+             WHEN error_message~*'Grammar|Vocabulary|Translation|AI word|word token|validation|JSON|Unexpected token' THEN 'invalid_result'
+             ELSE 'generation_failed' END=$4)
+           AND NOT EXISTS (SELECT 1 FROM analysis_jobs active
+             WHERE active.mode=failed.mode AND active.model=failed.model AND active.prompt_version=failed.prompt_version
+               AND active.status IN ('pending','running') AND active.job_type=failed.job_type
+               AND active.sentence_id IS NOT DISTINCT FROM failed.sentence_id
+               AND active.question_id IS NOT DISTINCT FROM failed.question_id
+               AND active.text_key IS NOT DISTINCT FROM failed.text_key
+               AND active.source_hash=failed.source_hash AND active.context_hash=failed.context_hash)
+         ORDER BY job_type,sentence_id,question_id,text_key,source_hash,context_hash,updated_at DESC
+       ) eligible ON eligible.id=j.id
+       ORDER BY j.finished_at ASC LIMIT $5 FOR UPDATE OF j SKIP LOCKED`,
+      [config.mode, config.model, config.promptVersion, errorCode ?? null, safeLimit, jobId ?? null, jobType ?? null],
+    );
+    if (!candidates.rows.length) { await client.query('COMMIT'); return { retried: 0 }; }
+    const active = await client.query<{ count: number }>(
+      `SELECT COUNT(*)::integer count FROM analysis_jobs
+       WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status IN ('pending','running')`,
+      [config.mode, config.model, config.promptVersion],
+    );
+    const activeCount = active.rows[0]?.count ?? 0;
+    let slots = Math.max(0, runtime.queueCapacity - activeCount);
+    if (slots < candidates.rows.length) {
+      const evicted = await client.query(
+        `DELETE FROM analysis_jobs WHERE id IN (
+           SELECT id FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3
+             AND status='pending' AND priority<=1 AND attempts=0
+           ORDER BY created_at DESC LIMIT $4 FOR UPDATE SKIP LOCKED
+         ) RETURNING id`,
+        [config.mode, config.model, config.promptVersion, activeCount + candidates.rows.length - runtime.queueCapacity],
+      );
+      slots = Math.max(0, runtime.queueCapacity - activeCount + (evicted.rowCount ?? 0));
+    }
+    const ids = candidates.rows.slice(0, slots).map(row => row.id);
+    if (!ids.length) { await client.query('COMMIT'); return { retried: 0 }; }
     const result = await client.query(
-      `WITH picked AS(SELECT id FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status='failed' AND($4::text IS NULL OR CASE WHEN error_message~*'abort|timed? ?out|timeout' THEN'timeout' WHEN error_message~*'AI request failed|fetch failed|AI response did not contain' THEN'service_unavailable' WHEN error_message~*'Grammar|Vocabulary|Translation|AI word|word token|validation|JSON|Unexpected token' THEN'invalid_result' ELSE'generation_failed' END=$4) ORDER BY finished_at ASC LIMIT $5 FOR UPDATE SKIP LOCKED) UPDATE analysis_jobs j SET status='pending',attempts=0,error_message=NULL,lease_expires_at=NULL,started_at=NULL,finished_at=NULL,next_attempt_at=NOW(),updated_at=NOW() FROM picked WHERE j.id=picked.id RETURNING j.id`,
-      [
-        config.mode,
-        config.model,
-        config.promptVersion,
-        errorCode ?? null,
-        safeLimit,
-      ],
+      `UPDATE analysis_jobs SET status='pending',priority=GREATEST(priority,100),attempts=0,error_message=NULL,
+         lease_expires_at=NULL,started_at=NULL,finished_at=NULL,next_attempt_at=NOW(),updated_at=NOW()
+       WHERE id=ANY($1::uuid[]) AND status='failed' RETURNING id`,
+      [ids],
     );
-    await audit(
-      client,
-      "jobs.retried",
-      { errorCode: errorCode ?? null, limit: safeLimit },
-      { count: result.rowCount ?? 0 },
-      actor,
-    );
+    await audit(client, "jobs.retried", { errorCode, jobId, jobType, limit: safeLimit }, { count: result.rowCount ?? 0 }, actor);
     await client.query("COMMIT");
     return { retried: result.rowCount ?? 0 };
   } catch (error) {
     await client.query("ROLLBACK").catch(() => undefined);
     throw error;
-  } finally {
-    client.release();
-  }
+  } finally { client.release(); }
 }
 
 export async function listAdminAudit(limit = 50) {

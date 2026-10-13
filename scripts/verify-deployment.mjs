@@ -66,7 +66,7 @@ for (const paper of papers.papers) {
   }
 }
 const adminHtml = await (await fetchWithRetry('/admin/analysis/')).text();
-for (const id of ['admin-job-type', 'admin-job-status', 'admin-job-list', 'admin-queue-types']) {
+for (const id of ['admin-job-type', 'admin-job-list', 'admin-toggle-backfill', 'admin-progress-tab', 'admin-requests-tab']) {
   if (!adminHtml.includes(`id="${id}"`)) throw new Error(`Missing admin request UI: ${id}`);
 }
 const adminResponse = await fetch(`${baseUrl}/api/admin/analysis?jobType=question`, { signal: AbortSignal.timeout(timeoutMs) });
@@ -75,8 +75,7 @@ if (adminResponse.status === 404 && admin.error === 'admin_disabled') {
   console.log('Admin API disabled; public progress and admin page verified.');
 } else {
   if (!adminResponse.ok || !admin.queue?.byType?.text || !admin.queue?.byType?.question ||
-      !Array.isArray(admin.jobs) || admin.jobs.some(job => job.type !== 'question') ||
-      !Number.isInteger(admin.cache?.textTotal) || !Number.isInteger(admin.cache?.solvingTotal)) {
+      !Array.isArray(admin.jobs) || admin.jobs.some(job => job.type !== 'question')) {
     throw new Error('Admin analysis does not expose question progress and filtered requests');
   }
   const adminPapers = await (await fetchWithRetry('/api/admin/analysis/papers')).json();
