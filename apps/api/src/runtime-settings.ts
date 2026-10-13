@@ -31,10 +31,12 @@ export async function readRuntimeSettings(db: Queryable, config: RuntimeConfig):
     );
     const row = result.rows[0];
     if (!row) return defaults(config);
+    const workerConcurrency = Math.min(4, Math.max(1, row.worker_concurrency));
+    const queueCapacity = Math.min(32, Math.max(row.queue_capacity, workerConcurrency * 2));
     return RuntimeSettingsSchema.parse({
-      workerConcurrency: row.worker_concurrency,
-      queueCapacity: row.queue_capacity,
-      backgroundTarget: row.background_target,
+      workerConcurrency,
+      queueCapacity,
+      backgroundTarget: Math.min(row.background_target, queueCapacity),
       backfillPaused: row.backfill_paused,
       promptOverride: row.prompt_override ?? '',
     });

@@ -33,15 +33,17 @@ export async function listAdminSections(paperId: string) {
 }
 
 export async function setAdminPriority(value: unknown, actor = 'admin-console') {
-  let target: { paperId: string; sectionId: string | null; type: PriorityType } | null = null;
+  let target: { paperId: string; sectionId: string | null; type: PriorityType; sourceType: 'paper' | 'news' } | null = null;
   if (value !== null) {
-    const input = value as { paperId?: unknown; sectionId?: unknown; type?: unknown };
-    if (!input || typeof input.paperId !== 'string' || !input.paperId || input.paperId.length > 200 ||
+    const input = value as { paperId?: unknown; sectionId?: unknown; type?: unknown; sourceType?: unknown };
+    if (!input || typeof input !== 'object') throw new InvalidPriorityTargetError('请选择试卷和精读类型。');
+    const sourceType = input.sourceType === 'news' ? 'news' : 'paper';
+    if (typeof input.paperId !== 'string' || !input.paperId || input.paperId.length > 200 ||
         (input.sectionId != null && (typeof input.sectionId !== 'string' || !input.sectionId || input.sectionId.length > 250)) ||
-        !['sentence','text','question'].includes(String(input.type))) {
+        !['sentence','text','question'].includes(String(input.type)) || (sourceType === 'news' && input.type !== 'sentence')) {
       throw new InvalidPriorityTargetError('请选择试卷和精读类型。');
     }
-    target = { paperId: input.paperId, sectionId: input.sectionId as string | null ?? null, type: input.type as PriorityType };
+    target = { paperId: input.paperId, sectionId: input.sectionId as string | null ?? null, type: input.type as PriorityType, sourceType };
     if (!(await loadPriorityCandidates(pool, target)).length) {
       throw new InvalidPriorityTargetError('这部分没有可生成的精读内容。');
     }
@@ -52,13 +54,13 @@ export async function setAdminPriority(value: unknown, actor = 'admin-console') 
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
     const before = await readPriorityTargets(client, true);
     if (target) {
-      const existing = before.find(item => item.paperId === target.paperId && item.sectionId === target.sectionId && item.type === target.type && !item.finishedAt);
+      const existing = before.find(item => item.paperId === target.paperId && item.sourceType === target.sourceType && item.sectionId === target.sectionId && item.type === target.type && !item.finishedAt);
       if (!existing) {
         const activePriorities = before.filter(item => !item.finishedAt).map(item => item.queuePriority ?? ADMIN_PRIORITY);
         const nextPriority = activePriorities.length ? Math.max(2, Math.min(...activePriorities) - 1) : ADMIN_PRIORITY;
         await client.query(
-          `INSERT INTO analysis_priority_target (paper_id,section_id,job_type,queue_priority)
-           VALUES ($1,$2,$3,$4)`, [target.paperId,target.sectionId,target.type,nextPriority],
+          `INSERT INTO analysis_priority_target (paper_id,section_id,job_type,queue_priority,source_type)
+           VALUES ($1,$2,$3,$4,$5)`, [target.paperId,target.sectionId,target.type,nextPriority,target.sourceType],
         );
       }
     } else {
@@ -97,8 +99,8 @@ export async function removeAdminPriority(revision: string, actor = 'admin-conso
   try {
     await client.query('BEGIN');
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
-    const result = await client.query<{ paperId: string; sectionId: string | null; type: PriorityType; queuePriority: number }>(
-      `SELECT paper_id AS "paperId",section_id AS "sectionId",job_type AS type,queue_priority AS "queuePriority"
+    const result = await client.query<{ paperId: string; sectionId: string | null; type: PriorityType; queuePriority: number; sourceType: 'paper' | 'news' }>(
+      `SELECT paper_id AS "paperId",section_id AS "sectionId",job_type AS type,queue_priority AS "queuePriority",source_type AS "sourceType"
        FROM analysis_priority_target WHERE revision=$1 AND finished_at IS NULL FOR UPDATE`, [revision],
     );
     const target = result.rows[0];

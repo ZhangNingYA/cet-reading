@@ -8,6 +8,7 @@ export type PriorityType = 'sentence' | 'text' | 'question';
 export const ADMIN_PRIORITY = 200;
 export type PriorityTarget = {
   id?: string; revision: string; paperId: string; sectionId: string | null; type: PriorityType;
+  sourceType?: 'paper' | 'news';
   title: string; sectionTitle: string | null; finishedAt: Date | string | null;
   selectedAt: Date | string; queuePriority?: number;
 };
@@ -31,9 +32,12 @@ const candidateIdentity = (c: PriorityCandidate) => identity(c.type, c.sentenceI
 export async function readPriorityTarget(db: PriorityDatabase, lock = false): Promise<PriorityTarget | null> {
   const result = await db.query<PriorityTarget>(
     `SELECT t.id, t.revision, t.paper_id AS "paperId", t.section_id AS "sectionId", t.job_type AS type,
-            p.title, ps.title AS "sectionTitle", t.finished_at AS "finishedAt", t.updated_at AS "selectedAt",
+            COALESCE(p.title,n.title) AS title, ps.title AS "sectionTitle", t.source_type AS "sourceType",
+            t.finished_at AS "finishedAt", t.updated_at AS "selectedAt",
             t.queue_priority AS "queuePriority"
-     FROM analysis_priority_target t JOIN papers p ON p.id=t.paper_id
+     FROM analysis_priority_target t
+     LEFT JOIN papers p ON t.source_type='paper' AND p.id=t.paper_id
+     LEFT JOIN news_articles n ON t.source_type='news' AND n.id=t.paper_id
      LEFT JOIN paper_sections ps ON ps.id=t.section_id
      WHERE t.finished_at IS NULL
      ORDER BY t.queue_priority DESC, t.created_at ASC
@@ -45,9 +49,12 @@ export async function readPriorityTarget(db: PriorityDatabase, lock = false): Pr
 export async function readPriorityTargets(db: PriorityDatabase, lock = false): Promise<PriorityTarget[]> {
   const result = await db.query<PriorityTarget>(
     `SELECT t.id, t.revision, t.paper_id AS "paperId", t.section_id AS "sectionId", t.job_type AS type,
-            p.title, ps.title AS "sectionTitle", t.finished_at AS "finishedAt", t.updated_at AS "selectedAt",
+            COALESCE(p.title,n.title) AS title, ps.title AS "sectionTitle", t.source_type AS "sourceType",
+            t.finished_at AS "finishedAt", t.updated_at AS "selectedAt",
             t.queue_priority AS "queuePriority"
-     FROM analysis_priority_target t JOIN papers p ON p.id=t.paper_id
+     FROM analysis_priority_target t
+     LEFT JOIN papers p ON t.source_type='paper' AND p.id=t.paper_id
+     LEFT JOIN news_articles n ON t.source_type='news' AND n.id=t.paper_id
      LEFT JOIN paper_sections ps ON ps.id=t.section_id
      ORDER BY t.finished_at IS NULL DESC, t.queue_priority DESC, t.created_at ASC
      ${lock ? 'FOR UPDATE OF t' : ''}`,
@@ -56,9 +63,32 @@ export async function readPriorityTargets(db: PriorityDatabase, lock = false): P
 }
 
 export async function loadPriorityCandidates(
-  db: PriorityDatabase, target: { paperId: string; sectionId: string | null; type?: PriorityType },
+  db: PriorityDatabase, target: { paperId: string; sectionId: string | null; type?: PriorityType; sourceType?: 'paper' | 'news' },
 ) {
   const candidates: PriorityCandidate[] = [];
+  if (target.sourceType === 'news') {
+    if (target.type && target.type !== 'sentence') return candidates;
+    const result = await db.query<{
+      id: string; article_id: string; source_text: string; source_hash: string;
+      title: string; previous_sentence: string | null; next_sentence: string | null;
+    }>(
+      `WITH ordered AS (
+         SELECT s.id,s.article_id,s.source_text,s.source_hash,n.title,
+                lag(s.source_text) OVER w AS previous_sentence,lead(s.source_text) OVER w AS next_sentence
+         FROM sentences s JOIN news_articles n ON n.id=s.article_id WHERE n.id=$1 AND n.status='published'
+         WINDOW w AS (PARTITION BY s.article_id ORDER BY s.paragraph_index,s.sentence_index)
+       ) SELECT * FROM ordered`, [target.paperId],
+    );
+    for (const row of result.rows) {
+      const context = { title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence };
+      candidates.push({
+        type: 'sentence', sectionId: `${row.article_id}-body`, sentenceId: row.id, questionId: null, textKey: null,
+        source: row.source_text, sourceHash: row.source_hash, contextHash: contextHash(context), context,
+        question: null, validate: value => validateAnalysis(row.source_text, value),
+      });
+    }
+    return candidates;
+  }
   if (!target.type || target.type === 'sentence') {
     const result = await db.query<{
       id: string; section_id: string; source_text: string; source_hash: string;
@@ -197,42 +227,49 @@ export async function fillPriorityQueue(
     const gate = await client.query<{ allowed: boolean }>('SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed', [ANALYSIS_BATCH_LOCK_ID]);
     if (!gate.rows[0]?.allowed) { await client.query('ROLLBACK'); return { active: true, queued: 0 }; }
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
-    const target = await readPriorityTarget(client, true);
-    if (!target || target.finishedAt) { await client.query('COMMIT'); return { active: false, queued: 0 }; }
+    const targets = (await readPriorityTargets(client, true)).filter(target => !target.finishedAt);
+    if (!targets.length) { await client.query('COMMIT'); return { active: false, queued: 0 }; }
     const runtime = await readRuntime(client);
     if (runtime.backfillPaused) { await client.query('COMMIT'); return { active: true, queued: 0 }; }
-    const states = await inspectPriorityCandidates(client, await loadPriorityCandidates(client, target), config);
-    if (states.every(s => s.state === 'cached')) {
-      await client.query('UPDATE analysis_priority_target SET finished_at=NOW() WHERE revision=$1', [target.revision]);
-      const next = await client.query('SELECT 1 FROM analysis_priority_target WHERE finished_at IS NULL LIMIT 1');
-      await client.query('COMMIT');
-      return { active: next.rows.length > 0, queued: 0 };
-    }
-    const pending = states.filter(s => s.state === 'pending' && s.jobId).map(s => s.jobId);
-    const targetPriority = target.queuePriority ?? ADMIN_PRIORITY;
-    if (pending.length) await client.query(
-      `UPDATE analysis_jobs SET priority=GREATEST(priority,$2),updated_at=NOW() WHERE id=ANY($1::uuid[]) AND status='pending'`, [pending, targetPriority],
-    );
-    // A click permits one retry of older failures, including when the queue is
-    // initially full. A failure produced after that click needs another action.
-    const missing = states.filter(s => s.state === 'missing' || (s.state === 'failed' && s.jobUpdatedAt &&
-      new Date(s.jobUpdatedAt).getTime() < new Date(target.selectedAt).getTime()));
-    const active = missing.length > 0 || states.some(s => s.state === 'pending' || s.state === 'running');
-    if (!missing.length) {
-      if (states.every(s => s.state === 'cached' || s.state === 'failed')) {
+    const missing: Array<{ target: PriorityTarget; state: PriorityState }> = [];
+    let hasActiveWork = false;
+    for (const target of targets) {
+      const states = await inspectPriorityCandidates(client, await loadPriorityCandidates(client, target), config);
+      if (states.every(state => state.state === 'cached')) {
         await client.query('UPDATE analysis_priority_target SET finished_at=NOW() WHERE revision=$1', [target.revision]);
+        continue;
       }
-      const next = states.every(s => s.state === 'cached' || s.state === 'failed')
-        ? await client.query('SELECT 1 FROM analysis_priority_target WHERE finished_at IS NULL LIMIT 1') : { rows: [] };
-      await client.query('COMMIT'); return { active: active || next.rows.length > 0, queued: 0 };
+      const targetPriority = target.queuePriority ?? ADMIN_PRIORITY;
+      const pending = states.filter(state => state.state === 'pending' && state.jobId).map(state => state.jobId!);
+      if (pending.length) await client.query(
+        `UPDATE analysis_jobs SET priority=GREATEST(priority,$2),updated_at=NOW() WHERE id=ANY($1::uuid[]) AND status='pending'`, [pending,targetPriority],
+      );
+      // Each selection gets one retry of failures that predate that selection.
+      const queueable = states.filter(state => state.state === 'missing' || (state.state === 'failed' && state.jobUpdatedAt &&
+        new Date(state.jobUpdatedAt).getTime() < new Date(target.selectedAt).getTime()));
+      if (queueable.length) {
+        hasActiveWork = true;
+        queueable.forEach(state => missing.push({ target, state }));
+      } else if (states.every(state => state.state === 'cached' || state.state === 'failed')) {
+        await client.query('UPDATE analysis_priority_target SET finished_at=NOW() WHERE revision=$1', [target.revision]);
+      } else if (states.some(state => state.state === 'pending' || state.state === 'running')) {
+        hasActiveWork = true;
+      }
     }
+    const uniqueByIdentity = new Map<string, typeof missing[number]>();
+    for (const item of missing) {
+      const key = candidateIdentity(item.state.candidate);
+      if (!uniqueByIdentity.has(key)) uniqueByIdentity.set(key, item);
+    }
+    const uniqueMissing = [...uniqueByIdentity.values()];
+    if (!uniqueMissing.length) { await client.query('COMMIT'); return { active: hasActiveWork, queued: 0 }; }
     const count = await client.query<{ count: number }>(
       `SELECT COUNT(*)::integer count FROM analysis_jobs WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status IN ('pending','running')`,
       [config.mode, config.model, config.promptVersion],
     );
     const occupied = count.rows[0]?.count ?? 0;
     let slots = Math.max(0, runtime.queueCapacity - occupied);
-    const desired = Math.min(missing.length, runtime.queueCapacity);
+    const desired = Math.min(uniqueMissing.length, runtime.queueCapacity);
     if (slots < desired) {
       const evicted = await client.query(
         `DELETE FROM analysis_jobs WHERE id IN (
@@ -244,8 +281,9 @@ export async function fillPriorityQueue(
       slots = Math.max(0, runtime.queueCapacity - occupied + (evicted.rowCount ?? 0));
     }
     let queued = 0;
-    for (const state of missing.slice(0, slots)) {
+    for (const { target, state } of uniqueMissing.slice(0, slots)) {
       const c = state.candidate;
+      const targetPriority = target.queuePriority ?? ADMIN_PRIORITY;
       if (state.state === 'failed' && state.jobId) await client.query(
         `UPDATE analysis_jobs SET status='pending',priority=$2,attempts=0,error_message=NULL,
            lease_expires_at=NULL,started_at=NULL,finished_at=NULL,next_attempt_at=NOW(),updated_at=NOW()
@@ -262,7 +300,7 @@ export async function fillPriorityQueue(
       queued += 1;
     }
     await client.query('COMMIT');
-    return { active, queued };
+    return { active: hasActiveWork || queued > 0, queued };
   } catch (error) {
     await client.query('ROLLBACK').catch(() => undefined);
     throw error;

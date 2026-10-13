@@ -3,7 +3,7 @@ type JobType = 'sentence' | 'text' | 'question';
 type JobStatus = 'active' | 'failed' | 'succeeded';
 type Settings = { workerConcurrency: number; queueCapacity: number; backfillPaused: boolean };
 type Progress = { total: number; cached: number; pending: number; running: number; failed: number };
-type Priority = { id?: string; revision: string; paperId: string; sectionId: string | null; type: JobType; title: string; sectionTitle: string | null; finishedAt: string | null; progress: Progress };
+type Priority = { id?: string; revision: string; paperId: string; sectionId: string | null; type: JobType; sourceType?: 'paper' | 'news'; title: string; sectionTitle: string | null; finishedAt: string | null; progress: Progress };
 type PaperSection = { id: string; title: string; progress: Record<JobType, Progress> };
 type Job = {
   id: string; type: JobType; textKey: string | null; status: string;
@@ -145,14 +145,14 @@ function renderPriority(values: Priority[]) {
   el('admin-priority-list').innerHTML = values.map((value, index) => `<div class="admin-priority-item"><div><strong>${index + 1}. ${esc(value.title)} · ${esc(value.sectionTitle || '整套试卷')} · ${typeLabels[value.type]}</strong><p>已完成 ${value.progress.cached} / ${value.progress.total}${settings?.backfillPaused ? ' · 等待恢复自动生成' : ` · ${value.progress.pending + value.progress.running} 条已排队${value.progress.failed ? ` · ${value.progress.failed} 条失败` : ''}`}</p></div><button class="text-link admin-remove-priority" type="button" data-priority-revision="${esc(value.revision)}"${prioritySaving ? ' disabled' : ''}>取消</button></div>`).join('');
   el<HTMLButtonElement>('admin-clear-priority').disabled = prioritySaving;
 }
-function progressCell(label: string, total = 0, cached = 0, action?: { paperId: string; sectionId?: string; type: JobType }) {
+function progressCell(label: string, total = 0, cached = 0, action?: { paperId: string; sectionId?: string; type: JobType; sourceType?: 'paper' | 'news' }) {
   if (!total) return `<div class="admin-progress-cell is-empty"><span class="admin-progress-label">${label}</span><span>—</span></div>`;
   const value = Math.min(cached, total);
   const percent = Math.round(value / total * 100);
   const clickable = action && value < total;
   const selected = action && priority.some(item => !item.finishedAt && item.paperId === action.paperId &&
-    item.sectionId === (action.sectionId || null) && item.type === action.type);
-  const attrs = clickable ? `type="button" data-priority-paper="${esc(action.paperId)}" data-priority-section="${esc(action.sectionId || '')}" data-priority-type="${action.type}" title="优先生成${label}"${prioritySaving ? ' disabled' : ''}` : '';
+    item.sourceType === (action.sourceType || 'paper') && item.sectionId === (action.sectionId || null) && item.type === action.type);
+  const attrs = clickable ? `type="button" data-priority-paper="${esc(action.paperId)}" data-priority-source="${esc(action.sourceType || 'paper')}" data-priority-section="${esc(action.sectionId || '')}" data-priority-type="${action.type}" title="优先生成${label}"${prioritySaving ? ' disabled' : ''}` : '';
   return `<${clickable ? 'button' : 'div'} class="admin-progress-cell${value === total ? ' is-complete' : ''}${selected ? ' is-priority' : ''}" ${attrs} aria-label="${clickable ? '优先生成' : ''}${label}，已完成 ${value}/${total}，${percent}%"><span class="admin-progress-label">${label}</span><span class="admin-progress-ratio">${value}<span> / ${total}</span></span><span class="admin-progress-track" aria-hidden="true"><i style="width:${percent}%"></i></span></${clickable ? 'button' : 'div'}>`;
 }
 function sectionRows(paperId: string) {
@@ -168,7 +168,7 @@ function renderPapers() {
   el('admin-paper-count').textContent = `${visible.length} 项未完成`;
   el('admin-paper-list').innerHTML = visible.length ? visible.slice(paperPage * PAGE_SIZE, (paperPage + 1) * PAGE_SIZE).map(paper => {
     const url = paper.source_type === 'news' ? contentUrl(null, null, paper.id) : contentUrl(paper.id, paper.exam_level);
-    const action = (type: JobType) => paper.source_type === 'paper' ? { paperId: paper.id, type } : undefined;
+    const action = (type: JobType) => type === 'sentence' ? { paperId: paper.id, type, sourceType: paper.source_type } : undefined;
     return `<article class="admin-paper-row"><div class="admin-paper-name"><a href="${esc(url)}"><strong>${esc(paper.title)}</strong></a><div class="admin-paper-links"><small>${paper.source_type === 'news' ? 'News' : `${paper.year} · ${paper.exam_level === 'CET4' ? '四级' : paper.exam_level === 'CET6' ? '六级' : '考研'}`} ↗</small>${paper.source_type === 'paper' ? `<button class="text-link admin-show-parts" type="button" data-parts-paper="${esc(paper.id)}" aria-expanded="${expandedPaper === paper.id}">${expandedPaper === paper.id ? '收起部分' : '按部分选择'} <span aria-hidden="true">${expandedPaper === paper.id ? '−' : '+'}</span></button>` : ''}</div></div>${progressCell('文章精读', paper.sentence_total ?? paper.total, paper.sentence_cached ?? paper.cached, action('sentence'))}${progressCell('题面精读', paper.analysis_text_total, paper.analysis_text_cached, action('text'))}${progressCell('做题精读', paper.analysis_solving_total, paper.analysis_solving_cached, action('question'))}${expandedPaper === paper.id ? sectionRows(paper.id) : ''}</article>`;
   }).join('') : `<p class="admin-empty">${search.value || level.value ? '没有匹配的内容' : '所有内容的精读已完成'}</p>`;
   el('admin-paper-pagination').hidden = pages <= 1;
@@ -205,7 +205,7 @@ async function loadSections(paperId: string) {
     if (expandedPaper && expandedPaper !== paperId && !sectionsByPaper.has(expandedPaper)) void loadSections(expandedPaper);
   }
 }
-async function selectPriority(target: { paperId: string; sectionId: string | null; type: JobType } | null) {
+async function selectPriority(target: { paperId: string; sectionId: string | null; type: JobType; sourceType?: 'paper' | 'news' } | null) {
   if (prioritySaving) return;
   prioritySaving = true;
   renderPapers();
@@ -268,7 +268,7 @@ async function saveSettings(paused?: boolean) {
     const data = paused !== undefined
       ? await request(`/api/admin/analysis/backfill/${paused ? 'pause' : 'resume'}`, { method: 'POST' })
       : await request('/api/admin/analysis/settings', { method: 'PATCH', body: JSON.stringify({
-      workerConcurrency: Number(speed.value), queueCapacity: Math.max(settings.queueCapacity, Number(speed.value)),
+      workerConcurrency: Number(speed.value), queueCapacity: Math.max(settings.queueCapacity, Number(speed.value) * 2),
     }) });
     settings = data.settings;
     settingsRevision += 1;
@@ -325,7 +325,7 @@ el('admin-priority-list').addEventListener('click', event => {
 el('admin-paper-list').addEventListener('click', event => {
   const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button');
   if (button?.dataset.priorityPaper) {
-    void selectPriority({ paperId: button.dataset.priorityPaper, sectionId: button.dataset.prioritySection || null, type: button.dataset.priorityType as JobType });
+    void selectPriority({ paperId: button.dataset.priorityPaper, sourceType: button.dataset.prioritySource === 'news' ? 'news' : 'paper', sectionId: button.dataset.prioritySection || null, type: button.dataset.priorityType as JobType });
   } else if (button?.dataset.partsPaper) {
     const paperId = button.dataset.partsPaper;
     expandedPaper = expandedPaper === paperId ? null : paperId;

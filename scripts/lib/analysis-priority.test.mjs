@@ -116,6 +116,50 @@ test('priority admission replaces only unstarted background work and stays withi
   assert.ok(calls.some(c => c.sql.includes('pg_advisory_xact_lock') && c.params[0] === 'analysis:ai:test-model:v2'));
 });
 
+test('priority admission fills capacity from later selected targets in FIFO order', async () => {
+  const targets = [
+    { ...target, paperId: 'paper-1', queuePriority: 200, selectedAt: '2026-10-13T00:00:00Z' },
+    { ...target, paperId: 'paper-2', queuePriority: 199, selectedAt: '2026-10-13T00:01:00Z' },
+  ];
+  const calls = [];
+  const db = {
+    async query(sql, params = []) {
+      calls.push({ sql, params });
+      if (sql.includes('pg_try_advisory_xact_lock_shared')) return { rows: [{ allowed: true }] };
+      if (sql.includes('FROM analysis_priority_target t')) return { rows: targets };
+      if (sql.includes('SELECT q.id,q.section_id')) {
+        return { rows: Array.from({ length: 5 }, (_, index) => question(`${params[0]}-q${index + 1}`)) };
+      }
+      if (sql.includes('FROM question_analyses') || sql.includes('SELECT id,job_type')) return { rows: [] };
+      if (sql.includes('COUNT(*)::integer count')) return { rows: [{ count: 0 }] };
+      return { rows: [] };
+    },
+    release() {},
+    async connect() { return db; },
+  };
+  assert.deepEqual(await fillPriorityQueue(db,config,async () => ({ queueCapacity: 8, backfillPaused: false })), { active: true, queued: 8 });
+  const inserts = calls.filter(call => call.sql.includes('INSERT INTO analysis_jobs'));
+  assert.equal(inserts.length, 8);
+  assert.deepEqual(inserts.map(call => call.params[12]), [200,200,200,200,200,199,199,199]);
+  assert.deepEqual(inserts.map(call => call.params[2]), [
+    'paper-1-q1','paper-1-q2','paper-1-q3','paper-1-q4','paper-1-q5',
+    'paper-2-q1','paper-2-q2','paper-2-q3',
+  ]);
+});
+
+test('news article targets load body sentences with the same context hash as reader analysis', async () => {
+  const article = {
+    id: 'news-1-s1', article_id: 'news-1', source_text: source, source_hash: 'news-source-hash',
+    title: 'News title', previous_sentence: null, next_sentence: 'Next news sentence.',
+  };
+  const db = { async query(sql) { return { rows: sql.includes('JOIN news_articles') ? [article] : [] }; } };
+  const candidates = await loadPriorityCandidates(db, { paperId: 'news-1', sectionId: null, type: 'sentence', sourceType: 'news' });
+  assert.equal(candidates.length, 1);
+  assert.equal(candidates[0].sentenceId, article.id);
+  assert.equal(candidates[0].sectionId, 'news-1-body');
+  assert.equal(candidates[0].contextHash, contextHash({ title: article.title, previousSentence: null, nextSentence: article.next_sentence }));
+});
+
 test('a protected full queue waits without admitting extra work', async () => {
   const { db, calls } = mockDatabase({ active: 6, evicted: 2 });
   assert.deepEqual(await fillPriorityQueue(db,config,runtime), { active: true, queued: 0 });
