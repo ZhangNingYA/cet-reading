@@ -82,7 +82,7 @@
     },
     {
       "id": "cet6-2020-12-1",
-      "status": "held",
+      "status": "imported",
       "archive": "data/sources/cet6/2020-12/2020-12-CET6-1.pdf",
       "archive_sha256": "18bddea5f02c39b8c931e406e8a5534d71f107e964b6edc74a112709408cc256",
       "pages": 14,
@@ -96,7 +96,7 @@
           "sha256": "18bddea5f02c39b8c931e406e8a5534d71f107e964b6edc74a112709408cc256"
         }
       ],
-      "reason": "原 PDF 缺第 51 题题干及 A–D 选项。用户指定网页已找到该题，待用户提供可完整导入的题目文字或 PDF。",
+      "reason": "原 PDF 缺第 51 题题干及 A–D 选项；用户已补充题目文字并完成导入。",
       "supplement_url": "https://english-exam.lazynote.cn/cet6/paper/2020-12-1/part3-section-c-2/"
     },
     {
