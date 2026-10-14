@@ -50,17 +50,19 @@ SET status = 'pending', lease_expires_at = NULL,
     next_attempt_at = NOW(), updated_at = NOW()
 WHERE status = 'running';
 SQL
-# A production database already contains the historical seed. Replaying the
-# multi-thousand-row seed on every deploy can hold locks long enough to take
-# the API offline. Only a genuinely new database needs the bootstrap chain.
+# A production database already contains the historical seed. Only run the
+# paper seed when the database is new, its paper count is stale, or this
+# revision changes the paper source/seed. The generated SQL is idempotent, but
+# avoiding needless replays keeps the API outage during deploys short.
 has_papers="$(docker compose exec -T postgres psql -At \
   -U cet_reading -d cet_reading -c "SELECT to_regclass('public.papers')" | tr -d '[:space:]')"
+seed_required=0
 if [[ "$has_papers" != "papers" ]]; then
+  seed_required=1
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/003_paper_modes.sql
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/005_original_practice.sql
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/008_imported_papers.sql
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/013_exam_materials.sql
-  docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/009_seed_papers.sql
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/010_replace_simulated_paper.sql
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/011_analysis_regeneration.sql
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/012_remove_quote_only_sentence.sql
@@ -68,6 +70,18 @@ if [[ "$has_papers" != "papers" ]]; then
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/015_analysis_queue_resilience.sql
   # Shared reading chapters are hidden in the UI and must not consume analysis work.
   docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/016_shared_reading.sql
+else
+  expected_papers="$(find data/papers -type f -name '*.json' | wc -l | tr -d '[:space:]')"
+  actual_papers="$(docker compose exec -T postgres psql -At -U cet_reading -d cet_reading -c 'SELECT COUNT(*) FROM papers' | tr -d '[:space:]')"
+  if [[ "$actual_papers" != "$expected_papers" ]]; then
+    seed_required=1
+  fi
+  if git diff-tree --no-commit-id --name-only -r HEAD | grep -qE '^(data/papers/|db/migrations/009_seed_papers.sql$)'; then
+    seed_required=1
+  fi
+fi
+if [[ "$seed_required" == 1 ]]; then
+  docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U cet_reading -d cet_reading < db/migrations/009_seed_papers.sql
 fi
 docker compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/017_analysis_runtime_settings.sql
