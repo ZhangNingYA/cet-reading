@@ -1,0 +1,1741 @@
+{
+  "id": "cet4-2022-12-1",
+  "exam_level": "CET4",
+  "year": 2022,
+  "month": 12,
+  "set_no": 1,
+  "variant": "第1套",
+  "title": "2022年12月大学英语四级（第1套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入全部非听力部分。PDF 未附答案，客观题参考答案依据原文整理；原卷措辞及标点按原件保留，仅整理断行和空格。",
+  "reference_paper_id": null,
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2022-12-1-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "In this task, you are to write an essay on the role of physical exercise in achieving success at college. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2022-12-1-section-1-q-1",
+          "type": "text",
+          "prompt": "In this task, you are to write an essay on the role of physical exercise in achieving success at college. You will have 30 minutes for the task. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文或参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-section-2",
+      "kind": "cloze",
+      "title": "选词填空（26–35）",
+      "instructions": "In this section, there is a passage with ten blanks. You are required to select one word for each blank from a list of choices given in a word bank following the passage. Read the passage through carefully before making your choices. Each choice in the bank is identified by a letter. Please mark the corresponding letter for each item on Answer Sheet 2 with a single line through the centre. You may not use any of the words in the bank more than once.",
+      "paragraphs": [
+        "Researchers, writing in the journal Heart, pooled data from 23 studies and found that social isolation or feelings of loneliness were tied to an increased risk of coronary heart disease (冠心病) and strokes. The studies included data from 181,006 men and women ages 18 and over. There were 4,628 coronary events and 3,002 strokes in follow-up periods [26] ______ from three to 21 years. Three of the papers [27] ______ loneliness, 18 looked at social isolation and two included both. Social isolation and loneliness were determined with questionnaires; the researchers depended on medical records and death [28] ______ for determining coronary events and strokes.",
+        "The scientists found that loneliness and social isolation increased the [29] ______ risk of having a heart attack or a death from heart disease by 29 percent, and the risk of stroke by 32 percent. There were no [30] ______ between men and women.",
+        "“People have tended to focus from a policy point of view on [31] ______ lonely people to make them more [32] ______,” said the lead author, Nicole K. Valtorta, a research fellow at the University of York in England. “Our study [33] ______ that if this is a risk factor, then we should be trying to prevent the risk factor in the first place.”",
+        "The authors [34] ______ that this was a review of observational studies and did not [35] ______ cause and effect."
+      ],
+      "study_paragraphs": [
+        "Researchers, writing in the journal Heart, pooled data from 23 studies and found that social isolation or feelings of loneliness were tied to an increased risk of coronary heart disease (冠心病) and strokes. The studies included data from 181,006 men and women ages 18 and over. There were 4,628 coronary events and 3,002 strokes in follow-up periods ranging from three to 21 years. Three of the papers measured loneliness, 18 looked at social isolation and two included both. Social isolation and loneliness were determined with questionnaires; the researchers depended on medical records and death certificates for determining coronary events and strokes.",
+        "The scientists found that loneliness and social isolation increased the relative risk of having a heart attack or a death from heart disease by 29 percent, and the risk of stroke by 32 percent. There were no differences between men and women.",
+        "“People have tended to focus from a policy point of view on targeting lonely people to make them more connected,” said the lead author, Nicole K. Valtorta, a research fellow at the University of York in England. “Our study demonstrates that if this is a risk factor, then we should be trying to prevent the risk factor in the first place.”",
+        "The authors acknowledge that this was a review of observational studies and did not establish cause and effect."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2022-12-1-section-2-q-26",
+          "type": "choice",
+          "prompt": "26. 第 26 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-27",
+          "type": "choice",
+          "prompt": "27. 第 27 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-28",
+          "type": "choice",
+          "prompt": "28. 第 28 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-29",
+          "type": "choice",
+          "prompt": "29. 第 29 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "M",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-30",
+          "type": "choice",
+          "prompt": "30. 第 30 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "E",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-31",
+          "type": "choice",
+          "prompt": "31. 第 31 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "O",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-32",
+          "type": "choice",
+          "prompt": "32. 第 32 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-33",
+          "type": "choice",
+          "prompt": "33. 第 33 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-34",
+          "type": "choice",
+          "prompt": "34. 第 34 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-2-q-35",
+          "type": "choice",
+          "prompt": "35. 第 35 空",
+          "options": [
+            {
+              "key": "A",
+              "text": "acknowledge"
+            },
+            {
+              "key": "B",
+              "text": "certificates"
+            },
+            {
+              "key": "C",
+              "text": "connected"
+            },
+            {
+              "key": "D",
+              "text": "demonstrates"
+            },
+            {
+              "key": "E",
+              "text": "differences"
+            },
+            {
+              "key": "F",
+              "text": "establish"
+            },
+            {
+              "key": "G",
+              "text": "formats"
+            },
+            {
+              "key": "H",
+              "text": "measured"
+            },
+            {
+              "key": "I",
+              "text": "narrow"
+            },
+            {
+              "key": "J",
+              "text": "permanent"
+            },
+            {
+              "key": "K",
+              "text": "produces"
+            },
+            {
+              "key": "L",
+              "text": "ranging"
+            },
+            {
+              "key": "M",
+              "text": "relative"
+            },
+            {
+              "key": "N",
+              "text": "submitting"
+            },
+            {
+              "key": "O",
+              "text": "targeting"
+            }
+          ],
+          "answer": "F",
+          "explanation": "参考答案依据原文语境整理，非随卷官方答案。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-section-3",
+      "kind": "matching",
+      "title": "长篇阅读（36–45）",
+      "instructions": "In this section, you are going to read a passage with ten statements attached to it. Each statement contains information given in one of the paragraphs. Identify the paragraph from which the information is derived. You may choose a paragraph more than once. Each paragraph is marked with a letter.",
+      "paragraphs": [
+        "A) This fall, thousands of college students from across the country will begin their undergraduate studies at colleges around the nation. They will inevitably pack too much to fit in their tiny dorm rooms. They will also carry with them a huge student loan debt, in addition to countless “hidden” out-of-pocket costs paid for by their bank accounts and the bank accounts of their families.",
+        "B) At my well-respected, private, four-year university in Washington, D.C., which boasts a yearly tuition of $44,046 not including room and board, I receive over $57,000 yearly in financial aid. As a student from a family that is struggling to make ends meet, my financial aid package is a combination of federal grants and federal work study, university merit scholarships and financial aid awards, and about $8,000 yearly in federally subsidized and unsubsidized loans. On paper, my expenses and my financial aid just about even out. Off paper, they don't.",
+        "C) Universities today are in the business of making money, and mine is no exception. They hit me right out of the gate with a $160 fee to attend my freshman orientation, a price which does not include the cost of travel to and from the District. Almost every class has an associated fee not included in the cost of tuition, most between $40 and $100. Fees for lab science classes are the highest, and all students at my university are required to take at least one lab before they graduate. Buying a laptop proved a necessity and, thankfully, a relative bought me one as a gift. Renting a mini-fridge for my dorm room costs my roommates and me about $140 a year.",
+        "D) Schools will charge you whatever they can. The costs of any damage to the dorm, including elevators, bathrooms, and common areas, are billed to every person on a dorm floor, or even the entire building if they do not know who caused the damage. After I fell out of my bed twice during my freshman year, the university installed a railing—for $20, billed to my student account. My financial aid did not anticipate any of these costs, and so it did not cover them.",
+        "E) An Internet search of “hidden costs” of college turns up a host of articles on parent-centered websites on the college application process. These articles are almost always geared towards upper- and middle-class families. For students already struggling to pay tuition, these costs may be the least of their worries.",
+        "F) So what hidden costs should low-income students really be paying attention to? My college experience offers a few examples.",
+        "G) If you are a low-income student who will be attending school out-of-state, make sure you know if you can use your state benefits, such as the Supplemental Nutrition Assistance Program, or SNAP. It wasn't until after I had accepted admission to an out-of-state school that I learned that I could not use my Ohio Medicaid on campus for anything other than emergency care. My benefits became invalid the second I moved out of Ohio. After my freshman year, I had to opt for the school's insurance plan, which costs around $2,000 a year. Even if your school offers a flat-rate fee for a doctor's appointment at the student health center (mine is $20 a visit), these fees often do not include extra fees for lab tests or prescription medications.",
+        "H) If you plan on paying off bills in your student account with a credit card, be aware of any additional costs. My school charges an additional fee for the use of a credit card to settle outstanding charges, which can add upwards of 3% of the balance to your bill.",
+        "I) There is another depressing reality hidden within even the largest financial aid packages: Colleges often offer the most generous packages during freshman year as a way to attract new students. My family was careful to ask about the chances of financial aid being taken away after my freshman year. We were assured that, except for low grades or a raise in family income, no money would be taken away. We did not know to ask—and the school did not readily point out—that even if tuition rises, my financial aid package will stay the same. So when my university voted to raise tuition costs 3% at the end of my freshman year, my financial aid package remained the same and I was suddenly responsible for an additional $1,200 for the next year. The university administration will likely vote to raise costs at least once more before my graduation.",
+        "J) Yes, I chose to attend an expensive university far from my hometown. Yes, there were cheaper options. But there are promising students from struggling families across the nation who should not rule out their dream schools entirely. All things considered, I am paying significantly less than the ticket price of my university, and having an educational experience in Washington, D.C., that I would not have had anywhere else. As a low-income student from a down-and-out Rust Belt community, these educational experiences have enormous potential to brighten my future—and my family's future.",
+        "K) The key is to make sure that students and their families understand that hidden costs exist, and that they may prove problematic. Fill out a more comprehensive checklist, and be wary of listed prices that seem too low. Understand just how complicated the financial aid process is.",
+        "L) Students and families must also understand their ability to self-advocate. They should not pay student bills or excess fees blindly. If something does not look right, ask about it. If it still doesn't look right, negotiate it. In cases where parents are working multiple jobs, are less knowledgeable about college bureaucracies, have limited English language skills, or are not contributing financially to their child's education, the burden of self-advocacy will fall on the student. I understand the difficulty, and the embarrassment. But it is necessary.",
+        "M) In the grand scheme of things, however, colleges also must come to understand that the hidden fees they ask for may prove unmanageable for the very kinds of low-income or first-generation students they are trying desperately to attract."
+      ],
+      "study_paragraphs": [
+        "A) This fall, thousands of college students from across the country will begin their undergraduate studies at colleges around the nation. They will inevitably pack too much to fit in their tiny dorm rooms. They will also carry with them a huge student loan debt, in addition to countless “hidden” out-of-pocket costs paid for by their bank accounts and the bank accounts of their families.",
+        "B) At my well-respected, private, four-year university in Washington, D.C., which boasts a yearly tuition of $44,046 not including room and board, I receive over $57,000 yearly in financial aid. As a student from a family that is struggling to make ends meet, my financial aid package is a combination of federal grants and federal work study, university merit scholarships and financial aid awards, and about $8,000 yearly in federally subsidized and unsubsidized loans. On paper, my expenses and my financial aid just about even out. Off paper, they don't.",
+        "C) Universities today are in the business of making money, and mine is no exception. They hit me right out of the gate with a $160 fee to attend my freshman orientation, a price which does not include the cost of travel to and from the District. Almost every class has an associated fee not included in the cost of tuition, most between $40 and $100. Fees for lab science classes are the highest, and all students at my university are required to take at least one lab before they graduate. Buying a laptop proved a necessity and, thankfully, a relative bought me one as a gift. Renting a mini-fridge for my dorm room costs my roommates and me about $140 a year.",
+        "D) Schools will charge you whatever they can. The costs of any damage to the dorm, including elevators, bathrooms, and common areas, are billed to every person on a dorm floor, or even the entire building if they do not know who caused the damage. After I fell out of my bed twice during my freshman year, the university installed a railing—for $20, billed to my student account. My financial aid did not anticipate any of these costs, and so it did not cover them.",
+        "E) An Internet search of “hidden costs” of college turns up a host of articles on parent-centered websites on the college application process. These articles are almost always geared towards upper- and middle-class families. For students already struggling to pay tuition, these costs may be the least of their worries.",
+        "F) So what hidden costs should low-income students really be paying attention to? My college experience offers a few examples.",
+        "G) If you are a low-income student who will be attending school out-of-state, make sure you know if you can use your state benefits, such as the Supplemental Nutrition Assistance Program, or SNAP. It wasn't until after I had accepted admission to an out-of-state school that I learned that I could not use my Ohio Medicaid on campus for anything other than emergency care. My benefits became invalid the second I moved out of Ohio. After my freshman year, I had to opt for the school's insurance plan, which costs around $2,000 a year. Even if your school offers a flat-rate fee for a doctor's appointment at the student health center (mine is $20 a visit), these fees often do not include extra fees for lab tests or prescription medications.",
+        "H) If you plan on paying off bills in your student account with a credit card, be aware of any additional costs. My school charges an additional fee for the use of a credit card to settle outstanding charges, which can add upwards of 3% of the balance to your bill.",
+        "I) There is another depressing reality hidden within even the largest financial aid packages: Colleges often offer the most generous packages during freshman year as a way to attract new students. My family was careful to ask about the chances of financial aid being taken away after my freshman year. We were assured that, except for low grades or a raise in family income, no money would be taken away. We did not know to ask—and the school did not readily point out—that even if tuition rises, my financial aid package will stay the same. So when my university voted to raise tuition costs 3% at the end of my freshman year, my financial aid package remained the same and I was suddenly responsible for an additional $1,200 for the next year. The university administration will likely vote to raise costs at least once more before my graduation.",
+        "J) Yes, I chose to attend an expensive university far from my hometown. Yes, there were cheaper options. But there are promising students from struggling families across the nation who should not rule out their dream schools entirely. All things considered, I am paying significantly less than the ticket price of my university, and having an educational experience in Washington, D.C., that I would not have had anywhere else. As a low-income student from a down-and-out Rust Belt community, these educational experiences have enormous potential to brighten my future—and my family's future.",
+        "K) The key is to make sure that students and their families understand that hidden costs exist, and that they may prove problematic. Fill out a more comprehensive checklist, and be wary of listed prices that seem too low. Understand just how complicated the financial aid process is.",
+        "L) Students and families must also understand their ability to self-advocate. They should not pay student bills or excess fees blindly. If something does not look right, ask about it. If it still doesn't look right, negotiate it. In cases where parents are working multiple jobs, are less knowledgeable about college bureaucracies, have limited English language skills, or are not contributing financially to their child's education, the burden of self-advocacy will fall on the student. I understand the difficulty, and the embarrassment. But it is necessary.",
+        "M) In the grand scheme of things, however, colleges also must come to understand that the hidden fees they ask for may prove unmanageable for the very kinds of low-income or first-generation students they are trying desperately to attract."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2022-12-1-section-3-q-36",
+          "type": "choice",
+          "prompt": "36. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-37",
+          "type": "choice",
+          "prompt": "37. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "G",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-38",
+          "type": "choice",
+          "prompt": "38. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-39",
+          "type": "choice",
+          "prompt": "39. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-40",
+          "type": "choice",
+          "prompt": "40. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "L",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-41",
+          "type": "choice",
+          "prompt": "41. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-42",
+          "type": "choice",
+          "prompt": "42. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "J",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-43",
+          "type": "choice",
+          "prompt": "43. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "I",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-44",
+          "type": "choice",
+          "prompt": "44. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-3-q-45",
+          "type": "choice",
+          "prompt": "45. 选择与陈述相对应的段落。",
+          "options": [
+            {
+              "key": "A",
+              "text": "段落 A"
+            },
+            {
+              "key": "B",
+              "text": "段落 B"
+            },
+            {
+              "key": "C",
+              "text": "段落 C"
+            },
+            {
+              "key": "D",
+              "text": "段落 D"
+            },
+            {
+              "key": "E",
+              "text": "段落 E"
+            },
+            {
+              "key": "F",
+              "text": "段落 F"
+            },
+            {
+              "key": "G",
+              "text": "段落 G"
+            },
+            {
+              "key": "H",
+              "text": "段落 H"
+            },
+            {
+              "key": "I",
+              "text": "段落 I"
+            },
+            {
+              "key": "J",
+              "text": "段落 J"
+            },
+            {
+              "key": "K",
+              "text": "段落 K"
+            },
+            {
+              "key": "L",
+              "text": "段落 L"
+            },
+            {
+              "key": "M",
+              "text": "段落 M"
+            }
+          ],
+          "answer": "H",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-section-4",
+      "kind": "reading",
+      "title": "仔细阅读一（46–50）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best answer and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "To write his 2010 book, The 5-Factor World Diet, nutritionist Harley Pasternak traveled to the healthiest countries around the world to learn more about what made their meals extra nourishing. He noted that Japanese people ate a wonderful variety of seaweeds, and that Chinese people tried to include at least five different colors in every meal. Pasternak also came away with some valuable observations about how different the North American way of life was, compared with many other countries.",
+        "For starters, Americans eat much bigger portions than people in other countries. “We don't prioritize eating seasonally or locally, and we also add lots of salt, sugar and thickening agents to our foods,” explained Pasternak. Contrast that to the healthy Mediterranean, Nordic and Okinawan diets listed in Pasternak's book. They all seem to stick to the ethos of regional, seasonal produce.",
+        "For example, a traditional Mediterranean diet includes fruits, vegetables, whole grains, nuts and olive oil as the main components of nutritional intake. Fish, chicken and red wine make moderate appearances, while red meat, salt and sugar are used much less often. The benefits of a traditional Mediterranean diet have been studied since the 1970s, and researchers have found that living that olive oil life can help people lose weight, lower their heart disease risk and reverse diabetes.",
+        "Most other healthy eating cultures also make meals an event—say, multiple courses around the family table, or a glass or two of red wine at a long lunch—as opposed to hastily wolfing down handfuls of cereal above the kitchen sink and calling it dinner.",
+        "Each of the healthy eating cultures has its own unique feature. But Pasternak did take note of one unifying factor in all of the healthy societies he observed. “The only overlapping feature in most of these healthy countries is that they all walk way more than the average American,” said Pasternak. “So really, regardless of what you're eating, if someone's walking four miles more than you each day, they're going to be a lot thinner and live a lot longer than you.”"
+      ],
+      "study_paragraphs": [
+        "To write his 2010 book, The 5-Factor World Diet, nutritionist Harley Pasternak traveled to the healthiest countries around the world to learn more about what made their meals extra nourishing. He noted that Japanese people ate a wonderful variety of seaweeds, and that Chinese people tried to include at least five different colors in every meal. Pasternak also came away with some valuable observations about how different the North American way of life was, compared with many other countries.",
+        "For starters, Americans eat much bigger portions than people in other countries. “We don't prioritize eating seasonally or locally, and we also add lots of salt, sugar and thickening agents to our foods,” explained Pasternak. Contrast that to the healthy Mediterranean, Nordic and Okinawan diets listed in Pasternak's book. They all seem to stick to the ethos of regional, seasonal produce.",
+        "For example, a traditional Mediterranean diet includes fruits, vegetables, whole grains, nuts and olive oil as the main components of nutritional intake. Fish, chicken and red wine make moderate appearances, while red meat, salt and sugar are used much less often. The benefits of a traditional Mediterranean diet have been studied since the 1970s, and researchers have found that living that olive oil life can help people lose weight, lower their heart disease risk and reverse diabetes.",
+        "Most other healthy eating cultures also make meals an event—say, multiple courses around the family table, or a glass or two of red wine at a long lunch—as opposed to hastily wolfing down handfuls of cereal above the kitchen sink and calling it dinner.",
+        "Each of the healthy eating cultures has its own unique feature. But Pasternak did take note of one unifying factor in all of the healthy societies he observed. “The only overlapping feature in most of these healthy countries is that they all walk way more than the average American,” said Pasternak. “So really, regardless of what you're eating, if someone's walking four miles more than you each day, they're going to be a lot thinner and live a lot longer than you.”"
+      ],
+      "questions": [
+        {
+          "id": "cet4-2022-12-1-section-4-q-46",
+          "type": "choice",
+          "prompt": "46. What characterizes Japanese and Chinese foods?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Variety."
+            },
+            {
+              "key": "B",
+              "text": "Flavor."
+            },
+            {
+              "key": "C",
+              "text": "Color."
+            },
+            {
+              "key": "D",
+              "text": "Naturalness."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-4-q-47",
+          "type": "choice",
+          "prompt": "47. What is typical of Americans in the way of eating?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They emphasize nutrition."
+            },
+            {
+              "key": "B",
+              "text": "They tend to eat quite a lot."
+            },
+            {
+              "key": "C",
+              "text": "They prioritize convenience."
+            },
+            {
+              "key": "D",
+              "text": "They care about flavors."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-4-q-48",
+          "type": "choice",
+          "prompt": "48. What features in Mediterranean, Nordic and Okinawan diets?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fruits and vegetables."
+            },
+            {
+              "key": "B",
+              "text": "Olive oil and red wine."
+            },
+            {
+              "key": "C",
+              "text": "Seasonal local produce."
+            },
+            {
+              "key": "D",
+              "text": "Unprocessed ingredients."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-4-q-49",
+          "type": "choice",
+          "prompt": "49. What do people in most healthy eating cultures have in common?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They get the whole family to eat at a table."
+            },
+            {
+              "key": "B",
+              "text": "They eat their meals regularly and punctually."
+            },
+            {
+              "key": "C",
+              "text": "They consume plenty of cereal for breakfast."
+            },
+            {
+              "key": "D",
+              "text": "They attach great importance to their meals."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-4-q-50",
+          "type": "choice",
+          "prompt": "50. Compared with the average American, people in healthy societies ______.",
+          "options": [
+            {
+              "key": "A",
+              "text": "walk at least 4 miles a day"
+            },
+            {
+              "key": "B",
+              "text": "do considerably more walking"
+            },
+            {
+              "key": "C",
+              "text": "pay more attention to body shape"
+            },
+            {
+              "key": "D",
+              "text": "consume a lot more organic food"
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-section-5",
+      "kind": "reading",
+      "title": "仔细阅读二（51–55）",
+      "instructions": "There are 2 passages in this section. Each passage is followed by some questions or unfinished statements. For each of them there are four choices marked A), B), C) and D). You should decide on the best answer and mark the corresponding letter on Answer Sheet 2 with a single line through the centre.",
+      "paragraphs": [
+        "Recognizing when a friend or colleague feels sad, angry or surprised is key to getting along with others. But a new study suggests that being sensitive to people's feelings may sometimes come with an extra dose of stress. This and other research challenge the prevailing view that emotional intelligence is uniformly beneficial to its bearer.",
+        "In a study, psychologist Myriam Bechtoldt of the Frankfurt School of Finance and Management in Germany asked 166 male university students a series of questions to measure their emotional intelligence. For example, they showed the students photographs of people's faces and asked them to what extent feelings such as happiness or disgust were being expressed. The students then had to give job talks in front of judges who displayed serious facial expressions. The scientists measured concentrations of stress hormones in the students' saliva before and after the talk.",
+        "In students who were rated more emotionally intelligent, the stress measures increased more during the experiment and took longer to go back to baseline. The findings suggest that some people may be too emotionally clever for their own good, says Bechtoldt. “Sometimes you can be so good at something that it causes trouble,” she notes.",
+        "Indeed, the study adds to previous research hinting at a dark side of emotional intelligence. A study published in 2002 in Personality and Individual Differences suggested that emotionally perceptive people might be particularly influenced by feelings of depression and hopelessness. Furthermore, several studies have implied that emotional intelligence can be used to manipulate others for personal gains.",
+        "More research is needed to see how exactly the relation between emotional intelligence and stress would play out in women and in people of different ages and education levels. Nevertheless, emotional intelligence is a useful skill to have, as long as you learn to also properly cope with emotions—both others' and your own, says Bechtoldt. For example, some sensitive individuals may assume responsibility for other people's sadness or anger, which ultimately stresses them out. Remember, as Bechtoldt says, “you are not responsible for how other people feel.”"
+      ],
+      "study_paragraphs": [
+        "Recognizing when a friend or colleague feels sad, angry or surprised is key to getting along with others. But a new study suggests that being sensitive to people's feelings may sometimes come with an extra dose of stress. This and other research challenge the prevailing view that emotional intelligence is uniformly beneficial to its bearer.",
+        "In a study, psychologist Myriam Bechtoldt of the Frankfurt School of Finance and Management in Germany asked 166 male university students a series of questions to measure their emotional intelligence. For example, they showed the students photographs of people's faces and asked them to what extent feelings such as happiness or disgust were being expressed. The students then had to give job talks in front of judges who displayed serious facial expressions. The scientists measured concentrations of stress hormones in the students' saliva before and after the talk.",
+        "In students who were rated more emotionally intelligent, the stress measures increased more during the experiment and took longer to go back to baseline. The findings suggest that some people may be too emotionally clever for their own good, says Bechtoldt. “Sometimes you can be so good at something that it causes trouble,” she notes.",
+        "Indeed, the study adds to previous research hinting at a dark side of emotional intelligence. A study published in 2002 in Personality and Individual Differences suggested that emotionally perceptive people might be particularly influenced by feelings of depression and hopelessness. Furthermore, several studies have implied that emotional intelligence can be used to manipulate others for personal gains.",
+        "More research is needed to see how exactly the relation between emotional intelligence and stress would play out in women and in people of different ages and education levels. Nevertheless, emotional intelligence is a useful skill to have, as long as you learn to also properly cope with emotions—both others' and your own, says Bechtoldt. For example, some sensitive individuals may assume responsibility for other people's sadness or anger, which ultimately stresses them out. Remember, as Bechtoldt says, “you are not responsible for how other people feel.”"
+      ],
+      "questions": [
+        {
+          "id": "cet4-2022-12-1-section-5-q-51",
+          "type": "choice",
+          "prompt": "51. What is the finding of the new study?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Emotional intelligence helps people get along with others."
+            },
+            {
+              "key": "B",
+              "text": "Emotional intelligence is generally beneficial to its bearer."
+            },
+            {
+              "key": "C",
+              "text": "People who are aware of others' feelings may experience more stress."
+            },
+            {
+              "key": "D",
+              "text": "People who are emotionally stressed may have trouble making friends."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-5-q-52",
+          "type": "choice",
+          "prompt": "52. What was the purpose of psychologist Myriam Bechtoldt's experiment?",
+          "options": [
+            {
+              "key": "A",
+              "text": "To define different types of human feelings."
+            },
+            {
+              "key": "B",
+              "text": "To assess the impacts of being emotionally clever."
+            },
+            {
+              "key": "C",
+              "text": "To demonstrate how to distinguish different feelings."
+            },
+            {
+              "key": "D",
+              "text": "To identify gender differences in emotional intelligence."
+            }
+          ],
+          "answer": "B",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-5-q-53",
+          "type": "choice",
+          "prompt": "53. What does the finding of Myriam Bechtoldt's study indicate?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Greater emotional cleverness means less trouble in one's life."
+            },
+            {
+              "key": "B",
+              "text": "Emotional intelligence helps people succeed in job interviews."
+            },
+            {
+              "key": "C",
+              "text": "People's psychological wellbeing is related to various factors."
+            },
+            {
+              "key": "D",
+              "text": "People may suffer from having a high emotional intelligence."
+            }
+          ],
+          "answer": "D",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-5-q-54",
+          "type": "choice",
+          "prompt": "54. What do we learn about emotional intelligence from a number of studies?",
+          "options": [
+            {
+              "key": "A",
+              "text": "People suffering from depression are emotionally immature."
+            },
+            {
+              "key": "B",
+              "text": "People who look at the dark side of life often feel depressed."
+            },
+            {
+              "key": "C",
+              "text": "Some people may take advantage of it and benefit themselves."
+            },
+            {
+              "key": "D",
+              "text": "Some people may lack it and are easily manipulated by others."
+            }
+          ],
+          "answer": "C",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        },
+        {
+          "id": "cet4-2022-12-1-section-5-q-55",
+          "type": "choice",
+          "prompt": "55. What does the author suggest sensitive individuals do?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Avoid burdening themselves with others' feelings."
+            },
+            {
+              "key": "B",
+              "text": "Rid themselves of worries over worldly affairs."
+            },
+            {
+              "key": "C",
+              "text": "Learn to cope with people's negative feelings."
+            },
+            {
+              "key": "D",
+              "text": "Help people to deal with their troubles in life."
+            }
+          ],
+          "answer": "A",
+          "explanation": "参考答案依据原文整理，非随卷官方答案。",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-12-1-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "在中国农历中，立秋（Start of Autumn）意味着夏天的结束和秋天的开始。立秋带来的首先是天气的变化，气温逐渐下降。人们看到树叶开始变黄飘落时，知道秋天已经来临，这就是所谓的“一叶知秋”。但此时酷热的天气并未完全结束，高温通常还会持续一段时间，被称为“秋老虎”。立秋对农民意义重大，这时各种秋季作物迅速生长、开始成熟，收获的季节即将到来。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2022-12-1-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文或参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "cet4-2022-09-2",
+  "exam_level": "CET4",
+  "year": 2022,
+  "month": 9,
+  "set_no": 2,
+  "variant": "第2套",
+  "title": "2022年9月大学英语四级（第2套）",
+  "is_demo": false,
+  "content_state": "local",
+  "content_kind": "imported",
+  "description": "按所提供的试卷 PDF 导入写作和翻译。卷面说明听力、阅读与同月第1套相同，重复章节只显示第1套入口，不重复计入本套作答。",
+  "reference_paper_id": "cet4-2022-09-1",
+  "source_url": null,
+  "sections": [
+    {
+      "id": "cet4-2022-09-2-section-1",
+      "kind": "writing",
+      "title": "写作",
+      "instructions": "Part I · Writing · 30 minutes",
+      "paragraphs": [],
+      "study_paragraphs": [
+        "Suppose your class has just finished celebrating the Teachers’ Day. You are now to write a report to the university newspaper on the celebration activities organized by your class. You will have 30 minutes to write the report. You should write at least 120 words but no more than 180 words."
+      ],
+      "questions": [
+        {
+          "id": "cet4-2022-09-2-section-1-q-1",
+          "type": "text",
+          "prompt": "Suppose your class has just finished celebrating the Teachers’ Day. You are now to write a report to the university newspaper on the celebration activities organized by your class. You will have 30 minutes to write the report. You should write at least 120 words but no more than 180 words.",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文或参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "cet4-2022-09-2-section-6",
+      "kind": "translation",
+      "title": "翻译 · 汉译英",
+      "instructions": "For this part, you are allowed 30 minutes to translate a passage from Chinese into English. You should write your answer on Answer Sheet 2.",
+      "paragraphs": [
+        "按照中国民间的传统习俗，春节期间长辈通常会给孩子发红包，俗称发压岁钱（lucky money），以表达对孩子的祝福，祝他们好运。如今，红包不仅是给孩子的礼物，而且经常也是给长辈或亲朋好友的礼物。近年来，随着微信用户数量的增加，微信红包变得愈加流行。欢度春节时，人们经常互发微信红包表达问候。这无疑是一种与远方亲友联系的便捷方式。"
+      ],
+      "study_paragraphs": [],
+      "questions": [
+        {
+          "id": "cet4-2022-09-2-section-6-q-1",
+          "type": "text",
+          "prompt": "将上面的中文段落译成英文。",
+          "options": [],
+          "answer": null,
+          "explanation": "PDF 未提供范文或参考译文；作答保留供自行核对。",
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
