@@ -11,11 +11,11 @@ function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function fetchWithRetry(path) {
+async function fetchWithRetry(path, requestTimeoutMs = timeoutMs) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
     try {
       const response = await fetch(`${baseUrl}${path}`, { signal: controller.signal });
       if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -72,11 +72,13 @@ if (adminResponse.status === 404 && admin.error === 'admin_disabled') {
       !Array.isArray(admin.jobs) || admin.jobs.some(job => job.type !== 'question')) {
     throw new Error('Admin analysis does not expose question progress and filtered requests');
   }
-  const adminPapers = await (await fetchWithRetry('/api/admin/analysis/papers')).json();
+  // The admin progress endpoint intentionally performs the expensive
+  // all-paper cache aggregation; public reading endpoints remain lightweight.
+  const adminPapers = await (await fetchWithRetry('/api/admin/analysis/papers', 45_000)).json();
   if (!Object.hasOwn(admin, 'priority')) throw new Error('Admin priority selection is missing');
   const priorityPaper = adminPapers.papers.find(paper => paper.source_type === 'paper' && paper.analysis_solving_total > 0);
   if (priorityPaper) {
-    const parts = await (await fetchWithRetry(`/api/admin/analysis/papers/${encodeURIComponent(priorityPaper.id)}/sections`)).json();
+    const parts = await (await fetchWithRetry(`/api/admin/analysis/papers/${encodeURIComponent(priorityPaper.id)}/sections`, 45_000)).json();
     if (!Array.isArray(parts.sections) || !parts.sections.length ||
         parts.sections.some(section => ['sentence','text','question'].some(type =>
           !Number.isInteger(section.progress?.[type]?.total) || !Number.isInteger(section.progress?.[type]?.cached))) ||
