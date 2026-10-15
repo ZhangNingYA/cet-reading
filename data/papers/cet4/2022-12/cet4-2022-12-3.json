@@ -783,7 +783,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-36",
           "type": "choice",
-          "prompt": "36. 选择与陈述相对应的段落。",
+          "prompt": "36. A behavior that does not conform to social norms may be described as being deviant.",
           "options": [
             {
               "key": "A",
@@ -837,7 +837,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-37",
           "type": "choice",
-          "prompt": "37. 选择与陈述相对应的段落。",
+          "prompt": "37. Various experiments found that participants who cheated in the initial task performed better in the creativity test.",
           "options": [
             {
               "key": "A",
@@ -891,7 +891,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-38",
           "type": "choice",
-          "prompt": "38. 选择与陈述相对应的段落。",
+          "prompt": "38. People may be simply considered evil if their behaviors are morally unacceptable to us.",
           "options": [
             {
               "key": "A",
@@ -945,7 +945,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-39",
           "type": "choice",
-          "prompt": "39. 选择与陈述相对应的段落。",
+          "prompt": "39. The research published by two scientists was intended to examine the relationship between dishonesty and creativity.",
           "options": [
             {
               "key": "A",
@@ -999,7 +999,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-40",
           "type": "choice",
-          "prompt": "40. 选择与陈述相对应的段落。",
+          "prompt": "40. The author's lectures sparked lively discussions in his class.",
           "options": [
             {
               "key": "A",
@@ -1053,7 +1053,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-41",
           "type": "choice",
-          "prompt": "41. 选择与陈述相对应的段落。",
+          "prompt": "41. The researchers tested the participants' creativity by asking them to play a word game.",
           "options": [
             {
               "key": "A",
@@ -1107,7 +1107,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-42",
           "type": "choice",
-          "prompt": "42. 选择与陈述相对应的段落。",
+          "prompt": "42. It is time we realized that deviance may be capable of doing both good and harm to individuals and society.",
           "options": [
             {
               "key": "A",
@@ -1161,7 +1161,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-43",
           "type": "choice",
-          "prompt": "43. 选择与陈述相对应的段落。",
+          "prompt": "43. The reasons for people's evil behaviors can be explained in more ways than one.",
           "options": [
             {
               "key": "A",
@@ -1215,7 +1215,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-44",
           "type": "choice",
-          "prompt": "44. 选择与陈述相对应的段落。",
+          "prompt": "44. The math task in one experiment was designed to test participants' tendency to cheat.",
           "options": [
             {
               "key": "A",
@@ -1269,7 +1269,7 @@
         {
           "id": "cet4-2022-12-3-section-3-q-45",
           "type": "choice",
-          "prompt": "45. 选择与陈述相对应的段落。",
+          "prompt": "45. Some creative ideas have turned out to do harm to human society.",
           "options": [
             {
               "key": "A",

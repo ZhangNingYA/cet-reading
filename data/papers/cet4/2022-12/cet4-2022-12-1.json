@@ -793,7 +793,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-36",
           "type": "choice",
-          "prompt": "36. 选择与陈述相对应的段落。",
+          "prompt": "36. Students' financial aid remains unchanged even when tuition rises.",
           "options": [
             {
               "key": "A",
@@ -855,7 +855,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-37",
           "type": "choice",
-          "prompt": "37. 选择与陈述相对应的段落。",
+          "prompt": "37. Students may not be able to enjoy their state benefits when they go to college out of the state.",
           "options": [
             {
               "key": "A",
@@ -917,7 +917,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-38",
           "type": "choice",
-          "prompt": "38. 选择与陈述相对应的段落。",
+          "prompt": "38. The financial aid the author receives is supposed to cover all her college expenses.",
           "options": [
             {
               "key": "A",
@@ -979,7 +979,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-39",
           "type": "choice",
-          "prompt": "39. 选择与陈述相对应的段落。",
+          "prompt": "39. When the person who damages dorm facilities is not identified, students are required to share the cost.",
           "options": [
             {
               "key": "A",
@@ -1041,7 +1041,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-40",
           "type": "choice",
-          "prompt": "40. 选择与陈述相对应的段落。",
+          "prompt": "40. Though it is difficult and embarrassing, students should make inquiries about what fees they have to pay and why.",
           "options": [
             {
               "key": "A",
@@ -1103,7 +1103,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-41",
           "type": "choice",
-          "prompt": "41. 选择与陈述相对应的段落。",
+          "prompt": "41. Today, many Americans have to go to college on student loans.",
           "options": [
             {
               "key": "A",
@@ -1165,7 +1165,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-42",
           "type": "choice",
-          "prompt": "42. 选择与陈述相对应的段落。",
+          "prompt": "42. Receiving education in a private university in the nation's capital may change the author's future life and that of her family's.",
           "options": [
             {
               "key": "A",
@@ -1227,7 +1227,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-43",
           "type": "choice",
-          "prompt": "43. 选择与陈述相对应的段落。",
+          "prompt": "43. Students may no longer be qualified for financial aid if they perform poorly in school or if their family income has increased.",
           "options": [
             {
               "key": "A",
@@ -1289,7 +1289,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-44",
           "type": "choice",
-          "prompt": "44. 选择与陈述相对应的段落。",
+          "prompt": "44. In addition to tuition, college students have to pay extra fees for the courses they take.",
           "options": [
             {
               "key": "A",
@@ -1351,7 +1351,7 @@
         {
           "id": "cet4-2022-12-1-section-3-q-45",
           "type": "choice",
-          "prompt": "45. 选择与陈述相对应的段落。",
+          "prompt": "45. Some schools charge students a fee to their student accounts for using credit cards to pay bills.",
           "options": [
             {
               "key": "A",

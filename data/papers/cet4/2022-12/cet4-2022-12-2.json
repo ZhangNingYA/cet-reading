@@ -785,7 +785,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-36",
           "type": "choice",
-          "prompt": "36. 选择与陈述相对应的段落。",
+          "prompt": "36. People often grant a request just because they want to appear polite and helpful.",
           "options": [
             {
               "key": "A",
@@ -831,7 +831,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-37",
           "type": "choice",
-          "prompt": "37. 选择与陈述相对应的段落。",
+          "prompt": "37. It's no easy job learning to say \"no\" to opportunities that were once considered worth grasping.",
           "options": [
             {
               "key": "A",
@@ -877,7 +877,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-38",
           "type": "choice",
-          "prompt": "38. 选择与陈述相对应的段落。",
+          "prompt": "38. When you decline a request, you are saving your future time.",
           "options": [
             {
               "key": "A",
@@ -923,7 +923,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-39",
           "type": "choice",
-          "prompt": "39. 选择与陈述相对应的段落。",
+          "prompt": "39. People sometimes struggle to do things that are simply a waste of time.",
           "options": [
             {
               "key": "A",
@@ -969,7 +969,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-40",
           "type": "choice",
-          "prompt": "40. 选择与陈述相对应的段落。",
+          "prompt": "40. Doing efficiently what is not worth doing is the most useless effort.",
           "options": [
             {
               "key": "A",
@@ -1015,7 +1015,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-41",
           "type": "choice",
-          "prompt": "41. 选择与陈述相对应的段落。",
+          "prompt": "41. It is especially difficult for people to decline to do what their superiors ask them to do.",
           "options": [
             {
               "key": "A",
@@ -1061,7 +1061,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-42",
           "type": "choice",
-          "prompt": "42. 选择与陈述相对应的段落。",
+          "prompt": "42. People agree to do too many things they are in fact unwilling to do.",
           "options": [
             {
               "key": "A",
@@ -1107,7 +1107,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-43",
           "type": "choice",
-          "prompt": "43. 选择与陈述相对应的段落。",
+          "prompt": "43. According to one famous entrepreneur, innovation means refusal to do an enormous number of things.",
           "options": [
             {
               "key": "A",
@@ -1153,7 +1153,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-44",
           "type": "choice",
-          "prompt": "44. 选择与陈述相对应的段落。",
+          "prompt": "44. It is an essential aspect of life to cooperate with other people.",
           "options": [
             {
               "key": "A",
@@ -1199,7 +1199,7 @@
         {
           "id": "cet4-2022-12-2-section-3-q-45",
           "type": "choice",
-          "prompt": "45. 选择与陈述相对应的段落。",
+          "prompt": "45. Refusing a request is sometimes seen as a privilege not enjoyed by ordinary people.",
           "options": [
             {
               "key": "A",

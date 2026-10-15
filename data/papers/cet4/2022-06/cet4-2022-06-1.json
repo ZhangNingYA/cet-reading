@@ -795,7 +795,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-36",
           "type": "choice",
-          "prompt": "36. 选择与陈述相对应的段落。",
+          "prompt": "36. Clues about the culture of a company can be found on its website.",
           "options": [
             {
               "key": "A",
@@ -865,7 +865,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-37",
           "type": "choice",
-          "prompt": "37. 选择与陈述相对应的段落。",
+          "prompt": "37. It can be difficult to know the real situation in a company until you become part of it.",
           "options": [
             {
               "key": "A",
@@ -935,7 +935,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-38",
           "type": "choice",
-          "prompt": "38. 选择与陈述相对应的段落。",
+          "prompt": "38. It is impossible for a job applicant to have every expectation met.",
           "options": [
             {
               "key": "A",
@@ -1005,7 +1005,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-39",
           "type": "choice",
-          "prompt": "39. 选择与陈述相对应的段落。",
+          "prompt": "39. Simply by reading its description, the author found the job offered ideal.",
           "options": [
             {
               "key": "A",
@@ -1075,7 +1075,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-40",
           "type": "choice",
-          "prompt": "40. 选择与陈述相对应的段落。",
+          "prompt": "40. Job applicants are advised to make a written list of their likes and dislikes in their previous employment.",
           "options": [
             {
               "key": "A",
@@ -1145,7 +1145,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-41",
           "type": "choice",
-          "prompt": "41. 选择与陈述相对应的段落。",
+          "prompt": "41. At the end of an interview, a job applicant should seize the opportunity to get answers to their urgent questions.",
           "options": [
             {
               "key": "A",
@@ -1215,7 +1215,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-42",
           "type": "choice",
-          "prompt": "42. 选择与陈述相对应的段落。",
+          "prompt": "42. To begin with, job applicants should be clear what they expect from their future employer.",
           "options": [
             {
               "key": "A",
@@ -1285,7 +1285,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-43",
           "type": "choice",
-          "prompt": "43. 选择与陈述相对应的段落。",
+          "prompt": "43. Job applicants should read with a critical eye what is written about a company on the website.",
           "options": [
             {
               "key": "A",
@@ -1355,7 +1355,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-44",
           "type": "choice",
-          "prompt": "44. 选择与陈述相对应的段落。",
+          "prompt": "44. Job satisfaction has a lot to do with company culture.",
           "options": [
             {
               "key": "A",
@@ -1425,7 +1425,7 @@
         {
           "id": "cet4-2022-06-1-section-3-q-45",
           "type": "choice",
-          "prompt": "45. 选择与陈述相对应的段落。",
+          "prompt": "45. A chat with an insider of a company can give job applicants very useful information when they prepare for an interview.",
           "options": [
             {
               "key": "A",

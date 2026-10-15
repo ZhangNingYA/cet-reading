@@ -797,7 +797,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-36",
           "type": "choice",
-          "prompt": "36. 选择与陈述相对应的段落。",
+          "prompt": "36. Farmers will not profit from replanting once they have applied most of the fertilizer and other chemicals to their fields.",
           "options": [
             {
               "key": "A",
@@ -879,7 +879,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-37",
           "type": "choice",
-          "prompt": "37. 选择与陈述相对应的段落。",
+          "prompt": "37. Agriculture differs from the medical science of the human body in that its environment is not a contained one.",
           "options": [
             {
               "key": "A",
@@ -961,7 +961,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-38",
           "type": "choice",
-          "prompt": "38. 选择与陈述相对应的段落。",
+          "prompt": "38. The agronomist is sure that he will obtain a near accurate count of plant population with his software.",
           "options": [
             {
               "key": "A",
@@ -1043,7 +1043,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-39",
           "type": "choice",
-          "prompt": "39. 选择与陈述相对应的段落。",
+          "prompt": "39. The application of artificial intelligence to agriculture is much more challenging than to most other industries.",
           "options": [
             {
               "key": "A",
@@ -1125,7 +1125,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-40",
           "type": "choice",
-          "prompt": "40. 选择与陈述相对应的段落。",
+          "prompt": "40. Even the farmers know the data provided by the UAV is not correct.",
           "options": [
             {
               "key": "A",
@@ -1207,7 +1207,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-41",
           "type": "choice",
-          "prompt": "41. 选择与陈述相对应的段落。",
+          "prompt": "41. The pressure for quick results leads to product failure, which, in turn, arouses doubts about the applicability of AI technology to agriculture.",
           "options": [
             {
               "key": "A",
@@ -1289,7 +1289,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-42",
           "type": "choice",
-          "prompt": "42. 选择与陈述相对应的段落。",
+          "prompt": "42. Remote sensors are aimed to help farmers improve decision-making to increase yields.",
           "options": [
             {
               "key": "A",
@@ -1371,7 +1371,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-43",
           "type": "choice",
-          "prompt": "43. 选择与陈述相对应的段落。",
+          "prompt": "43. The farmer expects the software to tell him whether he will have to replant any parts of his farm fields.",
           "options": [
             {
               "key": "A",
@@ -1453,7 +1453,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-44",
           "type": "choice",
-          "prompt": "44. 选择与陈述相对应的段落。",
+          "prompt": "44. Agriculture proves very difficult to quantify because of the constantly changing conditions involved.",
           "options": [
             {
               "key": "A",
@@ -1535,7 +1535,7 @@
         {
           "id": "cet6-2020-12-1-section-3-q-45",
           "type": "choice",
-          "prompt": "45. 选择与陈述相对应的段落。",
+          "prompt": "45. The same seed and fertilizer program may yield completely different outcomes in different places.",
           "options": [
             {
               "key": "A",

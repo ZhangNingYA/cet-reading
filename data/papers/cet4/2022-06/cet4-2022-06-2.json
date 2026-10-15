@@ -789,7 +789,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-36",
           "type": "choice",
-          "prompt": "36. 选择与陈述相对应的段落。",
+          "prompt": "36. Fraudsters often steal villa-booking information from authentic holiday websites.",
           "options": [
             {
               "key": "A",
@@ -843,7 +843,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-37",
           "type": "choice",
-          "prompt": "37. 选择与陈述相对应的段落。",
+          "prompt": "37. Fraudsters keep changing their bank accounts to avoid being tracked.",
           "options": [
             {
               "key": "A",
@@ -897,7 +897,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-38",
           "type": "choice",
-          "prompt": "38. 选择与陈述相对应的段落。",
+          "prompt": "38. It is suggested that people not going on the holiday might help detect website frauds.",
           "options": [
             {
               "key": "A",
@@ -951,7 +951,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-39",
           "type": "choice",
-          "prompt": "39. 选择与陈述相对应的段落。",
+          "prompt": "39. More and more British holidaymakers find the seaside villas they booked online actually nonexistent.",
           "options": [
             {
               "key": "A",
@@ -1005,7 +1005,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-40",
           "type": "choice",
-          "prompt": "40. 选择与陈述相对应的段落。",
+          "prompt": "40. By checking an agent's name online before booking a villa, holidaymakers can avoid falling into traps.",
           "options": [
             {
               "key": "A",
@@ -1059,7 +1059,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-41",
           "type": "choice",
-          "prompt": "41. 选择与陈述相对应的段落。",
+          "prompt": "41. Fraudsters are difficult to identify, according to an online safety expert.",
           "options": [
             {
               "key": "A",
@@ -1113,7 +1113,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-42",
           "type": "choice",
-          "prompt": "42. 选择与陈述相对应的段落。",
+          "prompt": "42. Holidaymakers have been alerted to the frequent occurrence of online villa-booking frauds.",
           "options": [
             {
               "key": "A",
@@ -1167,7 +1167,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-43",
           "type": "choice",
-          "prompt": "43. 选择与陈述相对应的段落。",
+          "prompt": "43. It is holidaymakers that can protect themselves from falling victim to frauds.",
           "options": [
             {
               "key": "A",
@@ -1221,7 +1221,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-44",
           "type": "choice",
-          "prompt": "44. 选择与陈述相对应的段落。",
+          "prompt": "44. Holidaymakers are advised not to make payments by bank transfer.",
           "options": [
             {
               "key": "A",
@@ -1275,7 +1275,7 @@
         {
           "id": "cet4-2022-06-2-section-3-q-45",
           "type": "choice",
-          "prompt": "45. 选择与陈述相对应的段落。",
+          "prompt": "45. Fraudsters advertise their villas at reasonable prices so as not to be suspected.",
           "options": [
             {
               "key": "A",
