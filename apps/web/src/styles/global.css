@@ -94,7 +94,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .resume-card-eyebrow { color: var(--accent-deep); font-size: var(--text-caption); font-weight: 600; }
 .resume-card-copy strong { overflow: hidden; color: var(--ink); font-size: var(--text-body); font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
 .resume-card-meta { color: var(--muted); font-size: var(--text-caption); }
-.resume-card .button { flex-shrink: 0; min-height: 36px; padding: 7px 16px; }
+.resume-card-preview { overflow: hidden; color: var(--quiet); font-family: var(--reading-font); font-size: var(--text-caption); text-overflow: ellipsis; white-space: nowrap; }
+.resume-card-actions { display: flex; flex-shrink: 0; align-items: center; gap: 12px; }
+.resume-card-actions .button { min-height: 36px; padding: 7px 16px; }
+.resume-card-clear { white-space: nowrap; }
 .library-status p:not(.sr-only) { margin: 0 0 16px; color: var(--muted); font-size: var(--text-ui); }
 .paper-list { display: grid; gap: 20px; }
 .paper-year { display: grid; gap: 8px; min-width: 0; }
@@ -155,7 +158,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .paper-row { gap: 8px; padding-inline: 8px; }
   .paper-row + .paper-row::before { left: 8px; right: 8px; }
   .resume-card { align-items: stretch; flex-direction: column; gap: 12px; margin-bottom: 20px; padding: 15px 16px; }
-  .resume-card .button { width: 100%; }
+  .resume-card-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .resume-card-actions .button { width: 100%; }
 }
 @media (max-width: 359px) {
   .library-toolbar { flex-basis: 52%; }

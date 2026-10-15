@@ -40,12 +40,19 @@ function savePosition(paper, mode, sectionId, sentenceId) {
     const previous = readPosition();
     const samePaper = previous?.paperId === paper.id;
     const sectionChanged = Boolean(sectionId && samePaper && previous?.sectionId !== sectionId);
+    const nextSectionId = sectionId || (samePaper ? previous?.sectionId : undefined);
+    const nextSentenceId = sentenceId || (sectionChanged ? undefined : samePaper ? previous?.sentenceId : undefined);
+    const section = paper.sections?.find(item => item.id === nextSectionId);
+    const sentence = nextSentenceId ? paper.sentences?.find(item => item.id === nextSentenceId && item.sectionId === nextSectionId) : null;
     localStorage.setItem(positionKey, JSON.stringify({
       paperId: paper.id,
       title: paper.title,
       mode: mode || (samePaper ? previous?.mode : undefined) || 'intensive',
-      sectionId: sectionId || (samePaper ? previous?.sectionId : undefined),
-      sentenceId: sentenceId || (sectionChanged ? undefined : samePaper ? previous?.sentenceId : undefined),
+      sectionId: nextSectionId,
+      sentenceId: nextSentenceId,
+      sectionTitle: section?.title || (samePaper && !sectionChanged ? previous?.sectionTitle : undefined),
+      sentenceNumber: sentence ? sentence.sentenceIndex + 1 : (samePaper && !sectionChanged ? previous?.sentenceNumber : undefined),
+      sentencePreview: sentence?.source || (samePaper && !sectionChanged ? previous?.sentencePreview : undefined),
       updatedAt: Date.now(),
     }));
   } catch { /* Private browsing or storage limits should not block reading. */ }
@@ -53,7 +60,7 @@ function savePosition(paper, mode, sectionId, sentenceId) {
 function displayPositionTime(value) {
   if (!value) return '';
   const date = new Date(value);
-  return Number.isNaN(date.valueOf()) ? '' : ` · 上次阅读 ${date.toLocaleDateString('zh-CN')}`;
+  return Number.isNaN(date.valueOf()) ? '' : ` · 上次阅读 ${date.toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`;
 }
 function renderResumeCard() {
   if (!resumeCard) return;
@@ -64,11 +71,22 @@ function renderResumeCard() {
   const copy = document.createElement('div'); copy.className = 'resume-card-copy';
   const eyebrow = document.createElement('span'); eyebrow.className = 'resume-card-eyebrow'; eyebrow.textContent = '继续上次阅读';
   const title = document.createElement('strong'); title.textContent = paper.title;
-  const meta = document.createElement('span'); meta.className = 'resume-card-meta'; meta.textContent = `${position.mode === 'practice' ? '做题' : '精读'}${displayPositionTime(position.updatedAt)}`;
+  const meta = document.createElement('span'); meta.className = 'resume-card-meta';
+  meta.textContent = `${position.mode === 'practice' ? '做题' : '精读'}${position.sectionTitle ? ` · ${position.sectionTitle}` : ''}${position.sentenceNumber ? ` · 第 ${position.sentenceNumber} 句` : ''}${displayPositionTime(position.updatedAt)}`;
   copy.append(eyebrow, title, meta);
+  if (position.sentencePreview) {
+    const preview = document.createElement('span'); preview.className = 'resume-card-preview'; preview.textContent = `“${position.sentencePreview}”`; copy.append(preview);
+  }
+  const actions = document.createElement('div'); actions.className = 'resume-card-actions';
   const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-primary'; button.textContent = '继续';
   button.addEventListener('click', () => openPaper(paper, position.mode === 'practice' ? 'practice' : 'intensive'));
-  resumeCard.append(copy, button);
+  const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'text-link resume-card-clear'; clear.textContent = '清除记录';
+  clear.addEventListener('click', () => {
+    try { localStorage.removeItem(positionKey); } catch { /* Private browsing should not block the page. */ }
+    renderResumeCard();
+  });
+  actions.append(button, clear);
+  resumeCard.append(copy, actions);
 }
 function createModeButton(text, mode, paper) {
   const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-small paper-mode-button'; button.textContent = text;

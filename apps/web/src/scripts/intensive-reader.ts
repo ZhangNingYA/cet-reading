@@ -110,6 +110,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   notice.hidden = true;
   const paneBody = element('div', 'analysis-body');
   paneBody.setAttribute('aria-live', 'polite');
+  paneBody.setAttribute('aria-busy', 'false');
   pane.append(paneHeader, notice, paneBody);
   layout.append(documentColumn, pane);
   if (!options.hideNavigation) target.append(navigation);
@@ -118,6 +119,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   function showEmpty(message = '点击原文中的单词或句子') {
     paneTitle.textContent = '精读';
     updateActions();
+    paneBody.setAttribute('aria-busy', 'false');
     paneBody.replaceChildren(element('p', 'analysis-empty', message));
   }
   function updateActions() {
@@ -399,6 +401,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       const loading = element('p', 'analysis-loading');
       loading.append(element('span', 'analysis-loading-text', '正在解析这一句'), waitingDots());
       loading.setAttribute('role', 'status');
+      paneBody.setAttribute('aria-busy', 'true');
       paneBody.replaceChildren(loading);
     }
     updateActions();
@@ -417,6 +420,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       retry.addEventListener('click', () => {
         if (selected) void selectSentence(selected.sentence, selected.element, selected.wordIndex);
       });
+      paneBody.setAttribute('aria-busy', 'false');
       paneBody.replaceChildren(message, retry);
       updateActions();
     }
@@ -476,6 +480,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     if (!selected) return;
     updateActions();
     highlightSelection();
+    paneBody.setAttribute('aria-busy', 'false');
     paneBody.replaceChildren();
     if (selected.wordIndex !== null) {
       const token = analysis.tokens.find(token => token.index === selected?.wordIndex);
