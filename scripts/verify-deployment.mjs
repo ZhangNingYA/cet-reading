@@ -56,15 +56,9 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
-for (const paper of papers.papers) {
-  for (const prefix of ['analysis_text', 'analysis_solving']) {
-    const counts = ['total', 'cached', 'pending', 'running', 'failed'].map(key => paper[`${prefix}_${key}`]);
-    if (counts.some(count => !Number.isInteger(count) || count < 0) ||
-        counts.slice(1).reduce((sum, count) => sum + count, 0) > counts[0]) {
-      throw new Error(`Invalid ${prefix} progress for ${paper.id}`);
-    }
-  }
-}
+// Analysis progress is intentionally excluded from the public paper list so
+// the reader can load CET4/CET6 metadata without running the expensive cache
+// aggregation queries. Progress is verified through the admin API below.
 const adminHtml = await (await fetchWithRetry('/admin/analysis/')).text();
 for (const id of ['admin-job-type', 'admin-job-list', 'admin-toggle-backfill', 'admin-progress-tab', 'admin-requests-tab', 'admin-priority']) {
   if (!adminHtml.includes(`id="${id}"`)) throw new Error(`Missing admin request UI: ${id}`);
