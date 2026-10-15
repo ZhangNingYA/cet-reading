@@ -157,6 +157,14 @@
 .practice-result:empty { display: none; }
 .practice-result strong { display: block; margin-bottom: 16px; color: var(--accent-deep); font-weight: 550; }
 .practice-result p { margin: 12px 0; }
+.paper-pager { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 42px; padding-top: 22px; border-top: 1px solid var(--line); }
+.paper-pager-slot { min-width: 0; }
+.paper-pager-newer { text-align: right; }
+.paper-pager-link { display: inline-grid; gap: 4px; max-width: 100%; padding: 8px 0; color: var(--ink); border: 0; background: transparent; text-align: inherit; }
+.paper-pager-link:hover strong { color: var(--accent); }
+.paper-pager-label { color: var(--muted); font-size: var(--text-caption); }
+.paper-pager-link strong { overflow: hidden; color: var(--accent-deep); font-size: var(--text-ui); font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
+.paper-pager-empty { color: var(--quiet); font-size: var(--text-caption); }
 @media (max-width: 1000px) {
   .intensive-layout { grid-template-columns: minmax(0, 1fr) 290px; gap: 22px; }
   .passage-section, .practice-material { padding: 26px; }
@@ -196,6 +204,8 @@
   .practice-question textarea { min-height: 220px; }
   .practice-submit-bar { padding: 10px 12px 10px 16px; bottom: max(10px, env(safe-area-inset-bottom)); }
   .practice-result { padding: 20px; }
+  .paper-pager { gap: 12px; margin-top: 30px; padding-top: 16px; }
+  .paper-pager-link strong { display: block; max-width: 42vw; }
 }
 @media (max-width: 380px) {
   .study-navigation { gap: 16px; }

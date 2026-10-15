@@ -6,6 +6,7 @@ import { appendMaterialText, appendSectionImages } from './section-material';
 const library = document.querySelector('#library');
 const apiBase = library.dataset.apiBase;
 const examLevels = JSON.parse(library.dataset.examLevels);
+const sectionSlug = library.dataset.sectionSlug;
 const status = document.querySelector('#status');
 const papers = document.querySelector('#papers');
 const reader = document.querySelector('#reader');
@@ -18,12 +19,57 @@ const libraryResults = document.querySelector('#library-results');
 const search = document.querySelector('#paper-search');
 const paperCount = document.querySelector('#paper-count');
 const modeButtons = [...document.querySelectorAll('[data-reader-mode]')];
+const resumeCard = document.querySelector('#resume-card');
+const paperPager = document.querySelector('#paper-pager');
+const positionKey = `cet-reading:last-position:${sectionSlug}`;
 let allPapers = [];
 let activePaper = null;
 let disposeIntensive = null;
 let viewRequest = 0;
 
 function levelName(level) { return level === 'CET6' ? '六级' : level === 'NEEP' ? '考研' : '四级'; }
+function readPosition() {
+  try {
+    const value = JSON.parse(localStorage.getItem(positionKey) || 'null');
+    return value && typeof value.paperId === 'string' ? value : null;
+  } catch { return null; }
+}
+function savePosition(paper, mode, sectionId, sentenceId) {
+  if (!paper?.id) return;
+  try {
+    const previous = readPosition();
+    const samePaper = previous?.paperId === paper.id;
+    const sectionChanged = Boolean(sectionId && samePaper && previous?.sectionId !== sectionId);
+    localStorage.setItem(positionKey, JSON.stringify({
+      paperId: paper.id,
+      title: paper.title,
+      mode: mode || (samePaper ? previous?.mode : undefined) || 'intensive',
+      sectionId: sectionId || (samePaper ? previous?.sectionId : undefined),
+      sentenceId: sentenceId || (sectionChanged ? undefined : samePaper ? previous?.sentenceId : undefined),
+      updatedAt: Date.now(),
+    }));
+  } catch { /* Private browsing or storage limits should not block reading. */ }
+}
+function displayPositionTime(value) {
+  if (!value) return '';
+  const date = new Date(value);
+  return Number.isNaN(date.valueOf()) ? '' : ` · 上次阅读 ${date.toLocaleDateString('zh-CN')}`;
+}
+function renderResumeCard() {
+  if (!resumeCard) return;
+  const position = readPosition();
+  const paper = position && allPapers.find(item => item.id === position.paperId && item.content_state === 'local');
+  if (!paper) { resumeCard.hidden = true; resumeCard.replaceChildren(); return; }
+  resumeCard.hidden = false;
+  const copy = document.createElement('div'); copy.className = 'resume-card-copy';
+  const eyebrow = document.createElement('span'); eyebrow.className = 'resume-card-eyebrow'; eyebrow.textContent = '继续上次阅读';
+  const title = document.createElement('strong'); title.textContent = paper.title;
+  const meta = document.createElement('span'); meta.className = 'resume-card-meta'; meta.textContent = `${position.mode === 'practice' ? '做题' : '精读'}${displayPositionTime(position.updatedAt)}`;
+  copy.append(eyebrow, title, meta);
+  const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-primary'; button.textContent = '继续';
+  button.addEventListener('click', () => openPaper(paper, position.mode === 'practice' ? 'practice' : 'intensive'));
+  resumeCard.append(copy, button);
+}
 function createModeButton(text, mode, paper) {
   const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-small paper-mode-button'; button.textContent = text;
   button.dataset.mode = mode; button.setAttribute('aria-label', `${paper.title}，${text}`);
@@ -80,12 +126,36 @@ function updateUrl(paperId, mode) {
   url.search = `?paper=${encodeURIComponent(paperId)}&mode=${mode}`;
   if (url.href !== location.href) history.pushState({}, '', url);
 }
-async function openPaper(summary, mode, writeHistory = true) {
+function renderPager(paper, mode) {
+  if (!paperPager) return;
+  const visible = allPapers.filter(item => examLevels.includes(item.exam_level) && item.content_state === 'local')
+    .sort((a, b) => b.year - a.year || b.month - a.month || a.set_no - b.set_no);
+  const index = visible.findIndex(item => item.id === paper.id);
+  const older = index >= 0 ? visible[index + 1] : null;
+  const newer = index > 0 ? visible[index - 1] : null;
+  paperPager.replaceChildren();
+  paperPager.hidden = !older && !newer;
+  for (const [label, item, direction] of [['上一套', older, 'older'], ['下一套', newer, 'newer']]) {
+    const slot = document.createElement('div'); slot.className = `paper-pager-slot paper-pager-${direction}`;
+    if (item) {
+      const button = document.createElement('button'); button.type = 'button'; button.className = 'paper-pager-link';
+      const caption = document.createElement('span'); caption.className = 'paper-pager-label'; caption.textContent = label;
+      const title = document.createElement('strong'); title.textContent = item.title;
+      button.append(caption, title);
+      button.addEventListener('click', () => openPaper(item, mode));
+      slot.append(button);
+    } else {
+      const empty = document.createElement('span'); empty.className = 'paper-pager-empty'; empty.textContent = label === '上一套' ? '已经是最早的试卷' : '已经是最新的试卷'; slot.append(empty);
+    }
+    paperPager.append(slot);
+  }
+}
+async function openPaper(summary, mode, writeHistory = true, loadedPaper = null) {
   if (!summary) return;
   const request = ++viewRequest;
   disposeIntensive?.(); disposeIntensive = null;
   try {
-    const paper = activePaper?.id === summary.id ? activePaper : await fetchPaper(summary.id);
+    const paper = loadedPaper || (activePaper?.id === summary.id ? activePaper : await fetchPaper(summary.id));
     if (request !== viewRequest || paper.content_state !== 'local') return;
     activePaper = paper;
     if (writeHistory) updateUrl(summary.id, mode);
@@ -96,7 +166,15 @@ async function openPaper(summary, mode, writeHistory = true) {
     readerTitle.textContent = paper.title;
     readerStatus.textContent = '';
     readerContent.replaceChildren();
-    if (mode === 'intensive') disposeIntensive = mountIntensive(paper, apiBase, readerContent);
+    const position = readPosition();
+    const restorePosition = position?.paperId === paper.id ? position : null;
+    renderPager(paper, mode);
+    savePosition(paper, mode, restorePosition?.sectionId);
+    if (mode === 'intensive') disposeIntensive = mountIntensive(paper, apiBase, readerContent, {
+      initialSectionId: restorePosition?.sectionId,
+      initialSentenceId: restorePosition?.sentenceId,
+      onPositionChange: (sectionId, sentenceId) => savePosition(paper, mode, sectionId, sentenceId),
+    });
     else await renderPractice(paper, request);
     window.scrollTo({ top: 0, behavior: 'instant' });
     readerTitle.focus({ preventScroll: true });
@@ -144,11 +222,14 @@ async function renderPractice(paper, request) {
     block.append(questions);
     form.append(block);
   }
+  const savedPosition = readPosition();
   const { navigation, selectSection } = createSectionNavigation(paper.sections, section => {
+    savePosition(paper, 'practice', section.id);
     for (const [id, block] of blocks) block.hidden = id !== section.id;
   }, '做题章节', paper.exam_level);
   navigation.classList.add('practice-navigation');
-  selectSection(paper.sections[0].id);
+  selectSection(savedPosition?.paperId === paper.id && paper.sections.some(section => section.id === savedPosition.sectionId)
+    ? savedPosition.sectionId : paper.sections[0].id);
   const submitBar = document.createElement('div'); submitBar.className = 'practice-submit-bar';
   const progress = document.createElement('span'); progress.className = 'practice-progress'; progress.setAttribute('role', 'status');
   const questionCount = paper.sections.reduce((count, section) => count + section.questions.length, 0);
@@ -174,7 +255,20 @@ function renderPracticeResult(summary, target) {
 }
 async function loadPapers() {
   retryPapers.hidden = true; status.textContent = '正在加载'; libraryResults.setAttribute('aria-busy', 'true');
-  try { const response = await fetch(`${apiBase}/api/papers`); if (!response.ok) throw new Error('paper request failed'); allPapers = (await response.json()).papers ?? []; status.textContent = '题库已加载'; showPapers(); const params = new URLSearchParams(location.search); const paper = allPapers.find((item) => item.id === params.get('paper')); if (paper && paper.content_state === 'local') await openPaper(paper, params.get('mode') === 'practice' ? 'practice' : 'intensive'); }
+  try {
+    const params = new URLSearchParams(location.search);
+    const directId = params.get('paper');
+    const directRequest = directId ? fetch(`${apiBase}/api/papers/${encodeURIComponent(directId)}`) : null;
+    const catalogRequest = fetch(`${apiBase}/api/papers`);
+    const [catalogResponse, directResponse] = await Promise.all([catalogRequest, directRequest]);
+    if (!catalogResponse.ok) throw new Error('paper request failed');
+    allPapers = (await catalogResponse.json()).papers ?? [];
+    status.textContent = '题库已加载'; showPapers(); renderResumeCard();
+    const paper = allPapers.find((item) => item.id === directId);
+    let directPaper = null;
+    if (directResponse?.ok) directPaper = await directResponse.json();
+    if (paper && paper.content_state === 'local') await openPaper(paper, params.get('mode') === 'practice' ? 'practice' : 'intensive', true, directPaper);
+  }
   catch { status.textContent = '暂时无法连接阅读题库。'; retryPapers.hidden = false; papers.innerHTML = '<div class="empty-state error-state"><strong>阅读内容加载失败</strong><span>请稍后再试，或确认后端服务正在运行。</span></div>'; }
   finally { libraryResults.setAttribute('aria-busy', 'false'); }
 }

@@ -59,7 +59,13 @@ function waitingDots() {
   return dots;
 }
 
-export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLElement, options: { analysisPath?: string; hideNavigation?: boolean } = {}) {
+export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLElement, options: {
+  analysisPath?: string;
+  hideNavigation?: boolean;
+  initialSectionId?: string;
+  initialSentenceId?: string;
+  onPositionChange?: (sectionId: string, sentenceId?: string) => void;
+} = {}) {
   const controller = new AbortController();
   const ownedRequests = new Set<AnalysisRequest>();
   const feedback = new Map<string, string>();
@@ -355,6 +361,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     block.append(list);
   }
   async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false) {
+    options.onPositionChange?.(sentence.sectionId, sentence.id);
     selected = { sentence, element: source, wordIndex };
     panelOpen = true;
     pane.classList.add('is-open');
@@ -552,6 +559,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     paneBody.append(tabs, body);
   }
   function showSection(section: StudySection) {
+    options.onPositionChange?.(section.id);
     dismiss(false);
     const block = element('section', 'passage-section');
     block.dataset.sectionKind = section.kind;
@@ -601,9 +609,20 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     renderStudyQuestions(section, block);
     documentColumn.replaceChildren(block);
     pane.hidden = !sentences.length;
-    if (sentences.length) void prefetchCachedAnalyses(section);
+    if (sentences.length) {
+      void prefetchCachedAnalyses(section);
+      if (options.initialSectionId === section.id && options.initialSentenceId) {
+        const sentence = sentences.find(item => item.id === options.initialSentenceId);
+        if (sentence) requestAnimationFrame(() => {
+          const source = documentColumn.querySelector<HTMLElement>(`[data-sentence-id="${CSS.escape(sentence.id)}"]`);
+          source?.scrollIntoView({ block: 'center', behavior: 'instant' });
+        });
+      }
+    }
   }
-  const initialSection = paper.sections.find(section => section.kind === 'reading' && !section.reference) ?? paper.sections.find(section => !section.reference) ?? paper.sections[0];
+  const initialSection = paper.sections.find(section => section.id === options.initialSectionId)
+    ?? paper.sections.find(section => section.kind === 'reading' && !section.reference)
+    ?? paper.sections.find(section => !section.reference) ?? paper.sections[0];
   if (initialSection) selectSection(initialSection.id);
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
   document.addEventListener('keydown', escape);
