@@ -129,10 +129,10 @@ function updateUrl(paperId, mode) {
 function renderPager(paper, mode) {
   if (!paperPager) return;
   const visible = allPapers.filter(item => examLevels.includes(item.exam_level) && item.content_state === 'local')
-    .sort((a, b) => b.year - a.year || b.month - a.month || a.set_no - b.set_no);
+    .sort((a, b) => a.year - b.year || a.month - b.month || a.set_no - b.set_no);
   const index = visible.findIndex(item => item.id === paper.id);
-  const older = index >= 0 ? visible[index + 1] : null;
-  const newer = index > 0 ? visible[index - 1] : null;
+  const older = index > 0 ? visible[index - 1] : null;
+  const newer = index >= 0 ? visible[index + 1] : null;
   paperPager.replaceChildren();
   paperPager.hidden = !older && !newer;
   for (const [label, item, direction] of [['上一套', older, 'older'], ['下一套', newer, 'newer']]) {
@@ -258,16 +258,28 @@ async function loadPapers() {
   try {
     const params = new URLSearchParams(location.search);
     const directId = params.get('paper');
-    const directRequest = directId ? fetch(`${apiBase}/api/papers/${encodeURIComponent(directId)}`) : null;
     const catalogRequest = fetch(`${apiBase}/api/papers`);
-    const [catalogResponse, directResponse] = await Promise.all([catalogRequest, directRequest]);
+    let directPaper = null;
+    if (directId) {
+      try {
+        const directResponse = await fetch(`${apiBase}/api/papers/${encodeURIComponent(directId)}`);
+        if (directResponse.ok) {
+          directPaper = await directResponse.json();
+          if (directPaper.content_state === 'local') {
+            await openPaper(directPaper, params.get('mode') === 'practice' ? 'practice' : 'intensive', true, directPaper);
+          }
+        }
+      } catch { /* The catalog can still render and offer a retry path. */ }
+    }
+    const catalogResponse = await catalogRequest;
     if (!catalogResponse.ok) throw new Error('paper request failed');
     allPapers = (await catalogResponse.json()).papers ?? [];
     status.textContent = '题库已加载'; showPapers(); renderResumeCard();
     const paper = allPapers.find((item) => item.id === directId);
-    let directPaper = null;
-    if (directResponse?.ok) directPaper = await directResponse.json();
-    if (paper && paper.content_state === 'local') await openPaper(paper, params.get('mode') === 'practice' ? 'practice' : 'intensive', true, directPaper);
+    if (paper && paper.content_state === 'local') {
+      if (activePaper?.id === paper.id) renderPager(activePaper, params.get('mode') === 'practice' ? 'practice' : 'intensive');
+      else await openPaper(paper, params.get('mode') === 'practice' ? 'practice' : 'intensive', true, directPaper);
+    }
   }
   catch { status.textContent = '暂时无法连接阅读题库。'; retryPapers.hidden = false; papers.innerHTML = '<div class="empty-state error-state"><strong>阅读内容加载失败</strong><span>请稍后再试，或确认后端服务正在运行。</span></div>'; }
   finally { libraryResults.setAttribute('aria-busy', 'false'); }
