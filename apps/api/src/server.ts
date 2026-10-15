@@ -171,7 +171,7 @@ app.get<{ Params: { id:string }; Querystring: { mode?:string } }>('/api/news/:id
 // The public library only needs paper metadata. Progress requires several
 // full-database aggregation queries and belongs on the admin progress page.
 app.get('/api/papers', async (_request, reply) => {
-  reply.header('Cache-Control', 'no-store');
+  reply.header('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
   return { papers: await listPapers(false) };
 });
 
