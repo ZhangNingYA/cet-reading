@@ -70,7 +70,7 @@ function contentUrl(id: string | null, examLevel: string | null, articleId: stri
 function time(value: string | null) {
   return value ? new Date(value).toLocaleTimeString('zh-CN', { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit' }) : '';
 }
-async function request(path: string, init?: RequestInit) {
+async function request(path: string, init?: RequestInit): Promise<any> {
   const response = await fetch(`${apiBase}${path}`, {
     ...init, headers: { accept: 'application/json', 'content-type': 'application/json', ...init?.headers }, signal: AbortSignal.timeout(15000),
   });
