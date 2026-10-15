@@ -168,7 +168,12 @@ app.get<{ Params: { id:string }; Querystring: { mode?:string } }>('/api/news/:id
   return { analyses:await getSectionCachedAnalyses(request.params.id,`${request.params.id}-body`,true) };
 });
 
-app.get('/api/papers', async () => ({ papers: await listPapers() }));
+// The public library only needs paper metadata. Progress requires several
+// full-database aggregation queries and belongs on the admin progress page.
+app.get('/api/papers', async (_request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  return { papers: await listPapers(false) };
+});
 
 app.get<{ Params: { id: string } }>('/api/papers/:id', async (request, reply) => {
   const paper = await getPaper(request.params.id);

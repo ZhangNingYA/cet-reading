@@ -72,9 +72,17 @@ function time(value: string | null) {
 }
 async function request(path: string, init?: RequestInit) {
   const response = await fetch(`${apiBase}${path}`, {
-    ...init, headers: { 'content-type': 'application/json', ...init?.headers }, signal: AbortSignal.timeout(15000),
+    ...init, headers: { accept: 'application/json', 'content-type': 'application/json', ...init?.headers }, signal: AbortSignal.timeout(15000),
   });
-  const body = await response.json();
+  const raw = await response.text();
+  let body: { error?: string; message?: string } = {};
+  try {
+    body = raw ? JSON.parse(raw) : {};
+  } catch {
+    throw new Error(response.ok
+      ? '服务返回了无效数据，请刷新后重试。'
+      : `管理服务暂时不可用（HTTP ${response.status}），请稍后重试。`);
+  }
   if (!response.ok) throw new Error(body.error === 'admin_disabled' ? '精读管理尚未启用。' : body.message || '加载失败，请重试。');
   return body;
 }

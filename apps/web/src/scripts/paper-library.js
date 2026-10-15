@@ -1,5 +1,4 @@
 import { mountIntensive } from './intensive-reader';
-import { paperProgressEntries } from './analysis-progress';
 import { createSectionNavigation } from './section-navigation';
 import { createSharedSectionNotice } from './section-reference';
 import { appendMaterialText, appendSectionImages } from './section-material';
@@ -25,7 +24,6 @@ let disposeIntensive = null;
 let viewRequest = 0;
 
 function levelName(level) { return level === 'CET6' ? '六级' : level === 'NEEP' ? '考研' : '四级'; }
-function analysisProgress(paper) { return paperProgressEntries(paper).join(' · '); }
 function createModeButton(text, mode, paper) {
   const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-small paper-mode-button'; button.textContent = text;
   button.dataset.mode = mode; button.setAttribute('aria-label', `${paper.title}，${text}`);
@@ -67,16 +65,7 @@ function showPapers() {
     const bottom = document.createElement('div'); bottom.className = 'paper-row-meta';
     const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.content_kind === 'original' ? '原创练习' : paper.is_demo ? '本地演示' : '';
     if (typeLabel) { const type = document.createElement('span'); type.className = 'paper-type'; type.textContent = typeLabel; bottom.append(type); }
-    const progressLabel = analysisProgress(paper);
-    if (progressLabel) {
-      const progress = document.createElement('span'); progress.className = 'paper-analysis-progress';
-      for (const label of paperProgressEntries(paper)) {
-        const line = document.createElement('span'); line.textContent = label; progress.append(line);
-      }
-      progress.title = progressLabel;
-      bottom.append(progress);
-    }
-    if (typeLabel || progressLabel) copy.append(bottom);
+    if (typeLabel) copy.append(bottom);
     const actions = document.createElement('div'); actions.className = 'paper-row-actions';
     if (paper.content_state === 'external') {
       const source = document.createElement('a'); source.className = 'button button-small paper-source'; source.href = paper.source_url; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = '原站查看'; actions.append(source);
@@ -105,7 +94,7 @@ async function openPaper(summary, mode, writeHistory = true) {
     modeButtons.forEach((button) => { button.classList.toggle('active', button.dataset.readerMode === mode); button.setAttribute('aria-pressed', String(button.dataset.readerMode === mode)); });
     readerMeta.textContent = `${levelName(paper.exam_level)} · ${paper.year} · ${paper.variant || `第 ${paper.set_no} 套`}`;
     readerTitle.textContent = paper.title;
-    readerStatus.textContent = analysisProgress(summary);
+    readerStatus.textContent = '';
     readerContent.replaceChildren();
     if (mode === 'intensive') disposeIntensive = mountIntensive(paper, apiBase, readerContent);
     else await renderPractice(paper, request);
@@ -189,23 +178,6 @@ async function loadPapers() {
   catch { status.textContent = '暂时无法连接阅读题库。'; retryPapers.hidden = false; papers.innerHTML = '<div class="empty-state error-state"><strong>阅读内容加载失败</strong><span>请稍后再试，或确认后端服务正在运行。</span></div>'; }
   finally { libraryResults.setAttribute('aria-busy', 'false'); }
 }
-async function refreshPaperProgress() {
-  if (document.visibilityState === 'hidden') return;
-  try {
-    const response = await fetch(`${apiBase}/api/papers`);
-    if (!response.ok) return;
-    const fresh = (await response.json()).papers ?? [];
-    const updates = new Map(fresh.map((paper) => [paper.id, paper]));
-    allPapers = allPapers.map((paper) => updates.get(paper.id) ?? paper);
-    if (!library.hidden) showPapers();
-    if (activePaper) {
-      const summary = updates.get(activePaper.id);
-      if (summary) readerStatus.textContent = analysisProgress(summary);
-    }
-  } catch {
-    // Progress is supplementary; keep the current list when a poll fails.
-  }
-}
 modeButtons.forEach((button) => button.addEventListener('click', () => { if (activePaper) openPaper(allPapers.find((paper) => paper.id === activePaper.id), button.dataset.readerMode); }));
 retryPapers.addEventListener('click', loadPapers);
 function closeReader(writeHistory = true) {
@@ -223,4 +195,3 @@ window.addEventListener('popstate', () => {
   else closeReader(false);
 });
 search.addEventListener('input', showPapers); loadPapers();
-setInterval(() => { void refreshPaperProgress(); }, 10_000);

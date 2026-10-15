@@ -35,7 +35,19 @@ type SentenceRow = {
   next_sentence: string | null;
 };
 
-export async function listPapers() {
+export async function listPapers(includeProgress = true) {
+  if (!includeProgress) {
+    const result = await pool.query(
+      `SELECT p.id, p.exam_level, p.year, p.month, p.set_no, p.variant, p.title, p.is_demo,
+              p.content_state, p.content_kind, p.description, p.reference_paper_id, p.source_url,
+              EXISTS (SELECT 1 FROM paper_sections ps WHERE ps.paper_id = p.id) AS has_content
+       FROM papers p
+       WHERE p.status = 'published'
+       ORDER BY p.year DESC, p.month DESC, p.exam_level, p.set_no`,
+    );
+    return result.rows;
+  }
+
   const result = await pool.query(
     `WITH ordered AS (
        SELECT s.id, s.paper_id, s.section_id, s.source_hash,
