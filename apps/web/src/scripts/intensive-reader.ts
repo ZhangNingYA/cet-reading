@@ -615,7 +615,11 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         const sentence = sentences.find(item => item.id === options.initialSentenceId);
         if (sentence) requestAnimationFrame(() => {
           const source = documentColumn.querySelector<HTMLElement>(`[data-sentence-id="${CSS.escape(sentence.id)}"]`);
-          source?.scrollIntoView({ block: 'center', behavior: 'instant' });
+          if (!source) return;
+          source.scrollIntoView({ block: 'center', behavior: 'instant' });
+          // Restore the exact reading point as an active sentence, so the
+          // explanation pane opens without requiring a second click.
+          void selectSentence(sentence, source, null);
         });
       }
     }
