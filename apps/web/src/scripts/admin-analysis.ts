@@ -54,6 +54,11 @@ let expandedPaper: string | null = null;
 let sectionsLoading = false;
 const sectionsByPaper = new Map<string, PaperSection[]>();
 const PAGE_SIZE = 10;
+const DEFAULT_REQUEST_TIMEOUT_MS = 15000;
+// Progress aggregates sentences, question text and solving caches across all
+// papers. It is intentionally allowed more time than the small control-panel
+// requests, otherwise a healthy but busy database is shown as "signal timed out".
+const PROGRESS_REQUEST_TIMEOUT_MS = 45000;
 function esc(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 }
@@ -71,9 +76,23 @@ function time(value: string | null) {
   return value ? new Date(value).toLocaleTimeString('zh-CN', { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit' }) : '';
 }
 async function request(path: string, init?: RequestInit): Promise<any> {
-  const response = await fetch(`${apiBase}${path}`, {
-    ...init, headers: { accept: 'application/json', 'content-type': 'application/json', ...init?.headers }, signal: AbortSignal.timeout(15000),
-  });
+  const timeoutMs = path.startsWith('/api/admin/analysis/papers')
+    ? PROGRESS_REQUEST_TIMEOUT_MS : DEFAULT_REQUEST_TIMEOUT_MS;
+  let response: Response;
+  try {
+    response = await fetch(`${apiBase}${path}`, {
+      ...init,
+      headers: { accept: 'application/json', 'content-type': 'application/json', ...init?.headers },
+      signal: AbortSignal.timeout(timeoutMs),
+    });
+  } catch (error) {
+    if (error instanceof DOMException && (error.name === 'TimeoutError' || error.name === 'AbortError')) {
+      throw new Error(path.startsWith('/api/admin/analysis/papers')
+        ? '精读进度汇总较慢，请稍后刷新。'
+        : '管理服务响应超时，请稍后重试。');
+    }
+    throw error;
+  }
   const raw = await response.text();
   let body: { error?: string; message?: string } = {};
   try {
