@@ -33,6 +33,10 @@ class AIRequestError extends Error {
 }
 
 function buildPrompt(job: AnalysisInput, promptOverride = '') {
+  // Keep long-sentence prompts compact. Character offsets are already checked
+  // against the source by the validator and do not need to be sent to the AI.
+  const tokenSkeleton = tokenize(job.source_text).map(({ index, text, kind }) => ({ index, text, kind }));
+  const wordTokenCount = tokenSkeleton.filter(token => token.kind === 'word').length;
   return JSON.stringify({
     task: '做英语四六级逐句精读。翻译必须自然准确；根据原文解释句型、时态、语态、主干和从句，并提取重点单词和词组。',
     output: {
@@ -55,7 +59,7 @@ function buildPrompt(job: AnalysisInput, promptOverride = '') {
       keyPoints: ['与本句有关的学习要点'],
     },
     rules: [
-      'words 必须覆盖每一个 word token，index 必须来自 tokenSkeleton；不要解释标点。',
+      `words 必须恰好有 ${wordTokenCount} 项，覆盖 tokenSkeleton 中每一个 word token，各 index 只能出现一次；不要解释标点。`,
       'tokenStart 包含，tokenEnd 不包含；所有范围必须在 tokenSkeleton 内。',
       'grammar.clauses 和 grammar.components 都必须非空。简单句也要在 clauses 中分析主句；没有从句不等于没有主句。复合句先分析主句，再逐一分析实际存在的从句及其作用。',
       '每个 explanation 必须结合所选范围的具体英文，说明中心词、成分作用或主从关系。禁止只写“句子主要成分”“句子主干”“主语部分”“作用”这类标签，也不要照抄 output 中的字段说明。',
@@ -64,11 +68,11 @@ function buildPrompt(job: AnalysisInput, promptOverride = '') {
       'vocabulary 同时考虑重点单词和词组：较难的单词、熟词生义、考试常见用法、固定搭配和容易误解的表达。只收录本句值得学的内容，最多 6 项；没有时返回 []，不要凑数或重复列出所有单词。',
       'kind=word 对应一个原文 word token，kind=phrase 至少对应两个。meaning 和 usage 用中文，结合当前语境，简短说明搭配、词形或用法。',
       'ranges 按原文顺序排列且不重叠，可用多个范围表示被宾语隔开的搭配；只引用当前句子，不要把整句作为一个词组。',
-      '只返回完整 JSON，不要 Markdown，不要增加字段。',
+      '为避免截断，所有 explanation、meaning、usage 和 keyPoints 都要简洁；只返回完整 JSON，不要 Markdown，不要增加字段。',
     ],
     sentence: job.source_text,
     context: job.context_json,
-    tokenSkeleton: tokenize(job.source_text),
+    tokenSkeleton,
     operatorInstructions: promptOverride.trim() || undefined,
   });
 }
@@ -302,10 +306,12 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
         return buildAnalysis(job.source_text, parseModelJson(content));
       } catch (error) {
         if (attempt === 1) throw error;
-        const reason = error instanceof Error ? error.message.slice(0, 1500) : '结果未通过校验';
-        messages.push({ role: 'assistant', content }, {
+        const reason = error instanceof Error ? error.message.slice(0, 800) : '结果未通过校验';
+        // Do not echo a potentially truncated JSON answer back to the provider.
+        // The original prompt already contains the source and token skeleton.
+        messages.push({
           role: 'user',
-          content: `上次结果未通过校验：${reason}。请修正并重新返回完整 JSON。grammar.clauses 和 components 都不得为空；简单句也要说明主句，用本句具体英文解释成分和关系。保留每个 word token 的释义及正确范围，禁止使用占位说明。`,
+          content: `上一份回答未通过校验（${reason}）。请重新生成一份更紧凑的完整 JSON，不要引用上一份回答。grammar.clauses 和 grammar.components 都不得为空；每个 word token 必须各有一项 words；所有范围必须使用 tokenSkeleton 的 index，不能把标点当作 word；解释使用简短中文，禁止占位说明。`,
         });
       }
     }

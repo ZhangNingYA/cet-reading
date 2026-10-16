@@ -30,10 +30,25 @@ test('repairs omitted main-clause analysis rather than saving a fabricated fallb
   });
   const analysis = await generateAnalysis(input, config);
   assert.equal(calls.length, 2);
-  assert.equal(calls[1].messages.at(-2).role, 'assistant');
+  assert.equal(calls[1].messages.at(-1).role, 'user');
   assert.match(calls[1].messages.at(-1).content, /grammar.*clauses/s);
+  assert.equal(calls[1].messages.some(message => message.role === 'assistant'), false);
   assert.equal(signals[0], signals[1], 'Repair must share the original request deadline');
   assert.match(analysis.grammar.clauses[0].explanation, /People attribute/);
+});
+
+test('keeps long-sentence token prompts compact and counts word tokens explicitly', async t => {
+  const sentence = 'What may occur with the same seed and fertilizer program in the United States’ Midwest region is almost certainly unrelated to what may occur with the same seed and fertilizer program in Australia or South Africa.';
+  const calls = [];
+  const incomplete = raw(); incomplete.grammar.clauses = [];
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls.push(JSON.parse(options.body));
+    return reply(JSON.stringify(calls.length === 1 ? incomplete : raw()));
+  });
+  await assert.rejects(generateAnalysis({ ...input, source_text: sentence }, config), /AI did not explain word token|Token count|clauses/);
+  const prompt = JSON.parse(calls[0].messages.at(-1).content);
+  assert.equal(prompt.tokenSkeleton.some(token => 'charStart' in token || 'charEnd' in token), false);
+  assert.match(prompt.rules.join('\n'), /words 必须恰好有 36 项/);
 });
 
 test('fails after one unsuccessful repair and never accepts the placeholder', async t => {
