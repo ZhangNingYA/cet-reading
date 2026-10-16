@@ -40,9 +40,13 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
         </div>
         <label class="sr-only" for="admin-job-type">精读类型</label>
         <select id="admin-job-type"><option value="">全部精读</option><option value="sentence">文章精读</option><option value="text">题面精读</option><option value="question">做题精读</option></select>
-        <button class="button button-small admin-retry-all" id="admin-retry-all" type="button" hidden>重试失败任务</button>
+        <div class="admin-toolbar-actions">
+          <button class="button button-small admin-retry-all" id="admin-retry-all" type="button" hidden>重试失败任务</button>
+          <button class="button button-small admin-clear-failures" id="admin-clear-failures" type="button" hidden>清空全部失败</button>
+        </div>
       </div>
       <div id="admin-job-list" class="admin-job-list"><p class="admin-empty">正在读取请求…</p></div>
+      <button class="button admin-load-more" id="admin-job-more" type="button" hidden>加载更多请求</button>
       <p id="admin-job-count" class="admin-footnote"></p>
     </section>
 

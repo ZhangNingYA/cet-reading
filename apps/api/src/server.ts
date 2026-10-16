@@ -4,7 +4,9 @@ import { config } from './config.js';
 import { getAdminPriority, listAdminSections, removeAdminPriority, setAdminPriority, InvalidPriorityTargetError } from './admin-priority.js';
 import {
   getAdminOverview,
+  getAdminJobDetail,
   getAdminSettings,
+  clearAdminFailures,
   InvalidAdminSettingsError,
   listAdminAudit,
   listAdminPapers,
@@ -51,21 +53,36 @@ function adminEnabled(reply: { code: (statusCode: number) => { send: (payload: u
   return false;
 }
 
-app.get<{ Querystring: { jobType?: string; jobStatus?: string } }>('/api/admin/analysis', async (request, reply) => {
+app.get<{ Querystring: { jobType?: string; jobStatus?: string; page?: string; limit?: string } }>('/api/admin/analysis', async (request, reply) => {
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
-  const { jobType, jobStatus } = request.query;
+  const { jobType, jobStatus, page, limit } = request.query;
+  const parsedPage = page === undefined ? 0 : Number(page);
+  const parsedLimit = limit === undefined ? 20 : Number(limit);
   if ((jobType && !['sentence', 'text', 'question'].includes(jobType)) ||
-      (jobStatus && !['active', 'pending', 'running', 'succeeded', 'failed'].includes(jobStatus))) {
+      (jobStatus && !['active', 'pending', 'running', 'succeeded', 'failed'].includes(jobStatus)) ||
+      !Number.isInteger(parsedPage) || parsedPage < 0 || parsedPage > 10000 ||
+      !Number.isInteger(parsedLimit) || parsedLimit < 10 || parsedLimit > 50) {
     return reply.code(400).send({ error: 'invalid_job_filter' });
   }
-  return getAdminOverview(jobType || undefined, jobStatus || undefined);
+  return getAdminOverview(jobType || undefined, jobStatus || undefined, parsedPage, parsedLimit);
 });
 
 app.get('/api/admin/analysis/settings', async (_request, reply) => {
   reply.header('Cache-Control', 'no-store');
   if (!adminEnabled(reply)) return;
   return { settings: await getAdminSettings() };
+});
+
+app.get<{ Params: { id: string } }>('/api/admin/analysis/jobs/:id', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(request.params.id)) {
+    return reply.code(400).send({ error: 'invalid_job_id' });
+  }
+  const detail = await getAdminJobDetail(request.params.id);
+  if (!detail) return reply.code(404).send({ error: 'job_not_found' });
+  return detail;
 });
 
 app.patch<{ Body: unknown }>('/api/admin/analysis/settings', async (request, reply) => {
@@ -143,6 +160,17 @@ app.post<{ Body: { errorCode?: string; limit?: number; jobId?: string; jobType?:
   if (!adminEnabled(reply)) return;
   try { return retryAdminFailures(request.body?.errorCode, request.body?.limit, request.ip || 'admin-console', request.body?.jobId, request.body?.jobType); }
   catch (error) { if (error instanceof InvalidAdminSettingsError) return reply.code(400).send({ error: 'invalid_retry_filter', message: error.message }); throw error; }
+});
+
+app.post<{ Body: { jobType?: string } }>('/api/admin/analysis/clear-failures', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!adminEnabled(reply)) return;
+  try {
+    return await clearAdminFailures(request.body?.jobType, request.ip || 'admin-console');
+  } catch (error) {
+    if (error instanceof InvalidAdminSettingsError) return reply.code(400).send({ error: 'invalid_failure_filter', message: error.message });
+    throw error;
+  }
 });
 
 app.get<{ Querystring: { limit?: string } }>('/api/admin/analysis/audit', async (request, reply) => {

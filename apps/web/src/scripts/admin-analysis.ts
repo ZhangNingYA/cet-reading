@@ -9,12 +9,13 @@ type Job = {
   id: string; type: JobType; textKey: string | null; status: string;
   paperId: string | null; articleId: string | null; examLevel: string | null;
   title: string; sectionTitle: string | null; source: string; errorCode: string | null;
+  attempts: number;
   createdAt: string | null; startedAt: string | null; finishedAt: string | null;
 };
 type Overview = {
   observedAt: string; settings: Settings;
   queue: { pending: number; running: number; failed: number; active: number };
-  jobs: Job[];
+  jobs: Job[]; jobsPage: { page: number; limit: number; hasMore: boolean };
   priority: Priority[];
 };
 type Paper = {
@@ -45,7 +46,12 @@ let settingsSaving = false;
 let settingsRevision = 0;
 let papersLoaded = false;
 let retrying = false;
+let clearing = false;
 let papers: Paper[] = [];
+let jobPage = 0;
+let jobHasMore = false;
+let jobRows: Job[] = [];
+const jobDetails = new Map<string, string>();
 let paperPage = 0;
 let priority: Priority[] = [];
 let prioritySaving = false;
@@ -54,6 +60,7 @@ let expandedPaper: string | null = null;
 let sectionsLoading = false;
 const sectionsByPaper = new Map<string, PaperSection[]>();
 const PAGE_SIZE = 10;
+const JOB_PAGE_SIZE = 20;
 const DEFAULT_REQUEST_TIMEOUT_MS = 15000;
 // Progress aggregates sentences, question text and solving caches across all
 // papers. It is intentionally allowed more time than the small control-panel
@@ -106,7 +113,7 @@ async function request(path: string, init?: RequestInit): Promise<any> {
   return body;
 }
 function filters() {
-  const params = new URLSearchParams({ jobStatus });
+  const params = new URLSearchParams({ jobStatus, page: String(jobPage), limit: String(JOB_PAGE_SIZE) });
   if (jobType.value) params.set('jobType', jobType.value);
   return params.toString();
 }
@@ -132,20 +139,33 @@ function renderOverview(data: Overview) {
   const retryAll = el<HTMLButtonElement>('admin-retry-all');
   retryAll.hidden = jobStatus !== 'failed';
   retryAll.disabled = retrying || data.queue.failed === 0;
+  const clearFailures = el<HTMLButtonElement>('admin-clear-failures');
+  clearFailures.hidden = jobStatus !== 'failed';
+  clearFailures.disabled = clearing || data.queue.failed === 0;
+  clearFailures.textContent = jobType.value ? `清空${typeLabels[jobType.value as JobType]}失败` : '清空全部失败';
+  jobHasMore = Boolean(data.jobsPage?.hasMore);
   el('admin-requests-panel').setAttribute('aria-busy', 'false');
   el('admin-job-list').innerHTML = data.jobs.length ? data.jobs.map(job => {
     const url = contentUrl(job.paperId, job.examLevel, job.articleId);
     const title = url ? `<a href="${esc(url)}">${esc(job.title || '精读任务')} <span aria-hidden="true">↗</span></a>` : esc(job.title || '精读任务');
     const detail = job.type === 'text' ? (job.textKey === 'prompt' ? '题干' : `选项 ${job.textKey?.replace('option:', '') || ''}`) : '';
     const error = job.status === 'failed' && job.errorCode ? errorLabels[job.errorCode] || '生成失败' : '';
-    return `<article class="admin-job-row"><div class="admin-job-copy"><h2>${title}</h2><p class="admin-job-source" lang="en" title="${esc(job.source)}">${esc(job.source)}</p><p class="admin-job-meta">${typeLabels[job.type]}${detail ? ` · ${esc(detail)}` : ''}${job.sectionTitle ? ` · ${esc(job.sectionTitle)}` : ''}${error ? ` · <span class="admin-error">${error}</span>` : ''}</p></div><div class="admin-job-action"><span class="admin-state is-${esc(job.status)}">${esc(stateLabels[job.status] || job.status)}</span>${job.status === 'failed' ? `<button class="text-link admin-retry-one" type="button" data-job-id="${esc(job.id)}"${retrying ? ' disabled' : ''}>重试</button>` : `<time>${time(job.finishedAt || job.startedAt || job.createdAt)}</time>`}</div></article>`;
+    const errorDetail = job.status === 'failed'
+      ? `<details class="admin-job-detail" data-job-id="${esc(job.id)}"><summary>查看详细错误</summary><pre>${esc(jobDetails.get(job.id) || '展开后读取详细返回…')}</pre></details>` : '';
+    const attempts = job.attempts ? ` · 尝试 ${job.attempts} 次` : '';
+    return `<article class="admin-job-row"><div class="admin-job-copy"><h2>${title}</h2><p class="admin-job-source" lang="en" title="${esc(job.source)}">${esc(job.source)}</p><p class="admin-job-meta">${typeLabels[job.type]}${detail ? ` · ${esc(detail)}` : ''}${job.sectionTitle ? ` · ${esc(job.sectionTitle)}` : ''}${attempts}${error ? ` · <span class="admin-error">${error}</span>` : ''}</p>${errorDetail}</div><div class="admin-job-action"><span class="admin-state is-${esc(job.status)}">${esc(stateLabels[job.status] || job.status)}</span>${job.status === 'failed' ? `<button class="text-link admin-retry-one" type="button" data-job-id="${esc(job.id)}"${retrying ? ' disabled' : ''}>重试</button>` : `<time>${time(job.finishedAt || job.startedAt || job.createdAt)}</time>`}</div></article>`;
   }).join('') : `<p class="admin-empty">${jobStatus === 'active' ? '当前没有进行中的请求' : jobStatus === 'failed' ? '没有失败任务' : '最近 24 小时还没有完成记录'}</p>`;
-  el('admin-job-count').textContent = jobStatus === 'active' ? `${data.jobs.length} 条请求 · 每 10 秒更新`
-    : jobStatus === 'failed' ? `显示最近 ${data.jobs.length} 条失败记录 · 每 10 秒更新`
-    : `最近 24 小时 · 显示最新 ${data.jobs.length} 条 · 每 10 秒更新`;
+  const total = jobStatus === 'active' ? data.queue.active : jobStatus === 'failed' ? data.queue.failed : null;
+  el('admin-job-count').textContent = total === null
+    ? `每次显示 ${JOB_PAGE_SIZE} 条，按需加载更多 · 每 10 秒更新`
+    : `显示 ${data.jobs.length} / ${total} 条 · 每次最多 ${JOB_PAGE_SIZE} 条 · 每 10 秒更新`;
+  const more = el<HTMLButtonElement>('admin-job-more');
+  more.hidden = !jobHasMore;
+  more.disabled = overviewLoading;
 }
-async function loadOverview() {
+async function loadOverview(append = false) {
   if (overviewLoading) return;
+  if (!append) jobPage = 0;
   overviewLoading = true;
   const query = filters();
   const revision = settingsRevision;
@@ -155,6 +175,8 @@ async function loadOverview() {
     if (query === filters()) {
       if (revision !== settingsRevision && settings) data.settings = settings;
       if (selectionRevision !== priorityRevision) data.priority = priority;
+      jobRows = append ? [...jobRows, ...data.jobs] : data.jobs;
+      data.jobs = jobRows;
       renderOverview(data);
     }
   } catch (error) {
@@ -323,6 +345,41 @@ async function retry(jobId?: string) {
     await loadOverview();
   }
 }
+async function clearFailures() {
+  if (clearing || jobStatus !== 'failed') return;
+  const scope = jobType.value ? typeLabels[jobType.value as JobType] : '全部';
+  if (!window.confirm(`确定清空${scope}失败记录吗？失败任务会从列表移除，成功的精读结果不会受影响。`)) return;
+  clearing = true;
+  const button = el<HTMLButtonElement>('admin-clear-failures');
+  button.disabled = true;
+  try {
+    const data = await request('/api/admin/analysis/clear-failures', {
+      method: 'POST', body: JSON.stringify(jobType.value ? { jobType: jobType.value } : {}),
+    });
+    announce(data.cleared ? `已清空 ${data.cleared} 条失败记录。` : '没有需要清空的失败记录。');
+    jobRows = [];
+    jobDetails.clear();
+  } catch (error) {
+    announce(error instanceof Error ? error.message : '清空失败记录失败，请稍后再试。', true);
+  } finally {
+    clearing = false;
+    button.disabled = false;
+    await loadOverview();
+  }
+}
+function loadJobDetail(details: HTMLDetailsElement) {
+  const id = details.dataset.jobId;
+  if (!id || jobDetails.has(id)) return;
+  const pre = details.querySelector('pre');
+  if (!pre) return;
+  void request(`/api/admin/analysis/jobs/${encodeURIComponent(id)}`).then(data => {
+    const value = typeof data.errorMessage === 'string' && data.errorMessage.trim() ? data.errorMessage : '任务没有保存详细错误。';
+    jobDetails.set(id, value);
+    pre.textContent = value;
+  }).catch(error => {
+    pre.textContent = error instanceof Error ? error.message : '详细错误读取失败，请稍后重试。';
+  });
+}
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => showPanel(index === 0 ? 'requests' : 'progress'));
   tab.addEventListener('keydown', event => {
@@ -339,9 +396,18 @@ el('admin-refresh').addEventListener('click', () => { void loadOverview(); if (c
 speed.addEventListener('change', () => void saveSettings());
 toggle.addEventListener('click', () => { if (settings) void saveSettings(!settings.backfillPaused); });
 el('admin-retry-all').addEventListener('click', () => void retry());
+el('admin-clear-failures').addEventListener('click', () => void clearFailures());
+el('admin-job-more').addEventListener('click', () => {
+  if (!jobHasMore || overviewLoading) return;
+  jobPage += 1;
+  void loadOverview(true);
+});
 el('admin-job-list').addEventListener('click', event => {
-  const button = (event.target as HTMLElement).closest<HTMLButtonElement>('.admin-retry-one');
+  const target = event.target as HTMLElement;
+  const button = target.closest<HTMLButtonElement>('.admin-retry-one');
   if (button) void retry(button.dataset.jobId);
+  const details = target.closest<HTMLDetailsElement>('.admin-job-detail');
+  if (details) window.setTimeout(() => { if (details.open) loadJobDetail(details); }, 0);
 });
 el('admin-clear-priority').addEventListener('click', () => void selectPriority(null));
 el('admin-priority-list').addEventListener('click', event => {

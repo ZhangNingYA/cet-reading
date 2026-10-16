@@ -92,8 +92,10 @@ export async function setBackfillPaused(
   return updateAdminSettings({ backfillPaused: paused }, actor);
 }
 
-export async function getAdminOverview(jobType?: string, jobStatus?: string) {
+export async function getAdminOverview(jobType?: string, jobStatus?: string, page = 0, limit = 20) {
   const settings = await getAdminSettings();
+  const safeLimit = Math.min(50, Math.max(10, Math.trunc(limit || 20)));
+  const safePage = Math.min(10000, Math.max(0, Math.trunc(page || 0)));
   const params = [config.mode, config.model, config.promptVersion];
   const [priority, queue, jobs] = await Promise.all([
     getAdminPriority(),
@@ -143,7 +145,7 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
               THEN 'pending' ELSE j.status END=$5)
        ORDER BY CASE WHEN j.status='running' AND j.lease_expires_at>NOW() THEN 0
                      WHEN j.status IN ('pending','running') THEN 1 ELSE 2 END,
-                j.updated_at DESC, j.id DESC LIMIT 50`,
+                j.updated_at DESC, j.id DESC LIMIT ${safeLimit + 1} OFFSET ${safePage * safeLimit}`,
       [...params, jobType ?? null, jobStatus ?? null],
     ),
   ]);
@@ -180,7 +182,7 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
       oldestRunningAt: asIso(q.oldest_running),
       byType,
     },
-    jobs: jobs.rows.map(row => ({
+    jobs: jobs.rows.slice(0, safeLimit).map(row => ({
       id: row.id, type: row.job_type, textKey: row.text_key, status: row.status,
       paperId: row.paper_id, articleId: row.article_id, examLevel: row.exam_level,
       title: row.title, sectionTitle: row.section_title, source: row.source_text,
@@ -189,6 +191,35 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string) {
       createdAt: asIso(row.created_at), startedAt: asIso(row.started_at),
       finishedAt: asIso(row.finished_at), nextAttemptAt: asIso(row.next_attempt_at),
     })),
+    jobsPage: {
+      page: safePage,
+      limit: safeLimit,
+      hasMore: jobs.rows.length > safeLimit,
+    },
+  };
+}
+
+export async function getAdminJobDetail(id: string) {
+  const result = await pool.query<{
+    id: string; status: string; job_type: string; attempts: number;
+    error_message: string | null; created_at: Date; started_at: Date | null; finished_at: Date | null;
+  }>(
+    `SELECT id,status,job_type,attempts,error_message,created_at,started_at,finished_at
+     FROM analysis_jobs
+     WHERE id=$1 AND mode=$2 AND model=$3 AND prompt_version=$4`,
+    [id, config.mode, config.model, config.promptVersion],
+  );
+  const row = result.rows[0];
+  if (!row) return null;
+  return {
+    id: row.id,
+    status: row.status,
+    type: row.job_type,
+    attempts: row.attempts,
+    errorMessage: row.error_message,
+    createdAt: asIso(row.created_at),
+    startedAt: asIso(row.started_at),
+    finishedAt: asIso(row.finished_at),
   };
 }
 
@@ -408,6 +439,43 @@ export async function retryAdminFailures(
     await client.query("ROLLBACK").catch(() => undefined);
     throw error;
   } finally { client.release(); }
+}
+
+export async function clearAdminFailures(
+  jobType?: string,
+  actor = "admin-console",
+) {
+  if (jobType && !['sentence', 'text', 'question'].includes(jobType)) {
+    throw new InvalidAdminSettingsError("Invalid job type");
+  }
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
+      `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
+    ]);
+    const result = await client.query(
+      `DELETE FROM analysis_jobs
+       WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status='failed'
+         AND ($4::text IS NULL OR job_type=$4)
+       RETURNING id`,
+      [config.mode, config.model, config.promptVersion, jobType ?? null],
+    );
+    await audit(
+      client,
+      "jobs.failures_cleared",
+      { jobType: jobType ?? null },
+      { count: result.rowCount ?? 0 },
+      actor,
+    );
+    await client.query("COMMIT");
+    return { cleared: result.rowCount ?? 0 };
+  } catch (error) {
+    await client.query("ROLLBACK").catch(() => undefined);
+    throw error;
+  } finally {
+    client.release();
+  }
 }
 
 export async function listAdminAudit(limit = 50) {

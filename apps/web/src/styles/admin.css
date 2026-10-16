@@ -30,7 +30,13 @@
 .admin-job-filters button[aria-pressed='true'] { color: var(--accent-deep); background: var(--paper); box-shadow: 0 1px 3px #202a2710; }
 .admin-toolbar > select { margin-left: auto; }
 .admin-retry-all { color: #98553f; border-color: #ecdcd5; background: var(--paper); }
+.admin-toolbar-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+.admin-clear-failures { color: #98553f; border-color: #e8cfc6; background: #fffaf7; }
+.admin-clear-failures:hover, .admin-retry-all:hover { background: #fbf1eb; }
+.admin-job-list { display: grid; gap: 10px; margin-top: 14px; }
 .admin-job-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.admin-job-row { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); box-shadow: 0 3px 14px #202a2708; }
+.admin-job-row:hover { border-color: #b9d4c5; box-shadow: 0 8px 24px #202a2710; }
 .admin-job-copy { min-width: 0; }
 .admin-job-copy h2 { overflow: hidden; margin: 0; text-overflow: ellipsis; white-space: nowrap; font-size: var(--text-ui); font-weight: 550; }
 .admin-job-copy h2 a:hover, .admin-paper-name:hover strong { color: var(--accent); }
@@ -41,6 +47,11 @@
 .admin-job-action time { color: var(--quiet); font-size: 12px; font-variant-numeric: tabular-nums; }
 .admin-job-action .text-link { min-height: 24px; font-size: var(--text-caption); }
 .admin-job-action .text-link:disabled { color: var(--quiet); cursor: wait; }
+.admin-job-detail { margin-top: 10px; border-radius: 8px; background: #fff8f4; }
+.admin-job-detail summary { padding: 8px 10px; color: #98553f; cursor: pointer; font-size: 12px; list-style-position: inside; }
+.admin-job-detail pre { max-height: 220px; overflow: auto; margin: 0; padding: 0 10px 10px; color: #6c4034; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.admin-load-more { display: block; min-width: 160px; margin: 18px auto 0; border-color: var(--line); background: var(--paper); }
+.admin-load-more:hover { border-color: #b9d4c5; background: var(--accent-pale); }
 .admin-state { padding: 3px 7px; border-radius: 5px; color: var(--muted); background: var(--paper-warm); font-size: 12px; white-space: nowrap; }
 .admin-state.is-running { color: var(--accent-deep); background: var(--accent-pale); }
 .admin-state.is-failed { color: #98553f; background: #fbf1eb; }
