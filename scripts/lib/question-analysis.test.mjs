@@ -3,6 +3,7 @@ import test from 'node:test';
 import { tsImport } from 'tsx/esm/api';
 
 const { generateQuestionAnalysis } = await tsImport('../../apps/worker/src/ai-analysis.ts', import.meta.url);
+const { validateQuestionAnalysis } = await tsImport('../../packages/contracts/src/index.ts', import.meta.url);
 const config = { apiUrl: 'https://model.test/v1', apiKey: 'test-only', model: 'test-model', requestTimeoutMs: 1000 };
 const paragraph = 'Digital access can help fans connect to the live experience.';
 const base = {
@@ -72,4 +73,13 @@ test('repairs an answer mismatch and accepts only the reference answer with sour
   assert.equal(calls.length, 2);
   assert.match(calls[1].messages.at(-1).content, /correctAnswer/);
   assert.equal(analysis.options.filter(option => option.correct).length, 1);
+});
+
+test('accepts source-quoted evidence when PDF paragraph whitespace differs', () => {
+  const quoted = result();
+  quoted.evidence[0].excerpt = 'Digital access can help fans connect to the live experience.';
+  const paragraphWithLineWrap = 'Digital access can help fans connect to the live\nexperience.';
+  assert.doesNotThrow(() => validateQuestionAnalysis(quoted, {
+    questionType: 'reading', options: base.options, answer: base.answer, paragraphs: [paragraphWithLineWrap],
+  }));
 });

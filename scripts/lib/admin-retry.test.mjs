@@ -43,6 +43,7 @@ test('single request retries carry the selected ID and type and take precedence 
   assert.deepEqual(await retryAdminFailures(undefined, 1, 'admin-test', second, 'question'), { retried: 1 });
   const selection = calls.find(call => call.sql.includes('SELECT j.id FROM analysis_jobs j JOIN'));
   assert.deepEqual(selection.params.slice(5), [second, 'question']);
+  assert.match(selection.sql, /source_text ~ '\[A-Za-z\]'/, 'non-English-only text cannot be retried into the queue');
   assert.deepEqual(calls.find(call => call.sql.startsWith('UPDATE analysis_jobs')).params, [[second]]);
   assert.equal(calls.some(call => call.sql.includes('DELETE FROM analysis_jobs')), false);
 });

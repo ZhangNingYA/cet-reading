@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import type { Pool } from 'pg';
-import { validateAnalysis, validateQuestionAnalysis } from '@cet-reading/contracts';
+import { hasWordTokens, validateAnalysis, validateQuestionAnalysis } from '@cet-reading/contracts';
 import { config } from './config.js';
 
 export function emptyQuestionProgress() {
@@ -43,7 +43,7 @@ export async function getPaperQuestionProgress(database: Pool, paperIds?: string
   for (const question of questionRows.rows) {
     if (!progressByPaper.has(question.paper_id)) progressByPaper.set(question.paper_id, emptyQuestionProgress());
     const addText = (textKey: string, source: string) => {
-      if (!source) return;
+      if (!source || !hasWordTokens(source)) return;
       candidates.push({
         paperId: question.paper_id, questionId: question.id, textKey, kind: 'text',
         hash: hashJson({ questionId: question.id, textKey, source }),

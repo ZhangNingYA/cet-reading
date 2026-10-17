@@ -1,4 +1,4 @@
-import { tokenize } from '@cet-reading/contracts/tokens';
+import { hasWordTokens, tokenize } from '@cet-reading/contracts/tokens';
 import type { QuestionAnalysis, SentenceAnalysis } from '@cet-reading/contracts';
 import { createSectionNavigation } from './section-navigation';
 import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
@@ -428,6 +428,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   function renderSentence(sentence: StudySentence, underlined: { start: number; end: number }[] = []) {
     const source = element('span', 'source-sentence');
     source.dataset.sentenceId = sentence.id;
+    if (!hasWordTokens(sentence.source)) {
+      source.classList.add('is-static');
+      source.removeAttribute('tabindex');
+      source.removeAttribute('role');
+      source.textContent = sentence.source;
+      return source;
+    }
     source.tabIndex = 0;
     source.setAttribute('role', 'group');
     source.setAttribute('aria-label', `第 ${sentence.sentenceIndex + 1} 句，按回车查看精读`);

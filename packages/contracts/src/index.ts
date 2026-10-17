@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
-import { tokenize } from './tokens.js';
-export { tokenize } from './tokens.js';
+import { hasWordTokens, tokenize } from './tokens.js';
+export { hasWordTokens, tokenize } from './tokens.js';
 
 export const BaseTokenSchema = z.object({
   index: z.number().int().nonnegative(),
@@ -145,7 +145,7 @@ function ensureGrammarRanges(tokens: BaseToken[], grammar: SentenceAnalysis['gra
   for (const range of [...grammar.clauses, ...grammar.components]) {
     if (range.tokenStart >= range.tokenEnd || range.tokenEnd > tokens.length ||
         !tokens.slice(range.tokenStart, range.tokenEnd).some(token => token.kind === 'word')) {
-      throw new Error('Grammar range must contain source words and stay inside the source');
+      throw new Error(`Grammar range [${range.tokenStart}, ${range.tokenEnd}) must contain a source word and stay inside the ${tokens.length} source tokens`);
     }
     const explanation = range.explanation.replace(/[\s，。！？、：；,.!?:;]/gu, '');
     if (!explanation || placeholders.has(explanation)) {
@@ -157,6 +157,13 @@ function ensureGrammarRanges(tokens: BaseToken[], grammar: SentenceAnalysis['gra
 export function buildAnalysis(source: string, raw: unknown): SentenceAnalysis {
   const ai = AIAnalysisSchema.parse(raw);
   const baseTokens = tokenize(source);
+  const expectedWordIndexes = baseTokens.filter((token) => token.kind === 'word').map((token) => token.index);
+  const receivedWordIndexes = ai.words.map((word) => word.index);
+  if (new Set(receivedWordIndexes).size !== expectedWordIndexes.length ||
+      expectedWordIndexes.some((index) => !receivedWordIndexes.includes(index)) ||
+      receivedWordIndexes.some((index) => !expectedWordIndexes.includes(index))) {
+    throw new Error(`AI word explanations do not match source word tokens: expected indexes [${expectedWordIndexes.join(', ')}], received [${receivedWordIndexes.join(', ')}]`);
+  }
   const words = new Map(ai.words.map((word) => [word.index, word]));
   const tokens = baseTokens.map((token) => {
     if (token.kind === 'punctuation') return token;
@@ -225,7 +232,10 @@ export function validateQuestionAnalysis(value: unknown, expected?: {
     !analysis.options.some(option => option.key === expected.answer && option.correct)) {
     throw new Error('Question analysis answer does not match reference answer');
   }
-  if (!analysis.evidence.some(item => expected.paragraphs.some(paragraph => paragraph.includes(item.excerpt)))) {
+  const normalizeQuote = (text: string) => text.normalize('NFKC')
+    .replace(/[’‘]/gu, "'").replace(/[“”]/gu, '"').replace(/\s+/gu, ' ').trim();
+  if (!analysis.evidence.some(item => expected.paragraphs.some(paragraph =>
+    normalizeQuote(paragraph).includes(normalizeQuote(item.excerpt))))) {
     throw new Error('Question analysis evidence is not quoted from the source passage');
   }
   return analysis;

@@ -60,7 +60,7 @@ test('counts valid compatible text and solving caches once; ignores stale and in
   const valid = buildAnalysis(source, raw());
   const invalid = { ...valid, translation: '' };
   mockQuestionProgress(t, {
-    questions: [q, question('q2'), question('matching', 'matching')],
+    questions: [q, question('q2'), { ...question('matching', 'matching'), prompt: '选择与陈述相对应的段落。' }],
     caches: [
       { question_id: 'q1', content_hash: textHash('q1', 'prompt'), prompt_version: config.promptVersion, analysis_json: invalid },
       { question_id: 'q1', content_hash: textHash('q1', 'prompt'), prompt_version: config.cachePromptVersions[1], analysis_json: valid },
@@ -80,7 +80,7 @@ test('counts valid compatible text and solving caches once; ignores stale and in
     ],
   });
   assert.deepEqual((await getPaperQuestionProgress(pool, ['paper'])).get('paper'), {
-    analysis_text_total: 7, analysis_text_cached: 2, analysis_text_current_cached: 1,
+    analysis_text_total: 6, analysis_text_cached: 2, analysis_text_current_cached: 1,
     analysis_text_pending: 1, analysis_text_running: 1, analysis_text_failed: 1,
     analysis_solving_total: 2, analysis_solving_cached: 1, analysis_solving_current_cached: 1,
     analysis_solving_pending: 1, analysis_solving_running: 0, analysis_solving_failed: 0,

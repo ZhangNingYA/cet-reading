@@ -389,6 +389,7 @@ export async function retryAdminFailures(
          FROM analysis_jobs failed
          WHERE mode=$1 AND model=$2 AND prompt_version=$3 AND status='failed'
            AND ($6::uuid IS NULL OR id=$6::uuid) AND ($7::text IS NULL OR job_type=$7)
+           AND (job_type='question' OR source_text ~ '[A-Za-z]')
            AND ($4::text IS NULL OR CASE WHEN error_message~*'abort|timed? ?out|timeout' THEN 'timeout'
              WHEN error_message~*'AI request failed|fetch failed|AI response did not contain' THEN 'service_unavailable'
              WHEN error_message~*'Grammar|Vocabulary|Translation|AI word|word token|validation|JSON|Unexpected token' THEN 'invalid_result'

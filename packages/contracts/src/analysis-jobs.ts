@@ -8,7 +8,7 @@ export const ANALYSIS_BATCH_LOCK_ID = 814172025;
 export function analysisErrorCode(message: string | null): AnalysisErrorCode {
   if (/aborted|aborterror|timed? ?out|timeout/i.test(message ?? '')) return 'timeout';
   if (/AI request failed|fetch failed|AI response did not contain/i.test(message ?? '')) return 'service_unavailable';
-  if (/Grammar|Vocabulary|Translation|AI word|word token|validation|"code"|JSON|Unexpected token/i.test(message ?? '')) return 'invalid_result';
+  if (/Grammar|Vocabulary|Translation|AI word|word token|Question analysis|validation|"code"|JSON|Unexpected token/i.test(message ?? '')) return 'invalid_result';
   return 'generation_failed';
 }
 

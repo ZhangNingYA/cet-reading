@@ -68,7 +68,9 @@
 .section-image { display: block; max-width: 100%; height: auto; margin: 24px auto 0; }
 .source-unit.is-translation-target { text-decoration: underline; text-underline-offset: 4px; }
 .source-sentence { border-radius: 3px; cursor: pointer; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .15s; }
+.source-sentence.is-static { cursor: default; }
 .source-sentence:hover { background: #f1f5f2; }
+.source-sentence.is-static:hover { background: transparent; }
 .source-sentence.is-selected { background: #e7f1e9; }
 .source-unit { white-space: normal; }
 .source-word { display: inline; margin: 0; padding: 0; color: inherit; border: 0; border-radius: 0; background: transparent; font: inherit; line-height: inherit; white-space: nowrap; text-align: inherit; vertical-align: baseline; }

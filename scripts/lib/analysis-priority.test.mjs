@@ -50,10 +50,12 @@ const runtime = async () => ({ queueCapacity: 4, backfillPaused: false });
 
 test('paper/section targets use reader cache hashes and exclude unsupported solving tasks', async () => {
   const q = question();
-  const { db, calls } = mockDatabase({ questions: [q, question('matching','matching')] });
+  const matching = question('matching','matching');
+  matching.prompt = '选择与陈述相对应的段落。';
+  const { db, calls } = mockDatabase({ questions: [q, matching] });
   const candidates = await loadPriorityCandidates(db, { paperId: 'paper-1', sectionId: 'section-1' });
   assert.equal(candidates.filter(c => c.type === 'question').length, 1);
-  assert.equal(candidates.filter(c => c.type === 'text').length, 4);
+  assert.equal(candidates.filter(c => c.type === 'text').length, 3);
   const solving = candidates.find(c => c.type === 'question');
   const content = Object.fromEntries(['question_type','title','instructions','paragraphs','prompt','options','answer','explanation'].map(k => [k,q[k]]));
   assert.equal(solving.sourceHash, createHash('sha256').update(JSON.stringify(content)).digest('hex'));

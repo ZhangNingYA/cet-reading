@@ -193,6 +193,7 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
              WHERE shared.paper_id = ordered.paper_id
                AND shared.section_id = ordered.section_id
            )
+       AND ordered.source_text ~ '[A-Za-z]'
        ${cursorClause}
      ORDER BY (article_id IS NOT NULL) DESC,
               news_batch_at DESC NULLS LAST,
@@ -283,6 +284,7 @@ async function loadQuestionTextCandidates(pool: Pool, limit: number, cursor: Que
      SELECT question_id, text_key, source_text, title
      FROM question_texts
      WHERE NULLIF(BTRIM(source_text), '') IS NOT NULL
+       AND source_text ~ '[A-Za-z]'
        AND ($1::text IS NULL OR (question_id, text_key) > ($1::text, $2::text))
      ORDER BY question_id, text_key
      LIMIT $3`,

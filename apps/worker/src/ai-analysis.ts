@@ -311,7 +311,7 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
         // The original prompt already contains the source and token skeleton.
         messages.push({
           role: 'user',
-          content: `上一份回答未通过校验（${reason}）。请重新生成一份更紧凑的完整 JSON，不要引用上一份回答。grammar.clauses 和 grammar.components 都不得为空；每个 word token 必须各有一项 words；所有范围必须使用 tokenSkeleton 的 index，不能把标点当作 word；解释使用简短中文，禁止占位说明。`,
+          content: `上一份回答未通过校验（${reason}）。请重新生成一份更紧凑的完整 JSON，不要引用上一份回答。grammar.clauses 和 grammar.components 都不得为空；每个 word token 必须各有一项 words；所有 grammar 范围都必须满足 0 <= tokenStart < tokenEnd <= tokenSkeleton.length，并且范围内至少包含一个实际英文单词，不能只覆盖标点；vocabulary 的 word 只能覆盖一个英文单词，phrase 至少覆盖两个英文单词，ranges 必须按原文顺序且不重叠；解释使用简短中文，禁止占位说明。`,
         });
       }
     }
@@ -352,7 +352,7 @@ export async function generateQuestionAnalysis(job: QuestionAnalysisInput, confi
         const reason = error instanceof Error ? error.message.slice(0, 1500) : '结果未通过校验';
         messages.push({ role: 'assistant', content }, {
           role: 'user',
-          content: `上次结果未通过校验：${reason}。请修正并返回完整 JSON。必须逐一分析全部选项，correctAnswer 与给定答案一致，evidence 必须引用材料中的具体英文。`,
+          content: `上次结果未通过校验：${reason}。请修正并返回完整 JSON。必须逐一分析全部选项，correctAnswer 与给定答案一致。evidence.excerpt 必须从 material.paragraphs 中原样复制一段连续英文，保留大小写、拼写和标点；不能改写、翻译、添加省略号或使用不在原文中的概括。`,
         });
       }
     }

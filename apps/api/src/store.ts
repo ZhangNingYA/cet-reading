@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import { createHash } from 'node:crypto';
-import { AnswersSchema, contextHash, validateAnalysis, validateQuestionAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
+import { AnswersSchema, contextHash, hasWordTokens, validateAnalysis, validateQuestionAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
@@ -424,7 +424,7 @@ export async function getQuestionTextForAnalysis(id: string, textKey: string): P
       source = paragraph?.replace(/^\[[A-Z]\]\s*/, '') ?? option.text;
     } else source = option.text;
   }
-  if (!source) return null;
+  if (!source || !hasWordTokens(source)) return null;
   const content = JSON.stringify({ questionId: id, textKey, source });
   return {
     questionId: id, textKey, source_text: source,

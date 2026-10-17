@@ -4,7 +4,7 @@ import { tsImport } from 'tsx/esm/api';
 import { buildAnalysis } from '@cet-reading/contracts';
 import { source, raw } from './fixtures/analysis.mjs';
 
-const { AnalysisPausedError, AnalysisQueueFullError, enqueueAnalysis, getCachedAnalysis, getJob, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
+const { AnalysisPausedError, AnalysisQueueFullError, enqueueAnalysis, getCachedAnalysis, getJob, getQuestionTextForAnalysis, pool } = await tsImport('../../apps/api/src/store.ts', import.meta.url);
 function badCache() {
   const cached = buildAnalysis(source, raw());
   cached.grammar.clauses[0].explanation = '句子主要成分';
@@ -26,6 +26,15 @@ test('treats only invalid cached results as a miss without deleting their histor
   });
   assert.equal(await getCachedAnalysis('sentence-1', 'source-hash', 'context-hash', source), undefined);
   assert.equal(queries, 1);
+});
+
+test('does not enqueue question text that contains no English words', async t => {
+  t.mock.method(pool, 'query', async () => ({ rows: [{
+    id: 'matching-question', question_type: 'matching', title: 'Paragraph matching',
+    instructions: '选择与陈述相对应的段落。', paragraphs: [],
+    prompt: '选择与陈述相对应的段落。', options: [], answer: 'A', explanation: '',
+  }] }));
+  assert.equal(await getQuestionTextForAnalysis('matching-question', 'prompt'), null);
 });
 
 test('rejects public generation while the paper batch holds the shared AI gate', async t => {

@@ -158,6 +158,7 @@ test('backfill excludes sections hidden as shared readings', async () => {
   await fillBackgroundQueue(pool, config);
   assert.match(orderedQuery, /FROM shared_paper_sections shared/);
   assert.match(orderedQuery, /shared\.section_id = ordered\.section_id/);
+  assert.match(orderedQuery, /ordered\.source_text ~ '\[A-Za-z\]'/, 'instruction-only text is not a sentence-analysis candidate');
 });
 
 test('backfill orders latest news batches before paper candidates', async () => {

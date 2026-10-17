@@ -17,3 +17,9 @@ export function tokenize(source: string): SourceToken[] {
     charEnd: match.index! + match[0].length,
   }));
 }
+
+// Sentence analysis is defined for English word tokens. Instructions,
+// separators and other non-English-only strings remain plain text.
+export function hasWordTokens(source: string): boolean {
+  return tokenize(source).some((token) => token.kind === 'word' && /[A-Za-z]/u.test(token.text));
+}

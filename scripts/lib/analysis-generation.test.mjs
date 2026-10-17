@@ -21,6 +21,21 @@ test('accepts a specific, complete grammar result without an extra model request
   assert.match(analysis.grammar.clauses[0].explanation, /People attribute/);
 });
 
+test('gives the repair request exact missing/duplicate word indexes and range rules', async t => {
+  const calls = [];
+  const incomplete = raw();
+  incomplete.words[0].index = incomplete.words[1].index;
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls.push(JSON.parse(options.body));
+    return reply(JSON.stringify(calls.length === 1 ? incomplete : raw()));
+  });
+  await generateAnalysis(input, config);
+  assert.equal(calls.length, 2);
+  assert.match(calls[1].messages.at(-1).content, /expected indexes/);
+  assert.match(calls[1].messages.at(-1).content, /phrase 至少覆盖两个英文单词/);
+  assert.match(calls[1].messages.at(-1).content, /至少包含一个实际英文单词/);
+});
+
 test('repairs omitted main-clause analysis rather than saving a fabricated fallback', async t => {
   const incomplete = raw(); incomplete.grammar.clauses = [];
   const calls = []; const signals = [];
@@ -45,7 +60,7 @@ test('keeps long-sentence token prompts compact and counts word tokens explicitl
     calls.push(JSON.parse(options.body));
     return reply(JSON.stringify(calls.length === 1 ? incomplete : raw()));
   });
-  await assert.rejects(generateAnalysis({ ...input, source_text: sentence }, config), /AI did not explain word token|Token count|clauses/);
+  await assert.rejects(generateAnalysis({ ...input, source_text: sentence }, config), /word token|Token count|clauses/);
   const prompt = JSON.parse(calls[0].messages.at(-1).content);
   assert.equal(prompt.tokenSkeleton.some(token => 'charStart' in token || 'charEnd' in token), false);
   assert.match(prompt.rules.join('\n'), /words 必须恰好有 36 项/);

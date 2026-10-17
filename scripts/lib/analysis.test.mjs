@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildAnalysis, validateAnalysis } from '@cet-reading/contracts';
+import { buildAnalysis, hasWordTokens, validateAnalysis } from '@cet-reading/contracts';
 import { readConfig } from '@cet-reading/contracts/config';
 import { source, tokens, raw } from './fixtures/analysis.mjs';
 const word = {
@@ -11,6 +11,19 @@ const phrase = {
   kind: 'phrase', expression: 'attribute … to …', meaning: '把……归因于……', usage: 'attribute A to B。',
   ranges: [{ tokenStart: 1, tokenEnd: 2 }, { tokenStart: 3, tokenEnd: 4 }],
 };
+
+test('only English letter tokens qualify for word-by-word analysis', () => {
+  assert.equal(hasWordTokens('选择与陈述相对应的段落。'), false);
+  assert.equal(hasWordTokens('_________________________'), false);
+  assert.equal(hasWordTokens('2025-12'), false);
+  assert.equal(hasWordTokens('Choose paragraph 4.'), true);
+});
+
+test('reports expected and received word indexes to guide model repair', () => {
+  const incomplete = raw();
+  incomplete.words[0].index = 2;
+  assert.throws(() => buildAnalysis(source, incomplete), /expected indexes \[0, 1, 2, 3, 4, 5\], received \[2, 1, 2, 3, 4, 5\]/);
+});
 
 test('supports both selected words and discontinuous collocations tied to source tokens', () => {
   const analysis = buildAnalysis(source, raw([word, phrase]));

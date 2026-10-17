@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { contextHash, validateAnalysis, validateQuestionAnalysis } from './index.js';
+import { contextHash, hasWordTokens, validateAnalysis, validateQuestionAnalysis } from './index.js';
 import { ANALYSIS_BATCH_LOCK_ID } from './analysis-jobs.js';
 import type { RuntimeConfig } from './config.js';
 
@@ -80,6 +80,7 @@ export async function loadPriorityCandidates(
        ) SELECT * FROM ordered`, [target.paperId],
     );
     for (const row of result.rows) {
+      if (!hasWordTokens(row.source_text)) continue;
       const context = { title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence };
       candidates.push({
         type: 'sentence', sectionId: `${row.article_id}-body`, sentenceId: row.id, questionId: null, textKey: null,
@@ -105,6 +106,7 @@ export async function loadPriorityCandidates(
       [target.paperId, target.sectionId],
     );
     for (const row of result.rows) {
+      if (!hasWordTokens(row.source_text)) continue;
       const context = { title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence };
       candidates.push({
         type: 'sentence', sectionId: row.section_id, sentenceId: row.id, questionId: null, textKey: null,
@@ -132,7 +134,7 @@ export async function loadPriorityCandidates(
       const context = { title: row.title, previousSentence: null, nextSentence: null };
       if (!target.type || target.type === 'text') {
         const addText = (textKey: string, source: string) => {
-          if (!source) return;
+          if (!source || !hasWordTokens(source)) return;
           const contentHash = hash({ questionId: row.id, textKey, source });
           candidates.push({
             type: 'text', sectionId: row.section_id, sentenceId: null, questionId: row.id, textKey,
