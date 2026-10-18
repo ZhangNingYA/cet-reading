@@ -82,7 +82,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let scrollFrame = 0;
   let revealFrame = 0;
   let revealScrollY: number | null = null;
-  const inlineViewport = window.matchMedia('(max-width: 850px)');
   let splitParagraph: { original: HTMLParagraphElement; continuation: HTMLParagraphElement | null } | null = null;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
@@ -236,7 +235,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     layout.append(pane);
     restoreParagraph();
     const paragraph = source.closest<HTMLParagraphElement>('.passage-paragraph');
-    if (inlineViewport.matches && paragraph && source.parentElement === paragraph) {
+    if (paragraph && source.parentElement === paragraph) {
       const continuation = element('p', 'passage-paragraph passage-continuation');
       continuation.lang = paragraph.lang;
       // Move the existing sentence nodes so IDs, highlights and click handlers survive.
@@ -258,7 +257,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
 
   function revealInlineAnalysis() {
     cancelAnimationFrame(revealFrame);
-    if (!inlineViewport.matches || !panelOpen || !selected) return;
+    if (!panelOpen || !selected) return;
     revealFrame = requestAnimationFrame(() => {
       if (controller.signal.aborted || !panelOpen || !selected) return;
       if (revealScrollY === null || Math.abs(window.scrollY - revealScrollY) > 32) return;
@@ -820,13 +819,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
   window.addEventListener('scroll', saveReadingPosition, { passive: true, signal: controller.signal });
   window.addEventListener('resize', updateProgress, { passive: true, signal: controller.signal });
-  const repositionAnalysis = () => {
-    if (!panelOpen || !selected) return;
-    placeAnalysisPane(selected.element);
-    updateProgress();
-    revealInlineAnalysis();
-  };
-  inlineViewport.addEventListener('change', repositionAnalysis);
   target.addEventListener('load', updateProgress, { capture: true, signal: controller.signal });
   updateProgress();
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
@@ -837,7 +829,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     cancelAnimationFrame(scrollFrame);
     cancelAnimationFrame(revealFrame);
     restoreParagraph();
-    inlineViewport.removeEventListener('change', repositionAnalysis);
     toolbar.dispose();
     // Regeneration can finish and update its cache while the user changes modes/papers.
     for (const request of ownedRequests) if (!request.regenerating) request.controller.abort();
