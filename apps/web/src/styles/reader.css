@@ -73,9 +73,7 @@
 .source-sentence.is-selected { background: #e7f1e9; }
 .source-unit { white-space: normal; }
 .source-word { display: inline; margin: 0; padding: 0; color: inherit; border: 0; border-radius: 0; background: transparent; font: inherit; line-height: inherit; white-space: nowrap; text-align: inherit; vertical-align: baseline; }
-.source-word:hover { color: var(--accent-deep); text-decoration: underline; text-decoration-color: #84b397; text-underline-offset: 4px; }
-.source-word.is-active-word { color: var(--accent-deep); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-.source-word.is-structure { background: #dbeadc; text-decoration: underline; text-decoration-color: #578068; text-underline-offset: 4px; }
+.source-word:hover, .source-word.is-active-word, .source-word.is-structure { color: inherit; background: var(--accent-pale); }
 .source-sentence:focus-visible, .source-word:focus-visible { outline-offset: 2px; }
 
 /* Sentence analysis content; responsive placement is in reading-room.css. */

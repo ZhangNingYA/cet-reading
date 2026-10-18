@@ -5,7 +5,7 @@ import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
 import type { SectionReference } from '@cet-reading/contracts/exam';
 import { createSharedSectionNotice } from './section-reference';
 import { appendSectionImages } from './section-material';
-import { createReaderToolbar } from './reader-preferences';
+import { createReaderToolbar } from './reader-toolbar';
 
 type StudySentence = {
   id: string;
@@ -83,7 +83,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const documentColumn = element('div', 'reading-document');
   const pane = element('aside', 'analysis-pane');
   pane.setAttribute('aria-label', '当前句子精读');
-  pane.classList.add('is-idle');
+  pane.hidden = true;
   const paneHeader = element('div', 'analysis-heading');
   const paneTitle = element('h3', 'analysis-title', '精读');
   const actions = element('div', 'analysis-actions');
@@ -103,11 +103,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     selected = null;
     panelOpen = false;
     pane.classList.remove('is-open');
-    pane.classList.add('is-idle');
-    document.body.classList.remove('has-reading-analysis');
+    pane.hidden = true;
+    layout.append(pane);
     close.hidden = true;
     clearHighlights();
-    showEmpty();
+    paneTitle.textContent = '精读';
+    paneBody.replaceChildren();
+    paneBody.setAttribute('aria-busy', 'false');
+    updateActions();
     if (restoreFocus && previous) previous.element.focus({ preventScroll: true });
   };
   close.addEventListener('click', () => dismiss());
@@ -121,13 +124,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   paneBody.setAttribute('aria-busy', 'false');
   pane.append(paneHeader, notice, paneBody);
   layout.append(documentColumn, pane);
-  const toolbar = createReaderToolbar(focus => {
-    if (focus && panelOpen) dismiss(false);
-    target.querySelectorAll<HTMLElement>('.source-sentence:not(.is-static), .source-word').forEach(node => {
-      node.tabIndex = focus ? -1 : 0;
-      if (node instanceof HTMLButtonElement) node.disabled = focus;
-    });
-  });
+  const toolbar = createReaderToolbar();
   const progress = element('progress', 'reading-progress');
   progress.max = 100;
   progress.value = 0;
@@ -136,12 +133,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   if (!options.hideNavigation) target.append(navigation);
   target.append(layout);
 
-  function showEmpty(message = '点击单词查词，点击句子看解析。') {
-    paneTitle.textContent = '随读随查';
-    updateActions();
-    paneBody.setAttribute('aria-busy', 'false');
-    paneBody.replaceChildren(element('span', 'analysis-idle-mark', 'Aa'), element('h4', 'analysis-idle-title', '读懂每一句。'), element('p', 'analysis-empty', message), element('p', 'analysis-idle-note', '翻译、结构和词汇，会在这里为你展开。'));
-  }
   function updateActions() {
     const sentence = selected?.sentence;
     const request = sentence ? requests.get(cacheKey(sentence)) : undefined;
@@ -384,28 +375,22 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     block.append(list);
   }
   async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false) {
-    if (toolbar.isFocusReading()) return;
+    clearTimeout(positionTimer);
+    lastReadSentenceId = sentence.id;
     options.onPositionChange?.(sentence.sectionId, sentence.id);
     selected = { sentence, element: source, wordIndex };
     panelOpen = true;
+    const sourceTop = source.getBoundingClientRect().top;
+    const anchor = source.closest('.passage-paragraph, .intensive-question-line, .intensive-question-option') ?? source;
+    anchor.after(pane);
     pane.hidden = false;
-    pane.classList.remove('is-idle');
     pane.classList.add('is-open');
-    document.body.classList.add('has-reading-analysis');
+    // Moving an explanation from an earlier paragraph must not move the clicked text.
+    const shift = source.getBoundingClientRect().top - sourceTop;
+    if (shift) window.scrollBy({ top: shift, behavior: 'instant' });
     close.hidden = false;
     highlightSelection();
     paneTitle.textContent = sentence.label ?? `第 ${sentence.sentenceIndex + 1} 句`;
-    requestAnimationFrame(() => {
-      if (!panelOpen || selected?.element !== source) return;
-      pane.scrollTop = 0;
-      if (window.matchMedia('(max-width: 1000px)').matches) {
-        const bounds = source.getBoundingClientRect();
-        const availableBottom = pane.getBoundingClientRect().top - 24;
-        if (bounds.bottom > availableBottom || bounds.top < 88) {
-          window.scrollBy({ top: bounds.top - Math.max(100, (availableBottom - bounds.height) / 2), behavior: 'smooth' });
-        }
-      }
-    });
     const cached = completed.get(cacheKey(sentence));
     const key = cacheKey(sentence);
     let request = requests.get(key);
@@ -463,7 +448,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       source.textContent = sentence.source;
       return source;
     }
-    source.tabIndex = toolbar.isFocusReading() ? -1 : 0;
+    source.tabIndex = 0;
     source.setAttribute('role', 'group');
     source.setAttribute('aria-label', `第 ${sentence.sentenceIndex + 1} 句，按回车查看精读`);
     let offset = 0;
@@ -479,8 +464,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (token.kind === 'word') {
         const word = element('button', 'source-word', token.text);
         word.type = 'button';
-        word.disabled = toolbar.isFocusReading();
-        word.tabIndex = toolbar.isFocusReading() ? -1 : 0;
         word.dataset.tokenIndex = String(token.index);
         word.setAttribute('aria-label', `${token.text}，查看词义`);
         word.setAttribute('aria-pressed', 'false');
@@ -605,7 +588,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     activeSentences = [];
     options.onPositionChange?.(section.id);
     dismiss(false);
-    pane.hidden = false;
     toolbar.updateStats(section.paragraphs.join(' '));
     progress.value = 0;
     const block = element('section', 'passage-section');
@@ -625,7 +607,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     if (section.kind === 'writing' && paper.content_kind !== 'imported') block.append(element('p', 'passage-paragraph', section.questions[0]?.prompt ?? ''));
     if (!sentences.length) {
       for (const text of section.paragraphs) block.append(element('p', 'passage-paragraph', text));
-      showEmpty('本节保留中文原文');
     }
     let paragraphIndex = -1;
     let paragraphOffset = 0;
@@ -657,7 +638,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     renderStudyQuestions(section, block);
     documentColumn.replaceChildren(block);
     if (sentences.length) {
-      if (!toolbar.isFocusReading()) void prefetchCachedAnalyses(section);
+      void prefetchCachedAnalyses(section);
       if (options.initialSectionId === section.id && options.initialSentenceId) {
         const sentence = sentences.find(item => item.id === options.initialSentenceId);
         if (sentence) requestAnimationFrame(() => {
@@ -683,12 +664,12 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     scrollFrame = requestAnimationFrame(() => {
       scrollFrame = 0;
       const bounds = documentColumn.getBoundingClientRect();
-      const visibleHeight = panelOpen && window.matchMedia('(max-width: 1000px)').matches ? pane.getBoundingClientRect().top : window.innerHeight;
+      const visibleHeight = window.innerHeight;
       progress.value = Math.round(Math.min(100, Math.max(0, (visibleHeight - bounds.top) / Math.max(1, bounds.height) * 100)));
     });
   };
-  const saveFocusPosition = () => {
-    if (!toolbar.isFocusReading() || restoringPosition) return;
+  const saveReadingPosition = () => {
+    if (panelOpen || restoringPosition) return;
     clearTimeout(positionTimer);
     positionTimer = setTimeout(() => {
       const source = [...documentColumn.querySelectorAll<HTMLElement>('.passage-paragraph .source-sentence')].find(node => {
@@ -702,7 +683,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }, 200);
   };
   window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
-  window.addEventListener('scroll', saveFocusPosition, { passive: true, signal: controller.signal });
+  window.addEventListener('scroll', saveReadingPosition, { passive: true, signal: controller.signal });
   window.addEventListener('resize', updateProgress, { passive: true, signal: controller.signal });
   updateProgress();
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
