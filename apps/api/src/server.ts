@@ -17,6 +17,13 @@ import {
 } from './admin-store.js';
 import { listNews, getNews } from './news-store.js';
 import {
+  deleteReadingProgress,
+  getReadingProgress,
+  isReadingProgressBoard,
+  parseReadingProgressInput,
+  saveReadingProgress,
+} from './reading-progress-store.js';
+import {
   createPracticeAttempt,
   enqueueAnalysis,
   enqueueQuestionAnalysis,
@@ -201,6 +208,29 @@ app.get<{ Params: { id:string }; Querystring: { mode?:string } }>('/api/news/:id
 app.get('/api/papers', async (_request, reply) => {
   reply.header('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
   return { papers: await listPapers(false) };
+});
+
+app.get<{ Params: { board: string } }>('/api/reading-progress/:board', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!isReadingProgressBoard(request.params.board)) return reply.code(404).send({ error: 'reading_progress_board_not_found' });
+  return { progress: await getReadingProgress(request.params.board) };
+});
+
+app.put<{ Params: { board: string }; Body: unknown }>('/api/reading-progress/:board', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!isReadingProgressBoard(request.params.board)) return reply.code(404).send({ error: 'reading_progress_board_not_found' });
+  const progress = parseReadingProgressInput(request.params.board, request.body);
+  if (!progress) return reply.code(400).send({ error: 'invalid_reading_progress' });
+  const saved = await saveReadingProgress(request.params.board, progress);
+  if (!saved) return reply.code(404).send({ error: 'reading_progress_target_not_found' });
+  return { progress: saved };
+});
+
+app.delete<{ Params: { board: string } }>('/api/reading-progress/:board', async (request, reply) => {
+  reply.header('Cache-Control', 'no-store');
+  if (!isReadingProgressBoard(request.params.board)) return reply.code(404).send({ error: 'reading_progress_board_not_found' });
+  await deleteReadingProgress(request.params.board);
+  return { ok: true };
 });
 
 app.get<{ Params: { id: string } }>('/api/papers/:id', async (request, reply) => {

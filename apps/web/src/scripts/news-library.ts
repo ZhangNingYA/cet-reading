@@ -1,15 +1,20 @@
 import { mountIntensive } from './intensive-reader';
+import { createReadingProgressStore, type ReadingProgress } from './reading-progress';
 
 const node = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const library = node<HTMLElement>('news-library'); const reader = node<HTMLElement>('news-reader');
 const list = node<HTMLElement>('news-list'); const status = node<HTMLElement>('news-status');
 const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButtonElement>('news-more'); const retry = node<HTMLButtonElement>('news-retry');
+const resumeCard = node<HTMLElement>('news-resume-card');
 const apiBase = library.dataset.apiBase || '';
+const progressStore = createReadingProgressStore(apiBase, 'news');
 type Progress = { analysis_total?:number; analysis_cached?:number; analysis_pending?:number; analysis_running?:number; analysis_failed?:number };
 type Summary = Progress & { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
 type Batch = { scheduled_at:string; status:string };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
 let dispose: (()=>void) | undefined; let viewRequest=0; let activeArticleId:string|null=null;
+let resumeRequest=0;
+const progressReady=progressStore.load();
 const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
 function element<K extends keyof HTMLElementTagNameMap>(tag:K,className:string,text?:string) { const el=document.createElement(tag); el.className=className; if(text!==undefined) el.textContent=text; return el; }
 function progressText(value: Progress, empty = '') {
@@ -65,16 +70,62 @@ async function load(older=false) {
   more.disabled=true;
   try {
     const data=await json(`/api/news${older&&cursor?`?before=${encodeURIComponent(cursor)}`:''}`);
+    await progressReady;
     articles=older?[...articles,...data.articles]:data.articles; batches=older?[...batches,...data.batches]:data.batches;cursor=data.nextCursor;render();
+    if (!older) void renderResumeCard();
   } catch { status.textContent='文章加载失败，请重试。';status.classList.remove('sr-only');retry.hidden=false;list.setAttribute('aria-busy','false'); }
   finally { more.disabled=false; }
+}
+function positionTime(value: ReadingProgress['updatedAt']) {
+  if (!value) return '';
+  const dateValue=new Date(value);
+  return Number.isNaN(dateValue.valueOf())?'':` · 上次阅读 ${dateValue.toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}`;
+}
+async function renderResumeCard() {
+  const request=++resumeRequest;
+  const position=progressStore.read();
+  if(!position?.itemId){resumeCard.hidden=true;resumeCard.replaceChildren();return;}
+  try {
+    const article=articles.find(item=>item.id===position.itemId)??await json(`/api/news/${encodeURIComponent(position.itemId)}`);
+    if(request!==resumeRequest||progressStore.read()?.itemId!==position.itemId)return;
+    resumeCard.hidden=false;
+    const copy=element('div','resume-card-copy');
+    copy.append(element('span','resume-card-eyebrow','继续上次阅读'),element('strong','',article.title));
+    const meta=element('span','resume-card-meta',`精读${position.sentenceNumber?` · 第 ${position.sentenceNumber} 句`:''}${positionTime(position.updatedAt)}`);
+    copy.append(meta);
+    if(position.sentencePreview)copy.append(element('span','resume-card-preview',`“${position.sentencePreview}”`));
+    const actions=element('div','resume-card-actions');
+    const button=element('button','button button-primary','继续');button.type='button';button.addEventListener('click',()=>void openArticle(position.itemId,true));
+    const clear=element('button','text-link resume-card-clear','清除记录');clear.type='button';clear.addEventListener('click',()=>{void progressStore.clear();void renderResumeCard();});
+    actions.append(button,clear);resumeCard.replaceChildren(copy,actions);
+  } catch {
+    if(request===resumeRequest){resumeCard.hidden=true;resumeCard.replaceChildren();}
+  }
+}
+function saveArticlePosition(article:any,sectionId?:string,sentenceId?:string) {
+  const previous=progressStore.read();
+  const sameArticle=previous?.itemId===article.id;
+  const sectionChanged=Boolean(sectionId&&sameArticle&&previous?.sectionId!==sectionId);
+  const nextSectionId=sectionId||(sameArticle?previous?.sectionId:undefined);
+  const nextSentenceId=sentenceId||(sectionChanged?undefined:sameArticle?previous?.sentenceId:undefined);
+  const sentence=nextSentenceId?article.sentences?.find((item:any)=>item.id===nextSentenceId&&item.sectionId===nextSectionId):null;
+  progressStore.save({
+    itemId:article.id,mode:'intensive',sectionId:nextSectionId,sentenceId:nextSentenceId,
+    sectionTitle:article.sections?.find((item:any)=>item.id===nextSectionId)?.title??(sameArticle&&!sectionChanged?previous?.sectionTitle:undefined),
+    sentenceNumber:sentence?sentence.sentenceIndex+1:(sameArticle&&!sectionChanged?previous?.sentenceNumber:undefined),
+    sentencePreview:sentence?.source??(sameArticle&&!sectionChanged?previous?.sentencePreview:undefined),updatedAt:Date.now(),
+  });
 }
 async function openArticle(id:string,writeHistory=false) {
   const request=++viewRequest;dispose?.();dispose=undefined;
   if(writeHistory) history.pushState({},'',`?article=${encodeURIComponent(id)}`);
   status.textContent='正在加载文章…'; status.classList.remove('sr-only');
   try {
+    await progressReady;
     const article=await json(`/api/news/${encodeURIComponent(id)}`); if(request!==viewRequest)return;
+    const previous=progressStore.read();
+    const restore=previous?.itemId===article.id?previous:null;
+    saveArticlePosition(article,restore?.sectionId??`${article.id}-body`,restore?.sentenceId);
     activeArticleId=id;
     library.hidden=true;reader.hidden=false;document.body.classList.add('reader-page');
     node('news-title').textContent=article.title;
@@ -85,13 +136,17 @@ async function openArticle(id:string,writeHistory=false) {
     const license=element('a','',article.license_name);license.href=article.license_url;license.target='_blank';license.rel='noopener noreferrer';
     attribution.append(source,document.createTextNode(' · '),license,document.createTextNode(' · 原文，链接转为文字'));
     const content=node('news-content');content.replaceChildren();
-    dispose=mountIntensive(article,apiBase,content,{analysisPath:`/api/news/${encodeURIComponent(id)}/analyses`,hideNavigation:true});
+    dispose=mountIntensive(article,apiBase,content,{
+      analysisPath:`/api/news/${encodeURIComponent(id)}/analyses`,hideNavigation:true,
+      initialSectionId:restore?.sectionId,initialSentenceId:restore?.sentenceId,
+      onPositionChange:(sectionId,sentenceId)=>saveArticlePosition(article,sectionId,sentenceId),
+    });
     node('news-title').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});
   } catch { if(request!==viewRequest)return;showList(false);status.textContent='文章暂时无法加载，请返回列表重试。';status.classList.remove('sr-only'); }
 }
 function showList(writeHistory=true) {
   ++viewRequest;activeArticleId=null;dispose?.();dispose=undefined;reader.hidden=true;library.hidden=false;document.body.classList.remove('reader-page');
-  if(writeHistory)history.pushState({},'',location.pathname);status.classList.add('sr-only');
+  if(writeHistory)history.pushState({},'',location.pathname);status.classList.add('sr-only');void renderResumeCard();
 }
 async function refreshProgress() {
   if (document.visibilityState==='hidden') return;

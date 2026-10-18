@@ -9,6 +9,7 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
       <div class="library-toolbar"><label class="paper-search"><span class="sr-only">搜索文章或话题</span><input id="news-search" type="search" placeholder="搜索文章或话题" autocomplete="off" /></label></div>
     </div>
     <p class="news-schedule">每日 08:00 · 11:00 · 14:00 · 17:00 <span>北京时间</span></p>
+    <div class="resume-card" id="news-resume-card" hidden aria-live="polite"></div>
     <p id="news-status" role="status" class="sr-only"></p>
     <div id="news-list" aria-busy="true"><div class="paper-skeleton" aria-hidden="true"><span></span><span></span><span></span></div></div>
     <button id="news-more" class="text-link" type="button" hidden>更早的文章</button>

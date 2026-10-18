@@ -78,9 +78,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const documentColumn = element('div', 'reading-document');
   const pane = element('aside', 'analysis-pane');
   pane.setAttribute('aria-label', '当前句子精读');
+  pane.hidden = true;
   const paneHeader = element('div', 'analysis-heading');
   const paneTitle = element('h3', 'analysis-title', '精读');
   const actions = element('div', 'analysis-actions');
+  const analysisSource = element('p', 'analysis-source');
+  const analysisSourceText = element('span', 'analysis-source-text');
+  analysisSource.append(element('span', 'analysis-source-label', '原文'), analysisSourceText);
   const regenerate = element('button', 'analysis-regenerate', '重新生成');
   regenerate.type = 'button';
   regenerate.hidden = true;
@@ -96,7 +100,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const previous = selected;
     selected = null;
     panelOpen = false;
-    pane.classList.remove('is-open');
+    pane.hidden = true;
+    layout.append(pane);
     close.hidden = true;
     clearHighlights();
     showEmpty();
@@ -111,7 +116,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const paneBody = element('div', 'analysis-body');
   paneBody.setAttribute('aria-live', 'polite');
   paneBody.setAttribute('aria-busy', 'false');
-  pane.append(paneHeader, notice, paneBody);
+  pane.append(paneHeader, analysisSource, notice, paneBody);
   layout.append(documentColumn, pane);
   if (!options.hideNavigation) target.append(navigation);
   target.append(layout);
@@ -150,6 +155,17 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
   }
   function cacheKey(sentence: StudySentence) { return `${paper.id}:${sentence.id}:${sentence.source}`; }
+
+  function placeAnalysisPane(source: HTMLElement) {
+    const paragraph = source.closest('.passage-paragraph');
+    const questionLine = source.closest('.intensive-question-line');
+    const option = source.closest('.intensive-question-option');
+    if (paragraph) paragraph.after(pane);
+    else if (questionLine) questionLine.after(pane);
+    else if (option) option.after(pane);
+    else source.after(pane);
+    pane.hidden = false;
+  }
 
   async function prefetchCachedAnalyses(section: StudySection) {
     if (prefetchedSections.has(section.id)) return;
@@ -366,18 +382,16 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     options.onPositionChange?.(sentence.sectionId, sentence.id);
     selected = { sentence, element: source, wordIndex };
     panelOpen = true;
-    pane.classList.add('is-open');
+    placeAnalysisPane(source);
     close.hidden = false;
     highlightSelection();
     paneTitle.textContent = sentence.label ?? `第 ${sentence.sentenceIndex + 1} 句`;
-    if (window.matchMedia('(max-width: 850px)').matches) {
-      requestAnimationFrame(() => {
-        if (!panelOpen || selected?.element !== source) return;
-        const bottom = source.getBoundingClientRect().bottom;
-        const top = pane.getBoundingClientRect().top;
-        if (bottom > top - 20) window.scrollBy({ top: bottom - top + 20, behavior: 'instant' });
-      });
-    }
+    analysisSourceText.textContent = sentence.source;
+    requestAnimationFrame(() => {
+      if (!panelOpen || selected?.element !== source) return;
+      const bounds = pane.getBoundingClientRect();
+      if (bounds.top < 0 || bounds.top > window.innerHeight - 120) pane.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    });
     const cached = completed.get(cacheKey(sentence));
     const key = cacheKey(sentence);
     let request = requests.get(key);
@@ -620,7 +634,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     appendSectionImages(block, section);
     renderStudyQuestions(section, block);
     documentColumn.replaceChildren(block);
-    pane.hidden = !sentences.length;
     if (sentences.length) {
       void prefetchCachedAnalyses(section);
       if (options.initialSectionId === section.id && options.initialSentenceId) {

@@ -15,8 +15,7 @@
 .study-section-link:hover { color: var(--ink); }
 .study-section-link[aria-current='page'] { color: var(--accent-deep); border-bottom-color: var(--accent); font-weight: 550; }
 .study-section-link:focus-visible { outline-offset: -2px; }
-.intensive-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
-.intensive-layout.has-shared-section { grid-template-columns: minmax(0, 1fr); }
+.intensive-layout { display: block; }
 .reading-document { min-width: 0; }
 .passage-section, .practice-material { min-width: 0; padding: 30px 34px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
 .passage-title, .practice-material h2 { margin: 0 0 26px; padding-bottom: 20px; color: var(--muted); border-bottom: 1px solid var(--line); font-size: var(--text-ui); font-weight: 500; line-height: 1.8; text-wrap: pretty; }
@@ -79,17 +78,20 @@
 .source-word.is-structure { background: #dbeadc; text-decoration: underline; text-decoration-color: #578068; text-underline-offset: 4px; }
 .source-sentence:focus-visible, .source-word:focus-visible { outline-offset: 2px; }
 
-/* The explanation stays beside the text, and becomes a sheet on small screens. */
-.analysis-pane { position: sticky; top: 28px; min-width: 0; max-height: calc(100dvh - 56px); padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: #f8faf8; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
-.analysis-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 23px; }
+/* Analysis expands in the reading flow so the passage stays visible beside it. */
+.analysis-pane { min-width: 0; margin: 25px 0 34px; padding: 3px 0 3px 22px; border: 0; border-left: 3px solid var(--accent); background: transparent; }
+.analysis-pane[hidden] { display: none; }
+.analysis-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
 .analysis-title { margin: 0; color: var(--ink); font-size: var(--text-ui); font-weight: 550; }
 .analysis-actions { display: flex; align-items: center; gap: 12px; }
 .analysis-regenerate, .analysis-close { min-height: 30px; padding: 3px 0; color: var(--muted); border: 0; background: transparent; font-size: 12px; white-space: nowrap; }
 .analysis-regenerate:hover, .analysis-close:hover { color: var(--accent-deep); }
 .analysis-regenerate:disabled { color: var(--quiet); cursor: wait; }
 .analysis-feedback { margin: 0 0 16px; color: #94583d; font-size: var(--text-caption); line-height: 1.8; }
+.analysis-source { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; margin: 0 0 18px; padding: 12px 15px; border-left: 2px solid #91b49d; border-radius: 0 6px 6px 0; background: #f4f7f4; }
+.analysis-source-label { color: var(--muted); font-size: var(--text-caption); font-weight: 600; line-height: 1.85; white-space: nowrap; }
+.analysis-source-text { min-width: 0; color: var(--ink); font-family: var(--reading-font); font-size: var(--text-body); line-height: 1.85; overflow-wrap: anywhere; }
 .analysis-empty, .analysis-loading { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }
-.analysis-pane:has(> .analysis-body > .analysis-empty) { min-height: 148px; }
 .analysis-loading { display: flex; align-items: center; gap: 9px; color: var(--accent); }
 .waiting-dots { display: inline-flex; align-items: center; gap: 3px; margin-inline-start: 4px; vertical-align: middle; }
 .waiting-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: .3; animation: waiting-pulse 1.4s ease-in-out infinite; }
@@ -103,7 +105,7 @@
   .waiting-dot { animation: none; opacity: .65; }
 }
 .analysis-retry { margin-top: 12px; padding: 6px 13px; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--accent-deep); font-size: var(--text-ui); }
-.word-detail { margin-bottom: 24px; }
+.word-detail { margin-bottom: 24px; padding: 15px 18px; border-radius: 8px; background: #f4f7f4; }
 .word-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
 .word-headword { color: var(--accent-deep); font-family: var(--reading-font); font-size: 1.625rem; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere; }
 .word-pos, .word-lemma { color: var(--muted); font-size: 12px; }
@@ -168,18 +170,13 @@
 .paper-pager-link strong { overflow: hidden; color: var(--accent-deep); font-size: var(--text-ui); font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
 .paper-pager-empty { color: var(--quiet); font-size: var(--text-caption); }
 @media (max-width: 1000px) {
-  .intensive-layout { grid-template-columns: minmax(0, 1fr) 290px; gap: 22px; }
   .passage-section, .practice-material { padding: 26px; }
   .intensive-question { padding: 18px; }
   .practice-section { grid-template-columns: minmax(0, 1fr) 300px; gap: 22px; }
   .word-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 850px) {
-  .intensive-layout { display: block; }
-  .analysis-pane { display: none; }
-  .analysis-pane.is-open { position: fixed; z-index: 20; inset: auto 0 0; display: block; max-height: 54dvh; padding: 22px 26px max(26px, env(safe-area-inset-bottom)); border: 1px solid #dfe7e1; border-radius: 18px 18px 0 0; background: #fbfdfb; box-shadow: 0 -8px 40px #15302414; }
-  .reading-document:has(.is-selected) { padding-bottom: 54dvh; }
-  .analysis-heading { margin-bottom: 20px; }
+  .analysis-pane { margin-block: 20px 26px; padding: 20px 22px; }
   .analysis-close { padding: 4px 8px; }
   .practice-section { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .practice-questions { position: static; max-height: none; overflow: visible; padding-inline: 8px; }
@@ -197,7 +194,7 @@
   .intensive-question-option { padding: 12px; }
   .passage-title, .practice-material h2 { margin-bottom: 22px; padding-bottom: 0; border: 0; }
   .passage-paragraph[lang='en'], .practice-paragraph[lang='en'] { font-size: 1.125rem; }
-  .analysis-pane.is-open { padding-inline: 22px; }
+  .analysis-pane { padding-inline: 18px; }
   .word-bank { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; padding: 16px; }
   .practice-section { gap: 18px; }
   .practice-section[data-section-kind='writing'] { padding: 22px 0; border-inline: 0; border-bottom: 0; border-radius: 0; }
