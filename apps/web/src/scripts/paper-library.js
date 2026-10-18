@@ -3,6 +3,7 @@ import { createSectionNavigation } from './section-navigation';
 import { createSharedSectionNotice } from './section-reference';
 import { appendMaterialText, appendSectionImages } from './section-material';
 import { createReadingProgressStore } from './reading-progress';
+import { createReaderToolbar } from './reader-toolbar';
 
 const library = document.querySelector('#library');
 const apiBase = library.dataset.apiBase;
@@ -184,7 +185,11 @@ async function openPaper(summary, mode, writeHistory = true, loadedPaper = null)
       initialSentenceId: restorePosition?.sentenceId,
       onPositionChange: (sectionId, sentenceId) => savePosition(paper, mode, sectionId, sentenceId),
     });
-    else await renderPractice(paper, request);
+    else {
+      const toolbar = createReaderToolbar(readerContent, { appearanceOnly: true });
+      disposeIntensive = () => toolbar.dispose();
+      await renderPractice(paper, request);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
     readerTitle.focus({ preventScroll: true });
   } catch {

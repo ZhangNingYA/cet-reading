@@ -106,6 +106,17 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       void selectSentence(selected.sentence, selected.element, selected.wordIndex, true);
     }
   });
+  const next = element('button', 'analysis-next', '下一句');
+  next.type = 'button';
+  next.addEventListener('click', () => {
+    const following = nextSentence();
+    if (!following) return;
+    void selectSentence(following.sentence, following.source, null);
+    following.source.scrollIntoView({ block: 'start', behavior: 'instant' });
+    revealScrollY = window.scrollY;
+    (next.disabled ? following.source : next).focus({ preventScroll: true });
+    revealInlineAnalysis();
+  });
   const close = element('button', 'analysis-close', '收起');
   close.type = 'button';
   close.hidden = true;
@@ -140,7 +151,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     updateProgress();
   };
   close.addEventListener('click', () => dismiss());
-  actions.append(regenerate, close);
+  actions.append(next, close);
   paneHeader.append(context, actions);
   const notice = element('p', 'analysis-feedback');
   notice.setAttribute('role', 'status');
@@ -148,7 +159,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const paneBody = element('div', 'analysis-body');
   paneBody.setAttribute('aria-live', 'polite');
   paneBody.setAttribute('aria-busy', 'false');
-  pane.append(paneHeader, notice, paneBody);
+  const paneFooter = element('div', 'analysis-footer');
+  paneFooter.hidden = true;
+  paneFooter.append(regenerate);
+  pane.append(paneHeader, notice, paneBody, paneFooter);
   layout.append(documentColumn, pane);
   const toolbar = createReaderToolbar(target);
   const progress = element('progress', 'reading-progress');
@@ -159,10 +173,23 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   if (!options.hideNavigation) target.append(navigation);
   target.append(layout);
 
+  function nextSentence() {
+    if (!selected) return null;
+    const index = activeSentences.findIndex(sentence => sentence.id === selected?.sentence.id);
+    if (index < 0) return null;
+    const sentence = activeSentences.slice(index + 1).find(sentence => hasWordTokens(sentence.source));
+    if (!sentence) return null;
+    const source = documentColumn.querySelector<HTMLElement>(`[data-sentence-id="${CSS.escape(sentence.id)}"]`);
+    return source ? { sentence, source } : null;
+  }
   function updateActions() {
     const sentence = selected?.sentence;
     const request = sentence ? requests.get(cacheKey(sentence)) : undefined;
+    next.hidden = !sentence || questionTextReferences.has(sentence.id);
+    next.disabled = !nextSentence();
+    next.textContent = next.disabled ? '已到末句' : '下一句';
     regenerate.hidden = !sentence || !completed.has(cacheKey(sentence));
+    paneFooter.hidden = regenerate.hidden;
     regenerate.disabled = Boolean(request);
     regenerate.replaceChildren(document.createTextNode(request?.regenerating ? '重新生成中' : '重新生成'));
     if (request?.regenerating) regenerate.append(waitingDots());
