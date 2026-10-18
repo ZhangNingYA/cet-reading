@@ -17,11 +17,11 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     <noscript><p>请启用 JavaScript，以加载文章。</p></noscript>
   </section>
   <section class="reader-section container news-reader" id="news-reader" hidden aria-labelledby="news-title">
-    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← 返回 News</button></div>
+    <div class="reader-topline"><button type="button" class="text-link" id="news-back" aria-label="返回 News"><span aria-hidden="true">←</span><span>返回<span class="reader-back-context"> News</span></span></button><div class="reader-actions" data-reader-actions></div></div>
     <div class="reader-panel">
       <header class="reader-heading">
-        <p class="news-meta" id="news-meta"></p><h1 id="news-title" lang="en" tabindex="-1"></h1>
-        <p class="news-analysis-status" id="news-analysis-status" role="status" aria-live="polite"></p>
+        <h1 id="news-title" lang="en" tabindex="-1"></h1>
+        <div class="reader-details" data-reading-details><p class="news-meta" id="news-meta"></p></div>
         <p class="news-attribution" id="news-attribution"></p>
       </header>
       <div id="news-content"></div>

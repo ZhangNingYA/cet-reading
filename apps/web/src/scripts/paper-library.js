@@ -12,7 +12,6 @@ const status = document.querySelector('#status');
 const papers = document.querySelector('#papers');
 const reader = document.querySelector('#reader');
 const readerTitle = document.querySelector('#reader-title');
-const readerMeta = document.querySelector('#reader-meta');
 const readerStatus = document.querySelector('#reader-status');
 const readerContent = document.querySelector('#reader-content');
 const retryPapers = document.querySelector('#retry-papers');
@@ -29,7 +28,6 @@ let activePaper = null;
 let disposeIntensive = null;
 let viewRequest = 0;
 
-function levelName(level) { return level === 'CET6' ? '六级' : level === 'NEEP' ? '考研' : '四级'; }
 function readPosition() { return progressStore.read(); }
 function savePosition(paper, mode, sectionId, sentenceId) {
   if (!paper?.id) return;
@@ -174,7 +172,6 @@ async function openPaper(summary, mode, writeHistory = true, loadedPaper = null)
     library.hidden = true; reader.hidden = false;
     document.body.classList.add('reader-page');
     modeButtons.forEach((button) => { button.classList.toggle('active', button.dataset.readerMode === mode); button.setAttribute('aria-pressed', String(button.dataset.readerMode === mode)); });
-    readerMeta.textContent = `${levelName(paper.exam_level)} · ${paper.year} · ${paper.variant || `第 ${paper.set_no} 套`}`;
     readerTitle.textContent = paper.title;
     readerStatus.textContent = '';
     readerContent.replaceChildren();

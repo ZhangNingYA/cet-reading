@@ -26,10 +26,12 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 
 <section class="reader-section container" id="reader" hidden aria-labelledby="reader-title">
   <div class="reader-topline">
-    <button type="button" class="text-link" id="close-reader"><span aria-hidden="true">←</span> 返回题库</button>
-    <div class="mode-switch" role="group" aria-label="学习模式"><button type="button" data-reader-mode="intensive">精读</button><button type="button" data-reader-mode="practice">做题</button></div>
+    <button type="button" class="text-link" id="close-reader" aria-label="返回题库"><span aria-hidden="true">←</span><span>返回<span class="reader-back-context">题库</span></span></button>
+    <div class="reader-actions" data-reader-actions>
+      <div class="mode-switch" role="group" aria-label="学习模式"><button type="button" data-reader-mode="intensive">精读</button><button type="button" data-reader-mode="practice">做题</button></div>
+    </div>
   </div>
-  <div class="reader-panel"><header class="reader-heading"><p class="reader-meta sr-only" id="reader-meta"></p><h1 id="reader-title" tabindex="-1">准备开始</h1><p id="reader-status" role="status" aria-live="polite"></p></header><div id="reader-content"></div><nav class="paper-pager" id="paper-pager" aria-label="试卷导航" hidden></nav></div>
+  <div class="reader-panel"><header class="reader-heading"><h1 id="reader-title" tabindex="-1">准备开始</h1><div class="reader-details" data-reading-details></div><p id="reader-status" role="status" aria-live="polite"></p></header><div id="reader-content"></div><nav class="paper-pager" id="paper-pager" aria-label="试卷导航" hidden></nav></div>
 </section>
 
 <script>

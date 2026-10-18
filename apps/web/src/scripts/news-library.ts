@@ -8,25 +8,14 @@ const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButt
 const resumeCard = node<HTMLElement>('news-resume-card');
 const apiBase = library.dataset.apiBase || '';
 const progressStore = createReadingProgressStore(apiBase, 'news');
-type Progress = { analysis_total?:number; analysis_cached?:number; analysis_pending?:number; analysis_running?:number; analysis_failed?:number };
-type Summary = Progress & { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
+type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
 type Batch = { scheduled_at:string; status:string };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
-let dispose: (()=>void) | undefined; let viewRequest=0; let activeArticleId:string|null=null;
+let dispose: (()=>void) | undefined; let viewRequest=0;
 let resumeRequest=0;
 const progressReady=progressStore.load();
 const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
 function element<K extends keyof HTMLElementTagNameMap>(tag:K,className:string,text?:string) { const el=document.createElement(tag); el.className=className; if(text!==undefined) el.textContent=text; return el; }
-function progressText(value: Progress, empty = '') {
-  const total=Number(value.analysis_total??0); const cached=Math.min(total,Number(value.analysis_cached??0));
-  if (!total) return empty;
-  const states:string[]=[];
-  const pending=Number(value.analysis_pending??0); const running=Number(value.analysis_running??0);
-  if (pending) states.push(`${pending} 条排队`);
-  if (running) states.push(`${running} 条生成中`);
-  const percentage=((cached/total)*100).toFixed(1);
-  return `精读缓存 ${cached}/${total}（${percentage}%）${states.length?` · ${states.join(' · ')}`:''}`;
-}
 async function json(path:string) {
   const response=await fetch(`${apiBase}${path}`,{signal:AbortSignal.timeout(15000)});
   if(!response.ok) throw new Error('request failed'); return response.json();
@@ -51,10 +40,8 @@ function render() {
       for(const article of entries) {
       const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
       const title=element('h3','news-row-title',article.title); title.lang='en';
-      const progress=progressText(article);
       const meta=element('div','news-row-meta');
       if(article.topic)meta.append(element('span','news-row-topic',article.topic));
-      if(progress)meta.append(element('span','news-row-progress',progress));
       link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
       }
       if(batch?.status==='running') body.append(element('p','news-batch-note','正在选取文章…'));
@@ -126,15 +113,14 @@ async function openArticle(id:string,writeHistory=false) {
     const previous=progressStore.read();
     const restore=previous?.itemId===article.id?previous:null;
     saveArticlePosition(article,restore?.sectionId??`${article.id}-body`,restore?.sentenceId);
-    activeArticleId=id;
     library.hidden=true;reader.hidden=false;document.body.classList.add('reader-page');
     node('news-title').textContent=article.title;
-    node('news-meta').textContent=[article.topic,`发布于 ${date(article.published_at)}`].filter(Boolean).join(' · ');
-    node<HTMLElement>('news-analysis-status').textContent=progressText(article,'精读缓存暂未开始');
     const attribution=node('news-attribution'); attribution.replaceChildren(document.createTextNode(`${article.author} · `));
     const source=element('a','',article.source_name);source.href=article.source_url;source.target='_blank';source.rel='noopener noreferrer';
+    const published=element('time','',date(article.published_at));published.dateTime=article.published_at;published.title='原文发布日期';
+    node('news-meta').replaceChildren(source,document.createTextNode(' · '),published);
     const license=element('a','',article.license_name);license.href=article.license_url;license.target='_blank';license.rel='noopener noreferrer';
-    attribution.append(source,document.createTextNode(' · '),license,document.createTextNode(' · 原文，链接转为文字'));
+    attribution.append(license,document.createTextNode(' · 原文，链接转为文字'));
     const content=node('news-content');content.replaceChildren();
     dispose=mountIntensive(article,apiBase,content,{
       analysisPath:`/api/news/${encodeURIComponent(id)}/analyses`,hideNavigation:true,
@@ -145,10 +131,10 @@ async function openArticle(id:string,writeHistory=false) {
   } catch { if(request!==viewRequest)return;showList(false);status.textContent='文章暂时无法加载，请返回列表重试。';status.classList.remove('sr-only'); }
 }
 function showList(writeHistory=true) {
-  ++viewRequest;activeArticleId=null;dispose?.();dispose=undefined;reader.hidden=true;library.hidden=false;document.body.classList.remove('reader-page');
+  ++viewRequest;dispose?.();dispose=undefined;reader.hidden=true;library.hidden=false;document.body.classList.remove('reader-page');
   if(writeHistory)history.pushState({},'',location.pathname);status.classList.add('sr-only');void renderResumeCard();
 }
-async function refreshProgress() {
+async function refreshNews() {
   if (document.visibilityState==='hidden') return;
   try {
     const data=await json('/api/news');
@@ -158,19 +144,11 @@ async function refreshProgress() {
     articles=[...freshArticles,...articles.filter(article=>!freshArticleIds.has(article.id))];
     batches=[...freshBatches,...batches.filter(batch=>!freshBatchIds.has(batch.scheduled_at))];
     if (!cursor) cursor=data.nextCursor??null;
-    if (activeArticleId) {
-      const current=articles.find(article=>article.id===activeArticleId);
-      if (current) node<HTMLElement>('news-analysis-status').textContent=progressText(current,'精读缓存暂未开始');
-      else {
-        const detail=await json(`/api/news/${encodeURIComponent(activeArticleId)}`);
-        if (activeArticleId) node<HTMLElement>('news-analysis-status').textContent=progressText(detail,'精读缓存暂未开始');
-      }
-    }
     render();
   } catch {
-    // Progress is supplementary; keep the current list when a poll fails.
+    // Keep the current list when a refresh fails.
   }
 }
 function restore() {const id=new URL(location.href).searchParams.get('article');if(id)void openArticle(id);else showList(false);}
 node('news-back').addEventListener('click',()=>showList());search.addEventListener('input',render);more.addEventListener('click',()=>void load(true));retry.addEventListener('click',()=>void load());
-window.addEventListener('popstate',restore);void load();restore();setInterval(()=>{void refreshProgress();},10_000);
+window.addEventListener('popstate',restore);void load();restore();setInterval(()=>{void refreshNews();},10_000);

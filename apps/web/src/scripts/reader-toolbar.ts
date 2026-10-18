@@ -12,12 +12,12 @@ function element<K extends keyof HTMLElementTagNameMap>(tag: K, className: strin
   return node;
 }
 
-export function createReaderToolbar() {
+export function createReaderToolbar(target: HTMLElement) {
   let night = readNightMode();
-  const toolbar = element('div', 'reading-toolbar');
-  const info = element('div', 'reading-toolbar-info');
+  const root = target.closest('.reader-section') ?? target;
+  const actions = root.querySelector<HTMLElement>('[data-reader-actions]') ?? target;
+  const details = root.querySelector<HTMLElement>('[data-reading-details]') ?? target;
   const stats = element('span', 'reading-stats');
-  info.append(element('span', 'reading-eyebrow', 'READING ROOM'), stats);
   const toggle = element('button', 'reading-night-toggle');
   toggle.type = 'button';
   const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -38,15 +38,17 @@ export function createReaderToolbar() {
     try { localStorage.setItem(storageKey, JSON.stringify({ theme: night ? 'night' : 'paper' })); }
     catch { /* Reading remains available without browser storage. */ }
   }
-  toolbar.append(info, toggle);
+  actions.append(toggle);
+  details.append(stats);
   apply();
   return {
-    element: toolbar,
     updateStats(text: string) {
       const count = text.match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g)?.length ?? 0;
       stats.textContent = count ? `${count.toLocaleString('zh-CN')} 词 · 约 ${Math.max(1, Math.ceil(count / 180))} 分钟` : '慢慢读，读懂每一句';
     },
     dispose() {
+      toggle.remove();
+      stats.remove();
       document.body.classList.remove('reading-room');
       delete document.body.dataset.readerTheme;
     },

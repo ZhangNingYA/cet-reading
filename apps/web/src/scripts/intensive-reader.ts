@@ -85,7 +85,12 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   pane.setAttribute('aria-label', '当前句子精读');
   pane.hidden = true;
   const paneHeader = element('div', 'analysis-heading');
+  const context = element('div', 'analysis-context');
   const paneTitle = element('h3', 'analysis-title', '精读');
+  const wordDetail = element('div', 'word-detail');
+  wordDetail.hidden = true;
+  wordDetail.setAttribute('aria-live', 'polite');
+  context.append(paneTitle, wordDetail);
   const actions = element('div', 'analysis-actions');
   const regenerate = element('button', 'analysis-regenerate', '重新生成');
   regenerate.type = 'button';
@@ -108,6 +113,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     close.hidden = true;
     clearHighlights();
     paneTitle.textContent = '精读';
+    paneTitle.hidden = false;
+    wordDetail.hidden = true;
+    wordDetail.replaceChildren();
     paneBody.replaceChildren();
     paneBody.setAttribute('aria-busy', 'false');
     updateActions();
@@ -115,7 +123,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   };
   close.addEventListener('click', () => dismiss());
   actions.append(regenerate, close);
-  paneHeader.append(paneTitle, actions);
+  paneHeader.append(context, actions);
   const notice = element('p', 'analysis-feedback');
   notice.setAttribute('role', 'status');
   notice.hidden = true;
@@ -124,12 +132,12 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   paneBody.setAttribute('aria-busy', 'false');
   pane.append(paneHeader, notice, paneBody);
   layout.append(documentColumn, pane);
-  const toolbar = createReaderToolbar();
+  const toolbar = createReaderToolbar(target);
   const progress = element('progress', 'reading-progress');
   progress.max = 100;
   progress.value = 0;
   progress.setAttribute('aria-label', '正文阅读进度');
-  target.append(toolbar.element, progress);
+  target.append(progress);
   if (!options.hideNavigation) target.append(navigation);
   target.append(layout);
 
@@ -391,6 +399,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     close.hidden = false;
     highlightSelection();
     paneTitle.textContent = sentence.label ?? `第 ${sentence.sentenceIndex + 1} 句`;
+    paneTitle.hidden = false;
+    wordDetail.hidden = true;
+    wordDetail.replaceChildren();
     const cached = completed.get(cacheKey(sentence));
     const key = cacheKey(sentence);
     let request = requests.get(key);
@@ -502,16 +513,18 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     highlightSelection();
     paneBody.setAttribute('aria-busy', 'false');
     paneBody.replaceChildren();
+    wordDetail.replaceChildren();
+    wordDetail.hidden = true;
+    paneTitle.hidden = false;
     if (selected.wordIndex !== null) {
       const token = analysis.tokens.find(token => token.index === selected?.wordIndex);
       if (token?.kind === 'word') {
-        const detail = element('div', 'word-detail');
         const heading = element('div', 'word-heading');
         heading.append(element('strong', 'word-headword', token.text), element('span', 'word-pos', token.pos ?? ''));
-        detail.append(heading);
-        if (token.lemma && token.lemma.toLowerCase() !== token.text.toLowerCase()) detail.append(element('p', 'word-lemma', `原形 ${token.lemma}`));
-        detail.append(element('p', 'word-meaning', token.contextMeaning ?? ''));
-        paneBody.append(detail);
+        if (token.lemma && token.lemma.toLowerCase() !== token.text.toLowerCase()) heading.append(element('span', 'word-lemma', `原形 ${token.lemma}`));
+        wordDetail.append(heading, element('p', 'word-meaning', token.contextMeaning ?? ''));
+        wordDetail.hidden = false;
+        paneTitle.hidden = true;
       }
     }
     const tabs = element('div', 'analysis-tabs');
@@ -603,7 +616,11 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const sentences = paper.sentences.filter(sentence => sentence.sectionId === section.id);
     activeSentences = sentences;
     if (section.kind === 'cloze' && paper.content_kind === 'imported') block.append(element('p', 'passage-note', '空格按参考答案补全'));
-    if (['reading', 'matching'].includes(section.kind) && section.instructions) block.append(element('p', 'section-instructions', section.instructions));
+    if (['reading', 'matching'].includes(section.kind) && section.instructions) {
+      const instructions = element('details', 'reading-instructions');
+      instructions.append(element('summary', '', '考试说明'), element('p', 'section-instructions', section.instructions));
+      block.append(instructions);
+    }
     if (section.kind === 'writing' && paper.content_kind !== 'imported') block.append(element('p', 'passage-paragraph', section.questions[0]?.prompt ?? ''));
     if (!sentences.length) {
       for (const text of section.paragraphs) block.append(element('p', 'passage-paragraph', text));
