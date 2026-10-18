@@ -80,6 +80,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let lastReadSentenceId = options.initialSentenceId;
   let currentSectionId: string | null = null;
   let scrollFrame = 0;
+  let revealFrame = 0;
+  let revealScrollY: number | null = null;
+  const inlineViewport = window.matchMedia('(max-width: 850px)');
+  let splitParagraph: { original: HTMLParagraphElement; continuation: HTMLParagraphElement | null } | null = null;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
   const documentColumn = element('div', 'reading-document');
@@ -112,6 +116,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     pane.classList.remove('is-open');
     pane.hidden = true;
     layout.append(pane);
+    restoreParagraph();
+    cancelAnimationFrame(revealFrame);
+    revealScrollY = null;
     close.hidden = true;
     clearHighlights();
     paneTitle.textContent = '精读';
@@ -181,6 +188,64 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
   }
   function cacheKey(sentence: StudySentence) { return `${paper.id}:${sentence.id}:${sentence.source}`; }
+
+  function restoreParagraph() {
+    if (!splitParagraph) return;
+    const { original, continuation } = splitParagraph;
+    if (continuation) {
+      original.append(...continuation.childNodes);
+      continuation.remove();
+    }
+    original.classList.remove('has-inline-analysis');
+    splitParagraph = null;
+  }
+
+  function placeAnalysisPane(source: HTMLElement) {
+    const focusAnchor = selected?.wordIndex == null ? source
+      : source.querySelector<HTMLElement>(`[data-token-index="${selected.wordIndex}"]`) ?? source;
+    const sourceTop = focusAnchor.getBoundingClientRect().top;
+    const active = document.activeElement;
+    const preserveFocus = active instanceof HTMLElement && source.contains(active);
+    layout.append(pane);
+    restoreParagraph();
+    const paragraph = source.closest<HTMLParagraphElement>('.passage-paragraph');
+    if (inlineViewport.matches && paragraph && source.parentElement === paragraph) {
+      const continuation = element('p', 'passage-paragraph passage-continuation');
+      continuation.lang = paragraph.lang;
+      // Move the existing sentence nodes so IDs, highlights and click handlers survive.
+      while (source.nextSibling) continuation.append(source.nextSibling);
+      paragraph.classList.add('has-inline-analysis');
+      paragraph.after(pane);
+      if (continuation.hasChildNodes()) pane.after(continuation);
+      splitParagraph = { original: paragraph, continuation: continuation.hasChildNodes() ? continuation : null };
+    } else {
+      const anchor = paragraph ?? source.closest('.intensive-question-line, .intensive-question-option') ?? source;
+      anchor.after(pane);
+    }
+    pane.hidden = false;
+    if (preserveFocus) active.focus({ preventScroll: true });
+    const shift = focusAnchor.getBoundingClientRect().top - sourceTop;
+    if (shift) window.scrollBy({ top: shift, behavior: 'instant' });
+    revealScrollY = window.scrollY;
+  }
+
+  function revealInlineAnalysis() {
+    cancelAnimationFrame(revealFrame);
+    if (!inlineViewport.matches || !panelOpen || !selected) return;
+    revealFrame = requestAnimationFrame(() => {
+      if (controller.signal.aborted || !panelOpen || !selected) return;
+      if (revealScrollY === null || Math.abs(window.scrollY - revealScrollY) > 32) return;
+      const source = selected.element.getBoundingClientRect();
+      const bounds = pane.getBoundingClientRect();
+      // A delayed result must not pull the reader back after they scroll away.
+      if (bounds.bottom < 80 || source.top > window.innerHeight) return;
+      const previewBottom = bounds.top + Math.min(bounds.height, 220);
+      if (previewBottom > window.innerHeight - 16) {
+        window.scrollBy({ top: previewBottom - window.innerHeight + 16, behavior: 'instant' });
+        revealScrollY = window.scrollY;
+      }
+    });
+  }
 
   async function prefetchCachedAnalyses(section: StudySection) {
     if (prefetchedSections.has(section.id)) return;
@@ -404,14 +469,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     options.onPositionChange?.(sentence.sectionId, sentence.id);
     selected = { sentence, element: source, wordIndex };
     panelOpen = true;
-    const sourceTop = source.getBoundingClientRect().top;
-    const anchor = source.closest('.passage-paragraph, .intensive-question-line, .intensive-question-option') ?? source;
-    anchor.after(pane);
-    pane.hidden = false;
+    placeAnalysisPane(source);
     pane.classList.add('is-open');
-    // Moving an explanation from an earlier paragraph must not move the clicked text.
-    const shift = source.getBoundingClientRect().top - sourceTop;
-    if (shift) window.scrollBy({ top: shift, behavior: 'instant' });
     close.hidden = false;
     highlightSelection();
     paneTitle.textContent = sentence.label ?? `第 ${sentence.sentenceIndex + 1} 句`;
@@ -446,6 +505,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       paneBody.replaceChildren(loading);
     }
     updateActions();
+    revealInlineAnalysis();
     try {
       const analysis = await request.promise;
       feedback.delete(sentence.id);
@@ -464,6 +524,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       paneBody.setAttribute('aria-busy', 'false');
       paneBody.replaceChildren(message, retry);
       updateActions();
+      revealInlineAnalysis();
     }
   }
   function renderSentence(sentence: StudySentence, underlined: { start: number; end: number }[] = []) {
@@ -613,6 +674,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     paneBody.append(tabs, body);
     updateProgress();
+    revealInlineAnalysis();
   }
   function showSection(section: StudySection) {
     const isInitialSection = currentSectionId === null;
@@ -731,6 +793,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
   window.addEventListener('scroll', saveReadingPosition, { passive: true, signal: controller.signal });
   window.addEventListener('resize', updateProgress, { passive: true, signal: controller.signal });
+  const repositionAnalysis = () => {
+    if (!panelOpen || !selected) return;
+    placeAnalysisPane(selected.element);
+    updateProgress();
+    revealInlineAnalysis();
+  };
+  inlineViewport.addEventListener('change', repositionAnalysis);
   target.addEventListener('load', updateProgress, { capture: true, signal: controller.signal });
   updateProgress();
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
@@ -739,6 +808,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     controller.abort();
     clearTimeout(positionTimer);
     cancelAnimationFrame(scrollFrame);
+    cancelAnimationFrame(revealFrame);
+    restoreParagraph();
+    inlineViewport.removeEventListener('change', repositionAnalysis);
     toolbar.dispose();
     // Regeneration can finish and update its cache while the user changes modes/papers.
     for (const request of ownedRequests) if (!request.regenerating) request.controller.abort();

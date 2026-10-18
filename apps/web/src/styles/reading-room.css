@@ -1,4 +1,4 @@
-/* A single reading column, with explanations below the current paragraph. */
+/* A single reading column; narrow screens place explanations directly after the sentence. */
 .reading-room {
   --canvas: #f7f5f0;
   --paper: #fffcf7;
@@ -59,6 +59,8 @@
 .reading-instructions .section-instructions { margin: 6px 0 0; padding: 12px 14px; border-radius: 8px; background: var(--paper-warm); font-size: 13px; }
 .reading-room .passage-paragraph { margin-bottom: 1.4em; color: var(--ink); font-size: var(--reader-font-size); line-height: var(--reader-line-height); overflow-wrap: break-word; }
 .reading-room .passage-paragraph[lang='en'] { font-family: var(--reader-body-font); font-size: var(--reader-font-size); line-height: var(--reader-line-height); overflow-wrap: break-word; }
+.reading-room .passage-paragraph.has-inline-analysis { margin-bottom: 12px; }
+.reading-room .passage-continuation { margin-top: 0; }
 .reading-room .source-sentence { padding-block: 3px; border-radius: 3px; scroll-margin-block: 100px; }
 .reading-room .source-sentence:hover { background: var(--paper-warm); }
 .reading-room .source-sentence.is-static:hover { background: transparent; }
