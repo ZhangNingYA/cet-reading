@@ -78,6 +78,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let positionTimer: ReturnType<typeof setTimeout> | undefined;
   let restoringPosition = false;
   let lastReadSentenceId = options.initialSentenceId;
+  let currentSectionId: string | null = null;
+  let scrollFrame = 0;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
   const documentColumn = element('div', 'reading-document');
@@ -119,7 +121,16 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     paneBody.replaceChildren();
     paneBody.setAttribute('aria-busy', 'false');
     updateActions();
-    if (restoreFocus && previous) previous.element.focus({ preventScroll: true });
+    if (restoreFocus && previous) {
+      previous.element.focus({ preventScroll: true });
+      const bounds = previous.element.getBoundingClientRect();
+      const topbar = target.closest('.reader-section')?.querySelector('.reader-topline');
+      const inset = Math.max(80, (topbar?.getBoundingClientRect().bottom ?? 60) + 16);
+      if (bounds.top < inset || bounds.top > window.innerHeight - 40) {
+        window.scrollBy({ top: bounds.top - inset, behavior: 'instant' });
+      }
+    }
+    updateProgress();
   };
   close.addEventListener('click', () => dismiss());
   actions.append(regenerate, close);
@@ -321,7 +332,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
 
   function renderStudyQuestions(section: StudySection, block: HTMLElement) {
     if (!['reading', 'matching'].includes(section.kind) || !section.questions.length) return;
-    const list = element('div', 'intensive-questions');
+    const list = element('section', 'intensive-questions');
+    const heading = element('div', 'intensive-questions-heading');
+    const title = element('h3', '', '题目与解析');
+    title.id = `questions-${section.id}`;
+    list.setAttribute('aria-labelledby', title.id);
+    heading.append(title, element('span', '', `${section.questions.length} 题`));
+    list.append(heading, element('p', 'intensive-questions-note', section.kind === 'reading' ? '点击题干或选项查看精读。' : '点击题干查看精读。'));
     for (const [index, question] of section.questions.entries()) {
       const card = element('article', 'intensive-question');
       const questionNumber = question.prompt.match(/^\s*(\d+)\s*[.)]/)?.[1] ?? String(index + 1);
@@ -336,7 +353,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
 
       if (section.kind === 'reading') {
         const options = element('div', 'intensive-question-options');
-        options.append(element('h5', 'question-options-heading', '选项精读'));
         for (const option of question.options) {
           const optionCard = element('div', 'intensive-question-option');
           optionCard.append(element('strong', 'question-option-key', `${option.key}.`));
@@ -351,7 +367,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
 
       if (section.kind === 'reading') {
         const solvingDisclosure = element('details', 'question-solving-disclosure');
-        const solvingSummary = element('summary', 'question-solving-summary', '做题精读：解析题干、全部选项与原文依据');
+        const solvingSummary = element('summary', 'question-solving-summary', '查看解题思路与原文依据');
         const solving = element('div', 'question-solving-result');
         const cached = questionAnalyses.get(question.id);
         let questionRequest: Promise<QuestionAnalysis> | null = null;
@@ -402,6 +418,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     paneTitle.hidden = false;
     wordDetail.hidden = true;
     wordDetail.replaceChildren();
+    updateProgress();
     const cached = completed.get(cacheKey(sentence));
     const key = cacheKey(sentence);
     let request = requests.get(key);
@@ -595,8 +612,16 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       body.append(structure);
     }
     paneBody.append(tabs, body);
+    updateProgress();
   }
   function showSection(section: StudySection) {
+    const isInitialSection = currentSectionId === null;
+    currentSectionId = section.id;
+    if (!isInitialSection && !options.hideNavigation) requestAnimationFrame(() => {
+      if (!controller.signal.aborted && currentSectionId === section.id) {
+        navigation.scrollIntoView({ block: 'start', behavior: 'instant' });
+      }
+    });
     clearTimeout(positionTimer);
     activeSentences = [];
     options.onPositionChange?.(section.id);
@@ -656,7 +681,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     documentColumn.replaceChildren(block);
     if (sentences.length) {
       void prefetchCachedAnalyses(section);
-      if (options.initialSectionId === section.id && options.initialSentenceId) {
+      if (isInitialSection && options.initialSectionId === section.id && options.initialSentenceId) {
         const sentence = sentences.find(item => item.id === options.initialSentenceId);
         if (sentence) requestAnimationFrame(() => {
           if (controller.signal.aborted) return;
@@ -675,16 +700,20 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     ?? paper.sections.find(section => section.kind === 'reading' && !section.reference)
     ?? paper.sections.find(section => !section.reference) ?? paper.sections[0];
   if (initialSection) selectSection(initialSection.id);
-  let scrollFrame = 0;
-  const updateProgress = () => {
+  function updateProgress() {
     if (scrollFrame) return;
     scrollFrame = requestAnimationFrame(() => {
       scrollFrame = 0;
-      const bounds = documentColumn.getBoundingClientRect();
-      const visibleHeight = window.innerHeight;
-      progress.value = Math.round(Math.min(100, Math.max(0, (visibleHeight - bounds.top) / Math.max(1, bounds.height) * 100)));
+      let total = 0;
+      let visible = 0;
+      for (const paragraph of documentColumn.querySelectorAll<HTMLElement>('.passage-paragraph, .passage-section > .section-image')) {
+        const bounds = paragraph.getBoundingClientRect();
+        total += bounds.height;
+        visible += Math.min(bounds.height, Math.max(0, window.innerHeight - bounds.top));
+      }
+      progress.value = total ? Math.round(visible / total * 100) : 0;
     });
-  };
+  }
   const saveReadingPosition = () => {
     if (panelOpen || restoringPosition) return;
     clearTimeout(positionTimer);
@@ -702,6 +731,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
   window.addEventListener('scroll', saveReadingPosition, { passive: true, signal: controller.signal });
   window.addEventListener('resize', updateProgress, { passive: true, signal: controller.signal });
+  target.addEventListener('load', updateProgress, { capture: true, signal: controller.signal });
   updateProgress();
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
   document.addEventListener('keydown', escape);

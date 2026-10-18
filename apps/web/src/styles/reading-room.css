@@ -44,7 +44,7 @@
 .reading-progress::-webkit-progress-value { background: var(--accent); }
 .reading-progress::-moz-progress-bar { background: var(--accent); }
 
-.reading-room .study-navigation { gap: 6px; margin: 12px 0 18px; border: 0; }
+.reading-room .study-navigation { flex-wrap: wrap; gap: 6px; margin: 12px 0 18px; border: 0; overflow: visible; scroll-margin-top: 72px; }
 .reading-room .study-section-link { min-height: 40px; padding: 8px 13px; border: 1px solid transparent; border-radius: 7px; font-size: 13px; }
 .reading-room .study-section-link[aria-current='page'] { border-color: var(--line); color: var(--ink); background: var(--paper); }
 .reading-room .study-section-link:hover { background: var(--paper-warm); }
@@ -55,6 +55,7 @@
 .reading-instructions { margin-bottom: 18px; color: var(--muted); font-size: 12px; }
 .reading-instructions summary { width: fit-content; min-height: 32px; padding-block: 5px; cursor: pointer; }
 .reading-instructions summary:hover { color: var(--ink); }
+.reading-instructions summary:focus-visible, .question-solving-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 .reading-instructions .section-instructions { margin: 6px 0 0; padding: 12px 14px; border-radius: 8px; background: var(--paper-warm); font-size: 13px; }
 .reading-room .passage-paragraph { margin-bottom: 1.4em; color: var(--ink); font-size: var(--reader-font-size); line-height: var(--reader-line-height); overflow-wrap: break-word; }
 .reading-room .passage-paragraph[lang='en'] { font-family: var(--reader-body-font); font-size: var(--reader-font-size); line-height: var(--reader-line-height); overflow-wrap: break-word; }
@@ -64,7 +65,7 @@
 .reading-room .source-sentence.is-selected, .reading-room .source-sentence.is-resume-point { background: var(--accent-pale); }
 .reading-room .source-word:hover, .reading-room .source-word.is-active-word, .reading-room .source-word.is-structure { color: inherit; border-radius: 3px; background: var(--reader-highlight); }
 
-.reading-room .analysis-pane { position: static; max-height: none; overflow: visible; margin: 0 0 26px; padding: 18px 20px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; background: var(--paper); font-family: var(--sans); scroll-margin-top: 76px; }
+.reading-room .analysis-pane { position: static; max-height: none; overflow: visible; overflow-anchor: none; margin: 0 0 26px; padding: 18px 20px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; background: var(--paper); font-family: var(--sans); scroll-margin-top: 76px; }
 .reading-room .analysis-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 10px; margin-bottom: 12px; }
 .analysis-context { min-width: 0; align-self: center; }
 .reading-room .analysis-title { color: var(--muted); font-size: 13px; font-weight: 500; }
@@ -81,9 +82,22 @@
 .reading-room .word-lemma { margin: 0; }
 .reading-room .word-meaning { margin-top: 3px; font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
 .reading-room .analysis-retry { background: var(--paper); }
-.reading-room .intensive-questions { margin-top: 48px; }
-.reading-room .intensive-question { padding: 24px; background: var(--paper); }
-.reading-room .intensive-question-option, .reading-room .question-analysis-option, .reading-room .question-analysis-evidence blockquote, .reading-room .question-analysis-button { border-color: var(--line); background: var(--canvas); }
+.reading-room .intensive-questions { display: block; margin-top: 40px; padding-top: 24px; }
+.intensive-questions-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.intensive-questions-heading h3 { margin: 0; font-size: 1rem; font-weight: 550; }
+.intensive-questions-heading > span { color: var(--muted); font-size: 12px; }
+.intensive-questions-note { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.reading-room .intensive-question { padding: 24px 0; border: 0; border-radius: 0; background: transparent; }
+.reading-room .intensive-question + .intensive-question { border-top: 1px solid var(--line); }
+.reading-room .intensive-question-line { font-family: var(--reader-body-font); font-size: 1.0625rem; line-height: 1.85; }
+.reading-room .intensive-question-title { margin-right: .7em; color: var(--muted); font-family: var(--sans); font-size: 12px; font-weight: 500; white-space: nowrap; }
+.reading-room .intensive-question-options { gap: 0; margin-top: 12px; }
+.reading-room .intensive-question-option { display: grid; grid-template-columns: 22px minmax(0, 1fr); align-items: baseline; gap: 7px; padding: 7px 0; border: 0; border-radius: 0; background: transparent; font-family: var(--reader-body-font); font-size: 1.0625rem; line-height: 1.85; }
+.reading-room .question-option-key { margin: 0; color: var(--muted); font-family: var(--sans); font-size: 13px; font-weight: 500; }
+.reading-room .question-analysis-option, .reading-room .question-analysis-evidence blockquote, .reading-room .question-analysis-button { border-color: var(--line); background: var(--canvas); }
+.reading-room .question-solving-disclosure { margin-top: 14px; }
+.reading-room .question-solving-summary { min-height: 40px; padding: 10px 0 4px; color: var(--muted); font-size: 13px; font-weight: 400; }
+.reading-room .question-solving-summary:hover { color: var(--ink); }
 .reading-room .question-solving-analysis { color: var(--ink); background: var(--paper-warm); }
 .reading-room .question-analysis-option.is-correct { background: var(--accent-pale); }
 .reading-room .question-solving-disclosure { border-color: var(--line); }
@@ -102,16 +116,17 @@
   .reading-room .mode-switch { gap: 2px; padding: 3px; }
   .reading-room .mode-switch button { min-height: 34px; padding: 5px 10px; font-size: 13px; }
   .reading-room .reading-night-toggle { gap: 5px; padding-inline: 10px; }
-  .reading-room .study-navigation { gap: 3px; margin-block: 10px 0; }
-  .reading-room .study-section-link { padding-inline: 11px; }
+  .reading-room .study-navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; margin-block: 10px 0; }
+  .reading-room .study-section-link { min-width: 0; min-height: 36px; padding: 6px 5px; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
   .reading-room .passage-title { margin: 14px 0 6px; }
   .reading-instructions { margin-bottom: 14px; }
   .reading-room .passage-paragraph { margin-bottom: 1.3em; }
   .reading-room .analysis-pane { margin-bottom: 22px; padding: 14px 16px; }
   .reading-room .analysis-tab { padding-inline: 13px; }
   .reading-room .analysis-tab-content { font-size: 15px; }
-  .reading-room .intensive-question { padding: 18px; border: 1px solid var(--line); border-radius: 12px; }
-  .reading-room .intensive-question-option { padding: 12px; }
+  .reading-room .intensive-questions { margin-top: 30px; padding-top: 20px; }
+  .reading-room .intensive-question { padding-block: 20px; }
+  .reading-room .intensive-question-line, .reading-room .intensive-question-option { font-size: 1rem; }
 }
 @media (max-width: 359px) {
   .reading-room .reader-section { width: calc(100% - 32px); }
