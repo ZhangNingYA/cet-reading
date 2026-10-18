@@ -1,5 +1,7 @@
 /* One reading column, with explanations directly after the selected sentence on every screen. */
 :root:has(> body.reading-room) { background: #f7f5ef; }
+/* Next sentence keeps the panel's viewport position instead of a browser-chosen anchor. */
+:root:has(.intensive-layout.keeps-analysis-position) { overflow-anchor: none; }
 :root:has(> body.reading-room[data-reader-theme='light']) { background: #f5f6f7; }
 :root:has(> body.reading-room[data-reader-theme='sage']) { background: #f0f3ec; }
 :root:has(> body.reading-room[data-reader-theme='night']) { color-scheme: dark; background: #202326; }

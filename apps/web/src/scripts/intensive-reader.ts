@@ -82,6 +82,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let scrollFrame = 0;
   let revealFrame = 0;
   let revealScrollY: number | null = null;
+  let keepPanePosition = false;
   let splitParagraph: { original: HTMLParagraphElement; continuation: HTMLParagraphElement | null } | null = null;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
@@ -110,11 +111,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   next.addEventListener('click', () => {
     const following = nextSentence();
     if (!following) return;
-    void selectSentence(following.sentence, following.source, null);
-    following.source.scrollIntoView({ block: 'start', behavior: 'instant' });
-    revealScrollY = window.scrollY;
+    preservePanePosition(() => {
+      void selectSentence(following.sentence, following.source, null, false, true);
+    });
     (next.disabled ? following.source : next).focus({ preventScroll: true });
-    revealInlineAnalysis();
   });
   const close = element('button', 'analysis-close', '收起');
   close.type = 'button';
@@ -129,6 +129,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     restoreParagraph();
     cancelAnimationFrame(revealFrame);
     revealScrollY = null;
+    keepPanePosition = false;
+    layout.classList.remove('keeps-analysis-position');
+    layout.style.paddingBottom = '';
     close.hidden = true;
     clearHighlights();
     paneTitle.textContent = '精读';
@@ -215,6 +218,24 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   }
   function cacheKey(sentence: StudySentence) { return `${paper.id}:${sentence.id}:${sentence.source}`; }
 
+  function preservePanePosition(update: () => void) {
+    const bounds = pane.getBoundingClientRect();
+    // If the reader scrolls past a pending result, preserve what they are reading.
+    const anchor = bounds.bottom > 0 && bounds.top < window.innerHeight ? pane
+      : [...documentColumn.querySelectorAll<HTMLElement>('.source-word')].find(word => {
+        const bounds = word.getBoundingClientRect();
+        return bounds.top >= 80 && bounds.top < window.innerHeight;
+      }) ?? pane;
+    const top = anchor.getBoundingClientRect().top;
+    layout.style.paddingBottom = '';
+    update();
+    const scrollTop = window.scrollY + anchor.getBoundingClientRect().top - top;
+    const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    // Allow a shorter result near the article's end without clamping the scroll.
+    if (scrollTop > maxScroll) layout.style.paddingBottom = `${Math.ceil(scrollTop - maxScroll)}px`;
+    if (Math.abs(window.scrollY - scrollTop) > 0.5) window.scrollTo({ top: scrollTop, behavior: 'instant' });
+  }
+
   function restoreParagraph() {
     if (!splitParagraph) return;
     const { original, continuation } = splitParagraph;
@@ -257,7 +278,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
 
   function revealInlineAnalysis() {
     cancelAnimationFrame(revealFrame);
-    if (!panelOpen || !selected) return;
+    if (!panelOpen || !selected || keepPanePosition) return;
     revealFrame = requestAnimationFrame(() => {
       if (controller.signal.aborted || !panelOpen || !selected) return;
       if (revealScrollY === null || Math.abs(window.scrollY - revealScrollY) > 32) return;
@@ -489,7 +510,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     block.append(list);
   }
-  async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false) {
+  async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false, keepPosition = false) {
+    keepPanePosition = keepPosition;
+    layout.classList.toggle('keeps-analysis-position', keepPosition);
+    if (!keepPosition) layout.style.paddingBottom = '';
     clearTimeout(positionTimer);
     lastReadSentenceId = sentence.id;
     options.onPositionChange?.(sentence.sectionId, sentence.id);
@@ -547,9 +571,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       retry.addEventListener('click', () => {
         if (selected) void selectSentence(selected.sentence, selected.element, selected.wordIndex);
       });
-      paneBody.setAttribute('aria-busy', 'false');
-      paneBody.replaceChildren(message, retry);
-      updateActions();
+      const showFailure = () => {
+        paneBody.setAttribute('aria-busy', 'false');
+        paneBody.replaceChildren(message, retry);
+        updateActions();
+      };
+      if (keepPanePosition) preservePanePosition(showFailure);
+      else showFailure();
       revealInlineAnalysis();
     }
   }
@@ -612,6 +640,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     });
   }
   function renderAnalysis(analysis: SentenceAnalysis) {
+    if (keepPanePosition) preservePanePosition(() => renderAnalysisContent(analysis));
+    else renderAnalysisContent(analysis);
+  }
+  function renderAnalysisContent(analysis: SentenceAnalysis) {
     if (!selected) return;
     updateActions();
     highlightSelection();
