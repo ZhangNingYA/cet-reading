@@ -78,7 +78,7 @@
 .source-word.is-structure { background: #dbeadc; text-decoration: underline; text-decoration-color: #578068; text-underline-offset: 4px; }
 .source-sentence:focus-visible, .source-word:focus-visible { outline-offset: 2px; }
 
-/* Analysis expands in the reading flow so the passage stays visible beside it. */
+/* Sentence analysis content; responsive placement is in reading-room.css. */
 .analysis-pane { min-width: 0; margin: 25px 0 34px; padding: 3px 0 3px 22px; border: 0; border-left: 3px solid var(--accent); background: transparent; }
 .analysis-pane[hidden] { display: none; }
 .analysis-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
@@ -88,9 +88,6 @@
 .analysis-regenerate:hover, .analysis-close:hover { color: var(--accent-deep); }
 .analysis-regenerate:disabled { color: var(--quiet); cursor: wait; }
 .analysis-feedback { margin: 0 0 16px; color: #94583d; font-size: var(--text-caption); line-height: 1.8; }
-.analysis-source { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; margin: 0 0 18px; padding: 12px 15px; border-left: 2px solid #91b49d; border-radius: 0 6px 6px 0; background: #f4f7f4; }
-.analysis-source-label { color: var(--muted); font-size: var(--text-caption); font-weight: 600; line-height: 1.85; white-space: nowrap; }
-.analysis-source-text { min-width: 0; color: var(--ink); font-family: var(--reading-font); font-size: var(--text-body); line-height: 1.85; overflow-wrap: anywhere; }
 .analysis-empty, .analysis-loading { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }
 .analysis-loading { display: flex; align-items: center; gap: 9px; color: var(--accent); }
 .waiting-dots { display: inline-flex; align-items: center; gap: 3px; margin-inline-start: 4px; vertical-align: middle; }

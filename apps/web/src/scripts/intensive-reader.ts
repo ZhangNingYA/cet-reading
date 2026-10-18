@@ -5,6 +5,7 @@ import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
 import type { SectionReference } from '@cet-reading/contracts/exam';
 import { createSharedSectionNotice } from './section-reference';
 import { appendSectionImages } from './section-material';
+import { createReaderToolbar } from './reader-preferences';
 
 type StudySentence = {
   id: string;
@@ -73,18 +74,19 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let selected: Selection | null = null;
   let activeTab: AnalysisTab = 'translation';
   let panelOpen = false;
+  let activeSentences: StudySentence[] = [];
+  let positionTimer: ReturnType<typeof setTimeout> | undefined;
+  let restoringPosition = false;
+  let lastReadSentenceId = options.initialSentenceId;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
   const documentColumn = element('div', 'reading-document');
   const pane = element('aside', 'analysis-pane');
   pane.setAttribute('aria-label', '当前句子精读');
-  pane.hidden = true;
+  pane.classList.add('is-idle');
   const paneHeader = element('div', 'analysis-heading');
   const paneTitle = element('h3', 'analysis-title', '精读');
   const actions = element('div', 'analysis-actions');
-  const analysisSource = element('p', 'analysis-source');
-  const analysisSourceText = element('span', 'analysis-source-text');
-  analysisSource.append(element('span', 'analysis-source-label', '原文'), analysisSourceText);
   const regenerate = element('button', 'analysis-regenerate', '重新生成');
   regenerate.type = 'button';
   regenerate.hidden = true;
@@ -100,8 +102,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const previous = selected;
     selected = null;
     panelOpen = false;
-    pane.hidden = true;
-    layout.append(pane);
+    pane.classList.remove('is-open');
+    pane.classList.add('is-idle');
+    document.body.classList.remove('has-reading-analysis');
     close.hidden = true;
     clearHighlights();
     showEmpty();
@@ -116,16 +119,28 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const paneBody = element('div', 'analysis-body');
   paneBody.setAttribute('aria-live', 'polite');
   paneBody.setAttribute('aria-busy', 'false');
-  pane.append(paneHeader, analysisSource, notice, paneBody);
+  pane.append(paneHeader, notice, paneBody);
   layout.append(documentColumn, pane);
+  const toolbar = createReaderToolbar(focus => {
+    if (focus && panelOpen) dismiss(false);
+    target.querySelectorAll<HTMLElement>('.source-sentence:not(.is-static), .source-word').forEach(node => {
+      node.tabIndex = focus ? -1 : 0;
+      if (node instanceof HTMLButtonElement) node.disabled = focus;
+    });
+  });
+  const progress = element('progress', 'reading-progress');
+  progress.max = 100;
+  progress.value = 0;
+  progress.setAttribute('aria-label', '正文阅读进度');
+  target.append(toolbar.element, progress);
   if (!options.hideNavigation) target.append(navigation);
   target.append(layout);
 
-  function showEmpty(message = '点击原文中的单词或句子') {
-    paneTitle.textContent = '精读';
+  function showEmpty(message = '点击单词查词，点击句子看解析。') {
+    paneTitle.textContent = '随读随查';
     updateActions();
     paneBody.setAttribute('aria-busy', 'false');
-    paneBody.replaceChildren(element('p', 'analysis-empty', message));
+    paneBody.replaceChildren(element('span', 'analysis-idle-mark', 'Aa'), element('h4', 'analysis-idle-title', '读懂每一句。'), element('p', 'analysis-empty', message), element('p', 'analysis-idle-note', '翻译、结构和词汇，会在这里为你展开。'));
   }
   function updateActions() {
     const sentence = selected?.sentence;
@@ -147,6 +162,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   function highlightSelection() {
     clearHighlights();
     if (!selected) return;
+    target.querySelector('.is-resume-point')?.classList.remove('is-resume-point');
     selected.element.classList.add('is-selected');
     if (selected.wordIndex !== null) {
       const word = selected.element.querySelector(`[data-token-index="${selected.wordIndex}"]`);
@@ -155,17 +171,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
   }
   function cacheKey(sentence: StudySentence) { return `${paper.id}:${sentence.id}:${sentence.source}`; }
-
-  function placeAnalysisPane(source: HTMLElement) {
-    const paragraph = source.closest('.passage-paragraph');
-    const questionLine = source.closest('.intensive-question-line');
-    const option = source.closest('.intensive-question-option');
-    if (paragraph) paragraph.after(pane);
-    else if (questionLine) questionLine.after(pane);
-    else if (option) option.after(pane);
-    else source.after(pane);
-    pane.hidden = false;
-  }
 
   async function prefetchCachedAnalyses(section: StudySection) {
     if (prefetchedSections.has(section.id)) return;
@@ -379,18 +384,27 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     block.append(list);
   }
   async function selectSentence(sentence: StudySentence, source: HTMLElement, wordIndex: number | null, regenerate = false) {
+    if (toolbar.isFocusReading()) return;
     options.onPositionChange?.(sentence.sectionId, sentence.id);
     selected = { sentence, element: source, wordIndex };
     panelOpen = true;
-    placeAnalysisPane(source);
+    pane.hidden = false;
+    pane.classList.remove('is-idle');
+    pane.classList.add('is-open');
+    document.body.classList.add('has-reading-analysis');
     close.hidden = false;
     highlightSelection();
     paneTitle.textContent = sentence.label ?? `第 ${sentence.sentenceIndex + 1} 句`;
-    analysisSourceText.textContent = sentence.source;
     requestAnimationFrame(() => {
       if (!panelOpen || selected?.element !== source) return;
-      const bounds = pane.getBoundingClientRect();
-      if (bounds.top < 0 || bounds.top > window.innerHeight - 120) pane.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      pane.scrollTop = 0;
+      if (window.matchMedia('(max-width: 1000px)').matches) {
+        const bounds = source.getBoundingClientRect();
+        const availableBottom = pane.getBoundingClientRect().top - 24;
+        if (bounds.bottom > availableBottom || bounds.top < 88) {
+          window.scrollBy({ top: bounds.top - Math.max(100, (availableBottom - bounds.height) / 2), behavior: 'smooth' });
+        }
+      }
     });
     const cached = completed.get(cacheKey(sentence));
     const key = cacheKey(sentence);
@@ -449,7 +463,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       source.textContent = sentence.source;
       return source;
     }
-    source.tabIndex = 0;
+    source.tabIndex = toolbar.isFocusReading() ? -1 : 0;
     source.setAttribute('role', 'group');
     source.setAttribute('aria-label', `第 ${sentence.sentenceIndex + 1} 句，按回车查看精读`);
     let offset = 0;
@@ -465,12 +479,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (token.kind === 'word') {
         const word = element('button', 'source-word', token.text);
         word.type = 'button';
+        word.disabled = toolbar.isFocusReading();
+        word.tabIndex = toolbar.isFocusReading() ? -1 : 0;
         word.dataset.tokenIndex = String(token.index);
         word.setAttribute('aria-label', `${token.text}，查看词义`);
         word.setAttribute('aria-pressed', 'false');
         word.addEventListener('click', event => {
           event.stopPropagation();
-          void selectSentence(sentence, source, token.index);
+          if (!window.getSelection()?.toString()) void selectSentence(sentence, source, token.index);
         });
         unit.append(word);
       } else unit.append(document.createTextNode(token.text));
@@ -585,8 +601,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     paneBody.append(tabs, body);
   }
   function showSection(section: StudySection) {
+    clearTimeout(positionTimer);
+    activeSentences = [];
     options.onPositionChange?.(section.id);
     dismiss(false);
+    pane.hidden = false;
+    toolbar.updateStats(section.paragraphs.join(' '));
+    progress.value = 0;
     const block = element('section', 'passage-section');
     block.dataset.sectionKind = section.kind;
     if (!options.hideNavigation) block.append(element('h3', 'passage-title', section.title));
@@ -598,6 +619,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       return;
     }
     const sentences = paper.sentences.filter(sentence => sentence.sectionId === section.id);
+    activeSentences = sentences;
     if (section.kind === 'cloze' && paper.content_kind === 'imported') block.append(element('p', 'passage-note', '空格按参考答案补全'));
     if (['reading', 'matching'].includes(section.kind) && section.instructions) block.append(element('p', 'section-instructions', section.instructions));
     if (section.kind === 'writing' && paper.content_kind !== 'imported') block.append(element('p', 'passage-paragraph', section.questions[0]?.prompt ?? ''));
@@ -635,16 +657,18 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     renderStudyQuestions(section, block);
     documentColumn.replaceChildren(block);
     if (sentences.length) {
-      void prefetchCachedAnalyses(section);
+      if (!toolbar.isFocusReading()) void prefetchCachedAnalyses(section);
       if (options.initialSectionId === section.id && options.initialSentenceId) {
         const sentence = sentences.find(item => item.id === options.initialSentenceId);
         if (sentence) requestAnimationFrame(() => {
+          if (controller.signal.aborted) return;
           const source = documentColumn.querySelector<HTMLElement>(`[data-sentence-id="${CSS.escape(sentence.id)}"]`);
           if (!source) return;
+          restoringPosition = true;
           source.scrollIntoView({ block: 'center', behavior: 'instant' });
-          // Restore the exact reading point as an active sentence, so the
-          // explanation pane opens without requiring a second click.
-          void selectSentence(sentence, source, null);
+          // Restore the reading point without opening an analysis or generating AI work.
+          source.classList.add('is-resume-point');
+          requestAnimationFrame(() => { restoringPosition = false; });
         });
       }
     }
@@ -653,10 +677,41 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     ?? paper.sections.find(section => section.kind === 'reading' && !section.reference)
     ?? paper.sections.find(section => !section.reference) ?? paper.sections[0];
   if (initialSection) selectSection(initialSection.id);
+  let scrollFrame = 0;
+  const updateProgress = () => {
+    if (scrollFrame) return;
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = 0;
+      const bounds = documentColumn.getBoundingClientRect();
+      const visibleHeight = panelOpen && window.matchMedia('(max-width: 1000px)').matches ? pane.getBoundingClientRect().top : window.innerHeight;
+      progress.value = Math.round(Math.min(100, Math.max(0, (visibleHeight - bounds.top) / Math.max(1, bounds.height) * 100)));
+    });
+  };
+  const saveFocusPosition = () => {
+    if (!toolbar.isFocusReading() || restoringPosition) return;
+    clearTimeout(positionTimer);
+    positionTimer = setTimeout(() => {
+      const source = [...documentColumn.querySelectorAll<HTMLElement>('.passage-paragraph .source-sentence')].find(node => {
+        const bounds = node.getBoundingClientRect();
+        return bounds.bottom > 100 && bounds.top < window.innerHeight;
+      });
+      const sentence = activeSentences.find(item => item.id === source?.dataset.sentenceId);
+      if (!sentence || sentence.id === lastReadSentenceId) return;
+      lastReadSentenceId = sentence.id;
+      options.onPositionChange?.(sentence.sectionId, sentence.id);
+    }, 200);
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true, signal: controller.signal });
+  window.addEventListener('scroll', saveFocusPosition, { passive: true, signal: controller.signal });
+  window.addEventListener('resize', updateProgress, { passive: true, signal: controller.signal });
+  updateProgress();
   const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
   document.addEventListener('keydown', escape);
   return () => {
     controller.abort();
+    clearTimeout(positionTimer);
+    cancelAnimationFrame(scrollFrame);
+    toolbar.dispose();
     // Regeneration can finish and update its cache while the user changes modes/papers.
     for (const request of ownedRequests) if (!request.regenerating) request.controller.abort();
     document.removeEventListener('keydown', escape);
