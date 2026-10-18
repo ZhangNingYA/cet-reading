@@ -27,6 +27,7 @@ const isHome = Astro.url.pathname === '/';
         <a class="brand" href="/" aria-label="CET Reading 首页">
           <span class="brand-name"><span class="brand-initials">CET</span><span class="brand-divider" aria-hidden="true">/</span><span class="brand-word">reading</span></span>
         </a>
+        {isHome && <nav class="home-header-nav" aria-label="阅读板块快捷入口">{homeSections.map(section => <a href={`/${section.slug}/`}>{section.label}</a>)}</nav>}
         {!isHome && (
           <nav class="site-nav" aria-label="网站导航">
             <a href="/">首页</a>

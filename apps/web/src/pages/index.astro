@@ -1,21 +1,81 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { homeSections } from '../data/sections';
+import '../styles/home.css';
+
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
+const introductions: Record<string, { title: string; description: string; note: string }> = {
+  cet4: { title: '打好阅读的基础', description: '从常用词汇到长句理解，把每一篇读得更扎实。', note: '历年真题 · 精读与练习' },
+  cet6: { title: '再向前读深一点', description: '理清句子结构与文章逻辑，积累更准确的表达。', note: '历年真题 · 精读与练习' },
+  postgraduate: { title: '读出文章的逻辑', description: '细读长难句，找到观点、转折和题目背后的依据。', note: '英语一 / 英语二' },
+  news: { title: '用英语看看世界', description: '读科技、文化与社会，在真实语境中拓展阅读。', note: '英文资讯 · 持续更新' },
+};
+const sampleWords = [
+  { text: 'Small', pos: 'adj.', meaning: '小的；细微的', note: '这里修饰 steps，强调从微小的行动开始。' },
+  { text: 'steps', pos: 'n.', meaning: '步骤；行动', note: 'step 的复数，这里指朝着目标迈出的一步步行动。' },
+  { text: 'make', pos: 'v.', meaning: '产生；带来', note: 'make a difference 是常见搭配，表示“产生影响”。' },
+  { text: 'a', pos: 'art.', meaning: '一个；一种', note: '不定冠词，用于单数可数名词 difference 前。' },
+  { text: 'lasting', pos: 'adj.', meaning: '持久的；长远的', note: '修饰 difference，强调影响能够持续很长时间。' },
+  { text: 'difference', pos: 'n.', meaning: '改变；影响', note: '在 make a difference 中，表示产生的改变或影响。' },
+];
 ---
 
 <Layout>
-  <section class="home-section container" aria-labelledby="home-title">
-    <h1 id="home-title" class="sr-only">选择阅读板块</h1>
-    <nav class="entry-grid" aria-label="阅读板块">
-      {homeSections.map((section, index) => (
-        <a class="section-entry" href={`/${section.slug}/`}>
-          <span class="section-entry-index">{String(index + 1).padStart(2, '0')}</span>
-          <span class="section-entry-copy">
-            <span class="section-entry-label">{section.label}</span>
-            <span class="section-entry-code">{section.examLevels.join(' · ')}</span>
-          </span>
-        </a>
-      ))}
-    </nav>
+  <section class="home-section container" aria-labelledby="home-title" data-home data-api-base={apiBase}>
+    <div class="home-hero">
+      <div class="home-introduction">
+        <p class="home-eyebrow"><span aria-hidden="true"></span> 给英语阅读，留一点时间</p>
+        <h1 id="home-title">从读懂一句，<br />到<span>读透一篇。</span></h1>
+        <p class="home-description">遇到生词，就点一下。遇到长句，就拆开看。<br class="home-desktop-break" />在真题与英文资讯里，慢慢积累读懂的底气。</p>
+        <div class="home-hero-actions">
+          <a class="button button-primary home-start" href="#reading-sections">开始今天的阅读 <span aria-hidden="true">↗</span></a>
+          <a class="home-secondary" href="/news/">先读一篇英文资讯 <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="home-hero-note"><span aria-hidden="true">✳</span> 四级 / 六级 / 考研 / 日常阅读</p>
+      </div>
+
+      <article class="home-preview" aria-labelledby="home-preview-title">
+        <div class="home-preview-heading"><h2 id="home-preview-title">精读，从一句开始</h2><span>示例句</span></div>
+        <p class="home-sample" lang="en">{sampleWords.map((word, index) => <><button type="button" class="home-sample-word" aria-pressed={index === 4 ? 'true' : 'false'} data-word={word.text} data-pos={word.pos} data-meaning={word.meaning} data-note={word.note} aria-label={`${word.text}，查看词义`}>{word.text}</button>{index === sampleWords.length - 1 ? '.' : ' '}</>)}</p>
+        <div class="home-word-note" aria-live="polite" aria-atomic="true">
+          <div><strong data-sample-word>lasting</strong><span data-sample-pos>adj.</span><span class="home-word-meaning" data-sample-meaning>持久的；长远的</span></div>
+          <p data-sample-note>修饰 difference，强调影响能够持续很长时间。</p>
+        </div>
+        <p class="home-sample-translation">小小的行动，也能带来持久的改变。</p>
+        <div class="home-preview-footer"><span><span aria-hidden="true">↖</span> 点点单词，试试语境词义</span><span lang="en">One sentence at a time.</span></div>
+      </article>
+    </div>
+
+    <a class="home-resume" data-home-resume hidden>
+      <span class="home-resume-icon" aria-hidden="true">↳</span>
+      <span class="home-resume-copy"><span class="home-resume-eyebrow">接着上次，继续读</span><strong data-resume-title></strong><span data-resume-detail></span></span>
+      <span class="home-resume-action">继续阅读 <span aria-hidden="true">→</span></span>
+    </a>
+
+    <section class="home-library" id="reading-sections" aria-labelledby="home-library-title">
+      <div class="home-section-heading"><div><p class="home-kicker">FIND YOUR NEXT READ</p><h2 id="home-library-title">今天，想读点什么？</h2></div><p>为考试积累，也为好奇心阅读。</p></div>
+      <nav class="entry-grid" aria-label="阅读板块">
+        {homeSections.map((section, index) => (
+          <a class="section-entry" href={`/${section.slug}/`} data-board={section.slug}>
+            <span class="home-entry-top"><span class="section-entry-index">{String(index + 1).padStart(2, '0')}</span><span class="home-entry-arrow" aria-hidden="true">↗</span></span>
+            <span class="section-entry-copy"><span class="section-entry-label">{section.label}</span><span class="section-entry-code">{section.examLevels.join(' · ')}</span></span>
+            <strong class="home-entry-title">{introductions[section.slug].title}</strong>
+            <span class="home-entry-description">{introductions[section.slug].description}</span>
+            <span class="home-entry-note" data-board-note={section.slug}>{introductions[section.slug].note}</span>
+          </a>
+        ))}
+      </nav>
+      <div class="home-reading-guide" aria-label="阅读小建议"><span class="home-guide-label">一个小建议</span><p><span><b>01</b> 先读原文</span><span aria-hidden="true">→</span><span><b>02</b> 再看词句</span><span aria-hidden="true">→</span><span><b>03</b> 回到整篇</span></p><span class="home-guide-note">不用一次读很多，读懂一点就很好。</span></div>
+    </section>
+
+    <section class="home-news" aria-labelledby="home-news-title">
+      <div class="home-news-intro"><p class="home-kicker">BEYOND THE EXAM</p><h2 id="home-news-title">让阅读，<br />连上更大的世界。</h2><p>考试之外，也有值得读的英文。<br />从一篇感兴趣的文章，开始新的积累。</p><a class="home-secondary" href="/news/">探索英文资讯 <span aria-hidden="true">→</span></a></div>
+      <div class="home-news-list" data-home-news aria-label="最近英文资讯">
+        <a class="home-news-fallback" href="/news/"><span class="home-kicker">YOUR NEXT STORY</span><strong>下一篇感兴趣的英文，<br />也许就在这里。</strong><span>浏览近期文章 <span aria-hidden="true">↗</span></span></a>
+      </div>
+    </section>
+
+    <footer class="home-footer"><p>慢慢读，每一篇都算数。</p><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></footer>
   </section>
 </Layout>
+<script>import '../scripts/home';</script>
