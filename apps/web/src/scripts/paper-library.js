@@ -87,10 +87,11 @@ function createModeButton(text, mode, paper) {
   button.dataset.mode = mode; button.setAttribute('aria-label', `${paper.title}，${text}`);
   button.addEventListener('click', () => openPaper(paper, mode)); return button;
 }
+function comparePaperOrder(a, b) { return b.year - a.year || b.month - a.month || a.set_no - b.set_no; }
 function showPapers() {
   const query = search.value.trim().toLowerCase();
   const visible = allPapers.filter((paper) => examLevels.includes(paper.exam_level) && (!query || `${paper.title} ${paper.year} ${paper.exam_level}`.toLowerCase().includes(query)))
-    .sort((a, b) => b.year - a.year || b.month - a.month || a.set_no - b.set_no);
+    .sort(comparePaperOrder);
   papers.replaceChildren();
   paperCount.textContent = visible.length ? `${visible.length} 套` : '';
   status.textContent = query ? `找到 ${visible.length} 套试卷` : '题库已加载';
@@ -141,13 +142,13 @@ function updateUrl(paperId, mode) {
 function renderPager(paper, mode) {
   if (!paperPager) return;
   const visible = allPapers.filter(item => examLevels.includes(item.exam_level) && item.content_state === 'local')
-    .sort((a, b) => a.year - b.year || a.month - b.month || a.set_no - b.set_no);
+    .sort(comparePaperOrder);
   const index = visible.findIndex(item => item.id === paper.id);
-  const older = index > 0 ? visible[index - 1] : null;
-  const newer = index >= 0 ? visible[index + 1] : null;
+  const previous = index > 0 ? visible[index - 1] : null;
+  const next = index >= 0 ? visible[index + 1] : null;
   paperPager.replaceChildren();
-  paperPager.hidden = !older && !newer;
-  for (const [label, item, direction] of [['上一套', older, 'older'], ['下一套', newer, 'newer']]) {
+  paperPager.hidden = !previous && !next;
+  for (const [label, item, direction] of [['上一套', previous, 'older'], ['下一套', next, 'newer']]) {
     const slot = document.createElement('div'); slot.className = `paper-pager-slot paper-pager-${direction}`;
     if (item) {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'paper-pager-link';
@@ -157,7 +158,7 @@ function renderPager(paper, mode) {
       button.addEventListener('click', () => openPaper(item, mode));
       slot.append(button);
     } else {
-      const empty = document.createElement('span'); empty.className = 'paper-pager-empty'; empty.textContent = label === '上一套' ? '已经是最早的试卷' : '已经是最新的试卷'; slot.append(empty);
+      const empty = document.createElement('span'); empty.className = 'paper-pager-empty'; empty.textContent = label === '上一套' ? '已经是第一套试卷' : '已经是最后一套试卷'; slot.append(empty);
     }
     paperPager.append(slot);
   }

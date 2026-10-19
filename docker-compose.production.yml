@@ -1,0 +1,10 @@
+# Always combine with docker-compose.yml. CI supplies immutable image digests.
+services:
+  api:
+    image: ${CET_API_IMAGE:?Missing API image digest}
+  worker:
+    image: ${CET_WORKER_IMAGE:?Missing Worker image digest}
+  news:
+    image: ${CET_NEWS_IMAGE:?Missing News image digest}
+  web:
+    image: ${CET_WEB_IMAGE:?Missing Web image digest}

@@ -95,7 +95,7 @@ docker compose up --build
 
 ## 自动检查和部署
 
-项目的 GitHub Actions 会在 Pull request 中执行检查和构建；推送到 `main` 后，会先通过检查，再由 Azure 服务器上的自托管 runner 更新 Docker Compose 服务，最后验证公开站点和 API。配置和服务器 runner 说明见 [CI/CD 文档](docs/CI_CD.md)。
+项目的 GitHub Actions 会在 Pull request 中执行检查和构建；推送到 `main` 后，会先通过检查，再由 GitHub 构建测试并发布镜像，Azure 自托管 runner 拉取镜像并更新有变化的服务，最后验证公开站点和 API。配置和服务器 runner 说明见 [CI/CD 文档](docs/CI_CD.md)。
 
 ## 当前边界
 

@@ -7,4 +7,5 @@ dist/
 coverage/
 *.log
 .DS_Store
+.deployment/
 *:Zone.Identifier

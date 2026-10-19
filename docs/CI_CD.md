@@ -1,43 +1,44 @@
 # CI/CD
 
-项目现在使用一条 GitHub Actions 流程完成：
-
 ```text
-本地提交 → GitHub 检查 → Azure 自托管 Runner 部署 → 公开域名验证
+本地提交 → GitHub 检查 → GitHub 并行构建/测试三种镜像 → Azure 拉取并更新 → 公开站点验证
 ```
 
-## 触发规则
+## 触发和镜像
 
-- Pull request：执行 `npm ci`、`npm run check`、`npm run build` 和 Compose 配置检查。
-- `main` 分支 push：先完成同样的检查，再在 Azure 服务器更新 Compose 服务，最后从 GitHub runner 访问 `https://cet.fulafu.com/` 和 `/api/papers`。
-- `workflow_dispatch`：可以在 Actions 页面手动运行；手动运行不会部署，只有 push 到 `main` 才会部署。
+- Pull request、手动 `workflow_dispatch`：执行依赖安装、完整检查、构建和 Compose 配置检查，不部署。
+- `main` push：检查通过后，在 GitHub 托管 runner 并行构建 API、Worker、Web 三个镜像，并执行生产镜像启动/依赖检查。
+- 镜像发布到 `ghcr.io/<小写 owner>/<小写 repo>/{api,worker,web}:<完整提交 SHA>`。News 与 Worker 使用同一个 Worker 镜像，仅启动命令不同。
+- 部署通过本次运行的 artifact 获取每个镜像的不可变 digest，校验仓库、服务名和提交，再按 digest 拉取，不使用浮动 `latest` 部署。
+- Docker 构建层按服务分别缓存在 GitHub Actions 中；npm 下载缓存通过 BuildKit cache mount 与 Actions cache 保留。安装使用锁文件和 `npm ci`。
+- API、Worker 使用多阶段构建，最终镜像只包含对应服务、共享 contracts 的编译结果和生产依赖。Web 最终镜像仍只包含 Caddy 和静态文件。
 
-部署使用服务器上的自托管 runner，是因为当前 Azure 主机通过 Tailscale 地址访问，GitHub 托管 runner 无法直接 SSH 到这个地址。
+镜像使用 OCI source 标签关联本仓库。构建 job 的 `GITHUB_TOKEN` 只有该 job 获得 `packages: write`；服务器部署 job 使用短期 `packages: read` 权限拉取，Docker 凭据位于临时目录，阶段结束即删除。无需在服务器保存新的长期镜像仓库密钥。首次发布的包默认保持仓库平台的私有设置，不主动修改可见性。
 
-## 服务器 Runner
+## Azure 部署
 
-Runner 以 `cyan` 用户运行，标签为 `cet-reading`，工作目录建议使用 `/home/cyan/actions-runner`。它必须能访问 Docker，并且 `/home/cyan/cet-reading/.env` 必须已经存在。`.env` 永远不提交到仓库。
+自托管 runner 标签为 `cet-reading`，部署目录 `/home/cyan/cet-reading`，必须保留服务器 `.env`。AI 密钥只由服务器容器读取，不传入 GitHub 镜像构建或构建产物。
 
-在仓库 Settings → Actions → Runners 中确认 runner 状态为 **Idle** 后，推送 `main` 才会触发部署。
+部署分为四个可见步骤，每步报告耗时：
 
-## 仓库配置
+1. **准备发布**：保存旧镜像信息、切换到经过检查的确切提交、生成更新计划。
+2. **拉取镜像**：下载三个经过测试的镜像，Worker/News 只下载一次；这一步不停止现有服务。
+3. **应用更新**：比较上一版与本次 digest，仅更新变化的服务。前端单独变化时保留 API、Worker、News；相同镜像不重启。数据库/试卷来源变化或首次切换时执行迁移和必要的种子导入；后台镜像变化时先停止两个任务生产者，再恢复被中断的任务。
+4. **验证并记录**：验证容器、首页和试卷接口，成功后原子更新 `.deployment/current.env`。更新或健康检查失败时恢复上一版应用镜像，保留数据库内容，不反向执行数据库迁移。
 
-在 `production` environment 中设置变量：
+`.deployment/` 不提交、不进入 Docker 镜像。其中保存当前发布、上一版镜像和更新计划，均不含 AI 密钥。首次迁移从现有容器记录本地 image ID，保障切换到新流程时仍可回退。
 
-```text
-DEPLOY_URL=https://cet.fulafu.com
-```
+`main` 的部署串行执行，新提交不会取消正在进行的服务切换。检查、镜像构建、服务器部署和公开验证分别设有超时，失败时保留具体步骤和日志。
 
-没有设置时 workflow 使用这个域名作为默认值。AI API 地址、模型和密钥只在服务器 `.env` 中设置，GitHub Actions 不读取也不保存 AI 密钥。
+## 配置与回退
 
-## 手动回滚
+GitHub `production` environment 的 `DEPLOY_URL` 默认 `https://cet.fulafu.com`。仓库需要允许 workflow 使用 GitHub Container Registry；构建和部署通过工作流临时 token 访问关联本仓库的镜像包。
 
-服务器上的部署脚本按 `origin/main` 更新代码。需要回滚时，在服务器执行：
+手动恢复上一版应用镜像：
 
 ```bash
 cd /home/cyan/cet-reading
-git checkout <known-good-commit>
-docker compose up -d --build --remove-orphans --wait
+bash scripts/deploy-server.sh /home/cyan/cet-reading rollback "$(git rev-parse HEAD)" force
 ```
 
-下一次自动部署会恢复到 `main` 的最新提交。
+此操作只恢复本机已经保留的镜像，不还原数据库。下一次成功的 `main` 部署会记录新的当前发布。服务器不再执行镜像构建；本地开发仍可用 `docker compose up -d --build`，若单独启动 News，首次先执行 `docker compose build worker`。

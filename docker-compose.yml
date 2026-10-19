@@ -49,6 +49,7 @@ services:
         condition: service_healthy
 
   worker:
+    image: cet-reading-worker:local
     build:
       context: .
       dockerfile: apps/worker/Dockerfile
@@ -65,9 +66,8 @@ services:
         condition: service_healthy
 
   news:
-    build:
-      context: .
-      dockerfile: apps/worker/Dockerfile
+    image: cet-reading-worker:local
+    pull_policy: never
     command: ["node", "apps/worker/dist/news-service.js"]
     env_file:
       - .env

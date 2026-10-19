@@ -1,0 +1,12 @@
+.git
+.deployment
+**/node_modules
+**/dist
+**/.astro
+**/.env
+**/.env.*
+**/*.log
+coverage
+data
+**/*.pdf
+.npm-build-cache

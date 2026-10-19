@@ -58,7 +58,7 @@ Worker 默认同时处理四句，`WORKER_CONCURRENCY` 可设为 1–4；后台�
 
 Azure Ubuntu 服务器运行 Docker Compose。生产环境使用 HTTPS，PostgreSQL 不开放公网端口；GitHub 用于代码托管和部署流水线。
 
-部署先构建镜像，再停止 API 和 Worker、应用数据库迁移，最后启动新版服务，确保任务索引与代码同步更新。
+GitHub 托管 runner 构建并测试精简的 API、Worker、Web 镜像，Azure 自托管 runner 只按不可变 digest 拉取并更新有变化的服务。News 与 Worker 共用镜像。数据库或试卷来源变化时才停止相关后台服务执行迁移；发布记录、按阶段耗时、镜像回退与缓存策略见 [CI/CD 文档](CI_CD.md)。
 
 ## 文章问答
 
