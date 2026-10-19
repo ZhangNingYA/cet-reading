@@ -4,74 +4,40 @@ import { homeSections } from '../data/sections';
 import '../styles/home.css';
 
 const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
-const collections: Record<string, { label: string; code: string; note: string }> = {
-  cet4: { label: '英语四级', code: 'CET–4', note: '历年真题 · 精读与练习' },
-  cet6: { label: '英语六级', code: 'CET–6', note: '历年真题 · 精读与练习' },
-  postgraduate: { label: '考研英语', code: 'NEEP', note: '英语一 / 英语二' },
-  news: { label: '英文资讯', code: 'NEWS', note: '科技、文化与生活 · 持续更新' },
+const collections: Record<string, { label: string; note: string }> = {
+  cet4: { label: '英语四级', note: '历年真题' },
+  cet6: { label: '英语六级', note: '历年真题' },
+  postgraduate: { label: '考研英语', note: '英语一 / 英语二' },
+  news: { label: '英文资讯', note: '科技、文化与生活' },
 };
 ---
 
 <Layout>
   <section class="home-section container" aria-labelledby="home-title" data-home data-api-base={apiBase}>
     <header class="home-introduction">
-      <div>
-        <p class="home-eyebrow"><span aria-hidden="true"></span> 给阅读，留一点时间</p>
-        <h1 id="home-title">每天，读懂一点<span>。</span></h1>
-        <p class="home-description">从一份真题，或一篇感兴趣的文章开始。</p>
-      </div>
-      <p class="home-motto" lang="en">One page<br />at a time<span>.</span></p>
+      <h1 id="home-title">每天，读懂一点<span>。</span></h1>
+      <p>从一份真题，或一篇感兴趣的文章开始。</p>
     </header>
 
-    <a class="home-resume" data-home-resume hidden>
-      <span class="home-resume-mark" aria-hidden="true">↳</span>
-      <span class="home-resume-copy">
-        <span class="home-resume-eyebrow">继续上次的阅读</span>
-        <strong data-resume-title></strong>
-        <span data-resume-detail></span>
-      </span>
-      <span class="home-resume-action">继续阅读 <span aria-hidden="true">→</span></span>
-    </a>
+    <nav class="home-collections" id="reading-sections" aria-label="阅读板块">
+      {homeSections.map(section => (
+        <a class="section-entry" href={`/${section.slug}/`}>
+          <span class="home-entry-label">{collections[section.slug].label}</span>
+          <span class="home-entry-note" data-board-note={section.slug}>{collections[section.slug].note}</span>
+          <span class="home-entry-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </nav>
 
-    <div class="home-reading-desk">
-      <section class="home-library" id="reading-sections" aria-labelledby="home-library-title">
-        <div class="home-section-heading">
-          <h2 id="home-library-title">阅读目录</h2>
-          <span>找到你的下一篇</span>
-        </div>
-        <nav class="home-collections" aria-label="阅读板块">
-          {homeSections.map((section, index) => (
-            <a class="section-entry" href={`/${section.slug}/`} data-board={section.slug}>
-              <span class="home-entry-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <span class="home-entry-copy">
-                <span class="home-entry-name"><span class="home-entry-label">{collections[section.slug].label}</span><span class="home-entry-code" lang="en">{collections[section.slug].code}</span></span>
-                <span class="home-entry-note" data-board-note={section.slug}>{collections[section.slug].note}</span>
-              </span>
-              <span class="home-entry-arrow" aria-hidden="true">↗</span>
-            </a>
-          ))}
-        </nav>
-      </section>
-
-      <section class="home-news" aria-labelledby="home-news-title">
-        <div class="home-section-heading">
-          <h2 id="home-news-title"><span class="home-news-dot" aria-hidden="true"></span>最近文章</h2>
-          <a href="/news/">查看全部 <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="home-news-list" data-home-news aria-label="最近英文资讯">
-          <a class="home-news-fallback" href="/news/">
-            <span class="home-news-fallback-label" lang="en">BEYOND THE EXAM</span>
-            <strong>读一点英语，<br />也看看更大的世界。</strong>
-            <span>挑一篇感兴趣的文章 <span aria-hidden="true">↗</span></span>
-          </a>
-        </div>
-      </section>
-    </div>
-
-    <footer class="home-footer">
-      <p>逐句精读 <span aria-hidden="true">/</span> 语境词义 <span aria-hidden="true">/</span> 真题练习</p>
-      <span lang="en">Less, but a little deeper.</span>
-    </footer>
+    <section class="home-news" aria-labelledby="home-news-title">
+      <div class="home-news-heading">
+        <h2 id="home-news-title">最近文章</h2>
+        <a href="/news/">查看全部 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="home-news-list" data-home-news aria-label="最近英文资讯">
+        <a class="home-news-fallback" href="/news/">挑一篇感兴趣的英文文章 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
   </section>
 </Layout>
 <script>import '../scripts/home';</script>
