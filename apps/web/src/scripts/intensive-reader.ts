@@ -168,7 +168,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   paneFooter.hidden = true;
   paneFooter.append(regenerate);
   const shortcuts = element('p', 'analysis-shortcuts');
-  for (const [key, label] of [['A', '上一句'], ['D', '下一句'], ['W / S', '切换解析'], ['空格', '展开 / 收起']]) {
+  for (const [key, label] of [['A', '上一句'], ['D', '下一句'], ['W / S', '切换解析'], ['空格', '展开 / 收起'], ['Q', '回到顶部'], ['E', '回到底部']]) {
     const hint = element('span', '');
     hint.append(element('kbd', '', key), document.createTextNode(` ${label}`));
     shortcuts.append(hint);
@@ -905,6 +905,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (panelOpen) dismiss();
       return;
     }
+    const key = event.key.toLowerCase();
+    if (key === 'q' || key === 'e') {
+      event.preventDefault();
+      cancelAnimationFrame(revealFrame);
+      revealScrollY = null;
+      window.scrollTo({ top: key === 'q' ? 0 : document.documentElement.scrollHeight, behavior: 'instant' });
+      return;
+    }
     if (event.key === ' ') {
       // Preserve native Space activation for controls outside the sentence reader.
       if (origin.closest('button, a, summary, [role="button"], [role="tab"], [role="option"], [role="slider"]')
@@ -917,7 +925,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       else void selectSentence(selection.sentence, selection.element, selection.wordIndex);
       return;
     }
-    const key = event.key.toLowerCase();
     if (!panelOpen || !selected || !['a', 'd', 'w', 's'].includes(key)) return;
     event.preventDefault();
     // Keep held keys useful without navigating at the keyboard's full repeat rate.
