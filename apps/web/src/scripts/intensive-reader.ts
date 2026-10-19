@@ -112,7 +112,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   });
   const next = element('button', 'analysis-next', '下一句');
   next.type = 'button';
-  next.title = '下一句（D）';
+  next.title = '下一句（D 键）';
   next.setAttribute('aria-keyshortcuts', 'D');
   next.addEventListener('click', () => {
     moveSentence(1, true);
