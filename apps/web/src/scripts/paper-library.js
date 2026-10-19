@@ -53,11 +53,7 @@ function savePosition(paper, mode, sectionId, sentenceId) {
     updatedAt: Date.now(),
   });
 }
-function displayPositionTime(value) {
-  if (!value) return '';
-  const date = new Date(value);
-  return Number.isNaN(date.valueOf()) ? '' : `上次阅读 ${date.toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`;
-}
+function paperEdition(paper) { return (paper.variant || `第 ${paper.set_no} 套`).replace(/^第\s*(\d+)\s*套$/, '第 $1 套'); }
 function renderResumeCard() {
   if (!resumeCard) return;
   const position = readPosition();
@@ -65,24 +61,19 @@ function renderResumeCard() {
   if (!paper) { resumeCard.hidden = true; resumeCard.replaceChildren(); return; }
   resumeCard.hidden = false;
   const copy = document.createElement('div'); copy.className = 'resume-card-copy';
-  const eyebrow = document.createElement('span'); eyebrow.className = 'resume-card-eyebrow'; eyebrow.textContent = '继续上次阅读';
-  const title = document.createElement('strong'); title.textContent = paper.title;
-  const meta = document.createElement('span'); meta.className = 'resume-card-meta';
-  meta.textContent = [position.sectionTitle, position.sentenceNumber ? `第 ${position.sentenceNumber} 句` : '', displayPositionTime(position.updatedAt)].filter(Boolean).join(' · ');
-  copy.append(eyebrow, title, meta);
-  if (position.sentencePreview) {
-    const preview = document.createElement('span'); preview.className = 'resume-card-preview'; preview.textContent = `“${position.sentencePreview}”`; copy.append(preview);
-  }
+  const eyebrow = document.createElement('span'); eyebrow.className = 'resume-card-eyebrow'; eyebrow.textContent = '上次';
+  const title = document.createElement('strong'); title.textContent = `${paper.year}.${String(paper.month).padStart(2, '0')} · ${paperEdition(paper)}`; title.title = paper.title;
+  copy.append(eyebrow, title);
   const actions = document.createElement('div'); actions.className = 'resume-card-actions';
-  const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-primary'; button.textContent = '继续';
+  const button = document.createElement('button'); button.type = 'button'; button.className = 'text-link resume-card-continue'; button.textContent = '继续 →'; button.setAttribute('aria-label', `继续阅读${paper.title}`);
   button.addEventListener('click', () => openPaper(paper, position.mode === 'practice' ? 'practice' : 'intensive'));
-  const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'text-link resume-card-clear'; clear.textContent = '清除记录';
+  const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'text-link resume-card-clear'; clear.textContent = '×'; clear.setAttribute('aria-label', '清除阅读记录'); clear.title = '清除阅读记录';
   clear.addEventListener('click', () => {
     void progressStore.clear();
     renderResumeCard();
   });
   actions.append(button, clear);
-  resumeCard.append(copy, actions);
+  resumeCard.replaceChildren(copy, actions);
 }
 function comparePaperOrder(a, b) { return b.year - a.year || b.month - a.month || a.set_no - b.set_no; }
 function setupCatalogue() {
@@ -153,7 +144,7 @@ function showPapers() {
     const copy = document.createElement('div'); copy.className = 'paper-row-copy';
     const heading = document.createElement(paper.exam_level === 'NEEP' ? 'h4' : 'h5'); heading.className = 'paper-row-title';
     const fullTitle = document.createElement('span'); fullTitle.className = 'sr-only'; fullTitle.textContent = paper.title;
-    const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = (paper.variant || `第 ${paper.set_no} 套`).replace(/^第\s*(\d+)\s*套$/, '第 $1 套');
+    const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = paperEdition(paper);
     heading.append(fullTitle, edition); copy.append(heading); item.append(copy);
     const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.is_demo ? '本地演示' : paper.content_kind === 'original' ? '原创练习' : '';
     if (typeLabel) {
@@ -341,6 +332,7 @@ function closeReader(writeHistory = true) {
   reader.hidden = true; library.hidden = false;
   document.body.classList.remove('reader-page');
   if (writeHistory) history.pushState({}, '', location.pathname);
+  renderResumeCard();
   library.scrollIntoView({ behavior: 'instant' });
 }
 document.querySelector('#close-reader').addEventListener('click', () => closeReader());
