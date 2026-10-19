@@ -34,6 +34,7 @@ type StudyPaper = {
 };
 type Selection = { sentence: StudySentence; element: HTMLElement; wordIndex: number | null };
 type AnalysisTab = 'translation' | 'structure' | 'pattern' | 'vocabulary';
+const analysisTabs: [AnalysisTab, string][] = [['translation', '翻译'], ['structure', '结构'], ['pattern', '句型'], ['vocabulary', '词汇']];
 type AnalysisRequest = { promise: Promise<SentenceAnalysis>; regenerating: boolean; controller: AbortController };
 type QuestionTextReference = { questionId: string; textKey: string };
 const completed = new Map<string, SentenceAnalysis>();
@@ -71,7 +72,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const ownedRequests = new Set<AnalysisRequest>();
   const feedback = new Map<string, string>();
   const prefetchedSections = new Set<string>();
+  const renderedSentences = new Map<string, Selection>();
   let selected: Selection | null = null;
+  let lastSelection: Selection | null = null;
   let activeTab: AnalysisTab = 'translation';
   let panelOpen = false;
   let activeSentences: StudySentence[] = [];
@@ -83,6 +86,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let revealFrame = 0;
   let revealScrollY: number | null = null;
   let keepPanePosition = false;
+  let lastShortcutTime = 0;
   let splitParagraph: { original: HTMLParagraphElement; continuation: HTMLParagraphElement | null } | null = null;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
@@ -108,16 +112,15 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   });
   const next = element('button', 'analysis-next', '下一句');
   next.type = 'button';
+  next.title = '下一句（D）';
+  next.setAttribute('aria-keyshortcuts', 'D');
   next.addEventListener('click', () => {
-    const following = nextSentence();
-    if (!following) return;
-    preservePanePosition(() => {
-      void selectSentence(following.sentence, following.source, null, false, true);
-    });
-    (next.disabled ? following.source : next).focus({ preventScroll: true });
+    moveSentence(1, true);
   });
   const close = element('button', 'analysis-close', '收起');
   close.type = 'button';
+  close.title = '收起精读（空格）';
+  close.setAttribute('aria-keyshortcuts', 'Space');
   close.hidden = true;
   const dismiss = (restoreFocus = true) => {
     const previous = selected;
@@ -164,7 +167,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const paneFooter = element('div', 'analysis-footer');
   paneFooter.hidden = true;
   paneFooter.append(regenerate);
-  pane.append(paneHeader, notice, paneBody, paneFooter);
+  const shortcuts = element('p', 'analysis-shortcuts');
+  for (const [key, label] of [['A', '上一句'], ['D', '下一句'], ['W / S', '切换解析'], ['空格', '展开 / 收起']]) {
+    const hint = element('span', '');
+    hint.append(element('kbd', '', key), document.createTextNode(` ${label}`));
+    shortcuts.append(hint);
+  }
+  pane.append(paneHeader, notice, paneBody, paneFooter, shortcuts);
   layout.append(documentColumn, pane);
   const toolbar = createReaderToolbar(target);
   const progress = element('progress', 'reading-progress');
@@ -175,20 +184,29 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   if (!options.hideNavigation) target.append(navigation);
   target.append(layout);
 
-  function nextSentence() {
+  function adjacentSentence(direction: -1 | 1) {
     if (!selected) return null;
     const index = activeSentences.findIndex(sentence => sentence.id === selected?.sentence.id);
     if (index < 0) return null;
-    const sentence = activeSentences.slice(index + 1).find(sentence => hasWordTokens(sentence.source));
-    if (!sentence) return null;
-    const source = documentColumn.querySelector<HTMLElement>(`[data-sentence-id="${CSS.escape(sentence.id)}"]`);
-    return source ? { sentence, source } : null;
+    for (let nextIndex = index + direction; nextIndex >= 0 && nextIndex < activeSentences.length; nextIndex += direction) {
+      const candidate = renderedSentences.get(activeSentences[nextIndex]!.id);
+      if (candidate) return candidate;
+    }
+    return null;
+  }
+  function moveSentence(direction: -1 | 1, focusNext = false) {
+    const adjacent = adjacentSentence(direction);
+    if (!adjacent) return;
+    preservePanePosition(() => {
+      void selectSentence(adjacent.sentence, adjacent.element, null, false, true);
+    });
+    (focusNext && !next.disabled ? next : adjacent.element).focus({ preventScroll: true });
   }
   function updateActions() {
     const sentence = selected?.sentence;
     const request = sentence ? requests.get(cacheKey(sentence)) : undefined;
     next.hidden = !sentence || questionTextReferences.has(sentence.id);
-    next.disabled = !nextSentence();
+    next.disabled = !adjacentSentence(1);
     next.textContent = next.disabled ? '已到末句' : '下一句';
     regenerate.hidden = !sentence || !completed.has(cacheKey(sentence));
     paneFooter.hidden = regenerate.hidden;
@@ -232,7 +250,12 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const scrollTop = window.scrollY + anchor.getBoundingClientRect().top - top;
     const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     // Allow a shorter result near the article's end without clamping the scroll.
-    if (scrollTop > maxScroll) layout.style.paddingBottom = `${Math.ceil(scrollTop - maxScroll)}px`;
+    if (scrollTop > maxScroll) {
+      const contentBottom = (target.closest('.reader-section') ?? layout).getBoundingClientRect().bottom + window.scrollY;
+      const unusedHeight = Math.max(0, document.documentElement.clientHeight - contentBottom);
+      const padding = parseFloat(layout.style.paddingBottom) || 0;
+      layout.style.paddingBottom = `${Math.ceil(padding + scrollTop - maxScroll + unusedHeight)}px`;
+    }
     if (Math.abs(window.scrollY - scrollTop) > 0.5) window.scrollTo({ top: scrollTop, behavior: 'instant' });
   }
 
@@ -518,6 +541,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     lastReadSentenceId = sentence.id;
     options.onPositionChange?.(sentence.sectionId, sentence.id);
     selected = { sentence, element: source, wordIndex };
+    lastSelection = selected;
     panelOpen = true;
     placeAnalysisPane(source);
     pane.classList.add('is-open');
@@ -592,8 +616,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       return source;
     }
     source.tabIndex = 0;
+    renderedSentences.set(sentence.id, { sentence, element: source, wordIndex: null });
     source.setAttribute('role', 'group');
-    source.setAttribute('aria-label', `第 ${sentence.sentenceIndex + 1} 句，按回车查看精读`);
+    source.setAttribute('aria-label', `第 ${sentence.sentenceIndex + 1} 句，按回车查看精读，按空格展开或收起`);
+    source.setAttribute('aria-keyshortcuts', 'Enter Space');
     let offset = 0;
     let unit: HTMLSpanElement | null = null;
     for (const token of tokenize(sentence.source)) {
@@ -623,7 +649,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (!window.getSelection()?.toString()) void selectSentence(sentence, source, null);
     });
     source.addEventListener('keydown', event => {
-      if (event.target === source && (event.key === 'Enter' || event.key === ' ')) {
+      if (event.target === source && event.key === 'Enter') {
         event.preventDefault();
         void selectSentence(sentence, source, null);
       }
@@ -669,8 +695,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const body = element('div', 'analysis-tab-content');
     body.id = 'sentence-analysis-content';
     body.setAttribute('role', 'tabpanel');
-    const tabDefinitions: [AnalysisTab, string][] = [['translation', '翻译'], ['structure', '结构'], ['pattern', '句型'], ['vocabulary', '词汇']];
-    for (const [index, [tab, label]] of tabDefinitions.entries()) {
+    tabs.setAttribute('aria-keyshortcuts', 'W S');
+    for (const [index, [tab, label]] of analysisTabs.entries()) {
       const button = element('button', 'analysis-tab', label);
       button.type = 'button';
       button.id = `analysis-tab-${tab}`;
@@ -685,9 +711,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       button.addEventListener('keydown', event => {
         if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
         event.preventDefault();
-        const count = tabDefinitions.length;
+        const count = analysisTabs.length;
         const next = event.key === 'Home' ? 0 : event.key === 'End' ? count - 1 : (index + (event.key === 'ArrowRight' ? 1 : count - 1)) % count;
-        activeTab = tabDefinitions[next]![0];
+        activeTab = analysisTabs[next]![0];
         renderAnalysis(analysis);
         paneBody.querySelector<HTMLButtonElement>(`#analysis-tab-${activeTab}`)?.focus();
       });
@@ -746,6 +772,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     activeSentences = [];
     options.onPositionChange?.(section.id);
     dismiss(false);
+    lastSelection = null;
+    renderedSentences.clear();
     toolbar.updateStats(section.paragraphs.join(' '));
     progress.value = 0;
     const block = element('section', 'passage-section');
@@ -853,8 +881,63 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   window.addEventListener('resize', updateProgress, { passive: true, signal: controller.signal });
   target.addEventListener('load', updateProgress, { capture: true, signal: controller.signal });
   updateProgress();
-  const escape = (event: KeyboardEvent) => { if (event.key === 'Escape' && panelOpen) dismiss(); };
-  document.addEventListener('keydown', escape);
+  function selectionToOpen(origin: HTMLElement) {
+    const focusedSource = origin.closest<HTMLElement>('.source-sentence');
+    const focused = focusedSource && renderedSentences.get(focusedSource.dataset.sentenceId ?? '');
+    if (focused) {
+      const word = origin.closest<HTMLElement>('.source-word');
+      return { ...focused, wordIndex: word ? Number(word.dataset.tokenIndex) : lastSelection?.sentence.id === focused.sentence.id ? lastSelection.wordIndex : null };
+    }
+    if (lastSelection?.element.isConnected) return lastSelection;
+    const resumed = lastReadSentenceId && renderedSentences.get(lastReadSentenceId);
+    if (resumed) return resumed;
+    const sentences = activeSentences.map(sentence => renderedSentences.get(sentence.id)).filter((entry): entry is Selection => Boolean(entry));
+    return sentences.find(entry => {
+      const bounds = entry.element.getBoundingClientRect();
+      return bounds.bottom > 100 && bounds.top < window.innerHeight;
+    }) ?? sentences[0];
+  }
+  const shortcutsKeydown = (event: KeyboardEvent) => {
+    if (event.defaultPrevented || event.isComposing || event.ctrlKey || event.metaKey || event.altKey || target.closest('[hidden]')) return;
+    const origin = event.target instanceof HTMLElement ? event.target : document.body;
+    if (origin.isContentEditable || origin.closest('input, textarea, select, [role="textbox"], [role="combobox"], [role="dialog"], [aria-modal="true"]')) return;
+    if (event.key === 'Escape') {
+      if (panelOpen) dismiss();
+      return;
+    }
+    if (event.key === ' ') {
+      // Preserve native Space activation for controls outside the sentence reader.
+      if (origin.closest('button, a, summary, [role="button"], [role="tab"], [role="option"], [role="slider"]')
+        && !origin.closest('.source-sentence, .analysis-pane')) return;
+      const selection = panelOpen ? selected : selectionToOpen(origin);
+      if (!selection) return;
+      event.preventDefault();
+      if (event.repeat) return;
+      if (panelOpen) dismiss();
+      else void selectSentence(selection.sentence, selection.element, selection.wordIndex);
+      return;
+    }
+    const key = event.key.toLowerCase();
+    if (!panelOpen || !selected || !['a', 'd', 'w', 's'].includes(key)) return;
+    event.preventDefault();
+    // Keep held keys useful without navigating at the keyboard's full repeat rate.
+    const now = performance.now();
+    if (event.repeat && now - lastShortcutTime < 200) return;
+    lastShortcutTime = now;
+    if (key === 'a' || key === 'd') {
+      moveSentence(key === 'a' ? -1 : 1);
+    } else {
+      const index = analysisTabs.findIndex(([tab]) => tab === activeTab);
+      activeTab = analysisTabs[(index + (key === 'w' ? -1 : 1) + analysisTabs.length) % analysisTabs.length]![0];
+      const analysis = completed.get(cacheKey(selected.sentence));
+      if (analysis) {
+        const restoreTabFocus = paneBody.contains(document.activeElement);
+        renderAnalysis(analysis);
+        if (restoreTabFocus) paneBody.querySelector<HTMLButtonElement>(`#analysis-tab-${activeTab}`)?.focus({ preventScroll: true });
+      }
+    }
+  };
+  document.addEventListener('keydown', shortcutsKeydown, { signal: controller.signal });
   return () => {
     controller.abort();
     clearTimeout(positionTimer);
@@ -864,6 +947,5 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     toolbar.dispose();
     // Regeneration can finish and update its cache while the user changes modes/papers.
     for (const request of ownedRequests) if (!request.regenerating) request.controller.abort();
-    document.removeEventListener('keydown', escape);
   };
 }

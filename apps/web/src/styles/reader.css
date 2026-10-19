@@ -17,7 +17,7 @@
 .study-section-link:hover { color: var(--ink); }
 .study-section-link[aria-current='page'] { color: var(--accent-deep); border-bottom-color: var(--accent); font-weight: 550; }
 .study-section-link:focus-visible { outline-offset: -2px; }
-.intensive-layout { display: block; }
+.intensive-layout { display: block; transition-property: none; }
 .reading-document { min-width: 0; }
 .passage-section, .practice-material { min-width: 0; padding: 30px 34px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
 .passage-title, .practice-material h2 { margin: 0 0 26px; padding-bottom: 20px; color: var(--muted); border-bottom: 1px solid var(--line); font-size: var(--text-ui); font-weight: 500; line-height: 1.8; text-wrap: pretty; }
@@ -88,6 +88,9 @@
 .analysis-regenerate:hover, .analysis-close:hover { color: var(--accent-deep); }
 .analysis-regenerate:disabled { color: var(--quiet); cursor: wait; }
 .analysis-feedback { margin: 0 0 16px; color: #94583d; font-size: var(--text-caption); line-height: 1.8; }
+.analysis-shortcuts { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.analysis-shortcuts > span { white-space: nowrap; }
+.analysis-shortcuts kbd { font-family: inherit; font-size: 10px; }
 .analysis-empty, .analysis-loading { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }
 .analysis-loading { display: flex; align-items: center; gap: 9px; color: var(--accent); }
 .waiting-dots { display: inline-flex; align-items: center; gap: 3px; margin-inline-start: 4px; vertical-align: middle; }
