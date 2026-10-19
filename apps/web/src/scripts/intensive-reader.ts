@@ -167,15 +167,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   paneBody.setAttribute('aria-live', 'polite');
   paneBody.setAttribute('aria-busy', 'false');
   const paneFooter = element('div', 'analysis-footer');
-  paneFooter.hidden = true;
-  paneFooter.append(regenerate);
   const shortcuts = element('p', 'analysis-shortcuts');
   for (const [key, label] of [['A', '上一句'], ['D', '下一句'], ['W / S', '切换解析'], ['空格', '展开 / 收起'], ['Q', '回到顶部'], ['E', '回到底部']]) {
     const hint = element('span', '');
     hint.append(element('kbd', '', key), document.createTextNode(` ${label}`));
     shortcuts.append(hint);
   }
-  pane.append(paneHeader, notice, paneBody, paneFooter, shortcuts);
+  paneFooter.append(shortcuts, regenerate);
+  pane.append(paneHeader, notice, paneBody, paneFooter);
   layout.append(documentColumn, pane);
   const toolbar = createReaderToolbar(target);
   const progress = element('progress', 'reading-progress');
@@ -214,7 +213,6 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     next.disabled = !adjacentSentence(1);
     next.textContent = next.disabled ? '已到末句' : '下一句';
     regenerate.hidden = !sentence || !completed.has(cacheKey(sentence));
-    paneFooter.hidden = regenerate.hidden;
     regenerate.disabled = Boolean(request);
     regenerate.replaceChildren(document.createTextNode(request?.regenerating ? '重新生成中' : '重新生成'));
     if (request?.regenerating) regenerate.append(waitingDots());

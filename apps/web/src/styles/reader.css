@@ -88,7 +88,9 @@
 .analysis-regenerate:hover, .analysis-close:hover { color: var(--accent-deep); }
 .analysis-regenerate:disabled { color: var(--quiet); cursor: wait; }
 .analysis-feedback { margin: 0 0 16px; color: #94583d; font-size: var(--text-caption); line-height: 1.8; }
-.analysis-shortcuts { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.analysis-footer { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding-top: 8px; border-top: 1px solid var(--line); }
+.analysis-footer .analysis-regenerate { flex-shrink: 0; }
+.analysis-shortcuts { display: flex; flex: 1; flex-wrap: wrap; gap: 6px 16px; min-width: 0; margin: 0; color: var(--muted); font-size: 11px; }
 .analysis-shortcuts > span { white-space: nowrap; }
 .analysis-shortcuts kbd { font-family: inherit; font-size: 10px; }
 .analysis-empty, .analysis-loading { margin: 0; color: var(--muted); font-size: var(--text-ui); line-height: 1.85; }

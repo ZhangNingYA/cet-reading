@@ -157,7 +157,6 @@
 .reading-room .analysis-next:hover { background: var(--action-hover); }
 .reading-room .analysis-next:disabled { color: var(--quiet); background: transparent; cursor: default; }
 .reading-room .analysis-close { padding-inline: 10px; border-radius: 6px; background: var(--paper-warm); }
-.analysis-footer { display: flex; justify-content: flex-end; margin-top: 18px; padding-top: 8px; border-top: 1px solid var(--line); }
 .reading-room .analysis-regenerate { min-height: 40px; }
 .reading-room .analysis-feedback { color: var(--muted); }
 .reading-room .analysis-tabs { justify-content: flex-start; gap: 6px; margin-bottom: 12px; border: 0; }
