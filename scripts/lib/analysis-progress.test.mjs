@@ -106,7 +106,7 @@ test('public progress and admin retain a paper with complete articles but missin
   assert.equal(adminPaper.analysis_solving_total, publicPaper.analysis_solving_total);
 });
 
-test('admin hides a paper only after all three kinds have reusable caches', async t => {
+test('admin catalog retains completed papers and counts all three kinds of reusable caches', async t => {
   const q = question('q1');
   mockQuestionProgress(t, {
     questions: [q],
@@ -118,7 +118,10 @@ test('admin hides a paper only after all three kinds have reusable caches', asyn
     ],
     fallback: sql => ({ rows: sql.includes("'news'::text source_type") ? [] : [{ id: 'paper', total: 10, cached: 10 }] }),
   });
-  assert.deepEqual(await listAdminPapers(), []);
+  const completed = await listAdminPapers();
+  assert.equal(completed.length, 1);
+  assert.equal(completed[0].total, 14);
+  assert.equal(completed[0].cached, completed[0].total);
 });
 
 test('admin overview includes type totals and safe request details without unused reporting queries', async t => {

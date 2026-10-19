@@ -35,7 +35,11 @@ test('uses the detailed-reading strategy and includes the article, prompt, all o
     request = JSON.parse(options.body);
     return reply(JSON.stringify(result()));
   });
-  const analysis = await generateQuestionAnalysis(base, config);
+  const traces = new Map();
+  const analysis = await generateQuestionAnalysis(base, { ...config, onRequestTrace: async trace => traces.set(trace.id, trace) });
+  assert.equal(traces.size, 1);
+  assert.equal([...traces.values()][0].responseText, JSON.stringify(result()));
+  assert.equal([...traces.values()][0].validationStatus, 'passed');
   const material = JSON.parse(request.messages.at(-1).content);
   assert.match(material.task, /仔细阅读/);
   assert.deepEqual(material.material.paragraphs, base.paragraphs);

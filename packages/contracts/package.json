@@ -6,6 +6,10 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
+    "./analysis-diagnostics": {
+      "types": "./dist/analysis-diagnostics.d.ts",
+      "import": "./dist/analysis-diagnostics.js"
+    },
     "./article-chat": {
       "types": "./dist/article-chat.d.ts",
       "import": "./dist/article-chat.js"

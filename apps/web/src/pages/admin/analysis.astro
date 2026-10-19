@@ -51,20 +51,34 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
     </section>
 
     <section id="admin-progress-panel" class="admin-panel" role="tabpanel" aria-labelledby="admin-progress-tab" aria-busy="true" hidden>
+      <div class="admin-catalog-tabs" role="group" aria-label="精读内容目录">
+        <button type="button" data-progress-board="CET4" aria-pressed="true">英语四级</button>
+        <button type="button" data-progress-board="CET6" aria-pressed="false">英语六级</button>
+        <button type="button" data-progress-board="POSTGRAD" aria-pressed="false">考研英语</button>
+        <button type="button" data-progress-board="NEWS" aria-pressed="false">News</button>
+      </div>
       <div class="admin-toolbar admin-progress-toolbar">
         <label class="sr-only" for="admin-paper-search">查找试卷或资讯</label>
-        <input id="admin-paper-search" type="search" placeholder="搜索年份、试卷或资讯" autocomplete="off" />
-        <label class="sr-only" for="admin-paper-level">内容类型</label>
-        <select id="admin-paper-level"><option value="">全部内容</option><option value="CET4">四级</option><option value="CET6">六级</option><option value="POSTGRAD">考研</option><option value="NEWS">News</option></select>
+        <input id="admin-paper-search" type="search" placeholder="搜索四级试卷、年份" autocomplete="off" />
         <span id="admin-paper-count" class="admin-count"></span>
       </div>
-      <p class="admin-footnote">点击未完成的进度，会按点击顺序排队；队列中的项目可单独取消。也可展开试卷，按阅读篇目选择。</p>
-      <div class="admin-progress-head" aria-hidden="true"><span>未完成的内容</span><span>文章精读</span><span>题面精读</span><span>做题精读</span></div>
+      <p class="admin-footnote">选择文章精读、题面精读或做题精读即可加入队列；已加入的项目会标出排队状态。</p>
+      <div class="admin-progress-head" aria-hidden="true"><span id="admin-catalog-kind">试卷目录</span><span>文章精读</span><span>题面精读</span><span>做题精读</span></div>
       <div id="admin-paper-list" class="admin-paper-list"><p class="admin-empty">正在读取精读进度…</p></div>
       <div id="admin-paper-pagination" class="admin-pagination" hidden><button class="button button-small" id="admin-paper-prev" type="button">上一页</button><span id="admin-paper-page"></span><button class="button button-small" id="admin-paper-next" type="button">下一页</button></div>
-      <p class="admin-footnote">全部精读完成后自动移出列表。正在生成的任务会继续完成。</p>
+      <p class="admin-footnote">已完成的内容保留在目录中。排队项目可在上方队列中取消。</p>
     </section>
     <noscript><p class="empty-state">请启用 JavaScript 以使用精读管理。</p></noscript>
+    <dialog id="admin-job-dialog" class="admin-detail-dialog" aria-labelledby="admin-detail-title">
+      <div class="admin-detail-shell">
+        <header class="admin-detail-heading">
+          <div><div class="admin-detail-eyebrow"><span>请求详情</span><span id="admin-detail-state" class="admin-state"></span></div><h2 id="admin-detail-title">请求详情</h2></div>
+          <button id="admin-detail-close" type="button" aria-label="关闭请求详情">×</button>
+        </header>
+        <div class="admin-detail-tools"><a id="admin-detail-source" class="text-link" hidden>查看原文 ↗</a><button id="admin-detail-refresh" class="text-link" type="button">刷新详情</button><p id="admin-detail-feedback" role="status" aria-live="polite"></p></div>
+        <div id="admin-detail-body" class="admin-detail-body" aria-busy="false"></div>
+      </div>
+    </dialog>
   </section>
 </Layout>
 <script>import '../../scripts/admin-analysis';</script>

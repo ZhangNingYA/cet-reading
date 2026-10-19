@@ -1,5 +1,6 @@
 import { buildAnalysis, tokenize, validateQuestionAnalysis, type QuestionAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
+import { ModelRequestTrace, type TraceObserver } from './model-request-trace.js';
 
 type AnalysisInput = {
   source_text: string;
@@ -15,7 +16,7 @@ export type QuestionAnalysisInput = {
   answer: string;
   explanation: string;
 };
-type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'> & { promptOverride?: string };
+type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'> & { promptOverride?: string; onRequestTrace?: TraceObserver };
 
 const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504, 524]);
 // Providers can reset an HTTP/2 stream after accepting a request. Retry
@@ -155,7 +156,7 @@ function waitForRetry(delayMs: number, signal: AbortSignal): Promise<void> {
   });
 }
 
-async function readStreamingContent(response: Response): Promise<string> {
+async function readStreamingContent(response: Response, trace: ModelRequestTrace): Promise<string> {
   if (!response.body) throw new AIRequestError('AI response stream had no body', true);
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
@@ -175,16 +176,19 @@ async function readStreamingContent(response: Response): Promise<string> {
     try {
       event = JSON.parse(payload) as typeof event;
     } catch {
+      trace.body(payload, 'invalid_response');
       throw new AIRequestError('AI response stream contained an invalid event', false);
     }
     if (event.error) {
+      trace.body(payload, 'upstream_error');
       const code = event.error.code ? ` (${event.error.code})` : '';
       throw new AIRequestError(`AI request failed: stream${code}`, true);
     }
     const choice = event.choices?.[0];
     const piece = choice?.delta?.content ?? choice?.message?.content ?? choice?.text;
-    if (piece) content += piece;
+    if (piece) { content += piece; trace.append(piece); }
     if (choice?.finish_reason) {
+      trace.data.finishReason = choice.finish_reason;
       sawFinish = true;
       if (choice.finish_reason !== 'stop') {
         throw new AIRequestError('AI response stream ended before completion', true);
@@ -224,16 +228,23 @@ async function readStreamingContent(response: Response): Promise<string> {
   return content;
 }
 
-async function readCompletionContent(response: Response): Promise<string> {
+async function readCompletionContent(response: Response, trace: ModelRequestTrace): Promise<string> {
   const contentType = response.headers.get('content-type')?.toLowerCase() ?? '';
-  if (contentType.includes('text/event-stream')) return readStreamingContent(response);
+  if (contentType.includes('text/event-stream')) return readStreamingContent(response, trace);
+  const raw = await response.text();
   try {
-    const body = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
+    const body = JSON.parse(raw) as { choices?: Array<{ message?: { content?: string }; finish_reason?: string }> };
     const content = body.choices?.[0]?.message?.content;
-    if (!content) throw new AIRequestError('AI response did not contain JSON content');
+    if (typeof content !== 'string' || !content) {
+      trace.body(raw, 'invalid_response');
+      throw new AIRequestError('AI response did not contain JSON content');
+    }
+    trace.append(content);
+    trace.data.finishReason = body.choices?.[0]?.finish_reason ?? null;
     return content;
   } catch (error) {
     if (error instanceof AIRequestError) throw error;
+    trace.body(raw, 'invalid_response');
     throw new AIRequestError('AI response was not valid JSON', true);
   }
 }
@@ -245,29 +256,37 @@ async function requestCompletion(
   messages: Array<{ role: string; content: string }>,
   controller: AbortController,
   deadline: number,
-): Promise<string> {
+  round: number,
+  observer?: TraceObserver,
+): Promise<{ content: string; trace: ModelRequestTrace }> {
   let lastError: unknown;
+  const requestText = JSON.stringify({ model, temperature: 0.1, response_format: { type: 'json_object' }, stream: true, messages });
   for (let transportAttempt = 1; transportAttempt <= MAX_TRANSPORT_ATTEMPTS; transportAttempt += 1) {
+    const trace = new ModelRequestTrace(model, round, transportAttempt, requestText, apiKey, observer);
+    await trace.publish();
+    trace.data.sentAt = new Date().toISOString();
     try {
       const response = await fetch(url, {
         method: 'POST', signal: controller.signal,
         headers: { 'content-type': 'application/json', authorization: `Bearer ${apiKey}` },
-        body: JSON.stringify({
-          model, temperature: 0.1, response_format: { type: 'json_object' }, stream: true, messages,
-        }),
+        body: requestText,
       });
+      await trace.headers(response);
       if (!response.ok) {
         // Consume the body before retrying so the connection can be reused and the
         // provider's transient error does not become a misleading parse/repair error.
-        await response.text().catch(() => undefined);
+        trace.body(await response.text().catch(() => ''), 'upstream_error');
         throw new AIRequestError(
           `AI request failed: ${response.status}`,
           TRANSIENT_HTTP_STATUSES.has(response.status),
           getRetryAfterMs(response),
         );
       }
-      return await readCompletionContent(response);
+      const content = await readCompletionContent(response, trace);
+      await trace.finish();
+      return { content, trace };
     } catch (error) {
+      await trace.finish(controller.signal.aborted ? new Error('AI request timed out', { cause: error }) : error);
       if (controller.signal.aborted) throw error;
       const retryable = error instanceof AIRequestError ? error.retryable : true;
       lastError = error;
@@ -298,13 +317,16 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
   try {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       requestAttempt = attempt + 1;
-      const content = await requestCompletion(
+      const { content, trace } = await requestCompletion(
         `${config.apiUrl.replace(/\/$/, '')}/chat/completions`, config.apiKey, config.model,
-        messages, controller, deadline,
+        messages, controller, deadline, requestAttempt, config.onRequestTrace,
       );
       try {
-        return buildAnalysis(job.source_text, parseModelJson(content));
+        const result = buildAnalysis(job.source_text, parseModelJson(content));
+        await trace.validate();
+        return result;
       } catch (error) {
+        await trace.validate(error);
         if (attempt === 1) throw error;
         const reason = error instanceof Error ? error.message.slice(0, 800) : '结果未通过校验';
         // Do not echo a potentially truncated JSON answer back to the provider.
@@ -339,15 +361,18 @@ export async function generateQuestionAnalysis(job: QuestionAnalysisInput, confi
   try {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       requestAttempt = attempt + 1;
-      const content = await requestCompletion(
+      const { content, trace } = await requestCompletion(
         `${config.apiUrl.replace(/\/$/, '')}/chat/completions`, config.apiKey, config.model,
-        messages, controller, deadline,
+        messages, controller, deadline, requestAttempt, config.onRequestTrace,
       );
       try {
-        return validateQuestionAnalysis(parseModelJson(content), {
+        const result = validateQuestionAnalysis(parseModelJson(content), {
           questionType: job.question_type, options: job.options, answer: job.answer, paragraphs: job.paragraphs,
         });
+        await trace.validate();
+        return result;
       } catch (error) {
+        await trace.validate(error);
         if (attempt === 1) throw error;
         const reason = error instanceof Error ? error.message.slice(0, 1500) : '结果未通过校验';
         messages.push({ role: 'assistant', content }, {

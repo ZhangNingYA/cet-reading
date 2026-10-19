@@ -1,6 +1,7 @@
-export {};
+import { createAdminRequestDetail } from './admin-request-detail';
 type JobType = 'sentence' | 'text' | 'question';
 type JobStatus = 'active' | 'failed' | 'succeeded';
+type Board = 'CET4' | 'CET6' | 'POSTGRAD' | 'NEWS';
 type Settings = { workerConcurrency: number; queueCapacity: number; backfillPaused: boolean };
 type Progress = { total: number; cached: number; pending: number; running: number; failed: number };
 type Priority = { id?: string; revision: string; paperId: string; sectionId: string | null; type: JobType; sourceType?: 'paper' | 'news'; title: string; sectionTitle: string | null; finishedAt: string | null; progress: Progress };
@@ -19,7 +20,7 @@ type Overview = {
   priority: Priority[];
 };
 type Paper = {
-  id: string; source_type: 'paper' | 'news'; title: string; exam_level: string; year: number; month: number;
+  id: string; source_type: 'paper' | 'news'; title: string; exam_level: string; year: number; month: number; set_no: number; batch_at?: string; published_at?: string;
   total: number; cached: number; sentence_total?: number; sentence_cached?: number;
   analysis_text_total?: number; analysis_text_cached?: number;
   analysis_solving_total?: number; analysis_solving_cached?: number;
@@ -32,7 +33,9 @@ const speed = el<HTMLSelectElement>('admin-concurrency');
 const toggle = el<HTMLButtonElement>('admin-toggle-backfill');
 const jobType = el<HTMLSelectElement>('admin-job-type');
 const search = el<HTMLInputElement>('admin-paper-search');
-const level = el<HTMLSelectElement>('admin-paper-level');
+let selectedBoard: Board = 'CET4';
+const boardViews = new Map<Board, { query: string; page: number }>();
+const boardNames: Record<Board, string> = { CET4: '四级', CET6: '六级', POSTGRAD: '考研', NEWS: 'News' };
 const tabs = [el<HTMLButtonElement>('admin-requests-tab'), el<HTMLButtonElement>('admin-progress-tab')];
 const typeLabels: Record<JobType, string> = { sentence: '文章精读', text: '题面精读', question: '做题精读' };
 const stateLabels: Record<string, string> = { pending: '排队中', running: '生成中', succeeded: '已完成', failed: '失败' };
@@ -51,7 +54,13 @@ let papers: Paper[] = [];
 let jobPage = 0;
 let jobHasMore = false;
 let jobRows: Job[] = [];
-const jobDetails = new Map<string, string>();
+const detailPanel = createAdminRequestDetail(request);
+let overviewController: AbortController | null = null;
+let overviewRevision = 0;
+let lastOverview: Overview | null = null;
+let lastJobMarkup = '';
+const requestViews = new Map<string, { jobs: Job[]; page: number; hasMore: boolean }>();
+const requestViewKey = () => `${jobStatus}:${jobType.value}`;
 let paperPage = 0;
 let priority: Priority[] = [];
 let prioritySaving = false;
@@ -90,7 +99,7 @@ async function request(path: string, init?: RequestInit): Promise<any> {
     response = await fetch(`${apiBase}${path}`, {
       ...init,
       headers: { accept: 'application/json', 'content-type': 'application/json', ...init?.headers },
-      signal: AbortSignal.timeout(timeoutMs),
+      signal: init?.signal ? AbortSignal.any([init.signal, AbortSignal.timeout(timeoutMs)]) : AbortSignal.timeout(timeoutMs),
     });
   } catch (error) {
     if (error instanceof DOMException && (error.name === 'TimeoutError' || error.name === 'AbortError')) {
@@ -112,8 +121,8 @@ async function request(path: string, init?: RequestInit): Promise<any> {
   if (!response.ok) throw new Error(body.error === 'admin_disabled' ? '精读管理尚未启用。' : body.message || '加载失败，请重试。');
   return body;
 }
-function filters() {
-  const params = new URLSearchParams({ jobStatus, page: String(jobPage), limit: String(JOB_PAGE_SIZE) });
+function filters(page = jobPage) {
+  const params = new URLSearchParams({ jobStatus, page: String(page), limit: String(JOB_PAGE_SIZE) });
   if (jobType.value) params.set('jobType', jobType.value);
   return params.toString();
 }
@@ -145,16 +154,27 @@ function renderOverview(data: Overview) {
   clearFailures.textContent = jobType.value ? `清空${typeLabels[jobType.value as JobType]}失败` : '清空全部失败';
   jobHasMore = Boolean(data.jobsPage?.hasMore);
   el('admin-requests-panel').setAttribute('aria-busy', 'false');
-  el('admin-job-list').innerHTML = data.jobs.length ? data.jobs.map(job => {
+  const listMarkup = data.jobs.length ? data.jobs.map(job => {
     const url = contentUrl(job.paperId, job.examLevel, job.articleId);
     const title = url ? `<a href="${esc(url)}">${esc(job.title || '精读任务')} <span aria-hidden="true">↗</span></a>` : esc(job.title || '精读任务');
     const detail = job.type === 'text' ? (job.textKey === 'prompt' ? '题干' : `选项 ${job.textKey?.replace('option:', '') || ''}`) : '';
     const error = job.status === 'failed' && job.errorCode ? errorLabels[job.errorCode] || '生成失败' : '';
-    const errorDetail = job.status === 'failed'
-      ? `<details class="admin-job-detail" data-job-id="${esc(job.id)}"><summary>查看详细错误</summary><pre>${esc(jobDetails.get(job.id) || '展开后读取详细返回…')}</pre></details>` : '';
+
     const attempts = job.attempts ? ` · 尝试 ${job.attempts} 次` : '';
-    return `<article class="admin-job-row"><div class="admin-job-copy"><h2>${title}</h2><p class="admin-job-source" lang="en" title="${esc(job.source)}">${esc(job.source)}</p><p class="admin-job-meta">${typeLabels[job.type]}${detail ? ` · ${esc(detail)}` : ''}${job.sectionTitle ? ` · ${esc(job.sectionTitle)}` : ''}${attempts}${error ? ` · <span class="admin-error">${error}</span>` : ''}</p>${errorDetail}</div><div class="admin-job-action"><span class="admin-state is-${esc(job.status)}">${esc(stateLabels[job.status] || job.status)}</span>${job.status === 'failed' ? `<button class="text-link admin-retry-one" type="button" data-job-id="${esc(job.id)}"${retrying ? ' disabled' : ''}>重试</button>` : `<time>${time(job.finishedAt || job.startedAt || job.createdAt)}</time>`}</div></article>`;
+    return `<article class="admin-job-row"><div class="admin-job-copy"><h2>${title}</h2><p class="admin-job-source" lang="en" title="${esc(job.source)}">${esc(job.source)}</p><p class="admin-job-meta">${typeLabels[job.type]}${detail ? ` · ${esc(detail)}` : ''}${job.sectionTitle ? ` · ${esc(job.sectionTitle)}` : ''}${attempts}${error ? ` · <span class="admin-error">${error}</span>` : ''}</p></div><div class="admin-job-action"><span class="admin-state is-${esc(job.status)}">${esc(stateLabels[job.status] || job.status)}</span>${job.status === 'failed' ? `<button class="text-link admin-retry-one" type="button" data-job-id="${esc(job.id)}"${retrying ? ' disabled' : ''}>重试</button>` : `<time>${time(job.finishedAt || job.startedAt || job.createdAt)}</time>`}<button type="button" class="text-link admin-open-detail" data-detail-id="${esc(job.id)}" aria-haspopup="dialog">查看详情 <span aria-hidden="true">↗</span></button></div></article>`;
   }).join('') : `<p class="admin-empty">${jobStatus === 'active' ? '当前没有进行中的请求' : jobStatus === 'failed' ? '没有失败任务' : '最近 24 小时还没有完成记录'}</p>`;
+  const list = el('admin-job-list');
+  if (listMarkup !== lastJobMarkup) {
+    const focused = document.activeElement instanceof HTMLElement ? document.activeElement.closest<HTMLElement>('[data-detail-id], [data-job-id]') : null;
+    const focusId = focused?.dataset.detailId;
+    list.innerHTML = listMarkup;
+    lastJobMarkup = listMarkup;
+    if (focusId) list.querySelector<HTMLButtonElement>(`[data-detail-id="${CSS.escape(focusId)}"]`)?.focus({ preventScroll: true });
+  }
+  list.classList.remove('is-loading');
+  list.style.minHeight = '';
+  lastOverview = data;
+  requestViews.set(requestViewKey(), { jobs: [...data.jobs], page: jobPage, hasMore: jobHasMore });
   const total = jobStatus === 'active' ? data.queue.active : jobStatus === 'failed' ? data.queue.failed : null;
   el('admin-job-count').textContent = total === null
     ? `每次显示 ${JOB_PAGE_SIZE} 条，按需加载更多 · 每 10 秒更新`
@@ -163,35 +183,63 @@ function renderOverview(data: Overview) {
   more.hidden = !jobHasMore;
   more.disabled = overviewLoading;
 }
-async function loadOverview(append = false) {
-  if (overviewLoading) return;
-  if (!append) jobPage = 0;
+function prepareRequestView() {
+  const cached = requestViews.get(requestViewKey());
+  jobPage = cached?.page ?? 0;
+  jobRows = cached?.jobs ?? [];
+  lastJobMarkup = '';
+  if (cached && lastOverview) renderOverview({ ...lastOverview, jobs: [...cached.jobs], jobsPage: { page: jobPage, limit: JOB_PAGE_SIZE, hasMore: cached.hasMore } });
+  else {
+    const list = el('admin-job-list');
+    list.style.minHeight = `${Math.min(360, list.getBoundingClientRect().height)}px`;
+    list.innerHTML = '<div class="admin-request-loading" role="status"><span></span>正在读取请求记录…</div>';
+    el('admin-job-count').textContent = '';
+    el('admin-job-more').hidden = true;
+  }
+  el('admin-requests-panel').setAttribute('aria-busy', 'true');
+}
+async function loadOverview(append = false, force = false) {
+  if (overviewLoading && !force) return;
+  overviewController?.abort();
+  const controller = new AbortController();
+  overviewController = controller;
+  const currentRevision = ++overviewRevision;
   overviewLoading = true;
-  const query = filters();
+  const key = requestViewKey();
   const revision = settingsRevision;
   const selectionRevision = priorityRevision;
   try {
-    const data = await request(`/api/admin/analysis?${query}`) as Overview;
-    if (query === filters()) {
-      if (revision !== settingsRevision && settings) data.settings = settings;
-      if (selectionRevision !== priorityRevision) data.priority = priority;
-      jobRows = append ? [...jobRows, ...data.jobs] : data.jobs;
-      data.jobs = jobRows;
-      renderOverview(data);
-    }
+    const pages = append ? [jobPage] : Array.from({ length: jobPage + 1 }, (_, index) => index);
+    const responses = await Promise.all(pages.map(page => request(`/api/admin/analysis?${filters(page)}`, { signal: controller.signal }) as Promise<Overview>));
+    if (currentRevision !== overviewRevision || key !== requestViewKey()) return;
+    const data = responses[0]!;
+    if (revision !== settingsRevision && settings) data.settings = settings;
+    if (selectionRevision !== priorityRevision) data.priority = priority;
+    const rows = append ? [...jobRows, ...data.jobs] : responses.flatMap(result => result.jobs);
+    jobRows = [...new Map(rows.map(job => [job.id, job])).values()];
+    data.jobs = jobRows;
+    data.jobsPage = responses.at(-1)!.jobsPage;
+    renderOverview(data);
+    detailPanel.refresh();
   } catch (error) {
-    announce(error instanceof Error ? error.message : '请求加载失败。', true);
-    el('admin-requests-panel').setAttribute('aria-busy', 'false');
+    if (!controller.signal.aborted && currentRevision === overviewRevision) {
+      announce(error instanceof Error ? error.message : '请求加载失败。', true);
+      el('admin-requests-panel').setAttribute('aria-busy', 'false');
+      if (!jobRows.length) el('admin-job-list').innerHTML = '<p class="admin-empty">请求记录未能加载，可点击上方刷新重试。</p>';
+    }
   } finally {
-    overviewLoading = false;
-    if (query !== filters()) void loadOverview();
+    if (currentRevision === overviewRevision) {
+      overviewLoading = false;
+      el<HTMLButtonElement>('admin-job-more').disabled = false;
+    }
   }
 }
+
 function renderPriority(values: Priority[]) {
   priority = values;
   const container = el('admin-priority');
   container.hidden = !values.length;
-  el('admin-priority-list').innerHTML = values.map((value, index) => `<div class="admin-priority-item"><div><strong>${index + 1}. ${esc(value.title)} · ${esc(value.sectionTitle || '整套试卷')} · ${typeLabels[value.type]}</strong><p>已完成 ${value.progress.cached} / ${value.progress.total}${settings?.backfillPaused ? ' · 等待恢复自动生成' : ` · ${value.progress.pending + value.progress.running} 条已排队${value.progress.failed ? ` · ${value.progress.failed} 条失败` : ''}`}</p></div><button class="text-link admin-remove-priority" type="button" data-priority-revision="${esc(value.revision)}"${prioritySaving ? ' disabled' : ''}>取消</button></div>`).join('');
+  el('admin-priority-list').innerHTML = values.map((value, index) => `<div class="admin-priority-item"><div><strong>${index + 1}. ${esc(value.title)} · ${esc(value.sectionTitle || (value.sourceType === 'news' ? '整篇文章' : '整套试卷'))} · ${typeLabels[value.type]}</strong><p>已完成 ${value.progress.cached} / ${value.progress.total}${settings?.backfillPaused ? ' · 等待恢复自动生成' : ` · ${value.progress.pending + value.progress.running} 条已排队${value.progress.failed ? ` · ${value.progress.failed} 条失败` : ''}`}</p></div><button class="text-link admin-remove-priority" type="button" data-priority-revision="${esc(value.revision)}"${prioritySaving ? ' disabled' : ''}>取消</button></div>`).join('');
   el<HTMLButtonElement>('admin-clear-priority').disabled = prioritySaving;
 }
 function progressCell(label: string, total = 0, cached = 0, action?: { paperId: string; sectionId?: string; type: JobType; sourceType?: 'paper' | 'news' }) {
@@ -201,30 +249,55 @@ function progressCell(label: string, total = 0, cached = 0, action?: { paperId: 
   const clickable = action && value < total;
   const selected = action && priority.some(item => !item.finishedAt && item.paperId === action.paperId &&
     item.sourceType === (action.sourceType || 'paper') && item.sectionId === (action.sectionId || null) && item.type === action.type);
-  const attrs = clickable ? `type="button" data-priority-paper="${esc(action.paperId)}" data-priority-source="${esc(action.sourceType || 'paper')}" data-priority-section="${esc(action.sectionId || '')}" data-priority-type="${action.type}" title="优先生成${label}"${prioritySaving ? ' disabled' : ''}` : '';
-  return `<${clickable ? 'button' : 'div'} class="admin-progress-cell${value === total ? ' is-complete' : ''}${selected ? ' is-priority' : ''}" ${attrs} aria-label="${clickable ? '优先生成' : ''}${label}，已完成 ${value}/${total}，${percent}%"><span class="admin-progress-label">${label}</span><span class="admin-progress-ratio">${value}<span> / ${total}</span></span><span class="admin-progress-track" aria-hidden="true"><i style="width:${percent}%"></i></span></${clickable ? 'button' : 'div'}>`;
+  const attrs = clickable ? `type="button" data-priority-paper="${esc(action.paperId)}" data-priority-source="${esc(action.sourceType || 'paper')}" data-priority-section="${esc(action.sectionId || '')}" data-priority-type="${action.type}" title="优先生成${label}"${prioritySaving || selected ? ' disabled' : ''}` : '';
+  return `<${clickable ? 'button' : 'div'} class="admin-progress-cell${value === total ? ' is-complete' : ''}${selected ? ' is-priority' : ''}" ${attrs} aria-label="${selected ? '已加入队列，' : clickable ? '点击加入队列，' : ''}${label}，已完成 ${value}/${total}，${percent}%"><span class="admin-progress-label">${label}</span><span class="admin-progress-ratio">${value}<span> / ${total}</span>${selected ? '<small class="admin-queued-label">已排队</small>' : ''}</span><span class="admin-progress-track" aria-hidden="true"><i style="width:${percent}%"></i></span></${clickable ? 'button' : 'div'}>`;
 }
 function sectionRows(paperId: string) {
   const sections = sectionsByPaper.get(paperId);
   return `<div class="admin-paper-sections">${sections ? sections.map(section => `<div class="admin-part-row"><span class="admin-part-name">${esc(section.title)}</span>${(['sentence','text','question'] as JobType[]).map(type => progressCell(typeLabels[type], section.progress[type].total, section.progress[type].cached, { paperId, sectionId: section.id, type })).join('')}</div>`).join('') || '<p class="admin-empty">没有可生成的部分</p>' : '<p class="admin-empty">正在读取各部分进度…</p>'}</div>`;
 }
 function renderPapers() {
+  el('admin-catalog-kind').textContent = selectedBoard === 'NEWS' ? '文章目录' : '试卷目录';
   const query = search.value.trim().toLowerCase();
-  const visible = papers.filter(paper => (!query || `${paper.id} ${paper.title} ${paper.year}`.toLowerCase().includes(query)) &&
-    (!level.value || (level.value === 'POSTGRAD' ? paper.source_type === 'paper' && !['CET4', 'CET6'].includes(paper.exam_level) : paper.exam_level === level.value)));
+  const inBoard = (paper: Paper) => selectedBoard === 'NEWS' ? paper.source_type === 'news'
+    : paper.source_type === 'paper' && (selectedBoard === 'POSTGRAD' ? !['CET4', 'CET6'].includes(paper.exam_level) : paper.exam_level === selectedBoard);
+  const boardPapers = papers.filter(inBoard);
+  const visible = boardPapers.filter(paper => !query || `${paper.id} ${paper.title} ${paper.year}`.toLowerCase().includes(query)).sort((a, b) => selectedBoard === 'NEWS'
+    ? Date.parse(b.batch_at || b.published_at || '1970-01-01') - Date.parse(a.batch_at || a.published_at || '1970-01-01') || a.id.localeCompare(b.id)
+    : b.year - a.year || b.month - a.month || a.set_no - b.set_no || a.id.localeCompare(b.id));
   const pages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   paperPage = Math.min(paperPage, pages - 1);
-  el('admin-paper-count').textContent = `${visible.length} 项未完成`;
+  el('admin-paper-count').textContent = `${visible.length} ${selectedBoard === 'NEWS' ? '篇文章' : '套试卷'} · ${boardPapers.filter(paper => paper.cached >= paper.total).length} 已完成`;
+  let year: number | null = null;
   el('admin-paper-list').innerHTML = visible.length ? visible.slice(paperPage * PAGE_SIZE, (paperPage + 1) * PAGE_SIZE).map(paper => {
+    const heading = year !== paper.year ? `<h3 class="admin-catalog-year">${paper.year} <span>${selectedBoard === 'NEWS' ? '文章' : '年真题'}</span></h3>` : '';
+    year = paper.year;
     const url = paper.source_type === 'news' ? contentUrl(null, null, paper.id) : contentUrl(paper.id, paper.exam_level);
     const action = (type: JobType) => ({ paperId: paper.id, type, sourceType: paper.source_type });
-    return `<article class="admin-paper-row"><div class="admin-paper-name"><a href="${esc(url)}"><strong>${esc(paper.title)}</strong></a><div class="admin-paper-links"><small>${paper.source_type === 'news' ? 'News' : `${paper.year} · ${paper.exam_level === 'CET4' ? '四级' : paper.exam_level === 'CET6' ? '六级' : '考研'}`} ↗</small>${paper.source_type === 'paper' ? `<button class="text-link admin-show-parts" type="button" data-parts-paper="${esc(paper.id)}" aria-expanded="${expandedPaper === paper.id}">${expandedPaper === paper.id ? '收起部分' : '按部分选择'} <span aria-hidden="true">${expandedPaper === paper.id ? '−' : '+'}</span></button>` : ''}</div></div>${progressCell('文章精读', paper.sentence_total ?? paper.total, paper.sentence_cached ?? paper.cached, action('sentence'))}${progressCell('题面精读', paper.analysis_text_total, paper.analysis_text_cached, action('text'))}${progressCell('做题精读', paper.analysis_solving_total, paper.analysis_solving_cached, action('question'))}${expandedPaper === paper.id ? sectionRows(paper.id) : ''}</article>`;
-  }).join('') : `<p class="admin-empty">${search.value || level.value ? '没有匹配的内容' : '所有内容的精读已完成'}</p>`;
+    const remainingType: JobType | null = (paper.sentence_cached ?? paper.cached) < (paper.sentence_total ?? paper.total) ? 'sentence'
+      : (paper.analysis_text_cached ?? 0) < (paper.analysis_text_total ?? 0) ? 'text'
+      : (paper.analysis_solving_cached ?? 0) < (paper.analysis_solving_total ?? 0) ? 'question' : null;
+    const queued = priority.some(item => !item.finishedAt && item.paperId === paper.id && item.sectionId === null && item.type === remainingType);
+    const title = remainingType ? `<button class="admin-paper-queue" type="button" data-priority-paper="${esc(paper.id)}" data-priority-source="${paper.source_type}" data-priority-type="${remainingType}" title="${queued ? '已加入' : '点击加入'}${typeLabels[remainingType]}队列"${prioritySaving || queued ? ' disabled' : ''}><strong>${esc(paper.title)}</strong><span>${queued ? '已排队' : '+ 加入队列'}</span></button>` : `<a href="${esc(url)}"><strong>${esc(paper.title)}</strong></a>`;
+    return `${heading}<article class="admin-paper-row${remainingType ? '' : ' is-complete'}"><div class="admin-paper-name">${title}<div class="admin-paper-links"><a class="admin-catalog-source" href="${esc(url)}">查看原文 ↗</a>${!remainingType ? '<small class="admin-completed-label">全部已完成</small>' : ''}${paper.source_type === 'paper' ? `<button class="text-link admin-show-parts" type="button" data-parts-paper="${esc(paper.id)}" aria-expanded="${expandedPaper === paper.id}">${expandedPaper === paper.id ? '收起篇目' : remainingType ? '按篇目排队' : '查看篇目'} <span aria-hidden="true">${expandedPaper === paper.id ? '−' : '+'}</span></button>` : ''}</div></div>${progressCell('文章精读', paper.sentence_total ?? paper.total, paper.sentence_cached ?? paper.cached, action('sentence'))}${progressCell('题面精读', paper.analysis_text_total, paper.analysis_text_cached, action('text'))}${progressCell('做题精读', paper.analysis_solving_total, paper.analysis_solving_cached, action('question'))}${expandedPaper === paper.id ? sectionRows(paper.id) : ''}</article>`;
+  }).join('') : `<p class="admin-empty">${query ? '没有匹配的内容' : `${boardNames[selectedBoard]}目录暂无内容`}</p>`;
   el('admin-paper-pagination').hidden = pages <= 1;
   el('admin-paper-page').textContent = `${paperPage + 1} / ${pages}`;
   el<HTMLButtonElement>('admin-paper-prev').disabled = paperPage === 0;
   el<HTMLButtonElement>('admin-paper-next').disabled = paperPage === pages - 1;
 }
+function setProgressBoard(board: Board) {
+  if (selectedBoard === board) return;
+  boardViews.set(selectedBoard, { query: search.value, page: paperPage });
+  selectedBoard = board;
+  const saved = boardViews.get(board);
+  search.value = saved?.query ?? '';
+  paperPage = saved?.page ?? 0;
+  search.placeholder = board === 'NEWS' ? '搜索文章标题' : `搜索${boardNames[board]}试卷、年份`;
+  root.querySelectorAll<HTMLButtonElement>('[data-progress-board]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.progressBoard === board)));
+  renderPapers();
+}
+
 async function loadPapers() {
   if (papersLoading) return;
   papersLoading = true;
@@ -307,7 +380,9 @@ function setJobStatus(next: JobStatus) {
   jobStatus = next;
   root.querySelectorAll<HTMLButtonElement>('[data-job-status]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.jobStatus === next)));
   el('admin-retry-all').hidden = next !== 'failed';
-  void loadOverview();
+  el('admin-clear-failures').hidden = next !== 'failed';
+  prepareRequestView();
+  void loadOverview(false, true);
 }
 async function saveSettings(paused?: boolean) {
   if (!settings || settingsSaving) return;
@@ -358,7 +433,8 @@ async function clearFailures() {
     });
     announce(data.cleared ? `已清空 ${data.cleared} 条失败记录。` : '没有需要清空的失败记录。');
     jobRows = [];
-    jobDetails.clear();
+    requestViews.clear();
+    jobPage = 0;
   } catch (error) {
     announce(error instanceof Error ? error.message : '清空失败记录失败，请稍后再试。', true);
   } finally {
@@ -367,19 +443,7 @@ async function clearFailures() {
     await loadOverview();
   }
 }
-function loadJobDetail(details: HTMLDetailsElement) {
-  const id = details.dataset.jobId;
-  if (!id || jobDetails.has(id)) return;
-  const pre = details.querySelector('pre');
-  if (!pre) return;
-  void request(`/api/admin/analysis/jobs/${encodeURIComponent(id)}`).then(data => {
-    const value = typeof data.errorMessage === 'string' && data.errorMessage.trim() ? data.errorMessage : '任务没有保存详细错误。';
-    jobDetails.set(id, value);
-    pre.textContent = value;
-  }).catch(error => {
-    pre.textContent = error instanceof Error ? error.message : '详细错误读取失败，请稍后重试。';
-  });
-}
+
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => showPanel(index === 0 ? 'requests' : 'progress'));
   tab.addEventListener('keydown', event => {
@@ -390,7 +454,7 @@ tabs.forEach((tab, index) => {
   });
 });
 root.querySelectorAll<HTMLButtonElement>('[data-job-status]').forEach(button => button.addEventListener('click', () => setJobStatus(button.dataset.jobStatus as JobStatus)));
-jobType.addEventListener('change', () => void loadOverview());
+jobType.addEventListener('change', () => { prepareRequestView(); void loadOverview(false, true); });
 el('admin-show-failed').addEventListener('click', () => { jobType.value = ''; showPanel('requests'); setJobStatus('failed'); });
 el('admin-refresh').addEventListener('click', () => { void loadOverview(); if (currentPanel === 'progress') void loadPapers(); });
 speed.addEventListener('change', () => void saveSettings());
@@ -406,8 +470,8 @@ el('admin-job-list').addEventListener('click', event => {
   const target = event.target as HTMLElement;
   const button = target.closest<HTMLButtonElement>('.admin-retry-one');
   if (button) void retry(button.dataset.jobId);
-  const details = target.closest<HTMLDetailsElement>('.admin-job-detail');
-  if (details) window.setTimeout(() => { if (details.open) loadJobDetail(details); }, 0);
+  const detail = target.closest<HTMLButtonElement>('[data-detail-id]');
+  if (detail?.dataset.detailId) detailPanel.open(detail.dataset.detailId);
 });
 el('admin-clear-priority').addEventListener('click', () => void selectPriority(null));
 el('admin-priority-list').addEventListener('click', event => {
@@ -427,7 +491,7 @@ el('admin-paper-list').addEventListener('click', event => {
   }
 });
 search.addEventListener('input', () => { paperPage = 0; renderPapers(); });
-level.addEventListener('change', () => { paperPage = 0; renderPapers(); });
+root.querySelectorAll<HTMLButtonElement>('[data-progress-board]').forEach(button => button.addEventListener('click', () => setProgressBoard(button.dataset.progressBoard as Board)));
 el('admin-paper-prev').addEventListener('click', () => { paperPage -= 1; renderPapers(); });
 el('admin-paper-next').addEventListener('click', () => { paperPage += 1; renderPapers(); });
 void loadOverview();

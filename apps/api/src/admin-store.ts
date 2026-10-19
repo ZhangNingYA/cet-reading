@@ -9,6 +9,7 @@ import { readRuntimeSettings } from "./runtime-settings.js";
 import { emptyQuestionProgress, getPaperQuestionProgress } from "./analysis-progress.js";
 import { analysisErrorCode } from "@cet-reading/contracts/analysis-jobs";
 import { getAdminPriority } from "./admin-priority.js";
+import type { AdminJobDetail, AnalysisRequestTrace } from "@cet-reading/contracts/analysis-diagnostics";
 
 export class InvalidAdminSettingsError extends Error {
   constructor(message = "Invalid analysis runtime settings") {
@@ -199,27 +200,42 @@ export async function getAdminOverview(jobType?: string, jobStatus?: string, pag
   };
 }
 
-export async function getAdminJobDetail(id: string) {
-  const result = await pool.query<{
-    id: string; status: string; job_type: string; attempts: number;
-    error_message: string | null; created_at: Date; started_at: Date | null; finished_at: Date | null;
+export async function getAdminJobDetail(id: string, db: Pick<typeof pool, "query"> = pool): Promise<AdminJobDetail | null> {
+  const result = await db.query<{
+    id: string; status: string; job_type: AdminJobDetail['type']; attempts: number;
+    source_text: string; context_json: AdminJobDetail['context']; question_json: AdminJobDetail['question'];
+    model: string; prompt_version: string; mode: string; title: string;
+    paper_id: string | null; article_id: string | null; exam_level: string | null;
+    error_message: string | null; created_at: Date; started_at: Date | null; finished_at: Date | null; updated_at: Date;
   }>(
-    `SELECT id,status,job_type,attempts,error_message,created_at,started_at,finished_at
-     FROM analysis_jobs
-     WHERE id=$1 AND mode=$2 AND model=$3 AND prompt_version=$4`,
+    `SELECT j.id,j.status,j.job_type,j.attempts,j.source_text,j.context_json,j.question_json,
+       j.model,j.prompt_version,j.mode,j.error_message,j.created_at,j.started_at,j.finished_at,j.updated_at,
+       COALESCE(p.title,n.title,j.context_json->>'title','') title,
+       p.id paper_id,n.id article_id,p.exam_level
+     FROM analysis_jobs j
+     LEFT JOIN sentences s ON s.id=j.sentence_id
+     LEFT JOIN questions q ON q.id=j.question_id
+     LEFT JOIN paper_sections ps ON ps.id=q.section_id
+     LEFT JOIN papers p ON p.id=COALESCE(ps.paper_id,s.paper_id)
+     LEFT JOIN news_articles n ON n.id=s.article_id
+     WHERE j.id=$1 AND j.mode=$2 AND j.model=$3 AND j.prompt_version=$4`,
     [id, config.mode, config.model, config.promptVersion],
   );
   const row = result.rows[0];
   if (!row) return null;
+  const traces = await db.query<{ trace_json: AnalysisRequestTrace; worker_attempt: number; run_id: string }>(
+    `SELECT trace_json,worker_attempt,run_id FROM analysis_request_traces
+     WHERE job_id=$1 ORDER BY sent_at DESC,id DESC LIMIT 51`, [id],
+  );
   return {
-    id: row.id,
-    status: row.status,
-    type: row.job_type,
-    attempts: row.attempts,
+    id: row.id, status: row.status, type: row.job_type, attempts: row.attempts,
+    source: row.source_text, context: row.context_json ?? {}, question: row.job_type === 'question' ? row.question_json : null,
+    model: row.model, promptVersion: row.prompt_version, mode: row.mode,
+    title: row.title, paperId: row.paper_id, articleId: row.article_id, examLevel: row.exam_level,
     errorMessage: row.error_message,
-    createdAt: asIso(row.created_at),
-    startedAt: asIso(row.started_at),
-    finishedAt: asIso(row.finished_at),
+    createdAt: asIso(row.created_at), startedAt: asIso(row.started_at), finishedAt: asIso(row.finished_at), updatedAt: asIso(row.updated_at),
+    requests: traces.rows.slice(0, 50).reverse().map(trace => ({ ...trace.trace_json, workerAttempt: trace.worker_attempt, runId: trace.run_id })),
+    requestsHasMore: traces.rows.length > 50,
   };
 }
 
@@ -263,7 +279,7 @@ export async function listAdminPapers() {
          JOIN sentence_analyses a ON a.sentence_id=v.id AND a.source_hash=v.source_hash
            AND a.context_json=v.context_json AND a.prompt_version=ANY($1::text[])
            AND a.model=$2 AND a.mode=$3 AND a.status='succeeded' GROUP BY v.article_id)
-       SELECT n.id, n.title, 'NEWS'::text exam_level,
+       SELECT n.id, n.title, n.published_at, n.batch_at, 'NEWS'::text exam_level,
          EXTRACT(YEAR FROM n.batch_at)::integer AS year, EXTRACT(MONTH FROM n.batch_at)::integer AS month,
          0::integer set_no, COALESCE(pr.priority,0)::integer priority,
          COALESCE(pr.sort_order,2147483647)::integer sort_order,
@@ -271,7 +287,7 @@ export async function listAdminPapers() {
          'news'::text source_type, n.id source_id
        FROM news_articles n LEFT JOIN analysis_news_priorities pr ON pr.article_id=n.id
          LEFT JOIN totals t ON t.article_id=n.id LEFT JOIN cached c ON c.article_id=n.id
-       WHERE n.status='published' AND COALESCE(t.total,0)>COALESCE(c.cached,0)`,
+       WHERE n.status='published'`,
       [config.cachePromptVersions, config.model, config.mode],
     ),
     getPaperQuestionProgress(pool),
@@ -284,7 +300,7 @@ export async function listAdminPapers() {
       total: paper.total + progress.analysis_text_total + progress.analysis_solving_total,
       cached: paper.cached + progress.analysis_text_cached + progress.analysis_solving_cached,
     };
-  }).filter(paper => paper.total > paper.cached);
+  });
   return [...papers, ...newsResult.rows].sort((a, b) =>
     Number(b.priority) - Number(a.priority) || Number(a.sort_order) - Number(b.sort_order) ||
     Number(b.year) - Number(a.year) || Number(b.month) - Number(a.month) || String(a.id).localeCompare(String(b.id)),

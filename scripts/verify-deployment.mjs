@@ -86,7 +86,7 @@ if (adminResponse.status === 404 && admin.error === 'admin_disabled') {
       throw new Error('Admin section priorities do not match paper solving totals');
     }
   }
-  if (!Array.isArray(adminPapers.papers) || adminPapers.papers.some(paper => paper.total <= paper.cached)) {
+  if (!Array.isArray(adminPapers.papers) || adminPapers.papers.some(paper => !Number.isInteger(paper.total) || paper.total < 0 || paper.cached < 0 || paper.cached > paper.total)) {
     throw new Error('Admin paper progress returned an invalid payload');
   }
 }

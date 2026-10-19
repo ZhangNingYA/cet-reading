@@ -17,6 +17,8 @@ import { runBackfillScheduler } from './backfill.js';
 import { isRetryableAnalysisError, retryDelaySeconds, shouldRetryAnalysis } from './retry-policy.js';
 import { claimAnalysisJob, type AnalysisJob } from './claim-job.js';
 import { readRuntimeSettings } from './runtime-settings.js';
+import { createAnalysisTraceRecorder } from './analysis-trace-store.js';
+import { redactDiagnosticText } from './model-request-trace.js';
 
 const config = readConfig();
 const pool = new Pool({ connectionString: config.databaseUrl });
@@ -76,17 +78,18 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
   const startedAt = Date.now();
   const client: PoolClient = await pool.connect();
   try {
+    const aiConfig = { ...config, promptOverride: runtime.promptOverride, onRequestTrace: createAnalysisTraceRecorder(client, job) };
     const analysis = job.job_type === 'question'
       ? (config.mode === 'demo'
         ? demoQuestionRaw(job.question_json as QuestionAnalysisInput)
-        : await generateQuestionAnalysis(job.question_json as QuestionAnalysisInput, { ...config, promptOverride: runtime.promptOverride }))
+        : await generateQuestionAnalysis(job.question_json as QuestionAnalysisInput, aiConfig))
       : job.job_type === 'text'
         ? (config.mode === 'demo'
           ? buildAnalysis(job.source_text, demoRaw(job.source_text))
-          : await generateAnalysis({ source_text: job.source_text, context_json: job.context_json }, { ...config, promptOverride: runtime.promptOverride }))
+          : await generateAnalysis({ source_text: job.source_text, context_json: job.context_json }, aiConfig))
         : (config.mode === 'demo'
         ? buildAnalysis(job.source_text, demoRaw(job.source_text))
-        : await generateAnalysis(job, { ...config, promptOverride: runtime.promptOverride }));
+        : await generateAnalysis(job, aiConfig));
     await client.query('BEGIN');
     const finished = await client.query(
       `UPDATE analysis_jobs SET status = 'succeeded', error_message = NULL,
@@ -123,7 +126,7 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
       durationMs: Date.now() - startedAt,
     }));
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
+    const message = redactDiagnosticText(error instanceof Error ? error.message : String(error), config.apiKey);
     const errorCode = analysisErrorCode(message);
     const retryable = isRetryableAnalysisError(message);
     const retrying = shouldRetryAnalysis(job.attempts, retryable, config.maxAnalysisAttempts);

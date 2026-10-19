@@ -121,18 +121,18 @@ function ensureChineseTranslation(translation: string, source: string) {
 }
 
 function ensureVocabularyRanges(tokens: BaseToken[], vocabulary: z.infer<typeof VocabularyItemSchema>[] = []) {
-  for (const item of vocabulary) {
+  for (const [itemIndex, item] of vocabulary.entries()) {
     let previousEnd = -1;
     let wordCount = 0;
     for (const range of item.ranges) {
       if (range.tokenStart >= range.tokenEnd || range.tokenEnd > tokens.length || range.tokenStart < previousEnd) {
-        throw new Error('Vocabulary ranges must be ordered, non-overlapping and inside the source');
+        throw new Error(`Vocabulary ranges must be ordered, non-overlapping and inside the source; vocabulary[${itemIndex}] (${item.expression}), ranges=${JSON.stringify(item.ranges)}`);
       }
       wordCount += tokens.slice(range.tokenStart, range.tokenEnd).filter(token => token.kind === 'word').length;
       previousEnd = range.tokenEnd;
     }
     if (item.kind === 'word' ? wordCount !== 1 : wordCount < 2) {
-      throw new Error('Vocabulary must match one source word or a phrase of at least two words');
+      throw new Error(`Vocabulary must match one source word or a phrase of at least two words; vocabulary[${itemIndex}] (${item.expression}), kind=${item.kind}, actualWords=${wordCount}, ranges=${JSON.stringify(item.ranges)}`);
     }
   }
 }
@@ -142,14 +142,18 @@ function ensureGrammarRanges(tokens: BaseToken[], grammar: SentenceAnalysis['gra
     '句子主要成分', '句子主干', '主语部分', '谓语及其补充成分',
     '成分作用', '作用', '主句', '从句类型',
   ]);
-  for (const range of [...grammar.clauses, ...grammar.components]) {
+  const ranges = [
+    ...grammar.clauses.map((range, index) => ({ range, path: `grammar.clauses[${index}]` })),
+    ...grammar.components.map((range, index) => ({ range, path: `grammar.components[${index}]` })),
+  ];
+  for (const { range, path } of ranges) {
     if (range.tokenStart >= range.tokenEnd || range.tokenEnd > tokens.length ||
         !tokens.slice(range.tokenStart, range.tokenEnd).some(token => token.kind === 'word')) {
-      throw new Error(`Grammar range [${range.tokenStart}, ${range.tokenEnd}) must contain a source word and stay inside the ${tokens.length} source tokens`);
+      throw new Error(`Grammar range [${range.tokenStart}, ${range.tokenEnd}) must contain a source word and stay inside the ${tokens.length} source tokens; field=${path}`);
     }
     const explanation = range.explanation.replace(/[\s，。！？、：；,.!?:;]/gu, '');
     if (!explanation || placeholders.has(explanation)) {
-      throw new Error('Grammar explanation must describe the actual source words and their role, not a placeholder');
+      throw new Error(`Grammar explanation must describe the actual source words and their role, not a placeholder; field=${path}.explanation`);
     }
   }
 }
