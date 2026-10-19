@@ -6,6 +6,7 @@ import type { SectionReference } from '@cet-reading/contracts/exam';
 import { createSharedSectionNotice } from './section-reference';
 import { appendSectionImages } from './section-material';
 import { createReaderToolbar } from './reader-toolbar';
+import { createArticleChat } from './article-chat';
 
 type StudySentence = {
   id: string;
@@ -87,6 +88,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let revealScrollY: number | null = null;
   let keepPanePosition = false;
   let lastShortcutTime = 0;
+  let disposeChat: (() => void) | undefined;
   let splitParagraph: { original: HTMLParagraphElement; continuation: HTMLParagraphElement | null } | null = null;
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
@@ -196,11 +198,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   }
   function moveSentence(direction: -1 | 1, focusNext = false) {
     const adjacent = adjacentSentence(direction);
+    if (!focusNext && document.activeElement instanceof HTMLElement && target.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
     if (!adjacent) return;
     preservePanePosition(() => {
       void selectSentence(adjacent.sentence, adjacent.element, null, false, true);
     });
-    (focusNext && !next.disabled ? next : adjacent.element).focus({ preventScroll: true });
+    if (focusNext) (next.disabled ? adjacent.element : next).focus({ preventScroll: true });
   }
   function updateActions() {
     const sentence = selected?.sentence;
@@ -761,6 +766,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     revealInlineAnalysis();
   }
   function showSection(section: StudySection) {
+    disposeChat?.();
+    disposeChat = undefined;
     const isInitialSection = currentSectionId === null;
     currentSectionId = section.id;
     if (!isInitialSection && !options.hideNavigation) requestAnimationFrame(() => {
@@ -826,6 +833,13 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     appendSectionImages(block, section);
     renderStudyQuestions(section, block);
+    if (['reading', 'matching', 'cloze', 'translation'].includes(section.kind) && section.paragraphs.some(text => text.trim())) {
+      const chat = createArticleChat(apiBase, paper.content_kind === 'news'
+        ? { kind: 'news', id: paper.id }
+        : { kind: 'paper', id: paper.id, sectionId: section.id }, section.title);
+      block.append(chat.element);
+      disposeChat = chat.dispose;
+    }
     documentColumn.replaceChildren(block);
     if (sentences.length) {
       void prefetchCachedAnalyses(section);
@@ -947,6 +961,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   document.addEventListener('keydown', shortcutsKeydown, { signal: controller.signal });
   return () => {
     controller.abort();
+    disposeChat?.();
     clearTimeout(positionTimer);
     cancelAnimationFrame(scrollFrame);
     cancelAnimationFrame(revealFrame);

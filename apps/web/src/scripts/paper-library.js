@@ -4,6 +4,7 @@ import { createSharedSectionNotice } from './section-reference';
 import { appendMaterialText, appendSectionImages } from './section-material';
 import { createReadingProgressStore } from './reading-progress';
 import { createReaderToolbar } from './reader-toolbar';
+import { createArticleChat } from './article-chat';
 
 const library = document.querySelector('#library');
 const apiBase = library.dataset.apiBase;
@@ -187,8 +188,9 @@ async function openPaper(summary, mode, writeHistory = true, loadedPaper = null)
     });
     else {
       const toolbar = createReaderToolbar(readerContent, { appearanceOnly: true });
-      disposeIntensive = () => toolbar.dispose();
-      await renderPractice(paper, request);
+      const chats = [];
+      disposeIntensive = () => { toolbar.dispose(); chats.forEach(chat => chat.dispose()); };
+      await renderPractice(paper, request, chats);
     }
     window.scrollTo({ top: 0, behavior: 'instant' });
     readerTitle.focus({ preventScroll: true });
@@ -196,7 +198,7 @@ async function openPaper(summary, mode, writeHistory = true, loadedPaper = null)
     if (request === viewRequest) { status.textContent = '试卷加载失败，请重试。'; status.classList.remove('sr-only'); }
   }
 }
-async function renderPractice(paper, request) {
+async function renderPractice(paper, request, chats) {
   const response = await fetch(`${apiBase}/api/papers/${paper.id}/attempts`, { method: 'POST' }); if (request !== viewRequest) return; if (!response.ok) { readerContent.innerHTML = '<div class="empty-state error-state"><strong>做题模式暂不可用</strong></div>'; return; }
   const attempt = await response.json(); const form = document.createElement('form'); form.className = 'practice-form';
   const blocks = new Map();
@@ -234,6 +236,10 @@ async function renderPractice(paper, request) {
       questions.append(item);
     }
     block.append(questions);
+    if (['reading', 'matching', 'cloze', 'translation'].includes(section.kind) && section.paragraphs.some(text => text.trim())) {
+      const chat = createArticleChat(apiBase, { kind: 'paper', id: paper.id, sectionId: section.id }, section.title);
+      chats.push(chat); block.append(chat.element);
+    }
     form.append(block);
   }
   const savedPosition = readPosition();
@@ -247,10 +253,10 @@ async function renderPractice(paper, request) {
   const submitBar = document.createElement('div'); submitBar.className = 'practice-submit-bar';
   const progress = document.createElement('span'); progress.className = 'practice-progress'; progress.setAttribute('role', 'status');
   const questionCount = paper.sections.reduce((count, section) => count + section.questions.length, 0);
-  const updateProgress = () => { const answered = [...form.querySelectorAll('input:checked, textarea, select')].filter(input => input.value.trim()).length; const text = `${answered} / ${questionCount} 已作答`; if (progress.textContent !== text) progress.textContent = text; };
+  const updateProgress = () => { const answered = [...form.querySelectorAll('input[name]:checked, textarea[name], select[name]')].filter(input => input.value.trim()).length; const text = `${answered} / ${questionCount} 已作答`; if (progress.textContent !== text) progress.textContent = text; };
   form.addEventListener('input', updateProgress); updateProgress();
   const submit = document.createElement('button'); submit.type = 'submit'; submit.className = 'button button-primary'; submit.textContent = '提交答案'; const result = document.createElement('div'); result.className = 'practice-result'; submitBar.append(progress, submit); form.append(submitBar, result);
-  form.addEventListener('submit', async (event) => { event.preventDefault(); submit.disabled = true; const answers = Object.fromEntries([...form.querySelectorAll('input:checked, textarea, select')].map((input) => [input.name, input.value]));
+  form.addEventListener('submit', async (event) => { event.preventDefault(); submit.disabled = true; const answers = Object.fromEntries([...form.querySelectorAll('input[name]:checked, textarea[name], select[name]')].map((input) => [input.name, input.value]));
     try { const saved = await fetch(`${apiBase}/api/attempts/${attempt.id}/answers`, { method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ answers }) }); if (!saved.ok) throw new Error('save failed'); const submittedResponse = await fetch(`${apiBase}/api/attempts/${attempt.id}/submit`, { method: 'POST' }); if (!submittedResponse.ok) throw new Error('submit failed'); renderPracticeResult((await submittedResponse.json()).result, result); }
     catch { result.textContent = '提交失败，请重试。'; submit.disabled = false; }
   });
