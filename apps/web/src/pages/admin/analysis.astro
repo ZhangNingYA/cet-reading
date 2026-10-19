@@ -62,6 +62,15 @@ const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
         <input id="admin-paper-search" type="search" placeholder="搜索四级试卷、年份" autocomplete="off" />
         <span id="admin-paper-count" class="admin-count"></span>
       </div>
+      <div class="admin-catalog-filterbar">
+        <div class="admin-catalog-filters" role="group" aria-label="目录完成状态">
+          <button type="button" data-catalog-filter="all" aria-pressed="true">全部 <span data-catalog-count="all">—</span></button>
+          <button type="button" data-catalog-filter="unfinished" aria-pressed="false">未完成 <span data-catalog-count="unfinished">—</span></button>
+          <button type="button" data-catalog-filter="completed" aria-pressed="false">已完成 <span data-catalog-count="completed">—</span></button>
+          <button type="button" data-catalog-filter="queued" aria-pressed="false" title="已加入优先队列的整套、整篇或具体篇目">已排队 <span data-catalog-count="queued">—</span></button>
+        </div>
+        <button id="admin-catalog-reset" class="text-link" type="button" hidden>重置筛选</button>
+      </div>
       <p class="admin-footnote">选择文章精读、题面精读或做题精读即可加入队列；已加入的项目会标出排队状态。</p>
       <div class="admin-progress-head" aria-hidden="true"><span id="admin-catalog-kind">试卷目录</span><span>文章精读</span><span>题面精读</span><span>做题精读</span></div>
       <div id="admin-paper-list" class="admin-paper-list"><p class="admin-empty">正在读取精读进度…</p></div>

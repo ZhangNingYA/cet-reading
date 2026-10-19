@@ -2,6 +2,7 @@ import { createAdminRequestDetail } from './admin-request-detail';
 type JobType = 'sentence' | 'text' | 'question';
 type JobStatus = 'active' | 'failed' | 'succeeded';
 type Board = 'CET4' | 'CET6' | 'POSTGRAD' | 'NEWS';
+type CatalogFilter = 'all' | 'unfinished' | 'completed' | 'queued';
 type Settings = { workerConcurrency: number; queueCapacity: number; backfillPaused: boolean };
 type Progress = { total: number; cached: number; pending: number; running: number; failed: number };
 type Priority = { id?: string; revision: string; paperId: string; sectionId: string | null; type: JobType; sourceType?: 'paper' | 'news'; title: string; sectionTitle: string | null; finishedAt: string | null; progress: Progress };
@@ -34,7 +35,8 @@ const toggle = el<HTMLButtonElement>('admin-toggle-backfill');
 const jobType = el<HTMLSelectElement>('admin-job-type');
 const search = el<HTMLInputElement>('admin-paper-search');
 let selectedBoard: Board = 'CET4';
-const boardViews = new Map<Board, { query: string; page: number }>();
+let catalogFilter: CatalogFilter = 'all';
+const boardViews = new Map<Board, { query: string; page: number; filter: CatalogFilter }>();
 const boardNames: Record<Board, string> = { CET4: '四级', CET6: '六级', POSTGRAD: '考研', NEWS: 'News' };
 const tabs = [el<HTMLButtonElement>('admin-requests-tab'), el<HTMLButtonElement>('admin-progress-tab')];
 const typeLabels: Record<JobType, string> = { sentence: '文章精读', text: '题面精读', question: '做题精读' };
@@ -236,11 +238,13 @@ async function loadOverview(append = false, force = false) {
 }
 
 function renderPriority(values: Priority[]) {
+  const changed = JSON.stringify(priority) !== JSON.stringify(values);
   priority = values;
   const container = el('admin-priority');
   container.hidden = !values.length;
   el('admin-priority-list').innerHTML = values.map((value, index) => `<div class="admin-priority-item"><div><strong>${index + 1}. ${esc(value.title)} · ${esc(value.sectionTitle || (value.sourceType === 'news' ? '整篇文章' : '整套试卷'))} · ${typeLabels[value.type]}</strong><p>已完成 ${value.progress.cached} / ${value.progress.total}${settings?.backfillPaused ? ' · 等待恢复自动生成' : ` · ${value.progress.pending + value.progress.running} 条已排队${value.progress.failed ? ` · ${value.progress.failed} 条失败` : ''}`}</p></div><button class="text-link admin-remove-priority" type="button" data-priority-revision="${esc(value.revision)}"${prioritySaving ? ' disabled' : ''}>取消</button></div>`).join('');
   el<HTMLButtonElement>('admin-clear-priority').disabled = prioritySaving;
+  if (changed && papersLoaded && currentPanel === 'progress') renderPapers();
 }
 function progressCell(label: string, total = 0, cached = 0, action?: { paperId: string; sectionId?: string; type: JobType; sourceType?: 'paper' | 'news' }) {
   if (!total) return `<div class="admin-progress-cell is-empty"><span class="admin-progress-label">${label}</span><span>—</span></div>`;
@@ -262,12 +266,24 @@ function renderPapers() {
   const inBoard = (paper: Paper) => selectedBoard === 'NEWS' ? paper.source_type === 'news'
     : paper.source_type === 'paper' && (selectedBoard === 'POSTGRAD' ? !['CET4', 'CET6'].includes(paper.exam_level) : paper.exam_level === selectedBoard);
   const boardPapers = papers.filter(inBoard);
-  const visible = boardPapers.filter(paper => !query || `${paper.id} ${paper.title} ${paper.year}`.toLowerCase().includes(query)).sort((a, b) => selectedBoard === 'NEWS'
+  const matching = boardPapers.filter(paper => !query || `${paper.id} ${paper.title} ${paper.year}`.toLowerCase().includes(query));
+  const queuedIds = new Set(priority.filter(item => !item.finishedAt).map(item => `${item.sourceType || 'paper'}:${item.paperId}`));
+  const matchesFilter = (paper: Paper, filter: CatalogFilter) => filter === 'all' || (filter === 'queued'
+    ? queuedIds.has(`${paper.source_type}:${paper.id}`)
+    : filter === 'unfinished' ? paper.cached < paper.total : paper.cached >= paper.total);
+  root.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]').forEach(button => {
+    const filter = button.dataset.catalogFilter as CatalogFilter;
+    button.setAttribute('aria-pressed', String(filter === catalogFilter));
+    button.querySelector('[data-catalog-count]')!.textContent = String(matching.filter(paper => matchesFilter(paper, filter)).length);
+  });
+  const filtering = Boolean(query) || catalogFilter !== 'all';
+  el('admin-catalog-reset').hidden = !filtering;
+  const visible = matching.filter(paper => matchesFilter(paper, catalogFilter)).sort((a, b) => selectedBoard === 'NEWS'
     ? Date.parse(b.batch_at || b.published_at || '1970-01-01') - Date.parse(a.batch_at || a.published_at || '1970-01-01') || a.id.localeCompare(b.id)
     : b.year - a.year || b.month - a.month || a.set_no - b.set_no || a.id.localeCompare(b.id));
   const pages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   paperPage = Math.min(paperPage, pages - 1);
-  el('admin-paper-count').textContent = `${visible.length} ${selectedBoard === 'NEWS' ? '篇文章' : '套试卷'} · ${boardPapers.filter(paper => paper.cached >= paper.total).length} 已完成`;
+  el('admin-paper-count').textContent = `${visible.length}${filtering ? ` / ${boardPapers.length}` : ''} ${selectedBoard === 'NEWS' ? '篇文章' : '套试卷'}`;
   let year: number | null = null;
   el('admin-paper-list').innerHTML = visible.length ? visible.slice(paperPage * PAGE_SIZE, (paperPage + 1) * PAGE_SIZE).map(paper => {
     const heading = year !== paper.year ? `<h3 class="admin-catalog-year">${paper.year} <span>${selectedBoard === 'NEWS' ? '文章' : '年真题'}</span></h3>` : '';
@@ -280,7 +296,7 @@ function renderPapers() {
     const queued = priority.some(item => !item.finishedAt && item.paperId === paper.id && item.sectionId === null && item.type === remainingType);
     const title = remainingType ? `<button class="admin-paper-queue" type="button" data-priority-paper="${esc(paper.id)}" data-priority-source="${paper.source_type}" data-priority-type="${remainingType}" title="${queued ? '已加入' : '点击加入'}${typeLabels[remainingType]}队列"${prioritySaving || queued ? ' disabled' : ''}><strong>${esc(paper.title)}</strong><span>${queued ? '已排队' : '+ 加入队列'}</span></button>` : `<a href="${esc(url)}"><strong>${esc(paper.title)}</strong></a>`;
     return `${heading}<article class="admin-paper-row${remainingType ? '' : ' is-complete'}"><div class="admin-paper-name">${title}<div class="admin-paper-links"><a class="admin-catalog-source" href="${esc(url)}">查看原文 ↗</a>${!remainingType ? '<small class="admin-completed-label">全部已完成</small>' : ''}${paper.source_type === 'paper' ? `<button class="text-link admin-show-parts" type="button" data-parts-paper="${esc(paper.id)}" aria-expanded="${expandedPaper === paper.id}">${expandedPaper === paper.id ? '收起篇目' : remainingType ? '按篇目排队' : '查看篇目'} <span aria-hidden="true">${expandedPaper === paper.id ? '−' : '+'}</span></button>` : ''}</div></div>${progressCell('文章精读', paper.sentence_total ?? paper.total, paper.sentence_cached ?? paper.cached, action('sentence'))}${progressCell('题面精读', paper.analysis_text_total, paper.analysis_text_cached, action('text'))}${progressCell('做题精读', paper.analysis_solving_total, paper.analysis_solving_cached, action('question'))}${expandedPaper === paper.id ? sectionRows(paper.id) : ''}</article>`;
-  }).join('') : `<p class="admin-empty">${query ? '没有匹配的内容' : `${boardNames[selectedBoard]}目录暂无内容`}</p>`;
+  }).join('') : `<div class="admin-empty"><p>${!boardPapers.length ? `${boardNames[selectedBoard]}目录暂无内容` : query ? '没有符合当前搜索和筛选的内容' : catalogFilter === 'unfinished' ? '这个栏目已全部完成' : catalogFilter === 'completed' ? '这个栏目暂时没有已完成的内容' : catalogFilter === 'queued' ? '这个栏目暂时没有加入优先队列的内容' : '没有匹配的内容'}</p>${filtering && boardPapers.length ? '<button class="text-link" type="button" data-reset-catalog>清除筛选，查看全部</button>' : ''}</div>`;
   el('admin-paper-pagination').hidden = pages <= 1;
   el('admin-paper-page').textContent = `${paperPage + 1} / ${pages}`;
   el<HTMLButtonElement>('admin-paper-prev').disabled = paperPage === 0;
@@ -288,14 +304,24 @@ function renderPapers() {
 }
 function setProgressBoard(board: Board) {
   if (selectedBoard === board) return;
-  boardViews.set(selectedBoard, { query: search.value, page: paperPage });
+  boardViews.set(selectedBoard, { query: search.value, page: paperPage, filter: catalogFilter });
   selectedBoard = board;
   const saved = boardViews.get(board);
   search.value = saved?.query ?? '';
   paperPage = saved?.page ?? 0;
+  catalogFilter = saved?.filter ?? 'all';
   search.placeholder = board === 'NEWS' ? '搜索文章标题' : `搜索${boardNames[board]}试卷、年份`;
   root.querySelectorAll<HTMLButtonElement>('[data-progress-board]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.progressBoard === board)));
   renderPapers();
+}
+function setCatalogFilter(filter: CatalogFilter) {
+  catalogFilter = filter;
+  paperPage = 0;
+  renderPapers();
+}
+function resetCatalogFilters() {
+  search.value = '';
+  setCatalogFilter('all');
 }
 
 async function loadPapers() {
@@ -481,7 +507,9 @@ el('admin-priority-list').addEventListener('click', event => {
 });
 el('admin-paper-list').addEventListener('click', event => {
   const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button');
-  if (button?.dataset.priorityPaper) {
+  if (button?.hasAttribute('data-reset-catalog')) {
+    resetCatalogFilters();
+  } else if (button?.dataset.priorityPaper) {
     void selectPriority({ paperId: button.dataset.priorityPaper, sourceType: button.dataset.prioritySource === 'news' ? 'news' : 'paper', sectionId: button.dataset.prioritySection || null, type: button.dataset.priorityType as JobType });
   } else if (button?.dataset.partsPaper) {
     const paperId = button.dataset.partsPaper;
@@ -491,6 +519,8 @@ el('admin-paper-list').addEventListener('click', event => {
   }
 });
 search.addEventListener('input', () => { paperPage = 0; renderPapers(); });
+root.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]').forEach(button => button.addEventListener('click', () => setCatalogFilter(button.dataset.catalogFilter as CatalogFilter)));
+el('admin-catalog-reset').addEventListener('click', resetCatalogFilters);
 root.querySelectorAll<HTMLButtonElement>('[data-progress-board]').forEach(button => button.addEventListener('click', () => setProgressBoard(button.dataset.progressBoard as Board)));
 el('admin-paper-prev').addEventListener('click', () => { paperPage -= 1; renderPapers(); });
 el('admin-paper-next').addEventListener('click', () => { paperPage += 1; renderPapers(); });
