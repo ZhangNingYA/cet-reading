@@ -40,7 +40,7 @@ async function loadNews(): Promise<Article[]> {
   try {
     const { articles } = await json('/api/news');
     if (!Array.isArray(articles)) return [];
-    const latest: Article[] = articles.filter((article: Article) => typeof article.id === 'string' && typeof article.title === 'string').slice(0, 2);
+    const latest: Article[] = articles.filter((article: Article) => typeof article.id === 'string' && typeof article.title === 'string').slice(0, 3);
     const list = home?.querySelector<HTMLElement>('[data-home-news]');
     if (list && latest.length) {
       const links = latest.map(article => {
@@ -113,14 +113,6 @@ async function loadResume(papersPromise: Promise<Paper[] | null>, newsPromise: P
 }
 
 if (home) {
-  const words = home.querySelectorAll<HTMLButtonElement>('.home-sample-word');
-  words.forEach(word => word.addEventListener('click', () => {
-    words.forEach(button => button.setAttribute('aria-pressed', String(button === word)));
-    for (const field of ['word', 'pos', 'meaning', 'note'] as const) {
-      const output = home.querySelector<HTMLElement>(`[data-sample-${field}]`);
-      if (output) output.textContent = word.dataset[field] ?? '';
-    }
-  }));
   const papers = loadPapers();
   const news = loadNews();
   void loadResume(papers, news);
