@@ -7,43 +7,32 @@ const { section } = Astro.props;
 const { examLevels } = section;
 const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 const collection = {
-  cet4: { title: '英语四级', code: 'CET–4', description: '从历年真题出发，把每一次阅读变成积累。' },
-  cet6: { title: '英语六级', code: 'CET–6', description: '在真实语境中，读懂长句，也读懂言外之意。' },
-  postgraduate: { title: '考研英语', code: 'POSTGRADUATE', description: '英语一与英语二，沿着真题理清每一层思路。' },
+  cet4: '英语四级',
+  cet6: '英语六级',
+  postgraduate: '考研英语',
 }[section.slug]!;
 ---
 
 <section class="library-section container" id="library" data-api-base={apiBase} data-exam-levels={JSON.stringify(examLevels)} data-section-slug={section.slug} aria-labelledby="library-title">
   <header class="catalog-introduction">
-    <div class="catalog-introduction-copy">
-      <p class="catalog-eyebrow"><span aria-hidden="true"></span> 真题阅览室 <span class="catalog-code">{collection.code}</span></p>
-      <h1 id="library-title">{collection.title}<span>历年真题</span></h1>
-      <p class="catalog-description">{collection.description}</p>
-    </div>
-    <dl class="catalog-overview" id="catalog-overview" hidden>
-      <div><dt>收录试卷</dt><dd><span id="catalog-total">—</span><small>套</small></dd></div>
-      <div><dt>年份跨度</dt><dd id="catalog-range">—</dd></div>
-    </dl>
+    <h1 id="library-title">{collection}</h1>
   </header>
   <div class="resume-card" id="resume-card" hidden aria-live="polite"></div>
   <div class="library-content">
     <aside class="catalog-sidebar" aria-label="试卷年份">
-      <p class="catalog-sidebar-label">按年份浏览 <span aria-hidden="true">↓</span></p>
       <div class="catalog-years" id="catalog-years" role="group" aria-label="筛选试卷年份"></div>
-      <div class="catalog-guide"><p>两种方式，一点进步。</p><span><strong>精读</strong> 逐句理解，拆解难点</span><span><strong>做题</strong> 完成练习，核对答案</span></div>
     </aside>
     <div class="library-results" aria-busy="true" id="library-results">
       <div class="catalog-toolbar">
         <div class="catalog-results-title"><h2 id="catalog-results-title">全部真题</h2><span class="paper-count" id="paper-count"></span></div>
         <label class="paper-search">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
-          <span class="sr-only">搜索试卷标题或年份</span><input id="paper-search" type="search" placeholder="搜索试卷或年份" autocomplete="off" />
+          <span class="sr-only">搜索试卷标题或年份</span><input id="paper-search" type="search" placeholder="搜索试卷" autocomplete="off" />
         </label>
       </div>
       <div class="library-status"><p class="sr-only" id="status" role="status" aria-live="polite">正在加载</p><button type="button" class="text-link" id="retry-papers" hidden>重试</button></div>
       <div class="paper-list" id="papers"><div class="paper-skeleton" aria-hidden="true"><span></span><span></span><span></span></div></div>
       <noscript><p class="empty-state">请启用 JavaScript，以加载试卷列表。</p></noscript>
-      <p class="catalog-footnote">一套真题，一次积累。<span>按考试时间由近到远排列</span></p>
     </div>
   </div>
 </section>
