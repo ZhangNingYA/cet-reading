@@ -56,7 +56,7 @@ function savePosition(paper, mode, sectionId, sentenceId) {
 function displayPositionTime(value) {
   if (!value) return '';
   const date = new Date(value);
-  return Number.isNaN(date.valueOf()) ? '' : ` · 上次阅读 ${date.toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`;
+  return Number.isNaN(date.valueOf()) ? '' : `上次阅读 ${date.toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`;
 }
 function renderResumeCard() {
   if (!resumeCard) return;
@@ -68,7 +68,7 @@ function renderResumeCard() {
   const eyebrow = document.createElement('span'); eyebrow.className = 'resume-card-eyebrow'; eyebrow.textContent = '继续上次阅读';
   const title = document.createElement('strong'); title.textContent = paper.title;
   const meta = document.createElement('span'); meta.className = 'resume-card-meta';
-  meta.textContent = `${position.mode === 'practice' ? '做题' : '精读'}${position.sectionTitle ? ` · ${position.sectionTitle}` : ''}${position.sentenceNumber ? ` · 第 ${position.sentenceNumber} 句` : ''}${displayPositionTime(position.updatedAt)}`;
+  meta.textContent = [position.sectionTitle, position.sentenceNumber ? `第 ${position.sentenceNumber} 句` : '', displayPositionTime(position.updatedAt)].filter(Boolean).join(' · ');
   copy.append(eyebrow, title, meta);
   if (position.sentencePreview) {
     const preview = document.createElement('span'); preview.className = 'resume-card-preview'; preview.textContent = `“${position.sentencePreview}”`; copy.append(preview);
@@ -83,11 +83,6 @@ function renderResumeCard() {
   });
   actions.append(button, clear);
   resumeCard.append(copy, actions);
-}
-function createModeButton(text, mode, paper) {
-  const button = document.createElement('button'); button.type = 'button'; button.className = 'button button-small paper-mode-button'; button.textContent = text;
-  button.dataset.mode = mode; button.setAttribute('aria-label', `${paper.title}，${text}`);
-  button.addEventListener('click', () => openPaper(paper, mode)); return button;
 }
 function comparePaperOrder(a, b) { return b.year - a.year || b.month - a.month || a.set_no - b.set_no; }
 function setupCatalogue() {
@@ -145,23 +140,28 @@ function showPapers() {
       }
       target = year.months.get(paper.month);
     }
-    const item = document.createElement('article'); item.className = 'paper-row';
+    const item = document.createElement('a'); item.className = 'paper-row';
+    if (paper.content_state === 'external') {
+      item.href = paper.source_url; item.target = '_blank'; item.rel = 'noopener noreferrer';
+    } else {
+      item.href = `?paper=${encodeURIComponent(paper.id)}&mode=intensive`;
+      item.addEventListener('click', (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault(); void openPaper(paper, 'intensive');
+      });
+    }
     const copy = document.createElement('div'); copy.className = 'paper-row-copy';
     const heading = document.createElement(paper.exam_level === 'NEEP' ? 'h4' : 'h5'); heading.className = 'paper-row-title';
     const fullTitle = document.createElement('span'); fullTitle.className = 'sr-only'; fullTitle.textContent = paper.title;
-    const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = paper.variant || `第 ${paper.set_no} 套`;
+    const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = (paper.variant || `第 ${paper.set_no} 套`).replace(/^第\s*(\d+)\s*套$/, '第 $1 套');
     heading.append(fullTitle, edition); copy.append(heading); item.append(copy);
     const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.is_demo ? '本地演示' : paper.content_kind === 'original' ? '原创练习' : '';
     if (typeLabel) {
       const bottom = document.createElement('div'); bottom.className = 'paper-row-meta';
       const type = document.createElement('span'); type.className = 'paper-type'; type.textContent = typeLabel; bottom.append(type); copy.append(bottom);
     }
-    const actions = document.createElement('div'); actions.className = 'paper-row-actions';
-    if (paper.content_state === 'external') {
-      const source = document.createElement('a'); source.className = 'button button-small paper-source'; source.href = paper.source_url; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = '原站查看'; actions.append(source);
-      const note = document.createElement('span'); note.className = 'paper-mode-note'; note.textContent = '内容未托管'; actions.append(note);
-    } else actions.append(createModeButton('精读', 'intensive', paper), createModeButton('做题', 'practice', paper));
-    item.append(actions); target.append(item);
+    const arrow = document.createElement('span'); arrow.className = 'paper-card-arrow'; arrow.setAttribute('aria-hidden', 'true'); arrow.textContent = paper.content_state === 'external' ? '↗' : '→';
+    item.append(arrow); target.append(item);
   }
 }
 async function fetchPaper(id) { const response = await fetch(`${apiBase}/api/papers/${encodeURIComponent(id)}`); if (!response.ok) throw new Error('paper request failed'); return response.json(); }
