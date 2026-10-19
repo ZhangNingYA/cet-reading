@@ -1,0 +1,146 @@
+/* The catalogue has its own palette; the reader keeps its selected theme. */
+.paper-library-page:not(.reader-page) {
+  --canvas: #f8f9f6;
+  --paper: #fff;
+  --paper-warm: #eff2ec;
+  --ink: #28382f;
+  --muted: #667269;
+  --quiet: #7b857d;
+  --line: #dfe5dc;
+  --accent: #38664e;
+  --accent-deep: #294e3b;
+  --accent-pale: #eaf0e5;
+}
+html:has(> .paper-library-page:not(.reader-page)) { background: #f8f9f6; }
+.paper-library-page:not(.reader-page) .site-header { background: #f8f9f6; }
+.paper-library-page .library-section { max-width: 1080px; padding-block: 42px 56px; }
+.catalog-introduction { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-bottom: 32px; margin-bottom: 30px; border-bottom: 1px solid var(--line); }
+.catalog-eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; color: var(--accent); font-size: 11px; font-weight: 550; letter-spacing: .13em; }
+.catalog-eyebrow > span:first-child { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.catalog-code { margin-left: 8px; color: var(--quiet); font-size: 10px; letter-spacing: .12em; }
+.catalog-introduction h1 { display: flex; align-items: baseline; flex-wrap: wrap; gap: 16px; margin: 0; font-size: 34px; font-weight: 550; line-height: 1.4; letter-spacing: -.045em; }
+.catalog-introduction h1 > span { color: var(--muted); font-size: 17px; font-weight: 400; letter-spacing: .04em; }
+.catalog-description { margin: 12px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.catalog-overview { display: flex; flex-shrink: 0; gap: 32px; margin: 0; padding-left: 30px; border-left: 1px solid var(--line); }
+.catalog-overview > div { display: flex; flex-direction: column; gap: 5px; }
+.catalog-overview dt { color: var(--muted); font-size: 11px; }
+.catalog-overview dd { margin: 0; font-family: var(--reading-font); font-size: 27px; font-variant-numeric: lining-nums tabular-nums; line-height: 1.3; letter-spacing: -.04em; }
+.catalog-overview small { margin-left: 5px; color: var(--muted); font-family: var(--sans); font-size: 11px; }
+.paper-library-page .library-content { display: grid; grid-template-columns: 138px minmax(0, 1fr); align-items: start; gap: 38px; }
+.catalog-sidebar { position: sticky; top: 24px; min-width: 0; }
+.catalog-sidebar-label { display: flex; justify-content: space-between; margin: 10px 12px 15px; color: var(--muted); font-size: 11px; }
+.catalog-sidebar-label > span { color: var(--quiet); }
+.catalog-years { display: grid; gap: 5px; }
+.catalog-years button { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 42px; padding: 9px 12px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; transition: background .18s, color .18s; }
+.catalog-years button:hover { color: var(--ink); background: #eef1eb; }
+.catalog-years button[aria-pressed='true'] { color: white; background: var(--accent-deep); }
+.catalog-year-count { color: var(--quiet); font-size: 11px; }
+.catalog-years button[aria-pressed='true'] .catalog-year-count { color: #d4dfce; }
+.catalog-guide { display: grid; gap: 9px; margin-top: 26px; padding: 20px 2px 0 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; line-height: 1.7; }
+.catalog-guide p { margin: 0 0 2px; color: var(--accent-deep); font-size: 11px; }
+.catalog-guide span { display: block; }
+.catalog-guide strong { display: block; margin-bottom: 1px; color: var(--ink); font-size: 11px; font-weight: 500; }
+.paper-library-page .library-results { min-width: 0; }
+.catalog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.catalog-results-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+.catalog-results-title h2 { margin: 0; font-size: 14px; font-weight: 550; }
+.catalog-results-title .paper-count { color: var(--quiet); font-size: 11px; }
+.catalog-toolbar .paper-search { flex: 0 1 236px; gap: 9px; padding: 9px 12px; background: #fff; border-radius: 7px; }
+.catalog-toolbar .paper-search svg { flex-shrink: 0; color: var(--quiet); }
+.catalog-toolbar .paper-search input { font-size: 12px; }
+.paper-library-page .paper-list { gap: 32px; }
+.paper-library-page .paper-year { gap: 16px; }
+.paper-library-page .paper-year + .paper-year { padding-top: 0; border: 0; }
+.paper-year-topline { display: flex; align-items: center; gap: 12px; }
+.paper-year-topline::after { flex: 1; height: 1px; background: var(--line); content: ''; }
+.paper-library-page .paper-year-heading { color: var(--ink); font-family: var(--reading-font); font-size: 27px; font-weight: 400; line-height: 1.2; letter-spacing: -.03em; }
+.paper-year-count { color: var(--quiet); font-size: 10px; }
+.paper-latest-label { padding: 2px 7px; border-radius: 3px; color: #8a6740; background: #f0e9db; font-size: 10px; }
+.paper-library-page .paper-year-list { gap: 18px; }
+.paper-library-page .paper-month-group { display: block; }
+.paper-library-page .paper-month-group + .paper-month-group { margin-top: 0; padding-top: 0; border: 0; }
+.paper-library-page .paper-month-heading { margin: 0 0 9px; padding: 0; color: var(--muted); font-size: 11px; }
+.paper-library-page .paper-month-list, .paper-library-page .paper-year-list:has(> .paper-row) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.paper-library-page .paper-year-list:has(> .paper-row) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.paper-library-page .paper-row { display: flex; align-items: stretch; flex-direction: column; justify-content: flex-start; gap: 0; padding: 20px 18px 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); transition: border-color .18s, box-shadow .18s, transform .18s; }
+.paper-library-page .paper-row + .paper-row::before { content: none; }
+.paper-library-page .paper-row:hover, .paper-library-page .paper-row:focus-within { border-color: #b6c7af; background: var(--paper); box-shadow: 0 5px 16px #28382f08; transform: translateY(-2px); }
+.paper-card-number { position: absolute; top: 17px; right: 16px; color: #dce4d7; font-family: var(--reading-font); font-size: 34px; font-variant-numeric: lining-nums tabular-nums; line-height: 1; letter-spacing: -.05em; pointer-events: none; }
+.paper-library-page .paper-row-copy { position: relative; flex: 1; padding-right: 30px; }
+.paper-library-page .paper-row-title { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.5; letter-spacing: -.02em; }
+.paper-library-page .paper-row-meta { display: flex; flex-direction: column; gap: 13px; margin-top: 4px; font-size: 10px; }
+.paper-card-date { color: var(--muted); }
+.paper-library-page .paper-type { align-self: flex-start; padding: 1px 6px; color: var(--muted); background: #f3f5ef; border-radius: 3px; font-size: 10px; }
+.paper-library-page .paper-row-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; max-width: none; margin-top: 20px; padding-top: 12px; border-top: 1px solid #edf0e9; }
+.paper-library-page .paper-row-actions .button-small { min-height: 34px; padding: 6px 8px; border-radius: 5px; color: var(--muted); font-size: 12px; }
+.paper-library-page .paper-mode-button[data-mode='intensive'] { color: var(--accent-deep); background: var(--accent-pale); }
+.paper-library-page .paper-mode-button[data-mode='intensive']:hover { background: #dce7d5; }
+.paper-library-page .paper-mode-button[data-mode='practice'] { border-color: var(--line); }
+.paper-library-page .paper-mode-button[data-mode='practice']:hover { color: var(--accent-deep); background: #f2f5ee; }
+.paper-library-page .paper-row-actions:has(.paper-source) { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2px 6px; }
+.paper-library-page .paper-mode-note { font-size: 10px; }
+.paper-library-page .resume-card { margin-bottom: 30px; padding: 17px 22px; border-color: #d6e1ce; border-radius: 9px; background: #edf2e7; }
+.paper-library-page .resume-card-copy strong { font-size: 14px; }
+.paper-library-page .resume-card-meta, .paper-library-page .resume-card-preview { font-size: 11px; }
+.paper-library-page .paper-skeleton { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 0; }
+.paper-library-page .paper-skeleton span { height: 190px; border: 1px solid var(--line); border-radius: 9px; }
+.catalog-footnote { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 36px 0 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.catalog-footnote > span { color: var(--quiet); font-size: 10px; }
+
+@media (max-width: 1000px) {
+  .paper-library-page .library-content { grid-template-columns: 120px minmax(0, 1fr); gap: 26px; }
+  .catalog-overview { gap: 22px; padding-left: 22px; }
+  .catalog-overview dd { font-size: 24px; }
+  .paper-library-page .paper-row { padding-inline: 14px; }
+  .paper-card-number { right: 12px; }
+}
+@media (max-width: 800px) {
+  .catalog-overview { display: none; }
+  .paper-library-page .paper-month-list, .paper-library-page .paper-year-list:has(> .paper-row) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .paper-library-page .library-section { padding-block: 28px 36px; }
+  .catalog-introduction { margin-bottom: 22px; padding-bottom: 24px; }
+  .catalog-eyebrow { margin-bottom: 10px; font-size: 10px; }
+  .catalog-introduction h1 { gap: 12px; font-size: 28px; }
+  .catalog-introduction h1 > span { font-size: 14px; }
+  .catalog-description { margin-top: 10px; font-size: 12px; }
+  .paper-library-page .library-content { display: block; }
+  .catalog-sidebar { position: static; margin-bottom: 22px; }
+  .catalog-sidebar-label, .catalog-guide { display: none; }
+  .catalog-years { display: flex; gap: 6px; padding: 3px 3px 8px; margin-inline: -3px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #d6dfd0 transparent; }
+  .catalog-years button { flex-shrink: 0; gap: 9px; min-height: 38px; padding: 7px 11px; border-color: var(--line); background: var(--paper); font-size: 12px; }
+  .catalog-years button[aria-pressed='true'] { border-color: var(--accent-deep); }
+  .catalog-year-count { font-size: 10px; }
+  .catalog-toolbar { gap: 12px; margin-bottom: 20px; }
+  .catalog-toolbar .paper-search { flex-basis: 50%; padding: 8px 10px; }
+  .catalog-toolbar .paper-search input { font-size: 16px; }
+  .catalog-toolbar .paper-search input::placeholder { font-size: 12px; }
+  .catalog-results-title { gap: 5px 8px; }
+  .catalog-results-title h2 { font-size: 13px; }
+  .paper-library-page .paper-list { gap: 28px; }
+  .paper-library-page .paper-year { gap: 14px; }
+  .paper-library-page .paper-year-heading { font-size: 25px; }
+  .paper-library-page .paper-month-list, .paper-library-page .paper-year-list:has(> .paper-row) { gap: 10px; }
+  .paper-library-page .paper-row { padding: 16px 12px 12px; }
+  .paper-library-page .paper-row-title { font-size: 16px; }
+  .paper-library-page .paper-row-copy { padding-right: 20px; }
+  .paper-card-number { top: 15px; right: 10px; font-size: 28px; }
+  .paper-library-page .paper-row-actions { gap: 5px; margin-top: 16px; padding-top: 10px; }
+  .paper-library-page .paper-row-actions .button-small { padding-inline: 4px; }
+  .paper-library-page .resume-card { margin-bottom: 22px; padding: 15px 16px; }
+  .paper-library-page .paper-skeleton { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .catalog-footnote { align-items: flex-start; flex-direction: column; gap: 3px; margin-top: 28px; }
+}
+@media (max-width: 359px) {
+  .paper-library-page .paper-month-list, .paper-library-page .paper-year-list:has(> .paper-row) { grid-template-columns: minmax(0, 1fr); }
+  .paper-library-page .paper-row { display: grid; grid-template-columns: minmax(0, 1fr) 112px; gap: 12px; align-items: center; }
+  .paper-library-page .paper-row-copy { padding-right: 0; }
+  .paper-library-page .paper-row-meta { gap: 6px; }
+  .paper-library-page .paper-row-actions { margin: 0; padding: 0; border: 0; }
+  .paper-card-number { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paper-library-page .paper-row, .catalog-years button { transition: none; }
+  .paper-library-page .paper-row:hover, .paper-library-page .paper-row:focus-within { transform: none; }
+}

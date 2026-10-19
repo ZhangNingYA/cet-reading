@@ -8,6 +8,7 @@ import { homeSections } from '../data/sections';
 const {
   title = 'CET Reading · 英语阅读',
   description = '从读懂一句，到读透一篇。逐句翻译、语法拆解与语境词义，让每一次英语阅读都有收获。',
+  bodyClass,
 } = Astro.props;
 const isHome = Astro.url.pathname === '/';
 ---
@@ -21,7 +22,7 @@ const isHome = Astro.url.pathname === '/';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body id="top" class={isHome ? 'home-page' : undefined}>
+  <body id="top" class:list={[isHome && 'home-page', bodyClass]}>
     <a class="skip-link" href="#content">跳到内容</a>
     <header class="site-header">
       <div class="container header-inner">

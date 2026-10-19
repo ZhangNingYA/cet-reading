@@ -20,12 +20,14 @@ const retryPapers = document.querySelector('#retry-papers');
 const libraryResults = document.querySelector('#library-results');
 const search = document.querySelector('#paper-search');
 const paperCount = document.querySelector('#paper-count');
+const yearFilters = document.querySelector('#catalog-years');
 const modeButtons = [...document.querySelectorAll('[data-reader-mode]')];
 const resumeCard = document.querySelector('#resume-card');
 const paperPager = document.querySelector('#paper-pager');
 const positionKey = `cet-reading:last-position:${sectionSlug}`;
 const progressStore = createReadingProgressStore(apiBase, sectionSlug, positionKey);
 let allPapers = [];
+let selectedYear = 'all';
 let activePaper = null;
 let disposeIntensive = null;
 let viewRequest = 0;
@@ -88,20 +90,54 @@ function createModeButton(text, mode, paper) {
   button.addEventListener('click', () => openPaper(paper, mode)); return button;
 }
 function comparePaperOrder(a, b) { return b.year - a.year || b.month - a.month || a.set_no - b.set_no; }
+function setupCatalogue() {
+  const collection = allPapers.filter(paper => examLevels.includes(paper.exam_level));
+  const years = [...new Set(collection.map(paper => paper.year))].sort((a, b) => b - a);
+  const overview = document.querySelector('#catalog-overview');
+  overview.hidden = !collection.length;
+  document.querySelector('#catalog-total').textContent = collection.length;
+  document.querySelector('#catalog-range').textContent = years.length > 1 ? `${years.at(-1)}–${years[0]}` : years[0] ?? '—';
+  yearFilters.replaceChildren();
+  for (const year of ['all', ...years]) {
+    const button = document.createElement('button'); button.type = 'button'; button.dataset.year = String(year);
+    button.setAttribute('aria-pressed', String(String(year) === selectedYear));
+    button.setAttribute('aria-controls', 'papers');
+    const label = document.createElement('span'); label.textContent = year === 'all' ? '全部年份' : `${year}`;
+    const count = document.createElement('span'); count.className = 'catalog-year-count'; count.textContent = year === 'all' ? collection.length : collection.filter(paper => paper.year === year).length;
+    button.setAttribute('aria-label', `${year === 'all' ? '全部年份' : `${year} 年`}，${count.textContent} 套试卷`);
+    button.append(label, count);
+    button.addEventListener('click', () => { selectedYear = String(year); showPapers(); });
+    yearFilters.append(button);
+  }
+}
 function showPapers() {
   const query = search.value.trim().toLowerCase();
-  const visible = allPapers.filter((paper) => examLevels.includes(paper.exam_level) && (!query || `${paper.title} ${paper.year} ${paper.exam_level}`.toLowerCase().includes(query)))
+  const visible = allPapers.filter((paper) => examLevels.includes(paper.exam_level) && (selectedYear === 'all' || String(paper.year) === selectedYear) && (!query || `${paper.title} ${paper.year} ${paper.exam_level}`.toLowerCase().includes(query)))
     .sort(comparePaperOrder);
+  yearFilters.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.year === selectedYear)));
+  document.querySelector('#catalog-results-title').textContent = query ? '搜索结果' : selectedYear === 'all' ? '全部真题' : `${selectedYear} 年真题`;
   papers.replaceChildren();
-  paperCount.textContent = visible.length ? `${visible.length} 套` : '';
-  status.textContent = query ? `找到 ${visible.length} 套试卷` : '题库已加载';
-  if (!visible.length) { const empty = document.createElement('div'); empty.className = 'empty-state'; const message = document.createElement('strong'); message.textContent = query ? '没有找到相关试卷' : '暂无试卷'; empty.append(message); papers.append(empty); return; }
+  paperCount.textContent = `${visible.length} 套`;
+  status.textContent = `已显示 ${visible.length} 套试卷${selectedYear === 'all' ? '' : `，${selectedYear} 年`}${query ? `，搜索“${search.value.trim()}”` : ''}`;
+  if (!visible.length) {
+    const empty = document.createElement('div'); empty.className = 'empty-state';
+    const message = document.createElement('strong'); message.textContent = query ? '没有找到相关试卷' : '暂无试卷'; empty.append(message);
+    if (query || selectedYear !== 'all') {
+      const reset = document.createElement('button'); reset.type = 'button'; reset.className = 'text-link'; reset.textContent = '清除筛选，查看全部';
+      reset.addEventListener('click', () => { selectedYear = 'all'; search.value = ''; showPapers(); search.focus(); }); empty.append(reset);
+    }
+    papers.append(empty); return;
+  }
   const years = new Map();
   for (const paper of visible) {
     if (!years.has(paper.year)) {
       const group = document.createElement('section'); group.className = 'paper-year'; group.setAttribute('aria-label', `${paper.year} 年试卷`);
-      const year = document.createElement('h2'); year.className = 'paper-year-heading'; year.textContent = paper.year;
-      const list = document.createElement('div'); list.className = 'paper-year-list'; group.append(year, list); papers.append(group);
+      const yearHeading = document.createElement('div'); yearHeading.className = 'paper-year-topline';
+      const year = document.createElement('h3'); year.className = 'paper-year-heading'; year.textContent = paper.year;
+      const count = document.createElement('span'); count.className = 'paper-year-count'; count.textContent = `${visible.filter(item => item.year === paper.year).length} 套试卷`;
+      yearHeading.append(year, count);
+      if (!years.size && selectedYear === 'all' && !query) { const latest = document.createElement('span'); latest.className = 'paper-latest-label'; latest.textContent = '最近考试'; yearHeading.append(latest); }
+      const list = document.createElement('div'); list.className = 'paper-year-list'; group.append(yearHeading, list); papers.append(group);
       years.set(paper.year, { list, months: new Map() });
     }
     const year = years.get(paper.year);
@@ -109,22 +145,25 @@ function showPapers() {
     if (paper.exam_level !== 'NEEP') {
       if (!year.months.has(paper.month)) {
         const group = document.createElement('section'); group.className = 'paper-month-group'; group.setAttribute('aria-label', `${paper.year} 年 ${paper.month} 月试卷`);
-        const month = document.createElement('h3'); month.className = 'paper-month-heading'; month.textContent = `${paper.month}月`;
+        const month = document.createElement('h4'); month.className = 'paper-month-heading'; month.textContent = `${paper.month} 月考试`;
         const list = document.createElement('div'); list.className = 'paper-month-list'; group.append(month, list); year.list.append(group);
         year.months.set(paper.month, list);
       }
       target = year.months.get(paper.month);
     }
     const item = document.createElement('article'); item.className = 'paper-row';
+    const marker = document.createElement('span'); marker.className = 'paper-card-number'; marker.textContent = String(paper.set_no).padStart(2, '0'); marker.setAttribute('aria-hidden', 'true');
+    item.append(marker);
     const copy = document.createElement('div'); copy.className = 'paper-row-copy';
-    const heading = document.createElement(paper.exam_level === 'NEEP' ? 'h3' : 'h4'); heading.className = 'paper-row-title';
+    const heading = document.createElement(paper.exam_level === 'NEEP' ? 'h4' : 'h5'); heading.className = 'paper-row-title';
     const fullTitle = document.createElement('span'); fullTitle.className = 'sr-only'; fullTitle.textContent = paper.title;
     const edition = document.createElement('span'); edition.className = 'paper-edition'; edition.setAttribute('aria-hidden', 'true'); edition.textContent = paper.variant || `第 ${paper.set_no} 套`;
     heading.append(fullTitle, edition); copy.append(heading); item.append(copy);
     const bottom = document.createElement('div'); bottom.className = 'paper-row-meta';
-    const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.content_kind === 'original' ? '原创练习' : paper.is_demo ? '本地演示' : '';
+    const typeLabel = paper.content_state === 'external' ? '原站资料' : paper.is_demo ? '本地演示' : paper.content_kind === 'original' ? '原创练习' : '历年真题';
+    const date = document.createElement('span'); date.className = 'paper-card-date'; date.textContent = `${paper.year} 年 ${paper.month} 月`; bottom.append(date);
     if (typeLabel) { const type = document.createElement('span'); type.className = 'paper-type'; type.textContent = typeLabel; bottom.append(type); }
-    if (typeLabel) copy.append(bottom);
+    copy.append(bottom);
     const actions = document.createElement('div'); actions.className = 'paper-row-actions';
     if (paper.content_state === 'external') {
       const source = document.createElement('a'); source.className = 'button button-small paper-source'; source.href = paper.source_url; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = '原站查看'; actions.append(source);
@@ -289,6 +328,7 @@ async function loadPapers() {
     ]);
     if (!catalogResponse.ok) throw new Error('paper request failed');
     allPapers = (await catalogResponse.json()).papers ?? [];
+    setupCatalogue();
     if (directPaper?.content_state === 'local') {
       await openPaper(directPaper, params.get('mode') === 'practice' ? 'practice' : 'intensive', true, directPaper);
     }
