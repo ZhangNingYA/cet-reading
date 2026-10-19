@@ -31,6 +31,11 @@ set_env_value() {
   if grep -q "^${key}=" .env; then sed -i "s/^${key}=.*/${key}=${value}/" .env
   else printf '%s=%s\n' "$key" "$value" >> .env; fi
 }
+report_resources() {
+  node --input-type=module -e 'import os from "node:os"; console.log(JSON.stringify({event:"deployment_resources",cpus:os.cpus().length,load:os.loadavg(),freeMiB:Math.round(os.freemem()/1048576),totalMiB:Math.round(os.totalmem()/1048576)}))'
+  df -h .
+  timeout 5s docker stats --no-stream --format '{{.Name}} cpu={{.CPUPerc}} memory={{.MemUsage}} io={{.BlockIO}}' || true
+}
 recover_on_error() {
   local result=$?
   trap - ERR
@@ -40,6 +45,7 @@ recover_on_error() {
 
 prepare() {
   local artifacts="${4:?Missing release artifacts}" prefix="${5:?Missing registry prefix}"
+  report_resources
   local old_commit
   old_commit="$(git rev-parse HEAD)"
   if [[ -f .deployment/current.env ]]; then
@@ -54,11 +60,20 @@ prepare() {
       printf 'CET_%s_IMAGE=%s\n' "${service^^}" "$image" >> .deployment/baseline.env
       docker image inspect --format "$service previous image size: {{.Size}} bytes" "$image"
     done
-    if (( complete )); then cp .deployment/baseline.env .deployment/rollback.env; fi
+    if (( complete )); then
+      cp .deployment/baseline.env .deployment/rollback.env
+      cp .deployment/baseline.env .deployment/previous.env
+    else
+      rm -f .deployment/baseline.env
+    fi
   fi
   git fetch --prune origin main
   git cat-file -e "$commit^{commit}"
   git checkout --force -B main "$commit"
+  if [[ ! -f .deployment/previous.env && -f .deployment/baseline.env ]]; then
+    node scripts/deployment-release.mjs validate .deployment/baseline.env --local
+    cp .deployment/baseline.env .deployment/previous.env
+  fi
   node scripts/deployment-release.mjs prepare "$artifacts" "$prefix" "$commit" "$candidate"
   load_release
   set_env_value WORKER_CONCURRENCY 4
@@ -70,6 +85,7 @@ prepare() {
 }
 pull_images() {
   load_release
+  report_resources
   registry_config="$(mktemp -d)"
   local docker_settings="${DOCKER_CONFIG:-$HOME/.docker}"
   if [[ -d "$docker_settings/cli-plugins" ]]; then ln -s "$docker_settings/cli-plugins" "$registry_config/cli-plugins"; fi
@@ -181,6 +197,9 @@ verify_release() {
   done
   curl --fail --silent --show-error --retry 10 --retry-delay 2 --max-time 15 http://127.0.0.1:8081/ >/dev/null
   curl --fail --silent --show-error --retry 10 --retry-delay 2 --max-time 15 http://127.0.0.1:8081/api/papers >/dev/null
+  if [[ -f .deployment/rollback.env ]] && ! diff -q <(grep '_IMAGE=' "$candidate" | sort) <(grep '_IMAGE=' .deployment/rollback.env | sort) >/dev/null; then
+    cp .deployment/rollback.env .deployment/previous.env
+  fi
   cp "$candidate" .deployment/current.env.next
   mv .deployment/current.env.next .deployment/current.env
   rm -f ".deployment/$commit.applying"
@@ -193,9 +212,10 @@ rollback() {
   fi
   if [[ ! -f .deployment/rollback.env ]]; then echo 'No previous release manifest is available.' >&2; return 1; fi
   candidate=.deployment/rollback.env
+  if [[ "${4:-}" == force && -f .deployment/previous.env ]]; then candidate=.deployment/previous.env; fi
   load_release --local
   compose up -d --no-build --pull never --wait --wait-timeout 120 api worker news web
-  cp .deployment/rollback.env .deployment/current.env
+  cp "$candidate" .deployment/current.env
   rm -f ".deployment/$commit.applying"
   echo 'Previous application images restored; database contents retained.'
 }

@@ -92,3 +92,16 @@ test('real worker deployment stops both producers before resetting jobs and leav
   assert(calls.some(args=>args.includes('up')&&args.slice(-2).join(' ')==='worker news'));
   assert(calls.every(args=>!args.includes('build') && !(args.includes('stop')&&args.includes('api'))));
 });
+
+
+test('a cache-only deployment keeps the previous distinct release available for manual rollback', t => {
+  const f=fixture(t);
+  const older={...f.previous,CET_WEB_IMAGE:image('web','f')};
+  writeFileSync(join(f.root,'.deployment/previous.env'),serializeRelease(older));
+  writeFileSync(join(f.root,`.deployment/${commit}.env`),serializeRelease({...f.previous,CET_RELEASE_COMMIT:commit}));
+  writeFileSync(join(f.root,`.deployment/${commit}.plan`),'migrate=0\nreset_jobs=0\nstop_services=""\nstart_services=""\n');
+  const applied=f.run('apply'); assert.equal(applied.status,0,applied.stderr);
+  const verified=f.run('verify'); assert.equal(verified.status,0,verified.stderr);
+  assert.deepEqual(parseRelease(readFileSync(join(f.root,'.deployment/previous.env'),'utf8')),older);
+  assert(f.calls().filter(args=>args.includes('up')).every(args=>args.at(-1)==='postgres'));
+});
