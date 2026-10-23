@@ -98,6 +98,32 @@ export async function listApprovalPeople(userId: string, query = '') {
   return result.rows.map(row => ({ id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url }));
 }
 
+export async function listApprovalTemplates(ownerId: string) {
+  const result = await pool.query(
+    `SELECT id, name, kind, description, schedule_json, active, created_at, updated_at
+     FROM approval_templates WHERE owner_id=$1 AND active=true ORDER BY updated_at DESC`, [ownerId],
+  );
+  return result.rows.map(row => ({
+    id: row.id, name: row.name, kind: row.kind, description: row.description,
+    schedule: row.schedule_json, active: row.active, createdAt: iso(row.created_at), updatedAt: iso(row.updated_at),
+  }));
+}
+
+export async function createApprovalTemplate(ownerId: string, raw: unknown) {
+  if (!raw || typeof raw !== 'object') throw new ApprovalValidationError('模板内容不正确。');
+  const body = raw as Record<string, unknown>;
+  const name = text(body.name, 'name', 120, true);
+  const description = text(body.description, 'description', 2000);
+  if (body.kind !== 'daily') throw new ApprovalValidationError('当前只支持daily模板。');
+  const schedule = body.schedule && typeof body.schedule === 'object' ? body.schedule : {};
+  const result = await pool.query<{ id: string }>(
+    `INSERT INTO approval_templates (owner_id, name, kind, description, schedule_json)
+     VALUES ($1, $2, 'daily', $3, $4::jsonb) RETURNING id`,
+    [ownerId, name, description, JSON.stringify(schedule)],
+  );
+  return { id: result.rows[0].id, name, kind: 'daily', description, schedule };
+}
+
 async function resolveAssignee(body: Record<string, unknown>) {
   const id = typeof body.approverId === 'string' ? body.approverId.trim() : '';
   const openid = typeof body.approverOpenid === 'string' ? body.approverOpenid.trim() : '';
@@ -117,6 +143,13 @@ export async function createApprovalRequest(applicantId: string, raw: unknown) {
   const templateId = body.templateId == null || body.templateId === '' ? null : text(body.templateId, 'templateId', 80, true);
   const scheduledFor = dateOnly(body.scheduledFor);
   if (kind === 'daily' && (!templateId || !scheduledFor)) throw new ApprovalValidationError('daily审批需要templateId和scheduledFor。');
+  if (templateId && !UUID_RE.test(templateId)) throw new ApprovalValidationError('templateId格式不正确。');
+  if (kind === 'daily') {
+    const template = await pool.query<{ kind: string }>(
+      `SELECT kind FROM approval_templates WHERE id=$1 AND owner_id=$2 AND active=true`, [templateId, applicantId],
+    );
+    if (template.rows[0]?.kind !== 'daily') throw new ApprovalValidationError('daily模板不存在或不属于当前用户。');
+  }
   const dueAt = timestamp(body.dueAt);
   const assignee = await resolveAssignee(body);
   const client = await pool.connect();

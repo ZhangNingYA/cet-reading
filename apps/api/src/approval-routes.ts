@@ -10,6 +10,8 @@ import {
   getApprovalRequest,
   listApprovalPeople,
   listApprovalRequests,
+  listApprovalTemplates,
+  createApprovalTemplate,
   reviewApprovalRequest,
   submitApprovalResult,
   upsertApprovalUser,
@@ -69,6 +71,20 @@ export function registerApprovalRoutes(app: FastifyInstance) {
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
     try { return { people: await listApprovalPeople(user.id, request.query.q ?? '') }; }
+    catch (error) { return errorResponse(reply, error); }
+  });
+
+  app.get('/api/approval/templates', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply);
+    if (!user) return;
+    try { return { templates: await listApprovalTemplates(user.id) }; }
+    catch (error) { return errorResponse(reply, error); }
+  });
+
+  app.post<{ Body: unknown }>('/api/approval/templates', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply);
+    if (!user) return;
+    try { return reply.code(201).send({ template: await createApprovalTemplate(user.id, request.body) }); }
     catch (error) { return errorResponse(reply, error); }
   });
 
