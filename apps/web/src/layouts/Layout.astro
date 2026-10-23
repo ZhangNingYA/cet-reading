@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/reader.css';
 import '../styles/reading-room.css';
 import '../styles/article-chat.css';
+import '../styles/miniprogram.css';
 import { homeSections } from '../data/sections';
 
 const {
@@ -21,6 +22,19 @@ const isHome = Astro.url.pathname === '/';
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <script is:inline>
+    (() => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('from') === 'miniprogram') window.sessionStorage.setItem('cet-reading:miniprogram', '1');
+        if (window.sessionStorage.getItem('cet-reading:miniprogram') === '1') {
+          document.documentElement.classList.add('in-miniprogram');
+        }
+      } catch {
+        // Storage can be unavailable in private webviews; the page remains usable.
+      }
+    })();
+    </script>
   </head>
   <body id="top" class:list={[isHome && 'home-page', bodyClass]}>
     <a class="skip-link" href="#content">跳到内容</a>

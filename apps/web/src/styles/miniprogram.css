@@ -1,0 +1,103 @@
+/* The mini program supplies its own native navigation bar. */
+html.in-miniprogram {
+  --canvas: #f7f3eb;
+  --paper: #fffdf7;
+  --paper-warm: #f1eadf;
+  --ink: #2f3c35;
+  --muted: #6f786f;
+  --quiet: #929990;
+  --line: #ded8ce;
+  --accent: #28725c;
+  --accent-deep: #1f5e4b;
+  --accent-pale: #e8f1eb;
+}
+
+html.in-miniprogram body {
+  min-width: 0;
+  background: var(--canvas);
+}
+
+html.in-miniprogram .site-header {
+  display: none;
+}
+
+html.in-miniprogram .container,
+html.in-miniprogram .home-section {
+  width: calc(100% - 32px);
+}
+
+html.in-miniprogram .home-section {
+  padding-block: 24px 48px;
+}
+
+html.in-miniprogram .section-entry {
+  min-height: 86px;
+  padding: 17px 8px;
+}
+
+html.in-miniprogram .section-entry:hover {
+  padding-inline: 8px;
+}
+
+html.in-miniprogram .library-section,
+html.in-miniprogram .reader-section {
+  width: calc(100% - 32px);
+  padding-block: 20px 38px;
+}
+
+html.in-miniprogram .library-heading {
+  display: block;
+  padding-bottom: 18px;
+}
+
+html.in-miniprogram .library-toolbar {
+  margin-top: 13px;
+}
+
+html.in-miniprogram .paper-row {
+  padding-inline: 10px;
+}
+
+html.in-miniprogram .reader-topline {
+  margin-bottom: 15px;
+}
+
+html.in-miniprogram .reader-topline > .text-link {
+  color: var(--accent-deep);
+}
+
+html.in-miniprogram .passage-section,
+html.in-miniprogram .practice-material {
+  border-color: var(--line);
+  background: var(--paper);
+}
+
+html.in-miniprogram .analysis-pane.is-open {
+  background: #fbfaf6;
+}
+
+@media (max-width: 700px) {
+  html.in-miniprogram .container,
+  html.in-miniprogram .home-section,
+  html.in-miniprogram .library-section,
+  html.in-miniprogram .reader-section {
+    width: calc(100% - 28px);
+  }
+
+  html.in-miniprogram .section-entry-copy {
+    display: block;
+  }
+
+  html.in-miniprogram .section-entry-code {
+    display: block;
+    margin-top: 3px;
+  }
+
+  html.in-miniprogram .reader-topline {
+    align-items: flex-start;
+  }
+
+  html.in-miniprogram .mode-switch button {
+    padding-inline: 12px;
+  }
+}
