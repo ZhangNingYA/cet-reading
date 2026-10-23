@@ -155,6 +155,8 @@ compose exec -T postgres psql -v ON_ERROR_STOP=1 \
 compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading < db/migrations/028_approval_foundation.sql
 compose exec -T postgres psql -v ON_ERROR_STOP=1 \
+  -U cet_reading -d cet_reading < db/migrations/029_approval_result_body.sql
+compose exec -T postgres psql -v ON_ERROR_STOP=1 \
   -U cet_reading -d cet_reading <<'SQL'
 DELETE FROM analysis_jobs job
 USING sentences sentence

@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE approval_requests
+  ADD COLUMN IF NOT EXISTS result_body TEXT NOT NULL DEFAULT '';
+
+COMMIT;

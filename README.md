@@ -78,6 +78,12 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 页面和对应的 `/api/admin/analysis*` 接口默认关闭。确认已通过内网、VPN 或反向代理限制访问后，在服务器 `.env` 中显式设置 `ADMIN_ENABLED=true`，再重新部署或重启 API；当前版本暂不提供密码认证，不应直接暴露到公网。页面中的进度统计和队列候选会沿用共享章节规则，不把“查看第 1 套”的隐藏句子计入统计或后台补齐。
 
+### 朋友审批中心
+
+审批模块与 CET 阅读数据分开，使用 `approval_*` 表。小程序通过 `wx.login` 获取一次性 code，API 调用微信 `jscode2session` 换取用户身份，再签发带过期时间的会话令牌。生产环境需要在服务器 `.env` 中配置 `APPROVAL_WECHAT_APP_ID`、`APPROVAL_WECHAT_APP_SECRET` 和随机的 `APPROVAL_SESSION_SECRET`；`APPROVAL_DEV_AUTH` 只用于本地联调，不能在公网开启。
+
+当前基础流程是：发起审批 → 审批人同意或驳回 → 发起人提交执行结果 → 审批人点评并打分。可用接口包括 `/api/approval/auth/login`、`/api/approval/dashboard`、`/api/approval/people`、`/api/approval/requests` 及对应的 decision/result/review 操作。图片附件的对象存储和真正的微信上传流程留在后续迭代，当前接口先支持文字和每日分数。
+
 ## 服务
 
 - Web：Astro 静态前端，Docker 入口默认 `http://localhost:8081`；开发服务器默认 `http://localhost:4321`
@@ -99,4 +105,4 @@ docker compose up --build
 
 ## 当前边界
 
-当前提供 82 套用户上传的四级、六级及考研真题，均可精读和做题。先前的模拟卷、演示数据和外部试卷记录已清理。后台第二阶段已提供试卷优先级、拖拽排序、按错误类型重试、P50/P90 图表、Worker 心跳、Prompt 编辑和配置审计；登录认证和限流仍属于后续迭代。
+当前提供 82 套用户上传的四级、六级及考研真题，均可精读和做题。先前的模拟卷、演示数据和外部试卷记录已清理。后台第二阶段已提供试卷优先级、拖拽排序、按错误类型重试、P50/P90 图表、Worker 心跳、Prompt 编辑和配置审计；审批中心已完成基础会话认证和审批流程 API，附件对象存储、好友关系管理和更细的限流仍属于后续迭代。

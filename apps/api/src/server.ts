@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { config } from './config.js';
+import { registerApprovalRoutes } from './approval-routes.js';
 import { registerArticleChat } from './article-chat.js';
 import { loadArticleChatContext } from './article-chat-store.js';
 import { getAdminPriority, listAdminSections, removeAdminPriority, setAdminPriority, InvalidPriorityTargetError } from './admin-priority.js';
@@ -55,6 +56,7 @@ await app.register(cors, {
 });
 
 registerArticleChat(app, { config, loadContext: loadArticleChatContext });
+registerApprovalRoutes(app);
 
 app.get('/healthz', async () => ({ status: 'ok' }));
 

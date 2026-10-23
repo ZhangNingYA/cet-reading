@@ -19,6 +19,11 @@ const EnvironmentSchema = z.object({
   BACKFILL_INTERVAL_MS: positiveInteger.max(300000).default(20000),
   BACKFILL_TARGET: nonNegativeInteger.max(8).default(8),
   ADMIN_ENABLED: z.enum(['true', 'false']).default('false'),
+  APPROVAL_WECHAT_APP_ID: z.string().default(''),
+  APPROVAL_WECHAT_APP_SECRET: z.string().default(''),
+  APPROVAL_SESSION_SECRET: z.string().default(''),
+  APPROVAL_SESSION_TTL_SECONDS: positiveInteger.default(2592000),
+  APPROVAL_DEV_AUTH: z.enum(['true', 'false']).default('false'),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });
@@ -50,6 +55,11 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env) {
     backfillIntervalMs: parsed.BACKFILL_INTERVAL_MS,
     backfillTarget: parsed.BACKFILL_TARGET,
     adminEnabled: parsed.ADMIN_ENABLED === 'true',
+    approvalWechatAppId: parsed.APPROVAL_WECHAT_APP_ID,
+    approvalWechatAppSecret: parsed.APPROVAL_WECHAT_APP_SECRET,
+    approvalSessionSecret: parsed.APPROVAL_SESSION_SECRET,
+    approvalSessionTtlSeconds: parsed.APPROVAL_SESSION_TTL_SECONDS,
+    approvalDevAuth: parsed.APPROVAL_DEV_AUTH === 'true',
   };
 }
 
