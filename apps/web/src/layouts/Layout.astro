@@ -24,9 +24,10 @@ const isHome = Astro.url.pathname === '/';
     <title>{title}</title>
     <script is:inline>
     (() => {
+      const fromMiniProgram = new URLSearchParams(window.location.search).get('from') === 'miniprogram';
+      if (fromMiniProgram) document.documentElement.classList.add('in-miniprogram');
       try {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('from') === 'miniprogram') window.sessionStorage.setItem('cet-reading:miniprogram', '1');
+        if (fromMiniProgram) window.sessionStorage.setItem('cet-reading:miniprogram', '1');
         if (window.sessionStorage.getItem('cet-reading:miniprogram') === '1') {
           document.documentElement.classList.add('in-miniprogram');
         }
