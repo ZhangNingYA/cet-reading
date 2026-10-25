@@ -5,7 +5,7 @@ await import('@cet-reading/contracts');
 await import('@cet-reading/contracts/article-chat');
 await import('pg');
 for (const dependency of ['typescript', 'tsx', 'astro']) {
-  await assert.rejects(import(dependency), error => error.code === 'ERR_MODULE_NOT_FOUND');
+  await assert.rejects(import(dependency), error => error.code === 'ERR_MODULE_NOT_FOUND', `Production image includes development dependency: ${dependency}`);
 }
 if (process.env.CET_IMAGE_KIND === 'worker') {
   await import('./apps/worker/dist/ai-analysis.js');
