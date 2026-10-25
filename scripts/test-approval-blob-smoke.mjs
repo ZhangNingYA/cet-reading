@@ -21,6 +21,7 @@ const blob = BlobServiceClient.fromConnectionString(config.azureStorageConnectio
 const call = (method, url, token, payload) => app.inject({ method, url, ...(token ? { headers: { authorization: `Bearer ${token}` } } : {}), ...(payload ? { payload } : {}) });
 try {
   for (const name of ['owner', 'reviewer']) users.push(await upsertApprovalUser({ openid: `blob-smoke-${name}-${randomUUID()}`, displayName: '图片链路验证' }));
+  await pool.query("INSERT INTO approval_friendships(owner_id,friend_id,status,requested_by) VALUES($1,$2,'accepted',$1),($2,$1,'accepted',$1)", [users[0].id,users[1].id]);
   const token = createApprovalSession(users[0]);
   const png = await sharp({ create: { width: 640, height: 480, channels: 3, background: '#91b3b3' } }).png().toBuffer();
   const ids = {};
@@ -35,7 +36,7 @@ try {
   assert.equal(profile.statusCode, 200, profile.body);
   const avatar = await call('GET', profile.json().user.avatarUrl); assert.equal(avatar.statusCode, 200);
   assert.equal((await sharp(avatar.rawPayload).metadata()).width, 512);
-  const created = await call('POST', '/api/approval/requests', token, { kind: 'ad_hoc', title: '图片链路验证', approverId: users[1].id, photoIds: [ids.application] });
+  const created = await call('POST', '/api/approval/requests', token, { kind: 'ad_hoc', dueAt: new Date(Date.now()+86400000).toISOString(), title: '图片链路验证', approverId: users[1].id, photoIds: [ids.application] });
   assert.equal(created.statusCode, 201, created.body);
   for (const key of ['url', 'thumbnailUrl']) {
     const r = await call('GET', created.json().request.photos[0][key]); assert.equal(r.statusCode, 200);

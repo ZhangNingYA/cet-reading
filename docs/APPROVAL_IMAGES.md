@@ -6,14 +6,14 @@
 
 服务器 `.env` 配置 `AZURE_STORAGE_CONNECTION_STRING`、`AZURE_STORAGE_CONTAINER=images`。连接字符串只在服务器运行时读取，不能写入小程序或 Git。容器应预先创建并保持私有。Compose 的 env_file 在 API 更新时载入配置。
 
-部署按顺序运行 028、029、030、031 迁移。031 创建临时文件记录，给头像增加文件关联，并给附件表增加文件关联、缩略图和排序字段；迁移可重复运行。API 镜像先安装生产依赖，再从相同平台的构建阶段复制 sharp 的 `@img` 原生模块，保留图片处理所需二进制并排除工作区的可选开发依赖。
+部署按顺序运行 028 到 033 迁移。031 创建临时文件记录，给头像增加文件关联，并给附件表增加文件关联、缩略图和排序字段；迁移可重复运行。API 镜像先安装生产依赖，再从相同平台的构建阶段复制 sharp 的 `@img` 原生模块，保留图片处理所需二进制并排除工作区的可选开发依赖。
 
 ## 上传与提交
 
 - `POST /api/approval/media?purpose=avatar|application|result`：Bearer 登录，multipart 单文件字段 `image`，上传上限 2 MiB。返回 `{media: {id,width,height,byteSize}}`。
 - 服务端解码 JPG/PNG/WebP，限制 2000 万像素，修正方向、去除元数据并输出 JPEG。头像最大 512 方图、256 KiB；普通照片长边最大 1920、2 MiB。每张图片生成最长边 320 的缩略图。API 同时只处理一张图片，繁忙时返回 429，客户端可单张重试。
 - `PATCH /api/approval/me` 接收 `displayName` 和可选 `avatarMediaId`。上传不会直接替换头像，保存资料后才绑定。
-- 创建审批接收可选 `photoIds`，顺序即展示顺序，最多 9 个。
+- 创建审批或补充材料接收可选 `photoIds`，每次最多 9 个；图片通过 eventId 关联到对应批次，旧材料保留。
 - 提交执行结果接收 `resultBody` 和可选 `photoIds`，独立最多 9 个；文字或照片至少有一项。
 - 每次提交在同一事务中校验上传者、用途和临时状态，再写入审批附件并标记文件已绑定。重复、越权、跨用途或已经提交的文件均拒绝。
 - `DELETE /api/approval/media/:id` 仅允许上传者删除未提交文件。已提交的文件不能通过该接口删除。

@@ -13,7 +13,7 @@ process.env.APPROVAL_DEV_AUTH = 'true';
 process.env.APPROVAL_SESSION_SECRET = 'approval-media-tests-only';
 process.env.NODE_ENV = 'test';
 const bootstrap = new pg.Pool({ connectionString: databaseUrl });
-for (const name of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '031_approval_media.sql']) {
+for (const name of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '031_approval_media.sql', '032_approval_friends_executor.sql', '033_approval_deadlines_scores.sql']) {
   await bootstrap.query(await readFile(new URL(`../db/migrations/${name}`, import.meta.url), 'utf8'));
 }
 await bootstrap.end();
@@ -29,7 +29,10 @@ useApprovalBlobStorageForTests({
 const { registerApprovalRoutes } = await import('../apps/api/src/approval-routes.ts');
 const app = Fastify();
 registerApprovalRoutes(app);
-const call = (method, url, token, payload) => app.inject({ method, url, ...(token ? { headers: { authorization: `Bearer ${token}` } } : {}), ...(payload === undefined ? {} : { payload }) });
+const call = (method, url, token, payload) => {
+  if(method==='POST' && url==='/api/approval/requests' && payload && payload.dueAt===undefined)payload={...payload,dueAt:new Date(Date.now()+86400000).toISOString()};
+  return app.inject({ method, url, ...(token ? { headers: { authorization: `Bearer ${token}` } } : {}), ...(payload === undefined ? {} : { payload }) });
+};
 async function login(name) {
   const r = await call('POST', '/api/approval/auth/login', null, { openid: `media-test-${name}-${randomUUID()}`, displayName: name });
   assert.equal(r.statusCode, 200, r.body);
@@ -53,6 +56,7 @@ async function photo(user, purpose) {
 
 try {
   const alice = await login('甲'), bob = await login('乙'), outsider = await login('丙');
+  await pool.query("INSERT INTO approval_friendships(owner_id,friend_id,status,requested_by) VALUES($1,$2,'accepted',$1),($2,$1,'accepted',$1)", [alice.user.id,bob.user.id]);
   assert.equal((await upload(null, 'application')).statusCode, 401);
   assert.equal((await upload(alice, 'unknown')).statusCode, 400);
   assert.equal((await upload(alice, 'application', Buffer.from('not an image'))).statusCode, 400);

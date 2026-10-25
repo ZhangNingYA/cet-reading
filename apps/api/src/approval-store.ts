@@ -1,6 +1,8 @@
 import type { PoolClient } from 'pg';
 import { pool } from './store.js';
 import { approvalPhotos, approvalPhotoSummaries, bindApprovalAvatar, bindApprovalPhotos, uploadApprovalMedia, validateMediaIds } from './approval-media.js';
+import { listApprovalFriends, requireApprovalFriends } from './approval-friends.js';
+import { completionTime, requireFutureDeadline, expireApprovalDeadlines, finishExpiredApproval } from './approval-deadlines.js';
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -13,6 +15,7 @@ export type ApprovalUser = {
   openid: string;
   displayName: string;
   avatarUrl: string | null;
+  friendCode: string;
   status: 'active' | 'disabled';
 };
 
@@ -36,35 +39,27 @@ function dateOnly(value: unknown) {
   return value;
 }
 
-function timestamp(value: unknown) {
-  if (value == null || value === '') return null;
-  if (typeof value !== 'string') throw new ApprovalValidationError('dueAt格式不正确。');
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) throw new ApprovalValidationError('dueAt格式不正确。');
-  return parsed.toISOString();
-}
-
 function iso(value: Date | string | null | undefined) {
   if (!value) return null;
   const parsed = value instanceof Date ? value : new Date(value);
   return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
 }
 
-function mapUser(row: { id: string; openid: string; display_name: string; avatar_url: string | null; status: 'active' | 'disabled' }): ApprovalUser {
-  return { id: row.id, openid: row.openid, displayName: row.display_name, avatarUrl: row.avatar_url, status: row.status };
+function mapUser(row: { id: string; openid: string; display_name: string; avatar_url: string | null; friend_code: string; status: 'active' | 'disabled' }): ApprovalUser {
+  return { id: row.id, openid: row.openid, displayName: row.display_name, avatarUrl: row.avatar_url, friendCode: row.friend_code, status: row.status };
 }
 
 export async function findApprovalUserByOpenid(openid: string) {
-  const result = await pool.query<{ id: string; openid: string; display_name: string; avatar_url: string | null; status: 'active' | 'disabled' }>(
-    `SELECT id, openid, display_name, avatar_url, status FROM approval_users WHERE openid = $1`, [openid],
+  const result = await pool.query<{ id: string; openid: string; display_name: string; avatar_url: string | null; friend_code: string; status: 'active' | 'disabled' }>(
+    `SELECT id, openid, display_name, avatar_url, friend_code, status FROM approval_users WHERE openid = $1`, [openid],
   );
   return result.rows[0] ? mapUser(result.rows[0]) : null;
 }
 
 export async function findApprovalUserById(id: string) {
   if (!UUID_RE.test(id)) return null;
-  const result = await pool.query<{ id: string; openid: string; display_name: string; avatar_url: string | null; status: 'active' | 'disabled' }>(
-    `SELECT id, openid, display_name, avatar_url, status FROM approval_users WHERE id = $1`, [id],
+  const result = await pool.query<{ id: string; openid: string; display_name: string; avatar_url: string | null; friend_code: string; status: 'active' | 'disabled' }>(
+    `SELECT id, openid, display_name, avatar_url, friend_code, status FROM approval_users WHERE id = $1`, [id],
   );
   return result.rows[0] ? mapUser(result.rows[0]) : null;
 }
@@ -74,7 +69,7 @@ export async function upsertApprovalUser(input: { openid: string; unionid?: stri
   const displayName = text(input.displayName, 'displayName', 80) || '微信用户';
   const avatarUrl = text(input.avatarUrl, 'avatarUrl', 1000) || null;
   const unionid = text(input.unionid, 'unionid', 200) || null;
-  const result = await pool.query<{ id: string; openid: string; display_name: string; avatar_url: string | null; status: 'active' | 'disabled' }>(
+  const result = await pool.query<{ id: string; openid: string; display_name: string; avatar_url: string | null; friend_code: string; status: 'active' | 'disabled' }>(
     `INSERT INTO approval_users (openid, unionid, display_name, avatar_url, last_login_at)
      VALUES ($1, $2, $3, $4, NOW())
      ON CONFLICT (openid) DO UPDATE SET
@@ -82,21 +77,14 @@ export async function upsertApprovalUser(input: { openid: string; unionid?: stri
        display_name = CASE WHEN EXCLUDED.display_name = '微信用户' THEN approval_users.display_name ELSE EXCLUDED.display_name END,
        avatar_url = COALESCE(EXCLUDED.avatar_url, approval_users.avatar_url),
        last_login_at = NOW(), updated_at = NOW()
-     RETURNING id, openid, display_name, avatar_url, status`,
+     RETURNING id, openid, display_name, avatar_url, friend_code, status`,
     [openid, unionid, displayName, avatarUrl],
   );
   return mapUser(result.rows[0]);
 }
 
 export async function listApprovalPeople(userId: string, query = '') {
-  const search = text(query, 'q', 80);
-  const result = await pool.query<{ id: string; display_name: string; avatar_url: string | null }>(
-    `SELECT id, display_name, avatar_url FROM approval_users
-     WHERE status = 'active' AND id <> $1
-       AND ($2 = '' OR display_name ILIKE '%' || $2 || '%' OR openid = $2)
-     ORDER BY display_name, id LIMIT 20`, [userId, search],
-  );
-  return result.rows.map(row => ({ id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url }));
+  return listApprovalFriends(userId, query);
 }
 
 export async function listApprovalTemplates(ownerId: string, includeInactive = false) {
@@ -181,14 +169,14 @@ export async function updateApprovalProfile(userId: string, raw: unknown) {
       `UPDATE approval_users SET display_name=$2, updated_at=NOW(),
          avatar_url=CASE WHEN $3::uuid IS NOT NULL THEN $4 ELSE avatar_url END,
          avatar_media_id=COALESCE($3::uuid, avatar_media_id)
-       WHERE id=$1 AND status='active' RETURNING id, display_name, avatar_url`,
+       WHERE id=$1 AND status='active' RETURNING id, display_name, avatar_url, friend_code`,
       [userId, displayName, avatarId, `/api/approval/avatars/${userId}?v=${avatarId}`],
     );
     const row = result.rows[0];
     if (!row) throw new ApprovalNotFoundError('用户不存在或已停用。');
     if (avatarId) await client.query('DELETE FROM approval_user_avatars WHERE user_id=$1', [userId]);
     await client.query('COMMIT');
-    return { id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url };
+    return { id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url, friendCode: row.friend_code };
   } catch (error) {
     await client.query('ROLLBACK').catch(() => undefined);
     throw error;
@@ -211,8 +199,8 @@ export async function listApprovalHistory(userId: string, query: ApprovalHistory
   const status = query.status || 'all';
   const search = text(query.q, 'q', 120);
   const limit = query.limit === undefined ? 20 : Number(query.limit);
-  if (!['all', 'sent', 'handled', 'pending'].includes(view)) throw new ApprovalValidationError('记录分类不正确。');
-  if (!['all', 'draft', 'pending_approval', 'rejected', 'approved', 'in_progress', 'pending_review', 'completed', 'cancelled'].includes(status)) {
+  if (!['all', 'sent', 'handled', 'pending', 'executing'].includes(view)) throw new ApprovalValidationError('记录分类不正确。');
+  if (!['all', 'draft', 'pending_approval', 'rejected', 'needs_supplement', 'approved', 'in_progress', 'pending_review', 'completed', 'cancelled', 'expired', 'overdue'].includes(status)) {
     throw new ApprovalValidationError('审批状态不正确。');
   }
   if (!Number.isInteger(limit) || limit < 1 || limit > 50) throw new ApprovalValidationError('每页数量必须为1到50。');
@@ -233,10 +221,11 @@ export async function listApprovalHistory(userId: string, query: ApprovalHistory
     `SELECT r.id, r.kind, r.status, r.title, r.body, r.result_body, r.updated_at,
        to_char(r.updated_at AT TIME ZONE 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS cursor_time,
        applicant.display_name AS applicant_name,
-       CASE WHEN r.applicant_id=$1 THEN 'applicant' ELSE 'assignee' END AS role
+       CASE WHEN r.applicant_id=$1 THEN 'applicant' WHEN r.executor_id=$1 THEN 'executor' ELSE 'assignee' END AS role
      FROM approval_requests r JOIN approval_users applicant ON applicant.id=r.applicant_id
-     WHERE (r.applicant_id=$1 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1))
+     WHERE (r.applicant_id=$1 OR r.executor_id=$1 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1))
        AND ($2='all' OR ($2='sent' AND r.applicant_id=$1)
+         OR ($2='executing' AND r.executor_id=$1)
          OR ($2='handled' AND EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1 AND s.status IN ('approved','rejected','completed','returned')))
          OR ($2='pending' AND EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1 AND s.status='pending')))
        AND ($3='all' OR r.status=$3) AND ($4='' OR r.title ILIKE '%' || $4 || '%')
@@ -286,28 +275,34 @@ export async function createApprovalRequest(applicantId: string, raw: unknown) {
     );
     if (template.rows[0]?.kind !== 'daily') throw new ApprovalValidationError('daily模板不存在或不属于当前用户。');
   }
-  const dueAt = timestamp(body.dueAt);
+  const dueAt = completionTime(body.dueAt);
   const assignee = await resolveAssignee(body);
+  const executorId = body.executorId === undefined ? applicantId : text(body.executorId, '执行人', 80, true);
+  if (!UUID_RE.test(executorId)) throw new ApprovalValidationError('请选择有效的执行人。');
+  if (assignee.id === applicantId) throw new ApprovalValidationError('审批人必须选择好友。');
+  if (assignee.id === executorId) throw new ApprovalValidationError('执行人和审批人请选择不同的人。');
   const client = await pool.connect();
   let requestId = '';
   try {
     await client.query('BEGIN');
+    await requireApprovalFriends(client, applicantId, [executorId, assignee.id]);
+    await requireFutureDeadline(client, dueAt);
     const request = await client.query<{ id: string }>(
-      `INSERT INTO approval_requests (template_id, applicant_id, kind, status, title, body, scheduled_for, due_at)
-       VALUES ($1, $2, $3, 'pending_approval', $4, $5, $6, $7) RETURNING id`,
-      [templateId, applicantId, kind, title, requestBody, scheduledFor, dueAt],
+      `INSERT INTO approval_requests (template_id, applicant_id, kind, status, title, body, scheduled_for, due_at, executor_id)
+       VALUES ($1, $2, $3, 'pending_approval', $4, $5, $6, $7, $8) RETURNING id`,
+      [templateId, applicantId, kind, title, requestBody, scheduledFor, dueAt, executorId],
     );
     requestId = request.rows[0].id;
-    await bindApprovalPhotos(client, requestId, applicantId, 'application', photoIds);
     await client.query(
       `INSERT INTO approval_request_steps (request_id, position, step_kind, assignee_id)
        VALUES ($1, 1, 'approval', $2)`, [requestId, assignee.id],
     );
-    await client.query(
+    const createdEvent = await client.query<{id:string}>(
       `INSERT INTO approval_events (request_id, actor_id, event_type, to_status, payload_json)
-       VALUES ($1, $2, 'request.created', 'pending_approval', $3::jsonb)`,
-      [requestId, applicantId, JSON.stringify({ assigneeId: assignee.id, kind })],
+       VALUES ($1, $2, 'request.created', 'pending_approval', $3::jsonb) RETURNING id`,
+      [requestId, applicantId, JSON.stringify({ assigneeId: assignee.id, executorId, kind, body: requestBody })],
     );
+    await bindApprovalPhotos(client, requestId, applicantId, 'application', photoIds, createdEvent.rows[0].id);
     await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK').catch(() => undefined);
@@ -320,16 +315,16 @@ export async function createApprovalRequest(applicantId: string, raw: unknown) {
 }
 
 export async function listApprovalRequests(userId: string, view = 'all') {
-  const safeView = ['all', 'pending', 'sent'].includes(view) ? view : 'all';
+  const safeView = ['all', 'pending', 'sent', 'execution', 'supplement'].includes(view) ? view : 'all';
   const result = await pool.query(
     `SELECT r.id, r.kind, r.status, r.title, r.body, r.result_body, r.scheduled_for, r.due_at,
             r.created_at, r.updated_at, applicant.display_name AS applicant_name,
-            CASE WHEN r.applicant_id = $1 THEN 'applicant' ELSE 'assignee' END AS role,
+            CASE WHEN r.applicant_id = $1 THEN 'applicant' WHEN r.executor_id=$1 THEN 'executor' ELSE 'assignee' END AS role,
             (SELECT u.display_name FROM approval_request_steps s JOIN approval_users u ON u.id=s.assignee_id
              WHERE s.request_id=r.id AND s.step_kind='approval' ORDER BY s.position LIMIT 1) AS approver_name
      FROM approval_requests r JOIN approval_users applicant ON applicant.id=r.applicant_id
-     WHERE (r.applicant_id=$1 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1))
-       AND ($2='all' OR ($2='sent' AND r.applicant_id=$1) OR ($2='pending' AND EXISTS (
+     WHERE (r.applicant_id=$1 OR r.executor_id=$1 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1))
+       AND ($2='all' OR ($2='sent' AND r.applicant_id=$1) OR ($2='supplement' AND r.applicant_id=$1 AND r.status='needs_supplement') OR ($2='execution' AND r.executor_id=$1 AND r.status IN ('approved','in_progress')) OR ($2='pending' AND EXISTS (
          SELECT 1 FROM approval_request_steps ps WHERE ps.request_id=r.id AND ps.assignee_id=$1 AND ps.status='pending'
        )))
      ORDER BY r.updated_at DESC LIMIT 50`, [userId, safeView],
@@ -356,20 +351,25 @@ export async function getApprovalRequest(id: string, userId: string) {
               'score', s.score, 'actedAt', s.acted_at, 'assigneeAvatarUrl', u.avatar_url
             ) ORDER BY s.position) FROM approval_request_steps s JOIN approval_users u ON u.id=s.assignee_id
              WHERE s.request_id=r.id), '[]'::json) AS steps,
-            applicant.avatar_url AS applicant_avatar_url
+            applicant.avatar_url AS applicant_avatar_url, r.executor_id,
+            executor.display_name AS executor_name, executor.avatar_url AS executor_avatar_url,
+            (SELECT score FROM approval_task_scores WHERE request_id=r.id) AS final_score,
+            (SELECT source FROM approval_task_scores WHERE request_id=r.id) AS score_source
      FROM approval_requests r JOIN approval_users applicant ON applicant.id=r.applicant_id
-     WHERE r.id=$1 AND (r.applicant_id=$2 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$2))`,
+     JOIN approval_users executor ON executor.id=r.executor_id
+     WHERE r.id=$1 AND (r.applicant_id=$2 OR r.executor_id=$2 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$2))`,
     [id, userId],
   );
   const row = result.rows[0];
   if (!row) throw new ApprovalNotFoundError('审批不存在或无权查看。');
+  if (['pending_approval','needs_supplement','approved','in_progress'].includes(row.status) && row.due_at && new Date(row.due_at).getTime() <= Date.now() && await expireApprovalDeadlines(id)) return getApprovalRequest(id, userId);
   const steps = row.steps as Array<{ kind: string; assigneeId: string; status: string }>;
   const photos = await approvalPhotos(id, userId);
   // Only load the activity log after the participant check above succeeds.
   const activity = await pool.query(
     `SELECT e.id, e.event_type, e.from_status, e.to_status, e.payload_json, e.created_at,
        u.id AS actor_id, u.display_name AS actor_name, u.avatar_url AS actor_avatar_url
-     FROM approval_events e JOIN approval_users u ON u.id=e.actor_id
+     FROM approval_events e LEFT JOIN approval_users u ON u.id=e.actor_id
      WHERE e.request_id=$1
      ORDER BY e.created_at, CASE e.event_type
        WHEN 'request.created' THEN 0 WHEN 'request.approved' THEN 1
@@ -382,48 +382,62 @@ export async function getApprovalRequest(id: string, userId: string) {
     approvedAt: iso(row.approved_at), resultSubmittedAt: iso(row.result_submitted_at), reviewedAt: iso(row.reviewed_at),
     createdAt: iso(row.created_at), updatedAt: iso(row.updated_at), applicantName: row.applicant_name,
     applicantId: row.applicant_id, applicantAvatarUrl: row.applicant_avatar_url,
+    executorId: row.executor_id, executorName: row.executor_name, executorAvatarUrl: row.executor_avatar_url,
+    finalScore: row.final_score, scoreSource: row.score_source,
     steps: row.steps,
     events: activity.rows.map(event => ({
       id: event.id, type: event.event_type, createdAt: iso(event.created_at),
-      actor: { id: event.actor_id, displayName: event.actor_name, avatarUrl: event.actor_avatar_url },
+      actor: event.actor_id ? { id: event.actor_id, displayName: event.actor_name, avatarUrl: event.actor_avatar_url } : null,
+      system: !event.actor_id,
       fromStatus: event.from_status, toStatus: event.to_status,
       comment: typeof event.payload_json.comment === 'string' ? event.payload_json.comment : '',
       score: typeof event.payload_json.score === 'number' ? event.payload_json.score : null,
+      body: typeof event.payload_json.body === 'string' ? event.payload_json.body : undefined,
+      dueAt: event.payload_json.dueAt || undefined, previousDueAt: event.payload_json.previousDueAt || undefined,
     })),
     photos,
     actions: {
       canApprove: row.status === 'pending_approval' && steps.some(step => step.kind === 'approval' && step.assigneeId === userId && step.status === 'pending'),
-      canSubmitResult: ['approved', 'in_progress'].includes(row.status) && row.applicant_id === userId,
+      canSubmitResult: ['approved', 'in_progress'].includes(row.status) && row.executor_id === userId,
+      canSupplement: row.status === 'needs_supplement' && row.applicant_id === userId,
+      canEditDeadline: ['pending_approval','needs_supplement','approved','in_progress'].includes(row.status) && steps.some(step => step.kind === 'approval' && step.assigneeId === userId),
       canReview: row.status === 'pending_review' && steps.some(step => step.kind === 'review' && step.assigneeId === userId && step.status === 'pending'),
     },
   };
 }
 
 async function appendEvent(client: PoolClient, requestId: string, actorId: string, eventType: string, fromStatus: string | null, toStatus: string | null, payload: unknown = {}) {
-  await client.query(
+  const result = await client.query<{id:string}>(
     `INSERT INTO approval_events (request_id, actor_id, event_type, from_status, to_status, payload_json)
-     VALUES ($1, $2, $3, $4, $5, $6::jsonb)`,
+     VALUES ($1, $2, $3, $4, $5, $6::jsonb) RETURNING id`,
     [requestId, actorId, eventType, fromStatus, toStatus, JSON.stringify(payload)],
   );
+  return result.rows[0].id;
 }
 
 export async function decideApprovalRequest(requestId: string, actorId: string, action: unknown, rawComment: unknown) {
   if (!UUID_RE.test(requestId)) throw new ApprovalNotFoundError('审批不存在。');
   if (action !== 'approve' && action !== 'reject') throw new ApprovalValidationError('action必须是approve或reject。');
   const comment = text(rawComment, 'comment', 4000);
+  if (action === 'reject' && !comment) throw new ApprovalValidationError('请说明需要补充的材料。');
   const client = await pool.connect();
+  let committed = false;
   try {
     await client.query('BEGIN');
     const result = await client.query<{ step_id: string; request_id: string; request_status: string }>(
       `SELECT s.id AS step_id, r.id AS request_id, r.status AS request_status
        FROM approval_request_steps s JOIN approval_requests r ON r.id=s.request_id
        WHERE s.request_id=$1 AND s.assignee_id=$2 AND s.step_kind='approval' AND s.status='pending'
-       FOR UPDATE OF s, r`, [requestId, actorId],
+       FOR UPDATE OF r`, [requestId, actorId],
     );
     const row = result.rows[0];
     if (!row) throw new ApprovalForbiddenError('当前用户不是该审批的待处理审批人。');
     if (row.request_status !== 'pending_approval') throw new ApprovalValidationError('该审批当前不能处理。');
-    const nextStatus = action === 'approve' ? 'approved' : 'rejected';
+    if (await finishExpiredApproval(client, requestId)) {
+      await client.query('COMMIT'); committed = true;
+      throw new ApprovalValidationError('申请已到期，不能继续审批。');
+    }
+    const nextStatus = action === 'approve' ? 'approved' : 'needs_supplement';
     await client.query(
       `UPDATE approval_request_steps SET status=$2, comment=$3, acted_at=NOW() WHERE id=$1`,
       [row.step_id, action === 'approve' ? 'approved' : 'rejected', comment],
@@ -434,8 +448,9 @@ export async function decideApprovalRequest(requestId: string, actorId: string, 
     );
     await appendEvent(client, requestId, actorId, action === 'approve' ? 'request.approved' : 'request.rejected', 'pending_approval', nextStatus, { comment });
     await client.query('COMMIT');
+    committed = true;
   } catch (error) {
-    await client.query('ROLLBACK').catch(() => undefined);
+    if (!committed) await client.query('ROLLBACK').catch(() => undefined);
     throw error;
   } finally { client.release(); }
   return getApprovalRequest(requestId, actorId);
@@ -447,26 +462,32 @@ export async function submitApprovalResult(requestId: string, actorId: string, r
   const photoIds = validateMediaIds(rawPhotoIds);
   if (!resultBody && !photoIds.length) throw new ApprovalValidationError('请填写执行结果或添加照片。');
   const client = await pool.connect();
+  let committed = false;
   try {
     await client.query('BEGIN');
     const result = await client.query<{ status: string; approver_id: string }>(
       `SELECT r.status, (SELECT assignee_id FROM approval_request_steps WHERE request_id=r.id AND step_kind='approval' ORDER BY position LIMIT 1) AS approver_id
-       FROM approval_requests r WHERE r.id=$1 AND r.applicant_id=$2 FOR UPDATE`, [requestId, actorId],
+       FROM approval_requests r WHERE r.id=$1 AND r.executor_id=$2 FOR UPDATE`, [requestId, actorId],
     );
     const row = result.rows[0];
-    if (!row) throw new ApprovalForbiddenError('只有发起人可以提交执行结果。');
+    if (!row) throw new ApprovalForbiddenError('只有指定的执行人可以提交执行结果。');
     if (!['approved', 'in_progress'].includes(row.status)) throw new ApprovalValidationError('该审批当前不能提交结果。');
-    await bindApprovalPhotos(client, requestId, actorId, 'result', photoIds);
+    if (await finishExpiredApproval(client, requestId)) {
+      await client.query('COMMIT'); committed = true;
+      throw new ApprovalValidationError('已超过完成时间，执行人自动记0分。');
+    }
+    const eventId = await appendEvent(client, requestId, actorId, 'request.result_submitted', row.status, 'pending_review', { body: resultBody });
+    await bindApprovalPhotos(client, requestId, actorId, 'result', photoIds, eventId);
     await client.query(`UPDATE approval_requests SET result_body=$2, status='pending_review', result_submitted_at=NOW(), updated_at=NOW() WHERE id=$1`, [requestId, resultBody]);
     await client.query(
       `INSERT INTO approval_request_steps (request_id, position, step_kind, assignee_id)
        SELECT $1, COALESCE(MAX(position), 0) + 1, 'review', $2 FROM approval_request_steps WHERE request_id=$1`,
       [requestId, row.approver_id],
     );
-    await appendEvent(client, requestId, actorId, 'request.result_submitted', row.status, 'pending_review', {});
     await client.query('COMMIT');
+    committed = true;
   } catch (error) {
-    await client.query('ROLLBACK').catch(() => undefined);
+    if (!committed) await client.query('ROLLBACK').catch(() => undefined);
     throw error;
   } finally { client.release(); }
   return getApprovalRequest(requestId, actorId);
@@ -475,28 +496,30 @@ export async function submitApprovalResult(requestId: string, actorId: string, r
 export async function reviewApprovalRequest(requestId: string, actorId: string, rawScore: unknown, rawComment: unknown) {
   if (!UUID_RE.test(requestId)) throw new ApprovalNotFoundError('审批不存在。');
   const score = Number(rawScore);
+  if ((typeof rawScore !== 'number' && typeof rawScore !== 'string') || String(rawScore).trim() === '') throw new ApprovalValidationError('请填写0到100分。');
   if (!Number.isInteger(score) || score < 0 || score > 100) throw new ApprovalValidationError('score必须是0到100之间的整数。');
   const comment = text(rawComment, 'comment', 4000, true);
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    const result = await client.query<{ step_id: string; applicant_id: string; kind: 'daily' | 'ad_hoc'; scheduled_for: string | null; status: string }>(
-      `SELECT s.id AS step_id, r.applicant_id, r.kind, r.scheduled_for, r.status
+    const result = await client.query<{ step_id: string; executor_id: string; kind: 'daily' | 'ad_hoc'; scheduled_for: string | null; status: string }>(
+      `SELECT s.id AS step_id, r.executor_id, r.kind, r.scheduled_for, r.status
        FROM approval_request_steps s JOIN approval_requests r ON r.id=s.request_id
        WHERE s.request_id=$1 AND s.assignee_id=$2 AND s.step_kind='review' AND s.status='pending'
-       FOR UPDATE OF s, r`, [requestId, actorId],
+       FOR UPDATE OF r`, [requestId, actorId],
     );
     const row = result.rows[0];
     if (!row) throw new ApprovalForbiddenError('当前用户不是该审批的待点评人。');
     if (row.status !== 'pending_review') throw new ApprovalValidationError('该审批当前不能点评。');
     await client.query(`UPDATE approval_request_steps SET status='completed', score=$2, comment=$3, acted_at=NOW() WHERE id=$1`, [row.step_id, score, comment]);
     await client.query(`UPDATE approval_requests SET status='completed', reviewed_at=NOW(), updated_at=NOW() WHERE id=$1`, [requestId]);
+    await client.query("INSERT INTO approval_task_scores(request_id,executor_id,score,source,reviewer_id) VALUES($1,$2,$3,'manual',$4)", [requestId,row.executor_id,score,actorId]);
     if (row.kind === 'daily') {
       await client.query(
         `INSERT INTO approval_daily_scores (user_id, score_date, score, source_request_id, note)
          VALUES ($1, COALESCE($2::date, CURRENT_DATE), $3, $4, $5)
          ON CONFLICT (user_id, score_date) DO UPDATE SET score=EXCLUDED.score, source_request_id=EXCLUDED.source_request_id, note=EXCLUDED.note, updated_at=NOW()`,
-        [row.applicant_id, row.scheduled_for, score, requestId, comment],
+        [row.executor_id, row.scheduled_for, score, requestId, comment],
       );
     }
     await appendEvent(client, requestId, actorId, 'request.reviewed', 'pending_review', 'completed', { score, comment });
@@ -508,31 +531,76 @@ export async function reviewApprovalRequest(requestId: string, actorId: string, 
   return getApprovalRequest(requestId, actorId);
 }
 
+export async function supplementApprovalRequest(requestId: string, actorId: string, raw: unknown) {
+  if (!UUID_RE.test(requestId)) throw new ApprovalNotFoundError('审批不存在。');
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new ApprovalValidationError('补充材料格式不正确。');
+  const body = raw as Record<string, unknown>;
+  const content = text(body.body, '补充说明', 20000);
+  const photoIds = validateMediaIds(body.photoIds);
+  if (!content && !photoIds.length) throw new ApprovalValidationError('请补充说明或照片。');
+  const client = await pool.connect(); let committed = false;
+  try {
+    await client.query('BEGIN');
+    const result = await client.query(
+      `SELECT r.status,(SELECT assignee_id FROM approval_request_steps WHERE request_id=r.id AND step_kind='approval' ORDER BY position DESC LIMIT 1) AS approver_id
+       FROM approval_requests r WHERE id=$1 AND applicant_id=$2 FOR UPDATE`, [requestId,actorId],
+    );
+    const row = result.rows[0];
+    if (!row) throw new ApprovalForbiddenError('只有申请人可以补充申请材料。');
+    if (row.status !== 'needs_supplement') throw new ApprovalValidationError('当前状态不能补充申请。');
+    if (await finishExpiredApproval(client,requestId)) {
+      await client.query('COMMIT'); committed=true;
+      throw new ApprovalValidationError('申请已到期，请联系审批人确认。');
+    }
+    const eventId = await appendEvent(client,requestId,actorId,'request.supplemented',row.status,'pending_approval',{body:content});
+    await bindApprovalPhotos(client,requestId,actorId,'application',photoIds,eventId);
+    await client.query("UPDATE approval_requests SET status='pending_approval',updated_at=clock_timestamp() WHERE id=$1",[requestId]);
+    await client.query(
+      `INSERT INTO approval_request_steps(request_id,position,step_kind,assignee_id)
+       SELECT $1,COALESCE(MAX(position),0)+1,'approval',$2 FROM approval_request_steps WHERE request_id=$1`,[requestId,row.approver_id],
+    );
+    await client.query('COMMIT'); committed=true;
+  } catch(error) {if(!committed) await client.query('ROLLBACK').catch(()=>undefined);throw error;}
+  finally {client.release();}
+  return getApprovalRequest(requestId,actorId);
+}
+
 export async function getApprovalDashboard(userId: string) {
-  const [counts, pending, reviews, recent, scores] = await Promise.all([
-    pool.query<{ pending_approval: number; pending_review: number; completed: number; sent: number }>(
+  const [counts, pending, recent, scores, pendingExecution, pendingSupplement] = await Promise.all([
+    pool.query<{ pending_approval: number; pending_review: number; completed: number; sent: number; pending_execution: number; friend_requests: number; pending_supplement: number; average_score: number | null }>(
       `SELECT
        (SELECT COUNT(*)::integer FROM approval_request_steps WHERE assignee_id=$1 AND step_kind='approval' AND status='pending') AS pending_approval,
        (SELECT COUNT(*)::integer FROM approval_request_steps WHERE assignee_id=$1 AND step_kind='review' AND status='pending') AS pending_review,
-       (SELECT COUNT(*)::integer FROM approval_requests WHERE applicant_id=$1 AND status='completed') AS completed,
+       (SELECT COUNT(*)::integer FROM approval_requests WHERE executor_id=$1 AND status='completed') AS completed,
+       (SELECT COUNT(*)::integer FROM approval_requests WHERE executor_id=$1 AND status IN ('approved','in_progress')) AS pending_execution,
+       (SELECT COUNT(*)::integer FROM approval_requests WHERE applicant_id=$1 AND status='needs_supplement') AS pending_supplement,
+       (SELECT ROUND(AVG(score))::int FROM approval_task_scores WHERE executor_id=$1) AS average_score,
+       (SELECT COUNT(*)::integer FROM approval_friend_requests WHERE recipient_id=$1 AND status='pending') AS friend_requests,
        (SELECT COUNT(*)::integer FROM approval_requests WHERE applicant_id=$1) AS sent`, [userId],
     ),
     listApprovalRequests(userId, 'pending'),
-    listApprovalRequests(userId, 'pending'),
     listApprovalRequests(userId, 'sent'),
-    pool.query(`SELECT score_date, score, note FROM approval_daily_scores WHERE user_id=$1 ORDER BY score_date DESC LIMIT 14`, [userId]),
+    pool.query(`SELECT (scored_at AT TIME ZONE 'Asia/Shanghai')::date AS score_date,ROUND(AVG(score))::int AS score FROM approval_task_scores WHERE executor_id=$1 GROUP BY score_date ORDER BY score_date DESC LIMIT 14`, [userId]),
+    listApprovalRequests(userId, 'execution'),
+    listApprovalRequests(userId, 'supplement'),
   ]);
   const pendingApproval = pending.filter(item => item.status === 'pending_approval');
-  const pendingReview = reviews.filter(item => item.status === 'pending_review');
+  const pendingReview = pending.filter(item => item.status === 'pending_review');
   return {
     stats: {
       pendingApproval: Number(counts.rows[0]?.pending_approval ?? 0),
+      pendingExecution: Number(counts.rows[0]?.pending_execution ?? 0),
+      pendingSupplement: Number(counts.rows[0]?.pending_supplement ?? 0),
+      averageScore: counts.rows[0]?.average_score ?? null,
+      friendRequests: Number(counts.rows[0]?.friend_requests ?? 0),
       sent: Number(counts.rows[0]?.sent ?? 0),
       pendingReview: Number(counts.rows[0]?.pending_review ?? 0),
       completed: Number(counts.rows[0]?.completed ?? 0),
     },
     pendingApproval,
     pendingReview,
+    pendingExecution,
+    pendingSupplement,
     recent: recent.slice(0, 10),
     dailyScores: scores.rows.map(row => ({ date: row.score_date, score: row.score, note: row.note })),
   };

@@ -1,5 +1,7 @@
 import type { FastifyInstance } from 'fastify';
 import { config } from './config.js';
+import { changeApprovalDeadline, registerApprovalDeadlineWorker } from './approval-deadlines.js';
+import { listApprovalFriends, listApprovalFriendRequests, lookupApprovalFriend, sendApprovalFriendRequest, respondApprovalFriendRequest, updateApprovalFriend, removeApprovalFriend } from './approval-friends.js';
 import { ApprovalMediaBusyError, ApprovalMediaUnavailableError, readApprovalBlobAvatar } from './approval-media.js';
 import { registerApprovalMediaRoutes } from './approval-media-routes.js';
 import {
@@ -19,6 +21,7 @@ import {
   updateApprovalProfile,
   reviewApprovalRequest,
   submitApprovalResult,
+  supplementApprovalRequest,
   upsertApprovalUser,
   type ApprovalHistoryQuery,
 } from './approval-store.js';
@@ -41,6 +44,7 @@ function errorResponse(reply: { code: (status: number) => { send: (value: unknow
 
 export function registerApprovalRoutes(app: FastifyInstance) {
   registerApprovalMediaRoutes(app);
+  registerApprovalDeadlineWorker(app);
   app.post<{ Body: unknown }>('/api/approval/auth/login', async (request, reply) => {
     try {
       if (!request.body || typeof request.body !== 'object') throw new ApprovalValidationError('登录参数不正确。');
@@ -59,7 +63,7 @@ export function registerApprovalRoutes(app: FastifyInstance) {
         avatarUrl: typeof body.avatarUrl === 'string' ? body.avatarUrl : undefined,
       });
       if (user.status !== 'active') throw new ApprovalAuthError('该用户已停用。');
-      return { token: createApprovalSession(user), user: { id: user.id, displayName: user.displayName, avatarUrl: user.avatarUrl } };
+      return { token: createApprovalSession(user), user: { id: user.id, displayName: user.displayName, avatarUrl: user.avatarUrl, friendCode: user.friendCode } };
     } catch (error) { return errorResponse(reply, error); }
   });
 
@@ -67,7 +71,7 @@ export function registerApprovalRoutes(app: FastifyInstance) {
     reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
-    return { user: { id: user.id, displayName: user.displayName, avatarUrl: user.avatarUrl } };
+    return { user: { id: user.id, displayName: user.displayName, avatarUrl: user.avatarUrl, friendCode: user.friendCode } };
   });
 
   app.patch<{ Body: unknown }>('/api/approval/me', async (request, reply) => {
@@ -99,10 +103,43 @@ export function registerApprovalRoutes(app: FastifyInstance) {
   });
 
   app.get<{ Querystring: { q?: string } }>('/api/approval/people', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
     try { return { people: await listApprovalPeople(user.id, request.query.q ?? '') }; }
     catch (error) { return errorResponse(reply, error); }
+  });
+
+  app.get('/api/approval/friends', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { return { friends: await listApprovalFriends(user.id) }; } catch (error) { return errorResponse(reply, error); }
+  });
+  app.get<{ Querystring: { code?: string } }>('/api/approval/friends/lookup', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { return await lookupApprovalFriend(user.id, request.query.code); } catch (error) { return errorResponse(reply, error); }
+  });
+  app.get('/api/approval/friends/requests', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { return await listApprovalFriendRequests(user.id); } catch (error) { return errorResponse(reply, error); }
+  });
+  app.post<{ Body: unknown }>('/api/approval/friends/requests', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { return reply.code(201).send({ request: await sendApprovalFriendRequest(user.id, request.body) }); } catch (error) { return errorResponse(reply, error); }
+  });
+  app.post<{ Params: { id: string }; Body: { action?: string } }>('/api/approval/friends/requests/:id/respond', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { return { request: await respondApprovalFriendRequest(user.id, request.params.id, request.body?.action) }; } catch (error) { return errorResponse(reply, error); }
+  });
+  app.patch<{ Params: { id: string }; Body: unknown }>('/api/approval/friends/:id', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { return { friend: await updateApprovalFriend(user.id, request.params.id, request.body) }; } catch (error) { return errorResponse(reply, error); }
+  });
+  app.post<{ Params: { id: string } }>('/api/approval/friends/:id/remove', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply); if (!user) return;
+    try { await removeApprovalFriend(user.id, request.params.id); return reply.code(204).send(); } catch (error) { return errorResponse(reply, error); }
   });
 
   app.get<{ Querystring: { includeInactive?: string } }>('/api/approval/templates', async (request, reply) => {
@@ -150,6 +187,16 @@ export function registerApprovalRoutes(app: FastifyInstance) {
     catch (error) { return errorResponse(reply, error); }
   });
 
+  app.patch<{ Params: { id: string }; Body: { dueAt?: unknown } }>('/api/approval/requests/:id/deadline', async (request, reply) => {
+    const user=await requireApprovalUser(request,reply);if(!user)return;
+    try { await changeApprovalDeadline(request.params.id,user.id,request.body?.dueAt);return {request:await getApprovalRequest(request.params.id,user.id)}; }
+    catch(error){return errorResponse(reply,error);}
+  });
+  app.post<{ Params: { id: string }; Body: unknown }>('/api/approval/requests/:id/supplement', async (request,reply)=>{
+    const user=await requireApprovalUser(request,reply);if(!user)return;
+    try{return {request:await supplementApprovalRequest(request.params.id,user.id,request.body)};}
+    catch(error){return errorResponse(reply,error);}
+  });
   app.post<{ Params: { id: string }; Body: unknown }>('/api/approval/requests/:id/decision', async (request, reply) => {
     const user = await requireApprovalUser(request, reply);
     if (!user) return;

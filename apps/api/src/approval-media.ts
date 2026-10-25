@@ -26,7 +26,7 @@ export interface ApprovalBlobStorage {
 
 let storage: ApprovalBlobStorage | undefined;
 export function useApprovalBlobStorageForTests(value: ApprovalBlobStorage) {
-  if (!/^\/approval_(account|media)_test_[a-z0-9_]+$/.test(new URL(process.env.TEST_DATABASE_URL || 'http://invalid/').pathname)) {
+  if (!/^\/approval_(account|media|friends)_test_[a-z0-9_]+$/.test(new URL(process.env.TEST_DATABASE_URL || 'http://invalid/').pathname)) {
     throw new Error('Blob test adapter requires a dedicated approval test database');
   }
   storage = value;
@@ -108,7 +108,7 @@ export function validateMediaIds(raw: unknown) {
   return raw as string[];
 }
 
-export async function bindApprovalPhotos(client: PoolClient, requestId: string, ownerId: string, purpose: 'application' | 'result', ids: string[]) {
+export async function bindApprovalPhotos(client: PoolClient, requestId: string, ownerId: string, purpose: 'application' | 'result', ids: string[], eventId?: string) {
   if (!ids.length) return;
   const files = await client.query<MediaRow>(
     `SELECT * FROM approval_media_files WHERE id=ANY($1::uuid[]) ORDER BY id FOR UPDATE`, [ids],
@@ -116,14 +116,14 @@ export async function bindApprovalPhotos(client: PoolClient, requestId: string, 
   if (files.rows.length !== ids.length || files.rows.some(row => row.owner_id !== ownerId || row.purpose !== purpose || row.state !== 'pending')) {
     throw new ApprovalValidationError('照片已失效或不属于本次提交，请重新上传。');
   }
-  const count = await client.query('SELECT count(*)::int AS count FROM approval_attachments WHERE request_id=$1 AND stage=$2', [requestId, purpose]);
+  const count = await client.query('SELECT count(*)::int AS count FROM approval_attachments WHERE request_id=$1 AND stage=$2 AND ($3::uuid IS NULL OR event_id=$3)', [requestId, purpose, eventId || null]);
   if (count.rows[0].count + ids.length > 9) throw new ApprovalValidationError('每组最多9张照片。');
   for (const [index, id] of ids.entries()) {
     const row = files.rows.find(file => file.id === id)!;
     await client.query(
-      `INSERT INTO approval_attachments (request_id, uploader_id, stage, object_key, content_type, byte_size, width, height, media_id, thumbnail_key, sort_order)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,
-      [requestId, ownerId, purpose, row.object_key, row.content_type, row.byte_size, row.width, row.height, id, row.thumbnail_key, count.rows[0].count + index],
+      `INSERT INTO approval_attachments (request_id, uploader_id, stage, object_key, content_type, byte_size, width, height, media_id, thumbnail_key, sort_order, event_id)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`,
+      [requestId, ownerId, purpose, row.object_key, row.content_type, row.byte_size, row.width, row.height, id, row.thumbnail_key, count.rows[0].count + index, eventId || null],
     );
   }
   await client.query('UPDATE approval_media_files SET state=\'bound\' WHERE id=ANY($1::uuid[])', [ids]);
@@ -149,11 +149,11 @@ function mediaUrl(id: string, userId: string, variant: 'photo' | 'thumb') {
 
 export async function approvalPhotos(requestId: string, userId: string) {
   const result = await pool.query(
-    `SELECT a.media_id AS id, a.stage, a.width, a.height FROM approval_attachments a
+    `SELECT a.media_id AS id, a.stage, a.width, a.height, a.event_id FROM approval_attachments a
      JOIN approval_media_files m ON m.id=a.media_id AND m.state='bound'
      WHERE a.request_id=$1 ORDER BY a.stage, a.sort_order, a.created_at, a.id`, [requestId],
   );
-  return result.rows.map(row => ({ id: row.id, stage: row.stage, width: row.width, height: row.height,
+  return result.rows.map(row => ({ id: row.id, stage: row.stage, eventId: row.event_id, width: row.width, height: row.height,
     url: mediaUrl(row.id, userId, 'photo'), thumbnailUrl: mediaUrl(row.id, userId, 'thumb') }));
 }
 
@@ -179,7 +179,7 @@ export async function readApprovalPhoto(id: string, query: Record<string, unknow
   const result = await pool.query<MediaRow>(
     `SELECT m.* FROM approval_media_files m JOIN approval_attachments a ON a.media_id=m.id
      JOIN approval_requests r ON r.id=a.request_id JOIN approval_users u ON u.id=$2 AND u.status='active'
-     WHERE m.id=$1 AND m.state='bound' AND (r.applicant_id=$2 OR EXISTS (
+     WHERE m.id=$1 AND m.state='bound' AND (r.applicant_id=$2 OR r.executor_id=$2 OR EXISTS (
        SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$2))`, [id, user],
   );
   const row = result.rows[0];

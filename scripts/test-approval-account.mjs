@@ -15,7 +15,7 @@ process.env.APPROVAL_SESSION_SECRET = 'approval-account-integration-tests-only';
 process.env.NODE_ENV = 'test';
 
 const bootstrap = new pg.Pool({ connectionString: databaseUrl });
-for (const file of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql']) {
+for (const file of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '032_approval_friends_executor.sql', '033_approval_deadlines_scores.sql']) {
   await bootstrap.query(await readFile(new URL(`../db/migrations/${file}`, import.meta.url), 'utf8'));
 }
 await bootstrap.end();
@@ -32,6 +32,7 @@ const app = Fastify();
 registerApprovalRoutes(app);
 
 async function call(method, url, token, payload) {
+  if(method==='POST' && url==='/api/approval/requests' && payload && payload.dueAt===undefined)payload={...payload,dueAt:new Date(Date.now()+86400000).toISOString()};
   return app.inject({ method, url, ...(token ? { headers: { authorization: `Bearer ${token}` } } : {}), ...(payload === undefined ? {} : { payload }) });
 }
 
@@ -46,6 +47,7 @@ try {
   const alice = await login(`account-test-alice-${suffix}`, '甲');
   const bob = await login(`account-test-bob-${suffix}`, '乙');
   const outsider = await login(`account-test-outsider-${suffix}`, '丙');
+  await pool.query("INSERT INTO approval_friendships(owner_id,friend_id,status,requested_by) VALUES($1,$2,'accepted',$1),($2,$1,'accepted',$1)", [alice.user.id,bob.user.id]);
   for (const [method, url, payload] of [
     ['GET', '/api/approval/me'], ['PATCH', '/api/approval/me', { displayName: '无权修改' }],
     ['GET', '/api/approval/templates'], ['GET', '/api/approval/requests']
@@ -109,8 +111,8 @@ try {
   console.log('PASS: history scopes/status filters, workflow permissions and private request isolation');
 
   await pool.query(
-    `INSERT INTO approval_requests (applicant_id, kind, status, title, updated_at)
-     SELECT $1, 'ad_hoc', 'pending_approval', '分页测试-' || n, '2026-10-23T12:00:00.123456Z'::timestamptz FROM generate_series(1, 31) n`, [alice.user.id],
+    `INSERT INTO approval_requests (applicant_id, executor_id, kind, status, title, updated_at)
+     SELECT $1, $1, 'ad_hoc', 'pending_approval', '分页测试-' || n, '2026-10-23T12:00:00.123456Z'::timestamptz FROM generate_series(1, 31) n`, [alice.user.id],
   );
   const seen = new Set();
   let cursor = '';
