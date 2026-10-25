@@ -56,6 +56,13 @@ const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {
   throw new Error('/api/papers returned an unexpected payload');
 }
+// A well-formed, unused avatar ID must reach the database and return 404.
+// A missing account migration returns 500 and must fail deployment verification.
+const avatarResponse = await fetch(`${baseUrl}/api/approval/avatars/00000000-0000-4000-8000-000000000000`, { signal: AbortSignal.timeout(timeoutMs) });
+const avatarResult = await avatarResponse.json();
+if (avatarResponse.status !== 404 || avatarResult.error !== 'avatar_not_found') {
+  throw new Error('Approval avatar storage migration or endpoint is unavailable');
+}
 // Analysis progress is intentionally excluded from the public paper list so
 // the reader can load CET4/CET6 metadata without running the expensive cache
 // aggregation queries. Progress is verified through the admin API below.
