@@ -84,6 +84,14 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 当前基础流程是：发起审批 → 审批人同意或驳回 → 发起人提交执行结果 → 审批人点评并打分。可用接口包括 `/api/approval/auth/login`、`/api/approval/dashboard`、`/api/approval/people`、`/api/approval/requests` 及对应的 decision/result/review 操作。图片附件的对象存储和真正的微信上传流程留在后续迭代，当前接口先支持文字和每日分数。
 
+个人资料通过 `GET/PATCH /api/approval/me` 读取、更新；保存时传 `displayName`，可同时传 `avatarBase64`（PNG/JPEG/WebP，最多256KB）。头像保存在数据库的 `approval_user_avatars` 表中，通过返回的 `avatarUrl` 读取，不依赖客户端临时文件。
+
+每日模板支持 `GET/POST /api/approval/templates` 和 `PATCH /api/approval/templates/:id`。管理页使用 `includeInactive=true` 查看停用模板；新建审批只展示启用模板。停用模板保留已有审批历史，只有模板所有者可以修改。
+
+审批历史使用 `GET /api/approval/requests`，支持 `view=all/sent/handled/pending`、`status`、标题搜索 `q`、`limit`（1到50）和不透明的 `cursor`。返回 `requests`、`hasMore` 和 `nextCursor`；记录按更新时间、ID排序，仅返回发起人或流程参与人有权查看的审批。详情返回 `actions`，供客户端展示当前用户可执行的操作。
+
+账号功能的集成检查使用独立空测试库，命令为 `TEST_DATABASE_URL=postgres://.../approval_account_test_name node --import tsx scripts/test-approval-account.mjs`。脚本校验测试库名称后才建表，覆盖资料和头像持久化、模板权限与停用、审批流程权限、历史筛选和分页；不接受生产数据库地址。
+
 ## 服务
 
 - Web：Astro 静态前端，Docker 入口默认 `http://localhost:8081`；开发服务器默认 `http://localhost:4321`

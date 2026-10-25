@@ -8,13 +8,17 @@ import {
   decideApprovalRequest,
   getApprovalDashboard,
   getApprovalRequest,
+  getApprovalAvatar,
+  listApprovalHistory,
   listApprovalPeople,
-  listApprovalRequests,
   listApprovalTemplates,
   createApprovalTemplate,
+  updateApprovalTemplate,
+  updateApprovalProfile,
   reviewApprovalRequest,
   submitApprovalResult,
   upsertApprovalUser,
+  type ApprovalHistoryQuery,
 } from './approval-store.js';
 import {
   ApprovalAuthError,
@@ -55,9 +59,25 @@ export function registerApprovalRoutes(app: FastifyInstance) {
   });
 
   app.get('/api/approval/me', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
     return { user: { id: user.id, displayName: user.displayName, avatarUrl: user.avatarUrl } };
+  });
+
+  app.patch<{ Body: unknown }>('/api/approval/me', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
+    const user = await requireApprovalUser(request, reply);
+    if (!user) return;
+    try { return { user: await updateApprovalProfile(user.id, request.body) }; }
+    catch (error) { return errorResponse(reply, error); }
+  });
+
+  app.get<{ Params: { id: string } }>('/api/approval/avatars/:id', async (request, reply) => {
+    const avatar = await getApprovalAvatar(request.params.id);
+    if (!avatar) return reply.code(404).send({ error: 'avatar_not_found' });
+    return reply.header('Cache-Control', 'public, max-age=3600')
+      .header('X-Content-Type-Options', 'nosniff').type(avatar.content_type).send(avatar.image_bytes);
   });
 
   app.get('/api/approval/dashboard', async (request, reply) => {
@@ -74,10 +94,18 @@ export function registerApprovalRoutes(app: FastifyInstance) {
     catch (error) { return errorResponse(reply, error); }
   });
 
-  app.get('/api/approval/templates', async (request, reply) => {
+  app.get<{ Querystring: { includeInactive?: string } }>('/api/approval/templates', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
-    try { return { templates: await listApprovalTemplates(user.id) }; }
+    try { return { templates: await listApprovalTemplates(user.id, request.query.includeInactive === 'true') }; }
+    catch (error) { return errorResponse(reply, error); }
+  });
+
+  app.patch<{ Params: { id: string }; Body: unknown }>('/api/approval/templates/:id', async (request, reply) => {
+    const user = await requireApprovalUser(request, reply);
+    if (!user) return;
+    try { return { template: await updateApprovalTemplate(user.id, request.params.id, request.body) }; }
     catch (error) { return errorResponse(reply, error); }
   });
 
@@ -88,10 +116,11 @@ export function registerApprovalRoutes(app: FastifyInstance) {
     catch (error) { return errorResponse(reply, error); }
   });
 
-  app.get<{ Querystring: { view?: string } }>('/api/approval/requests', async (request, reply) => {
+  app.get<{ Querystring: ApprovalHistoryQuery }>('/api/approval/requests', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
-    try { return { requests: await listApprovalRequests(user.id, request.query.view ?? 'all') }; }
+    try { return await listApprovalHistory(user.id, request.query); }
     catch (error) { return errorResponse(reply, error); }
   });
 

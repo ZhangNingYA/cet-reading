@@ -98,10 +98,11 @@ export async function listApprovalPeople(userId: string, query = '') {
   return result.rows.map(row => ({ id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url }));
 }
 
-export async function listApprovalTemplates(ownerId: string) {
+export async function listApprovalTemplates(ownerId: string, includeInactive = false) {
   const result = await pool.query(
     `SELECT id, name, kind, description, schedule_json, active, created_at, updated_at
-     FROM approval_templates WHERE owner_id=$1 AND active=true ORDER BY updated_at DESC`, [ownerId],
+     FROM approval_templates WHERE owner_id=$1 AND ($2::boolean OR active=true)
+     ORDER BY updated_at DESC, id DESC`, [ownerId, includeInactive],
   );
   return result.rows.map(row => ({
     id: row.id, name: row.name, kind: row.kind, description: row.description,
@@ -115,13 +116,143 @@ export async function createApprovalTemplate(ownerId: string, raw: unknown) {
   const name = text(body.name, 'name', 120, true);
   const description = text(body.description, 'description', 2000);
   if (body.kind !== 'daily') throw new ApprovalValidationError('当前只支持daily模板。');
-  const schedule = body.schedule && typeof body.schedule === 'object' ? body.schedule : {};
+  const schedule = body.schedule && typeof body.schedule === 'object' && !Array.isArray(body.schedule) ? body.schedule : {};
   const result = await pool.query<{ id: string }>(
     `INSERT INTO approval_templates (owner_id, name, kind, description, schedule_json)
      VALUES ($1, $2, 'daily', $3, $4::jsonb) RETURNING id`,
     [ownerId, name, description, JSON.stringify(schedule)],
   );
   return { id: result.rows[0].id, name, kind: 'daily', description, schedule };
+}
+
+export async function updateApprovalTemplate(ownerId: string, id: string, raw: unknown) {
+  if (!UUID_RE.test(id)) throw new ApprovalNotFoundError('模板不存在。');
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new ApprovalValidationError('模板内容不正确。');
+  const body = raw as Record<string, unknown>;
+  const name = body.name === undefined ? null : text(body.name, 'name', 120, true);
+  const description = body.description === undefined ? null : text(body.description, 'description', 2000);
+  if (body.active !== undefined && typeof body.active !== 'boolean') throw new ApprovalValidationError('active必须为布尔值。');
+  if (name === null && description === null && body.active === undefined) throw new ApprovalValidationError('没有可更新的模板内容。');
+  const result = await pool.query(
+    `UPDATE approval_templates SET name=COALESCE($3, name), description=COALESCE($4, description),
+       active=COALESCE($5, active), updated_at=NOW()
+     WHERE id=$1 AND owner_id=$2
+     RETURNING id, name, kind, description, schedule_json, active, created_at, updated_at`,
+    [id, ownerId, name, description, body.active ?? null],
+  );
+  const row = result.rows[0];
+  if (!row) throw new ApprovalNotFoundError('模板不存在或无权修改。');
+  return {
+    id: row.id, name: row.name, kind: row.kind, description: row.description,
+    schedule: row.schedule_json, active: row.active, createdAt: iso(row.created_at), updatedAt: iso(row.updated_at),
+  };
+}
+
+function decodeAvatar(value: unknown) {
+  if (typeof value !== 'string' || value.length > 349528 || value.length % 4 !== 0 || !/^[A-Za-z0-9+/]+={0,2}$/.test(value)) {
+    throw new ApprovalValidationError('头像格式不正确或超过256KB。');
+  }
+  const bytes = Buffer.from(value, 'base64');
+  if (bytes.length === 0 || bytes.length > 262144) throw new ApprovalValidationError('头像不能超过256KB。');
+  let contentType = '';
+  if (bytes.subarray(0, 8).equals(Buffer.from('89504e470d0a1a0a', 'hex'))) contentType = 'image/png';
+  else if (bytes.subarray(0, 3).equals(Buffer.from('ffd8ff', 'hex'))) contentType = 'image/jpeg';
+  else if (bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP') contentType = 'image/webp';
+  if (!contentType) throw new ApprovalValidationError('头像仅支持PNG、JPG或WebP图片。');
+  return { bytes, contentType };
+}
+
+export async function updateApprovalProfile(userId: string, raw: unknown) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new ApprovalValidationError('资料内容不正确。');
+  const body = raw as Record<string, unknown>;
+  const displayName = text(body.displayName, '昵称', 80, true);
+  const avatar = body.avatarBase64 === undefined ? null : decodeAvatar(body.avatarBase64);
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    const result = await client.query(
+      `UPDATE approval_users SET display_name=$2, updated_at=NOW(),
+         avatar_url=CASE WHEN $3::boolean THEN $4 ELSE avatar_url END
+       WHERE id=$1 AND status='active' RETURNING id, display_name, avatar_url`,
+      [userId, displayName, Boolean(avatar), `/api/approval/avatars/${userId}?v=${Date.now()}`],
+    );
+    const row = result.rows[0];
+    if (!row) throw new ApprovalNotFoundError('用户不存在或已停用。');
+    if (avatar) {
+      await client.query(
+        `INSERT INTO approval_user_avatars (user_id, content_type, image_bytes) VALUES ($1, $2, $3)
+         ON CONFLICT (user_id) DO UPDATE SET content_type=EXCLUDED.content_type, image_bytes=EXCLUDED.image_bytes, updated_at=NOW()`,
+        [userId, avatar.contentType, avatar.bytes],
+      );
+    }
+    await client.query('COMMIT');
+    return { id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url };
+  } catch (error) {
+    await client.query('ROLLBACK').catch(() => undefined);
+    throw error;
+  } finally { client.release(); }
+}
+
+export async function getApprovalAvatar(userId: string) {
+  if (!UUID_RE.test(userId)) return null;
+  const result = await pool.query<{ content_type: string; image_bytes: Buffer }>(
+    `SELECT a.content_type, a.image_bytes FROM approval_user_avatars a
+     JOIN approval_users u ON u.id=a.user_id WHERE a.user_id=$1 AND u.status='active'`, [userId],
+  );
+  return result.rows[0] ?? null;
+}
+
+export type ApprovalHistoryQuery = { view?: string; status?: string; q?: string; cursor?: string; limit?: string };
+
+export async function listApprovalHistory(userId: string, query: ApprovalHistoryQuery = {}) {
+  const view = query.view || 'all';
+  const status = query.status || 'all';
+  const search = text(query.q, 'q', 120);
+  const limit = query.limit === undefined ? 20 : Number(query.limit);
+  if (!['all', 'sent', 'handled', 'pending'].includes(view)) throw new ApprovalValidationError('记录分类不正确。');
+  if (!['all', 'draft', 'pending_approval', 'rejected', 'approved', 'in_progress', 'pending_review', 'completed', 'cancelled'].includes(status)) {
+    throw new ApprovalValidationError('审批状态不正确。');
+  }
+  if (!Number.isInteger(limit) || limit < 1 || limit > 50) throw new ApprovalValidationError('每页数量必须为1到50。');
+  let beforeTime: string | null = null;
+  let beforeId: string | null = null;
+  if (query.cursor) {
+    try {
+      if (!/^[A-Za-z0-9_-]{1,512}$/.test(query.cursor)) throw new Error('invalid cursor');
+      const cursor = JSON.parse(Buffer.from(query.cursor, 'base64url').toString('utf8'));
+      if (!cursor || typeof cursor.time !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?Z$/.test(cursor.time) || !Number.isFinite(Date.parse(cursor.time)) || typeof cursor.id !== 'string' || !UUID_RE.test(cursor.id)) {
+        throw new Error('invalid cursor');
+      }
+      beforeTime = cursor.time;
+      beforeId = cursor.id;
+    } catch { throw new ApprovalValidationError('分页参数不正确。'); }
+  }
+  const result = await pool.query(
+    `SELECT r.id, r.kind, r.status, r.title, r.body, r.result_body, r.updated_at,
+       to_char(r.updated_at AT TIME ZONE 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS cursor_time,
+       applicant.display_name AS applicant_name,
+       CASE WHEN r.applicant_id=$1 THEN 'applicant' ELSE 'assignee' END AS role
+     FROM approval_requests r JOIN approval_users applicant ON applicant.id=r.applicant_id
+     WHERE (r.applicant_id=$1 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1))
+       AND ($2='all' OR ($2='sent' AND r.applicant_id=$1)
+         OR ($2='handled' AND EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1 AND s.status IN ('approved','rejected','completed','returned')))
+         OR ($2='pending' AND EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1 AND s.status='pending')))
+       AND ($3='all' OR r.status=$3) AND ($4='' OR r.title ILIKE '%' || $4 || '%')
+       AND ($5::timestamptz IS NULL OR (r.updated_at, r.id) < ($5::timestamptz, $6::uuid))
+     ORDER BY r.updated_at DESC, r.id DESC LIMIT $7`,
+    [userId, view, status, search, beforeTime, beforeId, limit + 1],
+  );
+  const hasMore = result.rows.length > limit;
+  const rows = result.rows.slice(0, limit);
+  const last = rows[rows.length - 1];
+  return {
+    requests: rows.map(row => ({
+      id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
+      resultBody: row.result_body, updatedAt: iso(row.updated_at), applicantName: row.applicant_name, role: row.role,
+    })),
+    hasMore,
+    nextCursor: hasMore && last ? Buffer.from(JSON.stringify({ time: last.cursor_time, id: last.id })).toString('base64url') : null,
+  };
 }
 
 async function resolveAssignee(body: Record<string, unknown>) {
@@ -208,7 +339,7 @@ export async function listApprovalRequests(userId: string, view = 'all') {
 export async function getApprovalRequest(id: string, userId: string) {
   if (!UUID_RE.test(id)) throw new ApprovalNotFoundError('审批不存在。');
   const result = await pool.query(
-    `SELECT r.id, r.kind, r.status, r.title, r.body, r.result_body, r.scheduled_for, r.due_at,
+    `SELECT r.id, r.applicant_id, r.kind, r.status, r.title, r.body, r.result_body, r.scheduled_for, r.due_at,
             r.created_at, r.updated_at, r.approved_at, r.result_submitted_at, r.reviewed_at,
             applicant.display_name AS applicant_name,
             COALESCE((SELECT json_agg(json_build_object(
@@ -223,12 +354,18 @@ export async function getApprovalRequest(id: string, userId: string) {
   );
   const row = result.rows[0];
   if (!row) throw new ApprovalNotFoundError('审批不存在或无权查看。');
+  const steps = row.steps as Array<{ kind: string; assigneeId: string; status: string }>;
   return {
     id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
     resultBody: row.result_body, scheduledFor: row.scheduled_for, dueAt: iso(row.due_at),
     approvedAt: iso(row.approved_at), resultSubmittedAt: iso(row.result_submitted_at), reviewedAt: iso(row.reviewed_at),
     createdAt: iso(row.created_at), updatedAt: iso(row.updated_at), applicantName: row.applicant_name,
     steps: row.steps,
+    actions: {
+      canApprove: row.status === 'pending_approval' && steps.some(step => step.kind === 'approval' && step.assigneeId === userId && step.status === 'pending'),
+      canSubmitResult: ['approved', 'in_progress'].includes(row.status) && row.applicant_id === userId,
+      canReview: row.status === 'pending_review' && steps.some(step => step.kind === 'review' && step.assigneeId === userId && step.status === 'pending'),
+    },
   };
 }
 
