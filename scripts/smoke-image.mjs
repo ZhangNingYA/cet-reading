@@ -12,6 +12,9 @@ if (process.env.CET_IMAGE_KIND === 'worker') {
   await import('./apps/worker/dist/news-selector.js');
   console.log('Worker and News production dependencies load successfully.');
 } else {
+  const sharp = (await import('sharp')).default;
+  const image = await sharp({ create: { width: 8, height: 8, channels: 3, background: '#ffffff' } }).jpeg().toBuffer();
+  assert.equal((await sharp(image).metadata()).width, 8);
   const child = spawn(process.execPath, ['apps/api/dist/server.js'], {
     env: { ...process.env, AI_DRY_RUN: 'true', PORT: '3000' }, stdio: 'inherit',
   });

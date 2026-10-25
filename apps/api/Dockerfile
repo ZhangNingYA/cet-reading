@@ -14,12 +14,14 @@ COPY apps/api apps/api
 RUN npm run build:contracts && npm run build:api
 
 FROM dependencies AS production-dependencies
-RUN --mount=type=cache,target=/root/.npm,sharing=locked npm ci --omit=dev --omit=peer --workspace apps/api --workspace packages/contracts --no-audit --no-fund
+RUN --mount=type=cache,target=/root/.npm,sharing=locked npm ci --omit=dev --omit=optional --workspace apps/api --workspace packages/contracts --no-audit --no-fund
 
 FROM node:22-bookworm-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=production-dependencies /app/node_modules ./node_modules
+# Keep sharp's platform binaries while excluding unrelated optional dev peers.
+COPY --from=build /app/node_modules/@img ./node_modules/@img
 COPY --from=production-dependencies /app/packages/contracts ./packages/contracts
 COPY --from=build /app/packages/contracts/dist ./packages/contracts/dist
 COPY --from=build /app/apps/api/dist ./apps/api/dist
