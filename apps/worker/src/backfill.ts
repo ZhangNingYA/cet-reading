@@ -621,15 +621,17 @@ export async function fillBackgroundQuestionTextQueue(
   pool: Pool, config: RuntimeConfig, cursor: QuestionTextCursor | null = null, maxQueued = Number.POSITIVE_INFINITY,
 ) {
   const capacity = Math.min(await availableBackgroundCapacity(pool, config), maxQueued);
-  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false };
+  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false, scanComplete: false };
   const candidateLimit = Math.max(50, capacity * 10);
   const candidates = await loadQuestionTextCandidates(pool, candidateLimit, cursor);
-  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false };
+  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false, scanComplete: true };
   const { caches, jobs } = await loadExistingQuestionText(pool, candidates, config);
   let queued = 0;
   let lastExamined = candidates[0]!;
+  let examined = 0;
   for (const candidate of candidates) {
     if (queued >= capacity) break;
+    examined += 1;
     lastExamined = candidate;
     const key = questionTextKey(candidate);
     if (caches.has(key)) continue;
@@ -642,6 +644,7 @@ export async function fillBackgroundQuestionTextQueue(
     queued,
     nextCursor: { question_id: lastExamined.question_id, text_key: lastExamined.text_key },
     scanHasMore: queued < capacity && candidates.length === candidateLimit,
+    scanComplete: examined === candidates.length && candidates.length < candidateLimit,
   };
 }
 
@@ -649,15 +652,17 @@ export async function fillBackgroundQuestionQueue(
   pool: Pool, config: RuntimeConfig, cursor: QuestionCursor | null = null, maxQueued = Number.POSITIVE_INFINITY,
 ) {
   const capacity = Math.min(await availableBackgroundCapacity(pool, config), maxQueued);
-  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false };
+  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false, scanComplete: false };
   const candidateLimit = Math.max(50, capacity * 10);
   const candidates = await loadQuestionCandidates(pool, candidateLimit, cursor);
-  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false };
+  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false, scanComplete: true };
   const { caches, jobs } = await loadExistingQuestions(pool, candidates, config);
   let queued = 0;
   let lastExamined = candidates[0]!;
+  let examined = 0;
   for (const candidate of candidates) {
     if (queued >= capacity) break;
+    examined += 1;
     lastExamined = candidate;
     if (caches.has(candidate.question_id)) continue;
     const job = jobs.get(candidate.question_id);
@@ -669,6 +674,7 @@ export async function fillBackgroundQuestionQueue(
     queued,
     nextCursor: { question_id: lastExamined.question_id },
     scanHasMore: queued < capacity && candidates.length === candidateLimit,
+    scanComplete: examined === candidates.length && candidates.length < candidateLimit,
   };
 }
 
@@ -677,7 +683,7 @@ export async function fillBackgroundQueue(
 ) {
   const runtime = await readRuntimeSettings(pool, config);
   if (!config.backfillEnabled || config.mode !== 'ai' || runtime.backfillPaused || runtime.backgroundTarget === 0) {
-    return { queued: 0, nextCursor: cursor, scanHasMore: false };
+    return { queued: 0, nextCursor: cursor, scanHasMore: false, scanComplete: false };
   }
   const counts = await pool.query<{ total: number; background: number }>(
     `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS total,
@@ -689,16 +695,18 @@ export async function fillBackgroundQueue(
   const total = counts.rows[0]?.total ?? 0;
   const background = counts.rows[0]?.background ?? 0;
   const capacity = Math.min(runtime.backgroundTarget - background, runtime.queueCapacity - total, maxQueued);
-  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false };
+  if (capacity <= 0) return { queued: 0, nextCursor: cursor, scanHasMore: false, scanComplete: false };
 
   const candidateLimit = Math.max(50, capacity * 10);
   const candidates = await loadCandidates(pool, candidateLimit, cursor);
-  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false };
+  if (!candidates.length) return { queued: 0, nextCursor: null, scanHasMore: false, scanComplete: true };
   const { caches, jobs } = await loadExisting(pool, candidates, config);
   let queued = 0;
   let lastExamined = candidates[0]!;
+  let examined = 0;
   for (const candidate of candidates) {
     if (queued >= capacity) break;
+    examined += 1;
     lastExamined = candidate;
     if (caches.has(candidate.id)) continue;
     const job = jobs.get(candidate.id);
@@ -709,9 +717,9 @@ export async function fillBackgroundQueue(
   return {
     queued,
     nextCursor: cursorFromCandidate(lastExamined),
-    // Cached pages are common after a restart. Scan the next page immediately
-    // instead of leaving worker slots idle for a full scheduler interval.
+    // A full queue pauses this cursor; it does not finish the scan.
     scanHasMore: queued < capacity && candidates.length === candidateLimit,
+    scanComplete: examined === candidates.length && candidates.length < candidateLimit,
   };
 }
 
@@ -720,26 +728,47 @@ export async function runBackfillScheduler(pool: Pool, config: RuntimeConfig, si
   let questionTextCursor: QuestionTextCursor | null = null;
   let questionCursor: QuestionCursor | null = null;
   let scanFirst = 0;
+  const complete = [false, false, false];
+  const pollMs = Math.min(config.backfillIntervalMs, 3000);
+  let nextScanAt = 0;
+  let idlePasses = 0;
+  let passQueued = 0;
+  let settingsKey = '';
+  const resetScan = () => {
+    sentenceCursor = null;
+    questionTextCursor = null;
+    questionCursor = null;
+    complete.fill(false);
+    passQueued = 0;
+  };
   while (!signal.aborted) {
-    let scanHasMore = false;
     try {
+      const runtime = await readRuntimeSettings(pool, config);
+      const currentSettingsKey = JSON.stringify(runtime);
+      if (currentSettingsKey !== settingsKey) {
+        resetScan();
+        idlePasses = 0;
+        nextScanAt = 0;
+        settingsKey = currentSettingsKey;
+      }
       const priority = await fillPriorityQueue(pool, config, db => readRuntimeSettings(db, config));
       if (priority.queued) process.stdout.write(`Priority analysis queued ${priority.queued} item(s).\n`);
       if (priority.active || !config.backfillEnabled || config.mode !== 'ai') {
-        await sleep(Math.min(config.backfillIntervalMs, 3000), signal);
+        await sleep(pollMs, signal);
         continue;
       }
-      const runtime = await readRuntimeSettings(pool, config);
-      if (runtime.backfillPaused) {
-        sentenceCursor = null;
-        questionTextCursor = null;
-        questionCursor = null;
-        await sleep(config.backfillIntervalMs, signal);
+      if (runtime.backfillPaused || runtime.backgroundTarget === 0) {
+        await sleep(pollMs, signal);
         continue;
       }
+      if (Date.now() < nextScanAt) {
+        await sleep(Math.min(pollMs, nextScanAt - Date.now()), signal);
+        continue;
+      }
+      const scanStartedAt = Date.now();
       const available = await availableBackgroundCapacity(pool, config);
+      nextScanAt = Date.now() + config.backfillIntervalMs;
       if (available > 0) {
-        const results: Array<{ queued: number; scanHasMore: boolean }> = [];
         let remaining = available;
         const runSentence = async (limit: number) => {
           const result = await fillBackgroundQueue(pool, config, sentenceCursor, limit);
@@ -757,21 +786,41 @@ export async function runBackfillScheduler(pool: Pool, config: RuntimeConfig, si
           return result;
         };
         const runners = [runSentence, runText, runQuestion];
-        for (let offset = 0; offset < runners.length && remaining > 0; offset += 1) {
-          const result = await runners[(scanFirst + offset) % runners.length]!(remaining);
-          results.push(result);
+        for (let offset = 0; offset < runners.length && remaining > 0 && !signal.aborted; offset += 1) {
+          const index = (scanFirst + offset) % runners.length;
+          // A shorter stream must stay finished while the other cursors catch up.
+          if (complete[index]) continue;
+          const result = await runners[index]!(remaining);
+          complete[index] = result.scanComplete;
           remaining -= result.queued;
         }
         scanFirst = (scanFirst + 1) % runners.length;
         const queued = available - remaining;
-        scanHasMore = results.some(result => result.scanHasMore);
+        passQueued += queued;
         if (queued) {
           process.stdout.write(`Background analysis queued ${queued} item(s).\n`);
+        }
+        if (complete.every(Boolean)) {
+          idlePasses = passQueued ? 0 : Math.min(idlePasses + 1, 20);
+          // Periodic rescans discover new content without continuously validating
+          // the entire cache. Priority work and settings still poll every 3s.
+          const delayMs = Math.min(300_000, config.backfillIntervalMs * 2 ** Math.max(0, idlePasses - 1));
+          process.stdout.write(`${JSON.stringify({ event: 'backfill_scan_complete', queued: passQueued, idlePasses, nextScanMs: delayMs })}\n`);
+          resetScan();
+          nextScanAt = Date.now() + delayMs;
+        } else if (!queued) {
+          // Even a cache-only page must yield. Aim for at most 10% scan duty
+          // during a pass, bounded by the configured scheduler interval.
+          const delayMs = Math.min(config.backfillIntervalMs, Math.max(1000, (Date.now() - scanStartedAt) * 9));
+          nextScanAt = Date.now() + delayMs;
+        } else {
+          idlePasses = 0;
         }
       }
     } catch (error) {
       process.stderr.write(`Background analysis scheduler: ${error instanceof Error ? error.message : String(error)}\n`);
+      nextScanAt = Date.now() + config.backfillIntervalMs;
     }
-    if (!scanHasMore) await sleep(config.backfillIntervalMs, signal);
+    await sleep(Math.max(1, Math.min(pollMs, nextScanAt - Date.now())), signal);
   }
 }

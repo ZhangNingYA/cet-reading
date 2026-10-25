@@ -48,11 +48,12 @@ test('backfill queues one missing sentence and advances its cursor without skipp
     batch_at: null, published_at: null,
   });
   assert.equal(result.scanHasMore, false);
+  assert.equal(result.scanComplete, false, 'Filling capacity must not skip the unexamined candidate');
   assert.equal(calls.some(sql => sql.includes('INSERT INTO analysis_jobs')), true);
   t.mock.reset();
 });
 
-test('backfill immediately continues past a full page with no queueable candidates', async () => {
+test('backfill retains its cursor past a full page with no queueable candidates', async () => {
   const candidates = Array.from({ length: 50 }, (_, index) => candidate(`cached-${index}`, index));
   const currentContextHash = contextHash({ title: 'Paper', previousSentence: null, nextSentence: null });
   const pool = {
@@ -77,6 +78,7 @@ test('backfill immediately continues past a full page with no queueable candidat
   const result = await fillBackgroundQueue(pool, config);
   assert.equal(result.queued, 0);
   assert.equal(result.scanHasMore, true);
+  assert.equal(result.scanComplete, false);
   assert.deepEqual(result.nextCursor, {
     source: 'paper', owner_id: 'paper-1', paragraph_index: 0, sentence_index: 49,
     batch_at: null, published_at: null,
