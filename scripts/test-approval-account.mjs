@@ -12,12 +12,20 @@ if (!databaseUrl || !/^\/approval_account_test_[a-z0-9_]+$/.test(new URL(databas
 process.env.DATABASE_URL = databaseUrl;
 process.env.APPROVAL_DEV_AUTH = 'true';
 process.env.APPROVAL_SESSION_SECRET = 'approval-account-integration-tests-only';
+process.env.NODE_ENV = 'test';
 
 const bootstrap = new pg.Pool({ connectionString: databaseUrl });
-for (const file of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql']) {
+for (const file of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql']) {
   await bootstrap.query(await readFile(new URL(`../db/migrations/${file}`, import.meta.url), 'utf8'));
 }
 await bootstrap.end();
+const { useApprovalBlobStorageForTests } = await import('../apps/api/src/approval-media.ts');
+const blobs = new Map();
+useApprovalBlobStorageForTests({
+  async put(key, bytes) { blobs.set(key, bytes); },
+  async read(key) { return blobs.get(key); },
+  async delete(key) { blobs.delete(key); },
+});
 const { registerApprovalRoutes } = await import('../apps/api/src/approval-routes.ts');
 const { pool } = await import('../apps/api/src/store.ts');
 const app = Fastify();
@@ -43,7 +51,8 @@ try {
     ['GET', '/api/approval/templates'], ['GET', '/api/approval/requests']
   ]) assert.equal((await call(method, url, null, payload)).statusCode, 401);
 
-  const png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=';
+  const sharp = (await import('sharp')).default;
+  const png = (await sharp({ create: { width: 16, height: 16, channels: 3, background: '#aabbcc' } }).png().toBuffer()).toString('base64');
   const profile = await call('PATCH', '/api/approval/me', alice.token, { displayName: '新昵称', avatarBase64: png, id: bob.user.id });
   assert.equal(profile.statusCode, 200, profile.body);
   const savedUser = profile.json().user;
@@ -52,8 +61,8 @@ try {
   assert.equal('openid' in savedUser, false);
   const image = await call('GET', savedUser.avatarUrl);
   assert.equal(image.statusCode, 200);
-  assert.match(image.headers['content-type'], /image\/png/);
-  assert.deepEqual(image.rawPayload, Buffer.from(png, 'base64'));
+  assert.match(image.headers['content-type'], /image\/jpeg/);
+  assert.equal((await sharp(image.rawPayload).metadata()).width, 16);
   assert.equal((await call('GET', '/api/approval/me', bob.token)).json().user.displayName, '乙');
   assert.equal((await call('PATCH', '/api/approval/me', alice.token, { displayName: 'bad', avatarBase64: Buffer.from('not an image').toString('base64') })).statusCode, 400);
   assert.equal((await call('PATCH', '/api/approval/me', alice.token, { displayName: ' ' })).statusCode, 400);

@@ -24,6 +24,8 @@ const EnvironmentSchema = z.object({
   APPROVAL_SESSION_SECRET: z.string().default(''),
   APPROVAL_SESSION_TTL_SECONDS: positiveInteger.default(2592000),
   APPROVAL_DEV_AUTH: z.enum(['true', 'false']).default('false'),
+  AZURE_STORAGE_CONNECTION_STRING: z.string().default(''),
+  AZURE_STORAGE_CONTAINER: z.string().default('images'),
   PROMPT_VERSION: z.string().min(1).default('cet-reading-v2'),
   CORS_ORIGIN: z.string().default('http://localhost:4321,http://localhost:8081'),
 });
@@ -60,6 +62,8 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env) {
     approvalSessionSecret: parsed.APPROVAL_SESSION_SECRET,
     approvalSessionTtlSeconds: parsed.APPROVAL_SESSION_TTL_SECONDS,
     approvalDevAuth: parsed.APPROVAL_DEV_AUTH === 'true',
+    azureStorageConnectionString: parsed.AZURE_STORAGE_CONNECTION_STRING,
+    azureStorageContainer: parsed.AZURE_STORAGE_CONTAINER,
   };
 }
 

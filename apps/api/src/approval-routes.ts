@@ -1,5 +1,7 @@
 import type { FastifyInstance } from 'fastify';
 import { config } from './config.js';
+import { ApprovalMediaBusyError, ApprovalMediaUnavailableError, readApprovalBlobAvatar } from './approval-media.js';
+import { registerApprovalMediaRoutes } from './approval-media-routes.js';
 import {
   ApprovalForbiddenError,
   ApprovalNotFoundError,
@@ -32,10 +34,13 @@ function errorResponse(reply: { code: (status: number) => { send: (value: unknow
   if (error instanceof ApprovalNotFoundError) return reply.code(404).send({ error: 'approval_not_found', message: error.message });
   if (error instanceof ApprovalForbiddenError) return reply.code(403).send({ error: 'approval_forbidden', message: error.message });
   if (error instanceof ApprovalAuthError) return reply.code(503).send({ error: 'approval_auth_unavailable', message: error.message });
+  if (error instanceof ApprovalMediaUnavailableError) return reply.code(503).send({ error: 'approval_image_unavailable', message: error.message });
+  if (error instanceof ApprovalMediaBusyError) return reply.code(429).send({ error: 'approval_image_busy', message: error.message });
   throw error;
 }
 
 export function registerApprovalRoutes(app: FastifyInstance) {
+  registerApprovalMediaRoutes(app);
   app.post<{ Body: unknown }>('/api/approval/auth/login', async (request, reply) => {
     try {
       if (!request.body || typeof request.body !== 'object') throw new ApprovalValidationError('登录参数不正确。');
@@ -74,13 +79,19 @@ export function registerApprovalRoutes(app: FastifyInstance) {
   });
 
   app.get<{ Params: { id: string } }>('/api/approval/avatars/:id', async (request, reply) => {
-    const avatar = await getApprovalAvatar(request.params.id);
-    if (!avatar) return reply.code(404).send({ error: 'avatar_not_found' });
-    return reply.header('Cache-Control', 'public, max-age=3600')
-      .header('X-Content-Type-Options', 'nosniff').type(avatar.content_type).send(avatar.image_bytes);
+    try {
+      const blobAvatar = await readApprovalBlobAvatar(request.params.id);
+      if (blobAvatar) return reply.header('Cache-Control', 'public, max-age=3600')
+        .header('X-Content-Type-Options', 'nosniff').type('image/jpeg').send(blobAvatar);
+      const avatar = await getApprovalAvatar(request.params.id);
+      if (!avatar) return reply.code(404).send({ error: 'avatar_not_found' });
+      return reply.header('Cache-Control', 'public, max-age=3600')
+        .header('X-Content-Type-Options', 'nosniff').type(avatar.content_type).send(avatar.image_bytes);
+    } catch (error) { return errorResponse(reply, error); }
   });
 
   app.get('/api/approval/dashboard', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
     try { return await getApprovalDashboard(user.id); }
@@ -132,6 +143,7 @@ export function registerApprovalRoutes(app: FastifyInstance) {
   });
 
   app.get<{ Params: { id: string } }>('/api/approval/requests/:id', async (request, reply) => {
+    reply.header('Cache-Control', 'no-store');
     const user = await requireApprovalUser(request, reply);
     if (!user) return;
     try { return { request: await getApprovalRequest(request.params.id, user.id) }; }
@@ -152,7 +164,7 @@ export function registerApprovalRoutes(app: FastifyInstance) {
     if (!user) return;
     try {
       const body = request.body && typeof request.body === 'object' ? request.body as Record<string, unknown> : {};
-      return { request: await submitApprovalResult(request.params.id, user.id, body.resultBody) };
+      return { request: await submitApprovalResult(request.params.id, user.id, body.resultBody, body.photoIds) };
     } catch (error) { return errorResponse(reply, error); }
   });
 

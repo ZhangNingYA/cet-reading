@@ -1,5 +1,6 @@
 import type { PoolClient } from 'pg';
 import { pool } from './store.js';
+import { approvalPhotos, approvalPhotoSummaries, bindApprovalAvatar, bindApprovalPhotos, uploadApprovalMedia, validateMediaIds } from './approval-media.js';
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -166,25 +167,26 @@ export async function updateApprovalProfile(userId: string, raw: unknown) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new ApprovalValidationError('资料内容不正确。');
   const body = raw as Record<string, unknown>;
   const displayName = text(body.displayName, '昵称', 80, true);
-  const avatar = body.avatarBase64 === undefined ? null : decodeAvatar(body.avatarBase64);
+  if (body.avatarBase64 !== undefined && body.avatarMediaId !== undefined) throw new ApprovalValidationError('请仅提交一个头像。');
+  // Keep older clients compatible while all new image bytes go to Blob.
+  const legacyAvatar = body.avatarBase64 === undefined ? null : decodeAvatar(body.avatarBase64);
+  const mediaId = legacyAvatar ? (await uploadApprovalMedia(userId, 'avatar', legacyAvatar.bytes)).id : body.avatarMediaId;
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
+    // Serialize concurrent avatar changes before locking the selected media.
+    await client.query('SELECT id FROM approval_users WHERE id=$1 FOR UPDATE', [userId]);
+    const avatarId = mediaId === undefined ? null : await bindApprovalAvatar(client, userId, mediaId);
     const result = await client.query(
       `UPDATE approval_users SET display_name=$2, updated_at=NOW(),
-         avatar_url=CASE WHEN $3::boolean THEN $4 ELSE avatar_url END
+         avatar_url=CASE WHEN $3::uuid IS NOT NULL THEN $4 ELSE avatar_url END,
+         avatar_media_id=COALESCE($3::uuid, avatar_media_id)
        WHERE id=$1 AND status='active' RETURNING id, display_name, avatar_url`,
-      [userId, displayName, Boolean(avatar), `/api/approval/avatars/${userId}?v=${Date.now()}`],
+      [userId, displayName, avatarId, `/api/approval/avatars/${userId}?v=${avatarId}`],
     );
     const row = result.rows[0];
     if (!row) throw new ApprovalNotFoundError('用户不存在或已停用。');
-    if (avatar) {
-      await client.query(
-        `INSERT INTO approval_user_avatars (user_id, content_type, image_bytes) VALUES ($1, $2, $3)
-         ON CONFLICT (user_id) DO UPDATE SET content_type=EXCLUDED.content_type, image_bytes=EXCLUDED.image_bytes, updated_at=NOW()`,
-        [userId, avatar.contentType, avatar.bytes],
-      );
-    }
+    if (avatarId) await client.query('DELETE FROM approval_user_avatars WHERE user_id=$1', [userId]);
     await client.query('COMMIT');
     return { id: row.id, displayName: row.display_name, avatarUrl: row.avatar_url };
   } catch (error) {
@@ -245,10 +247,12 @@ export async function listApprovalHistory(userId: string, query: ApprovalHistory
   const hasMore = result.rows.length > limit;
   const rows = result.rows.slice(0, limit);
   const last = rows[rows.length - 1];
+  const summaries = await approvalPhotoSummaries(rows.map(row => row.id), userId);
   return {
     requests: rows.map(row => ({
       id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
       resultBody: row.result_body, updatedAt: iso(row.updated_at), applicantName: row.applicant_name, role: row.role,
+      ...(summaries.get(row.id) || { photoCount: 0, thumbnailUrl: '' }),
     })),
     hasMore,
     nextCursor: hasMore && last ? Buffer.from(JSON.stringify({ time: last.cursor_time, id: last.id })).toString('base64url') : null,
@@ -269,6 +273,7 @@ export async function createApprovalRequest(applicantId: string, raw: unknown) {
   const body = raw as Record<string, unknown>;
   const title = text(body.title, 'title', 120, true);
   const requestBody = text(body.body, 'body', 20000);
+  const photoIds = validateMediaIds(body.photoIds);
   const kind = body.kind === 'daily' ? 'daily' : body.kind === 'ad_hoc' ? 'ad_hoc' : null;
   if (!kind) throw new ApprovalValidationError('kind必须是daily或ad_hoc。');
   const templateId = body.templateId == null || body.templateId === '' ? null : text(body.templateId, 'templateId', 80, true);
@@ -293,6 +298,7 @@ export async function createApprovalRequest(applicantId: string, raw: unknown) {
       [templateId, applicantId, kind, title, requestBody, scheduledFor, dueAt],
     );
     requestId = request.rows[0].id;
+    await bindApprovalPhotos(client, requestId, applicantId, 'application', photoIds);
     await client.query(
       `INSERT INTO approval_request_steps (request_id, position, step_kind, assignee_id)
        VALUES ($1, 1, 'approval', $2)`, [requestId, assignee.id],
@@ -328,11 +334,13 @@ export async function listApprovalRequests(userId: string, view = 'all') {
        )))
      ORDER BY r.updated_at DESC LIMIT 50`, [userId, safeView],
   );
+  const summaries = await approvalPhotoSummaries(result.rows.map(row => row.id), userId);
   return result.rows.map(row => ({
     id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
     resultBody: row.result_body, scheduledFor: row.scheduled_for, dueAt: iso(row.due_at),
     createdAt: iso(row.created_at), updatedAt: iso(row.updated_at), applicantName: row.applicant_name,
     approverName: row.approver_name, role: row.role,
+    ...(summaries.get(row.id) || { photoCount: 0, thumbnailUrl: '' }),
   }));
 }
 
@@ -355,12 +363,14 @@ export async function getApprovalRequest(id: string, userId: string) {
   const row = result.rows[0];
   if (!row) throw new ApprovalNotFoundError('审批不存在或无权查看。');
   const steps = row.steps as Array<{ kind: string; assigneeId: string; status: string }>;
+  const photos = await approvalPhotos(id, userId);
   return {
     id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
     resultBody: row.result_body, scheduledFor: row.scheduled_for, dueAt: iso(row.due_at),
     approvedAt: iso(row.approved_at), resultSubmittedAt: iso(row.result_submitted_at), reviewedAt: iso(row.reviewed_at),
     createdAt: iso(row.created_at), updatedAt: iso(row.updated_at), applicantName: row.applicant_name,
     steps: row.steps,
+    photos,
     actions: {
       canApprove: row.status === 'pending_approval' && steps.some(step => step.kind === 'approval' && step.assigneeId === userId && step.status === 'pending'),
       canSubmitResult: ['approved', 'in_progress'].includes(row.status) && row.applicant_id === userId,
@@ -411,9 +421,11 @@ export async function decideApprovalRequest(requestId: string, actorId: string, 
   return getApprovalRequest(requestId, actorId);
 }
 
-export async function submitApprovalResult(requestId: string, actorId: string, rawBody: unknown) {
+export async function submitApprovalResult(requestId: string, actorId: string, rawBody: unknown, rawPhotoIds?: unknown) {
   if (!UUID_RE.test(requestId)) throw new ApprovalNotFoundError('审批不存在。');
-  const resultBody = text(rawBody, 'resultBody', 20000, true);
+  const resultBody = text(rawBody, 'resultBody', 20000);
+  const photoIds = validateMediaIds(rawPhotoIds);
+  if (!resultBody && !photoIds.length) throw new ApprovalValidationError('请填写执行结果或添加照片。');
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -424,6 +436,7 @@ export async function submitApprovalResult(requestId: string, actorId: string, r
     const row = result.rows[0];
     if (!row) throw new ApprovalForbiddenError('只有发起人可以提交执行结果。');
     if (!['approved', 'in_progress'].includes(row.status)) throw new ApprovalValidationError('该审批当前不能提交结果。');
+    await bindApprovalPhotos(client, requestId, actorId, 'result', photoIds);
     await client.query(`UPDATE approval_requests SET result_body=$2, status='pending_review', result_submitted_at=NOW(), updated_at=NOW() WHERE id=$1`, [requestId, resultBody]);
     await client.query(
       `INSERT INTO approval_request_steps (request_id, position, step_kind, assignee_id)

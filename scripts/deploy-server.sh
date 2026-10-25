@@ -163,6 +163,7 @@ database_psql < db/migrations/027_analysis_request_traces.sql
 database_psql < db/migrations/028_approval_foundation.sql
 database_psql < db/migrations/029_approval_result_body.sql
   database_psql < db/migrations/030_approval_account.sql
+database_psql < db/migrations/031_approval_media.sql
 database_psql <<'SQL'
 DELETE FROM analysis_jobs job
 USING sentences sentence

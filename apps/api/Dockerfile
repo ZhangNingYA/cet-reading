@@ -14,7 +14,7 @@ COPY apps/api apps/api
 RUN npm run build:contracts && npm run build:api
 
 FROM dependencies AS production-dependencies
-RUN --mount=type=cache,target=/root/.npm,sharing=locked npm ci --omit=dev --omit=optional --workspace apps/api --workspace packages/contracts --no-audit --no-fund
+RUN --mount=type=cache,target=/root/.npm,sharing=locked npm ci --omit=dev --workspace apps/api --workspace packages/contracts --no-audit --no-fund
 
 FROM node:22-bookworm-slim AS runtime
 WORKDIR /app
