@@ -32,6 +32,8 @@
 
 ## 配置与回退
 
+数据库默认使用本地 Compose PostgreSQL。使用 Azure 等外部 PostgreSQL 时，在服务器 `.env` 设置 `CET_DATABASE_MODE=external` 和带 `sslmode=verify-full` 的 `DATABASE_URL`；部署自动使用外部数据库执行迁移，并在验证成功后停止本地数据库容器。完整流程见 [外部数据库](EXTERNAL_DATABASE.md)。
+
 GitHub `production` environment 的 `DEPLOY_URL` 默认 `https://cet.fulafu.com`。仓库需要允许 workflow 使用 GitHub Container Registry；构建和部署通过工作流临时 token 访问关联本仓库的镜像包。
 
 手动恢复上一版应用镜像：

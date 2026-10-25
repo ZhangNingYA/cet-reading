@@ -1,0 +1,17 @@
+# Combine with the base and production files when CET_DATABASE_MODE=external.
+# The local volume is retained, while the database service stays stopped.
+services:
+  postgres:
+    profiles: [local-database]
+  api:
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Missing external DATABASE_URL}
+    depends_on: !reset {}
+  worker:
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Missing external DATABASE_URL}
+    depends_on: !reset {}
+  news:
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Missing external DATABASE_URL}
+    depends_on: !reset {}

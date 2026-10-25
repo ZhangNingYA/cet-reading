@@ -34,6 +34,10 @@ export function planDeployment(previous, next, changedPaths) {
   const changed = services.filter(name => previous?.[keyFor(name)] !== next[keyFor(name)]);
   const stop = new Set();
   if (migrate) ['api', 'worker', 'news'].forEach(name => stop.add(name));
+  // Container environment/dependency changes must apply even when image digests match.
+  if (changedPaths.some(path => /^docker-compose(?:\.[a-z-]+)?\.yml$/.test(path) || path === 'scripts/database-config.mjs' || path === 'scripts/lib/database-config.mjs')) {
+    ['api', 'worker', 'news'].forEach(name => stop.add(name));
+  }
   if (changed.includes('worker') || changed.includes('news')) ['worker', 'news'].forEach(name => stop.add(name));
   return { migrate, resetJobs: stop.has('worker'), stop: [...stop], start: [...new Set([...changed, ...stop])] };
 }

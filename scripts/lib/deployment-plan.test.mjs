@@ -36,11 +36,17 @@ test('worker changes stop both producers before job recovery; migrations and fir
   assert.equal(planDeployment(null,release,[]).migrate,true);
 });
 
+test('database environment and Compose changes restart backends even with identical images', () => {
+  for (const path of ['docker-compose.external-db.yml', 'docker-compose.yml', 'scripts/database-config.mjs', 'scripts/lib/database-config.mjs']) {
+    assert.deepEqual(planDeployment(release,release,[path]), { migrate:false, resetJobs:true, stop:['api','worker','news'], start:['api','worker','news'] });
+  }
+});
+
 function fixture(t, { failUpdate=false, failHealth=false } = {}) {
   const root = mkdtempSync(join(tmpdir(),'cet-deploy-'));
   t.after(() => rmSync(root,{recursive:true,force:true}));
   for(const dir of ['bin','scripts/lib','.deployment']) mkdirSync(join(root,dir),{recursive:true});
-  for(const file of ['scripts/deploy-server.sh','scripts/deployment-release.mjs','scripts/lib/deployment-plan.mjs','docker-compose.yml','docker-compose.production.yml']) cpSync(resolve(file),join(root,file));
+  for(const file of ['scripts/deploy-server.sh','scripts/deployment-release.mjs','scripts/lib/deployment-plan.mjs','scripts/database-config.mjs','scripts/lib/database-config.mjs','docker-compose.yml','docker-compose.production.yml','docker-compose.external-db.yml']) cpSync(resolve(file),join(root,file));
   writeFileSync(join(root,'.env'),'AI_API_KEY=private-server-secret\n');
   const previous = { ...release,CET_RELEASE_COMMIT:previousCommit };
   const next = { ...release,CET_WEB_IMAGE:image('web','d') };
@@ -104,4 +110,23 @@ test('a cache-only deployment keeps the previous distinct release available for 
   const verified=f.run('verify'); assert.equal(verified.status,0,verified.stderr);
   assert.deepEqual(parseRelease(readFileSync(join(f.root,'.deployment/previous.env'),'utf8')),older);
   assert(f.calls().filter(args=>args.includes('up')).every(args=>args.at(-1)==='postgres'));
+});
+
+test('external deployments recover jobs through a temporary client and stop local PostgreSQL after verification', t => {
+  const f=fixture(t);
+  writeFileSync(join(f.root,'.env'),'CET_DATABASE_MODE=external\nDATABASE_URL=postgresql://reader:private-password@db.example/cet_reading?sslmode=verify-full\n');
+  writeFileSync(join(f.root,`.deployment/${commit}.plan`),'migrate=0\nreset_jobs=1\nstop_services="api worker news"\nstart_services="api worker news"\n');
+  const applied=f.run('apply'); assert.equal(applied.status,0,applied.stderr);
+  const before=f.calls();
+  assert(before.every(args=>!(args.includes('up')&&args.at(-1)==='postgres')));
+  assert(before.every(args=>!(args.includes('exec')&&args.includes('psql'))));
+  const client=before.find(args=>args[0]==='run'&&args.includes('psql'));
+  assert(client, 'Job recovery must use the configured external database');
+  const clientEnv=client[client.indexOf('--env-file')+1];
+  assert.equal(existsSync(join(f.root,clientEnv)),false,'Connection secrets are removed after use');
+  assert(!JSON.stringify(before).includes('private-password'));
+  assert(!applied.stdout.includes('private-password'));
+  const verified=f.run('verify'); assert.equal(verified.status,0,verified.stderr);
+  assert(f.calls().some(args=>args.includes('stop')&&args.at(-1)==='postgres'));
+  assert(f.calls().filter(args=>args[0]==='compose').every(args=>args.includes('docker-compose.external-db.yml')));
 });
