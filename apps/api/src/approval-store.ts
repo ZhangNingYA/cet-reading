@@ -353,9 +353,10 @@ export async function getApprovalRequest(id: string, userId: string) {
             COALESCE((SELECT json_agg(json_build_object(
               'id', s.id, 'position', s.position, 'kind', s.step_kind, 'status', s.status,
               'assigneeId', s.assignee_id, 'assigneeName', u.display_name, 'comment', s.comment,
-              'score', s.score, 'actedAt', s.acted_at
+              'score', s.score, 'actedAt', s.acted_at, 'assigneeAvatarUrl', u.avatar_url
             ) ORDER BY s.position) FROM approval_request_steps s JOIN approval_users u ON u.id=s.assignee_id
-             WHERE s.request_id=r.id), '[]'::json) AS steps
+             WHERE s.request_id=r.id), '[]'::json) AS steps,
+            applicant.avatar_url AS applicant_avatar_url
      FROM approval_requests r JOIN approval_users applicant ON applicant.id=r.applicant_id
      WHERE r.id=$1 AND (r.applicant_id=$2 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$2))`,
     [id, userId],
@@ -364,12 +365,31 @@ export async function getApprovalRequest(id: string, userId: string) {
   if (!row) throw new ApprovalNotFoundError('审批不存在或无权查看。');
   const steps = row.steps as Array<{ kind: string; assigneeId: string; status: string }>;
   const photos = await approvalPhotos(id, userId);
+  // Only load the activity log after the participant check above succeeds.
+  const activity = await pool.query(
+    `SELECT e.id, e.event_type, e.from_status, e.to_status, e.payload_json, e.created_at,
+       u.id AS actor_id, u.display_name AS actor_name, u.avatar_url AS actor_avatar_url
+     FROM approval_events e JOIN approval_users u ON u.id=e.actor_id
+     WHERE e.request_id=$1
+     ORDER BY e.created_at, CASE e.event_type
+       WHEN 'request.created' THEN 0 WHEN 'request.approved' THEN 1
+       WHEN 'request.rejected' THEN 1 WHEN 'request.rejectd' THEN 1
+       WHEN 'request.result_submitted' THEN 2 WHEN 'request.reviewed' THEN 3 ELSE 4 END, e.id`, [id],
+  );
   return {
     id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
     resultBody: row.result_body, scheduledFor: row.scheduled_for, dueAt: iso(row.due_at),
     approvedAt: iso(row.approved_at), resultSubmittedAt: iso(row.result_submitted_at), reviewedAt: iso(row.reviewed_at),
     createdAt: iso(row.created_at), updatedAt: iso(row.updated_at), applicantName: row.applicant_name,
+    applicantId: row.applicant_id, applicantAvatarUrl: row.applicant_avatar_url,
     steps: row.steps,
+    events: activity.rows.map(event => ({
+      id: event.id, type: event.event_type, createdAt: iso(event.created_at),
+      actor: { id: event.actor_id, displayName: event.actor_name, avatarUrl: event.actor_avatar_url },
+      fromStatus: event.from_status, toStatus: event.to_status,
+      comment: typeof event.payload_json.comment === 'string' ? event.payload_json.comment : '',
+      score: typeof event.payload_json.score === 'number' ? event.payload_json.score : null,
+    })),
     photos,
     actions: {
       canApprove: row.status === 'pending_approval' && steps.some(step => step.kind === 'approval' && step.assigneeId === userId && step.status === 'pending'),
@@ -412,7 +432,7 @@ export async function decideApprovalRequest(requestId: string, actorId: string, 
       `UPDATE approval_requests SET status=$2, approved_at=CASE WHEN $2='approved' THEN NOW() ELSE NULL END, updated_at=NOW() WHERE id=$1`,
       [requestId, nextStatus],
     );
-    await appendEvent(client, requestId, actorId, `request.${action}d`, 'pending_approval', nextStatus, { comment });
+    await appendEvent(client, requestId, actorId, action === 'approve' ? 'request.approved' : 'request.rejected', 'pending_approval', nextStatus, { comment });
     await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK').catch(() => undefined);

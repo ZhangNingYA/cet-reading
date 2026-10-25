@@ -89,6 +89,12 @@ try {
   const created = await call('POST', '/api/approval/requests', alice.token, body);
   assert.equal(created.statusCode, 201, created.body);
   const request = created.json().request;
+  assert.equal(request.applicantId, alice.user.id);
+  assert.equal(request.events[0].type, 'request.created');
+  assert.equal(request.events[0].actor.id, alice.user.id);
+  assert.ok(request.events[0].createdAt);
+  assert.ok(request.events[0].actor.avatarUrl);
+  assert.equal('openid' in request.events[0].actor, false);
   assert.deepEqual(request.photos.map(p => p.id), ids);
   assert.equal(request.photos.length, 9);
   assert.equal((await call('POST', '/api/approval/requests', alice.token, body)).statusCode, 400);
@@ -124,6 +130,20 @@ try {
   assert.equal(completed.json().request.photos.length, 18);
   assert.deepEqual(completed.json().request.photos.filter(p => p.stage === 'result').map(p => p.id), results);
   assert.equal((await call('POST', `/api/approval/requests/${request.id}/result`, alice.token, { resultBody: 'duplicate', photoIds: [] })).statusCode, 400);
+  const reviewed = await call('POST', `/api/approval/requests/${request.id}/review`, bob.token, { score: 0, comment: '按实际结果评分' });
+  assert.equal(reviewed.statusCode, 200, reviewed.body);
+  assert.deepEqual(reviewed.json().request.events.map(event => event.type), ['request.created', 'request.approved', 'request.result_submitted', 'request.reviewed']);
+  assert.deepEqual(reviewed.json().request.events.map(event => event.actor.id), [alice.user.id, bob.user.id, alice.user.id, bob.user.id]);
+  assert.equal(reviewed.json().request.events[3].score, 0);
+  assert.equal(reviewed.json().request.events[3].comment, '按实际结果评分');
+  assert.ok(reviewed.json().request.events.every(event => event.createdAt));
+  const rejectedDraft = await call('POST', '/api/approval/requests', alice.token, { kind: 'ad_hoc', title: '驳回事件记录', approverId: bob.user.id });
+  const rejected = await call('POST', `/api/approval/requests/${rejectedDraft.json().request.id}/decision`, bob.token, { action: 'reject', comment: '补充说明后再提交' });
+  assert.equal(rejected.statusCode, 200, rejected.body);
+  assert.equal(rejected.json().request.events.at(-1).type, 'request.rejected');
+  assert.equal(rejected.json().request.events.at(-1).actor.id, bob.user.id);
+  assert.equal(rejected.json().request.events.at(-1).comment, '补充说明后再提交');
+  console.log('PASS: complete activity actors/timestamps, zero-score reviews and rejected-request events');
   console.log('PASS: independent nine-image result group, photo-only result and workflow permission checks');
 
   const abandoned = await photo(alice, 'application');
