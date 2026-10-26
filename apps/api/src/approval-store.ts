@@ -375,18 +375,20 @@ export async function getApprovalRequest(id: string, userId: string) {
   if (!row) throw new ApprovalNotFoundError('审批不存在或无权查看。');
   if (['pending_approval','needs_supplement','approved','in_progress'].includes(row.status) && row.due_at && new Date(row.due_at).getTime() <= Date.now() && await expireApprovalDeadlines(id)) return getApprovalRequest(id, userId);
   const steps = row.steps as Array<{ kind: string; assigneeId: string; status: string }>;
-  const photos = await approvalPhotos(id, userId);
-  // Only load the activity log after the participant check above succeeds.
-  const activity = await pool.query(
-    `SELECT e.id, e.event_type, e.from_status, e.to_status, e.payload_json, e.created_at,
-       u.id AS actor_id, u.display_name AS actor_name, u.avatar_url AS actor_avatar_url
-     FROM approval_events e LEFT JOIN approval_users u ON u.id=e.actor_id
-     WHERE e.request_id=$1
-     ORDER BY e.created_at, CASE e.event_type
-       WHEN 'request.created' THEN 0 WHEN 'request.approved' THEN 1
-       WHEN 'request.rejected' THEN 1 WHEN 'request.rejectd' THEN 1
-       WHEN 'request.result_submitted' THEN 2 WHEN 'request.reviewed' THEN 3 ELSE 4 END, e.id`, [id],
-  );
+  // Both reads depend on authorization above, but not on each other.
+  const [photos, activity] = await Promise.all([
+    approvalPhotos(id, userId),
+    pool.query(
+      `SELECT e.id, e.event_type, e.from_status, e.to_status, e.payload_json, e.created_at,
+         u.id AS actor_id, u.display_name AS actor_name, u.avatar_url AS actor_avatar_url
+       FROM approval_events e LEFT JOIN approval_users u ON u.id=e.actor_id
+       WHERE e.request_id=$1
+       ORDER BY e.created_at, CASE e.event_type
+         WHEN 'request.created' THEN 0 WHEN 'request.approved' THEN 1
+         WHEN 'request.rejected' THEN 1 WHEN 'request.rejectd' THEN 1
+         WHEN 'request.result_submitted' THEN 2 WHEN 'request.reviewed' THEN 3 ELSE 4 END, e.id`, [id],
+    ),
+  ]);
   return {
     id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
     resultBody: row.result_body, scheduledFor: row.scheduled_for, dueAt: iso(row.due_at),
