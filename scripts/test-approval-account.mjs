@@ -15,7 +15,7 @@ process.env.APPROVAL_SESSION_SECRET = 'approval-account-integration-tests-only';
 process.env.NODE_ENV = 'test';
 
 const bootstrap = new pg.Pool({ connectionString: databaseUrl });
-for (const file of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '032_approval_friends_executor.sql', '033_approval_deadlines_scores.sql']) {
+for (const file of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '032_approval_friends_executor.sql', '033_approval_deadlines_scores.sql', '034_approval_integrity.sql']) {
   await bootstrap.query(await readFile(new URL(`../db/migrations/${file}`, import.meta.url), 'utf8'));
 }
 await bootstrap.end();

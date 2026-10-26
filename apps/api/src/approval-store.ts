@@ -502,8 +502,8 @@ export async function reviewApprovalRequest(requestId: string, actorId: string, 
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    const result = await client.query<{ step_id: string; executor_id: string; kind: 'daily' | 'ad_hoc'; scheduled_for: string | null; status: string }>(
-      `SELECT s.id AS step_id, r.executor_id, r.kind, r.scheduled_for, r.status
+    const result = await client.query<{ step_id: string; executor_id: string; status: string }>(
+      `SELECT s.id AS step_id, r.executor_id, r.status
        FROM approval_request_steps s JOIN approval_requests r ON r.id=s.request_id
        WHERE s.request_id=$1 AND s.assignee_id=$2 AND s.step_kind='review' AND s.status='pending'
        FOR UPDATE OF r`, [requestId, actorId],
@@ -514,14 +514,6 @@ export async function reviewApprovalRequest(requestId: string, actorId: string, 
     await client.query(`UPDATE approval_request_steps SET status='completed', score=$2, comment=$3, acted_at=NOW() WHERE id=$1`, [row.step_id, score, comment]);
     await client.query(`UPDATE approval_requests SET status='completed', reviewed_at=NOW(), updated_at=NOW() WHERE id=$1`, [requestId]);
     await client.query("INSERT INTO approval_task_scores(request_id,executor_id,score,source,reviewer_id) VALUES($1,$2,$3,'manual',$4)", [requestId,row.executor_id,score,actorId]);
-    if (row.kind === 'daily') {
-      await client.query(
-        `INSERT INTO approval_daily_scores (user_id, score_date, score, source_request_id, note)
-         VALUES ($1, COALESCE($2::date, CURRENT_DATE), $3, $4, $5)
-         ON CONFLICT (user_id, score_date) DO UPDATE SET score=EXCLUDED.score, source_request_id=EXCLUDED.source_request_id, note=EXCLUDED.note, updated_at=NOW()`,
-        [row.executor_id, row.scheduled_for, score, requestId, comment],
-      );
-    }
     await appendEvent(client, requestId, actorId, 'request.reviewed', 'pending_review', 'completed', { score, comment });
     await client.query('COMMIT');
   } catch (error) {
@@ -580,7 +572,7 @@ export async function getApprovalDashboard(userId: string) {
     ),
     listApprovalRequests(userId, 'pending'),
     listApprovalRequests(userId, 'sent'),
-    pool.query(`SELECT (scored_at AT TIME ZONE 'Asia/Shanghai')::date AS score_date,ROUND(AVG(score))::int AS score FROM approval_task_scores WHERE executor_id=$1 GROUP BY score_date ORDER BY score_date DESC LIMIT 14`, [userId]),
+    pool.query(`SELECT score_date, score FROM approval_daily_score_summary WHERE user_id=$1 ORDER BY score_date DESC LIMIT 14`, [userId]),
     listApprovalRequests(userId, 'execution'),
     listApprovalRequests(userId, 'supplement'),
   ]);
@@ -602,6 +594,6 @@ export async function getApprovalDashboard(userId: string) {
     pendingExecution,
     pendingSupplement,
     recent: recent.slice(0, 10),
-    dailyScores: scores.rows.map(row => ({ date: row.score_date, score: row.score, note: row.note })),
+    dailyScores: scores.rows.map(row => ({ date: row.score_date, score: row.score })),
   };
 }

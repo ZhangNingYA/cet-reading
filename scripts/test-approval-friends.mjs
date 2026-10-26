@@ -13,6 +13,7 @@ const legacy=(await bootstrap.query("INSERT INTO approval_users(openid,display_n
 const old=(await bootstrap.query("INSERT INTO approval_requests(applicant_id,kind,title) VALUES($1,'ad_hoc','旧流程') RETURNING id",[legacy.id])).rows[0];
 await migrate('032_approval_friends_executor.sql'); await migrate('032_approval_friends_executor.sql');
 await migrate('033_approval_deadlines_scores.sql'); await migrate('033_approval_deadlines_scores.sql');
+await migrate('034_approval_integrity.sql'); await migrate('034_approval_integrity.sql');
 assert.equal((await bootstrap.query('SELECT executor_id FROM approval_requests WHERE id=$1',[old.id])).rows[0].executor_id,legacy.id);
 await bootstrap.query('DELETE FROM approval_requests WHERE id=$1',[old.id]); await bootstrap.query('DELETE FROM approval_users WHERE id=$1',[legacy.id]); await bootstrap.end();
 const {pool}=await import('../apps/api/src/store.ts');
@@ -93,8 +94,8 @@ try {
   assert.equal(submitted.json().request.events.at(-1).actor.id,b.user.id);
   assert.equal((await call('POST',`/requests/${requestId}/review`,a,{score:90,comment:'无权评分'})).statusCode,403);
   assert.equal((await call('POST',`/requests/${requestId}/review`,c,{score:90,comment:'执行完成'})).statusCode,200);
-  const score=(await pool.query('SELECT user_id,score FROM approval_daily_scores WHERE source_request_id=$1',[requestId])).rows[0];
-  assert.equal(score.user_id,b.user.id);assert.equal(score.score,90);
+  const score=(await pool.query('SELECT executor_id,score FROM approval_task_scores WHERE request_id=$1',[requestId])).rows[0];
+  assert.equal(score.executor_id,b.user.id);assert.equal(score.score,90);
   const after=(await call('GET',`/requests/${requestId}`,b)).json().request;
   assert.equal((await app.inject({method:'GET',url:after.photos[1].url})).statusCode,200);
   assert.deepEqual(after.events.map(e=>e.actor.id),[a.user.id,c.user.id,b.user.id,c.user.id]);
@@ -107,6 +108,21 @@ try {
   assert.ok(accepted.every(r=>r.statusCode===200));
   assert.equal((await pool.query("SELECT count(*)::int AS count FROM approval_friendships WHERE ((owner_id=$1 AND friend_id=$2) OR (owner_id=$2 AND friend_id=$1)) AND status='accepted'",[a.user.id,b.user.id])).rows[0].count,2);
   console.log('PASS: reject/cancel/reapply, concurrent duplicate operations and retained historical assignments after friend removal');
+
+  const anotherTemplate=(await call('POST','/templates',a,{kind:'daily',name:'同日第二模板'})).json().template;
+  const another=(await call('POST','/requests',a,{...draft,kind:'daily',templateId:anotherTemplate.id,scheduledFor:'2026-10-25'})).json().request;
+  await call('POST',`/requests/${another.id}/decision`,c,{action:'approve'});
+  await call('POST',`/requests/${another.id}/result`,b,{resultBody:'第二条任务'});
+  const reviews=await Promise.all([1,2].map(()=>call('POST',`/requests/${another.id}/review`,c,{score:60,comment:'同日独立记分'})));
+  assert.equal(reviews.filter(r=>r.statusCode===200).length,1);
+  assert.ok(reviews.every(r=>[200,400,403].includes(r.statusCode)));
+  await pool.query("UPDATE approval_task_scores SET scored_at='2026-10-26T02:00:00Z' WHERE executor_id=$1",[b.user.id]);
+  const performance=(await call('GET','/dashboard',b)).json();
+  assert.equal(performance.stats.averageScore,75);
+  assert.equal(performance.dailyScores[0].score,75);
+  assert.equal((await pool.query('SELECT count(*)::int AS n FROM approval_task_scores WHERE executor_id=$1',[b.user.id])).rows[0].n,2);
+  assert.equal((await pool.query('SELECT count(*)::int AS n FROM approval_daily_scores')).rows[0].n,0);
+  console.log('PASS: same-day tasks from different templates retain both scores, dashboard averages agree and concurrent review scores once');
 
   const {expireApprovalDeadlines}=await import('../apps/api/src/approval-deadlines.ts');
   const requestPayload={kind:'ad_hoc',title:'完成时间和补充材料',executorId:b.user.id,approverId:c.user.id};

@@ -200,7 +200,6 @@ try {
       }
       if (s.state === 'completed' || s.state === 'overdue') await client.query('INSERT INTO approval_task_scores(request_id,executor_id,score,source,reviewer_id,scored_at) VALUES($1,$2,$3,$4,$5,$6)', [requestId, executor, s.state === 'overdue' ? 0 : s.score, s.state === 'overdue' ? 'overdue' : 'manual', s.state === 'overdue' ? null : approver, lastTime]);
       // Preserve a real existing daily aggregate instead of overwriting it with a fixture.
-      if (s.daily && s.state === 'completed') await client.query("INSERT INTO approval_daily_scores(user_id,score_date,score,source_request_id,note,created_at,updated_at) VALUES($1,$2,$3,$4,'阅读与复盘',$5,$5) ON CONFLICT DO NOTHING", [executor, s.scheduled, s.score, requestId, lastTime]);
       inserted++;
     }
     await client.query('COMMIT'); transaction = false;
