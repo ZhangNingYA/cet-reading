@@ -189,4 +189,3 @@ try {
   assert.equal(nextRound.events.at(-1).body,'第二轮材料');
   console.log('PASS: approver-only deadline edits, recorded supplementation rounds, exact late-submit rejection, idempotent automatic zero and no penalty before approval or while awaiting review');
 } finally {await app.close();await pool.end();}
-

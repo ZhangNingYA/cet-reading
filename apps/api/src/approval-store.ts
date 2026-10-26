@@ -597,4 +597,3 @@ export async function getApprovalDashboard(userId: string) {
     dailyScores: scores.rows.map(row => ({ date: row.score_date, score: row.score })),
   };
 }
-

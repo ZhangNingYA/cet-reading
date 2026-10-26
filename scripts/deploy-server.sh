@@ -246,4 +246,3 @@ case "$phase" in
   rollback) rollback "$@" ;;
   *) echo 'Expected prepare, pull, apply, verify or rollback.' >&2; exit 1 ;;
 esac
-

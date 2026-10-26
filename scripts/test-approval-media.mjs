@@ -160,4 +160,3 @@ try {
   assert.equal((await call('GET', link)).statusCode, 200);
   console.log('PASS: staged image deletion and expired-upload cleanup preserve submitted photos');
 } finally { await app.close(); await pool.end(); }
-

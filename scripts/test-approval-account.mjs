@@ -132,4 +132,3 @@ try {
   await app.close();
   await pool.end();
 }
-

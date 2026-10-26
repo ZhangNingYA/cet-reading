@@ -214,4 +214,3 @@ try {
   if (client) { await client.query('SELECT pg_advisory_unlock(hashtextextended($1,0))', [seed + ':' + targetId]).catch(() => {}); client.release(); }
   await pool.end();
 }
-
