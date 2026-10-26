@@ -31,11 +31,12 @@ function text(value: unknown, field: string, max: number, required = false) {
   return result;
 }
 
-function dateOnly(value: unknown) {
+function dateOnly(value: unknown, field = 'scheduledFor') {
   if (value == null || value === '') return null;
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || Number.isNaN(Date.parse(`${value}T00:00:00Z`))) {
-    throw new ApprovalValidationError('scheduledFor格式不正确。');
+    throw new ApprovalValidationError(`${field}格式不正确。`);
   }
+  if (new Date(`${value}T00:00:00Z`).toISOString().slice(0, 10) !== value) throw new ApprovalValidationError(`${field}日期不存在。`);
   return value;
 }
 
@@ -192,12 +193,15 @@ export async function getApprovalAvatar(userId: string) {
   return result.rows[0] ?? null;
 }
 
-export type ApprovalHistoryQuery = { view?: string; status?: string; q?: string; cursor?: string; limit?: string };
+export type ApprovalHistoryQuery = { view?: string; status?: string; q?: string; cursor?: string; limit?: string; scored?: string; scoreDate?: string };
 
 export async function listApprovalHistory(userId: string, query: ApprovalHistoryQuery = {}) {
   const view = query.view || 'all';
   const status = query.status || 'all';
   const search = text(query.q, 'q', 120);
+  const scoreDate = dateOnly(query.scoreDate, '评分日期');
+  if (query.scored !== undefined && !['true', 'false'].includes(query.scored)) throw new ApprovalValidationError('评分筛选参数不正确。');
+  const scoredOnly = Boolean(scoreDate) || query.scored === 'true';
   const limit = query.limit === undefined ? 20 : Number(query.limit);
   if (!['all', 'sent', 'handled', 'pending', 'executing'].includes(view)) throw new ApprovalValidationError('记录分类不正确。');
   if (!['all', 'draft', 'pending_approval', 'rejected', 'needs_supplement', 'approved', 'in_progress', 'pending_review', 'completed', 'cancelled', 'expired', 'overdue'].includes(status)) {
@@ -219,10 +223,12 @@ export async function listApprovalHistory(userId: string, query: ApprovalHistory
   }
   const result = await pool.query(
     `SELECT r.id, r.kind, r.status, r.title, r.body, r.result_body, r.updated_at,
+       task_score.score AS final_score, task_score.source AS score_source, task_score.scored_at,
        to_char(r.updated_at AT TIME ZONE 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS cursor_time,
        applicant.display_name AS applicant_name,
        CASE WHEN r.applicant_id=$1 THEN 'applicant' WHEN r.executor_id=$1 THEN 'executor' ELSE 'assignee' END AS role
      FROM approval_requests r JOIN approval_users applicant ON applicant.id=r.applicant_id
+     LEFT JOIN approval_task_scores task_score ON task_score.request_id=r.id
      WHERE (r.applicant_id=$1 OR r.executor_id=$1 OR EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1))
        AND ($2='all' OR ($2='sent' AND r.applicant_id=$1)
          OR ($2='executing' AND r.executor_id=$1)
@@ -230,8 +236,12 @@ export async function listApprovalHistory(userId: string, query: ApprovalHistory
          OR ($2='pending' AND EXISTS (SELECT 1 FROM approval_request_steps s WHERE s.request_id=r.id AND s.assignee_id=$1 AND s.status='pending')))
        AND ($3='all' OR r.status=$3) AND ($4='' OR r.title ILIKE '%' || $4 || '%')
        AND ($5::timestamptz IS NULL OR (r.updated_at, r.id) < ($5::timestamptz, $6::uuid))
+       AND (NOT $8::boolean OR task_score.executor_id=$1)
+       AND ($9::date IS NULL OR (
+         task_score.scored_at >= ($9::date::timestamp AT TIME ZONE 'Asia/Shanghai')
+         AND task_score.scored_at < (($9::date + 1)::timestamp AT TIME ZONE 'Asia/Shanghai')))
      ORDER BY r.updated_at DESC, r.id DESC LIMIT $7`,
-    [userId, view, status, search, beforeTime, beforeId, limit + 1],
+    [userId, view, status, search, beforeTime, beforeId, limit + 1, scoredOnly, scoreDate],
   );
   const hasMore = result.rows.length > limit;
   const rows = result.rows.slice(0, limit);
@@ -241,6 +251,7 @@ export async function listApprovalHistory(userId: string, query: ApprovalHistory
     requests: rows.map(row => ({
       id: row.id, kind: row.kind, status: row.status, title: row.title, body: row.body,
       resultBody: row.result_body, updatedAt: iso(row.updated_at), applicantName: row.applicant_name, role: row.role,
+      finalScore: row.final_score, scoreSource: row.score_source, scoredAt: iso(row.scored_at),
       ...(summaries.get(row.id) || { photoCount: 0, thumbnailUrl: '' }),
     })),
     hasMore,

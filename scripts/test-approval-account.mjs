@@ -110,6 +110,42 @@ try {
   assert.equal((await call('GET', '/api/approval/requests', outsider.token)).json().requests.length, 0);
   console.log('PASS: history scopes/status filters, workflow permissions and private request isolation');
 
+  await pool.query("UPDATE approval_task_scores SET scored_at='2026-10-25T16:00:00Z' WHERE request_id=$1", [requestId]);
+  const scoredIds = [];
+  for (const [score, source, scoredAt, executor] of [
+    [60, 'manual', '2026-10-26T15:59:59.999999Z', alice.user.id],
+    [0, 'overdue', '2026-10-26T03:00:00Z', alice.user.id],
+    [100, 'manual', '2026-10-26T16:00:00Z', alice.user.id],
+    [70, 'manual', '2026-10-26T04:00:00Z', bob.user.id],
+  ]) {
+    const row = (await pool.query(
+      "INSERT INTO approval_requests(applicant_id,executor_id,kind,status,title) VALUES($1,$2,'ad_hoc',$3,'评分日期筛选') RETURNING id",
+      [alice.user.id, executor, source === 'overdue' ? 'overdue' : 'completed'],
+    )).rows[0];
+    await pool.query('INSERT INTO approval_task_scores(request_id,executor_id,score,source,reviewer_id,scored_at) VALUES($1,$2,$3,$4,$5,$6)',
+      [row.id, executor, score, source, source === 'manual' ? bob.user.id : null, scoredAt]);
+    scoredIds.push(row.id);
+  }
+  const daily = await call('GET', '/api/approval/requests?view=executing&scored=true&scoreDate=2026-10-26', alice.token);
+  assert.equal(daily.statusCode, 200, daily.body);
+  assert.deepEqual(daily.json().requests.map(item => item.finalScore).sort((a, b) => a - b), [0, 60, 90]);
+  assert.equal(daily.json().requests.find(item => item.finalScore === 0).scoreSource, 'overdue');
+  assert.ok(daily.json().requests.every(item => item.scoredAt));
+  assert.equal((await call('GET', '/api/approval/requests?scored=true', alice.token)).json().requests.length, 4);
+  assert.equal((await call('GET', '/api/approval/requests?scoreDate=2026-10-26', outsider.token)).json().requests.length, 0);
+  const dayIds = new Set();
+  let dayCursor = '';
+  do {
+    const page = (await call('GET', '/api/approval/requests?scoreDate=2026-10-26&limit=2&cursor=' + dayCursor, alice.token)).json();
+    for (const item of page.requests) { assert.equal(dayIds.has(item.id), false); dayIds.add(item.id); }
+    dayCursor = page.nextCursor || '';
+  } while (dayCursor);
+  assert.deepEqual(dayIds, new Set([requestId, scoredIds[0], scoredIds[1]]));
+  for (const query of ['scoreDate=2026-02-30', 'scoreDate=2026-13-01', 'scoreDate=bad', 'scored=maybe']) {
+    assert.equal((await call('GET', '/api/approval/requests?' + query, alice.token)).statusCode, 400);
+  }
+  console.log('PASS: score detail filters use Shanghai scoring dates, include zero scores, enforce executor ownership and retain pagination');
+
   await pool.query(
     `INSERT INTO approval_requests (applicant_id, executor_id, kind, status, title, updated_at)
      SELECT $1, $1, 'ad_hoc', 'pending_approval', '分页测试-' || n, '2026-10-23T12:00:00.123456Z'::timestamptz FROM generate_series(1, 31) n`, [alice.user.id],
