@@ -166,6 +166,7 @@ database_psql < db/migrations/029_approval_result_body.sql
 database_psql < db/migrations/031_approval_media.sql
 database_psql < db/migrations/032_approval_friends_executor.sql
 database_psql < db/migrations/033_approval_deadlines_scores.sql
+database_psql < db/migrations/034_approval_integrity.sql
 database_psql <<'SQL'
 DELETE FROM analysis_jobs job
 USING sentences sentence
@@ -245,3 +246,4 @@ case "$phase" in
   rollback) rollback "$@" ;;
   *) echo 'Expected prepare, pull, apply, verify or rollback.' >&2; exit 1 ;;
 esac
+

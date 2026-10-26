@@ -13,7 +13,7 @@ process.env.APPROVAL_DEV_AUTH = 'true';
 process.env.APPROVAL_SESSION_SECRET = 'approval-media-tests-only';
 process.env.NODE_ENV = 'test';
 const bootstrap = new pg.Pool({ connectionString: databaseUrl });
-for (const name of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '031_approval_media.sql', '032_approval_friends_executor.sql', '033_approval_deadlines_scores.sql']) {
+for (const name of ['028_approval_foundation.sql', '029_approval_result_body.sql', '030_approval_account.sql', '031_approval_media.sql', '031_approval_media.sql', '032_approval_friends_executor.sql', '033_approval_deadlines_scores.sql', '034_approval_integrity.sql']) {
   await bootstrap.query(await readFile(new URL(`../db/migrations/${name}`, import.meta.url), 'utf8'));
 }
 await bootstrap.end();
@@ -160,3 +160,4 @@ try {
   assert.equal((await call('GET', link)).statusCode, 200);
   console.log('PASS: staged image deletion and expired-upload cleanup preserve submitted photos');
 } finally { await app.close(); await pool.end(); }
+

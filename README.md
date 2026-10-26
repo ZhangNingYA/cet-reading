@@ -84,7 +84,9 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 审批模块与 CET 阅读数据分开，使用 `approval_*` 表。小程序通过 `wx.login` 获取一次性 code，API 调用微信 `jscode2session` 换取用户身份，再签发带过期时间的会话令牌。生产环境需要在服务器 `.env` 中配置 `APPROVAL_WECHAT_APP_ID`、`APPROVAL_WECHAT_APP_SECRET` 和随机的 `APPROVAL_SESSION_SECRET`；`APPROVAL_DEV_AUTH` 只用于本地联调，不能在公网开启。
 
-当前基础流程是：发起审批 → 审批人同意或驳回 → 发起人提交执行结果 → 审批人点评并打分。可用接口包括 `/api/approval/auth/login`、`/api/approval/dashboard`、`/api/approval/people`、`/api/approval/requests` 及对应的 decision/result/review 操作。图片附件的对象存储和真正的微信上传流程留在后续迭代，当前接口先支持文字和每日分数。
+当前流程是：申请人指定执行人与好友审批人 → 审批或驳回补充 → 执行人提交文字/图片结果 → 审批人点评打分。审批人与执行人分开，已批准但超时未提交结果的任务自动记 0 分；未批准就到期不计分。图片使用对象存储，并按每次提交的事件保留材料。
+
+数据库结构、评分日期口径、兼容表和迁移验证见 [审批数据库约定](docs/APPROVAL_DATABASE.md)。最终评分统一写入 `approval_task_scores`，每日趋势通过只读视图汇总，同一天多条任务不会相互覆盖。
 
 个人资料通过 `GET/PATCH /api/approval/me` 读取、更新；保存时传 `displayName`，可同时传 `avatarBase64`（PNG/JPEG/WebP，最多256KB）。头像保存在数据库的 `approval_user_avatars` 表中，通过返回的 `avatarUrl` 读取，不依赖客户端临时文件。
 
@@ -116,3 +118,4 @@ docker compose up --build
 ## 当前边界
 
 当前提供 82 套用户上传的四级、六级及考研真题，均可精读和做题。先前的模拟卷、演示数据和外部试卷记录已清理。后台第二阶段已提供试卷优先级、拖拽排序、按错误类型重试、P50/P90 图表、Worker 心跳、Prompt 编辑和配置审计；审批中心已完成基础会话认证和审批流程 API，附件对象存储、好友关系管理和更细的限流仍属于后续迭代。
+
