@@ -82,4 +82,3 @@ TEST_DATABASE_URL=postgres://.../approval_media_test_name node --import tsx scri
 
 CI 使用 PostgreSQL 16 运行上述四组测试，包括旧库升级、完整迁移链重放、空库初始化、
 无损回滚、多任务汇总、非法关联、并发点评和原有图片/好友/审批流程。
-

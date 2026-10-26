@@ -93,4 +93,3 @@ COMMENT ON COLUMN approval_attachments.event_id IS
   'Submission batch; composite foreign key requires the event to belong to this attachment request. NULL is allowed for legacy records.';
 
 COMMIT;
-
