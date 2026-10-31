@@ -114,8 +114,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   });
   const next = element('button', 'analysis-next', '下一句');
   next.type = 'button';
-  next.title = '下一句（D 键）';
-  next.setAttribute('aria-keyshortcuts', 'D');
+  next.title = '下一句（→ 键）';
+  next.setAttribute('aria-keyshortcuts', 'ArrowRight');
   next.addEventListener('click', () => {
     moveSentence(1, true);
   });
@@ -168,7 +168,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   paneBody.setAttribute('aria-busy', 'false');
   const paneFooter = element('div', 'analysis-footer');
   const shortcuts = element('p', 'analysis-shortcuts');
-  for (const [key, label] of [['A', '上一句'], ['D', '下一句'], ['W / S', '切换解析'], ['空格', '展开 / 收起'], ['Q', '回到顶部'], ['E', '回到底部']]) {
+  for (const [key, label] of [['←', '上一句'], ['→', '下一句'], ['↑ / ↓', '切换解析'], ['空格', '展开 / 收起'], ['Q', '回到顶部'], ['E', '回到底部']]) {
     const hint = element('span', '');
     hint.append(element('kbd', '', key), document.createTextNode(` ${label}`));
     shortcuts.append(hint);
@@ -698,7 +698,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     const body = element('div', 'analysis-tab-content');
     body.id = 'sentence-analysis-content';
     body.setAttribute('role', 'tabpanel');
-    tabs.setAttribute('aria-keyshortcuts', 'W S');
+    tabs.setAttribute('aria-keyshortcuts', 'ArrowUp ArrowDown');
     for (const [index, [tab, label]] of analysisTabs.entries()) {
       const button = element('button', 'analysis-tab', label);
       button.type = 'button';
@@ -937,17 +937,17 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       else void selectSentence(selection.sentence, selection.element, selection.wordIndex);
       return;
     }
-    if (!panelOpen || !selected || !['a', 'd', 'w', 's'].includes(key)) return;
+    if (!panelOpen || !selected || !['a', 'd', 'w', 's', 'arrowleft', 'arrowright', 'arrowup', 'arrowdown'].includes(key)) return;
     event.preventDefault();
     // Keep held keys useful without navigating at the keyboard's full repeat rate.
     const now = performance.now();
     if (event.repeat && now - lastShortcutTime < 200) return;
     lastShortcutTime = now;
-    if (key === 'a' || key === 'd') {
-      moveSentence(key === 'a' ? -1 : 1);
+    if (key === 'a' || key === 'd' || key === 'arrowleft' || key === 'arrowright') {
+      moveSentence(key === 'a' || key === 'arrowleft' ? -1 : 1);
     } else {
       const index = analysisTabs.findIndex(([tab]) => tab === activeTab);
-      activeTab = analysisTabs[(index + (key === 'w' ? -1 : 1) + analysisTabs.length) % analysisTabs.length]![0];
+      activeTab = analysisTabs[(index + (key === 'w' || key === 'arrowup' ? -1 : 1) + analysisTabs.length) % analysisTabs.length]![0];
       const analysis = completed.get(cacheKey(selected.sentence));
       if (analysis) {
         const restoreTabFocus = paneBody.contains(document.activeElement);
