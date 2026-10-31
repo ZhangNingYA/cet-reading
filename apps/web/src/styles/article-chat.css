@@ -27,7 +27,20 @@
 .article-chat-speaker { color: var(--muted); font-size: 10px; letter-spacing: .04em; }
 .article-chat-message-user { justify-self: end; max-width: 90%; padding: 12px 15px; border-radius: 10px 10px 2px 10px; background: var(--accent-pale); }
 .article-chat-message-user .article-chat-speaker { color: var(--accent-deep); }
-.article-chat-text { min-width: 0; color: var(--ink); font-size: 15px; line-height: 1.9; white-space: pre-wrap; overflow-wrap: anywhere; }
+.article-chat-text { min-width: 0; color: var(--ink); font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
+.article-chat-message-user .article-chat-text { white-space: pre-wrap; }
+.article-chat-text p { margin: 0; }
+.article-chat-text p + p { margin-top: 12px; }
+.article-chat-text h1, .article-chat-text h2, .article-chat-text h3, .article-chat-text h4, .article-chat-text h5, .article-chat-text h6 { margin: 0 0 8px; font-size: 1em; line-height: 1.6; font-weight: 650; }
+.article-chat-text ul, .article-chat-text ol { margin: 7px 0; padding-left: 1.5em; }
+.article-chat-text li + li { margin-top: 3px; }
+.article-chat-text blockquote { margin: 9px 0; padding: 2px 0 2px 13px; border-left: 2px solid var(--panel-line, var(--line)); color: var(--muted); }
+.article-chat-text strong { font-weight: 650; }
+.article-chat-text em { font-style: italic; }
+.article-chat-text code { padding: 1px 5px; border-radius: 4px; color: var(--accent-deep); background: var(--accent-pale); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+.article-chat-text pre { margin: 10px 0; padding: 11px 13px; overflow-x: auto; border-radius: 7px; background: var(--canvas); }
+.article-chat-text pre code { padding: 0; color: inherit; background: transparent; white-space: pre; }
+.article-chat-text a { color: var(--accent-deep); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .article-chat-text.is-waiting::after { display: block; width: 5px; height: 5px; margin: 8px 0; border-radius: 50%; background: var(--accent); content: ''; animation: waiting-pulse 1.4s ease-in-out infinite; }
 .article-chat-composer { padding: 13px 15px 10px; border: 1px solid var(--panel-line, var(--line)); border-radius: 10px; background: var(--canvas); transition: border-color .15s; }
 .article-chat-composer:focus-within { border-color: var(--accent); }

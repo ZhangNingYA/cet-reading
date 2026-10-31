@@ -11,6 +11,109 @@ function element<K extends keyof HTMLElementTagNameMap>(tag: K, className: strin
   if (text !== undefined) node.textContent = text;
   return node;
 }
+
+function appendInlineMarkdown(parent: HTMLElement, source: string) {
+  // Keep this renderer deliberately small and DOM based. AI output is untrusted,
+  // so using innerHTML here would turn a formatting fix into an injection sink.
+  const pattern = /(\*\*(.+?)\*\*|__(.+?)__|`([^`\n]+)`|\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)|\*([^*\n]+)\*|_([^_\n]+)_)/g;
+  let cursor = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(source))) {
+    if (match.index > cursor) parent.append(document.createTextNode(source.slice(cursor, match.index)));
+    const token = match[0];
+    if (match[2] !== undefined || match[3] !== undefined) {
+      const strong = document.createElement('strong');
+      appendInlineMarkdown(strong, match[2] ?? match[3]!);
+      parent.append(strong);
+    } else if (match[4] !== undefined) {
+      const code = document.createElement('code'); code.textContent = match[4]; parent.append(code);
+    } else if (match[5] !== undefined && match[6] !== undefined) {
+      const link = document.createElement('a');
+      link.href = match[6]; link.target = '_blank'; link.rel = 'noreferrer noopener';
+      appendInlineMarkdown(link, match[5]); parent.append(link);
+    } else if (match[7] !== undefined || match[8] !== undefined) {
+      const emphasis = document.createElement('em');
+      appendInlineMarkdown(emphasis, match[7] ?? match[8]!);
+      parent.append(emphasis);
+    } else {
+      parent.append(document.createTextNode(token));
+    }
+    cursor = match.index + token.length;
+  }
+  if (cursor < source.length) parent.append(document.createTextNode(source.slice(cursor)));
+}
+
+function appendMarkdownLine(parent: HTMLElement, line: string, withBreak = false) {
+  appendInlineMarkdown(parent, line);
+  if (withBreak) parent.append(document.createElement('br'));
+}
+
+function renderChatMarkdown(container: HTMLElement, source: string) {
+  container.replaceChildren();
+  const lines = source.replace(/\r\n?/g, '\n').split('\n');
+  let paragraph: string[] = [];
+  let list: { ordered: boolean; items: string[] } | undefined;
+  let quote: string[] = [];
+  let code: string[] | undefined;
+
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    const block = document.createElement('p');
+    paragraph.forEach((line, index) => appendMarkdownLine(block, line, index < paragraph.length - 1));
+    container.append(block); paragraph = [];
+  };
+  const flushList = () => {
+    if (!list) return;
+    const block = document.createElement(list.ordered ? 'ol' : 'ul');
+    for (const item of list.items) {
+      const entry = document.createElement('li'); appendInlineMarkdown(entry, item); block.append(entry);
+    }
+    container.append(block); list = undefined;
+  };
+  const flushQuote = () => {
+    if (!quote.length) return;
+    const block = document.createElement('blockquote');
+    quote.forEach((line, index) => appendMarkdownLine(block, line, index < quote.length - 1));
+    container.append(block); quote = [];
+  };
+  const flushCode = () => {
+    if (!code) return;
+    const pre = document.createElement('pre'); const codeElement = document.createElement('code');
+    codeElement.textContent = code.join('\n'); pre.append(codeElement); container.append(pre); code = undefined;
+  };
+  const flushBlocks = () => { flushParagraph(); flushList(); flushQuote(); };
+
+  for (const line of lines) {
+    if (/^\s*```/.test(line)) {
+      if (code) flushCode(); else { flushBlocks(); code = []; }
+      continue;
+    }
+    if (code) { code.push(line); continue; }
+    if (!line.trim()) { flushBlocks(); continue; }
+
+    const heading = line.match(/^\s{0,3}(#{1,6})\s+(.+?)\s*#*\s*$/);
+    if (heading) {
+      flushBlocks();
+      const block = document.createElement(`h${heading[1].length}` as keyof HTMLElementTagNameMap);
+      appendInlineMarkdown(block, heading[2]); container.append(block); continue;
+    }
+    const quoteLine = line.match(/^\s{0,3}>\s?(.*)$/);
+    if (quoteLine) {
+      flushParagraph(); flushList(); quote.push(quoteLine[1]); continue;
+    }
+    const item = line.match(/^\s*(?:[-+*]\s+|\d+[.)]\s+)(.+)$/);
+    if (item) {
+      flushParagraph(); flushQuote();
+      const ordered = /^\s*\d+[.)]\s+/.test(line);
+      if (!list || list.ordered !== ordered) { flushList(); list = { ordered, items: [] }; }
+      list.items.push(item[1]); continue;
+    }
+    flushList(); flushQuote(); paragraph.push(line);
+  }
+  if (code) flushCode();
+  flushBlocks();
+}
+
 function chatIcon() {
   const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   icon.setAttribute('viewBox', '0 0 24 24'); icon.setAttribute('aria-hidden', 'true');
@@ -99,7 +202,9 @@ export function createArticleChat(apiBase: string, target: ArticleChatTarget, ti
   function appendMessage(role: 'user' | 'assistant', content: string) {
     const row = element('li', `article-chat-message article-chat-message-${role}`);
     row.append(element('span', 'article-chat-speaker', role === 'user' ? '你问' : 'AI'));
-    const text = element('div', 'article-chat-text', content); row.append(text); log.append(row);
+    const text = element('div', 'article-chat-text');
+    if (role === 'assistant') renderChatMarkdown(text, content); else text.textContent = content;
+    row.append(text); log.append(row);
     return text;
   }
   function updateControls() {
@@ -164,7 +269,7 @@ export function createArticleChat(apiBase: string, target: ArticleChatTarget, ti
         if (event.type === 'delta') {
           if (text.length + event.text.length > CHAT_ANSWER_LIMIT) throw new Error(articleChatErrors.chat_incomplete);
           const follow = log.scrollHeight - log.scrollTop - log.clientHeight < 64;
-          text += event.text; answer.textContent = text; answer.classList.remove('is-waiting');
+          text += event.text; renderChatMarkdown(answer, text); answer.classList.remove('is-waiting');
           setStatus(''); if (follow) log.scrollTop = log.scrollHeight;
         }
         if (event.type === 'done') { complete = true; break; }
@@ -177,7 +282,7 @@ export function createArticleChat(apiBase: string, target: ArticleChatTarget, ti
       if (disposed) return;
       const message = timedOut ? articleChatErrors.chat_timeout : controller.signal.aborted ? '已停止回答，可以修改问题后再问。'
         : error instanceof Error && Object.values(articleChatErrors).includes(error.message as typeof articleChatErrors[keyof typeof articleChatErrors]) ? error.message : articleChatErrors.chat_failed;
-      if (!text) answer.textContent = '这次没有收到完整回答。';
+      if (!text) renderChatMarkdown(answer, '这次没有收到完整回答。');
       if (!input.value) input.value = question;
       setStatus(message, !controller.signal.aborted || timedOut);
     } finally {
