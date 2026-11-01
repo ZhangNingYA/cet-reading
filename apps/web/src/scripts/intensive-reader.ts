@@ -195,6 +195,21 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     return null;
   }
+  function moveSection(direction: -1 | 1) {
+    const index = paper.sections.findIndex(section => section.id === currentSectionId);
+    const section = paper.sections[index + direction];
+    if (!section) return;
+    selectSection(section.id);
+    // Keep the next Space press meaningful after an A/D section switch. The
+    // first sentence is focused without another scroll jump; opening its panel
+    // will then place the explanation directly after the sentence in view.
+    requestAnimationFrame(() => {
+      if (controller.signal.aborted || currentSectionId !== section.id) return;
+      const first = activeSentences.map(sentence => renderedSentences.get(sentence.id))
+        .find((entry): entry is Selection => Boolean(entry));
+      first?.element.focus({ preventScroll: true });
+    });
+  }
   function moveSentence(direction: -1 | 1, focusNext = false) {
     const adjacent = adjacentSentence(direction);
     if (!focusNext && document.activeElement instanceof HTMLElement && target.contains(document.activeElement)) {
@@ -923,6 +938,14 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       cancelAnimationFrame(revealFrame);
       revealScrollY = null;
       window.scrollTo({ top: key === 'q' ? 0 : document.documentElement.scrollHeight, behavior: 'instant' });
+      return;
+    }
+    if (!panelOpen && (key === 'a' || key === 'd')) {
+      event.preventDefault();
+      const now = performance.now();
+      if (event.repeat && now - lastShortcutTime < 200) return;
+      lastShortcutTime = now;
+      moveSection(key === 'a' ? -1 : 1);
       return;
     }
     if (event.key === ' ') {
