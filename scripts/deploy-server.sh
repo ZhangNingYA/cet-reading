@@ -88,6 +88,7 @@ prepare() {
   git fetch --prune origin main
   git cat-file -e "$commit^{commit}"
   git checkout --force -B main "$commit"
+  node scripts/check-approval-config.mjs wx546aacf16a7aab65 "$deploy_path/.env"
   if [[ ! -f .deployment/previous.env && -f .deployment/baseline.env ]]; then
     node scripts/deployment-release.mjs validate .deployment/baseline.env --local
     cp .deployment/baseline.env .deployment/previous.env

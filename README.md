@@ -90,6 +90,8 @@ npm run analyze-paper --workspace apps/worker -- --paper cet4-2023-12-3 --concur
 
 个人资料通过 `GET/PATCH /api/approval/me` 读取、更新；保存时传 `displayName`，可同时传 `avatarBase64`（PNG/JPEG/WebP，最多256KB）。头像保存在数据库的 `approval_user_avatars` 表中，通过返回的 `avatarUrl` 读取，不依赖客户端临时文件。
 
+当前小程序 AppID 为 `wx546aacf16a7aab65`。服务器 `.env` 配置完成后，在后端仓库运行 `npm run check:approval-config -- wx546aacf16a7aab65`；该检查只输出非敏感配置摘要，会验证 AppID、AppSecret、会话密钥、图片存储和 `APPROVAL_DEV_AUTH=false`。
+
 每日模板支持 `GET/POST /api/approval/templates` 和 `PATCH /api/approval/templates/:id`。管理页使用 `includeInactive=true` 查看停用模板；新建审批只展示启用模板。停用模板保留已有审批历史，只有模板所有者可以修改。
 
 审批历史使用 `GET /api/approval/requests`，支持 `view=all/sent/handled/pending`、`status`、标题搜索 `q`、`limit`（1到50）和不透明的 `cursor`。返回 `requests`、`hasMore` 和 `nextCursor`；记录按更新时间、ID排序，仅返回发起人或流程参与人有权查看的审批。详情返回 `actions`，供客户端展示当前用户可执行的操作。
