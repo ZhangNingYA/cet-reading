@@ -2,15 +2,15 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { tsImport } from 'tsx/esm/api';
-import { NEWS_ARTICLES_PER_SLOT, NewsSelectionSchema, newsDay, newsSlot, nextNewsSlot, splitNewsParagraph, timely } from '@cet-reading/contracts/news';
+import { NEWS_ARTICLES_PER_SLOT, NewsSelectionSchema, newsDay, newsSlot, newsSlotRole, nextNewsSlot, splitNewsParagraph, timely } from '@cet-reading/contracts/news';
 const { sources, parseCandidates, plainParagraphs, fetchText, readArticle, searchNews } = await tsImport('../../apps/worker/src/news-sources.ts',import.meta.url);
 const { validateNewsPicks, selectNews } = await tsImport('../../apps/worker/src/news-selector.ts',import.meta.url);
 const cutoff = new Date('2026-10-09T00:00:00Z');
 const candidate = { id:'c1', title:'A genuine article', url:'https://360info.org/example/',author:'An author',publishedAt:'2026-10-08T10:00:00Z',source:sources[0],feedHtml:'',excerpt:'' };
 const article = { ...candidate, paragraphs:['An authentic paragraph.'],contentHash:'hash1',wordCount:800 };
-const pick = { candidateId:'c1', kind:'hot', difficulty:'NEEP', difficultyReason:'具体指出复杂句式与词汇的阅读难度。', topic:'科技',eventKey:'a-genuine-new-event',eventAt:'2026-10-08T12:00:00Z',evidenceIds:['e1','e2'],reason:'两家不同媒体核实了最近出现的事件。' };
+const pick = { candidateId:'c1', kind:'hot', category:'agent_current', difficulty:'NEEP', difficultyReason:'具体指出复杂句式与词汇的阅读难度。', topic:'Agent 技术', keywords:['AI agents','tool use','automation'],eventKey:'a-genuine-new-event',eventAt:'2026-10-08T12:00:00Z',evidenceIds:['e1','e2'],reason:'两家不同媒体核实了最近出现的事件。' };
 const evidence = new Map(['e1','e2'].map((id,i)=>[id,{ id,publishedAt:'2026-10-08T15:00:00Z',publisherUrl:`https://${i?'second':'first'}.example`,title:'A genuine event' }]));
-const validate = (selection, articles=new Map([['c1',article]]),proofs=evidence,events=new Set())=>validateNewsPicks({selections:selection,shortfall:''},articles,proofs,cutoff,events);
+const validate = (selection, articles=new Map([['c1',article]]),proofs=evidence,events=new Set(),slotRole='agent')=>validateNewsPicks({selections:selection,shortfall:''},articles,proofs,cutoff,events,slotRole);
 
 test('each news slot accepts at most one selected article',()=>{
   assert.equal(NEWS_ARTICLES_PER_SLOT,1);
@@ -23,6 +23,8 @@ test('news slots use Shanghai time, survive UTC date boundaries and roll over af
   assert.equal(newsSlot('2026-10-09',8).toISOString(),'2026-10-09T00:00:00.000Z');
   assert.equal(nextNewsSlot(cutoff).toISOString(),'2026-10-09T03:00:00.000Z');
   assert.equal(nextNewsSlot(new Date('2026-10-09T09:00:00Z')).toISOString(),'2026-10-10T00:00:00.000Z');
+  assert.equal(newsSlotRole(new Date('2026-10-09T00:00:00Z')),'agent');
+  assert.equal(newsSlotRole(new Date('2026-10-09T09:00:00Z')),'general_realtime');
   assert.throws(()=>newsSlot('2026-02-30',8)); assert.throws(()=>newsSlot('2026-10-09',2));
 });
 test('publication and evidence age reject future news, missing dates and stale reprints',()=>{
@@ -43,6 +45,14 @@ test('hot selections require verified body reads, real independent proof IDs and
   const same = new Map(evidence);same.set('e2',{...same.get('e2'),publisherUrl:'https://www.first.example'});
   assert.equal(validate([pick],undefined,same).chosen.length,0);
   assert.equal(validate([{...pick,eventAt:null}]).chosen.length,0);
+});
+test('slot roles enforce Agent and general realtime categories',()=>{
+  const generalPick={...pick,topic:'公共卫生',keywords:['public health','research','society'],eventKey:'general-event'};
+  assert.equal(validate([pick],undefined,undefined,new Set(),'agent').chosen.length,1);
+  assert.equal(validate([{...generalPick,category:'general_realtime'}],undefined,undefined,new Set(),'agent').chosen.length,0);
+  assert.equal(validate([{...generalPick,category:'general_realtime'}],undefined,evidence,new Set(),'general_realtime').chosen.length,1);
+  assert.equal(validate([{...pick,category:'agent_history',kind:'curated',eventAt:null,evidenceIds:[]}],new Map([['c1',{...article,historical:true}]]),new Map(),new Set(),'agent').chosen.length,1);
+  assert.equal(validate([{...pick,category:'agent_history',kind:'curated',eventAt:null,evidenceIds:[]}],undefined,new Map(),new Set(),'agent').chosen.length,0);
 });
 test('related NASA sites and Future science publications cannot supply two independent proofs',()=>{
   for (const urls of [['https://www.nasa.gov','https://science.nasa.gov'],['https://www.space.com','https://www.livescience.com']]) {
@@ -92,6 +102,14 @@ test('Futurity requires the article-specific Attribution 4.0 declaration',async 
   const c={...candidate,url:'https://www.futurity.org/example/',source,feedHtml:fullBody};
   await assert.rejects(readArticle(c),/permission is missing/);permission=true;
   assert.deepEqual((await readArticle(c)).paragraphs,fullParagraphs);
+});
+test('historical candidates can read a licensed origin without an RSS body',async t=>{
+  const source=sources.find(s=>s.name==='Futurity');
+  t.mock.method(globalThis,'fetch',async()=>new Response(`<aside>${source.articleLicenseText}</aside><div class="article-content"><div class="stickem-container">${fullBody}</div></div>`));
+  const historical={...candidate,url:'https://www.futurity.org/history-example/',source,feedHtml:'',historical:true,publishedAt:'2020-01-01T00:00:00Z'};
+  const result=await readArticle(historical);
+  assert.deepEqual(result.paragraphs,fullParagraphs);
+  assert.equal(result.historical,true);
 });
 test('SciDev headline feeds resolve to the entire original and exclude image rights and embedded copies',async t=>{
   const source=sources.find(s=>s.name==='SciDev.Net');

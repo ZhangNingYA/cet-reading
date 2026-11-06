@@ -8,12 +8,13 @@ const search = node<HTMLInputElement>('news-search'); const more = node<HTMLButt
 const resumeCard = node<HTMLElement>('news-resume-card');
 const apiBase = library.dataset.apiBase || '';
 const progressStore = createReadingProgressStore(apiBase, 'news');
-type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; topic:string; difficulty:string; word_count:number };
+type Summary = { id:string; title:string; source_name:string; batch_at:string; published_at:string; selection_kind:string; category:string; keywords:string[]; topic:string; difficulty:string; word_count:number };
 type Batch = { scheduled_at:string; status:string };
 let articles: Summary[] = []; let batches: Batch[] = []; let cursor: string | null = null;
 let dispose: (()=>void) | undefined; let viewRequest=0;
 let resumeRequest=0;
 const progressReady=progressStore.load();
+const categoryLabel=(category:string)=>category==='agent_current'?'Agent 最新':category==='agent_history'?'历史推荐':category==='general_realtime'?'实时要闻':'旧文章';
 const date = (time: string, options: Intl.DateTimeFormatOptions = {}) => new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',...options}).format(new Date(time));
 function element<K extends keyof HTMLElementTagNameMap>(tag:K,className:string,text?:string) { const el=document.createElement(tag); el.className=className; if(text!==undefined) el.textContent=text; return el; }
 async function json(path:string) {
@@ -21,7 +22,7 @@ async function json(path:string) {
   if(!response.ok) throw new Error('request failed'); return response.json();
 }
 function render() {
-  const query=search.value.trim().toLowerCase(); const visible=articles.filter(item=>`${item.title} ${item.topic} ${item.source_name}`.toLowerCase().includes(query));
+  const query=search.value.trim().toLowerCase(); const visible=articles.filter(item=>`${item.title} ${item.topic} ${item.source_name} ${categoryLabel(item.category)} ${(item.keywords??[]).join(' ')}`.toLowerCase().includes(query));
   list.replaceChildren(); list.setAttribute('aria-busy','false'); node('news-count').textContent=visible.length?`${visible.length} 篇`:'';
   const dayKey=(time:string)=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(time));
   const days=[...new Set(batches.map(batch=>dayKey(batch.scheduled_at)))].sort().reverse();
@@ -41,7 +42,9 @@ function render() {
       const link=element('a','news-row'); link.href=`?article=${encodeURIComponent(article.id)}`;
       const title=element('h3','news-row-title',article.title); title.lang='en';
       const meta=element('div','news-row-meta');
+      meta.append(element('span','news-row-category',categoryLabel(article.category)));
       if(article.topic)meta.append(element('span','news-row-topic',article.topic));
+      for(const keyword of (article.keywords??[]).slice(0,6))meta.append(element('span','news-row-keyword',keyword));
       link.append(title,meta); link.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();void openArticle(article.id,true);}); body.append(link);
       }
       if(batch?.status==='running') body.append(element('p','news-batch-note','正在选取文章…'));
@@ -118,7 +121,9 @@ async function openArticle(id:string,writeHistory=false) {
     const attribution=node('news-attribution'); attribution.replaceChildren(document.createTextNode(`${article.author} · `));
     const source=element('a','',article.source_name);source.href=article.source_url;source.target='_blank';source.rel='noopener noreferrer';
     const published=element('time','',date(article.published_at));published.dateTime=article.published_at;published.title='原文发布日期';
-    node('news-meta').replaceChildren(source,document.createTextNode(' · '),published);
+    const category=element('span','news-detail-category',categoryLabel(article.category));
+    const keywords=element('span','news-detail-keywords',(article.keywords??[]).join(' · '));
+    node('news-meta').replaceChildren(category,document.createTextNode(' · '),source,document.createTextNode(' · '),published,keywords.textContent?document.createTextNode(` · ${keywords.textContent}`):document.createTextNode(''));
     const license=element('a','',article.license_name);license.href=article.license_url;license.target='_blank';license.rel='noopener noreferrer';
     attribution.append(license,document.createTextNode(' · 原文，链接转为文字'));
     const content=node('news-content');content.replaceChildren();

@@ -51,6 +51,7 @@ await Promise.all(sectionPaths.map(async (path) => {
 const newsResponse = await fetchWithRetry('/api/news');
 const news = await newsResponse.json();
 if (!Array.isArray(news.articles) || !Array.isArray(news.batches) || news.schedule?.timezone !== 'Asia/Shanghai') throw new Error('Unexpected News API payload');
+if (news.articles.some(article => !article.category || !Array.isArray(article.keywords))) throw new Error('News articles must expose category and keywords');
 const papersResponse = await fetchWithRetry('/api/papers');
 const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {

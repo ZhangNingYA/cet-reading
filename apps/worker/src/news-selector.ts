@@ -1,4 +1,4 @@
-import { NEWS_ARTICLES_PER_SLOT, NEWS_SELECTOR_PROMPT, NewsSelectionSchema, timely, type NewsSelection } from '@cet-reading/contracts/news';
+import { NEWS_ARTICLES_PER_SLOT, NEWS_SELECTOR_PROMPT, NewsSelectionSchema, timely, type NewsSelection, type NewsSlotRole } from '@cet-reading/contracts/news';
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
 import { readArticle, searchNews, type Article, type Candidate, type Evidence } from './news-sources.js';
 
@@ -17,13 +17,25 @@ function reportingPublisher(item: Evidence) {
   // Agency announcements and university press releases verify facts, but are not independent reporting.
   return !/(?:^|\.)(?:gov|edu)(?:\.[a-z]{2})?$|\.ac\.[a-z]{2}$/.test(host) && !['eurekalert.org','www.eurekalert.org'].includes(host);
 }
-export function validateNewsPicks(selection: NewsSelection, articles: Map<string, Article>, evidence: Map<string, Evidence>, cutoff: Date, recentEvents: Set<string>) {
+function agentSignal(article: Article, pick: NewsSelection['selections'][number]) {
+  return /(?:\b(?:agentic|ai\s+agents?|autonomous\s+agents?|browser\s+agents?|coding\s+agents?|multi-agent|tool\s+use|function\s+calling|prompt\s+injection|memory\s+poisoning|agent\s+orchestration)\b|智能体|多智能体)/iu.test([article.title, pick.topic, ...pick.keywords].join(' '));
+}
+export function validateNewsPicks(selection: NewsSelection, articles: Map<string, Article>, evidence: Map<string, Evidence>, cutoff: Date, recentEvents: Set<string>, slotRole: NewsSlotRole = 'agent') {
   const chosen: { article: Article; pick: NewsSelection['selections'][number]; evidence: Evidence[] }[] = [];
   const rejected: string[] = []; const used = new Set<string>(); const hashes = new Set<string>(); const events = new Set(recentEvents);
   for (const pick of selection.selections) {
     const article = articles.get(pick.candidateId);
     const fail = (reason: string) => rejected.push(`${article?.title || pick.candidateId}: ${reason}`);
     if (!article) { fail('AI 未读取或未能核验完整正文'); continue; }
+    if (slotRole === 'agent' && !['agent_current', 'agent_history'].includes(pick.category)) { fail('前三个时段只能选择 Agent 相关文章'); continue; }
+    if (slotRole === 'general_realtime' && pick.category !== 'general_realtime') { fail('17:00 时段只能选择实时要闻'); continue; }
+    if (slotRole === 'agent' && !agentSignal(article, pick)) { fail('文章没有足够的 Agent 主题信号'); continue; }
+    if (slotRole === 'general_realtime' && agentSignal(article, pick)) { fail('实时要闻不能属于 Agent 主题'); continue; }
+    if (pick.category === 'agent_history' && !article.historical) { fail('历史推荐必须来自历史候选池'); continue; }
+    if (pick.category !== 'agent_history' && article.historical) { fail('历史候选只能标记为历史推荐'); continue; }
+    if (pick.category === 'general_realtime' && pick.kind !== 'hot') { fail('实时要闻必须通过热点证据校验'); continue; }
+    if (pick.category === 'agent_history' && pick.kind !== 'curated') { fail('历史推荐只能使用 curated 选取方式'); continue; }
+    if (new Set(pick.keywords.map(item => item.trim().toLowerCase())).size < 3) { fail('关键词至少需要三个不同词项'); continue; }
     if (used.has(article.url) || hashes.has(article.contentHash) || events.has(pick.eventKey.toLowerCase().trim())) { fail('重复正文或事件'); continue; }
     if (chosen.filter(item => item.pick.kind === pick.kind).length >= (pick.kind === 'hot' ? 2 : 1)) { fail('超出本轮类别配额'); continue; }
     const proofs = [...new Set(pick.evidenceIds)].map(id => evidence.get(id)).filter((item): item is Evidence => Boolean(item));
@@ -31,16 +43,16 @@ export function validateNewsPicks(selection: NewsSelection, articles: Map<string
       if (!timely(article.publishedAt, cutoff, 48) || !pick.eventAt || !timely(pick.eventAt, cutoff, 48)) { fail('发表或事件时间不满足 48 小时时效要求'); continue; }
       if (proofs.length !== new Set(pick.evidenceIds).size || new Set(proofs.filter(reportingPublisher).map(item => publisherGroup(item.publisherUrl))).size < 2) { fail('缺少两家真实独立媒体的近期证据'); continue; }
       if (proofs.some(item => !timely(item.publishedAt, cutoff, 48))) { fail('热度证据超出时间范围'); continue; }
-    } else if (!timely(article.publishedAt, cutoff, 7*24)) { fail('阅读材料超过七天'); continue; }
+    } else if (pick.category !== 'agent_history' && !timely(article.publishedAt, cutoff, 7*24)) { fail('阅读材料超过七天'); continue; }
     used.add(article.url); hashes.add(article.contentHash); events.add(pick.eventKey.toLowerCase().trim()); chosen.push({ article, pick, evidence: pick.kind === 'hot' ? proofs : [] });
   }
   return { chosen, rejected };
 }
 
-export async function selectNews(config: RuntimeConfig, model: string, maxRounds: number, candidates: Candidate[], cutoff: Date, recentArticles: object[], remainingSlots = { total: NEWS_ARTICLES_PER_SLOT }) {
+export async function selectNews(config: RuntimeConfig, model: string, maxRounds: number, candidates: Candidate[], cutoff: Date, recentArticles: object[], remainingSlots = { total: NEWS_ARTICLES_PER_SLOT }, slotRole: NewsSlotRole = 'agent') {
   const articles = new Map<string, Article>(); const evidence = new Map<string, Evidence>();
   const audit: object[] = [];
-  const messages: any[] = [{ role: 'system', content: NEWS_SELECTOR_PROMPT }, { role: 'user', content: JSON.stringify({ cutoff: cutoff.toISOString(), timezone: 'Asia/Shanghai', remainingSlots, recentArticles, candidates: candidates.map(({ feedHtml, ...item }) => item) }) }];
+  const messages: any[] = [{ role: 'system', content: NEWS_SELECTOR_PROMPT }, { role: 'user', content: JSON.stringify({ cutoff: cutoff.toISOString(), timezone: 'Asia/Shanghai', slotRole, remainingSlots, recentArticles, candidates: candidates.map(({ feedHtml, ...item }) => item) }) }];
   const deadline = Date.now() + 12*60000;
   let selection: NewsSelection | undefined;
   for (let round = 0; round < maxRounds; round++) {

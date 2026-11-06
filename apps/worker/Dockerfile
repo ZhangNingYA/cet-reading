@@ -11,6 +11,7 @@ FROM dependencies AS build
 RUN --mount=type=cache,target=/root/.npm,sharing=locked npm ci --workspace apps/worker --workspace packages/contracts --no-audit --no-fund
 COPY packages/contracts packages/contracts
 COPY apps/worker apps/worker
+COPY data/news data/news
 RUN npm run build:contracts && npm run build:worker
 
 FROM dependencies AS production-dependencies
@@ -23,5 +24,6 @@ COPY --from=production-dependencies /app/node_modules ./node_modules
 COPY --from=production-dependencies /app/packages/contracts ./packages/contracts
 COPY --from=build /app/packages/contracts/dist ./packages/contracts/dist
 COPY --from=build /app/apps/worker/dist ./apps/worker/dist
+COPY --from=build /app/data/news ./data/news
 COPY --from=production-dependencies /app/apps/worker ./apps/worker
 CMD ["node", "apps/worker/dist/worker.js"]

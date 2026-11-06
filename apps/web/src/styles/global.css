@@ -160,6 +160,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .news-row:hover .news-row-title { color: var(--accent); }
 .news-row-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 9px 0 0; font-size: var(--text-caption); color: var(--muted); line-height: 1.6; }
 .news-row-topic { color: var(--muted); }
+.news-row-category { color: var(--accent-deep); font-weight: 600; }
+.news-row-keyword { padding: 1px 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--quiet); font-size: .9em; }
+.news-detail-category { color: var(--accent-deep); font-weight: 600; }
 .news-batch-note { margin: 12px 0; color: var(--quiet); font-size: var(--text-caption); }
 .news-meta, .news-attribution { color: var(--muted); font-size: var(--text-caption); line-height: 1.8; }
 .news-attribution a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }

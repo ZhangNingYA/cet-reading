@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { load } from 'cheerio';
 import { XMLParser } from 'fast-xml-parser';
 import { timely } from '@cet-reading/contracts/news';
@@ -12,7 +13,7 @@ export const sources: readonly NewsSource[] = [
   { name: 'SciDev.Net', host: 'www.scidev.net', feed: 'https://www.scidev.net/global/rss.xml/?type=header', license: 'CC BY 2.0', licenseUrl: 'https://creativecommons.org/licenses/by/2.0/', policy: 'https://www.scidev.net/global/content/media.html' },
   { name: 'NASA', host: 'www.nasa.gov', hosts: ['www.nasa.gov', 'science.nasa.gov'], feed: 'https://www.nasa.gov/news-release/feed/', license: 'NASA educational use', licenseUrl: 'https://www.nasa.gov/nasa-brand-center/images-and-media/', policy: 'https://www.nasa.gov/nasa-brand-center/images-and-media/', policyText: 'NASA content used in a factual manner that does not imply endorsement may be used without needing explicit permission.' },
 ];
-export type Candidate = { id: string; title: string; url: string; author: string; publishedAt: string; source: NewsSource; feedHtml: string; excerpt: string };
+export type Candidate = { id: string; title: string; url: string; author: string; publishedAt: string; source: NewsSource; feedHtml: string; excerpt: string; historical?: boolean };
 export type Article = Candidate & { paragraphs: string[]; contentHash: string; wordCount: number; fetchedAt: string; pagePublishedAt: string | null };
 export type Evidence = { id: string; title: string; url: string; publisher: string; publisherUrl: string; publishedAt: string; query: string; fetchedAt: string };
 const xml = new XMLParser({ ignoreAttributes: false, processEntities: true });
@@ -43,7 +44,7 @@ export function plainParagraphs(html: string) {
   const $ = load(html);
   $('script,style,noscript,figure,figcaption,iframe,form,nav,textarea,.wp-caption,.sharedaddy,.gv-syndication-notice,.related-articles,.related-posts,.hds-topic-cards,.hds-featured-link-list,.hds-news-grid').remove();
   return $('p,h2,h3,li').filter((_, el) => !$(el).parents('li,p').length).map((_, el) => clean($(el).text())).get().filter(Boolean)
-    .filter(text => !/^(Originally published under Creative Commons|This article was originally published|Read the original article|The post .+ appeared first on)/i.test(text));
+    .filter(text => !/^(Originally published under Creative Commons|This article was originally published|Read the original article|The post .+ appeared first on|Facebook|Twitter|Reddit|Email|artificial intelligence|security|You are free to share this article under the Attribution .+ license\.|Source: .+)$/i.test(text));
 }
 
 function editorialParagraphs(html: string, source: NewsSource) {
@@ -82,6 +83,17 @@ export async function loadCandidates(cutoff: Date) {
   return { candidates: candidates.sort((a,b) => b.publishedAt.localeCompare(a.publishedAt)), failures };
 }
 
+export function loadHistoryCandidates(): Candidate[] {
+  const entries = JSON.parse(readFileSync(new URL('../../../data/news/agent-history.json', import.meta.url), 'utf8')) as Array<{
+    id: string; title: string; url: string; author: string; publishedAt: string; source: string; excerpt?: string;
+  }>;
+  return entries.flatMap((entry) => {
+    const source = sources.find(item => item.name === entry.source);
+    if (!source) return [];
+    return [{ id: entry.id, title: entry.title, url: entry.url, author: entry.author, publishedAt: entry.publishedAt, source, feedHtml: '', excerpt: entry.excerpt || '', historical: true }];
+  });
+}
+
 export async function readArticle(candidate: Candidate): Promise<Article> {
   const page = await fetchText(candidate.url, candidate.source.hosts || [candidate.source.host]);
   const $ = load(page);
@@ -97,12 +109,12 @@ export async function readArticle(candidate: Candidate): Promise<Article> {
   const feedParagraphs = editorialParagraphs(candidate.feedHtml,candidate.source);
   // SciDev's official feed is headline-only. NASA feeds include unrelated download/mission widgets.
   // Publish the full origin editorial body for these adapters, and verify NASA against its feed.
-  const paragraphs = ['SciDev.Net','NASA'].includes(candidate.source.name) ? originParagraphs : feedParagraphs;
+  const paragraphs = candidate.historical || ['SciDev.Net','NASA'].includes(candidate.source.name) ? originParagraphs : feedParagraphs;
   if (paragraphs.length < 5) throw new Error('Incomplete or very short feed body');
   if (!body.length) throw new Error('Original article body selector is unavailable');
   const pageText = comparable(originParagraphs.join(' '));
   const substantive = feedParagraphs.filter(text => text.split(/\s+/).length >= 8);
-  if (candidate.source.name !== 'SciDev.Net') {
+  if (!candidate.historical && candidate.source.name !== 'SciDev.Net') {
     if (!substantive.length || substantive.filter(text => pageText.includes(comparable(text))).length / substantive.length < .9) throw new Error('Feed body does not match the original page');
     const originSubstantive = originParagraphs.filter(text => text.split(/\s+/).length >= 8);
     const feedText = comparable(feedParagraphs.join(' '));

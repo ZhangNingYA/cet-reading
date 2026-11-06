@@ -18,7 +18,7 @@ export async function listNews(before?: string) {
     WHERE n.status='published'
     WINDOW w AS (PARTITION BY s.article_id ORDER BY s.paragraph_index,s.sentence_index)
   )
-  SELECT n.id,n.batch_at,n.selection_kind,n.title,n.source_name,n.published_at,n.word_count,n.difficulty,n.topic,
+  SELECT n.id,n.batch_at,n.selection_kind,n.category,n.keywords,n.title,n.source_name,n.published_at,n.word_count,n.difficulty,n.topic,
     COUNT(DISTINCT o.id)::int AS analysis_total,
     COUNT(DISTINCT a.sentence_id)::int AS analysis_cached,
     COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
@@ -40,7 +40,7 @@ export async function listNews(before?: string) {
   return { articles:result.rows, batches:visible.map(row=>({ ...row, reason:row.status==='failed'?'采集暂时失败，任务会按规则重试。':row.reason })), nextCursor:batches.rows.length>30?visible.at(-1).scheduled_at:null, schedule:{ timezone:'Asia/Shanghai', hours:[8,11,14,17] } };
 }
 export async function getNews(id: string) {
-  const result = await pool.query(`SELECT id,title,author,source_name,source_url,published_at,batch_at,license_name,license_url,word_count,difficulty,difficulty_reason,topic,selection_kind,selection_reason,hotness_json AS evidence, paragraphs_json AS paragraphs
+  const result = await pool.query(`SELECT id,title,author,source_name,source_url,published_at,batch_at,license_name,license_url,word_count,difficulty,difficulty_reason,topic,keywords,category,selection_kind,selection_reason,hotness_json AS evidence, paragraphs_json AS paragraphs
     FROM news_articles WHERE id=$1 AND status='published'`,[id]);
   const article = result.rows[0]; if (!article) return null;
   const progress = await pool.query(`WITH ordered AS (

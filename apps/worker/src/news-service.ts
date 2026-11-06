@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import { Pool } from 'pg';
 import { readConfig } from '@cet-reading/contracts/config';
-import { NEWS_ARTICLES_PER_SLOT, NEWS_HOURS, newsDay, newsSlot, nextNewsSlot, readNewsConfig, splitNewsParagraph } from '@cet-reading/contracts/news';
-import { loadCandidates, digest } from './news-sources.js';
+import { NEWS_ARTICLES_PER_SLOT, NEWS_HOURS, newsDay, newsSlot, nextNewsSlot, newsSlotRole, readNewsConfig, splitNewsParagraph } from '@cet-reading/contracts/news';
+import { loadCandidates, loadHistoryCandidates, digest } from './news-sources.js';
 import { selectNews, validateNewsPicks } from './news-selector.js';
 
 const config = readConfig(); const news = readNewsConfig();
@@ -16,6 +16,7 @@ async function runBatch(slot: Date, supplement = false) {
   try {
     const lock = await client.query('SELECT pg_try_advisory_lock(814172026) AS locked');
     if (!lock.rows[0].locked) return console.log('Another news collector is running');
+    const slotRole = newsSlotRole(slot);
     const claimed = await client.query(`INSERT INTO news_batches (scheduled_at,status) VALUES ($1,'running')
       ON CONFLICT (scheduled_at) DO UPDATE SET status='running', attempts=news_batches.attempts+1, started_at=NOW(), finished_at=NULL
       WHERE ($2::boolean AND news_batches.status IN ('partial','failed','running'))
@@ -24,6 +25,7 @@ async function runBatch(slot: Date, supplement = false) {
     console.log(`Collecting news batch ${slot.toISOString()} (Shanghai)`);
     try {
       const { candidates, failures } = await loadCandidates(slot);
+      const historyCandidates = slotRole === 'agent' ? loadHistoryCandidates() : [];
       const recent = await client.query(`SELECT title,source_url,event_key,content_hash FROM news_articles WHERE status='published' ORDER BY batch_at DESC LIMIT 180`);
       const existing = await client.query('SELECT selection_kind FROM news_articles WHERE batch_at=$1',[slot]);
       const remaining = NEWS_ARTICLES_PER_SLOT-existing.rows.length;
@@ -33,10 +35,10 @@ async function runBatch(slot: Date, supplement = false) {
       }
       const allUrls = await client.query('SELECT source_url,content_hash FROM news_articles');
       const urls = new Set(allUrls.rows.map(item => item.source_url)); const hashes = new Set(allUrls.rows.map(item => item.content_hash));
-      const fresh = candidates.filter(item => !urls.has(item.url));
+      const fresh = [...candidates, ...historyCandidates].filter(item => !urls.has(item.url));
       if (!fresh.length) throw new Error('No fresh licensed candidates: ' + failures.join('; '));
-      const result = await selectNews(config, news.model, news.maxRounds, fresh, slot, recent.rows, { total: remaining });
-      const checked = validateNewsPicks(result.selection, result.articles, result.evidence, slot, new Set(recent.rows.map(item => item.event_key.toLowerCase().trim())));
+      const result = await selectNews(config, news.model, news.maxRounds, fresh, slot, recent.rows, { total: remaining }, slotRole);
+      const checked = validateNewsPicks(result.selection, result.articles, result.evidence, slot, new Set(recent.rows.map(item => item.event_key.toLowerCase().trim())), slotRole);
       const chosen = checked.chosen.filter(item => !hashes.has(item.article.contentHash)).slice(0,remaining);
       const total = chosen.length+existing.rows.length;
       const reasons = [result.selection.shortfall, ...checked.rejected, ...(chosen.length < remaining ? failures : [])].filter(Boolean);
@@ -45,9 +47,9 @@ async function runBatch(slot: Date, supplement = false) {
       for (const { article, pick, evidence } of chosen) {
         const id = `news-${digest(article.url).slice(0,20)}`;
         await client.query(`INSERT INTO news_articles
-          (id,batch_at,selection_kind,title,author,source_name,source_url,published_at,fetched_at,license_name,license_url,license_policy_url,paragraphs_json,content_hash,word_count,difficulty,difficulty_reason,topic,event_key,event_at,hotness_json,selection_reason)
-          VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22)`,
-          [id,slot,pick.kind,article.title,article.author,article.source.name,article.url,article.publishedAt,article.fetchedAt,article.source.license,article.source.licenseUrl,article.source.policy,JSON.stringify(article.paragraphs),article.contentHash,article.wordCount,pick.difficulty,pick.difficultyReason,pick.topic,pick.eventKey.toLowerCase().trim(),pick.eventAt,JSON.stringify(evidence),pick.reason]);
+          (id,batch_at,selection_kind,category,keywords,title,author,source_name,source_url,published_at,fetched_at,license_name,license_url,license_policy_url,paragraphs_json,content_hash,word_count,difficulty,difficulty_reason,topic,event_key,event_at,hotness_json,selection_reason)
+          VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24)`,
+          [id,slot,pick.kind,pick.category,pick.keywords,article.title,article.author,article.source.name,article.url,article.publishedAt,article.fetchedAt,article.source.license,article.source.licenseUrl,article.source.policy,JSON.stringify(article.paragraphs),article.contentHash,article.wordCount,pick.difficulty,pick.difficultyReason,pick.topic,pick.eventKey.toLowerCase().trim(),pick.eventAt,JSON.stringify(evidence),pick.reason]);
         for (const [paragraphIndex, paragraph] of article.paragraphs.entries()) {
           for (const [sentenceIndex, sentence] of splitNewsParagraph(paragraph).entries()) {
             await client.query(`INSERT INTO sentences (id,article_id,paragraph_index,sentence_index,source_text) VALUES ($1,$2,$3,$4,$5)`, [`${id}-sentence-${paragraphIndex+1}-${sentenceIndex+1}`,id,paragraphIndex,sentenceIndex,sentence]);
