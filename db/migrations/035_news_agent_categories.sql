@@ -17,7 +17,7 @@ BEGIN
     DELETE FROM news_articles;
     DELETE FROM news_batches;
     INSERT INTO news_batches (scheduled_at, status, attempts, finished_at, reason, audit_json)
-      VALUES ('2026-11-06T00:00:00Z', 'complete', 1, '2026-11-07T00:00:00Z', '', $audit{"seed":"agent-category-check","slotRole":"agent","category":"agent_history"}$audit$::jsonb);
+      VALUES ('2026-11-06T00:00:00Z', 'complete', 1, '2026-11-07T00:00:00Z', '', $audit${"seed":"agent-category-check","slotRole":"agent","category":"agent_history"}$audit$::jsonb);
     INSERT INTO news_articles
       (id,batch_at,selection_kind,category,keywords,title,author,source_name,source_url,published_at,fetched_at,license_name,license_url,license_policy_url,paragraphs_json,content_hash,word_count,difficulty,difficulty_reason,topic,event_key,event_at,hotness_json,selection_reason)
       VALUES (
