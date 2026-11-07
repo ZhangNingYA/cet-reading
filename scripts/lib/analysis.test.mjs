@@ -100,6 +100,14 @@ test('versions grammar prompts while allowing validated results from both earlie
   assert.deepEqual(config.cachePromptVersions, [config.promptVersion, 'custom-v2-vocabulary-v1', 'custom-v2']);
 });
 
+test('configures a separate high-reasoning model for regeneration', () => {
+  const config = readConfig({
+    AI_DRY_RUN: 'false', AI_MODEL: 'fast-model', AI_API_URL: 'https://model.test/v1', AI_API_KEY: 'test-key',
+  });
+  assert.equal(config.regenerationModel, 'gpt-6.1-sol');
+  assert.equal(config.regenerationReasoningEffort, 'xhigh');
+});
+
 test('allows both generation and repair to finish inside a bounded three-minute budget', () => {
   const config = readConfig({ AI_DRY_RUN: 'true' });
   assert.equal(config.requestTimeoutMs, 180000);

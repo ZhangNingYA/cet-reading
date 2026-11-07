@@ -16,7 +16,11 @@ export type QuestionAnalysisInput = {
   answer: string;
   explanation: string;
 };
-type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'> & { promptOverride?: string; onRequestTrace?: TraceObserver };
+type AIConfig = Pick<RuntimeConfig, 'apiUrl' | 'apiKey' | 'model' | 'requestTimeoutMs'> & {
+  reasoningEffort?: string | null;
+  promptOverride?: string;
+  onRequestTrace?: TraceObserver;
+};
 
 const TRANSIENT_HTTP_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504, 524]);
 // Providers can reset an HTTP/2 stream after accepting a request. Retry
@@ -258,9 +262,17 @@ async function requestCompletion(
   deadline: number,
   round: number,
   observer?: TraceObserver,
+  reasoningEffort?: string | null,
 ): Promise<{ content: string; trace: ModelRequestTrace }> {
   let lastError: unknown;
-  const requestText = JSON.stringify({ model, temperature: 0.1, response_format: { type: 'json_object' }, stream: true, messages });
+  const requestText = JSON.stringify({
+    model,
+    ...(reasoningEffort ? { reasoning_effort: reasoningEffort } : {}),
+    ...(reasoningEffort ? {} : { temperature: 0.1 }),
+    response_format: { type: 'json_object' },
+    stream: true,
+    messages,
+  });
   for (let transportAttempt = 1; transportAttempt <= MAX_TRANSPORT_ATTEMPTS; transportAttempt += 1) {
     const trace = new ModelRequestTrace(model, round, transportAttempt, requestText, apiKey, observer);
     await trace.publish();
@@ -319,7 +331,7 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
       requestAttempt = attempt + 1;
       const { content, trace } = await requestCompletion(
         `${config.apiUrl.replace(/\/$/, '')}/chat/completions`, config.apiKey, config.model,
-        messages, controller, deadline, requestAttempt, config.onRequestTrace,
+        messages, controller, deadline, requestAttempt, config.onRequestTrace, config.reasoningEffort,
       );
       try {
         const result = buildAnalysis(job.source_text, parseModelJson(content));
@@ -363,7 +375,7 @@ export async function generateQuestionAnalysis(job: QuestionAnalysisInput, confi
       requestAttempt = attempt + 1;
       const { content, trace } = await requestCompletion(
         `${config.apiUrl.replace(/\/$/, '')}/chat/completions`, config.apiKey, config.model,
-        messages, controller, deadline, requestAttempt, config.onRequestTrace,
+        messages, controller, deadline, requestAttempt, config.onRequestTrace, config.reasoningEffort,
       );
       try {
         const result = validateQuestionAnalysis(parseModelJson(content), {

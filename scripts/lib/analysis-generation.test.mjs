@@ -21,6 +21,17 @@ test('accepts a specific, complete grammar result without an extra model request
   assert.match(analysis.grammar.clauses[0].explanation, /People attribute/);
 });
 
+test('sends the configured high-reasoning model when requested by the job', async t => {
+  const calls = [];
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls.push(JSON.parse(options.body)); return reply(JSON.stringify(raw()));
+  });
+  await generateAnalysis(input, { ...config, model: 'gpt-6.1-sol', reasoningEffort: 'xhigh' });
+  assert.equal(calls[0].model, 'gpt-6.1-sol');
+  assert.equal(calls[0].reasoning_effort, 'xhigh');
+  assert.equal('temperature' in calls[0], false);
+});
+
 test('gives the repair request exact missing/duplicate word indexes and range rules', async t => {
   const calls = [];
   const incomplete = raw();

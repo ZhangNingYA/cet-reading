@@ -9,6 +9,20 @@ import { emptyQuestionProgress, getPaperQuestionProgress } from './analysis-prog
 
 export const pool = new Pool({ connectionString: config.databaseUrl });
 
+type GenerationOptions = { regenerate?: boolean };
+
+function generationTarget(options?: GenerationOptions) {
+  const regenerate = options?.regenerate === true && config.mode === 'ai';
+  return {
+    model: regenerate ? config.regenerationModel : config.model,
+    reasoningEffort: regenerate ? config.regenerationReasoningEffort : null,
+  };
+}
+
+function cacheModels() {
+  return [...new Set([config.model, config.regenerationModel])];
+}
+
 export class AnalysisQueueFullError extends Error {
   constructor() {
     super('Analysis queue is full');
@@ -74,7 +88,7 @@ export async function listPapers(includeProgress = true) {
        FROM visible o JOIN sentence_analyses a
          ON a.sentence_id = o.id AND a.source_hash = o.source_hash
         AND a.context_json = o.context_json
-        AND a.prompt_version = ANY($1::text[]) AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
+        AND a.prompt_version = ANY($1::text[]) AND a.model = ANY($2::text[]) AND a.mode = $3 AND a.status = 'succeeded'
        GROUP BY o.paper_id
      ), queued AS (
        SELECT o.paper_id,
@@ -90,8 +104,8 @@ export async function listPapers(includeProgress = true) {
        LEFT JOIN sentence_analyses a
          ON a.sentence_id = o.id AND a.source_hash = o.source_hash
         AND a.context_json = o.context_json
-        AND a.prompt_version = ANY($1::text[]) AND a.model = $2 AND a.mode = $3 AND a.status = 'succeeded'
-       WHERE j.prompt_version = $4 AND j.model = $2 AND j.mode = $3
+        AND a.prompt_version = ANY($1::text[]) AND a.model = ANY($2::text[]) AND a.mode = $3 AND a.status = 'succeeded'
+       WHERE j.prompt_version = $4 AND j.model = ANY($2::text[]) AND j.mode = $3
          AND j.status IN ('pending', 'running', 'failed')
        GROUP BY o.paper_id
      )
@@ -109,7 +123,7 @@ export async function listPapers(includeProgress = true) {
      LEFT JOIN queued q ON q.paper_id = p.id
      WHERE p.status = 'published'
      ORDER BY p.year DESC, p.month DESC, p.exam_level, p.set_no`,
-    [config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+    [config.cachePromptVersions, cacheModels(), config.mode, config.promptVersion],
   );
   const progress = await getPaperQuestionProgress(pool, result.rows.map(paper => paper.id));
   return result.rows.map(paper => ({ ...paper, ...(progress.get(paper.id) ?? emptyQuestionProgress()) }));
@@ -295,9 +309,9 @@ export async function getCachedAnalysis(sentenceId: string, sourceHash: string, 
   const result = await pool.query(
     `SELECT analysis_json FROM sentence_analyses
      WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
-       AND prompt_version = ANY($4::text[]) AND model = $5 AND mode = $6 AND status = 'succeeded'
-     ORDER BY (prompt_version = $7) DESC, updated_at DESC`,
-    [sentenceId, sourceHash, contextHashValue, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+       AND prompt_version = ANY($4::text[]) AND model = ANY($5::text[]) AND mode = $6 AND status = 'succeeded'
+     ORDER BY (model = $7) DESC, (prompt_version = $8) DESC, updated_at DESC`,
+    [sentenceId, sourceHash, contextHashValue, config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion],
   );
   for (const row of result.rows) {
     try { return validateAnalysis(source, row.analysis_json); }
@@ -330,9 +344,9 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
     `SELECT sentence_id, source_hash, context_hash, analysis_json
      FROM sentence_analyses
      WHERE sentence_id = ANY($1::text[]) AND prompt_version = ANY($2::text[])
-       AND model = $3 AND mode = $4 AND status = 'succeeded'
-     ORDER BY (prompt_version = $5) DESC, updated_at DESC`,
-    [sentences.rows.map(row => row.id), config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+       AND model = ANY($3::text[]) AND mode = $4 AND status = 'succeeded'
+     ORDER BY (model = $5) DESC, (prompt_version = $6) DESC, updated_at DESC`,
+    [sentences.rows.map(row => row.id), config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion],
   );
   const byId = new Map(sentences.rows.map(row => [row.id, {
     ...row,
@@ -394,9 +408,9 @@ export async function getCachedQuestionAnalysis(input: QuestionAnalysisInput) {
   const result = await pool.query(
     `SELECT analysis_json FROM question_analyses
      WHERE question_id = $1 AND content_hash = $2 AND prompt_version = ANY($3::text[])
-       AND model = $4 AND mode = $5 AND status = 'succeeded'
-     ORDER BY (prompt_version = $6) DESC, updated_at DESC`,
-    [input.id, input.content_hash, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+       AND model = ANY($4::text[]) AND mode = $5 AND status = 'succeeded'
+     ORDER BY (model = $6) DESC, (prompt_version = $7) DESC, updated_at DESC`,
+    [input.id, input.content_hash, config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion],
   );
   for (const row of result.rows) {
     try { return validateQuestionAnalysis(row.analysis_json, {
@@ -437,9 +451,9 @@ export async function getCachedQuestionTextAnalysis(input: TextAnalysisInput) {
   const result = await pool.query(
     `SELECT analysis_json FROM question_analyses
      WHERE question_id = $1 AND content_hash = $2 AND prompt_version = ANY($3::text[])
-       AND model = $4 AND mode = $5 AND status = 'succeeded'
-     ORDER BY (prompt_version = $6) DESC, updated_at DESC`,
-    [input.questionId, input.content_hash, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+       AND model = ANY($4::text[]) AND mode = $5 AND status = 'succeeded'
+     ORDER BY (model = $6) DESC, (prompt_version = $7) DESC, updated_at DESC`,
+    [input.questionId, input.content_hash, config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion],
   );
   for (const row of result.rows) {
     try { return validateAnalysis(input.source_text, row.analysis_json); } catch { /* Skip invalid history. */ }
@@ -447,18 +461,19 @@ export async function getCachedQuestionTextAnalysis(input: TextAnalysisInput) {
   return undefined;
 }
 
-export async function enqueueQuestionTextAnalysis(input: TextAnalysisInput, priority = 100) {
+export async function enqueueQuestionTextAnalysis(input: TextAnalysisInput, priority = 100, options?: GenerationOptions) {
+  const target = generationTarget(options);
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
     const gate = await client.query<{ allowed: boolean }>('SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed', [ANALYSIS_BATCH_LOCK_ID]);
     if (!gate.rows[0]?.allowed) { await client.query('ROLLBACK'); throw new AnalysisPausedError(); }
-    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${target.model}:${config.promptVersion}`]);
     const runtime = await readRuntimeSettings(client, config);
     const existing = await client.query(
       `SELECT id, status FROM analysis_jobs WHERE job_type = 'text' AND question_id = $1 AND text_key = $2
        AND source_hash = $3 AND prompt_version = $4 AND model = $5 AND mode = $6 AND status IN ('pending', 'running')`,
-      [input.questionId, input.textKey, input.content_hash, config.promptVersion, config.model, config.mode],
+      [input.questionId, input.textKey, input.content_hash, config.promptVersion, target.model, config.mode],
     );
     if (existing.rows[0]) {
       const updated = await client.query(
@@ -472,7 +487,7 @@ export async function enqueueQuestionTextAnalysis(input: TextAnalysisInput, prio
       `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS count,
               COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= 1)::integer AS background
        FROM analysis_jobs WHERE mode = $1 AND model = $2 AND prompt_version = $3`,
-      [config.mode, config.model, config.promptVersion],
+      [config.mode, target.model, config.promptVersion],
     );
     let active = count.rows[0]?.count ?? 0;
     const background = count.rows[0]?.background ?? 0;
@@ -481,7 +496,7 @@ export async function enqueueQuestionTextAnalysis(input: TextAnalysisInput, prio
         `DELETE FROM analysis_jobs WHERE id = (SELECT id FROM analysis_jobs
          WHERE mode = $1 AND model = $2 AND prompt_version = $3 AND status = 'pending' AND priority <= 1 AND attempts = 0
          ORDER BY created_at DESC FOR UPDATE SKIP LOCKED LIMIT 1) RETURNING id`,
-        [config.mode, config.model, config.promptVersion],
+        [config.mode, target.model, config.promptVersion],
       );
       if (evicted.rowCount) active -= 1;
     }
@@ -491,16 +506,17 @@ export async function enqueueQuestionTextAnalysis(input: TextAnalysisInput, prio
     const result = await client.query(
       `INSERT INTO analysis_jobs
        (job_type, question_id, text_key, sentence_id, source_text, source_hash, context_hash, context_json, question_json,
-        prompt_version, model, mode, status, priority)
-       VALUES ('text', $1, $2, NULL, $3, $4, $4, $5, $6, $7, $8, $9, 'pending', $10) RETURNING id, status`,
-      [input.questionId, input.textKey, input.source_text, input.content_hash, JSON.stringify(input.context), JSON.stringify({ source_text: input.source_text, context_json: input.context }), config.promptVersion, config.model, config.mode, priority],
+        prompt_version, model, reasoning_effort, mode, status, priority)
+       VALUES ('text', $1, $2, NULL, $3, $4, $4, $5, $6, $7, $8, $9, $10, 'pending', $11) RETURNING id, status`,
+      [input.questionId, input.textKey, input.source_text, input.content_hash, JSON.stringify(input.context), JSON.stringify({ source_text: input.source_text, context_json: input.context }), config.promptVersion, target.model, target.reasoningEffort, config.mode, priority],
     );
     await client.query('COMMIT'); return result.rows[0] as { id: string; status: string };
   } catch (error) { await client.query('ROLLBACK').catch(() => undefined); throw error; }
   finally { client.release(); }
 }
 
-export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, priority = 100) {
+export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, priority = 100, options?: GenerationOptions) {
+  const target = generationTarget(options);
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -508,13 +524,13 @@ export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, prio
       'SELECT pg_try_advisory_xact_lock_shared($1::integer) AS allowed', [ANALYSIS_BATCH_LOCK_ID],
     );
     if (!gate.rows[0]?.allowed) { await client.query('ROLLBACK'); throw new AnalysisPausedError(); }
-    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${config.model}:${config.promptVersion}`]);
+    await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`analysis:${config.mode}:${target.model}:${config.promptVersion}`]);
     const runtime = await readRuntimeSettings(client, config);
     const existing = await client.query(
       `SELECT id, status FROM analysis_jobs
        WHERE job_type = 'question' AND question_id = $1 AND source_hash = $2
          AND prompt_version = $3 AND model = $4 AND mode = $5 AND status IN ('pending', 'running')`,
-      [input.id, input.content_hash, config.promptVersion, config.model, config.mode],
+      [input.id, input.content_hash, config.promptVersion, target.model, config.mode],
     );
     if (existing.rows[0]) {
       const updated = await client.query(
@@ -528,7 +544,7 @@ export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, prio
       `SELECT COUNT(*) FILTER (WHERE status IN ('pending', 'running'))::integer AS count,
               COUNT(*) FILTER (WHERE status IN ('pending', 'running') AND priority <= 1)::integer AS background
        FROM analysis_jobs WHERE mode = $1 AND model = $2 AND prompt_version = $3`,
-      [config.mode, config.model, config.promptVersion],
+      [config.mode, target.model, config.promptVersion],
     );
     let active = count.rows[0]?.count ?? 0;
     const background = count.rows[0]?.background ?? 0;
@@ -537,7 +553,7 @@ export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, prio
         `DELETE FROM analysis_jobs WHERE id = (SELECT id FROM analysis_jobs
          WHERE mode = $1 AND model = $2 AND prompt_version = $3 AND status = 'pending' AND priority <= 1 AND attempts = 0
          ORDER BY created_at DESC FOR UPDATE SKIP LOCKED LIMIT 1) RETURNING id`,
-        [config.mode, config.model, config.promptVersion],
+        [config.mode, target.model, config.promptVersion],
       );
       if (evicted.rowCount) active -= 1;
     }
@@ -547,10 +563,10 @@ export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, prio
     const result = await client.query(
       `INSERT INTO analysis_jobs
          (job_type, question_id, sentence_id, source_text, source_hash, context_hash, context_json, question_json,
-          prompt_version, model, mode, status, priority)
-       VALUES ('question', $1, NULL, '', $2, $2, '{}'::jsonb, $3, $4, $5, $6, 'pending', $7)
+          prompt_version, model, reasoning_effort, mode, status, priority)
+       VALUES ('question', $1, NULL, '', $2, $2, '{}'::jsonb, $3, $4, $5, $6, $7, 'pending', $8)
        RETURNING id, status`,
-      [input.id, input.content_hash, JSON.stringify(input), config.promptVersion, config.model, config.mode, priority],
+      [input.id, input.content_hash, JSON.stringify(input), config.promptVersion, target.model, target.reasoningEffort, config.mode, priority],
     );
     await client.query('COMMIT');
     return result.rows[0] as { id: string; status: string };
@@ -562,7 +578,8 @@ export async function enqueueQuestionAnalysis(input: QuestionAnalysisInput, prio
 
 export async function enqueueAnalysis(sentence: {
   id: string; source_text: string; source_hash: string; context_hash: string; context: object;
-}, priority = 10) {
+}, priority = 10, options?: GenerationOptions) {
+  const target = generationTarget(options);
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -575,10 +592,10 @@ export async function enqueueAnalysis(sentence: {
       throw new AnalysisPausedError();
     }
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [
-      `analysis:${config.mode}:${config.model}:${config.promptVersion}`,
+      `analysis:${config.mode}:${target.model}:${config.promptVersion}`,
     ]);
     const runtime = await readRuntimeSettings(client, config);
-    const key = [sentence.id, sentence.source_hash, sentence.context_hash, config.promptVersion, config.model, config.mode];
+    const key = [sentence.id, sentence.source_hash, sentence.context_hash, config.promptVersion, target.model, config.mode];
     const existing = await client.query(
       `SELECT id, status FROM analysis_jobs
        WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
@@ -599,7 +616,7 @@ export async function enqueueAnalysis(sentence: {
        FROM analysis_jobs
        WHERE mode = $1 AND model = $2 AND prompt_version = $3
          AND status IN ('pending', 'running')`,
-      [config.mode, config.model, config.promptVersion],
+      [config.mode, target.model, config.promptVersion],
     );
     let active = count.rows[0]?.count ?? 0;
     const background = count.rows[0]?.background ?? 0;
@@ -615,7 +632,7 @@ export async function enqueueAnalysis(sentence: {
            ORDER BY created_at DESC
            FOR UPDATE SKIP LOCKED LIMIT 1
          ) RETURNING id`,
-        [config.mode, config.model, config.promptVersion],
+        [config.mode, target.model, config.promptVersion],
       );
       if (evicted.rowCount) {
         // The deleted row was part of the active count, so the new request
@@ -630,11 +647,11 @@ export async function enqueueAnalysis(sentence: {
     const result = await client.query(
       `INSERT INTO analysis_jobs
          (sentence_id, source_text, source_hash, context_hash, context_json,
-          prompt_version, model, mode, status, priority)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending', $9)
+          prompt_version, model, reasoning_effort, mode, status, priority)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, 'pending', $10)
        RETURNING id, status`,
       [sentence.id, sentence.source_text, sentence.source_hash, sentence.context_hash,
-        JSON.stringify(sentence.context), config.promptVersion, config.model, config.mode, priority],
+        JSON.stringify(sentence.context), config.promptVersion, target.model, target.reasoningEffort, config.mode, priority],
     );
     await client.query('COMMIT');
     return result.rows[0] as { id: string; status: string };

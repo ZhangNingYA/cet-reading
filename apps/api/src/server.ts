@@ -263,15 +263,14 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
   const sentence = await getSentence(request.params.id);
   if (!sentence) return reply.code(404).send({ error: 'sentence_not_found' });
 
-  if (request.query.regenerate !== 'true') {
+  const requestedRegeneration = request.query.regenerate === 'true';
+  if (!requestedRegeneration) {
     const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash, sentence.source_text);
-    if (cached) {
-      return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
-    }
+    if (cached) return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
   }
 
   try {
-    const job = await enqueueAnalysis(sentence, request.query.interactive === 'true' ? 100 : 10);
+    const job = await enqueueAnalysis(sentence, request.query.interactive === 'true' ? 100 : 10, { regenerate: requestedRegeneration });
     return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
   } catch (error) {
     if (error instanceof AnalysisPausedError) {
@@ -291,12 +290,13 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
   }
   const input = await getQuestionForAnalysis(request.params.id);
   if (!input) return reply.code(404).send({ error: 'question_not_found' });
-  if (request.query.regenerate !== 'true') {
+  const requestedRegeneration = request.query.regenerate === 'true';
+  if (!requestedRegeneration) {
     const cached = await getCachedQuestionAnalysis(input);
     if (cached) return { status: 'ready', questionId: input.id, result: cached, mode: config.mode, cached: true };
   }
   try {
-    const job = await enqueueQuestionAnalysis(input, 100);
+    const job = await enqueueQuestionAnalysis(input, 100, { regenerate: requestedRegeneration });
     return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
   } catch (error) {
     if (error instanceof AnalysisPausedError) return reply.code(503).header('Retry-After', '30').send({ error: 'analysis_temporarily_paused', retryAfterSeconds: 30 });
@@ -310,12 +310,13 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; textKey?: strin
   if (request.query.regenerate !== undefined && !['true', 'false'].includes(request.query.regenerate)) return reply.code(400).send({ error: 'invalid_regeneration_option' });
   const input = await getQuestionTextForAnalysis(request.params.id, request.query.textKey);
   if (!input) return reply.code(404).send({ error: 'question_text_not_found' });
-  if (request.query.regenerate !== 'true') {
+  const requestedRegeneration = request.query.regenerate === 'true';
+  if (!requestedRegeneration) {
     const cached = await getCachedQuestionTextAnalysis(input);
     if (cached) return { status: 'ready', questionId: input.questionId, textKey: input.textKey, result: cached, mode: config.mode, cached: true };
   }
   try {
-    const job = await enqueueQuestionTextAnalysis(input, 100);
+    const job = await enqueueQuestionTextAnalysis(input, 100, { regenerate: requestedRegeneration });
     return reply.code(202).send({ status: 'generating', jobId: job.id, mode: config.mode });
   } catch (error) {
     if (error instanceof AnalysisPausedError) return reply.code(503).header('Retry-After', '30').send({ error: 'analysis_temporarily_paused', retryAfterSeconds: 30 });

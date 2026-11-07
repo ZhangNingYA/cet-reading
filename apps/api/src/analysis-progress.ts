@@ -73,9 +73,9 @@ export async function getPaperQuestionProgress(database: Pool, paperIds?: string
     database.query<{ question_id: string; content_hash: string; prompt_version: string; analysis_json: unknown }>(
       `SELECT question_id, content_hash, prompt_version, analysis_json FROM question_analyses
        WHERE question_id = ANY($1::text[]) AND prompt_version = ANY($2::text[])
-         AND model = $3 AND mode = $4 AND status = 'succeeded'
-       ORDER BY (prompt_version = $5) DESC, updated_at DESC`,
-      [questionIds, config.cachePromptVersions, config.model, config.mode, config.promptVersion],
+         AND model = ANY($3::text[]) AND mode = $4 AND status = 'succeeded'
+       ORDER BY (model = $5) DESC, (prompt_version = $6) DESC, updated_at DESC`,
+      [questionIds, config.cachePromptVersions, [...new Set([config.model, config.regenerationModel])], config.mode, config.regenerationModel, config.promptVersion],
     ),
     database.query<{
       job_type: 'question' | 'text'; question_id: string; text_key: string | null;
@@ -86,9 +86,9 @@ export async function getPaperQuestionProgress(database: Pool, paperIds?: string
                    WHEN status = 'failed' THEN 'failed' ELSE 'pending' END AS progress_status
        FROM analysis_jobs
        WHERE job_type IN ('question', 'text') AND question_id = ANY($1::text[])
-         AND prompt_version = $2 AND model = $3 AND mode = $4 AND status IN ('pending', 'running', 'failed')
+         AND prompt_version = $2 AND model = ANY($3::text[]) AND mode = $4 AND status IN ('pending', 'running', 'failed')
        ORDER BY (status IN ('pending', 'running')) DESC, updated_at DESC`,
-      [questionIds, config.promptVersion, config.model, config.mode],
+      [questionIds, config.promptVersion, [...new Set([config.model, config.regenerationModel])], config.mode],
     ),
   ]);
   const caches = new Map<string, typeof cacheRows.rows>();

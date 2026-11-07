@@ -78,7 +78,13 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
   const startedAt = Date.now();
   const client: PoolClient = await pool.connect();
   try {
-    const aiConfig = { ...config, promptOverride: runtime.promptOverride, onRequestTrace: createAnalysisTraceRecorder(client, job) };
+    const aiConfig = {
+      ...config,
+      model: job.model,
+      reasoningEffort: job.reasoning_effort,
+      promptOverride: runtime.promptOverride,
+      onRequestTrace: createAnalysisTraceRecorder(client, job),
+    };
     const analysis = job.job_type === 'question'
       ? (config.mode === 'demo'
         ? demoQuestionRaw(job.question_json as QuestionAnalysisInput)
@@ -106,7 +112,7 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
        VALUES ($1, $2, $3, $4, $5, $6, 'succeeded')
        ON CONFLICT (question_id, content_hash, prompt_version, model, mode)
        DO UPDATE SET analysis_json = EXCLUDED.analysis_json, status = 'succeeded', updated_at = NOW()`,
-      [job.question_id, job.source_hash, config.promptVersion, config.model, config.mode, JSON.stringify(analysis)],
+      [job.question_id, job.source_hash, config.promptVersion, job.model, config.mode, JSON.stringify(analysis)],
       );
     } else await client.query(
       `INSERT INTO sentence_analyses
@@ -117,7 +123,7 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
        DO UPDATE SET analysis_json = EXCLUDED.analysis_json,
                      status = 'succeeded', updated_at = NOW()`,
       [job.sentence_id, job.source_hash, job.context_hash, JSON.stringify(job.context_json),
-        config.promptVersion, config.model, config.mode, JSON.stringify(analysis)],
+        config.promptVersion, job.model, config.mode, JSON.stringify(analysis)],
     );
     await client.query('COMMIT');
     console.log(JSON.stringify({

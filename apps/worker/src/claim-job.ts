@@ -16,12 +16,15 @@ export type AnalysisJob = {
     question_type: 'reading' | 'matching'; title: string; instructions: string; paragraphs: string[];
     prompt: string; options: Array<{ key: string; text: string }>; answer: string; explanation: string;
   } | { source_text: string; context_json: { title: string; previousSentence: string | null; nextSentence: string | null } } | null;
+  model: string;
+  reasoning_effort: string | null;
   created_at: Date;
 };
 
-type ClaimConfig = Pick<RuntimeConfig, 'mode' | 'model' | 'promptVersion' | 'leaseSeconds' | 'maxAnalysisAttempts'>;
+type ClaimConfig = Pick<RuntimeConfig, 'mode' | 'model' | 'regenerationModel' | 'promptVersion' | 'leaseSeconds' | 'maxAnalysisAttempts'>;
 
 export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise<AnalysisJob | null> {
+  const models = [...new Set([config.model, config.regenerationModel].filter(Boolean))];
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -38,11 +41,11 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
       `UPDATE analysis_jobs
        SET status = 'failed', error_message = COALESCE(error_message, $5),
            lease_expires_at = NULL, finished_at = NOW(), updated_at = NOW()
-       WHERE mode = $1 AND model = $2 AND prompt_version = $3
+       WHERE mode = $1 AND model = ANY($2::text[]) AND prompt_version = $3
          AND attempts >= $4
          AND (status = 'pending' OR (status = 'running' AND
            (lease_expires_at IS NULL OR lease_expires_at < NOW())))`,
-      [config.mode, config.model, config.promptVersion, config.maxAnalysisAttempts,
+      [config.mode, models, config.promptVersion, config.maxAnalysisAttempts,
         `Transient retry limit reached after ${config.maxAnalysisAttempts} attempts`],
     );
     const result = await client.query<AnalysisJob>(
@@ -53,7 +56,7 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
          LEFT JOIN paper_sections ps ON ps.id = q.section_id
          LEFT JOIN analysis_paper_priorities pp ON pp.paper_id = COALESCE(s.paper_id, ps.paper_id)
          LEFT JOIN analysis_news_priorities np ON np.article_id = s.article_id
-         WHERE mode = $1 AND model = $2 AND prompt_version = $3
+         WHERE mode = $1 AND model = ANY($2::text[]) AND prompt_version = $3
            AND ((status = 'pending' AND next_attempt_at <= NOW())
              OR (status = 'running' AND (lease_expires_at IS NULL OR lease_expires_at < NOW())))
            AND attempts < $5
@@ -71,8 +74,9 @@ export async function claimAnalysisJob(pool: Pool, config: ClaimConfig): Promise
        FROM candidate c
        WHERE j.id = c.id
        RETURNING j.id, j.attempts, j.sentence_id, j.source_text, j.source_hash,
-                 j.job_type, j.question_id, j.context_hash, j.context_json, j.question_json, j.created_at`,
-      [config.mode, config.model, config.promptVersion, config.leaseSeconds, config.maxAnalysisAttempts],
+                 j.job_type, j.question_id, j.context_hash, j.context_json, j.question_json,
+                 j.model, j.reasoning_effort, j.created_at`,
+      [config.mode, models, config.promptVersion, config.leaseSeconds, config.maxAnalysisAttempts],
     );
     // Even when no job is ready, exhausted rows must leave the active queue.
     await client.query('COMMIT');
