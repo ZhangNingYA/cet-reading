@@ -91,8 +91,11 @@ if (args[0] === '--slot') {
       for (const hour of NEWS_HOURS) {
         const slot = newsSlot(newsDay(now),hour); if (slot > now || stopping) continue;
         const row = recorded.get(slot.toISOString());
-        if (row && (['complete','partial'].includes(row.status) || row.attempts>=3 || (row.status==='failed' && now.getTime()-new Date(row.finished_at).getTime()<120000))) continue;
-        try { await runBatch(slot); } catch (error) { console.error(error instanceof Error ? error.message : 'News collection failed'); }
+        // A partial batch gets one automatic supplement after a service restart (or
+        // a newly deployed history pool).  Keep the second pass bounded so an
+        // unavailable source cannot trigger an endless AI loop.
+        if (row && (row.status==='complete' || (row.status==='partial' && row.attempts>=2) || row.attempts>=3 || (row.status==='failed' && now.getTime()-new Date(row.finished_at).getTime()<120000))) continue;
+        try { await runBatch(slot, row?.status === 'partial'); } catch (error) { console.error(error instanceof Error ? error.message : 'News collection failed'); }
       }
       if (!stopping) await new Promise<void>(resolve=>{ releaseWait=resolve; wake=setTimeout(resolve,15000); });
     }

@@ -7,5 +7,23 @@
     "publishedAt": "2026-07-20T17:08:25Z",
     "source": "Futurity",
     "excerpt": "A University of Washington study finds that agentic browsers can create cybersecurity risks through prompt injection, memory poisoning and weakened same-origin protections."
+  },
+  {
+    "id": "agent-history-futurity-ai-tools-targeted-attacks-2023",
+    "title": "AI tools are surprisingly vulnerable to targeted attacks",
+    "url": "https://www.futurity.org/ai-vulnerable-targeted-attacks-3005912-2/",
+    "author": "Matt Shipman-NC State",
+    "publishedAt": "2023-12-07T14:17:50Z",
+    "source": "Futurity",
+    "excerpt": "Research shows that adversarial attacks can manipulate data fed into artificial intelligence tools and force systems to make bad decisions, a foundational security concern for tool-using agents."
+  },
+  {
+    "id": "agent-history-futurity-ai-generated-code-2026",
+    "title": "AI-generated code is vulnerable",
+    "url": "https://www.futurity.org/ai-generated-code-vulnerable-3330542/",
+    "author": "Georgia Tech",
+    "publishedAt": "2026-04-24T17:08:38Z",
+    "source": "Futurity",
+    "excerpt": "Researchers find recurring security weaknesses in code produced with generative AI tools, a practical risk for coding agents and AI-assisted software workflows."
   }
 ]
