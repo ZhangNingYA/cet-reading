@@ -73,6 +73,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   const ownedRequests = new Set<AnalysisRequest>();
   const feedback = new Map<string, string>();
   const prefetchedSections = new Set<string>();
+  const prefetchPromises = new Map<string, Promise<void>>();
   const renderedSentences = new Map<string, Selection>();
   let selected: Selection | null = null;
   let lastSelection: Selection | null = null;
@@ -336,22 +337,30 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   }
 
   async function prefetchCachedAnalyses(section: StudySection) {
+    const running = prefetchPromises.get(section.id);
+    if (running) return running;
     if (prefetchedSections.has(section.id)) return;
     prefetchedSections.add(section.id);
-    try {
-      const response = await jsonRequest(`${options.analysisPath || `/api/papers/${encodeURIComponent(paper.id)}/analyses`}?mode=intensive&section=${encodeURIComponent(section.id)}`, 'GET', controller.signal);
-      if (controller.signal.aborted || !Array.isArray(response.analyses)) return;
-      for (const entry of response.analyses) {
-        const sentence = paper.sentences.find(item => item.id === entry.sentenceId && item.sectionId === section.id && item.source === entry.source);
-        if (!sentence || !entry.result?.tokens || !entry.result?.grammar) continue;
-        const key = cacheKey(sentence);
-        // A delayed prefetch must not replace a newly generated result.
-        if (!completed.has(key) && !requests.has(key)) completed.set(key, entry.result);
+    const promise = (async () => {
+      try {
+        const response = await jsonRequest(`${options.analysisPath || `/api/papers/${encodeURIComponent(paper.id)}/analyses`}?mode=intensive&section=${encodeURIComponent(section.id)}`, 'GET', controller.signal);
+        if (controller.signal.aborted || !Array.isArray(response.analyses)) return;
+        for (const entry of response.analyses) {
+          const sentence = paper.sentences.find(item => item.id === entry.sentenceId && item.sectionId === section.id && item.source === entry.source);
+          if (!sentence || !entry.result?.tokens || !entry.result?.grammar) continue;
+          const key = cacheKey(sentence);
+          // A delayed prefetch must not replace a newly generated result.
+          if (!completed.has(key) && !requests.has(key)) completed.set(key, entry.result);
+        }
+      } catch {
+        // Prefetch only reads saved results. A click still works when it fails.
+        prefetchedSections.delete(section.id);
+      } finally {
+        prefetchPromises.delete(section.id);
       }
-    } catch {
-      // Prefetch only reads saved results. A click still works when it fails.
-      prefetchedSections.delete(section.id);
-    }
+    })();
+    prefetchPromises.set(section.id, promise);
+    return promise;
   }
 
   async function jsonRequest(path: string, method: string, signal: AbortSignal) {
@@ -570,9 +579,17 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     wordDetail.hidden = true;
     wordDetail.replaceChildren();
     updateProgress();
-    const cached = completed.get(cacheKey(sentence));
     const key = cacheKey(sentence);
     let request = requests.get(key);
+    // The section cache is fetched in the background when the article opens.
+    // Waiting for that same request prevents an immediate first-sentence click
+    // from issuing a redundant POST before the browser knows the result is cached.
+    if (!regenerate && !completed.has(key) && !request) {
+      const section = paper.sections.find(item => item.id === sentence.sectionId);
+      if (section) await prefetchCachedAnalyses(section);
+    }
+    const cached = completed.get(key);
+    request = requests.get(key);
     if (cached && !regenerate && !request) { renderAnalysis(cached); return; }
     if (!request) {
       feedback.delete(sentence.id);
