@@ -18,7 +18,7 @@ function reportingPublisher(item: Evidence) {
   return !/(?:^|\.)(?:gov|edu)(?:\.[a-z]{2})?$|\.ac\.[a-z]{2}$/.test(host) && !['eurekalert.org','www.eurekalert.org'].includes(host);
 }
 function agentSignal(article: Article, pick: NewsSelection['selections'][number]) {
-  return /(?:\b(?:agentic|ai\s+agents?|autonomous\s+agents?|browser\s+agents?|coding\s+agents?|multi-agent|tool\s+use|function\s+calling|prompt\s+injection|memory\s+poisoning|agent\s+orchestration)\b|智能体|多智能体)/iu.test([article.title, pick.topic, ...pick.keywords].join(' '));
+  return /(?:\b(?:agentic|ai\s+agents?|autonomous\s+agents?|browser\s+agents?|coding\s+agents?|multi-agent|tool\s+use|function\s+calling|prompt\s+injection|memory\s+poisoning|agent\s+orchestration|ai[-\s]+generated\s+code|ai[-\s]+assisted\s+(?:coding|software)|vibe\s+coding|code\s+generation)\b|智能体|多智能体)/iu.test([article.title, pick.topic, ...pick.keywords].join(' '));
 }
 export function validateNewsPicks(selection: NewsSelection, articles: Map<string, Article>, evidence: Map<string, Evidence>, cutoff: Date, recentEvents: Set<string>, slotRole: NewsSlotRole = 'agent') {
   const chosen: { article: Article; pick: NewsSelection['selections'][number]; evidence: Evidence[] }[] = [];
