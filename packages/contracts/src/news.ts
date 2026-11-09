@@ -5,7 +5,7 @@ export const NEWS_TIMEZONE = 'Asia/Shanghai';
 export const NEWS_ARTICLES_PER_SLOT = 1;
 // Bump when the candidate policy or history pool changes and an unfinished
 // previous-day batch should receive one bounded supplement pass.
-export const NEWS_RULE_VERSION = 'agent-topics-v2';
+export const NEWS_RULE_VERSION = 'agent-topics-v3';
 export const NEWS_CATEGORIES = ['agent_current', 'agent_history', 'general_realtime'] as const;
 export const NEWS_SLOT_ROLES = ['agent', 'general_realtime'] as const;
 export type NewsCategory = typeof NEWS_CATEGORIES[number];
