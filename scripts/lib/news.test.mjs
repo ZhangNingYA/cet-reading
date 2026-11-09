@@ -54,6 +54,14 @@ test('slot roles enforce Agent and general realtime categories',()=>{
   assert.equal(validate([{...pick,category:'agent_history',kind:'curated',eventAt:null,evidenceIds:[]}],new Map([['c1',{...article,historical:true}]]),new Map(),new Set(),'agent').chosen.length,1);
   assert.equal(validate([{...pick,category:'agent_history',kind:'curated',eventAt:null,evidenceIds:[]}],undefined,new Map(),new Set(),'agent').chosen.length,0);
 });
+test('agent slots accept established assistant, bot and collective-intelligence topics',()=>{
+  const historicalArticle={...article,title:'Social media policies are no match for AI bots',historical:true,paragraphs:['Research finds that harmful AI bots can operate across social media platforms.']};
+  const historicalPick={...pick,category:'agent_history',kind:'curated',eventAt:null,evidenceIds:[],topic:'社交平台 AI 机器人安全',keywords:['AI bots','social media bots','platform safety']};
+  assert.equal(validate([historicalPick],new Map([['c1',historicalArticle]]),new Map(),new Set(),'agent').chosen.length,1);
+  const swarmArticle={...article,title:'How flocking birds can help make AI better',historical:true,paragraphs:['Collective intelligence and multi-agent coordination can improve AI systems.']};
+  const swarmPick={...historicalPick,candidateId:'c2',topic:'群体智能与多智能体协作',keywords:['collective intelligence','multi-agent systems','swarm intelligence']};
+  assert.equal(validate([swarmPick],new Map([['c2',swarmArticle]]),new Map(),new Set(),'agent').chosen.length,1);
+});
 test('related NASA sites and Future science publications cannot supply two independent proofs',()=>{
   for (const urls of [['https://www.nasa.gov','https://science.nasa.gov'],['https://www.space.com','https://www.livescience.com']]) {
     const proofs=new Map([...evidence].map(([id,item],i)=>[id,{...item,publisherUrl:urls[i]}]));

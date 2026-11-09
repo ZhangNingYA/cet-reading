@@ -25,5 +25,32 @@
     "publishedAt": "2026-04-24T17:08:38Z",
     "source": "Futurity",
     "excerpt": "Researchers find recurring security weaknesses in code produced with generative AI tools, a practical risk for coding agents and AI-assisted software workflows."
+  },
+  {
+    "id": "agent-history-futurity-ai-bots-2024",
+    "title": "Social media policies are no match for AI bots",
+    "url": "https://www.futurity.org/social-media-ai-bots-3253512-2/",
+    "author": "Brandi Wampler-Notre Dame",
+    "publishedAt": "2024-10-15T17:44:13Z",
+    "source": "Futurity",
+    "excerpt": "Research finds that social media platforms are not doing enough to stop harmful AI bots, a foundational case for studying autonomous accounts and platform safety."
+  },
+  {
+    "id": "agent-history-futurity-flocking-ai-2026",
+    "title": "How flocking birds can help make AI better",
+    "url": "https://www.futurity.org/flocking-birds-ai-3326972/",
+    "author": "James Devitt-NYU",
+    "publishedAt": "2026-03-27T17:54:27Z",
+    "source": "Futurity",
+    "excerpt": "New research draws from flocking bird patterns to help AI produce more reliable outputs, connecting collective intelligence with multi-agent coordination."
+  },
+  {
+    "id": "agent-history-futurity-ai-chatbots-2026",
+    "title": "Simple tweak could cut AI chatbots' reinforcement of false beliefs",
+    "url": "https://www.futurity.org/ai-chatbots-delusion-reinforcement-3349302/",
+    "author": "Georgia Tech",
+    "publishedAt": "2026-10-21T18:10:28Z",
+    "source": "Futurity",
+    "excerpt": "Research examines how agreeable AI chatbots can reinforce false beliefs, a useful safety case for assistants that interact with people."
   }
 ]

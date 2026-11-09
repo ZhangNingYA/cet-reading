@@ -4,7 +4,7 @@ News 使用独立文章表和独立采集进程。试卷、做题记录及已有
 
 前端按采集日期归档（例如 `26/10/9`），日期下面固定显示 08:00、11:00、14:00、17:00 四组，每组目标一篇；尚未到点显示「待更新」。文章的真实发布日期单独保留。
 
-北京时间（Asia/Shanghai）每日 08:00、11:00、14:00、17:00，每个时间段目标 1 篇。08:00、11:00、14:00 只选 AI Agent 相关文章，优先近七天的 `Agent 最新`，没有合格近期文章时从经过许可核验的历史池选择 `历史推荐`；17:00 只选与 Agent 无关、通过时效和独立媒体证据核验的 `实时要闻`，不使用历史文章凑数。每篇文章保存可搜索的 3–8 个 `keywords`，列表和详情展示分类及关键词。候选来源为 360info、Global Voices、EFF、Futurity、SciDev.Net、NASA 的官方 RSS，以及 `data/news/agent-history.json` 中经过人工许可核验的历史候选。AI 通过服务器提供的 `read_article` 和 `search_news` 工具读取真实正文、搜索 Google News RSS 的媒体报道，再按难度、分类和事件证据选取。没有合格来源时保留审计原因，不用旧闻或模型创作凑数；列表不向读者展示内部缺额提示。
+北京时间（Asia/Shanghai）每日 08:00、11:00、14:00、17:00，每个时间段目标 1 篇。08:00、11:00、14:00 优先选择近七天的 `Agent 最新`，主题覆盖 Agent、AI 助手、Copilot、聊天/软件机器人、工具调用、浏览器或编码 Agent、工作流自动化、群体智能和 Agent 安全；没有合格近期文章时从经过许可核验的经典研究和长期安全案例池选择 `历史推荐`。17:00 只选与 Agent 无关、通过时效和独立媒体证据核验的 `实时要闻`，不使用历史文章凑数。每篇文章保存可搜索的 3–8 个 `keywords`，列表和详情展示分类及关键词。候选来源为 360info、Global Voices、EFF、Futurity、SciDev.Net、NASA 的官方 RSS，以及 `data/news/agent-history.json` 中经过人工许可核验的历史候选。AI 通过服务器提供的 `read_article` 和 `search_news` 工具读取真实正文、搜索 Google News RSS 的媒体报道，再按难度、分类和事件证据选取。没有合格来源时保留审计原因，不用旧闻或模型创作凑数；列表不向读者展示内部缺额提示。
 
 每次读取来源政策并核验原站正文，跳过特殊限制及授权不明的转载稿。360info、Global Voices、EFF 使用政策中的 CC BY 链接；Futurity 同时核验 [转载政策](https://www.futurity.org/about/#republishing)及每篇原站的 Attribution 4.0 International 声明；SciDev.Net 使用 [CC BY 2.0 转载政策](https://www.scidev.net/global/content/media.html)，其 RSS 仅含摘要时，读取原站完整正文。NASA 单独使用 [教育/信息用途许可](https://www.nasa.gov/nasa-brand-center/images-and-media/)，明确标为 `NASA educational use`，不伪标 CC BY；仅从 www.nasa.gov、science.nasa.gov 官方正文提取文字，跳过第三方限制，不复制图片、标志或暗示 NASA 背书。
 

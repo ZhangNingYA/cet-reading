@@ -18,7 +18,12 @@ function reportingPublisher(item: Evidence) {
   return !/(?:^|\.)(?:gov|edu)(?:\.[a-z]{2})?$|\.ac\.[a-z]{2}$/.test(host) && !['eurekalert.org','www.eurekalert.org'].includes(host);
 }
 function agentSignal(article: Article, pick: NewsSelection['selections'][number]) {
-  return /(?:\b(?:agentic|ai\s+agents?|autonomous\s+agents?|browser\s+agents?|coding\s+agents?|multi-agent|tool\s+use|function\s+calling|prompt\s+injection|memory\s+poisoning|agent\s+orchestration|ai[-\s]+generated\s+code|ai[-\s]+assisted\s+(?:coding|software)|vibe\s+coding|code\s+generation)\b|智能体|多智能体)/iu.test([article.title, pick.topic, ...pick.keywords].join(' '));
+  // Agent coverage includes the established adjacent vocabulary used by
+  // research and product reporting. Check the verified body as well as the
+  // model's metadata so a useful article does not need the literal word
+  // "agent" in its headline.
+  const text = [article.title, pick.topic, ...pick.keywords, ...article.paragraphs.slice(0, 8)].join(' ');
+  return /(?:\b(?:agentic|ai\s+agents?|autonomous\s+(?:agents?|systems?)|browser\s+agents?|coding\s+agents?|multi-agent|tool[-\s]+using|tool\s+use|function\s+calling|prompt\s+injection|memory\s+poisoning|agent\s+orchestration|model\s+context\s+protocol|computer[-\s]+use|browser\s+automation|web\s+automation|ai[-\s]+powered\s+(?:assistants?|copilots?|bots?)|ai\s+assistants?|copilots?|(?:ai\s+)?chatbots?|(?:social\s+media|software|research|security)\s+bots?|swarm\s+intelligence|collective\s+intelligence|ai[-\s]+generated\s+code|ai[-\s]+assisted\s+(?:coding|software)|vibe\s+coding|code\s+generation|workflow\s+automation)\b|\bMCP\b|智能体|多智能体|群体智能)/iu.test(text);
 }
 export function validateNewsPicks(selection: NewsSelection, articles: Map<string, Article>, evidence: Map<string, Evidence>, cutoff: Date, recentEvents: Set<string>, slotRole: NewsSlotRole = 'agent') {
   const chosen: { article: Article; pick: NewsSelection['selections'][number]; evidence: Evidence[] }[] = [];
