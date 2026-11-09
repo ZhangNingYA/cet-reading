@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { Pool } from 'pg';
 import { readConfig } from '@cet-reading/contracts/config';
-import { NEWS_ARTICLES_PER_SLOT, NEWS_HOURS, newsDay, newsSlot, nextNewsSlot, newsSlotRole, readNewsConfig, splitNewsParagraph } from '@cet-reading/contracts/news';
+import { NEWS_ARTICLES_PER_SLOT, NEWS_HOURS, NEWS_RULE_VERSION, newsDay, newsSlot, nextNewsSlot, newsSlotRole, readNewsConfig, splitNewsParagraph } from '@cet-reading/contracts/news';
 import { loadCandidates, loadHistoryCandidates, digest } from './news-sources.js';
 import { selectNews, validateNewsPicks } from './news-selector.js';
 
@@ -56,8 +56,8 @@ async function runBatch(slot: Date, supplement = false) {
           }
         }
       }
-      const previous = claimed.rows[0].audit_json;
-      const audit = { model:news.model, cutoff:slot.toISOString(), candidateCount:fresh.length, failures, selection:result.selection, rejected:checked.rejected, tools:result.audit };
+      const previous = claimed.rows[0].audit_json || {};
+      const audit = { rulesVersion:NEWS_RULE_VERSION, model:news.model, cutoff:slot.toISOString(), candidateCount:fresh.length, failures, selection:result.selection, rejected:checked.rejected, tools:result.audit };
       await client.query(`UPDATE news_batches SET status=$2,finished_at=NOW(),reason=$3,audit_json=$4 WHERE scheduled_at=$1`, [slot,total>=NEWS_ARTICLES_PER_SLOT?'complete':'partial',total>=NEWS_ARTICLES_PER_SLOT?'':reasons.join('\n'),JSON.stringify({ ...audit, ...(supplement?{ priorRuns:[...(previous.priorRuns||[]),Object.fromEntries(Object.entries(previous).filter(([key])=>key!=='priorRuns'))] }: {}) })]);
       await client.query('COMMIT');
       console.log(JSON.stringify({ batch:slot.toISOString(), count:total, added:chosen.length, titles:chosen.map(item=>item.article.title), reason:total>=NEWS_ARTICLES_PER_SLOT?'':reasons.join('\n') }));
@@ -68,6 +68,22 @@ async function runBatch(slot: Date, supplement = false) {
       throw error;
     }
   } finally { await client.query('SELECT pg_advisory_unlock(814172026)').catch(()=>{}); client.release(); }
+}
+
+async function supplementPreviousDay() {
+  const todayStart = newsSlot(newsDay(new Date()), 8);
+  const previousDay = newsDay(new Date(todayStart.getTime() - 86400000));
+  const previousStart = newsSlot(previousDay, 8);
+  const result = await pool.query(`SELECT scheduled_at,audit_json FROM news_batches
+    WHERE status='partial' AND scheduled_at >= $1 AND scheduled_at < $2 ORDER BY scheduled_at`, [previousStart, todayStart]);
+  for (const row of result.rows) {
+    if (row.audit_json?.rulesVersion === NEWS_RULE_VERSION) continue;
+    try {
+      await runBatch(new Date(row.scheduled_at), true);
+    } catch (error) {
+      console.error(`Previous-day News supplement failed for ${new Date(row.scheduled_at).toISOString()}:`, error instanceof Error ? error.message : error);
+    }
+  }
 }
 
 const args = process.argv.slice(2);
@@ -84,6 +100,7 @@ if (args[0] === '--slot') {
   const stop = () => { stopping=true; if (wake) clearTimeout(wake); releaseWait?.(); };
   process.once('SIGTERM',stop); process.once('SIGINT',stop);
   try {
+    await supplementPreviousDay();
     while (!stopping) {
       const now = new Date();
       const batches = await pool.query(`SELECT scheduled_at,status,attempts,finished_at FROM news_batches WHERE scheduled_at >= $1`,[newsSlot(newsDay(now),8)]);
