@@ -170,6 +170,7 @@ database_psql < db/migrations/033_approval_deadlines_scores.sql
 database_psql < db/migrations/034_approval_integrity.sql
 database_psql < db/migrations/035_news_agent_categories.sql
 database_psql < db/migrations/036_analysis_reasoning_effort.sql
+database_psql < db/migrations/037_agent_learning.sql
 database_psql <<'SQL'
 DELETE FROM analysis_jobs job
 USING sentences sentence
@@ -202,7 +203,10 @@ UPDATE analysis_jobs SET status='pending', lease_expires_at=NULL,
   next_attempt_at=NOW(), updated_at=NOW() WHERE status='running';
 SQL
   fi
-  if (( migrate )); then migrate_database; fi
+  if (( migrate )); then
+    migrate_database
+    compose run --rm --no-deps news node apps/worker/dist/news-service.js --initialize
+  fi
   read -r -a services <<< "$start_services"
   if (( ${#services[@]} )); then
     compose up -d --no-build --pull never --no-deps --wait --wait-timeout 120 "${services[@]}"

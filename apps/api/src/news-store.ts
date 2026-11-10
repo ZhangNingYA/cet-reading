@@ -18,7 +18,7 @@ export async function listNews(before?: string) {
     WHERE n.status='published'
     WINDOW w AS (PARTITION BY s.article_id ORDER BY s.paragraph_index,s.sentence_index)
   )
-  SELECT n.id,n.batch_at,n.selection_kind,n.category,n.keywords,n.title,n.source_name,n.published_at,n.word_count,n.difficulty,n.topic,
+  SELECT n.id,n.batch_at,n.selection_kind,n.category,n.keywords,n.title,n.source_name,n.published_at,n.word_count,n.difficulty,n.topic,n.learning_order,n.learning_stage,n.learning_role,n.learning_objective,n.lesson_title,
     COUNT(DISTINCT o.id)::int AS analysis_total,
     COUNT(DISTINCT a.sentence_id)::int AS analysis_cached,
     COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND
@@ -35,12 +35,12 @@ export async function listNews(before?: string) {
       AND j.status IN ('pending','running','failed')
     WHERE n.status='published' AND n.batch_at=ANY($1::timestamptz[])
     GROUP BY n.id
-    ORDER BY n.batch_at DESC,n.selection_kind,n.published_at DESC`,
+    ORDER BY n.batch_at DESC,n.learning_order ASC NULLS LAST,n.published_at DESC`,
     [visible.map(row=>row.scheduled_at),config.promptVersion,config.model,config.mode]);
-  return { articles:result.rows, batches:visible.map(row=>({ ...row, reason:row.status==='failed'?'采集暂时失败，任务会按规则重试。':row.reason })), nextCursor:batches.rows.length>30?visible.at(-1).scheduled_at:null, schedule:{ timezone:'Asia/Shanghai', hours:[8,11,14,17] } };
+  return { articles:result.rows, batches:visible.map(row=>({ ...row, reason:row.status==='failed'?'采集暂时失败，任务会按规则重试。':row.reason })), nextCursor:batches.rows.length>30?visible.at(-1).scheduled_at:null, schedule:{ timezone:'Asia/Shanghai', hours:[8],articlesPerDay:2 } };
 }
 export async function getNews(id: string) {
-  const result = await pool.query(`SELECT id,title,author,source_name,source_url,published_at,batch_at,license_name,license_url,word_count,difficulty,difficulty_reason,topic,keywords,category,selection_kind,selection_reason,hotness_json AS evidence, paragraphs_json AS paragraphs
+  const result = await pool.query(`SELECT id,title,author,source_name,source_url,published_at,batch_at,license_name,license_url,word_count,difficulty,difficulty_reason,topic,keywords,category,selection_kind,selection_reason,hotness_json AS evidence, paragraphs_json AS paragraphs, learning_order,learning_stage,learning_role,lesson_title,learning_objective,learning_exercise,prerequisites,blocks_json,source_revision,license_text
     FROM news_articles WHERE id=$1 AND status='published'`,[id]);
   const article = result.rows[0]; if (!article) return null;
   const progress = await pool.query(`WITH ordered AS (
@@ -70,6 +70,7 @@ export async function getNews(id: string) {
     [id,config.promptVersion,config.model,config.mode]);
   const sentences = await pool.query(`SELECT id,paragraph_index AS "paragraphIndex",sentence_index AS "sentenceIndex",source_text AS source,article_id || '-body' AS "sectionId"
     FROM sentences WHERE article_id=$1 ORDER BY paragraph_index,sentence_index`,[id]);
-  const { paragraphs, ...metadata } = article;
-  return { ...metadata, ...(progress.rows[0] ?? { analysis_total:0,analysis_cached:0,analysis_pending:0,analysis_running:0,analysis_failed:0 }), content_kind:'news', exam_level:'NEWS', sections:[{ id:`${id}-body`, title:article.title,kind:'reading',paragraphs,questions:[] }], sentences:sentences.rows };
+  const { paragraphs, blocks_json, ...metadata } = article;
+  const blocks = (blocks_json || []).map((b: any) => b.type === 'image' ? { ...b, src: b.src ? `/api/news/${encodeURIComponent(id)}/assets/${encodeURIComponent(b.id)}` : undefined } : b);
+  return { ...metadata, ...(progress.rows[0] ?? { analysis_total:0,analysis_cached:0,analysis_pending:0,analysis_running:0,analysis_failed:0 }), content_kind:'news', exam_level:'NEWS', sections:[{ id:`${id}-body`, title:article.title,kind:'reading',paragraphs,blocks,questions:[] }], sentences:sentences.rows };
 }

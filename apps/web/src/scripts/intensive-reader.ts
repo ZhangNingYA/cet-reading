@@ -1,3 +1,5 @@
+import type { LearningBlock } from '@cet-reading/contracts/learning';
+import { renderLearningBlock } from './learning-blocks';
 import { hasWordTokens, tokenize } from '@cet-reading/contracts/tokens';
 import type { QuestionAnalysis, SentenceAnalysis } from '@cet-reading/contracts';
 import { createSectionNavigation } from './section-navigation';
@@ -22,6 +24,7 @@ type StudySection = {
   kind: string;
   instructions?: string;
   paragraphs: string[];
+  blocks?: LearningBlock[];
   questions: { id: string; prompt: string; options: { key: string; text: string }[] }[];
   reference?: SectionReference;
   images?: { src: string; alt: string }[];
@@ -30,6 +33,7 @@ type StudyPaper = {
   id: string;
   content_kind: string;
   exam_level: string;
+  source_url?: string;
   sections: StudySection[];
   sentences: StudySentence[];
 };
@@ -67,6 +71,8 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   hideNavigation?: boolean;
   initialSectionId?: string;
   initialSentenceId?: string;
+  initialBlockId?: string;
+  onBlockChange?: (blockId: string) => void;
   onPositionChange?: (sectionId: string, sentenceId?: string) => void;
 } = {}) {
   const controller = new AbortController();
@@ -832,6 +838,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       block.append(instructions);
     }
     if (section.kind === 'writing' && paper.content_kind !== 'imported') block.append(element('p', 'passage-paragraph', section.questions[0]?.prompt ?? ''));
+    if (!section.blocks?.length) {
     if (!sentences.length) {
       for (const text of section.paragraphs) block.append(element('p', 'passage-paragraph', text));
     }
@@ -861,6 +868,15 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       paragraph.append(renderSentence(sentence, underlined.map(range => ({ start: range.start - paragraphOffset, end: range.end - paragraphOffset }))));
       paragraphOffset += sentence.source.length + 1;
     }
+    } else {
+      for (const item of section.blocks) block.append(renderLearningBlock(item, apiBase, paper.source_url || '', index => {
+        const p = element('p', 'passage-paragraph'); p.lang = 'en';
+        const entries = sentences.filter(sentence => sentence.paragraphIndex === index);
+        if (!entries.length) p.textContent = section.paragraphs[index] || '';
+        for (const [i, sentence] of entries.entries()) { if (i) p.append(document.createTextNode(' ')); p.append(renderSentence(sentence, [])); }
+        return p;
+      }));
+    }
     appendSectionImages(block, section);
     renderStudyQuestions(section, block);
     if (['reading', 'matching', 'cloze', 'translation'].includes(section.kind) && section.paragraphs.some(text => text.trim())) {
@@ -871,6 +887,9 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       disposeChat = chat.dispose;
     }
     documentColumn.replaceChildren(block);
+    if (isInitialSection && options.initialBlockId && !options.initialSentenceId) requestAnimationFrame(() => {
+      if (!controller.signal.aborted) documentColumn.querySelector(`[data-learning-block="${CSS.escape(options.initialBlockId!)}"]`)?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    });
     if (sentences.length) {
       void prefetchCachedAnalyses(section);
       if (isInitialSection && options.initialSectionId === section.id && options.initialSentenceId) {
@@ -898,7 +917,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       scrollFrame = 0;
       let total = 0;
       let visible = 0;
-      for (const paragraph of documentColumn.querySelectorAll<HTMLElement>('.passage-paragraph, .passage-section > .section-image')) {
+      for (const paragraph of documentColumn.querySelectorAll<HTMLElement>('.passage-paragraph, .passage-section > .section-image, .learning-code, .learning-image, .learning-table-wrap')) {
         const bounds = paragraph.getBoundingClientRect();
         total += bounds.height;
         visible += Math.min(bounds.height, Math.max(0, window.innerHeight - bounds.top));
@@ -910,7 +929,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     if (panelOpen || restoringPosition) return;
     clearTimeout(positionTimer);
     positionTimer = setTimeout(() => {
-      const source = [...documentColumn.querySelectorAll<HTMLElement>('.passage-paragraph .source-sentence')].find(node => {
+      const visibleBlock = [...documentColumn.querySelectorAll<HTMLElement>('[data-learning-block]')].find(node => { const r=node.getBoundingClientRect(); return r.bottom>100 && r.top<window.innerHeight; });
+      if (visibleBlock?.dataset.learningBlock) options.onBlockChange?.(visibleBlock.dataset.learningBlock);
+      const sentenceScope = visibleBlock || documentColumn;
+      const source = [...sentenceScope.querySelectorAll<HTMLElement>('.source-sentence')].find(node => {
         const bounds = node.getBoundingClientRect();
         return bounds.bottom > 100 && bounds.top < window.innerHeight;
       });

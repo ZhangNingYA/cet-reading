@@ -41,7 +41,7 @@ await Promise.all(sectionPaths.map(async (path) => {
   const response = await fetchWithRetry(path);
   const html = await response.text();
   if (path === '/news/') {
-    if (!html.includes('id="news-list"') || !html.includes('id="news-reader"')) throw new Error('News must serve its own article list and reader');
+    if (!html.includes('id="learning-view"') || !html.includes('id="news-reader"')) throw new Error('News must serve its own article list and reader');
     return;
   }
   if (!html.includes('id="library-title"') || !html.includes('id="papers"') || html.includes('class="home-section container"')) {
@@ -52,6 +52,13 @@ const newsResponse = await fetchWithRetry('/api/news');
 const news = await newsResponse.json();
 if (!Array.isArray(news.articles) || !Array.isArray(news.batches) || news.schedule?.timezone !== 'Asia/Shanghai') throw new Error('Unexpected News API payload');
 if (news.articles.some(article => !article.category || !Array.isArray(article.keywords))) throw new Error('News articles must expose category and keywords');
+const learning = await (await fetchWithRetry('/api/learning/library')).json();
+if (!Array.isArray(learning.articles) || learning.articles.length < 2 || learning.schedule?.count !== 2 || learning.schedule?.hour !== 8 || learning.stages?.length !== 6) throw new Error('Agent learning library is not initialized');
+if (new Set(learning.articles.map(a => a.learning_order)).size !== learning.articles.length) throw new Error('Duplicate learning order');
+for (const article of learning.articles.slice(0,2)) {
+  const detail = await (await fetchWithRetry(`/api/news/${article.id}`)).json();
+  if (!detail.sections?.[0]?.blocks?.length || !detail.license_text?.includes('MIT License') || !detail.learning_objective) throw new Error('Learning article is incomplete');
+}
 const papersResponse = await fetchWithRetry('/api/papers');
 const papers = await papersResponse.json();
 if (!Array.isArray(papers.papers)) {

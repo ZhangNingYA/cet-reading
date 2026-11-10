@@ -1,51 +1,43 @@
-# News 采集与阅读
+# Agent 开发学习
 
-News 使用独立文章表和独立采集进程。试卷、做题记录及已有精读缓存保留原有 ID、数据和调用方式。
+`/news/` 现为 Agent 开发学习栏目。每天北京时间 08:00 发布两篇完整官方技术材料，按课次安排原理和实践；学习者默认会基本 Python/JavaScript。六阶段依次为最小 Agent、工具与可靠性、上下文与知识、评估与调试、编排与扩展、部署与维护。
 
-前端按采集日期归档（例如 `26/10/9`），日期下面固定显示 08:00、11:00、14:00、17:00 四组，每组目标一篇；尚未到点显示「待更新」。文章的真实发布日期单独保留。
+## 来源与内容
 
-北京时间（Asia/Shanghai）每日 08:00、11:00、14:00、17:00，每个时间段目标 1 篇。08:00、11:00、14:00 优先选择近七天的 `Agent 最新`，主题覆盖 Agent、AI 助手、Copilot、聊天/软件机器人、工具调用、浏览器或编码 Agent、工作流自动化、群体智能和 Agent 安全；没有合格近期文章时从经过许可核验的经典研究和长期安全案例池选择 `历史推荐`。17:00 只选与 Agent 无关、通过时效和独立媒体证据核验的 `实时要闻`，不使用历史文章凑数。每篇文章保存可搜索的 3–8 个 `keywords`，列表和详情展示分类及关键词。候选来源为 360info、Global Voices、EFF、Futurity、SciDev.Net、NASA 的官方 RSS，以及 `data/news/agent-history.json` 中经过人工许可核验的历史候选。AI 通过服务器提供的 `read_article` 和 `search_news` 工具读取真实正文、搜索 Google News RSS 的媒体报道，再按难度、分类和事件证据选取。没有合格来源时保留审计原因，不用旧闻或模型创作凑数；列表不向读者展示内部缺额提示。
+首批 24 篇的课程安排在 `data/news/learning-catalog.json`。来源为 OpenAI Cookbook 和 Anthropic Claude Cookbooks 的官方仓库，其 MIT 许可涵盖相关文档。保留完整许可声明、来源地址、源文件提交和采集时间。`published_at` 对技术材料表示源文件版本时间，界面明确标为原文版本，不冒充初次发表时间。
 
-每次读取来源政策并核验原站正文，跳过特殊限制及授权不明的转载稿。360info、Global Voices、EFF 使用政策中的 CC BY 链接；Futurity 同时核验 [转载政策](https://www.futurity.org/about/#republishing)及每篇原站的 Attribution 4.0 International 声明；SciDev.Net 使用 [CC BY 2.0 转载政策](https://www.scidev.net/global/content/media.html)，其 RSS 仅含摘要时，读取原站完整正文。NASA 单独使用 [教育/信息用途许可](https://www.nasa.gov/nasa-brand-center/images-and-media/)，明确标为 `NASA educational use`，不伪标 CC BY；仅从 www.nasa.gov、science.nasa.gov 官方正文提取文字，跳过第三方限制，不复制图片、标志或暗示 NASA 背书。
+采集读取固定提交的 Markdown/Notebook，保留原文说明、代码、运行结果、列表、表格与图片。仅英文说明段落进入逐句精读；代码不会被当成自然语言切句。长运行输出在阅读页折叠展示；问答保留全部说明和代码，运行日志超过预算时明确标注节选，模型不得推测未提供的日志。本站中文学习目标与练习单独展示。旧模型/API 示例保留原样，提醒阅读者核对当前文档，文章问答不能声称未执行的代码已经验证。
 
-保留标题、署名、来源、原文与许可链接。正文保留文字（普通链接转为文字），不引入图片和视频。精读是用户点击后的独立 AI 辅助说明，并非来源提供的译文。Global Voices 的作者、原文链接署名置于正文前。
+文内官方仓库图片固定到相同提交；外部图片仅提供原文参考，不推定其许可。图片通过受限代理按需获取、限制大小与像素、转为 WebP 后缓存，避免加载外部追踪资源，支持放大和失败替代入口。
 
-热点优先 24 小时，最大 48 小时，实际事件/新进展也必须在前 48 小时，热度依据至少两家不同媒体的同事件报道，证据真实 ID/URL/时间留档。NASA 公告、大学及 EurekAlert 新闻稿只作事实参考，不计入独立媒体数量；Space.com/Live Science 等已知同集团网站合并计数。AI 判断相关性及难度，服务器验证时间、来源、完整正文读取、证据 ID、配额及重复内容；这些规则无法完全代替人工编辑，可检查批次审计。
+每天增量扫描两个官方仓库，候选身份以仓库和路径唯一记录。基础课按预先审核顺序推进，固定 24 篇之后由技术选文提示词评估尚未使用的完整候选，继续第六阶段进阶实践；需要重新组织基础阶段时发布新的课程版本，不悄悄重排已发布课次。提示词在 `packages/contracts/src/learning.ts`，旧 `NEWS_SELECTOR_PROMPT` 导出也指向它。
 
-## 操作
+## 运行与恢复
 
-服务器 `.env` 使用现有 `AI_API_URL`、`AI_API_KEY`，`NEWS_MODEL` 为空时沿用 `AI_MODEL`。句子分析模型不受 News 配置影响。新增：
+仍使用独立 `news` 服务，`NEWS_ENABLED=true` 开启每天调度；`NEWS_MODEL` 为空时沿用 `AI_MODEL`。核心课程使用已审核教学安排，新增自动候选使用配置的 AI 做有原文块证据的评审。AI 不生成替代正文；采集不预生成精读。
 
-```dotenv
-NEWS_ENABLED=true
-NEWS_MODEL=
-NEWS_MAX_ROUNDS=10
-```
-
-首次补跑使用服务器命令，不开放公网采集接口：
+- `learning_candidates` 保存发现、审核、失败、发布状态和固定版本快照。
+- `learning_runs` 保存每次运行的日期、起止时间、课程位置与错误。
+- `learning_state.next_order` 保存下一篇课次；文章、批次完成状态和位置在同一事务提交。
+- 每日批次最多两篇；进程互斥锁、地址/正文/课次唯一约束防重复。失败不跳课、保留已准备好的候选，每日最多三次自动尝试，间隔至少两分钟。
+- 服务恢复后处理当天已到期的批次，不自动补发过去数天造成大量积压；课程位置始终顺序推进。
+- 无合格后续材料时记录原因，等待人工核验或新的候选，不降低技术质量凑数。
 
 ```sh
-docker compose run --rm --no-deps news node apps/worker/dist/news-service.js --slot 2026-10-09/8
-docker compose up -d --no-deps --force-recreate news
-docker compose logs --tail 80 news
+docker compose run --rm --no-deps news node apps/worker/dist/news-service.js --initialize
+docker compose run --rm --no-deps news node apps/worker/dist/news-service.js --run-once
 ```
 
-`--slot YYYY-MM-DD/8`（也支持 11/14/17）按该时间点前已发表的候选补跑，真实生成时间单独保留。同一批次完成/不足后不会重复生成，失败最多重试 3 次。数据库 advisory lock 防止多个实例同时选取；事务同时保存文章、切句及批次结果。文章 URL/正文哈希去重，近 180 篇事件去重；保留快照，不自动覆写已缓存的原文。News 分类迁移会将旧文章标记为 `legacy`；本次初始化迁移只执行一次，避免后续部署重复清空数据。
+初始化由部署调用：先验证已随发布保存的首批两篇真实来源快照，再在事务中把旧 News 文章、批次、句子、精读缓存/任务/请求轨迹、优先级和旧阅读位置备份到 `learning_legacy_archive`，清理旧数据，写入首批新课。初始化标记保证再次部署不重复清理。试卷数据不在范围内。旧新闻采集器和历史池不再被调度。归档不是公开 API，可由运维数据库备份保管。
 
-人工复核不足批次后，可在同一命令后追加 `--supplement` 重新检索缺少的类别；只新增缺额，保留已发表原文、ID、缓存及此前审计。服务重启或新历史候选部署后会对当天不足批次自动补选一次，避免新增合规候选后仍长期空缺；仍不会无限重复调用模型。自动失败最多尝试 3 次；服务器端显式人工补齐允许再次执行，不因以前的自动次数永久封锁缺额，完成的批次仍不可重复执行。
+## 阅读进度
 
-启用后每 15 秒检查北京时间当日到点批次；服务重启会补跑当日漏过的时段。候选规则或历史池版本更新后，服务启动时会对上一上海自然日的未完成批次各补选一次，并用规则版本记录，避免无限重复。不补跑更早日期，历史补跑仍需显式命令。失败重试间隔 2 分钟，单次 AI 选择上限 12 分钟；网络读取限制时间、大小和来源域名。采集进程与精读 Worker 分离，避免占用分析任务队列。
+学习栏目使用独立档案，服务器生成并由浏览器保管的凭证对应数据库中散列存储的 token；不会复用旧栏目全站共享的一条阅读记录。每篇分别保存阅读位置、已读/待复习、练习和笔记。阅读位置自动保存，已读与练习须明确确认，不把发布、滚动或打开文章当作完成。
 
-## 数据与接口
+同步码拥有该档案的读写权限，只有用户主动复制；不会出现在地址或公共列表。另一设备输入同步码可恢复同一档案。更新带 revision 做并发检查，冲突时展示两份记录，由读者选择保留哪一份，未选择前不覆盖另一设备的记录。断网修改暂存本机并在恢复连接时重试。
 
-- `news_batches`：时段、状态、重试数、原因、真实开始/完成时间、模型及工具检索审计。
-- `news_articles`：完整段落、原站/许可、日期/难度/字数/话题、事件及热点证据、选取理由、正文哈希。
-- `sentences.article_id`：与试卷句子互斥的归属，复用既有 `sentence_analyses` / `analysis_jobs` 缓存和质量校验。
-- `GET /api/news` / `?before=ISO时间`：文章摘要与批次状态分页。
-- `GET /api/news/:id`：原文、出处和对应稳定句子 ID。
-- `GET /api/news/:id/analyses?mode=intensive`：只读取已有缓存。
-- `POST /api/sentences/:id/analyze?mode=intensive`：点击后生成；`regenerate=true` 手动重新生成。
+公开接口：`GET /api/learning/library`、原有 `/api/news` 与文章详情。个人接口：`POST /api/learning/profile`，带 Bearer 凭证的 `GET /api/learning/progress`、`PUT /api/learning/progress/:id`。
 
-采集和文章打开期间不生成词义、翻译、语法或句型。News 无做题模式。
+## 页面
 
-实际选择提示词保存在 `packages/contracts/src/news.ts` 的 `NEWS_SELECTOR_PROMPT`。工具调用遵循 [OpenAI function calling 文档](https://developers.openai.com/api/docs/guides/function-calling)，当前 CPA 已验证支持 Chat Completions 的函数工具调用。
+首页显示继续学习、最近/今日两篇及当前阶段；课程路线显示六阶段与待安排课次；学习记录按学习中、已读、待复习、未开始筛选。阅读页支持目录、句下精读、代码复制、图片放大、技术问答、练习和笔记。进入下一篇前先保存完成状态。

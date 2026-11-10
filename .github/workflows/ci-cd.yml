@@ -54,7 +54,7 @@ jobs:
           const client = new pg.Client({ connectionString: 'postgres://postgres:postgres@127.0.0.1:5432/postgres' });
           await client.connect();
           try {
-            for (const suite of ['schema', 'friends', 'account', 'media']) {
+            for (const suite of ['schema', 'friends', 'account', 'media', 'learning']) {
               await client.query('CREATE DATABASE approval_' + suite + '_test_ci');
             }
           } finally { await client.end(); }
@@ -63,6 +63,10 @@ jobs:
             TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5432/approval_${suite}_test_ci" \
               node --import tsx "scripts/test-approval-${suite}.mjs"
           done
+      - name: Verify Agent learning migrations and progress
+        env:
+          TEST_DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/approval_learning_test_ci
+        run: node --import tsx scripts/test-learning-integration.mjs
       - name: Validate Compose configuration and deployment scripts
         run: |
           cp .env.example .env

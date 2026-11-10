@@ -1,0 +1,360 @@
+[
+  {
+    "key": "openai/openai-cookbook:examples/How_to_call_functions_with_chat_models.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/How_to_call_functions_with_chat_models.ipynb",
+    "order": 1,
+    "stage": 1,
+    "role": "concept",
+    "lessonTitle": "工具调用与最小执行循环",
+    "objective": "理解模型生成参数、程序执行工具、返回结果之间的职责边界。",
+    "exercise": "画出一次工具调用的四步流程，指出哪里需要校验参数、哪里决定停止。",
+    "prerequisites": [
+      "Python 函数",
+      "JSON"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:tool_use/calculator_tool.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "tool_use/calculator_tool.ipynb",
+    "order": 2,
+    "stage": 1,
+    "role": "practice",
+    "lessonTitle": "工具调用与最小执行循环",
+    "objective": "实现一个计算器工具，连接工具定义、模型选择、执行和结果返回。",
+    "exercise": "为计算器增加非法输入处理，记录一次成功和一次失败的完整调用。",
+    "prerequisites": [
+      "Python 函数",
+      "JSON"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/Structured_Outputs_Intro.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/Structured_Outputs_Intro.ipynb",
+    "order": 3,
+    "stage": 1,
+    "role": "concept",
+    "lessonTitle": "结构化输出与基础工作流",
+    "objective": "区分结构化回答和工具调用，理解 schema 对输入输出的约束。",
+    "exercise": "为技术文章摘要定义包含标题、主题和引用的 schema，并列出三个非法结果。",
+    "prerequisites": [
+      "JSON",
+      "基础模型调用"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:patterns/agents/basic_workflows.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "patterns/agents/basic_workflows.ipynb",
+    "order": 4,
+    "stage": 1,
+    "role": "practice",
+    "lessonTitle": "结构化输出与基础工作流",
+    "objective": "理解串联、路由和并行三种基础工作流，识别模型决定流程的位置。",
+    "exercise": "把一个文档问答任务分别画成串联和路由流程，写出各自的停止条件。",
+    "prerequisites": [
+      "Python 函数",
+      "模型调用"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:tool_use/tool_choice.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "tool_use/tool_choice.ipynb",
+    "order": 5,
+    "stage": 2,
+    "role": "concept",
+    "lessonTitle": "让工具选择可控",
+    "objective": "比较自动、强制和指定工具的适用场景，减少无效调用。",
+    "exercise": "准备三个不同请求，解释每个请求应采用的工具选择策略。",
+    "prerequisites": [
+      "工具调用循环"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:tool_use/tool_use_with_pydantic.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "tool_use/tool_use_with_pydantic.ipynb",
+    "order": 6,
+    "stage": 2,
+    "role": "practice",
+    "lessonTitle": "让工具选择可控",
+    "objective": "用类型和数据校验约束工具参数，让错误在执行前被发现。",
+    "exercise": "向一个工具传入缺失字段和错误类型，观察并改进报错。",
+    "prerequisites": [
+      "Python 类型",
+      "工具参数"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/reasoning_function_calls.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/reasoning_function_calls.ipynb",
+    "order": 7,
+    "stage": 2,
+    "role": "concept",
+    "lessonTitle": "多步任务与结束条件",
+    "objective": "理解推理与工具结果在多步任务中的交替关系。",
+    "exercise": "标记示例中需要继续调用和可以返回答案的两种状态。",
+    "prerequisites": [
+      "执行循环",
+      "错误处理"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:tool_use/parallel_tools.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "tool_use/parallel_tools.ipynb",
+    "order": 8,
+    "stage": 2,
+    "role": "practice",
+    "lessonTitle": "多步任务与结束条件",
+    "objective": "实现相互独立的工具并行执行，并正确关联结果与调用 ID。",
+    "exercise": "让一个并行工具失败，确认其余结果仍能被记录和解释。",
+    "prerequisites": [
+      "工具调用 ID",
+      "异步函数"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/agents_sdk/session_memory.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/agents_sdk/session_memory.ipynb",
+    "order": 9,
+    "stage": 3,
+    "role": "concept",
+    "lessonTitle": "上下文裁剪与压缩",
+    "objective": "比较保留最近轮次和摘要压缩的成本、信息损失与可调试性。",
+    "exercise": "用同一段长对话比较两种记忆策略，记录遗漏的重要约束。",
+    "prerequisites": [
+      "多轮对话",
+      "工具结果"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:tool_use/automatic-context-compaction.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "tool_use/automatic-context-compaction.ipynb",
+    "order": 10,
+    "stage": 3,
+    "role": "practice",
+    "lessonTitle": "上下文裁剪与压缩",
+    "objective": "在长任务中实施上下文压缩，保留后续执行需要的状态。",
+    "exercise": "为压缩摘要增加待办、来源和未解决问题，并检查压缩前后是否一致。",
+    "prerequisites": [
+      "上下文窗口",
+      "摘要损失"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:capabilities/retrieval_augmented_generation/guide.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "capabilities/retrieval_augmented_generation/guide.ipynb",
+    "order": 11,
+    "stage": 3,
+    "role": "concept",
+    "lessonTitle": "检索与证据",
+    "objective": "理解分块、检索和生成如何配合，以及检索失败如何影响答案。",
+    "exercise": "选三篇技术文档，比较两种分块策略下能否找到同一条依据。",
+    "prerequisites": [
+      "上下文管理",
+      "基础检索"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/How_to_call_functions_for_knowledge_retrieval.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/How_to_call_functions_for_knowledge_retrieval.ipynb",
+    "order": 12,
+    "stage": 3,
+    "role": "practice",
+    "lessonTitle": "检索与证据",
+    "objective": "把知识检索接入工具调用，让助手根据文档内容回答。",
+    "exercise": "为答案增加来源链接；找不到依据时返回明确的不确定说明。",
+    "prerequisites": [
+      "检索",
+      "工具循环"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:misc/building_evals.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "misc/building_evals.ipynb",
+    "order": 13,
+    "stage": 4,
+    "role": "concept",
+    "lessonTitle": "建立最小评测集",
+    "objective": "定义输入、预期行为和评分方式，让改动可以比较。",
+    "exercise": "为文档助手编写五个正常问题和三个找不到答案的问题。",
+    "prerequisites": [
+      "可运行的文档助手"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/agents_sdk/evaluate_agents.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/agents_sdk/evaluate_agents.ipynb",
+    "order": 14,
+    "stage": 4,
+    "role": "practice",
+    "lessonTitle": "建立最小评测集",
+    "objective": "运行 Agent 评测，定位工具行为和最终答案的差异。",
+    "exercise": "改动一个工具描述，比较修改前后的成功率并保存失败样例。",
+    "prerequisites": [
+      "测试集",
+      "评分标准"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/evaluation/Building_resilient_prompts_using_an_evaluation_flywheel.md",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/evaluation/Building_resilient_prompts_using_an_evaluation_flywheel.md",
+    "order": 15,
+    "stage": 4,
+    "role": "concept",
+    "lessonTitle": "从失败轨迹到改进",
+    "objective": "从运行日志发现失败模式，把问题转成评测样例并验证改进。",
+    "exercise": "从失败轨迹中找出最早出错的一步，提出一个可验证的修复。",
+    "prerequisites": [
+      "运行轨迹",
+      "工具评测"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/agents_sdk/agent_improvement_loop.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/agents_sdk/agent_improvement_loop.ipynb",
+    "order": 16,
+    "stage": 4,
+    "role": "practice",
+    "lessonTitle": "从失败轨迹到改进",
+    "objective": "建立收集轨迹、评测和改进的循环，避免凭印象判断质量。",
+    "exercise": "给改进流程加一条回归检查，证明修复没有破坏旧任务。",
+    "prerequisites": [
+      "评测集",
+      "回归测试"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:patterns/agents/orchestrator_workers.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "patterns/agents/orchestrator_workers.ipynb",
+    "order": 17,
+    "stage": 5,
+    "role": "concept",
+    "lessonTitle": "任务分解与协作",
+    "objective": "理解动态任务分解、工作者职责和结果汇总的边界。",
+    "exercise": "把一个调研任务拆成三项，明确各项输入、输出和汇总条件。",
+    "prerequisites": [
+      "可靠单 Agent",
+      "评测"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/Orchestrating_agents.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/Orchestrating_agents.ipynb",
+    "order": 18,
+    "stage": 5,
+    "role": "practice",
+    "lessonTitle": "任务分解与协作",
+    "objective": "实现路由与交接，并跟踪协作过程中状态的传递。",
+    "exercise": "记录一次交接前后传递了哪些状态，删除一个冗余字段并测试。",
+    "prerequisites": [
+      "任务分解",
+      "会话状态"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:patterns/agents/latency_multi_agent.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "patterns/agents/latency_multi_agent.ipynb",
+    "order": 19,
+    "stage": 5,
+    "role": "concept",
+    "lessonTitle": "并发协作与延迟",
+    "objective": "比较顺序执行和并发协作，理解任务依赖、延迟与协调成本。",
+    "exercise": "画出任务依赖图，选出能并行的部分并记录改动前后的延迟。",
+    "prerequisites": [
+      "评估标准",
+      "执行预算"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:patterns/agents/async_multi_agent_orchestration.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "patterns/agents/async_multi_agent_orchestration.ipynb",
+    "order": 20,
+    "stage": 5,
+    "role": "practice",
+    "lessonTitle": "并发协作与延迟",
+    "objective": "协调异步子任务、汇总结果并处理部分失败。",
+    "exercise": "模拟一个子任务超时，验证系统能给出部分结果和失败说明。",
+    "prerequisites": [
+      "异步任务",
+      "协作流程"
+    ]
+  },
+  {
+    "key": "openai/openai-cookbook:examples/agent_optimization/optimizing_agents_for_cost_and_quality.ipynb",
+    "repo": "openai/openai-cookbook",
+    "path": "examples/agent_optimization/optimizing_agents_for_cost_and_quality.ipynb",
+    "order": 21,
+    "stage": 6,
+    "role": "concept",
+    "lessonTitle": "成本与运行环境",
+    "objective": "用基线和质量检查衡量成本优化，避免只追求更低调用费用。",
+    "exercise": "为文档助手记录每次任务的质量、延迟和 token 消耗。",
+    "prerequisites": [
+      "评测集",
+      "工具轨迹"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:claude_agent_sdk/07_Hosting_the_agent.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "claude_agent_sdk/07_Hosting_the_agent.ipynb",
+    "order": 22,
+    "stage": 6,
+    "role": "practice",
+    "lessonTitle": "成本与运行环境",
+    "objective": "理解 Agent 执行环境、会话与托管方式，部署一个可访问的实例。",
+    "exercise": "把测试助手部署到隔离环境，检查重启后的状态恢复。",
+    "prerequisites": [
+      "可运行项目",
+      "环境变量"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:managed_agents/CMA_operate_in_production.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "managed_agents/CMA_operate_in_production.ipynb",
+    "order": 23,
+    "stage": 6,
+    "role": "concept",
+    "lessonTitle": "上线后的观测与维护",
+    "objective": "识别生产运行中需要观测、限制和恢复的环节。",
+    "exercise": "列出三种运行故障，为每种写出检测方式和恢复步骤。",
+    "prerequisites": [
+      "部署",
+      "预算与权限"
+    ]
+  },
+  {
+    "key": "anthropics/claude-cookbooks:claude_agent_sdk/02_The_observability_agent.ipynb",
+    "repo": "anthropics/claude-cookbooks",
+    "path": "claude_agent_sdk/02_The_observability_agent.ipynb",
+    "order": 24,
+    "stage": 6,
+    "role": "practice",
+    "lessonTitle": "上线后的观测与维护",
+    "objective": "把日志和诊断接入助手，形成可持续维护的开发流程。",
+    "exercise": "为最终项目保存一次失败诊断、修复提交和回归结果。",
+    "prerequisites": [
+      "日志",
+      "评测与部署"
+    ]
+  }
+]

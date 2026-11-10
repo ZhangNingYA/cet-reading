@@ -5,7 +5,7 @@ import { pool } from './store.js';
 export async function loadArticleChatContext(target: ArticleChatTarget, db: Pick<Pool, 'query'> = pool): Promise<ArticleChatContext | null> {
   if (target.kind === 'news') {
     const result = await db.query<ArticleChatContext>(
-      `SELECT title, paragraphs_json AS paragraphs, author, source_name AS "sourceName", published_at::text AS "publishedAt"
+      `SELECT title, paragraphs_json AS paragraphs, blocks_json AS "technicalBlocks", author, source_name AS "sourceName", published_at::text AS "publishedAt"
        FROM news_articles WHERE id=$1 AND status='published'`,
       [target.id],
     );

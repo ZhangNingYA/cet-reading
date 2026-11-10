@@ -11,4 +11,4 @@ export const readingSections: readonly ReadingSection[] = [
   { slug: 'postgraduate', label: '考研', examLevels: ['NEEP'] },
 ];
 
-export const homeSections = [...readingSections, { slug: 'news', label: 'News', examLevels: ['英语资讯'] }];
+export const homeSections = [...readingSections, { slug: 'news', label: 'Agent 学习', examLevels: ['技术阅读'] }];

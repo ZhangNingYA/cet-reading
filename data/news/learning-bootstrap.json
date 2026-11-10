@@ -1,0 +1,666 @@
+[
+  {
+    "entry": {
+      "key": "openai/openai-cookbook:examples/How_to_call_functions_with_chat_models.ipynb",
+      "repo": "openai/openai-cookbook",
+      "path": "examples/How_to_call_functions_with_chat_models.ipynb",
+      "order": 1,
+      "stage": 1,
+      "role": "concept",
+      "lessonTitle": "工具调用与最小执行循环",
+      "objective": "理解模型生成参数、程序执行工具、返回结果之间的职责边界。",
+      "exercise": "画出一次工具调用的四步流程，指出哪里需要校验参数、哪里决定停止。",
+      "prerequisites": [
+        "Python 函数",
+        "JSON"
+      ]
+    },
+    "article": {
+      "key": "openai/openai-cookbook:examples/How_to_call_functions_with_chat_models.ipynb",
+      "title": "How to call functions with chat models",
+      "blocks": [
+        {
+          "id": "b1",
+          "type": "heading",
+          "text": "How to call functions with chat models",
+          "level": 1
+        },
+        {
+          "id": "b2",
+          "type": "paragraph",
+          "text": "This notebook covers how to use the Chat Completions API in combination with external functions to extend the capabilities of GPT models.",
+          "links": [],
+          "paragraphIndex": 0
+        },
+        {
+          "id": "b3",
+          "type": "paragraph",
+          "text": "tools is an optional parameter in the Chat Completion API which can be used to provide function specifications. The purpose of this is to enable models to generate function arguments which adhere to the provided specifications. Note that the API will not actually execute any function calls. It is up to developers to execute function calls using model outputs.",
+          "links": [],
+          "paragraphIndex": 1
+        },
+        {
+          "id": "b4",
+          "type": "paragraph",
+          "text": "Within the tools parameter, if the functions parameter is provided then by default the model will decide when it is appropriate to use one of the functions. The API can be forced to use a specific function by setting the tool_choice parameter to {\"type\": \"function\", \"function\": {\"name\": \"my_function\"}}. The API can also be forced to not use any function by setting the tool_choice parameter to \"none\". If a function is used, the output will contain \"finish_reason\": \"tool_calls\" in the response, as well as a tool_calls object that has the name of the function and the generated function arguments.",
+          "links": [],
+          "paragraphIndex": 2
+        },
+        {
+          "id": "b5",
+          "type": "heading",
+          "text": "Overview",
+          "level": 3
+        },
+        {
+          "id": "b6",
+          "type": "paragraph",
+          "text": "This notebook contains the following 2 sections:",
+          "links": [],
+          "paragraphIndex": 3
+        },
+        {
+          "id": "b7",
+          "type": "list",
+          "text": "• How to generate function arguments: Specify a set of functions and use the API to generate function arguments.",
+          "paragraphIndex": 4
+        },
+        {
+          "id": "b8",
+          "type": "list",
+          "text": "• How to call functions with model generated arguments: Close the loop by actually executing functions with model generated arguments.",
+          "paragraphIndex": 5
+        },
+        {
+          "id": "b9",
+          "type": "heading",
+          "text": "How to generate function arguments",
+          "level": 2
+        },
+        {
+          "id": "b10",
+          "type": "code",
+          "text": "!pip install scipy --quiet\n!pip install tenacity --quiet\n!pip install tiktoken --quiet\n!pip install termcolor --quiet\n!pip install openai --quiet",
+          "language": "python"
+        },
+        {
+          "id": "b11",
+          "type": "code",
+          "text": "import json\nfrom openai import OpenAI\nfrom tenacity import retry, wait_random_exponential, stop_after_attempt\nfrom termcolor import colored  \n\nGPT_MODEL = \"gpt-5\"\nclient = OpenAI()",
+          "language": "python"
+        },
+        {
+          "id": "b12",
+          "type": "heading",
+          "text": "Utilities",
+          "level": 3
+        },
+        {
+          "id": "b13",
+          "type": "paragraph",
+          "text": "First let's define a few utilities for making calls to the Chat Completions API and for maintaining and keeping track of the conversation state.",
+          "links": [],
+          "paragraphIndex": 6
+        },
+        {
+          "id": "b14",
+          "type": "code",
+          "text": "@retry(wait=wait_random_exponential(multiplier=1, max=40), stop=stop_after_attempt(3))\ndef chat_completion_request(messages, tools=None, tool_choice=None, model=GPT_MODEL):\n    try:\n        response = client.chat.completions.create(\n            model=model,\n            messages=messages,\n            tools=tools,\n            tool_choice=tool_choice,\n        )\n        return response\n    except Exception as e:\n        print(\"Unable to generate ChatCompletion response\")\n        print(f\"Exception: {e}\")\n        return e\n",
+          "language": "python"
+        },
+        {
+          "id": "b15",
+          "type": "code",
+          "text": "def pretty_print_conversation(messages):\n    role_to_color = {\n        \"system\": \"red\",\n        \"user\": \"green\",\n        \"assistant\": \"blue\",\n        \"function\": \"magenta\",\n    }\n    \n    for message in messages:\n        if message[\"role\"] == \"system\":\n            print(colored(f\"system: {message['content']}\\n\", role_to_color[message[\"role\"]]))\n        elif message[\"role\"] == \"user\":\n            print(colored(f\"user: {message['content']}\\n\", role_to_color[message[\"role\"]]))\n        elif message[\"role\"] == \"assistant\" and message.get(\"tool_calls\"):\n            print(colored(f\"assistant: {message['tool_calls']}\\n\", role_to_color[message[\"role\"]]))\n        elif message[\"role\"] == \"assistant\" and not message.get(\"tool_calls\"):\n            print(colored(f\"assistant: {message['content']}\\n\", role_to_color[message[\"role\"]]))\n        elif message[\"role\"] == \"function\":\n            print(colored(f\"function ({message['name']}): {message['content']}\\n\", role_to_color[message[\"role\"]]))\n",
+          "language": "python"
+        },
+        {
+          "id": "b16",
+          "type": "heading",
+          "text": "Basic concepts",
+          "level": 3
+        },
+        {
+          "id": "b17",
+          "type": "paragraph",
+          "text": "Let's create some function specifications to interface with a hypothetical weather API. We'll pass these function specification to the Chat Completions API in order to generate function arguments that adhere to the specification.",
+          "links": [],
+          "paragraphIndex": 7
+        },
+        {
+          "id": "b18",
+          "type": "code",
+          "text": "tools = [\n    {\n        \"type\": \"function\",\n        \"function\": {\n            \"name\": \"get_current_weather\",\n            \"description\": \"Get the current weather\",\n            \"parameters\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"location\": {\n                        \"type\": \"string\",\n                        \"description\": \"The city and state, e.g. San Francisco, CA\",\n                    },\n                    \"format\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"celsius\", \"fahrenheit\"],\n                        \"description\": \"The temperature unit to use. Infer this unit from the forecast location.\",\n                    },\n                },\n                \"required\": [\"location\", \"format\"],\n            },\n        }\n    },\n    {\n        \"type\": \"function\",\n        \"function\": {\n            \"name\": \"get_n_day_weather_forecast\",\n            \"description\": \"Get an N-day weather forecast\",\n            \"parameters\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"location\": {\n                        \"type\": \"string\",\n                        \"description\": \"The city and state, e.g. San Francisco, CA\",\n                    },\n                    \"format\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"celsius\", \"fahrenheit\"],\n                        \"description\": \"The temperature unit to use. Infer this unit from the forecast location.\",\n                    },\n                    \"num_days\": {\n                        \"type\": \"integer\",\n                        \"description\": \"The number of days to forecast\",\n                    }\n                },\n                \"required\": [\"location\", \"format\", \"num_days\"]\n            },\n        }\n    },\n]",
+          "language": "python"
+        },
+        {
+          "id": "b19",
+          "type": "paragraph",
+          "text": "If we prompt the model about the current weather, it will respond with some clarifying questions.",
+          "links": [],
+          "paragraphIndex": 8
+        },
+        {
+          "id": "b20",
+          "type": "code",
+          "text": "messages = []\nmessages.append({\"role\": \"system\", \"content\": \"Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\"})\nmessages.append({\"role\": \"user\", \"content\": \"What's the weather like today\"})\nchat_response = chat_completion_request(\n    messages, tools=tools\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)\n",
+          "language": "python"
+        },
+        {
+          "id": "b21",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: What's the weather like today\n\u001b[0m\n\u001b[34massistant: Sure—what city and state (or country) should I check? Also, do you prefer Celsius or Fahrenheit?\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b22",
+          "type": "paragraph",
+          "text": "Once we provide the missing information, it will generate the appropriate function arguments for us.",
+          "links": [],
+          "paragraphIndex": 9
+        },
+        {
+          "id": "b23",
+          "type": "code",
+          "text": "messages.append({\"role\": \"user\", \"content\": \"I'm in Glasgow, Scotland.\"})\nchat_response = chat_completion_request(\n    messages, tools=tools\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)\n",
+          "language": "python"
+        },
+        {
+          "id": "b24",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: What's the weather like today\n\u001b[0m\n\u001b[34massistant: Sure—what city and state (or country) should I check? Also, do you prefer Celsius or Fahrenheit?\n\u001b[0m\n\u001b[32muser: I'm in Glasgow, Scotland.\n\u001b[0m\n\u001b[34massistant: [{'id': 'call_k2QgGc9GT9WjxD76GvR0Ot8q', 'function': {'arguments': '{\"location\": \"Glasgow, Scotland\", \"format\": \"celsius\"}', 'name': 'get_current_weather'}, 'type': 'function'}, {'id': 'call_RtnXV5t49lqbWwhvGoEPZ7KY', 'function': {'arguments': '{\"location\": \"Glasgow, Scotland\", \"format\": \"celsius\", \"num_days\": 1}', 'name': 'get_n_day_weather_forecast'}, 'type': 'function'}]\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b25",
+          "type": "paragraph",
+          "text": "By prompting it differently, we can get it to target the other function we've told it about.",
+          "links": [],
+          "paragraphIndex": 10
+        },
+        {
+          "id": "b26",
+          "type": "code",
+          "text": "messages = []\nmessages.append({\"role\": \"system\", \"content\": \"Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\"})\nmessages.append({\"role\": \"user\", \"content\": \"what is the weather going to be like in Glasgow, Scotland over the next x days\"})\nchat_response = chat_completion_request(\n    messages, tools=tools\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)\n",
+          "language": "python"
+        },
+        {
+          "id": "b27",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: what is the weather going to be like in Glasgow, Scotland over the next x days\n\u001b[0m\n\u001b[34massistant: How many days would you like the forecast for in Glasgow, Scotland? For example: 3, 5, 7, 10, or 14.\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b28",
+          "type": "paragraph",
+          "text": "Once again, the model is asking us for clarification because it doesn't have enough information yet. In this case it already knows the location for the forecast, but it needs to know how many days are required in the forecast.",
+          "links": [],
+          "paragraphIndex": 11
+        },
+        {
+          "id": "b29",
+          "type": "code",
+          "text": "messages.append({\"role\": \"user\", \"content\": \"5 days\"})\nchat_response = chat_completion_request(\n    messages, tools=tools\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)\n",
+          "language": "python"
+        },
+        {
+          "id": "b30",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: what is the weather going to be like in Glasgow, Scotland over the next x days\n\u001b[0m\n\u001b[34massistant: How many days would you like the forecast for in Glasgow, Scotland? For example: 3, 5, 7, 10, or 14.\n\u001b[0m\n\u001b[32muser: 5 days\n\u001b[0m\n\u001b[34massistant: [{'id': 'call_lNzOVLrNSaSVjL3O3bN110af', 'function': {'arguments': '{\"location\":\"Glasgow, Scotland\",\"format\":\"celsius\",\"num_days\":5}', 'name': 'get_n_day_weather_forecast'}, 'type': 'function'}]\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b31",
+          "type": "heading",
+          "text": "Forcing the use of specific functions or no function",
+          "level": 4
+        },
+        {
+          "id": "b32",
+          "type": "paragraph",
+          "text": "We can force the model to use a specific function, for example get_n_day_weather_forecast by using the function_call argument. By doing so, we force the model to make assumptions about how to use it.",
+          "links": [],
+          "paragraphIndex": 12
+        },
+        {
+          "id": "b33",
+          "type": "code",
+          "text": "# in this cell we force the model to use get_n_day_weather_forecast\nmessages = []\nmessages.append({\"role\": \"system\", \"content\": \"Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\"})\nmessages.append({\"role\": \"user\", \"content\": \"Give me a weather report for Toronto, Canada.\"})\nchat_response = chat_completion_request(\n    messages, tools=tools, tool_choice={\"type\": \"function\", \"function\": {\"name\": \"get_n_day_weather_forecast\"}}\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)",
+          "language": "python"
+        },
+        {
+          "id": "b34",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: Give me a weather report for Toronto, Canada.\n\u001b[0m\n\u001b[34massistant: [{'id': 'call_3hoMjl55OQ7LxfwhFyjxwv1T', 'function': {'arguments': '{\"location\":\"Toronto, Canada\",\"format\":\"celsius\",\"num_days\":5}', 'name': 'get_n_day_weather_forecast'}, 'type': 'function'}]\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b35",
+          "type": "code",
+          "text": "# if we don't force the model to use get_n_day_weather_forecast it may not\nmessages = []\nmessages.append({\"role\": \"system\", \"content\": \"Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\"})\nmessages.append({\"role\": \"user\", \"content\": \"Give me a weather report for Toronto, Canada.\"})\nchat_response = chat_completion_request(\n    messages, tools=tools\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)",
+          "language": "python"
+        },
+        {
+          "id": "b36",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: Give me a weather report for Toronto, Canada.\n\u001b[0m\n\u001b[34massistant: [{'id': 'call_wv5mdjEQJnBPuSci3xw09Tom', 'function': {'arguments': '{\"location\":\"Toronto, ON\",\"format\":\"celsius\"}', 'name': 'get_current_weather'}, 'type': 'function'}]\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b37",
+          "type": "paragraph",
+          "text": "We can also force the model to not use a function at all. By doing so we prevent it from producing a proper function call.",
+          "links": [],
+          "paragraphIndex": 13
+        },
+        {
+          "id": "b38",
+          "type": "code",
+          "text": "messages = []\nmessages.append({\"role\": \"system\", \"content\": \"Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\"})\nmessages.append({\"role\": \"user\", \"content\": \"Give me the current weather (use Celcius) for Toronto, Canada.\"})\nchat_response = chat_completion_request(\n    messages, tools=tools, tool_choice=\"none\"\n)\nmessages.append(chat_response.choices[0].message.to_dict())\npretty_print_conversation(messages)",
+          "language": "python"
+        },
+        {
+          "id": "b39",
+          "type": "code",
+          "text": "\u001b[31msystem: Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\n\u001b[0m\n\u001b[32muser: Give me the current weather (use Celcius) for Toronto, Canada.\n\u001b[0m\n\u001b[34massistant: I don’t have live access to pull the current conditions right now. To get Toronto’s current weather in Celsius, check any of these quickly:\n- Environment Canada: weather.gc.ca (search “Toronto”)\n- The Weather Network: theweathernetwork.com/ca/weather/ontario/toronto\n- Google: search “Toronto weather” (shows °C by default in Canada)\n- AccuWeather or Weather.com (set units to °C)\n\nIf you paste the current readings here (temperature, feels-like, wind, precipitation), I can interpret them and advise on what to wear or plan for.\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b40",
+          "type": "heading",
+          "text": "Parallel Function Calling",
+          "level": 3
+        },
+        {
+          "id": "b41",
+          "type": "paragraph",
+          "text": "Newer models such as gpt-5, gpt-4.1 or gpt-4o can call multiple functions in one turn.",
+          "links": [],
+          "paragraphIndex": 14
+        },
+        {
+          "id": "b42",
+          "type": "code",
+          "text": "messages = []\nmessages.append({\"role\": \"system\", \"content\": \"Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous.\"})\nmessages.append({\"role\": \"user\", \"content\": \"what is the weather going to be like in San Francisco and Glasgow over the next 4 days\"})\nchat_response = chat_completion_request(\n    messages, tools=tools, model=\"gpt-4o\"\n)\n\nassistant_message = chat_response.choices[0].message.tool_calls\nassistant_message",
+          "language": "python"
+        },
+        {
+          "id": "b43",
+          "type": "code",
+          "text": "[ChatCompletionMessageFunctionToolCall(id='call_KlZ3Fqt3SviC6o66dVMYSa2Q', function=Function(arguments='{\"location\": \"San Francisco, CA\", \"format\": \"fahrenheit\", \"num_days\": 4}', name='get_n_day_weather_forecast'), type='function'),\n ChatCompletionMessageFunctionToolCall(id='call_YAnH0VRB3oqjqivcGj3Cd8YA', function=Function(arguments='{\"location\": \"Glasgow, UK\", \"format\": \"celsius\", \"num_days\": 4}', name='get_n_day_weather_forecast'), type='function')]",
+          "language": "output"
+        },
+        {
+          "id": "b44",
+          "type": "heading",
+          "text": "How to call functions with model generated arguments",
+          "level": 2
+        },
+        {
+          "id": "b45",
+          "type": "paragraph",
+          "text": "In our next example, we'll demonstrate how to execute functions whose inputs are model-generated, and use this to implement an agent that can answer questions for us about a database. For simplicity we'll use the Chinook sample database.",
+          "links": [
+            {
+              "text": "Chinook sample database",
+              "url": "https://www.sqlitetutorial.net/sqlite-sample-database/"
+            }
+          ],
+          "paragraphIndex": 15
+        },
+        {
+          "id": "b46",
+          "type": "paragraph",
+          "text": "Note: SQL generation can be high-risk in a production environment since models are not perfectly reliable at generating correct SQL.",
+          "links": [],
+          "paragraphIndex": 16
+        },
+        {
+          "id": "b47",
+          "type": "heading",
+          "text": "Specifying a function to execute SQL queries",
+          "level": 3
+        },
+        {
+          "id": "b48",
+          "type": "paragraph",
+          "text": "First let's define some helpful utility functions to extract data from a SQLite database.",
+          "links": [],
+          "paragraphIndex": 17
+        },
+        {
+          "id": "b49",
+          "type": "code",
+          "text": "import sqlite3\n\nconn = sqlite3.connect(\"data/Chinook.db\")\nprint(\"Opened database successfully\")",
+          "language": "python"
+        },
+        {
+          "id": "b50",
+          "type": "code",
+          "text": "Opened database successfully\n",
+          "language": "output"
+        },
+        {
+          "id": "b51",
+          "type": "code",
+          "text": "def get_table_names(conn):\n    \"\"\"Return a list of table names.\"\"\"\n    table_names = []\n    tables = conn.execute(\"SELECT name FROM sqlite_master WHERE type='table';\")\n    for table in tables.fetchall():\n        table_names.append(table[0])\n    return table_names\n\n\ndef get_column_names(conn, table_name):\n    \"\"\"Return a list of column names.\"\"\"\n    column_names = []\n    columns = conn.execute(f\"PRAGMA table_info('{table_name}');\").fetchall()\n    for col in columns:\n        column_names.append(col[1])\n    return column_names\n\n\ndef get_database_info(conn):\n    \"\"\"Return a list of dicts containing the table name and columns for each table in the database.\"\"\"\n    table_dicts = []\n    for table_name in get_table_names(conn):\n        columns_names = get_column_names(conn, table_name)\n        table_dicts.append({\"table_name\": table_name, \"column_names\": columns_names})\n    return table_dicts\n",
+          "language": "python"
+        },
+        {
+          "id": "b52",
+          "type": "paragraph",
+          "text": "Now we can use these utility functions to extract a representation of the database schema.",
+          "links": [],
+          "paragraphIndex": 18
+        },
+        {
+          "id": "b53",
+          "type": "code",
+          "text": "database_schema_dict = get_database_info(conn)\ndatabase_schema_string = \"\\n\".join(\n    [\n        f\"Table: {table['table_name']}\\nColumns: {', '.join(table['column_names'])}\"\n        for table in database_schema_dict\n    ]\n)",
+          "language": "python"
+        },
+        {
+          "id": "b54",
+          "type": "paragraph",
+          "text": "As before, we'll define a function specification for the function we'd like the API to generate arguments for. Notice that we are inserting the database schema into the function specification. This will be important for the model to know about.",
+          "links": [],
+          "paragraphIndex": 19
+        },
+        {
+          "id": "b55",
+          "type": "code",
+          "text": "tools = [\n    {\n        \"type\": \"function\",\n        \"function\": {\n            \"name\": \"ask_database\",\n            \"description\": \"Use this function to answer user questions about music. Input should be a fully formed SQL query.\",\n            \"parameters\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"query\": {\n                        \"type\": \"string\",\n                        \"description\": f\"\"\"\n                                SQL query extracting info to answer the user's question.\n                                SQL should be written using this database schema:\n                                {database_schema_string}\n                                The query should be returned in plain text, not in JSON.\n                                \"\"\",\n                    }\n                },\n                \"required\": [\"query\"],\n            },\n        }\n    }\n]",
+          "language": "python"
+        },
+        {
+          "id": "b56",
+          "type": "heading",
+          "text": "Executing SQL queries",
+          "level": 3
+        },
+        {
+          "id": "b57",
+          "type": "paragraph",
+          "text": "Now let's implement the function that will actually execute queries against the database.",
+          "links": [],
+          "paragraphIndex": 20
+        },
+        {
+          "id": "b58",
+          "type": "code",
+          "text": "def ask_database(conn, query):\n    \"\"\"Function to query SQLite database with a provided SQL query.\"\"\"\n    try:\n        results = str(conn.execute(query).fetchall())\n    except Exception as e:\n        results = f\"query failed with error: {e}\"\n    return results",
+          "language": "python"
+        },
+        {
+          "id": "b59",
+          "type": "heading",
+          "text": "Steps to invoke a function call using Chat Completions API:",
+          "level": 5
+        },
+        {
+          "id": "b60",
+          "type": "paragraph",
+          "text": "Step 1: Prompt the model with content that may result in model selecting a tool to use. The description of the tools such as a function name and signature is defined in the 'Tools' list and passed to the model in API call. If selected, the function name and parameters are included in the response.<br>",
+          "links": [],
+          "paragraphIndex": 21
+        },
+        {
+          "id": "b61",
+          "type": "paragraph",
+          "text": "Step 2: Check programmatically if model wanted to call a function. If true, proceed to step 3. <br> Step 3: Extract the function name and parameters from response, call the function with parameters. Append the result to messages. <br> Step 4: Invoke the chat completions API with the message list to get the response.",
+          "links": [],
+          "paragraphIndex": 22
+        },
+        {
+          "id": "b62",
+          "type": "code",
+          "text": "# Step #1: Prompt with content that may result in function call. In this case the model can identify the information requested by the user is potentially available in the database schema passed to the model in Tools description. \nmessages = [{\n    \"role\":\"user\", \n    \"content\": \"What is the name of the album with the most tracks?\"\n}]\n\nresponse = client.chat.completions.create(\n    model=GPT_MODEL, \n    messages=messages, \n    tools=tools, \n    tool_choice=\"auto\"\n)\n\n# Append the message to messages list\nresponse_message = response.choices[0].message \nmessages.append(response_message.to_dict())\npretty_print_conversation(messages)",
+          "language": "python"
+        },
+        {
+          "id": "b63",
+          "type": "code",
+          "text": "\u001b[32muser: What is the name of the album with the most tracks?\n\u001b[0m\n\u001b[34massistant: [{'id': 'call_pGRtZZGfd2o41GHlZcEdB9he', 'function': {'arguments': '{\"query\":\"WITH track_counts AS (\\\\n  SELECT a.AlbumId, a.Title, COUNT(t.TrackId) AS track_count\\\\n  FROM Album a\\\\n  JOIN Track t ON t.AlbumId = a.AlbumId\\\\n  GROUP BY a.AlbumId, a.Title\\\\n)\\\\nSELECT Title\\\\nFROM track_counts\\\\nWHERE track_count = (SELECT MAX(track_count) FROM track_counts);\"}', 'name': 'ask_database'}, 'type': 'function'}]\n\u001b[0m\n",
+          "language": "output"
+        },
+        {
+          "id": "b64",
+          "type": "code",
+          "text": "# Step 2: determine if the response from the model includes a tool call.   \ntool_calls = response_message.tool_calls\nif tool_calls:\n    # If true the model will return the name of the tool / function to call and the argument(s)  \n    tool_call_id = tool_calls[0].id\n    tool_function_name = tool_calls[0].function.name\n    tool_query_string = json.loads(tool_calls[0].function.arguments)['query']\n\n    # Step 3: Call the function and retrieve results. Append the results to the messages list.      \n    if tool_function_name == 'ask_database':\n        results = ask_database(conn, tool_query_string)\n        \n        messages.append({\n            \"role\":\"tool\", \n            \"tool_call_id\":tool_call_id, \n            \"name\": tool_function_name, \n            \"content\":results\n        })\n        \n        # Step 4: Invoke the chat completions API with the function response appended to the messages list\n        # Note that messages with role 'tool' must be a response to a preceding message with 'tool_calls'\n        model_response_with_function_call = client.chat.completions.create(\n            model=GPT_MODEL,\n            messages=messages,\n        )  # get a new response from the model where it can see the function response\n        print(f\"Result found in database: {model_response_with_function_call.choices[0].message.content}\")\n    else: \n        print(f\"Error: function {tool_function_name} does not exist\")\nelse: \n    # Model did not identify a function to call, result can be returned to the user \n    print(response_message.content) ",
+          "language": "python"
+        },
+        {
+          "id": "b65",
+          "type": "code",
+          "text": "Result found in database: Greatest Hits\n",
+          "language": "output"
+        },
+        {
+          "id": "b66",
+          "type": "heading",
+          "text": "Next Steps",
+          "level": 2
+        },
+        {
+          "id": "b67",
+          "type": "paragraph",
+          "text": "See our other notebook that demonstrates how to use the Chat Completions API and functions for knowledge retrieval to interact conversationally with a knowledge base.",
+          "links": [
+            {
+              "text": "notebook",
+              "url": "https://github.com/openai/openai-cookbook/blob/0aaed0f1d32f83a43732c9cc23283a037a801782/examples/How_to_call_functions_for_knowledge_retrieval.ipynb"
+            }
+          ],
+          "paragraphIndex": 23
+        }
+      ],
+      "paragraphs": [
+        "This notebook covers how to use the Chat Completions API in combination with external functions to extend the capabilities of GPT models.",
+        "tools is an optional parameter in the Chat Completion API which can be used to provide function specifications. The purpose of this is to enable models to generate function arguments which adhere to the provided specifications. Note that the API will not actually execute any function calls. It is up to developers to execute function calls using model outputs.",
+        "Within the tools parameter, if the functions parameter is provided then by default the model will decide when it is appropriate to use one of the functions. The API can be forced to use a specific function by setting the tool_choice parameter to {\"type\": \"function\", \"function\": {\"name\": \"my_function\"}}. The API can also be forced to not use any function by setting the tool_choice parameter to \"none\". If a function is used, the output will contain \"finish_reason\": \"tool_calls\" in the response, as well as a tool_calls object that has the name of the function and the generated function arguments.",
+        "This notebook contains the following 2 sections:",
+        "• How to generate function arguments: Specify a set of functions and use the API to generate function arguments.",
+        "• How to call functions with model generated arguments: Close the loop by actually executing functions with model generated arguments.",
+        "First let's define a few utilities for making calls to the Chat Completions API and for maintaining and keeping track of the conversation state.",
+        "Let's create some function specifications to interface with a hypothetical weather API. We'll pass these function specification to the Chat Completions API in order to generate function arguments that adhere to the specification.",
+        "If we prompt the model about the current weather, it will respond with some clarifying questions.",
+        "Once we provide the missing information, it will generate the appropriate function arguments for us.",
+        "By prompting it differently, we can get it to target the other function we've told it about.",
+        "Once again, the model is asking us for clarification because it doesn't have enough information yet. In this case it already knows the location for the forecast, but it needs to know how many days are required in the forecast.",
+        "We can force the model to use a specific function, for example get_n_day_weather_forecast by using the function_call argument. By doing so, we force the model to make assumptions about how to use it.",
+        "We can also force the model to not use a function at all. By doing so we prevent it from producing a proper function call.",
+        "Newer models such as gpt-5, gpt-4.1 or gpt-4o can call multiple functions in one turn.",
+        "In our next example, we'll demonstrate how to execute functions whose inputs are model-generated, and use this to implement an agent that can answer questions for us about a database. For simplicity we'll use the Chinook sample database.",
+        "Note: SQL generation can be high-risk in a production environment since models are not perfectly reliable at generating correct SQL.",
+        "First let's define some helpful utility functions to extract data from a SQLite database.",
+        "Now we can use these utility functions to extract a representation of the database schema.",
+        "As before, we'll define a function specification for the function we'd like the API to generate arguments for. Notice that we are inserting the database schema into the function specification. This will be important for the model to know about.",
+        "Now let's implement the function that will actually execute queries against the database.",
+        "Step 1: Prompt the model with content that may result in model selecting a tool to use. The description of the tools such as a function name and signature is defined in the 'Tools' list and passed to the model in API call. If selected, the function name and parameters are included in the response.<br>",
+        "Step 2: Check programmatically if model wanted to call a function. If true, proceed to step 3. <br> Step 3: Extract the function name and parameters from response, call the function with parameters. Append the result to messages. <br> Step 4: Invoke the chat completions API with the message list to get the response.",
+        "See our other notebook that demonstrates how to use the Chat Completions API and functions for knowledge retrieval to interact conversationally with a knowledge base."
+      ],
+      "sourceName": "OpenAI Cookbook",
+      "sourceUrl": "https://github.com/openai/openai-cookbook/blob/main/examples/How_to_call_functions_with_chat_models.ipynb",
+      "rawUrl": "https://raw.githubusercontent.com/openai/openai-cookbook/0aaed0f1d32f83a43732c9cc23283a037a801782/examples/How_to_call_functions_with_chat_models.ipynb",
+      "revision": "0aaed0f1d32f83a43732c9cc23283a037a801782",
+      "updatedAt": "2026-07-20T12:55:58Z",
+      "fetchedAt": "2026-11-10T14:24:05.573Z",
+      "licenseText": "MIT License\n\nCopyright (c) 2025 OpenAI\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "licenseUrl": "https://github.com/openai/openai-cookbook/blob/0aaed0f1d32f83a43732c9cc23283a037a801782/LICENSE",
+      "contentHash": "616255bffcf52cbf43a63a4c61c6c630b526707595017a89112569a3d7d93eed",
+      "wordCount": 722
+    }
+  },
+  {
+    "entry": {
+      "key": "anthropics/claude-cookbooks:tool_use/calculator_tool.ipynb",
+      "repo": "anthropics/claude-cookbooks",
+      "path": "tool_use/calculator_tool.ipynb",
+      "order": 2,
+      "stage": 1,
+      "role": "practice",
+      "lessonTitle": "工具调用与最小执行循环",
+      "objective": "实现一个计算器工具，连接工具定义、模型选择、执行和结果返回。",
+      "exercise": "为计算器增加非法输入处理，记录一次成功和一次失败的完整调用。",
+      "prerequisites": [
+        "Python 函数",
+        "JSON"
+      ]
+    },
+    "article": {
+      "key": "anthropics/claude-cookbooks:tool_use/calculator_tool.ipynb",
+      "title": "Using a Calculator Tool with Claude",
+      "blocks": [
+        {
+          "id": "b1",
+          "type": "heading",
+          "text": "Using a Calculator Tool with Claude",
+          "level": 1
+        },
+        {
+          "id": "b2",
+          "type": "paragraph",
+          "text": "In this recipe, we'll demonstrate how to provide Claude with a simple calculator tool that it can use to perform arithmetic operations based on user input. We'll define the calculator tool and show how Claude can interact with it to solve mathematical problems.",
+          "links": [],
+          "paragraphIndex": 0
+        },
+        {
+          "id": "b3",
+          "type": "heading",
+          "text": "Step 1: Set up the environment",
+          "level": 2
+        },
+        {
+          "id": "b4",
+          "type": "paragraph",
+          "text": "First, let's install the required libraries and set up the Claude API client.",
+          "links": [],
+          "paragraphIndex": 1
+        },
+        {
+          "id": "b5",
+          "type": "code",
+          "text": "%pip install anthropic",
+          "language": "python"
+        },
+        {
+          "id": "b6",
+          "type": "code",
+          "text": "from anthropic import Anthropic\n\nclient = Anthropic()\nMODEL_NAME = \"claude-opus-5-5\"",
+          "language": "python"
+        },
+        {
+          "id": "b7",
+          "type": "heading",
+          "text": "Step 2: Define the calculator tool",
+          "level": 2
+        },
+        {
+          "id": "b8",
+          "type": "paragraph",
+          "text": "We'll define a simple calculator tool that can perform basic arithmetic operations. The tool will take a mathematical expression as input and return the result.",
+          "links": [],
+          "paragraphIndex": 2
+        },
+        {
+          "id": "b9",
+          "type": "paragraph",
+          "text": "Note that we are calling eval on the outputted expression. This is bad practice and should not be used generally but we are doing it for the purpose of demonstration.",
+          "links": [],
+          "paragraphIndex": 3
+        },
+        {
+          "id": "b10",
+          "type": "code",
+          "text": "import re\n\n\ndef calculate(expression):\n    # Remove any non-digit or non-operator characters from the expression\n    expression = re.sub(r\"[^0-9+\\-*/().]\", \"\", expression)\n\n    try:\n        # Evaluate the expression using the built-in eval() function\n        # Note: eval is used here for demonstration purposes only.\n        # In production, use a safer alternative like ast.literal_eval or a math parser.\n        result = eval(expression)  # noqa: S307\n        return str(result)\n    except (SyntaxError, ZeroDivisionError, NameError, TypeError, OverflowError):\n        return \"Error: Invalid expression\"\n\n\ntools = [\n    {\n        \"name\": \"calculator\",\n        \"description\": \"A simple calculator that performs basic arithmetic operations.\",\n        \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"expression\": {\n                    \"type\": \"string\",\n                    \"description\": \"The mathematical expression to evaluate (e.g., '2 + 3 * 4').\",\n                }\n            },\n            \"required\": [\"expression\"],\n        },\n    }\n]",
+          "language": "python"
+        },
+        {
+          "id": "b11",
+          "type": "paragraph",
+          "text": "In this example, we define a calculate function that takes a mathematical expression as input, removes any non-digit or non-operator characters using a regular expression, and then evaluates the expression using the built-in eval() function. If the evaluation is successful, the result is returned as a string. If an error occurs during evaluation, an error message is returned.",
+          "links": [],
+          "paragraphIndex": 4
+        },
+        {
+          "id": "b12",
+          "type": "paragraph",
+          "text": "We then define the calculator tool with an input schema that expects a single expression property of type string.",
+          "links": [],
+          "paragraphIndex": 5
+        },
+        {
+          "id": "b13",
+          "type": "heading",
+          "text": "Step 3: Interact with Claude",
+          "level": 2
+        },
+        {
+          "id": "b14",
+          "type": "paragraph",
+          "text": "Now, let's see how Claude can interact with the calculator tool to solve mathematical problems.",
+          "links": [],
+          "paragraphIndex": 6
+        },
+        {
+          "id": "b15",
+          "type": "code",
+          "text": "def process_tool_call(tool_name, tool_input):\n    if tool_name == \"calculator\":\n        return calculate(tool_input[\"expression\"])\n\n\ndef chat_with_claude(user_message):\n    print(f\"\\n{'=' * 50}\\nUser Message: {user_message}\\n{'=' * 50}\")\n\n    message = client.messages.create(\n        model=MODEL_NAME,\n        max_tokens=4096,\n        messages=[{\"role\": \"user\", \"content\": user_message}],\n        tools=tools,\n    )\n\n    print(\"\\nInitial Response:\")\n    print(f\"Stop Reason: {message.stop_reason}\")\n    print(f\"Content: {message.content}\")\n\n    if message.stop_reason == \"tool_use\":\n        tool_use = next(block for block in message.content if block.type == \"tool_use\")\n        tool_name = tool_use.name\n        tool_input = tool_use.input\n\n        print(f\"\\nTool Used: {tool_name}\")\n        print(f\"Tool Input: {tool_input}\")\n\n        tool_result = process_tool_call(tool_name, tool_input)\n\n        print(f\"Tool Result: {tool_result}\")\n\n        response = client.messages.create(\n            model=MODEL_NAME,\n            max_tokens=4096,\n            messages=[\n                {\"role\": \"user\", \"content\": user_message},\n                {\"role\": \"assistant\", \"content\": message.content},\n                {\n                    \"role\": \"user\",\n                    \"content\": [\n                        {\n                            \"type\": \"tool_result\",\n                            \"tool_use_id\": tool_use.id,\n                            \"content\": tool_result,\n                        }\n                    ],\n                },\n            ],\n            tools=tools,\n        )\n    else:\n        response = message\n\n    final_response = next(\n        (block.text for block in response.content if hasattr(block, \"text\")),\n        None,\n    )\n    print(response.content)\n    print(f\"\\nFinal Response: {final_response}\")\n\n    return final_response",
+          "language": "python"
+        },
+        {
+          "id": "b16",
+          "type": "heading",
+          "text": "Step 4: Try it out!",
+          "level": 2
+        },
+        {
+          "id": "b17",
+          "type": "paragraph",
+          "text": "Let's try giving Claude a few example math questions now that it has access to a calculator.",
+          "links": [],
+          "paragraphIndex": 7
+        },
+        {
+          "id": "b18",
+          "type": "code",
+          "text": "chat_with_claude(\"What is the result of 1,984,135 * 9,343,116?\")\nchat_with_claude(\"Calculate (12851 - 593) * 301 + 76\")\nchat_with_claude(\"What is 15910385 divided by 193053?\")",
+          "language": "python"
+        },
+        {
+          "id": "b19",
+          "type": "code",
+          "text": "\n==================================================\nUser Message: What is the result of 1,984,135 * 9,343,116?\n==================================================\n\nInitial Response:\nStop Reason: tool_use\nContent: [ContentBlock(text='<thinking>\\nThe calculator function is the relevant tool to answer this request, since it involves evaluating a mathematical expression.\\n\\nThe required parameter for the calculator function is:\\nexpression: The mathematical expression to evaluate.\\n\\nThe human has directly provided the full expression to evaluate in their request: \"1,984,135 * 9,343,116\". This contains all the information needed for the required expression parameter.\\n\\nSo I have the necessary information to invoke the calculator tool.\\n</thinking>', type='text'), ContentBlockToolUse(id='toolu_01V2mzqp5qkB5QucRFjJUJLD', input={'expression': '1984135 * 9343116'}, name='calculator', type='tool_use')]\n\nTool Used: calculator\nTool Input: {'expression': '1984135 * 9343116'}\nTool Result: 18538003464660\n[ContentBlock(text='Therefore, the result of 1,984,135 * 9,343,116 is 18,538,003,464,660.', type='text')]\n\nFinal Response: Therefore, the result of 1,984,135 * 9,343,116 is 18,538,003,464,660.\n\n==================================================\nUser Message: Calculate (12851 - 593) * 301 + 76\n==================================================\n\nInitial Response:\nStop Reason: tool_use\nContent: [ContentBlock(text='<thinking>\\nThe user has provided a mathematical expression to be evaluated: (12851 - 593) * 301 + 76\\nThis can be handled by the calculator tool. Let\\'s check if the required \"expression\" parameter is provided:\\nexpression: \"(12851 - 593) * 301 + 76\" - This is directly provided by the user.\\nSince the required parameter is present, we can proceed with calling the calculator tool.\\n</thinking>', type='text'), ContentBlockToolUse(id='toolu_01Mrrfy9adBzzxvhfZwnyJAe', input={'expression': '(12851 - 593) * 301 + 76'}, name='calculator', type='tool_use')]\n\nTool Used: calculator\nTool Input: {'expression': '(12851 - 593) * 301 + 76'}\nTool Result: 3689734\n[ContentBlock(text='So the final result of evaluating the expression (12851 - 593) * 301 + 76 is 3689734.', type='text')]\n\nFinal Response: So the final result of evaluating the expression (12851 - 593) * 301 + 76 is 3689734.\n\n==================================================\nUser Message: What is 15910385 divided by 193053?\n==================================================\n\nInitial Response:\nStop Reason: tool_use\nContent: [ContentBlock(text='<thinking>\\nThe calculator function is the appropriate tool to answer this request, since it can perform basic arithmetic operations like division.\\n\\nThe calculator function requires a single parameter:\\n- expression: The mathematical expression to evaluate\\n\\nIn this case, the user has provided the full expression to evaluate (15910385 divided by 193053). Since all the required information has been provided, we can proceed with calling the calculator function.\\n</thinking>', type='text'), ContentBlockToolUse(id='toolu_01BfnN4LKp7oPRgmRzWeYdBG', input={'expression': '15910385 / 193053'}, name='calculator', type='tool_use')]\n\nTool Used: calculator\nTool Input: {'expression': '15910385 / 193053'}\nTool Result: 82.41459599177428\n[ContentBlock(text='So 15910385 divided by 193053 equals 82.41459599177428.', type='text')]\n\nFinal Response: So 15910385 divided by 193053 equals 82.41459599177428.\n",
+          "language": "output"
+        },
+        {
+          "id": "b20",
+          "type": "code",
+          "text": "'So 15910385 divided by 193053 equals 82.41459599177428.'",
+          "language": "output"
+        }
+      ],
+      "paragraphs": [
+        "In this recipe, we'll demonstrate how to provide Claude with a simple calculator tool that it can use to perform arithmetic operations based on user input. We'll define the calculator tool and show how Claude can interact with it to solve mathematical problems.",
+        "First, let's install the required libraries and set up the Claude API client.",
+        "We'll define a simple calculator tool that can perform basic arithmetic operations. The tool will take a mathematical expression as input and return the result.",
+        "Note that we are calling eval on the outputted expression. This is bad practice and should not be used generally but we are doing it for the purpose of demonstration.",
+        "In this example, we define a calculate function that takes a mathematical expression as input, removes any non-digit or non-operator characters using a regular expression, and then evaluates the expression using the built-in eval() function. If the evaluation is successful, the result is returned as a string. If an error occurs during evaluation, an error message is returned.",
+        "We then define the calculator tool with an input schema that expects a single expression property of type string.",
+        "Now, let's see how Claude can interact with the calculator tool to solve mathematical problems.",
+        "Let's try giving Claude a few example math questions now that it has access to a calculator."
+      ],
+      "sourceName": "Anthropic Cookbook",
+      "sourceUrl": "https://github.com/anthropics/claude-cookbooks/blob/main/tool_use/calculator_tool.ipynb",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/claude-cookbooks/bfe50e59dbb4f5546a0af9ca36ebb77e637c9ce1/tool_use/calculator_tool.ipynb",
+      "revision": "bfe50e59dbb4f5546a0af9ca36ebb77e637c9ce1",
+      "updatedAt": "2026-10-24T18:54:16Z",
+      "fetchedAt": "2026-11-10T14:13:00.788Z",
+      "licenseText": "MIT License\n\nCopyright (c) 2023 Anthropic\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+      "licenseUrl": "https://github.com/anthropics/claude-cookbooks/blob/bfe50e59dbb4f5546a0af9ca36ebb77e637c9ce1/LICENSE",
+      "contentHash": "407c7354003bd75faf7428aec8b86de7d5b6236753973bc0fc18d4f6070139b6",
+      "wordCount": 220
+    }
+  }
+]

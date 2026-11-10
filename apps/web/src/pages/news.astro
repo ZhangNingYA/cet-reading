@@ -1,30 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
+import '../styles/learning.css';
+const apiBase=import.meta.env.PUBLIC_API_BASE_URL??'http://localhost:3000';
 ---
-<Layout title="News · CET Reading">
-  <section class="library-section container news-library" id="news-library" data-api-base={apiBase} aria-labelledby="library-title">
-    <div class="library-heading">
-      <div class="section-heading"><div class="library-title-line"><h1 id="library-title">News</h1><span class="paper-count" id="news-count"></span></div></div>
-      <div class="library-toolbar"><label class="paper-search"><span class="sr-only">搜索文章或话题</span><input id="news-search" type="search" placeholder="搜索文章或话题" autocomplete="off" /></label></div>
-    </div>
-    <p class="news-schedule">每日 08:00 · 11:00 · 14:00 · 17:00 <span>北京时间</span></p>
-    <div class="resume-card" id="news-resume-card" hidden aria-live="polite"></div>
-    <p id="news-status" role="status" class="sr-only"></p>
-    <div id="news-list" aria-busy="true"><div class="paper-skeleton" aria-hidden="true"><span></span><span></span><span></span></div></div>
-    <button id="news-more" class="text-link" type="button" hidden>更早的文章</button>
-    <button id="news-retry" class="text-link" type="button" hidden>重试</button>
-    <noscript><p>请启用 JavaScript，以加载文章。</p></noscript>
+<Layout title="Agent 开发学习 · CET Reading" bodyClass="learning-page" description="每天两篇官方技术材料，按顺序学习 Agent 的设计、实现、评估与部署。">
+  <section id="learning-conflicts" class="container learning-conflicts" role="status" hidden></section>
+  <section class="learning-library container" id="news-library" data-api-base={apiBase} aria-labelledby="library-title">
+    <header class="learning-intro"><div><h1 id="library-title">Agent 开发学习</h1><p>每天两篇，把原理读懂，把方法用起来。</p></div><span>每日 08:00 更新 · 北京时间</span></header>
+    <div class="learning-navigation"><nav aria-label="学习栏目"><button data-tab="learn" aria-current="page">学习</button><button data-tab="route">课程路线</button><button data-tab="history">学习记录</button></nav><label class="learning-search"><span class="sr-only">搜索文章或知识点</span><input id="learning-search" type="search" placeholder="搜索文章或知识点" /></label></div>
+    <p id="learning-status" role="status"></p>
+    <div id="learning-view" aria-busy="true"><p class="learning-empty">正在准备学习材料…</p></div>
+    <details class="learning-profile"><summary>跨设备同步学习进度</summary><p>保存同步码，在另一台设备输入即可继续同一份学习档案。同步码可以读写你的笔记和进度，请自己保管。</p><div><button id="profile-copy" type="button">复制我的同步码</button><label><span class="sr-only">同步码</span><input id="profile-token" type="password" autocomplete="off" placeholder="输入已有同步码" /></label><button id="profile-import" type="button">连接档案</button></div><p id="profile-status" role="status"></p></details>
+    <noscript>请启用 JavaScript，以加载学习材料。</noscript>
   </section>
-  <section class="reader-section container news-reader" id="news-reader" hidden aria-labelledby="news-title">
-    <div class="reader-topline"><button type="button" class="text-link" id="news-back" aria-label="返回 News"><span aria-hidden="true">←</span><span>返回<span class="reader-back-context"> News</span></span></button><div class="reader-actions" data-reader-actions></div></div>
-    <div class="reader-panel">
-      <header class="reader-heading">
-        <h1 id="news-title" lang="en" tabindex="-1"></h1>
-        <div class="reader-details" data-reading-details><p class="news-meta" id="news-meta"></p></div>
-        <p class="news-attribution" id="news-attribution"></p>
-      </header>
-      <div id="news-content"></div>
+  <section class="reader-section container news-reader learning-reader" id="news-reader" hidden aria-labelledby="news-title">
+    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← Agent 学习</button><span id="learning-lesson"></span><div class="reader-actions" data-reader-actions><button type="button" class="text-link" id="learning-toc-toggle" aria-expanded="false">目录</button><button type="button" class="text-link" id="learning-ask">问 AI</button></div></div>
+    <nav id="learning-toc" aria-label="文章目录" hidden></nav>
+    <div class="reader-panel"><header class="reader-heading"><p class="learning-source" id="learning-source"></p><h1 id="news-title" lang="en" tabindex="-1"></h1><div class="reader-details" data-reading-details><p class="news-meta" id="news-meta"></p></div></header>
+    <aside class="learning-objective"><span>这一篇要学会</span><p id="learning-objective"></p><small id="learning-prerequisites"></small></aside>
+    <div id="news-content"></div>
+    <section class="learning-exercise"><h2>读完后，动手试一下</h2><p id="learning-exercise"></p><label><input id="learning-exercise-done" type="checkbox" /> 我已经完成这个练习</label><label class="learning-notes-label" for="learning-notes">学习笔记</label><textarea id="learning-notes" rows="4" maxlength="12000" placeholder="记下一个设计取舍、一段运行结果，或还没理解的问题。"></textarea></section>
+    <details class="learning-license"><summary>原文版本与许可</summary><p id="news-attribution"></p><p>文档保留采集时的内容与代码。运行前请对照对应 SDK 当前文档；中文导读和练习为本站学习辅助。</p><pre id="learning-license-text"></pre></details>
+    <footer class="learning-reader-footer"><span id="learning-save-status" role="status">阅读位置自动保存</span><div><button id="learning-review" type="button">稍后复习</button><button class="learning-primary" id="learning-complete" type="button">标记已读，继续下一篇 →</button></div></footer>
     </div>
   </section>
 </Layout>

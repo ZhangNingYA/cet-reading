@@ -1,4 +1,5 @@
 import Fastify from 'fastify';
+import { registerLearningRoutes } from './learning-routes.js';
 import cors from '@fastify/cors';
 import { config } from './config.js';
 import { registerApprovalRoutes } from './approval-routes.js';
@@ -53,10 +54,12 @@ const app = Fastify({ logger: true });
 
 await app.register(cors, {
   origin: config.corsOrigins,
+  methods: ['GET', 'HEAD', 'POST', 'PUT'],
 });
 
 registerArticleChat(app, { config, loadContext: loadArticleChatContext });
 registerApprovalRoutes(app);
+registerLearningRoutes(app);
 
 app.get('/healthz', async () => ({ status: 'ok' }));
 

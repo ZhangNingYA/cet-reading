@@ -18,7 +18,10 @@
       "types": "./dist/analysis-priority.d.ts",
       "import": "./dist/analysis-priority.js"
     },
-    "./news": { "types": "./dist/news.d.ts", "import": "./dist/news.js" },
+    "./news": {
+      "types": "./dist/news.d.ts",
+      "import": "./dist/news.js"
+    },
     "./shared-reading": {
       "types": "./dist/shared-reading.d.ts",
       "import": "./dist/shared-reading.js"
@@ -42,6 +45,10 @@
     "./config": {
       "types": "./dist/config.d.ts",
       "import": "./dist/config.js"
+    },
+    "./learning": {
+      "types": "./dist/learning.d.ts",
+      "import": "./dist/learning.js"
     }
   },
   "scripts": {
