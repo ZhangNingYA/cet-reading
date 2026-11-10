@@ -10,6 +10,13 @@ for (const dependency of ['typescript', 'tsx', 'astro']) {
 if (process.env.CET_IMAGE_KIND === 'worker') {
   await import('./apps/worker/dist/ai-analysis.js');
   await import('./apps/worker/dist/news-selector.js');
+  await import('./apps/worker/dist/learning-store.js');
+  const { learningCatalog, hash } = await import('./apps/worker/dist/learning-sources.js');
+  const { readFileSync } = await import('node:fs');
+  const snapshots = JSON.parse(readFileSync('data/news/learning-bootstrap.json', 'utf8'));
+  assert.equal(learningCatalog().length, 24);
+  assert.equal(snapshots.length, 2);
+  for (const { article } of snapshots) assert.equal(article.contentHash, hash(JSON.stringify(article.blocks)));
   console.log('Worker and News production dependencies load successfully.');
 } else {
   const sharp = (await import('sharp')).default;

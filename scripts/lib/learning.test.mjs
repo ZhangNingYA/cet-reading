@@ -174,3 +174,26 @@ test("technical questions retain prose and executable code while explicitly boun
   assert(messages[1].content.length < 15000);
   assert.equal(messages[1].content.split(paragraph).length, 2);
 });
+
+test('editorial review sends figure captions without image bytes and rejects invented evidence', async () => {
+  const { reviewLearningArticle } = await tsImport('../../apps/worker/src/learning-selector.ts', import.meta.url);
+  const originalFetch = globalThis.fetch;
+  let invalid = false;
+  globalThis.fetch = async (_url, options) => {
+    const input = JSON.parse(JSON.parse(options.body).messages[1].content);
+    assert.equal(input.blocks[0].caption, 'Tool execution flow');
+    assert.equal(input.blocks[0].src, undefined);
+    return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify({
+      accepted: true, stage: 6, role: 'concept', lessonTitle: 'Production tool execution',
+      objective: 'Understand tool execution in a production system.', exercise: 'Trace one successful tool execution.',
+      prerequisites: ['tools'], evidenceBlockIds: [invalid ? 'invented' : 'figure'], reason: 'The document explains the execution sequence and failure handling.'
+    }) } }] }));
+  };
+  try {
+    const article = { title: 'Lesson', blocks: [{id:'figure',type:'image',text:'',caption:'Tool execution flow',src:'data:image/png;base64,'+'a'.repeat(200000)}] };
+    const config = { mode:'ai', apiKey:'test', apiUrl:'https://model.test' };
+    assert.equal((await reviewLearningArticle(config,'test',article,6,'concept',[])).accepted, true);
+    invalid = true;
+    await assert.rejects(reviewLearningArticle(config,'test',article,6,'concept',[]), /unknown source blocks/);
+  } finally { globalThis.fetch = originalFetch; }
+});

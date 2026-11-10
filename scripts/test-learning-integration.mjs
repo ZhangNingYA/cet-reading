@@ -8,6 +8,7 @@ if (!url || !new URL(url).pathname.includes("test"))
   throw new Error("A disposable test database is required");
 process.env.DATABASE_URL = url;
 process.env.AI_DRY_RUN = "true";
+process.env.NEWS_ENABLED = "true";
 const { runLearningBatch } =
   await import("../apps/worker/src/learning-store.ts");
 const { hash } = await import("../apps/worker/src/learning-sources.ts");
@@ -239,6 +240,8 @@ try {
   const lib = (await app.inject({ url: "/api/learning/library" })).json();
   assert.equal(lib.articles.length, 4);
   assert.equal(lib.schedule.count, 2);
+  assert.equal(lib.schedule.enabled, true);
+  if (lib.articles.some(a => new Date(a.batch_at).toISOString().slice(0, 10) === new Date().toISOString().slice(0, 10))) assert(new Date(lib.schedule.next) > new Date());
   assert(!JSON.stringify(lib).includes("My learning note"));
   const png = await sharp({
     create: { width: 12, height: 8, channels: 3, background: "#3f644c" },

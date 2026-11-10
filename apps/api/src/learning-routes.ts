@@ -1,6 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import sharp from "sharp";
+import { readNewsConfig } from "@cet-reading/contracts/news";
 import {
   LEARNING_STAGES,
   LearningProgressSchema,
@@ -37,8 +38,9 @@ export function registerLearningRoutes(app: FastifyInstance) {
     ).rows;
     const now = new Date();
     const today = learningSlot(learningDay(now));
+    const todayPublished = articles.some(article => new Date(article.batch_at).valueOf() === today.valueOf());
     const next =
-      now < today
+      now < today && !todayPublished
         ? today
         : learningSlot(learningDay(new Date(now.valueOf() + 86400000)));
     const run =
@@ -52,6 +54,7 @@ export function registerLearningRoutes(app: FastifyInstance) {
       curriculum,
       stages: LEARNING_STAGES,
       schedule: {
+        enabled: readNewsConfig().enabled,
         timezone: "Asia/Shanghai",
         hour: 8,
         count: 2,

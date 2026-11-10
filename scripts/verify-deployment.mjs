@@ -53,6 +53,7 @@ const news = await newsResponse.json();
 if (!Array.isArray(news.articles) || !Array.isArray(news.batches) || news.schedule?.timezone !== 'Asia/Shanghai') throw new Error('Unexpected News API payload');
 if (news.articles.some(article => !article.category || !Array.isArray(article.keywords))) throw new Error('News articles must expose category and keywords');
 const learning = await (await fetchWithRetry('/api/learning/library')).json();
+if (learning.schedule?.enabled !== true) throw new Error('Daily Agent learning collection is disabled');
 if (!Array.isArray(learning.articles) || learning.articles.length < 2 || learning.schedule?.count !== 2 || learning.schedule?.hour !== 8 || learning.stages?.length !== 6) throw new Error('Agent learning library is not initialized');
 if (new Set(learning.articles.map(a => a.learning_order)).size !== learning.articles.length) throw new Error('Duplicate learning order');
 for (const article of learning.articles.slice(0,2)) {

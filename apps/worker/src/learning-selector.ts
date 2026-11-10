@@ -19,7 +19,9 @@ export async function reviewLearningArticle(
     role,
     recent,
     title: article.title,
-    blocks: article.blocks,
+    // Editorial review uses the original text, code and figure captions. Image
+    // bytes are delivered separately by the reader, never as base64 prompt text.
+    blocks: article.blocks.map(({ src: _src, ...block }) => block),
   };
   if (JSON.stringify(input).length > 150000)
     throw new Error("Material is too long for a complete editorial review");

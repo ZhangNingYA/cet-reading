@@ -571,7 +571,9 @@ async function load() {
     stages = data.stages;
     libraryReady = true;
     await profilePromise;
-    if (profileReady) node("learning-status").textContent = data.run?.status === "failed"
+    if (profileReady) node("learning-status").textContent = data.schedule?.enabled === false
+      ? "材料自动更新已暂停，已有内容可以继续学习。"
+      : data.run?.status === "failed"
       ? "本次材料更新暂未完成，课程位置已保留。可以继续学习已有内容。"
       : "";
     render();
