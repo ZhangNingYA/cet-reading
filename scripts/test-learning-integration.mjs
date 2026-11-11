@@ -196,6 +196,12 @@ try {
   assert.equal(lib.articles.length, 4);
   assert.equal(lib.schedule.count, 2);
   assert.equal(lib.schedule.enabled, true);
+  assert.equal(lib.summary.planned, 24);
+  assert.equal(lib.summary.published, 4);
+  assert.equal(lib.summary.dailyCount, 2);
+  assert.equal(lib.curriculum[0].repo, "openai/openai-cookbook");
+  assert.equal(lib.curriculum[0].path, "examples/How_to_call_functions_with_chat_models.ipynb");
+  assert.equal(lib.curriculum.length, 24);
   if (lib.articles.some(a => new Date(a.batch_at).toISOString().slice(0, 10) === new Date().toISOString().slice(0, 10))) assert(new Date(lib.schedule.next) > new Date());
   assert(!JSON.stringify(lib).includes("My learning note"));
   const png = await sharp({

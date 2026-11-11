@@ -7,14 +7,14 @@ const apiBase=import.meta.env.PUBLIC_API_BASE_URL??'http://localhost:3000';
   <section id="learning-conflicts" class="container learning-conflicts" role="status" hidden></section>
   <section class="learning-library container" id="news-library" data-api-base={apiBase} aria-labelledby="library-title">
     <header class="learning-intro"><div><h1 id="library-title">Agent 开发学习</h1><p>每天两篇，把原理读懂，把方法用起来。</p></div><span>每日 08:00 更新 · 北京时间</span></header>
-    <div class="learning-navigation"><nav aria-label="学习栏目"><button data-tab="learn" aria-current="page">学习</button><button data-tab="route">课程路线</button><button data-tab="history">学习记录</button></nav><label class="learning-search"><span class="sr-only">搜索文章或知识点</span><input id="learning-search" type="search" placeholder="搜索文章或知识点" /></label></div>
+    <div class="learning-navigation"><nav aria-label="学习栏目"><button data-tab="learn" aria-current="page">今天学习</button><button data-tab="documents">文档库</button><button data-tab="route">学习路线</button><button data-tab="history">学习记录</button></nav><label class="learning-search"><span class="sr-only">搜索文章或知识点</span><input id="learning-search" type="search" placeholder="搜索文章、文档或知识点" /></label></div>
     <p id="learning-status" role="status"></p>
     <div id="learning-view" aria-busy="true"><p class="learning-empty">正在准备学习材料…</p></div>
 
     <noscript>请启用 JavaScript，以加载学习材料。</noscript>
   </section>
   <section class="reader-section container news-reader learning-reader" id="news-reader" hidden aria-labelledby="news-title">
-    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← Agent 学习</button><span id="learning-lesson"></span><div class="reader-actions" data-reader-actions><button type="button" class="text-link" id="learning-toc-toggle" aria-expanded="false">目录</button><button type="button" class="text-link" id="learning-ask">问 AI</button></div></div>
+    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← Agent 学习</button><span id="learning-lesson"></span><span class="learning-current-part" id="learning-current-part" aria-live="polite"></span><div class="reader-actions" data-reader-actions><button type="button" class="text-link" id="learning-toc-toggle" aria-expanded="false">目录</button><button type="button" class="text-link" id="learning-ask">问 AI</button></div></div>
     <nav id="learning-toc" aria-label="文章目录" hidden></nav>
     <div class="reader-panel"><header class="reader-heading"><p class="learning-source" id="learning-source"></p><h1 id="news-title" lang="en" tabindex="-1"></h1><div class="reader-details" data-reading-details><p class="news-meta" id="news-meta"></p></div></header>
     <aside class="learning-objective"><span>这一篇要学会</span><p id="learning-objective"></p><small id="learning-prerequisites"></small></aside>

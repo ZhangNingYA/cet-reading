@@ -18,7 +18,9 @@ export function registerLearningRoutes(app: FastifyInstance) {
     ).rows;
     const curriculum = (
       await pool.query(
-        `SELECT planned_order AS "order",stage,role,editorial_json->>'lessonTitle' AS title FROM learning_candidates WHERE planned_order IS NOT NULL ORDER BY planned_order`,
+        `SELECT planned_order AS "order",stage,role,repo,path,editorial_json->>'lessonTitle' AS title,
+          editorial_json->>'objective' AS objective,editorial_json->'prerequisites' AS prerequisites
+         FROM learning_candidates WHERE planned_order IS NOT NULL ORDER BY planned_order`,
       )
     ).rows;
     const now = new Date();
@@ -38,6 +40,12 @@ export function registerLearningRoutes(app: FastifyInstance) {
       articles,
       curriculum,
       stages: LEARNING_STAGES,
+      summary: {
+        planned: curriculum.length,
+        published: articles.length,
+        stageCount: LEARNING_STAGES.length,
+        dailyCount: 2,
+      },
       schedule: {
         enabled: readNewsConfig().enabled,
         timezone: "Asia/Shanghai",
