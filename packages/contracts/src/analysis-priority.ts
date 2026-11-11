@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { contextHash, hasWordTokens, validateAnalysis, validateQuestionAnalysis } from './index.js';
+import { contextHash, hasWordTokens, validateAnalysis, validateNewsAnalysis, validateQuestionAnalysis } from './index.js';
 import { ANALYSIS_BATCH_LOCK_ID } from './analysis-jobs.js';
 import type { RuntimeConfig } from './config.js';
 
@@ -81,11 +81,11 @@ export async function loadPriorityCandidates(
     );
     for (const row of result.rows) {
       if (!hasWordTokens(row.source_text)) continue;
-      const context = { title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence };
+      const context = { title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence, contentKind: 'news' as const };
       candidates.push({
         type: 'sentence', sectionId: `${row.article_id}-body`, sentenceId: row.id, questionId: null, textKey: null,
         source: row.source_text, sourceHash: row.source_hash, contextHash: contextHash(context), context,
-        question: null, validate: value => validateAnalysis(row.source_text, value),
+        question: null, validate: value => validateNewsAnalysis(row.source_text, value),
       });
     }
     return candidates;

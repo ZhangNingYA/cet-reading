@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import { createHash } from 'node:crypto';
-import { AnswersSchema, contextHash, hasWordTokens, validateAnalysis, validateQuestionAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
+import { AnswersSchema, contextHash, hasWordTokens, validateAnalysis, validateNewsAnalysis, validateQuestionAnalysis, type Answers, type PracticeResult } from '@cet-reading/contracts';
 import { config } from './config.js';
 import { ANALYSIS_BATCH_LOCK_ID, analysisErrorCode } from '@cet-reading/contracts/analysis-jobs';
 import { presentPaper } from '@cet-reading/contracts/shared-reading';
@@ -39,7 +39,8 @@ export class AnalysisPausedError extends Error {
 
 type SentenceRow = {
   id: string;
-  paper_id: string;
+  paper_id: string | null;
+  article_id: string | null;
   source_text: string;
   source_hash: string;
   title: string;
@@ -47,6 +48,7 @@ type SentenceRow = {
   year: number;
   previous_sentence: string | null;
   next_sentence: string | null;
+  content_kind: 'paper' | 'news';
 };
 
 export async function listPapers(includeProgress = true) {
@@ -278,8 +280,9 @@ export async function submitPracticeAttempt(id: string) {
 export async function getSentence(id: string) {
   const result = await pool.query<SentenceRow>(
     `WITH ordered AS (
-       SELECT s.id, s.paper_id, s.source_text, s.source_hash,
+       SELECT s.id, s.paper_id, s.article_id, s.source_text, s.source_hash,
               COALESCE(p.title,n.title) AS title, COALESCE(p.exam_level,'NEWS') AS exam_level, p.year,
+              CASE WHEN n.id IS NULL THEN 'paper' ELSE 'news' END AS content_kind,
               lag(s.source_text) OVER w AS previous_sentence,
               lead(s.source_text) OVER w AS next_sentence
        FROM sentences s LEFT JOIN papers p ON p.id = s.paper_id LEFT JOIN news_articles n ON n.id = s.article_id
@@ -301,11 +304,12 @@ export async function getSentence(id: string) {
     title: sentence.title,
     previousSentence: sentence.previous_sentence,
     nextSentence: sentence.next_sentence,
+    contentKind: sentence.content_kind,
   };
   return { ...sentence, context, context_hash: contextHash(context) };
 }
 
-export async function getCachedAnalysis(sentenceId: string, sourceHash: string, contextHashValue: string, source: string) {
+export async function getCachedAnalysis(sentenceId: string, sourceHash: string, contextHashValue: string, source: string, contentKind: 'paper' | 'news' = 'paper') {
   const result = await pool.query(
     `SELECT analysis_json FROM sentence_analyses
      WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
@@ -314,7 +318,7 @@ export async function getCachedAnalysis(sentenceId: string, sourceHash: string, 
     [sentenceId, sourceHash, contextHashValue, config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion],
   );
   for (const row of result.rows) {
-    try { return validateAnalysis(source, row.analysis_json); }
+    try { return contentKind === 'news' ? validateNewsAnalysis(source, row.analysis_json) : validateAnalysis(source, row.analysis_json); }
     catch { /* Preserve old records, but never serve incomplete or placeholder analyses. */ }
   }
   return undefined;
@@ -350,14 +354,14 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
   );
   const byId = new Map(sentences.rows.map(row => [row.id, {
     ...row,
-    contextHash: contextHash({ title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence }),
+    contextHash: contextHash({ title: row.title, previousSentence: row.previous_sentence, nextSentence: row.next_sentence, contentKind: news ? 'news' : 'paper' }),
   }]));
-  const cached = new Map<string, { sentenceId: string; source: string; result: ReturnType<typeof validateAnalysis> }>();
+  const cached = new Map<string, { sentenceId: string; source: string; result: ReturnType<typeof validateAnalysis> | ReturnType<typeof validateNewsAnalysis> }>();
   for (const row of candidates.rows) {
     const sentence = byId.get(row.sentence_id);
     if (!sentence || cached.has(sentence.id) || sentence.source_hash !== row.source_hash || sentence.contextHash !== row.context_hash) continue;
     try {
-      cached.set(sentence.id, { sentenceId: sentence.id, source: sentence.source_text, result: validateAnalysis(sentence.source_text, row.analysis_json) });
+      cached.set(sentence.id, { sentenceId: sentence.id, source: sentence.source_text, result: news ? validateNewsAnalysis(sentence.source_text, row.analysis_json) : validateAnalysis(sentence.source_text, row.analysis_json) });
     } catch { /* A prefetch has the same quality checks and fallback rules as a click. */ }
   }
   return [...cached.values()];
@@ -665,7 +669,7 @@ export async function enqueueAnalysis(sentence: {
 
 export async function getJob(id: string) {
   const result = await pool.query(
-    `SELECT j.id, j.job_type, j.sentence_id, j.question_id, j.question_json, j.mode, j.status, j.error_message, j.updated_at,
+    `SELECT j.id, j.job_type, j.sentence_id, j.question_id, j.question_json, j.context_json, j.mode, j.status, j.error_message, j.updated_at,
             j.source_text, j.attempts, j.next_attempt_at,
             COALESCE(sa.analysis_json, qa.analysis_json) AS analysis_json
      FROM analysis_jobs j
@@ -681,7 +685,7 @@ export async function getJob(id: string) {
   );
   const row = result.rows[0];
   if (!row) return null;
-  const { error_message, source_text, question_json, analysis_json, ...job } = row;
+  const { error_message, source_text, question_json, context_json, analysis_json, ...job } = row;
   let analysis;
   if (job.status === 'succeeded' && analysis_json) {
     try {
@@ -690,6 +694,8 @@ export async function getJob(id: string) {
           const input = question_json as QuestionAnalysisInput;
           return { questionType: input.question_type, options: input.options, answer: input.answer, paragraphs: input.paragraphs };
         })())
+      : context_json?.contentKind === 'news'
+        ? validateNewsAnalysis(source_text, analysis_json)
         : validateAnalysis(source_text, analysis_json);
     }
     catch { /* The normal analysis endpoint will recover a missing/invalid cache. */ }

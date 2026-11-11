@@ -11,11 +11,11 @@ export type AnalysisJob = {
   source_text: string;
   source_hash: string;
   context_hash: string;
-  context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
+  context_json: { title: string; previousSentence: string | null; nextSentence: string | null; contentKind?: 'paper' | 'news' };
   question_json: {
     question_type: 'reading' | 'matching'; title: string; instructions: string; paragraphs: string[];
     prompt: string; options: Array<{ key: string; text: string }>; answer: string; explanation: string;
-  } | { source_text: string; context_json: { title: string; previousSentence: string | null; nextSentence: string | null } } | null;
+  } | { source_text: string; context_json: { title: string; previousSentence: string | null; nextSentence: string | null; contentKind?: 'paper' | 'news' } } | null;
   model: string;
   reasoning_effort: string | null;
   created_at: Date;

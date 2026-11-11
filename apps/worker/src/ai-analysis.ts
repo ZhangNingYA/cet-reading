@@ -1,10 +1,10 @@
-import { buildAnalysis, tokenize, validateQuestionAnalysis, type QuestionAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
+import { buildAnalysis, buildNewsAnalysis, tokenize, validateQuestionAnalysis, type NewsSentenceAnalysis, type QuestionAnalysis, type SentenceAnalysis } from '@cet-reading/contracts';
 import type { RuntimeConfig } from '@cet-reading/contracts/config';
 import { ModelRequestTrace, type TraceObserver } from './model-request-trace.js';
 
 type AnalysisInput = {
   source_text: string;
-  context_json: { title: string; previousSentence: string | null; nextSentence: string | null };
+  context_json: { title: string; previousSentence: string | null; nextSentence: string | null; contentKind?: 'paper' | 'news' };
 };
 export type QuestionAnalysisInput = {
   question_type: 'reading' | 'matching';
@@ -42,6 +42,32 @@ function buildPrompt(job: AnalysisInput, promptOverride = '') {
   // against the source by the validator and do not need to be sent to the AI.
   const tokenSkeleton = tokenize(job.source_text).map(({ index, text, kind }) => ({ index, text, kind }));
   const wordTokenCount = tokenSkeleton.filter(token => token.kind === 'word').length;
+  if (job.context_json.contentKind === 'news') {
+    return JSON.stringify({
+      task: '做官方技术文档的英语逐句精读。只提供自然准确的翻译，以及当前句子真正值得学习的单词、词组和搭配。',
+      output: {
+        translation: '中文自然翻译，不能重复英文原句，不能包含错误提示',
+        vocabulary: [{
+          kind: 'word', expression: '原文重点单词', meaning: '当前语境中的中文含义',
+          usage: '一句简短的中文用法说明', ranges: [{ tokenStart: 0, tokenEnd: 1 }],
+        }, {
+          kind: 'phrase', expression: '原文词组或搭配公式', meaning: '当前语境中的中文含义',
+          usage: '一句简短的中文用法说明', ranges: [{ tokenStart: 0, tokenEnd: 2 }],
+        }],
+      },
+      rules: [
+        '只返回 translation 和 vocabulary 两个字段，不要返回 grammar、pattern、structure、words、keyPoints 或其他字段。',
+        'translation 必须是结合上下文的中文，不要复述英文原句。',
+        'tokenStart 包含，tokenEnd 不包含；范围必须在 tokenSkeleton 内，按原文顺序排列且不重叠。',
+        'kind=word 必须覆盖恰好一个英文 word token，kind=phrase 必须覆盖至少两个英文 word token；只收录本句真正值得学的内容，最多 6 项，没有重点时返回 []。',
+        'meaning 和 usage 使用简洁中文，expression 必须来自原句；只返回完整 JSON，不要 Markdown，不要增加字段。',
+      ],
+      sentence: job.source_text,
+      context: job.context_json,
+      tokenSkeleton,
+      operatorInstructions: promptOverride.trim() || undefined,
+    });
+  }
   return JSON.stringify({
     task: '做英语四六级逐句精读。翻译必须自然准确；根据原文解释句型、时态、语态、主干和从句，并提取重点单词和词组。',
     output: {
@@ -315,7 +341,7 @@ async function requestCompletion(
   throw lastError instanceof Error ? lastError : new Error('AI request failed');
 }
 
-export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Promise<SentenceAnalysis> {
+export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Promise<SentenceAnalysis | NewsSentenceAnalysis> {
   if (!config.apiUrl || !config.apiKey) throw new Error('AI_API_URL and AI_API_KEY are required in AI mode');
   const controller = new AbortController();
   let requestAttempt = 0;
@@ -323,7 +349,9 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
   // Both the initial answer and one validation repair share the original deadline/lease.
   const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
   const messages = [
-    { role: 'system', content: `你是英语四六级精读老师。结合具体原文解释语法，不使用空泛的占位说明。只返回符合要求的 JSON。${config.promptOverride?.trim() ? `\n管理员补充要求：${config.promptOverride.trim()}` : ''}` },
+    { role: 'system', content: job.context_json.contentKind === 'news'
+      ? `你是技术文档英语精读老师。只解释翻译和词组/词汇，不分析语法、句型或结构。只返回符合要求的 JSON。${config.promptOverride?.trim() ? `\n管理员补充要求：${config.promptOverride.trim()}` : ''}`
+      : `你是英语四六级精读老师。结合具体原文解释语法，不使用空泛的占位说明。只返回符合要求的 JSON。${config.promptOverride?.trim() ? `\n管理员补充要求：${config.promptOverride.trim()}` : ''}` },
     { role: 'user', content: buildPrompt(job, config.promptOverride) },
   ];
   try {
@@ -334,7 +362,9 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
         messages, controller, deadline, requestAttempt, config.onRequestTrace, config.reasoningEffort,
       );
       try {
-        const result = buildAnalysis(job.source_text, parseModelJson(content));
+        const result = job.context_json.contentKind === 'news'
+          ? buildNewsAnalysis(job.source_text, parseModelJson(content))
+          : buildAnalysis(job.source_text, parseModelJson(content));
         await trace.validate();
         return result;
       } catch (error) {
@@ -345,7 +375,9 @@ export async function generateAnalysis(job: AnalysisInput, config: AIConfig): Pr
         // The original prompt already contains the source and token skeleton.
         messages.push({
           role: 'user',
-          content: `上一份回答未通过校验（${reason}）。请重新生成一份更紧凑的完整 JSON，不要引用上一份回答。grammar.clauses 和 grammar.components 都不得为空；每个 word token 必须各有一项 words；所有 grammar 范围都必须满足 0 <= tokenStart < tokenEnd <= tokenSkeleton.length，并且范围内至少包含一个实际英文单词，不能只覆盖标点；vocabulary 的 word 只能覆盖一个英文单词，phrase 至少覆盖两个英文单词，ranges 必须按原文顺序且不重叠；解释使用简短中文，禁止占位说明。`,
+          content: job.context_json.contentKind === 'news'
+            ? `上一份回答未通过校验（${reason}）。请重新生成只包含 translation 和 vocabulary 的完整 JSON，不要引用上一份回答。不要添加 grammar、pattern、structure、words 或 keyPoints；translation 用简洁自然中文；vocabulary 的 word 只能覆盖一个英文单词，phrase 至少覆盖两个英文单词，ranges 必须按原文顺序且不重叠；只返回 JSON。`
+            : `上一份回答未通过校验（${reason}）。请重新生成一份更紧凑的完整 JSON，不要引用上一份回答。grammar.clauses 和 grammar.components 都不得为空；每个 word token 必须各有一项 words；所有 grammar 范围都必须满足 0 <= tokenStart < tokenEnd <= tokenSkeleton.length，并且范围内至少包含一个实际英文单词，不能只覆盖标点；vocabulary 的 word 只能覆盖一个英文单词，phrase 至少覆盖两个英文单词，ranges 必须按原文顺序且不重叠；解释使用简短中文，禁止占位说明。`,
         });
       }
     }

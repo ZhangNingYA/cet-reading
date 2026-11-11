@@ -11,6 +11,7 @@ export async function listNews(before?: string) {
     SELECT s.id,s.article_id,s.source_hash,
            jsonb_build_object(
              'title', n.title,
+             'contentKind', 'news',
              'previousSentence', lag(s.source_text) OVER w,
              'nextSentence', lead(s.source_text) OVER w
            ) AS context_json
@@ -47,6 +48,7 @@ export async function getNews(id: string) {
       SELECT s.id,s.source_hash,
              jsonb_build_object(
                'title', n.title,
+             'contentKind', 'news',
                'previousSentence', lag(s.source_text) OVER w,
                'nextSentence', lead(s.source_text) OVER w
              ) AS context_json

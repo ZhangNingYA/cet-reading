@@ -7,7 +7,7 @@ const apiBase=import.meta.env.PUBLIC_API_BASE_URL??'http://localhost:3000';
   <section id="learning-conflicts" class="container learning-conflicts" role="status" hidden></section>
   <section class="learning-library container" id="news-library" data-api-base={apiBase} aria-labelledby="library-title">
     <header class="learning-intro"><div><h1 id="library-title">Agent 开发学习</h1><p>每天两篇，把原理读懂，把方法用起来。</p></div><span>每日 08:00 更新 · 北京时间</span></header>
-    <div class="learning-navigation"><nav aria-label="学习栏目"><button data-tab="learn" aria-current="page">今天学习</button><button data-tab="documents">文档库</button><button data-tab="route">学习路线</button><button data-tab="history">学习记录</button></nav><label class="learning-search"><span class="sr-only">搜索文章或知识点</span><input id="learning-search" type="search" placeholder="搜索文章、文档或知识点" /></label></div>
+    <div class="learning-navigation"><nav aria-label="学习栏目"><button data-tab="learn">今天学习</button><button data-tab="documents" aria-current="page">文档库</button><button data-tab="route">学习路线</button><button data-tab="history">学习记录</button></nav><label class="learning-search"><span class="sr-only">搜索文章或知识点</span><input id="learning-search" type="search" placeholder="搜索文章、文档或知识点" /></label></div>
     <p id="learning-status" role="status"></p>
     <div id="learning-view" aria-busy="true"><p class="learning-empty">正在准备学习材料…</p></div>
 

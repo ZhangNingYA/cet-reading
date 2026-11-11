@@ -21,6 +21,27 @@ test('accepts a specific, complete grammar result without an extra model request
   assert.match(analysis.grammar.clauses[0].explanation, /People attribute/);
 });
 
+test('news analysis requests only translation and vocabulary', async t => {
+  const calls = [];
+  t.mock.method(globalThis, 'fetch', async (_url, options) => {
+    calls.push(JSON.parse(options.body));
+    return reply(JSON.stringify({
+      translation: '人们把成功归因于努力。',
+      vocabulary: [{
+        kind: 'phrase', expression: 'attribute ... to', meaning: '把……归因于……',
+        usage: '用于说明原因归属。', ranges: [{ tokenStart: 1, tokenEnd: 2 }, { tokenStart: 3, tokenEnd: 6 }],
+      }],
+    }));
+  });
+  const analysis = await generateAnalysis({
+    ...input,
+    context_json: { ...input.context_json, contentKind: 'news' },
+  }, config);
+  const prompt = JSON.parse(calls[0].messages.at(-1).content);
+  assert.deepEqual(Object.keys(prompt.output).sort(), ['translation', 'vocabulary']);
+  assert.deepEqual(Object.keys(analysis).sort(), ['tokens', 'translation', 'vocabulary']);
+});
+
 test('sends the configured high-reasoning model when requested by the job', async t => {
   const calls = [];
   t.mock.method(globalThis, 'fetch', async (_url, options) => {

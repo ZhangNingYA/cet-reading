@@ -64,9 +64,11 @@ let articles: Article[] = [],
 let summary: LibrarySummary = { planned: 0, published: 0, stageCount: 6, dailyCount: 2 },
   schedule: Schedule = { next: "", count: 2, enabled: true };
 let progress = new Map<string, Progress>(),
-  tab = "learn",
+  tab = "documents",
   filter = "all",
   query = "",
+  selectedCollectionId: string | null = null,
+  collectionEntered = false,
   currentId: string | undefined,
   requestId = 0,
   dispose: (() => void) | undefined;
@@ -263,7 +265,7 @@ function summaryStrip() {
   const cards: [string, string, string][] = [
     ["课程总量", `${stats.total} 篇`, "按顺序安排"],
     ["已发布", `${stats.published} / ${stats.total} 篇`, `每天 ${schedule.count} 篇`],
-    ["已完成", `${stats.completed} / ${stats.total} 篇`, `当前第 ${String(stats.currentOrder).padStart(2, "0")} 篇`],
+    ["已完成", `${stats.completed} / ${stats.total} 篇`, "按学习记录保存"],
     ["下一次更新", formatSchedule(schedule.next), schedule.enabled ? "北京时间" : "自动更新已暂停"],
   ];
   for (const [label, value, note] of cards) {
@@ -301,26 +303,85 @@ function renderDocuments() {
   view.append(
     summaryStrip(),
     heading("文档库", `${groups.size} 套官方 Cookbook · ${totalLessons()} 篇课程材料`),
-    el("p", "learning-section-note", "先按文档集找到来源，再按课程顺序阅读。已发布的文档可以打开；其余会按每日两篇依次准备。"),
+    el("p", "learning-section-note", "先选择一个文档集查看来源介绍，再进入目录按顺序学习。目录中的文章会明确标出课次、阶段和发布状态。"),
   );
-  const library = el("div", "learning-collections");
-  for (const group of groups.values()) {
-    const section = el("section", "learning-collection");
-    const published = group.items.filter((item) => articleAt(item.order)).length;
-    const complete = group.items.filter((item) => {
-      const article = articleAt(item.order);
-      return article && progress.get(article.id)?.status === "completed";
-    }).length;
-    const header = el("header", "learning-collection-header");
-    const copy = el("div");
-    copy.append(el("p", "learning-eyebrow", "文档集"), el("h2", "", group.meta.title), el("p", "", group.meta.description));
-    header.append(copy, el("span", "learning-collection-count", `${published} / ${group.items.length} 篇已发布 · ${complete} 篇已读`));
-    const list = el("ol", "learning-document-list");
-    for (const item of group.items) list.append(renderDocumentCard(item));
-    section.append(header, list);
-    library.append(section);
+  if (!selectedCollectionId) {
+    const cards = el("div", "learning-collection-cards");
+    for (const group of groups.values()) {
+      const published = group.items.filter((item) => articleAt(item.order)).length;
+      const complete = group.items.filter((item) => {
+        const article = articleAt(item.order);
+        return article && progress.get(article.id)?.status === "completed";
+      }).length;
+      const card = el("button", "learning-collection-card");
+      card.type = "button";
+      card.append(
+        el("span", "learning-book-icon", "▤"),
+        el("span", "learning-collection-card-copy"),
+        el("span", "learning-collection-card-arrow", "进入 →"),
+      );
+      const copy = card.querySelector<HTMLElement>(".learning-collection-card-copy")!;
+      copy.append(
+        el("span", "learning-eyebrow", "文档集"),
+        el("strong", "", group.meta.title),
+        el("span", "", group.meta.description),
+        el("small", "", `${group.items.length} 篇课程 · ${published} 篇已发布 · ${complete} 篇已读`),
+      );
+      card.onclick = () => {
+        selectedCollectionId = group.meta.id;
+        collectionEntered = false;
+        render();
+      };
+      cards.append(card);
+    }
+    view.append(cards);
+    return;
   }
-  view.append(library);
+  const group = groups.get(selectedCollectionId);
+  if (!group) {
+    selectedCollectionId = null;
+    renderDocuments();
+    return;
+  }
+  const back = el("button", "learning-back-link", "← 返回文档集");
+  back.type = "button";
+  back.onclick = () => {
+    selectedCollectionId = null;
+    collectionEntered = false;
+    render();
+  };
+  const published = group.items.filter((item) => articleAt(item.order)).length;
+  const complete = group.items.filter((item) => {
+    const article = articleAt(item.order);
+    return article && progress.get(article.id)?.status === "completed";
+  }).length;
+  const intro = el("section", "learning-collection-intro");
+  intro.append(
+    el("span", "learning-book-icon learning-book-icon-large", "▤"),
+    el("div"),
+  );
+  const introCopy = intro.querySelector<HTMLElement>("div")!;
+  introCopy.append(
+    el("p", "learning-eyebrow", "文档集简介"),
+    el("h2", "", group.meta.title),
+    el("p", "", group.meta.description),
+    el("p", "learning-collection-intro-meta", `${group.items.length} 篇课程材料 · ${published} 篇已发布 · ${complete} 篇已读`),
+  );
+  view.append(back, intro);
+  if (!collectionEntered) {
+    const enter = el("button", "learning-primary learning-enter-collection", `进入目录 · ${group.items.length} 篇`);
+    enter.type = "button";
+    enter.onclick = () => {
+      collectionEntered = true;
+      render();
+    };
+    view.append(enter);
+    return;
+  }
+  view.append(heading("文章目录", "按学习路线排列 · 每篇都有明确课次"));
+  const list = el("ol", "learning-document-list learning-document-list-expanded");
+  for (const item of group.items) list.append(renderDocumentCard(item));
+  view.append(list);
 }
 function renderRoute() {
   const stats = courseStats();
@@ -387,39 +448,8 @@ function render() {
     return;
   }
   if (tab === "learn") {
-    const resume = resumeArticle();
     view.append(summaryStrip());
-    if (resume) {
-      const card = el("section", "learning-continue");
-      const copy = el("div");
-      const p = progress.get(resume.id);
-      const complete = p?.status === "completed";
-      const item = courseItem(resume.learning_order);
-      const collection = collectionMeta(resume);
-      copy.append(
-        el(
-          "p",
-          "learning-eyebrow",
-          complete ? "已读完当前材料" : p ? "继续上次" : "从这里开始",
-        ),
-        el("p", "learning-breadcrumb", `${collection.title}  /  ${item?.title || resume.lesson_title}  /  ${roleLabel(resume.learning_role)}`),
-        el("h2", "", resume.title),
-        el(
-          "p",
-          "",
-          `第 ${resume.learning_order} / ${totalLessons()} 篇 · ${p ? "已保存阅读位置" : "尚未开始"}`,
-        ),
-      );
-      card.append(
-        copy,
-        articleLink(
-          resume,
-          complete ? "回顾文章 →" : p ? "继续阅读 →" : "开始学习 →",
-          "learning-primary",
-        ),
-      );
-      view.append(card);
-    }
+    const resume = resumeArticle();
     const today = new Intl.DateTimeFormat("en-CA", {
       timeZone: "Asia/Shanghai",
       year: "numeric",
@@ -919,6 +949,8 @@ node<HTMLInputElement>("learning-search").oninput = (e) => {
 for (const b of document.querySelectorAll<HTMLButtonElement>("[data-tab]"))
   b.onclick = () => {
     tab = b.dataset.tab!;
+    selectedCollectionId = null;
+    collectionEntered = false;
     for (const x of document.querySelectorAll("[data-tab]")) {
       if (x === b) x.setAttribute("aria-current", "page");
       else x.removeAttribute("aria-current");

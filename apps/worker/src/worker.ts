@@ -4,6 +4,7 @@ import { Pool, type PoolClient } from 'pg';
 import {
   AIAnalysisSchema,
   buildAnalysis,
+  buildNewsAnalysis,
   tokenize,
   validateQuestionAnalysis,
   type QuestionAnalysis,
@@ -52,6 +53,21 @@ function demoRaw(source: string): AIAnalysis {
   });
 }
 
+function demoNewsRaw(source: string) {
+  const tokens = tokenize(source);
+  const words = tokens.filter((token) => token.kind === 'word');
+  return {
+    translation: '当前为演示模式，接入真实 AI 后会生成技术文档的自然中文翻译。',
+    vocabulary: words.length >= 2 ? [{
+      kind: 'phrase' as const,
+      expression: `${words[0]!.text} ${words[1]!.text}`,
+      meaning: '演示词组释义',
+      usage: '接入真实 AI 后替换为当前语境中的用法说明。',
+      ranges: [{ tokenStart: words[0]!.index, tokenEnd: words[1]!.index + 1 }],
+    }] : [],
+  };
+}
+
 function demoQuestionRaw(job: QuestionAnalysisInput): QuestionAnalysis {
   const answer = job.answer;
   return validateQuestionAnalysis({
@@ -94,7 +110,9 @@ async function processJob(job: AnalysisJob, runtime: Awaited<ReturnType<typeof r
           ? buildAnalysis(job.source_text, demoRaw(job.source_text))
           : await generateAnalysis({ source_text: job.source_text, context_json: job.context_json }, aiConfig))
         : (config.mode === 'demo'
-        ? buildAnalysis(job.source_text, demoRaw(job.source_text))
+        ? job.context_json.contentKind === 'news'
+          ? buildNewsAnalysis(job.source_text, demoNewsRaw(job.source_text))
+          : buildAnalysis(job.source_text, demoRaw(job.source_text))
         : await generateAnalysis(job, aiConfig));
     await client.query('BEGIN');
     const finished = await client.query(

@@ -268,7 +268,7 @@ async function generateBatchSentence(
       const analysis = await generateAnalysis({
         source_text: sentence.source_text,
         context_json: sentence.context_json,
-      }, config);
+      }, config) as SentenceAnalysis;
       await saveAnalysis(pool, sentence, analysis, config);
       emitSentence(index + 1, total, sentence, 'generated');
       return true;

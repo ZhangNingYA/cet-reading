@@ -1,7 +1,7 @@
 import type { LearningBlock } from '@cet-reading/contracts/learning';
 import { renderLearningBlock } from './learning-blocks';
 import { hasWordTokens, tokenize } from '@cet-reading/contracts/tokens';
-import type { QuestionAnalysis, SentenceAnalysis } from '@cet-reading/contracts';
+import type { NewsSentenceAnalysis, QuestionAnalysis, SentenceAnalysis } from '@cet-reading/contracts';
 import { createSectionNavigation } from './section-navigation';
 import { analysisErrorMessage } from '@cet-reading/contracts/analysis-jobs';
 import type { SectionReference } from '@cet-reading/contracts/exam';
@@ -39,10 +39,11 @@ type StudyPaper = {
 };
 type Selection = { sentence: StudySentence; element: HTMLElement; wordIndex: number | null };
 type AnalysisTab = 'translation' | 'structure' | 'pattern' | 'vocabulary';
-const analysisTabs: [AnalysisTab, string][] = [['translation', '翻译'], ['structure', '结构'], ['pattern', '句型'], ['vocabulary', '词汇']];
-type AnalysisRequest = { promise: Promise<SentenceAnalysis>; regenerating: boolean; controller: AbortController };
+type AnalysisResult = SentenceAnalysis | NewsSentenceAnalysis;
+type AnalysisRequest = { promise: Promise<AnalysisResult>; regenerating: boolean; controller: AbortController };
+const isFullAnalysis = (value: AnalysisResult): value is SentenceAnalysis => 'grammar' in value;
 type QuestionTextReference = { questionId: string; textKey: string };
-const completed = new Map<string, SentenceAnalysis>();
+const completed = new Map<string, AnalysisResult>();
 const requests = new Map<string, AnalysisRequest>();
 const questionTextReferences = new Map<string, QuestionTextReference>();
 const questionAnalyses = new Map<string, QuestionAnalysis>();
@@ -97,6 +98,10 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
   let lastShortcutTime = 0;
   let disposeChat: (() => void) | undefined;
   let splitParagraph: { original: HTMLParagraphElement; continuation: HTMLParagraphElement | null } | null = null;
+  const newsMode = paper.content_kind === 'news';
+  const analysisTabs: [AnalysisTab, string][] = newsMode
+    ? [['translation', '翻译'], ['vocabulary', '词组/词汇']]
+    : [['translation', '翻译'], ['structure', '结构'], ['pattern', '句型'], ['vocabulary', '词汇']];
   const { navigation, selectSection } = createSectionNavigation(paper.sections, showSection, '精读章节', paper.exam_level);
   const layout = element('div', 'intensive-layout');
   const documentColumn = element('div', 'reading-document');
@@ -353,7 +358,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         if (controller.signal.aborted || !Array.isArray(response.analyses)) return;
         for (const entry of response.analyses) {
           const sentence = paper.sentences.find(item => item.id === entry.sentenceId && item.sectionId === section.id && item.source === entry.source);
-          if (!sentence || !entry.result?.tokens || !entry.result?.grammar) continue;
+          if (!sentence || !entry.result?.tokens || (!newsMode && !isFullAnalysis(entry.result)) || (newsMode && !entry.result?.vocabulary)) continue;
           const key = cacheKey(sentence);
           // A delayed prefetch must not replace a newly generated result.
           if (!completed.has(key) && !requests.has(key)) completed.set(key, entry.result);
@@ -401,7 +406,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       if (signal.aborted) aborted();
     });
   }
-  async function fetchAnalysis(sentence: StudySentence, regenerate: boolean, signal: AbortSignal): Promise<SentenceAnalysis> {
+  async function fetchAnalysis(sentence: StudySentence, regenerate: boolean, signal: AbortSignal): Promise<AnalysisResult> {
     const questionText = questionTextReferences.get(sentence.id);
     const path = questionText
       ? `/api/question-texts/${encodeURIComponent(questionText.questionId)}/analyze?mode=intensive&textKey=${encodeURIComponent(questionText.textKey)}`
@@ -431,7 +436,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         response = job.result ? { status: 'ready', result: job.result } : await jsonRequest(path, 'POST', signal);
       }
     }
-    if (!response.result?.tokens || !response.result?.grammar) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
+    if (!response.result?.tokens || (!newsMode && !isFullAnalysis(response.result)) || (newsMode && !response.result?.vocabulary)) throw new AnalysisFailure(analysisErrorMessage('invalid_result'));
     completed.set(cacheKey(sentence), response.result);
     return response.result;
   }
@@ -706,11 +711,11 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       word.classList.toggle('is-structure', ranges.some(range => index >= range.tokenStart && index < range.tokenEnd));
     });
   }
-  function renderAnalysis(analysis: SentenceAnalysis) {
+  function renderAnalysis(analysis: AnalysisResult) {
     if (keepPanePosition) preservePanePosition(() => renderAnalysisContent(analysis));
     else renderAnalysisContent(analysis);
   }
-  function renderAnalysisContent(analysis: SentenceAnalysis) {
+  function renderAnalysisContent(analysis: AnalysisResult) {
     if (!selected) return;
     updateActions();
     highlightSelection();
@@ -723,11 +728,16 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
       const token = analysis.tokens.find(token => token.index === selected?.wordIndex);
       if (token?.kind === 'word') {
         const heading = element('div', 'word-heading');
-        heading.append(element('strong', 'word-headword', token.text), element('span', 'word-pos', token.pos ?? ''));
-        if (token.lemma && token.lemma.toLowerCase() !== token.text.toLowerCase()) heading.append(element('span', 'word-lemma', `原形 ${token.lemma}`));
-        wordDetail.append(heading, element('p', 'word-meaning', token.contextMeaning ?? ''));
-        wordDetail.hidden = false;
-        paneTitle.hidden = true;
+        const pos = 'pos' in token && typeof token.pos === 'string' ? token.pos : undefined;
+        const lemma = 'lemma' in token && typeof token.lemma === 'string' ? token.lemma : undefined;
+        heading.append(element('strong', 'word-headword', token.text), element('span', 'word-pos', pos ?? ''));
+        if (lemma && lemma.toLowerCase() !== token.text.toLowerCase()) heading.append(element('span', 'word-lemma', `原形 ${lemma}`));
+        const contextMeaning = 'contextMeaning' in token && typeof token.contextMeaning === 'string' ? token.contextMeaning : undefined;
+        if (contextMeaning) {
+          wordDetail.append(heading, element('p', 'word-meaning', contextMeaning));
+          wordDetail.hidden = false;
+          paneTitle.hidden = true;
+        }
       }
     }
     const tabs = element('div', 'analysis-tabs');
@@ -762,7 +772,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
     }
     body.setAttribute('aria-labelledby', `analysis-tab-${activeTab}`);
     if (activeTab === 'translation') body.append(element('p', 'sentence-translation', analysis.translation));
-    else if (activeTab === 'pattern') {
+    else if (activeTab === 'pattern' && isFullAnalysis(analysis)) {
       body.append(element('p', 'sentence-pattern', analysis.pattern));
       const points = element('ul', 'analysis-key-points');
       for (const point of analysis.keyPoints ?? []) points.append(element('li', '', point));
@@ -784,7 +794,7 @@ export function mountIntensive(paper: StudyPaper, apiBase: string, target: HTMLE
         }
         body.append(list);
       }
-    } else {
+    } else if (!newsMode && isFullAnalysis(analysis)) {
       body.append(element('p', 'grammar-summary', [analysis.grammar.sentenceType, analysis.grammar.tense, analysis.grammar.voice].filter(Boolean).join(' · ')));
       const structure = element('div', 'grammar-structure');
       for (const range of [...(analysis.grammar.components ?? []), ...(analysis.grammar.clauses ?? [])]) {

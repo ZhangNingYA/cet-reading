@@ -75,6 +75,20 @@ export const SentenceAnalysisSchema = z.object({
   keyPoints: z.array(z.string().min(1)).min(1),
 }).strict();
 
+// News articles use a lighter reading aid. Keep this separate from the exam
+// analysis contract so paper intensive reading continues to include grammar
+// and sentence-pattern explanations.
+export const NewsAIAnalysisSchema = z.object({
+  translation: z.string().min(1),
+  vocabulary: z.array(VocabularyItemSchema).max(6),
+}).strict();
+
+export const NewsSentenceAnalysisSchema = z.object({
+  translation: z.string().min(1),
+  tokens: z.array(BaseTokenSchema).min(1),
+  vocabulary: z.array(VocabularyItemSchema).max(6),
+}).strict();
+
 export const QuestionAnalysisSchema = z.object({
   questionType: z.enum(['reading', 'matching']),
   questionTranslation: z.string().min(1),
@@ -100,6 +114,8 @@ export type BaseToken = z.infer<typeof BaseTokenSchema>;
 export type Token = z.infer<typeof TokenSchema>;
 export type AIAnalysis = z.infer<typeof AIAnalysisSchema>;
 export type SentenceAnalysis = z.infer<typeof SentenceAnalysisSchema>;
+export type NewsAIAnalysis = z.infer<typeof NewsAIAnalysisSchema>;
+export type NewsSentenceAnalysis = z.infer<typeof NewsSentenceAnalysisSchema>;
 export type QuestionAnalysis = z.infer<typeof QuestionAnalysisSchema>;
 export type JobStatus = 'pending' | 'running' | 'succeeded' | 'failed';
 export type AnalysisMode = 'demo' | 'ai';
@@ -108,8 +124,14 @@ export function sourceHash(source: string): string {
   return createHash('sha256').update(source).digest('hex');
 }
 
-export function contextHash(context: { title: string; previousSentence: string | null; nextSentence: string | null }): string {
-  return sourceHash(JSON.stringify(context));
+export function contextHash(context: { title: string; previousSentence: string | null; nextSentence: string | null; contentKind?: 'paper' | 'news' }): string {
+  // The source kind is carried in context_json for prompt routing, while the
+  // cache identity stays compatible with existing sentence context hashes.
+  return sourceHash(JSON.stringify({
+    title: context.title,
+    previousSentence: context.previousSentence,
+    nextSentence: context.nextSentence,
+  }));
 }
 
 function ensureChineseTranslation(translation: string, source: string) {
@@ -215,6 +237,33 @@ export function validateAnalysis(source: string, value: unknown): SentenceAnalys
   }
   ensureChineseTranslation(analysis.translation, source);
   ensureGrammarRanges(expected, analysis.grammar);
+  ensureVocabularyRanges(expected, analysis.vocabulary);
+  return analysis;
+}
+
+export function buildNewsAnalysis(source: string, raw: unknown): NewsSentenceAnalysis {
+  const ai = NewsAIAnalysisSchema.parse(raw);
+  const tokens = tokenize(source);
+  ensureChineseTranslation(ai.translation, source);
+  ensureVocabularyRanges(tokens, ai.vocabulary);
+  return NewsSentenceAnalysisSchema.parse({
+    translation: ai.translation,
+    tokens,
+    vocabulary: ai.vocabulary,
+  });
+}
+
+export function validateNewsAnalysis(source: string, value: unknown): NewsSentenceAnalysis {
+  const analysis = NewsSentenceAnalysisSchema.parse(value);
+  const expected = tokenize(source);
+  if (analysis.tokens.length !== expected.length) throw new Error('Token count does not match the source');
+  for (const [index, token] of analysis.tokens.entries()) {
+    const base = expected[index]!;
+    for (const field of ['index', 'text', 'kind', 'charStart', 'charEnd'] as const) {
+      if (token[field] !== base[field]) throw new Error(`Token ${index} does not match the source`);
+    }
+  }
+  ensureChineseTranslation(analysis.translation, source);
   ensureVocabularyRanges(expected, analysis.vocabulary);
   return analysis;
 }

@@ -268,7 +268,7 @@ app.post<{ Params: { id: string }; Querystring: { mode?: string; regenerate?: st
 
   const requestedRegeneration = request.query.regenerate === 'true';
   if (!requestedRegeneration) {
-    const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash, sentence.source_text);
+    const cached = await getCachedAnalysis(sentence.id, sentence.source_hash, sentence.context_hash, sentence.source_text, sentence.context.contentKind);
     if (cached) return { status: 'ready', sentenceId: sentence.id, result: cached, mode: config.mode, cached: true };
   }
 
