@@ -1,18 +1,4 @@
-/* Keep the catalogue palette and type separate from the reader's theme. */
-.paper-library-page:not(.reader-page) {
-  --canvas: #f8f9f6;
-  --paper: #fff;
-  --paper-warm: #eff2ec;
-  --ink: #28382f;
-  --muted: #657168;
-  --quiet: #7b857d;
-  --line: #e5e9e2;
-  --accent: #38664e;
-  --accent-deep: #294e3b;
-  --accent-pale: #edf2e8;
-}
-html:has(> .paper-library-page:not(.reader-page)) { background: #f8f9f6; }
-.paper-library-page:not(.reader-page) .site-header { height: 72px; background: #f8f9f6; }
+.paper-library-page:not(.reader-page) .site-header { height: 72px; background: var(--canvas); }
 .paper-library-page:not(.reader-page) .header-inner { max-width: 1000px; }
 .paper-library-page:not(.reader-page) .site-nav a { white-space: nowrap; }
 .paper-library-page .library-section { --catalog-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; max-width: 1000px; padding-block: 28px 48px; font-family: var(--catalog-font); }
@@ -24,7 +10,7 @@ html:has(> .paper-library-page:not(.reader-page)) { background: #f8f9f6; }
 .catalog-years { display: grid; gap: 4px; }
 .catalog-years button { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 38px; padding: 7px 10px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); font-size: 14px; font-weight: 400; font-variant-numeric: lining-nums tabular-nums; transition: background .16s, color .16s; }
 .catalog-years button:hover { color: var(--ink); background: var(--paper-warm); }
-.catalog-years button[aria-pressed='true'] { color: white; background: var(--accent-deep); }
+.catalog-years button[aria-pressed='true'] { color: var(--on-action); background: var(--action); }
 .catalog-year-count { color: var(--muted); font-size: 12px; }
 .catalog-years button[aria-pressed='true'] .catalog-year-count { color: #d4dfce; }
 .paper-library-page .library-results { min-width: 0; }

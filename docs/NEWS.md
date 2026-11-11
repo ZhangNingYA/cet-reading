@@ -32,11 +32,9 @@ docker compose run --rm --no-deps news node apps/worker/dist/news-service.js --r
 
 ## 阅读进度
 
-学习栏目使用独立档案，服务器生成并由浏览器保管的凭证对应数据库中散列存储的 token；不会复用旧栏目全站共享的一条阅读记录。每篇分别保存阅读位置、已读/待复习、练习和笔记。阅读位置自动保存，已读与练习须明确确认，不把发布、滚动或打开文章当作完成。
+学习栏目按本站单用户保存学习记录，不再生成同步码，也没有跨设备连接入口。每篇分别保存阅读位置、已读/待复习、练习和笔记。阅读位置自动保存，已读与练习须明确确认，不把发布、滚动或打开文章当作完成。断网修改暂存本机，恢复连接后继续保存。
 
-同步码拥有该档案的读写权限，只有用户主动复制；不会出现在地址或公共列表。另一设备输入同步码可恢复同一档案。更新带 revision 做并发检查，冲突时展示两份记录，由读者选择保留哪一份，未选择前不覆盖另一设备的记录。断网修改暂存本机并在恢复连接时重试。
-
-公开接口：`GET /api/learning/library`、原有 `/api/news` 与文章详情。个人接口：`POST /api/learning/profile`，带 Bearer 凭证的 `GET /api/learning/progress`、`PUT /api/learning/progress/:id`。
+公开接口：`GET /api/learning/library`、原有 `/api/news` 与文章详情。学习记录接口：`GET /api/learning/progress`、`PUT /api/learning/progress/:id`。迁移会保留旧档案中每篇文章最后更新的一份记录，然后清除旧同步档案表。
 
 ## 页面
 

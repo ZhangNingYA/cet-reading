@@ -40,7 +40,7 @@ const paths = [
     "027_analysis_request_traces",
     "035_news_agent_categories",
     "036_analysis_reasoning_effort",
-    "037_agent_learning",
+    "037_agent_learning", "038_single_user_learning_progress",
   ].map((n) => `db/migrations/${n}.sql`),
 ];
 const now = new Date("2026-11-10T01:00:00Z"),
@@ -182,61 +182,16 @@ try {
       .next_order,
     5,
   );
-  const profiles = [];
-  for (let i = 0; i < 2; i++)
-    profiles.push(
-      (
-        await app.inject({ method: "POST", url: "/api/learning/profile" })
-      ).json(),
-    );
-  const id = first.ids[0],
-    headers = { authorization: `Bearer ${profiles[0].token}` };
-  assert.equal(
-    (await app.inject({ url: "/api/learning/progress" })).statusCode,
-    401,
-  );
-  const write = await app.inject({
-    method: "PUT",
-    url: `/api/learning/progress/${id}`,
-    headers,
-    payload: {
-      revision: 0,
-      status: "reading",
-      blockId: "b1",
-      notes: "My learning note",
-    },
-  });
+  const id = first.ids[0];
+  assert.equal((await app.inject({ url: "/api/learning/progress" })).statusCode, 200);
+  const write = await app.inject({ method: "PUT", url: `/api/learning/progress/${id}`, payload: { revision: 0, status: "reading", blockId: "b1", notes: "My learning note" } });
   assert.equal(write.statusCode, 200, write.body);
-  const stale = await app.inject({
-    method: "PUT",
-    url: `/api/learning/progress/${id}`,
-    headers,
-    payload: { revision: 0, status: "completed" },
-  });
-  assert.equal(stale.statusCode, 409);
-  assert.equal(stale.json().current.status, "reading");
-  const invalid = await app.inject({
-    method: "PUT",
-    url: `/api/learning/progress/${id}`,
-    headers,
-    payload: { revision: 1, sentenceId: "preserved-sentence" },
-  });
+  const stale = await app.inject({ method: "PUT", url: `/api/learning/progress/${id}`, payload: { revision: 0, status: "completed" } });
+  assert.equal(stale.statusCode, 409); assert.equal(stale.json().current.status, "reading");
+  const invalid = await app.inject({ method: "PUT", url: `/api/learning/progress/${id}`, payload: { revision: 1, sentenceId: "preserved-sentence" } });
   assert.equal(invalid.statusCode, 400);
-  const valid = await app.inject({
-    method: "PUT",
-    url: `/api/learning/progress/${id}`,
-    headers,
-    payload: { revision: 1, status: "completed", exerciseDone: true },
-  });
-  assert.equal(valid.statusCode, 200, valid.body);
-  assert.equal(valid.json().progress.notes, "My learning note");
-  const other = (
-    await app.inject({
-      url: "/api/learning/progress",
-      headers: { authorization: `Bearer ${profiles[1].token}` },
-    })
-  ).json();
-  assert.deepEqual(other.progress, []);
+  const valid = await app.inject({ method: "PUT", url: `/api/learning/progress/${id}`, payload: { revision: 1, status: "completed", exerciseDone: true } });
+  assert.equal(valid.statusCode, 200, valid.body); assert.equal(valid.json().progress.notes, "My learning note");
   const lib = (await app.inject({ url: "/api/learning/library" })).json();
   assert.equal(lib.articles.length, 4);
   assert.equal(lib.schedule.count, 2);
@@ -289,7 +244,7 @@ try {
     404,
   );
   console.log(
-    "Learning integration passed: one-time reset, preserved papers, atomic rollback, restart, concurrency, course cursor, profile isolation, revision conflicts and safe cached images.",
+    "Learning integration passed: one-time reset, preserved papers, atomic rollback, restart, concurrency, course cursor, single-user progress, revision conflicts and safe cached images.",
   );
 } finally {
   await app.close();

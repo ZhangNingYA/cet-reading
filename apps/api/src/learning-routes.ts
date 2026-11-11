@@ -1,5 +1,4 @@
-import { createHash, randomBytes } from "node:crypto";
-import type { FastifyInstance, FastifyRequest } from "fastify";
+import type { FastifyInstance } from "fastify";
 import sharp from "sharp";
 import { readNewsConfig } from "@cet-reading/contracts/news";
 import {
@@ -10,20 +9,6 @@ import {
   type LearningBlock,
 } from "@cet-reading/contracts/learning";
 import { pool } from "./store.js";
-const digest = (s: string) => createHash("sha256").update(s).digest("hex");
-async function profile(request: FastifyRequest) {
-  const token = request.headers.authorization?.match(
-    /^Bearer ([a-f0-9]{64})$/,
-  )?.[1];
-  if (!token) return null;
-  return (
-    (
-      await pool.query("SELECT id FROM learning_profiles WHERE token_hash=$1", [
-        digest(token),
-      ])
-    ).rows[0]?.id || null
-  );
-}
 export function registerLearningRoutes(app: FastifyInstance) {
   app.get("/api/learning/library", async (_request, reply) => {
     reply.header("Cache-Control", "no-store");
@@ -63,25 +48,12 @@ export function registerLearningRoutes(app: FastifyInstance) {
       run,
     };
   });
-  app.post("/api/learning/profile", async (_request, reply) => {
-    reply.header("Cache-Control", "no-store");
-    const token = randomBytes(32).toString("hex");
-    const r = await pool.query(
-      "INSERT INTO learning_profiles(token_hash) VALUES($1) RETURNING id",
-      [digest(token)],
-    );
-    return { id: r.rows[0].id, token };
-  });
   app.get("/api/learning/progress", async (request, reply) => {
     reply.header("Cache-Control", "no-store");
-    const id = await profile(request);
-    if (!id)
-      return reply.code(401).send({ error: "learning_profile_required" });
     return {
       progress: (
         await pool.query(
-          "SELECT article_id,status,sentence_id,block_id,exercise_done,notes,revision,updated_at,completed_at FROM learning_progress WHERE profile_id=$1",
-          [id],
+          "SELECT article_id,status,sentence_id,block_id,exercise_done,notes,revision,updated_at,completed_at FROM learning_progress ORDER BY updated_at DESC",
         )
       ).rows,
     };
@@ -90,9 +62,6 @@ export function registerLearningRoutes(app: FastifyInstance) {
     "/api/learning/progress/:id",
     async (request, reply) => {
       reply.header("Cache-Control", "no-store");
-      const id = await profile(request);
-      if (!id)
-        return reply.code(401).send({ error: "learning_profile_required" });
       const input = LearningProgressSchema.safeParse(request.body);
       if (!input.success)
         return reply.code(400).send({ error: "invalid_learning_progress" });
@@ -120,15 +89,14 @@ export function registerLearningRoutes(app: FastifyInstance) {
       )
         return reply.code(400).send({ error: "invalid_block" });
       const result = await pool.query(
-        `INSERT INTO learning_progress(profile_id,article_id,status,sentence_id,block_id,exercise_done,notes,revision,completed_at)
-      SELECT $1,$2,COALESCE($3,'reading'),$4,$5,COALESCE($6,false),COALESCE($7,''),1,CASE WHEN $3='completed' THEN NOW() END WHERE $8=0 OR EXISTS(SELECT 1 FROM learning_progress WHERE profile_id=$1 AND article_id=$2)
-      ON CONFLICT(profile_id,article_id) DO UPDATE SET
-        status=COALESCE($3,learning_progress.status),sentence_id=CASE WHEN $9 THEN $4 ELSE learning_progress.sentence_id END,
-        block_id=CASE WHEN $10 THEN $5 ELSE learning_progress.block_id END,exercise_done=COALESCE($6,learning_progress.exercise_done),notes=COALESCE($7,learning_progress.notes),
-        revision=learning_progress.revision+1,updated_at=NOW(),completed_at=CASE WHEN $3='completed' THEN COALESCE(learning_progress.completed_at,NOW()) ELSE learning_progress.completed_at END
-      WHERE learning_progress.revision=$8 RETURNING article_id,status,sentence_id,block_id,exercise_done,notes,revision,updated_at,completed_at`,
+        `INSERT INTO learning_progress(article_id,status,sentence_id,block_id,exercise_done,notes,revision,completed_at)
+      VALUES ($1,COALESCE($2,'reading'),$3,$4,COALESCE($5,false),COALESCE($6,''),1,CASE WHEN $2='completed' THEN NOW() END)
+      ON CONFLICT(article_id) DO UPDATE SET
+        status=COALESCE($2,learning_progress.status),sentence_id=CASE WHEN $8 THEN $3 ELSE learning_progress.sentence_id END,
+        block_id=CASE WHEN $9 THEN $4 ELSE learning_progress.block_id END,exercise_done=COALESCE($5,learning_progress.exercise_done),notes=COALESCE($6,learning_progress.notes),
+        revision=learning_progress.revision+1,updated_at=NOW(),completed_at=CASE WHEN $2='completed' THEN COALESCE(learning_progress.completed_at,NOW()) ELSE learning_progress.completed_at END
+      WHERE learning_progress.revision=$7 RETURNING article_id,status,sentence_id,block_id,exercise_done,notes,revision,updated_at,completed_at`,
         [
-          id,
           article.id,
           p.status ?? null,
           p.sentenceId ?? null,
@@ -143,8 +111,8 @@ export function registerLearningRoutes(app: FastifyInstance) {
       if (!result.rowCount) {
         const current = (
           await pool.query(
-            "SELECT article_id,status,sentence_id,block_id,exercise_done,notes,revision,updated_at,completed_at FROM learning_progress WHERE profile_id=$1 AND article_id=$2",
-            [id, article.id],
+            "SELECT article_id,status,sentence_id,block_id,exercise_done,notes,revision,updated_at,completed_at FROM learning_progress WHERE article_id=$1",
+            [article.id],
           )
         ).rows[0];
         return reply.code(409).send({ error: "progress_changed", current });

@@ -1,17 +1,8 @@
 .home-page {
-  --canvas: #faf9f6;
-  --ink: #2c2c29;
-  --muted: #706f66;
-  --quiet: #7c7b72;
-  --line: #e5e2da;
-  --accent: #a64d33;
-  --accent-deep: #873d27;
-  --accent-pale: #f3eae2;
   color: var(--ink);
   background: var(--canvas);
 }
 
-html:has(> .home-page) { background: #faf9f6; }
 .home-page .container { width: min(800px, calc(100% - 80px)); }
 .home-page .site-header { height: 80px; border-bottom: 0; }
 .home-page .header-inner { border-bottom: 1px solid var(--line); }

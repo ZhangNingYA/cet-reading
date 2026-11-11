@@ -171,6 +171,7 @@ database_psql < db/migrations/034_approval_integrity.sql
 database_psql < db/migrations/035_news_agent_categories.sql
 database_psql < db/migrations/036_analysis_reasoning_effort.sql
 database_psql < db/migrations/037_agent_learning.sql
+database_psql < db/migrations/038_single_user_learning_progress.sql
 database_psql <<'SQL'
 DELETE FROM analysis_jobs job
 USING sentences sentence

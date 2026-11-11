@@ -10,7 +10,7 @@ const apiBase=import.meta.env.PUBLIC_API_BASE_URL??'http://localhost:3000';
     <div class="learning-navigation"><nav aria-label="学习栏目"><button data-tab="learn" aria-current="page">学习</button><button data-tab="route">课程路线</button><button data-tab="history">学习记录</button></nav><label class="learning-search"><span class="sr-only">搜索文章或知识点</span><input id="learning-search" type="search" placeholder="搜索文章或知识点" /></label></div>
     <p id="learning-status" role="status"></p>
     <div id="learning-view" aria-busy="true"><p class="learning-empty">正在准备学习材料…</p></div>
-    <details class="learning-profile"><summary>跨设备同步学习进度</summary><p>保存同步码，在另一台设备输入即可继续同一份学习档案。同步码可以读写你的笔记和进度，请自己保管。</p><div><button id="profile-copy" type="button">复制我的同步码</button><label><span class="sr-only">同步码</span><input id="profile-token" type="password" autocomplete="off" placeholder="输入已有同步码" /></label><button id="profile-import" type="button">连接档案</button></div><p id="profile-status" role="status"></p></details>
+
     <noscript>请启用 JavaScript，以加载学习材料。</noscript>
   </section>
   <section class="reader-section container news-reader learning-reader" id="news-reader" hidden aria-labelledby="news-title">

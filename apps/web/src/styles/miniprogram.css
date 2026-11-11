@@ -1,17 +1,4 @@
 /* The mini program supplies its own native navigation bar. */
-html.in-miniprogram {
-  --canvas: #f7f3eb;
-  --paper: #fffdf7;
-  --paper-warm: #f1eadf;
-  --ink: #2f3c35;
-  --muted: #6f786f;
-  --quiet: #929990;
-  --line: #ded8ce;
-  --accent: #28725c;
-  --accent-deep: #1f5e4b;
-  --accent-pale: #e8f1eb;
-}
-
 html.in-miniprogram body {
   min-width: 0;
   background: var(--canvas);

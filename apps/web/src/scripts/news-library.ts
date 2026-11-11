@@ -6,7 +6,7 @@ const library = node("news-library"),
   reader = node("news-reader"),
   view = node("learning-view");
 const apiBase = library.dataset.apiBase || "";
-const profileKey = "cet-reading:learning-profile:v1";
+
 type Article = {
   id: string;
   title: string;
@@ -46,7 +46,6 @@ let articles: Article[] = [],
     [],
   stages: { id: number; title: string; goal: string }[] = [];
 let progress = new Map<string, Progress>(),
-  token = "",
   tab = "learn",
   filter = "all",
   query = "",
@@ -54,7 +53,7 @@ let progress = new Map<string, Progress>(),
   requestId = 0,
   dispose: (() => void) | undefined;
 let libraryReady = false,
-  profileReady = false;
+  progressReady = false;
 const pending = new Map<string, Patch>(),
   inFlight = new Map<string, Patch>(),
   revisions = new Map<string, number>(),
@@ -74,8 +73,6 @@ const el = <K extends keyof HTMLElementTagNameMap>(
 async function json(
   path: string,
   init: RequestInit = {},
-  auth = false,
-  profileToken = token,
 ) {
   const response = await fetch(`${apiBase}${path}`, {
     ...init,
@@ -83,7 +80,6 @@ async function json(
     signal: AbortSignal.timeout(20000),
     headers: {
       ...(init.body ? { "content-type": "application/json" } : {}),
-      ...(auth ? { authorization: `Bearer ${profileToken}` } : {}),
     },
   });
   const data = await response.json();
@@ -357,7 +353,7 @@ function render() {
   }
 }
 function pendingKey() {
-  return `cet-reading:learning-unsynced:${token}`;
+  return "cet-reading:learning-drafts:single:v1";
 }
 function persist() {
   const drafts = new Map(inFlight);
@@ -379,7 +375,7 @@ function persist() {
     );
   } catch {
     node("learning-save-status").textContent =
-      "本机保存不可用，请保持页面打开直到同步完成。";
+      "本机保存不可用，请保持页面打开直到保存完成。";
   }
 }
 function restoreDrafts() {
@@ -405,7 +401,7 @@ function renderConflicts() {
       el(
         "p",
         "",
-        `${articles.find((a) => a.id === id)?.title || "学习记录"}：另一台设备更新了记录。请核对后选择要保留的版本。`,
+        `${articles.find((a) => a.id === id)?.title || "学习记录"}：其他页面更新了记录。请核对后选择要保留的版本。`,
       ),
     );
     const detail = el("details");
@@ -417,12 +413,12 @@ function renderConflicts() {
       el(
         "pre",
         "",
-        `本机待同步：\n${describe(pending.get(id) || {})}\n\n其他设备已保存：\n${describe({ status: remote?.status, exerciseDone: remote?.exercise_done, notes: remote?.notes })}`,
+        `当前草稿：\n${describe(pending.get(id) || {})}\n\n已保存的记录：\n${describe({ status: remote?.status, exerciseDone: remote?.exercise_done, notes: remote?.notes })}`,
       ),
     );
     item.append(detail);
     const local = el("button", "", "保留本机修改"),
-      cloud = el("button", "", "使用已同步版本");
+      cloud = el("button", "", "使用已保存版本");
     local.onclick = async () => {
       conflicts.delete(id);
       revisions.set(id, progress.get(id)?.revision || 0);
@@ -441,7 +437,7 @@ function renderConflicts() {
         node<HTMLTextAreaElement>("learning-notes").value = remote?.notes || "";
         node<HTMLInputElement>("learning-exercise-done").checked =
           remote?.exercise_done || false;
-        node("learning-save-status").textContent = "已采用同步记录";
+        node("learning-save-status").textContent = "已采用保存记录";
       }
       render();
     };
@@ -458,7 +454,7 @@ function queue(id: string, patch: Patch) {
 function flush(id: string): Promise<void> {
   const existing = saving.get(id);
   if (existing) return existing;
-  if (!profileReady || !pending.has(id) || conflicts.has(id))
+  if (!progressReady || !pending.has(id) || conflicts.has(id))
     return Promise.resolve();
   const task = (async () => {
     try {
@@ -479,7 +475,6 @@ function flush(id: string): Promise<void> {
                 revision: revisions.get(id) ?? progress.get(id)?.revision ?? 0,
               }),
             },
-            true,
           );
           progress.set(id, result.progress);
           inFlight.delete(id);
@@ -521,11 +516,11 @@ function flush(id: string): Promise<void> {
           if (error.status === 409) {
             conflicts.add(id);
             node("learning-save-status").textContent =
-              "同步有冲突，本机修改已保留，请在页面上方核对。";
+              "保存有冲突，本机修改已保留，请在页面上方核对。";
             renderConflicts();
           } else
             node("learning-save-status").textContent =
-              "暂未同步，已在本机保留，联网后重试。";
+              "暂未保存，已在本机保留，联网后重试。";
           persist();
           break;
         }
@@ -537,32 +532,19 @@ function flush(id: string): Promise<void> {
   saving.set(id, task);
   return task;
 }
-async function setupProfile() {
+async function setupProgress() {
   try {
-    token = localStorage.getItem(profileKey) || "";
-  } catch {}
-  try {
-    if (!/^[a-f0-9]{64}$/.test(token)) {
-      const result = await json("/api/learning/profile", { method: "POST" });
-      token = result.token;
-      try {
-        localStorage.setItem(profileKey, token);
-      } catch {
-        node("profile-status").textContent =
-          "浏览器无法保存档案，请复制同步码以便下次继续。";
-      }
-    }
-    const data = await json("/api/learning/progress", {}, true);
+    const data = await json("/api/learning/progress");
     progress = new Map(data.progress.map((p: Progress) => [p.article_id, p]));
-    profileReady = true;
+    progressReady = true;
+    try { localStorage.removeItem("cet-reading:learning-profile:v1"); } catch {}
     restoreDrafts();
     for (const id of pending.keys()) void flush(id);
   } catch {
-    node("learning-status").textContent =
-      "学习进度暂时无法连接；文章仍可阅读，刷新后重试。";
+    node("learning-status").textContent = "学习进度暂时无法连接；文章仍可阅读，刷新后重试。";
   }
 }
-const profilePromise = setupProfile();
+const progressPromise = setupProgress();
 async function load() {
   try {
     const data = await json("/api/learning/library");
@@ -570,8 +552,8 @@ async function load() {
     curriculum = data.curriculum;
     stages = data.stages;
     libraryReady = true;
-    await profilePromise;
-    if (profileReady) node("learning-status").textContent = data.schedule?.enabled === false
+    await progressPromise;
+    if (progressReady) node("learning-status").textContent = data.schedule?.enabled === false
       ? "材料自动更新已暂停，已有内容可以继续学习。"
       : data.run?.status === "failed"
       ? "本次材料更新暂未完成，课程位置已保留。可以继续学习已有内容。"
@@ -593,7 +575,7 @@ async function openArticle(id: string, writeHistory = true) {
       notes: node<HTMLTextAreaElement>("learning-notes").value,
     });
   const request = ++requestId;
-  await profilePromise;
+  await progressPromise;
   try {
     const a = await json(`/api/news/${encodeURIComponent(id)}`);
     if (request !== requestId) return;
@@ -796,48 +778,6 @@ node("learning-complete").onclick = async () => {
     }
   } finally {
     button.disabled = false;
-  }
-};
-node("profile-copy").onclick = async () => {
-  await profilePromise;
-  try {
-    await navigator.clipboard.writeText(token);
-    node("profile-status").textContent = "同步码已复制，请妥善保存。";
-  } catch {
-    node<HTMLInputElement>("profile-token").value = token;
-    node("profile-status").textContent =
-      "已填入同步码，选中输入框内容手动复制。";
-  }
-};
-node("profile-import").onclick = async () => {
-  const value = node<HTMLInputElement>("profile-token").value.trim();
-  if (!/^[a-f0-9]{64}$/.test(value)) {
-    node("profile-status").textContent = "请输入完整的 64 位同步码。";
-    return;
-  }
-  await profilePromise;
-  if (saving.size || pending.size) {
-    node("profile-status").textContent =
-      "当前档案还有未保存的修改，请先完成同步或处理冲突。";
-    return;
-  }
-  try {
-    const data = await json("/api/learning/progress", {}, true, value);
-    // Recheck after the request in case another UI event queued a write.
-    if (saving.size || pending.size) return;
-    localStorage.setItem(profileKey, value);
-    token = value;
-    progress = new Map(data.progress.map((p: Progress) => [p.article_id, p]));
-    revisions.clear();
-    conflicts.clear();
-    profileReady = true;
-    restoreDrafts();
-    for (const id of pending.keys()) void flush(id);
-    node<HTMLInputElement>("profile-token").value = "";
-    node("profile-status").textContent = "已连接学习档案。";
-    render();
-  } catch {
-    node("profile-status").textContent = "同步码无效或连接失败，原档案已保留。";
   }
 };
 window.addEventListener("online", () => {

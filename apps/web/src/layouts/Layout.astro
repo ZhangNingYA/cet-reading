@@ -4,6 +4,7 @@ import '../styles/reader.css';
 import '../styles/reading-room.css';
 import '../styles/article-chat.css';
 import '../styles/miniprogram.css';
+import '../styles/site-appearance.css';
 import { homeSections } from '../data/sections';
 
 const {
@@ -14,7 +15,7 @@ const {
 const isHome = Astro.url.pathname === '/';
 ---
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-site-theme="paper">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,6 +25,15 @@ const isHome = Astro.url.pathname === '/';
     <title>{title}</title>
     <script is:inline>
     (() => {
+      // Set the site palette before the first paint and carry over the old reader choice.
+      try {
+        const current = localStorage.getItem('cet-reading:appearance:v1');
+        const old = JSON.parse(localStorage.getItem('cet-reading:reader-preferences') || '{}').theme;
+        const theme = ['paper', 'light', 'sage', 'night'].includes(current || old) ? current || old : 'paper';
+        document.documentElement.dataset.siteTheme = theme;
+        const colors = { paper: '#faf9f5', light: '#f5f6f7', sage: '#f0f3ec', night: '#202326' };
+        document.querySelector('meta[name="theme-color"]').content = colors[theme];
+      } catch {}
       const fromMiniProgram = new URLSearchParams(window.location.search).get('from') === 'miniprogram';
       if (fromMiniProgram) document.documentElement.classList.add('in-miniprogram');
       try {
@@ -53,8 +63,21 @@ const isHome = Astro.url.pathname === '/';
             <a class="site-nav-admin" href="/admin/analysis/" aria-current={Astro.url.pathname.startsWith('/admin/') ? 'page' : undefined} title="打开精读管理">管理</a>
           </nav>
         )}
+        <details class="site-appearance" data-site-appearance>
+          <summary aria-label="显示设置"><span class="appearance-dot" aria-hidden="true"></span>显示<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+          <div class="appearance-panel" role="group" aria-label="全站配色">
+            <p>全站配色</p>
+            <div class="appearance-options">
+              {[{id:'paper',name:'纸张',note:'温润暖白'}, {id:'light',name:'明亮',note:'清爽浅灰'}, {id:'sage',name:'青绿',note:'柔和浅绿'}, {id:'night',name:'夜间',note:'低亮深灰'}].map(theme => (
+                <button type="button" data-site-theme={theme.id} aria-pressed={theme.id === 'paper'}><span class="appearance-preview" aria-hidden="true">Aa</span><span><strong>{theme.name}</strong><small>{theme.note}</small></span></button>
+              ))}
+            </div>
+          </div>
+        </details>
       </div>
     </header>
     <main id="content"><slot /></main>
   </body>
 </html>
+
+<script>import '../scripts/site-appearance';</script>
