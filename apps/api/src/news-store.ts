@@ -8,7 +8,7 @@ export async function listNews(before?: string) {
     GROUP BY b.scheduled_at ORDER BY b.scheduled_at DESC LIMIT 31`,[before || null]);
   const visible = batches.rows.slice(0,30);
   const result = await pool.query(`WITH ordered AS (
-    SELECT s.id,s.article_id,s.source_hash,
+    SELECT s.id,s.article_id,s.source_hash,s.source_text,
            jsonb_build_object(
              'title', n.title,
              'contentKind', 'news',
@@ -28,7 +28,7 @@ export async function listNews(before?: string) {
       j.status='running' AND j.lease_expires_at>NOW())::int AS analysis_running,
     COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='failed')::int AS analysis_failed
     FROM news_articles n
-    LEFT JOIN ordered o ON o.article_id=n.id
+    LEFT JOIN ordered o ON o.article_id=n.id AND o.source_text ~ '[A-Za-z]'
     LEFT JOIN sentence_analyses a ON a.sentence_id=o.id AND a.source_hash=o.source_hash
       AND (a.context_json=o.context_json OR (a.context_json->>'contentKind' IS NULL AND (a.context_json - 'contentKind')=(o.context_json - 'contentKind')))
       AND a.prompt_version=$2 AND a.model=$3 AND a.mode=$4 AND a.status='succeeded'
@@ -47,7 +47,7 @@ export async function getNews(id: string) {
     FROM news_articles WHERE id=$1 AND status='published'`,[id]);
   const article = result.rows[0]; if (!article) return null;
   const progress = await pool.query(`WITH ordered AS (
-      SELECT s.id,s.source_hash,
+      SELECT s.id,s.source_hash,s.source_text,
              jsonb_build_object(
                'title', n.title,
              'contentKind', 'news',
@@ -72,7 +72,8 @@ export async function getNews(id: string) {
     LEFT JOIN analysis_jobs j ON j.sentence_id=o.id AND j.source_hash=o.source_hash
       AND (j.context_json=o.context_json OR (j.context_json->>'contentKind' IS NULL AND (j.context_json - 'contentKind')=(o.context_json - 'contentKind')))
       AND j.prompt_version=$2 AND j.model=$3 AND j.mode=$4
-      AND j.status IN ('pending','running','failed')`,
+      AND j.status IN ('pending','running','failed')
+    WHERE o.source_text ~ '[A-Za-z]'`,
     [id,config.promptVersion,config.model,config.mode]);
   const sentences = await pool.query(`SELECT id,paragraph_index AS "paragraphIndex",sentence_index AS "sentenceIndex",source_text AS source,article_id || '-body' AS "sectionId"
     FROM sentences WHERE article_id=$1 ORDER BY paragraph_index,sentence_index`,[id]);
