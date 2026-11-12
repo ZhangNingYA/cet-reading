@@ -34,6 +34,7 @@ export type ArticleChatRequest = z.infer<typeof ArticleChatRequestSchema>;
 export type ArticleChatContext = {
   title: string;
   paragraphs: string[];
+  contentKind?: 'news' | 'paper';
   technicalBlocks?: { id: string; type: string; text: string; language?: string; rows?: string[][]; caption?: string }[];
   author?: string;
   sourceName?: string;

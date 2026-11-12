@@ -62,7 +62,6 @@ let articles: Article[] = [],
   summary: LibrarySummary = { planned: 0, published: 0, stageCount: 6, dailyCount: 2 };
 let progress = new Map<string, Progress>(),
   selectedCollectionId: string | null = null,
-  collectionEntered = false,
   currentId: string | undefined,
   requestId = 0,
   dispose: (() => void) | undefined;
@@ -120,25 +119,28 @@ const collectionMeta = (value: { repo?: string; source_name?: string }) => {
     return {
       id: "openai",
       title: "OpenAI Cookbook",
-      description: "从官方示例里学习模型调用、结构化输出、Agent 编排与评测。",
-      origin: "OpenAI 官方开源 Cookbook，主要来自 OpenAI Cookbook 仓库中的可运行示例与说明。",
-      scope: "覆盖 Chat Completions、函数调用、工具使用、结构化输出、检索、评测和 Agent 工作流。",
-      recommendation: "适合先建立 Agent 开发的工程直觉：每篇材料都尽量贴近 API 调用和可运行代码，读完可以直接改成自己的小实验。",
+      description: "OpenAI 官方示例文档集：用可运行的 API 示例学习从一次模型调用到 Agent 工作流。",
+      origin: "来自 OpenAI 团队维护的 openai/openai-cookbook 仓库；本站按原仓库材料整理，保留英文原文、代码和上下文。",
+      sourceUrl: "https://github.com/openai/openai-cookbook",
+      scope: "覆盖 Responses 与 Chat Completions、结构化输出、函数与工具调用、检索、评测和多步 Agent。",
+      recommendation: "适合从 Python 或 JavaScript 基础开始，把概念落到 API 请求、错误处理和可运行的小实验上。",
     };
   if (key.includes("anthropic"))
     return {
       id: "anthropic",
       title: "Anthropic Claude Cookbook",
-      description: "从 Claude 官方 Cookbook 学习工具使用、上下文、协作和生产运行。",
-      origin: "Anthropic 官方开源 Claude Cookbook，来自 Anthropic 的示例仓库和配套文档。",
-      scope: "覆盖 Claude 消息 API、工具调用、长上下文、提示设计、多 Agent 协作和生产化模式。",
-      recommendation: "适合补足 Agent 的另一套设计视角：重点看模型如何和工具、上下文以及外部系统协作，而不是只看模型本身。",
+      description: "Anthropic 官方 Claude 示例文档集：从消息调用开始，逐步理解工具、上下文和可靠的 Agent 协作。",
+      origin: "来自 Anthropic 团队维护的 anthropics/anthropic-cookbook 仓库；本站按原仓库材料整理，保留英文原文、代码和上下文。",
+      sourceUrl: "https://github.com/anthropics/anthropic-cookbook",
+      scope: "覆盖 Claude Messages API、工具调用、长上下文、提示设计、多 Agent 协作和生产化模式。",
+      recommendation: "适合用另一套成熟的工程视角理解 Agent：重点观察模型如何和工具、上下文及外部系统协作。",
     };
   return {
     id: "other",
     title: value.source_name || value.repo || "技术文档",
     description: "已核验的 Agent 开发技术材料。",
     origin: "来自已核验的官方技术来源。",
+    sourceUrl: "",
     scope: "围绕 Agent 开发所需的 API、工具和运行方式整理。",
     recommendation: "作为主线文档的补充阅读。",
   };
@@ -233,7 +235,6 @@ function renderDocuments() {
       );
       card.onclick = () => {
         selectedCollectionId = group.meta.id;
-        collectionEntered = false;
         render();
       };
       cards.append(card);
@@ -251,7 +252,6 @@ function renderDocuments() {
   back.type = "button";
   back.onclick = () => {
     selectedCollectionId = null;
-    collectionEntered = false;
     render();
   };
   const published = group.items.filter((item) => articleAt(item.order)).length;
@@ -274,22 +274,20 @@ function renderDocuments() {
   const details = el("div", "learning-collection-intro-details");
   for (const [label, text] of [["来源", group.meta.origin], ["内容范围", group.meta.scope], ["推荐原因", group.meta.recommendation]] as const) {
     const item = el("div", "learning-collection-intro-detail");
-    item.append(el("strong", "", label), el("p", "", text));
+    const copy = el("p", "", text);
+    if (label === "来源" && group.meta.sourceUrl) {
+      const link = el("a", "learning-collection-source", "打开官方仓库 ↗");
+      link.href = group.meta.sourceUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      copy.append(document.createTextNode(" "), link);
+    }
+    item.append(el("strong", "", label), copy);
     details.append(item);
   }
   introCopy.append(details);
   view.append(back, intro);
-  if (!collectionEntered) {
-    const enter = el("button", "learning-primary learning-enter-collection", `进入目录 · ${group.items.length} 篇`);
-    enter.type = "button";
-    enter.onclick = () => {
-      collectionEntered = true;
-      render();
-    };
-    view.append(enter);
-    return;
-  }
-  view.append(heading("文章目录", "按学习路线排列 · 每篇都有明确课次"));
+  view.append(heading("文章目录", `${published} 篇已发布 · 按基础到实践排列`));
   const list = el("ol", "learning-document-list learning-document-list-expanded");
   for (const item of group.items) list.append(renderDocumentCard(item));
   view.append(list);

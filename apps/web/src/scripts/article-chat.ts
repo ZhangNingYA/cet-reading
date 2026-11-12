@@ -157,6 +157,7 @@ async function* readEvents(response: Response): AsyncGenerator<ArticleChatEvent>
 
 export function createArticleChat(apiBase: string, target: ArticleChatTarget, title: string) {
   const key = JSON.stringify(target);
+  const technical = target.kind === 'news';
   let history = [...(conversations.get(key) ?? [])];
   let request: AbortController | undefined;
   let disposed = false, busy = false, composing = false;
@@ -165,23 +166,26 @@ export function createArticleChat(apiBase: string, target: ArticleChatTarget, ti
   const summary = element('summary', 'article-chat-summary');
   const icon = element('span', 'article-chat-icon'); icon.append(chatIcon());
   const heading = element('span', 'article-chat-heading');
-  heading.append(element('strong', '', '问 AI'), element('span', '', '带上这篇文章，继续问深一点'));
+  heading.append(element('strong', '', technical ? '和 AI 讨论这篇文档' : '问 AI'), element('span', '', technical ? '围绕 API、代码和英文原句继续提问' : '带上这篇文章，继续问深一点'));
   const toggle = element('span', 'article-chat-toggle', '展开');
   summary.append(icon, heading, toggle);
   const panel = element('div', 'article-chat-panel');
   const context = element('div', 'article-chat-context');
-  context.append(element('span', 'article-chat-context-label', '正在讨论'), element('span', 'article-chat-context-title', title));
+  context.append(element('span', 'article-chat-context-label', technical ? '当前文档' : '正在讨论'), element('span', 'article-chat-context-title', title));
   const clear = element('button', 'article-chat-clear', '清空对话'); clear.type = 'button';
   context.append(clear);
   const log = element('ol', 'article-chat-messages');
   log.setAttribute('role', 'log'); log.setAttribute('aria-label', '关于本文的问答'); log.setAttribute('aria-live', 'polite');
   const welcome = element('div', 'article-chat-welcome');
-  welcome.append(element('strong', '', '哪里还没读透？'), element('p', '', '问细节、问句意，也可以顺着上一句回答继续追问。'));
+  welcome.append(
+    element('strong', '', technical ? '读代码或句子时卡住了？' : '哪里还没读透？'),
+    element('p', '', technical ? '可以问机制、参数、报错和原文意思；回答会引用当前文档，帮助你把示例读懂并改成自己的实验。' : '问细节、问句意，也可以顺着上一句回答继续追问。'),
+  );
   const suggestions = element('div', 'article-chat-suggestions');
   const composer = element('div', 'article-chat-composer');
   const input = element('textarea', 'article-chat-input');
   input.rows = 3; input.maxLength = CHAT_QUESTION_LIMIT;
-  input.placeholder = '例如：第二段的例子，为什么能支持作者的观点？';
+  input.placeholder = technical ? '例如：这段代码为什么要先定义这个 schema？' : '例如：第二段的例子，为什么能支持作者的观点？';
   input.setAttribute('aria-label', '向 AI 提问，已关联当前文章全文');
   const footer = element('div', 'article-chat-composer-footer');
   const hint = element('span', 'article-chat-note');
@@ -191,7 +195,10 @@ export function createArticleChat(apiBase: string, target: ArticleChatTarget, ti
   const send = element('button', 'article-chat-send', '发送问题'); send.type = 'button';
   buttons.append(stop, send); footer.append(hint, buttons); composer.append(input, footer);
   const status = element('p', 'article-chat-status'); status.setAttribute('role', 'status'); status.hidden = true;
-  for (const question of ['哪些细节支持作者的观点？', '最后一段起什么作用？']) {
+  const suggestionQuestions = technical
+    ? ['这段代码解决了什么问题？', '这个 API 参数为什么这样设置？']
+    : ['哪些细节支持作者的观点？', '最后一段起什么作用？'];
+  for (const question of suggestionQuestions) {
     const button = element('button', '', question); button.type = 'button';
     button.addEventListener('click', () => { input.value = question; input.focus(); updateControls(); });
     suggestions.append(button);
