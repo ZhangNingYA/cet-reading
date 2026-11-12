@@ -383,6 +383,28 @@
   color: var(--accent) !important;
   font-size: 12px !important;
 }
+.learning-collection-intro-details {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.learning-collection-intro-detail {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.learning-collection-intro-detail strong {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+.learning-collection-intro-detail p {
+  font-size: 13px;
+  line-height: 1.7;
+}
 .learning-enter-collection {
   display: inline-block;
   margin: 4px 0 26px;

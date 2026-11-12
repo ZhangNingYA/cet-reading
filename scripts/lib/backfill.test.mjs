@@ -181,6 +181,7 @@ test('backfill orders latest news batches before paper candidates', async () => 
   assert.match(orderedQuery, /ORDER BY \(article_id IS NOT NULL\) DESC/);
   assert.match(orderedQuery, /news_batch_at DESC NULLS LAST/);
   assert.match(orderedQuery, /news_published_at DESC NULLS LAST/);
+  assert.doesNotMatch(orderedQuery, /learning_order IS NULL/, 'curriculum news must also enter the sentence analysis worker queue');
 });
 
 test('question text backfill queues displayed prompts/options with the API cache key', async () => {

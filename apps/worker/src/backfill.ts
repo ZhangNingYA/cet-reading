@@ -181,7 +181,7 @@ async function loadCandidates(pool: Pool, limit: number, cursor: Cursor | null) 
        FROM sentences s
        LEFT JOIN papers p ON p.id = s.paper_id
        LEFT JOIN news_articles n ON n.id = s.article_id
-       WHERE (p.status = 'published' OR (n.status = 'published' AND n.learning_order IS NULL))
+       WHERE (p.status = 'published' OR n.status = 'published')
        WINDOW w AS (
          PARTITION BY s.paper_id, s.article_id
          ORDER BY s.paragraph_index, s.sentence_index
