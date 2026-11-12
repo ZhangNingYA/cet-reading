@@ -161,6 +161,13 @@ function articleAt(order: number) {
 function collectionItems(collectionId: string) {
   return curriculum.filter((entry) => collectionMeta(entry).id === collectionId);
 }
+function collectionArticles(collectionId: string) {
+  const ordered = collectionItems(collectionId)
+    .map((item) => articleAt(item.order))
+    .filter((article): article is Article => Boolean(article));
+  if (ordered.length) return ordered;
+  return articles.filter((article) => collectionMeta(article).id === collectionId);
+}
 function collectionNumber(item: CurriculumItem, collectionId: string) {
   const index = collectionItems(collectionId).findIndex((entry) => entry.order === item.order);
   return index >= 0 ? index + 1 : item.order;
@@ -304,6 +311,56 @@ function render() {
   view.replaceChildren();
   view.setAttribute("aria-busy", "false");
   renderDocuments();
+}
+function renderChapterToc(collectionId: string, activeId: string) {
+  const toc = node("learning-toc");
+  const entries = collectionItems(collectionId);
+  const published = collectionArticles(collectionId);
+  toc.replaceChildren();
+  node("learning-chapter-count").textContent = `${published.length} / ${entries.length || published.length} 章已发布`;
+  for (const [index, item] of entries.entries()) {
+    const article = articleAt(item.order);
+    const row = el("div", `chapter-entry${article?.id === activeId ? " is-current" : ""}`);
+    const number = el("span", "chapter-entry-number", String(index + 1).padStart(2, "0"));
+    if (article) {
+      const link = el("a", "chapter-entry-link");
+      link.href = `?article=${encodeURIComponent(article.id)}`;
+      link.setAttribute("aria-current", article.id === activeId ? "page" : "false");
+      link.append(el("strong", "chapter-entry-title", itemLabel(item, article)), el("small", "chapter-entry-state", statusLabel(article.id)));
+      link.onclick = (event) => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        void openArticle(article.id);
+      };
+      row.append(number, link);
+    } else {
+      row.append(number, el("span", "chapter-entry-link chapter-entry-link-disabled", `${itemLabel(item)} · 待更新`));
+    }
+    toc.append(row);
+  }
+  const mobile = window.matchMedia("(max-width: 760px)").matches;
+  toc.hidden = mobile;
+  node("learning-toc-toggle").setAttribute("aria-expanded", String(!mobile));
+}
+function adjacentChapter(id: string, direction: -1 | 1) {
+  const article = articles.find((item) => item.id === id);
+  if (!article) return undefined;
+  const chapters = collectionArticles(collectionMeta(article).id);
+  const index = chapters.findIndex((item) => item.id === id);
+  return index >= 0 ? chapters[index + direction] : undefined;
+}
+function updateChapterNavigation(article: Article) {
+  const chapters = collectionArticles(collectionMeta(article).id);
+  const index = chapters.findIndex((item) => item.id === article.id);
+  const prev = chapters[index - 1];
+  const next = chapters[index + 1];
+  const prevButton = node<HTMLButtonElement>("learning-prev");
+  const nextButton = node<HTMLButtonElement>("learning-next");
+  prevButton.disabled = !prev;
+  nextButton.disabled = !next;
+  prevButton.title = prev ? `上一章：${prev.title}` : "已经是第一章";
+  nextButton.title = next ? `下一章：${next.title}` : "已经是最后一章";
+  node("learning-chapter-progress").textContent = index >= 0 ? `第 ${index + 1} / ${chapters.length} 章` : "";
 }
 function pendingKey() {
   return "cet-reading:learning-drafts:single:v1";
@@ -553,9 +610,13 @@ async function openArticle(id: string, writeHistory = true) {
     const documentNumber = item
       ? collectionNumber(item, collection.id)
       : a.learning_order;
-    const collectionTotal = collectionItems(collection.id).length;
+    const publishedChapters = collectionArticles(collection.id);
+    const chapterIndex = publishedChapters.findIndex((chapter) => chapter.id === id);
+    const collectionTotal = publishedChapters.length || collectionItems(collection.id).length;
+    const chapterNumber = chapterIndex >= 0 ? chapterIndex + 1 : documentNumber;
     node("news-title").textContent = a.title;
-    node("learning-source").textContent = `${collection.title} · 本集第 ${String(documentNumber).padStart(2, "0")} / ${collectionTotal} 篇`;
+    node("learning-book-title").textContent = collection.title;
+    node("learning-source").textContent = `${collection.title} · 本集第 ${String(chapterNumber).padStart(2, "0")} / ${collectionTotal} 章`;
     node("learning-lesson").textContent =
       `课程第 ${String(a.learning_order).padStart(2, "0")} / ${totalLessons()} 篇 · ${a.lesson_title} · ${roleLabel(a.learning_role)}`;
     const source = el("a", "", "查看原文 ↗");
@@ -594,27 +655,10 @@ async function openArticle(id: string, writeHistory = true) {
     license.rel = "noopener noreferrer";
     node("news-attribution").replaceChildren(license);
     node("learning-license-text").textContent = a.license_text || "";
-    const toc = node("learning-toc");
-    toc.replaceChildren();
-    toc.hidden = true;
-    node("learning-toc-toggle").setAttribute("aria-expanded", "false");
+    renderChapterToc(collection.id, id);
+    updateChapterNavigation(a);
     const blocks: LearningBlock[] = a.sections[0].blocks || [];
     setCurrentPart(blocks, p?.block_id);
-    const tocHeading = el("p", "learning-toc-heading", `文档目录 · ${blocks.filter((block) => block.type === "heading").length} 个部分`);
-    toc.append(tocHeading);
-    for (const b of blocks.filter((b) => b.type === "heading")) {
-      const link = el("a", "", b.text);
-      link.href = `#learning-${b.id}`;
-      link.onclick = (e) => {
-        e.preventDefault();
-        document
-          .getElementById(`learning-${b.id}`)
-          ?.scrollIntoView({ block: "start" });
-        toc.hidden = true;
-        node("learning-toc-toggle").setAttribute("aria-expanded", "false");
-      };
-      toc.append(link);
-    }
     const target = node("news-content");
     target.replaceChildren();
     let lastBlock = p?.block_id;
@@ -675,6 +719,18 @@ node("learning-toc-toggle").onclick = () => {
     String(!toc.hidden),
   );
 };
+node("learning-prev").onclick = () => {
+  if (currentId) {
+    const previous = adjacentChapter(currentId, -1);
+    if (previous) void openArticle(previous.id);
+  }
+};
+node("learning-next").onclick = () => {
+  if (currentId) {
+    const next = adjacentChapter(currentId, 1);
+    if (next) void openArticle(next.id);
+  }
+};
 node("learning-ask").onclick = () => {
   const chat = reader.querySelector<HTMLDetailsElement>(".article-chat");
   if (chat) {
@@ -723,17 +779,15 @@ node("learning-complete").onclick = async () => {
     });
     await flush(id);
     if (pending.has(id) || currentId !== id) return;
-    const next = articles.find(
-      (a) =>
-        a.learning_order >
-          (articles.find((x) => x.id === id)?.learning_order || 0) &&
-        progress.get(a.id)?.status !== "completed",
-    );
+    const current = articles.find((a) => a.id === id);
+    const chapters = current ? collectionArticles(collectionMeta(current).id) : [];
+    const currentIndex = chapters.findIndex((a) => a.id === id);
+    const next = chapters.slice(currentIndex + 1).find((a) => progress.get(a.id)?.status !== "completed");
     if (next) await openArticle(next.id);
     else {
       showList();
       node("learning-status").textContent =
-        "当前材料已读完。下一组会按计划更新，也可以回顾已读文章。";
+        "这本文档已经读完。可以从章节目录回顾，或等待下一组材料按计划更新。";
     }
   } finally {
     button.disabled = false;

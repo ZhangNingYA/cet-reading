@@ -13,15 +13,20 @@ const apiBase=import.meta.env.PUBLIC_API_BASE_URL??'http://localhost:3000';
     <noscript>请启用 JavaScript，以加载学习材料。</noscript>
   </section>
   <section class="reader-section container news-reader learning-reader" id="news-reader" hidden aria-labelledby="news-title">
-    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← Agent 学习</button><span id="learning-lesson"></span><span class="learning-current-part" id="learning-current-part" aria-live="polite"></span><div class="reader-actions" data-reader-actions><button type="button" class="text-link" id="learning-toc-toggle" aria-expanded="false">目录</button><button type="button" class="text-link" id="learning-ask">问 AI</button></div></div>
-    <nav id="learning-toc" aria-label="文章目录" hidden></nav>
-    <div class="reader-panel"><header class="reader-heading"><p class="learning-source" id="learning-source"></p><h1 id="news-title" lang="en" tabindex="-1"></h1><div class="reader-details" data-reading-details><p class="news-meta" id="news-meta"></p></div></header>
+    <div class="reader-topline"><button type="button" class="text-link" id="news-back">← 书架</button><div class="reader-book-context"><strong id="learning-book-title"></strong><span id="learning-lesson"></span></div><span class="learning-current-part" id="learning-current-part" aria-live="polite"></span><div class="reader-actions" data-reader-actions><button type="button" class="text-link" id="learning-toc-toggle" aria-expanded="false">章节目录</button><button type="button" class="text-link" id="learning-ask">问 AI</button></div></div>
+    <div class="novel-reader-layout">
+      <aside class="chapter-sidebar" id="chapter-sidebar" aria-label="章节目录">
+        <div class="chapter-sidebar-heading"><span>章节目录</span><small id="learning-chapter-count"></small></div>
+        <nav id="learning-toc" aria-label="章节目录" hidden></nav>
+      </aside>
+      <div class="reader-panel"><header class="reader-heading"><p class="learning-source" id="learning-source"></p><h1 id="news-title" lang="en" tabindex="-1"></h1><div class="reader-details" data-reading-details><p class="news-meta" id="news-meta"></p></div></header>
     <aside class="learning-objective"><span>这一篇要学会</span><p id="learning-objective"></p><small id="learning-prerequisites"></small></aside>
     <div id="news-content"></div>
     <section class="learning-exercise"><h2>读完后，动手试一下</h2><p id="learning-exercise"></p><label><input id="learning-exercise-done" type="checkbox" /> 我已经完成这个练习</label><label class="learning-notes-label" for="learning-notes">学习笔记</label><textarea id="learning-notes" rows="4" maxlength="12000" placeholder="记下一个设计取舍、一段运行结果，或还没理解的问题。"></textarea></section>
     <details class="learning-license"><summary>原文版本与许可</summary><p id="news-attribution"></p><p>文档保留采集时的内容与代码。运行前请对照对应 SDK 当前文档；中文导读和练习为本站学习辅助。</p><pre id="learning-license-text"></pre></details>
-    <footer class="learning-reader-footer"><span id="learning-save-status" role="status">阅读位置自动保存</span><div><button id="learning-review" type="button">稍后复习</button><button class="learning-primary" id="learning-complete" type="button">标记已读，继续下一篇 →</button></div></footer>
-    </div>
+    <nav class="chapter-pagination" aria-label="章节翻页"><button type="button" id="learning-prev">← 上一章</button><span id="learning-chapter-progress"></span><button type="button" id="learning-next">下一章 →</button></nav>
+    <footer class="learning-reader-footer"><span id="learning-save-status" role="status">阅读位置自动保存</span><div><button id="learning-review" type="button">稍后复习</button><button class="learning-primary" id="learning-complete" type="button">标记已读，继续下一章 →</button></div></footer>
+    </div></div>
   </section>
 </Layout>
 <script>import '../scripts/news-library';</script>
