@@ -269,7 +269,7 @@ export async function listAdminPapers() {
     pool.query(
       `WITH ordered AS (
          SELECT s.id, s.article_id, s.source_hash,
-           jsonb_build_object('title', n.title, 'previousSentence', lag(s.source_text) OVER w,
+           jsonb_build_object('title', n.title, 'contentKind', 'news', 'previousSentence', lag(s.source_text) OVER w,
              'nextSentence', lead(s.source_text) OVER w) context_json
          FROM sentences s JOIN news_articles n ON n.id=s.article_id
          WHERE n.status='published'
@@ -277,7 +277,8 @@ export async function listAdminPapers() {
        ), totals AS (SELECT article_id, COUNT(*)::integer total FROM ordered GROUP BY article_id),
        cached AS (SELECT v.article_id, COUNT(DISTINCT v.id)::integer cached FROM ordered v
          JOIN sentence_analyses a ON a.sentence_id=v.id AND a.source_hash=v.source_hash
-           AND a.context_json=v.context_json AND a.prompt_version=ANY($1::text[])
+           AND (a.context_json=v.context_json OR (a.context_json->>'contentKind' IS NULL AND (a.context_json - 'contentKind')=(v.context_json - 'contentKind')))
+           AND a.prompt_version=ANY($1::text[])
            AND a.model=$2 AND a.mode=$3 AND a.status='succeeded' GROUP BY v.article_id)
        SELECT n.id, n.title, n.published_at, n.batch_at, 'NEWS'::text exam_level,
          EXTRACT(YEAR FROM n.batch_at)::integer AS year, EXTRACT(MONTH FROM n.batch_at)::integer AS month,

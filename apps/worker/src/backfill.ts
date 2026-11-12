@@ -47,6 +47,7 @@ type ExistingCache = {
   sentence_id: string;
   source_hash: string;
   context_hash: string;
+  context_json: unknown;
   analysis_json: unknown;
 };
 
@@ -54,6 +55,7 @@ type ExistingJob = {
   sentence_id: string;
   source_hash: string;
   context_hash: string;
+  context_json: unknown;
   status: string;
   error_message: string | null;
   backfill_retry_count: number;
@@ -118,6 +120,18 @@ function cursorFromCandidate(candidate: Candidate): Cursor {
     batch_at: news ? toIso(candidate.news_batch_at) : null,
     published_at: news ? toIso(candidate.news_published_at) : null,
   };
+}
+
+function contextMatches(candidate: CandidateWithContext, contextHashValue: string, contextJson: unknown) {
+  if (candidate.context_hash === contextHashValue) return true;
+  // Jobs created before News carried contentKind have the same sentence
+  // context under a different hash. Reuse them instead of duplicating work.
+  if (!candidate.article_id || !contextJson || typeof contextJson !== 'object') return false;
+  const legacy = contextJson as Record<string, unknown>;
+  return legacy.contentKind === undefined &&
+    legacy.title === candidate.context_json.title &&
+    (legacy.previousSentence ?? null) === candidate.context_json.previousSentence &&
+    (legacy.nextSentence ?? null) === candidate.context_json.nextSentence;
 }
 
 function sleep(ms: number, signal: AbortSignal) {
@@ -220,14 +234,14 @@ async function loadExisting(pool: Pool, candidates: CandidateWithContext[], conf
   const ids = candidates.map(candidate => candidate.id);
   const [cacheRows, jobRows] = await Promise.all([
     pool.query<ExistingCache>(
-      `SELECT sentence_id, source_hash, context_hash, analysis_json
+      `SELECT sentence_id, source_hash, context_hash, context_json, analysis_json
        FROM sentence_analyses
        WHERE sentence_id = ANY($1::text[]) AND prompt_version = $2
          AND model = $3 AND mode = $4 AND status = 'succeeded'`,
       [ids, config.promptVersion, config.model, config.mode],
     ),
     pool.query<ExistingJob>(
-      `SELECT sentence_id, source_hash, context_hash, status, error_message, backfill_retry_count
+      `SELECT sentence_id, source_hash, context_hash, context_json, status, error_message, backfill_retry_count
        FROM analysis_jobs
        WHERE sentence_id = ANY($1::text[]) AND prompt_version = $2
          AND model = $3 AND mode = $4
@@ -239,8 +253,8 @@ async function loadExisting(pool: Pool, candidates: CandidateWithContext[], conf
   const caches = new Map<string, SentenceAnalysis | NewsSentenceAnalysis>();
   for (const row of cacheRows.rows) {
     const candidate = byId.get(row.sentence_id);
-    if (!candidate || caches.has(row.sentence_id) ||
-        candidate.source_hash !== row.source_hash || candidate.context_hash !== row.context_hash) continue;
+    if (!candidate || caches.has(row.sentence_id) || candidate.source_hash !== row.source_hash ||
+        !contextMatches(candidate, row.context_hash, row.context_json)) continue;
     try {
       caches.set(row.sentence_id, candidate.article_id ? validateNewsAnalysis(candidate.source_text, row.analysis_json) : validateAnalysis(candidate.source_text, row.analysis_json));
     } catch {
@@ -250,7 +264,7 @@ async function loadExisting(pool: Pool, candidates: CandidateWithContext[], conf
   const jobs = new Map<string, ExistingJob>();
   for (const row of jobRows.rows) {
     const candidate = byId.get(row.sentence_id);
-    if (candidate && candidate.source_hash === row.source_hash && candidate.context_hash === row.context_hash) {
+    if (candidate && candidate.source_hash === row.source_hash && contextMatches(candidate, row.context_hash, row.context_json)) {
       const previous = jobs.get(row.sentence_id);
       if (!previous) jobs.set(row.sentence_id, row);
     }
@@ -390,9 +404,9 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
     const runtime = await readRuntimeSettings(client, config);
     const existing = await client.query<{ id: string; status: string; error_message: string | null; backfill_retry_count: number }>(
       `SELECT id, status, error_message, backfill_retry_count FROM analysis_jobs
-       WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
+       WHERE sentence_id = $1 AND source_hash = $2
          AND prompt_version = $4 AND model = $5 AND mode = $6
-       ORDER BY updated_at DESC LIMIT 1`, key,
+       ORDER BY (context_hash = $3) DESC, updated_at DESC LIMIT 1`, key,
     );
     const row = existing.rows[0];
     if (row?.status === 'pending' || row?.status === 'running' ||
@@ -414,11 +428,11 @@ async function enqueueBackgroundSentence(pool: Pool, sentence: CandidateWithCont
     }
     if (row?.status === 'succeeded' || row?.status === 'failed') {
       await client.query(
-        `UPDATE analysis_jobs SET status = 'pending', priority = $2,
+        `UPDATE analysis_jobs SET status = 'pending', priority = $4,
          error_message = NULL, attempts = 0, backfill_retry_count = backfill_retry_count + CASE WHEN status='failed' THEN 1 ELSE 0 END,
-         lease_expires_at = NULL,
+         lease_expires_at = NULL, context_hash = $2, context_json = $3::jsonb,
          started_at = NULL, finished_at = NULL, next_attempt_at = NOW(), updated_at = NOW()
-         WHERE id = $1`, [row.id, BACKGROUND_PRIORITY],
+         WHERE id = $1`, [row.id, sentence.context_hash, JSON.stringify(sentence.context_json), BACKGROUND_PRIORITY],
       );
     } else {
       await client.query(

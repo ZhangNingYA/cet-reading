@@ -312,10 +312,11 @@ export async function getSentence(id: string) {
 export async function getCachedAnalysis(sentenceId: string, sourceHash: string, contextHashValue: string, source: string, contentKind: 'paper' | 'news' = 'paper') {
   const result = await pool.query(
     `SELECT analysis_json FROM sentence_analyses
-     WHERE sentence_id = $1 AND source_hash = $2 AND context_hash = $3
+       WHERE sentence_id = $1 AND source_hash = $2
+       AND (context_hash = $3 OR ($9::text = 'news' AND context_json->>'contentKind' IS NULL))
        AND prompt_version = ANY($4::text[]) AND model = ANY($5::text[]) AND mode = $6 AND status = 'succeeded'
      ORDER BY (model = $7) DESC, (prompt_version = $8) DESC, updated_at DESC`,
-    [sentenceId, sourceHash, contextHashValue, config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion],
+    [sentenceId, sourceHash, contextHashValue, config.cachePromptVersions, cacheModels(), config.mode, config.regenerationModel, config.promptVersion, contentKind],
   );
   for (const row of result.rows) {
     try { return contentKind === 'news' ? validateNewsAnalysis(source, row.analysis_json) : validateAnalysis(source, row.analysis_json); }
@@ -345,7 +346,7 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
   );
   if (!sentences.rows.length) return [];
   const candidates = await pool.query(
-    `SELECT sentence_id, source_hash, context_hash, analysis_json
+    `SELECT sentence_id, source_hash, context_hash, context_json, analysis_json
      FROM sentence_analyses
      WHERE sentence_id = ANY($1::text[]) AND prompt_version = ANY($2::text[])
        AND model = ANY($3::text[]) AND mode = $4 AND status = 'succeeded'
@@ -359,7 +360,19 @@ export async function getSectionCachedAnalyses(paperId: string, sectionId: strin
   const cached = new Map<string, { sentenceId: string; source: string; result: ReturnType<typeof validateAnalysis> | ReturnType<typeof validateNewsAnalysis> }>();
   for (const row of candidates.rows) {
     const sentence = byId.get(row.sentence_id);
-    if (!sentence || cached.has(sentence.id) || sentence.source_hash !== row.source_hash || sentence.contextHash !== row.context_hash) continue;
+    const legacyContext = row.context_json && typeof row.context_json === 'object' ? row.context_json as Record<string, unknown> : null;
+    const compatibleContext = sentence && (
+      sentence.contextHash === row.context_hash ||
+      (
+        news &&
+        legacyContext !== null &&
+        legacyContext.contentKind === undefined &&
+        legacyContext.title === sentence.title &&
+        (legacyContext.previousSentence ?? null) === sentence.previous_sentence &&
+        (legacyContext.nextSentence ?? null) === sentence.next_sentence
+      )
+    );
+    if (!sentence || cached.has(sentence.id) || sentence.source_hash !== row.source_hash || !compatibleContext) continue;
     try {
       cached.set(sentence.id, { sentenceId: sentence.id, source: sentence.source_text, result: news ? validateNewsAnalysis(sentence.source_text, row.analysis_json) : validateAnalysis(sentence.source_text, row.analysis_json) });
     } catch { /* A prefetch has the same quality checks and fallback rules as a click. */ }

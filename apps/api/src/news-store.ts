@@ -30,9 +30,11 @@ export async function listNews(before?: string) {
     FROM news_articles n
     LEFT JOIN ordered o ON o.article_id=n.id
     LEFT JOIN sentence_analyses a ON a.sentence_id=o.id AND a.source_hash=o.source_hash
-      AND a.context_json=o.context_json AND a.prompt_version=$2 AND a.model=$3 AND a.mode=$4 AND a.status='succeeded'
+      AND (a.context_json=o.context_json OR (a.context_json->>'contentKind' IS NULL AND (a.context_json - 'contentKind')=(o.context_json - 'contentKind')))
+      AND a.prompt_version=$2 AND a.model=$3 AND a.mode=$4 AND a.status='succeeded'
     LEFT JOIN analysis_jobs j ON j.sentence_id=o.id AND j.source_hash=o.source_hash
-      AND j.context_json=o.context_json AND j.prompt_version=$2 AND j.model=$3 AND j.mode=$4
+      AND (j.context_json=o.context_json OR (j.context_json->>'contentKind' IS NULL AND (j.context_json - 'contentKind')=(o.context_json - 'contentKind')))
+      AND j.prompt_version=$2 AND j.model=$3 AND j.mode=$4
       AND j.status IN ('pending','running','failed')
     WHERE n.status='published' AND n.batch_at=ANY($1::timestamptz[])
     GROUP BY n.id
@@ -65,9 +67,11 @@ export async function getNews(id: string) {
       COUNT(DISTINCT j.sentence_id) FILTER (WHERE a.sentence_id IS NULL AND j.status='failed')::int AS analysis_failed
     FROM ordered o
     LEFT JOIN sentence_analyses a ON a.sentence_id=o.id AND a.source_hash=o.source_hash
-      AND a.context_json=o.context_json AND a.prompt_version=$2 AND a.model=$3 AND a.mode=$4 AND a.status='succeeded'
+      AND (a.context_json=o.context_json OR (a.context_json->>'contentKind' IS NULL AND (a.context_json - 'contentKind')=(o.context_json - 'contentKind')))
+      AND a.prompt_version=$2 AND a.model=$3 AND a.mode=$4 AND a.status='succeeded'
     LEFT JOIN analysis_jobs j ON j.sentence_id=o.id AND j.source_hash=o.source_hash
-      AND j.context_json=o.context_json AND j.prompt_version=$2 AND j.model=$3 AND j.mode=$4
+      AND (j.context_json=o.context_json OR (j.context_json->>'contentKind' IS NULL AND (j.context_json - 'contentKind')=(o.context_json - 'contentKind')))
+      AND j.prompt_version=$2 AND j.model=$3 AND j.mode=$4
       AND j.status IN ('pending','running','failed')`,
     [id,config.promptVersion,config.model,config.mode]);
   const sentences = await pool.query(`SELECT id,paragraph_index AS "paragraphIndex",sentence_index AS "sentenceIndex",source_text AS source,article_id || '-body' AS "sectionId"
