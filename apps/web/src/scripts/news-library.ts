@@ -158,6 +158,13 @@ function courseItem(order: number) {
 function articleAt(order: number) {
   return articles.find((article) => article.learning_order === order);
 }
+function collectionItems(collectionId: string) {
+  return curriculum.filter((entry) => collectionMeta(entry).id === collectionId);
+}
+function collectionNumber(item: CurriculumItem, collectionId: string) {
+  const index = collectionItems(collectionId).findIndex((entry) => entry.order === item.order);
+  return index >= 0 ? index + 1 : item.order;
+}
 function itemLabel(item: CurriculumItem, article?: Article) {
   return article?.title || pathTitle(item.path);
 }
@@ -183,10 +190,10 @@ function heading(title: string, detail = "") {
   if (detail) h.append(el("span", "", detail));
   return h;
 }
-function renderDocumentCard(item: CurriculumItem) {
+function renderDocumentCard(item: CurriculumItem, documentNumber: number) {
   const article = articleAt(item.order);
   const card = el("li", "learning-document");
-  const number = el("span", "learning-document-number", String(item.order).padStart(2, "0"));
+  const number = el("span", "learning-document-number", String(documentNumber).padStart(2, "0"));
   const body = el("div", "learning-document-body");
   const meta = el("div", "learning-document-meta");
   meta.append(
@@ -289,7 +296,7 @@ function renderDocuments() {
   view.append(back, intro);
   view.append(heading("文章目录", `${published} 篇已发布 · 按基础到实践排列`));
   const list = el("ol", "learning-document-list learning-document-list-expanded");
-  for (const item of group.items) list.append(renderDocumentCard(item));
+  group.items.forEach((item, index) => list.append(renderDocumentCard(item, index + 1)));
   view.append(list);
 }
 function render() {
@@ -544,12 +551,13 @@ async function openArticle(id: string, writeHistory = true) {
     const item = courseItem(a.learning_order);
     const collection = collectionMeta(a);
     const documentNumber = item
-      ? curriculum.filter((entry) => collectionMeta(entry).id === collection.id && entry.order <= item.order).length
+      ? collectionNumber(item, collection.id)
       : a.learning_order;
+    const collectionTotal = collectionItems(collection.id).length;
     node("news-title").textContent = a.title;
-    node("learning-source").textContent = `${collection.title} · 文档 ${String(documentNumber).padStart(2, "0")} / ${curriculum.filter((entry) => collectionMeta(entry).id === collection.id).length}`;
+    node("learning-source").textContent = `${collection.title} · 本集第 ${String(documentNumber).padStart(2, "0")} / ${collectionTotal} 篇`;
     node("learning-lesson").textContent =
-      `第 ${String(a.learning_order).padStart(2, "0")} / ${totalLessons()} 篇 · ${a.lesson_title} · ${roleLabel(a.learning_role)}`;
+      `课程第 ${String(a.learning_order).padStart(2, "0")} / ${totalLessons()} 篇 · ${a.lesson_title} · ${roleLabel(a.learning_role)}`;
     const source = el("a", "", "查看原文 ↗");
     source.href = a.source_url;
     source.target = "_blank";
